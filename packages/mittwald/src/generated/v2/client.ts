@@ -1681,9 +1681,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** List Projects belonging to a Customer. */
+    listCustomerProjects: this.requestFunctionFactory(
+      descriptors.projectListCustomerProjects,
+    ),
     /** List Memberships belonging to a Project. */
     listMembershipsForProject: this.requestFunctionFactory(
       descriptors.projectListMembershipsForProject,
+    ),
+    /** Get the activities of a project. */
+    listProjectActivities: this.requestFunctionFactory(
+      descriptors.projectListProjectActivities,
     ),
     /** List ProjectInvites belonging to the executing user. */
     listProjectInvites: this.requestFunctionFactory(
@@ -1725,14 +1733,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Server's storage space notification threshold. */
     storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
       descriptors.storagespaceReplaceServerNotificationThreshold,
-    ),
-    /** Get the activities of a project. */
-    listProjectActivities: this.requestFunctionFactory(
-      descriptors.projectListProjectActivities,
-    ),
-    /** List Projects belonging to a Customer. */
-    listCustomerProjects: this.requestFunctionFactory(
-      descriptors.projectListCustomerProjects,
     ),
   };
 

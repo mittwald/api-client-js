@@ -1053,10 +1053,20 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.projectGetServer,
     baseClient.project.getServer,
   ).getApiResource,
+  /** List Projects belonging to a Customer. */
+  listCustomerProjects: new ApiCallAsyncResourceFactory(
+    descriptors.projectListCustomerProjects,
+    baseClient.project.listCustomerProjects,
+  ).getApiResource,
   /** List Memberships belonging to a Project. */
   listMembershipsForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListMembershipsForProject,
     baseClient.project.listMembershipsForProject,
+  ).getApiResource,
+  /** Get the activities of a project. */
+  listProjectActivities: new ApiCallAsyncResourceFactory(
+    descriptors.projectListProjectActivities,
+    baseClient.project.listProjectActivities,
   ).getApiResource,
   /** List ProjectInvites belonging to the executing user. */
   listProjectInvites: new ApiCallAsyncResourceFactory(
@@ -1087,16 +1097,6 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
-  ).getApiResource,
-  /** Get the activities of a project. */
-  listProjectActivities: new ApiCallAsyncResourceFactory(
-    descriptors.projectListProjectActivities,
-    baseClient.project.listProjectActivities,
-  ).getApiResource,
-  /** List Projects belonging to a Customer. */
-  listCustomerProjects: new ApiCallAsyncResourceFactory(
-    descriptors.projectListCustomerProjects,
-    baseClient.project.listCustomerProjects,
   ).getApiResource,
 });
 
