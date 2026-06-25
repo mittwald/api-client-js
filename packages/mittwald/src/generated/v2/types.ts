@@ -7239,16 +7239,18 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
-       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`, the affected subdomain hostname) cannot be carried over as-is.
+       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`) needs attention during migration.
        *
        * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
        * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
        * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
+       * * `registrantPhoneNeedsEpp`: the registry owner (registrant) phone is not EPP-conformant; a reformat-to-EPP heal will be attempted during migration. Non-blocking — the read path cannot tell whether the heal will ultimately succeed, so it only warns; the create path is the actual gate.
        */
       export type DomainmigrationDomainMigrationWarningReason =
         | "subdomainInvalidIngressHostname"
         | "subdomainInvalidDnsName"
-        | "subdomainNsRecordsOverridden";
+        | "subdomainNsRecordsOverridden"
+        | "registrantPhoneNeedsEpp";
 
       /**
        * Typed reason a domain cannot be migrated:
@@ -9562,44 +9564,20 @@ export declare module MittwaldAPIV2 {
       export type PolicyPolicy = string;
 
       export interface ActivitylogAppInstallationCopyRequested {
-        changes: {
-          after?: {
-            appId: string;
-            appName: string;
-            sourceAppInstallationId: string;
-            sourceAppName: string;
-          };
-          before?: {
-            appId?: string | null;
-            appName?: string | null;
-            sourceAppInstallationId?: string | null;
-            sourceAppName?: string | null;
-          };
-        };
         name: "app.copy-requested";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          sourceAppInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
       }
 
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
         changes: {
           after?: {
-            software: string;
             softwareVersion: string;
-            updatePolicy:
-              | "UPDATE_POLICY_UNSPECIFIED"
-              | "UPDATE_POLICY_NONE"
-              | "UPDATE_POLICY_INHERITED_FROM_APP"
-              | "UPDATE_POLICY_PATCH_LEVEL"
-              | "UPDATE_POLICY_ALL";
           };
           before?: {
-            software?: string;
             softwareVersion?: string;
-            updatePolicy?:
-              | "UPDATE_POLICY_UNSPECIFIED"
-              | "UPDATE_POLICY_NONE"
-              | "UPDATE_POLICY_INHERITED_FROM_APP"
-              | "UPDATE_POLICY_PATCH_LEVEL"
-              | "UPDATE_POLICY_ALL";
           };
         };
         name: "app.systemsoftware-set" | "app.systemsoftware-deleted";
@@ -9612,12 +9590,10 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationAppVersionSet {
         changes: {
           after?: {
-            appId: string;
-            appVersionId: string;
+            version: string;
           };
           before?: {
-            appId?: string | null;
-            appVersionId?: string | null;
+            version?: string | null;
           };
         };
         name: "app.version-set";
@@ -9990,6 +9966,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareSet
@@ -10749,6 +10726,14 @@ export declare module MittwaldAPIV2 {
         | "halted"
         | "failed"
         | "successful";
+
+      export interface ActivitylogAppInstallationRequested {
+        name: "app.requested";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
 
       export interface CommonsAddress {
         street: string;
