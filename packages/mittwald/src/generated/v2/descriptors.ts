@@ -9317,6 +9317,40 @@ export const domainListTlds: OpenAPIOperation<
   operationId: "domain-list-tlds",
 };
 
+/** List Domain-Migrations belonging to a Project. */
+export const domainMigrationListMigrationsByProjectId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomainMigrations.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/domain-migrations",
+  method: "GET",
+  operationId: "domain-migration-list-migrations-by-project-id",
+};
+
 /** Resends a Contact-Verification email. */
 export const domainResendContactVerificationEmail: OpenAPIOperation<
   RequestType<

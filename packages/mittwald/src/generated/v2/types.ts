@@ -2368,6 +2368,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainListTlds, TStatus>;
     }
 
+    namespace DomainMigrationListMigrationsByProjectId {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationListMigrationsByProjectId
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationListMigrationsByProjectId,
+          TStatus
+        >;
+    }
+
     namespace DomainResendContactVerificationEmail {
       type RequestData = InferredRequestData<
         typeof descriptors.domainResendContactVerificationEmail
@@ -7099,23 +7110,31 @@ export declare module MittwaldAPIV2 {
         | "NS";
 
       /**
-       * Typed reason a domain cannot be migrated.
+       * Typed reason a domain cannot be migrated:
+       *
+       * * `needEpp`: the domain owner's phone number is not EPP/RFC 5733 conformant at the registry and cannot be reformatted, so the migration is rejected.
+       * * `tldNotSupported`: the domain's TLD is not supported for migration (also used when the registry article for the domain was not found).
+       * * `tldNotMigratable`: the domain's TLD is supported in general, but migration is not currently possible for this TLD.
+       * * `premiumDomain`: the domain is a premium domain, which is not supported yet.
+       * * `registrarNotSupported`: COAB names a registrar we do not support for migration.
+       * * `notOrderable`: the order service rejected the domain for a reason other than an unsupported TLD or a still-reserved domain.
+       * * `insufficientState`: the COAB data is incomplete (e.g. missing registrar, price or owner) or the domain is still reserved at the registry.
+       * * `contractDateOutOfRange`: the COAB contract's next-period date is in the past or more than two years in the future.
+       * * `invalidDomainName`: the COAB domain name does not match the `idn-naked-domain` format we accept.
        */
       export type DomainmigrationDomainNotMigratableReason =
-        | "DOMAIN_NOT_MIGRATABLE_REASON_NEED_EPP"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_TLD_NOT_SUPPORTED"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_PREMIUM_DOMAIN"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_REGISTRAR_NOT_SUPPORTED"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_NOT_ORDERABLE"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_INSUFFICIENT_STATE"
-        | "DOMAIN_NOT_MIGRATABLE_REASON_CONTRACT_DATE_OUT_OF_RANGE";
-
-      export interface DomainmigrationDomainNotMigratableReasons {
-        reasonCodes: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
-      }
+        | "needEpp"
+        | "tldNotSupported"
+        | "tldNotMigratable"
+        | "premiumDomain"
+        | "registrarNotSupported"
+        | "notOrderable"
+        | "insufficientState"
+        | "contractDateOutOfRange"
+        | "invalidDomainName";
 
       /**
-       * A non-migratable-domain failure: one selected domain cannot be migrated. type is always DOMAIN_NOT_MIGRATABLE, path is the affected domain, and context.reason carries the typed reason code.
+       * A non-migratable-domain failure: one selected domain cannot be migrated. type is always domainNotMigratable, path is the affected domain, and context.reason carries the typed reason code.
        */
       export interface DomainmigrationDomainNotMigratableValidationError {
         context: {
@@ -7128,15 +7147,16 @@ export declare module MittwaldAPIV2 {
          */
         path: string;
         /**
-         * Discriminator for this branch; always DOMAIN_NOT_MIGRATABLE.
+         * Discriminator for this branch; always domainNotMigratable.
          */
-        type: "DOMAIN_NOT_MIGRATABLE";
+        type: "domainNotMigratable";
       }
 
       export interface DomainmigrationMigratableDomain {
         hostname: string;
         migratable: true;
         migrationData: MittwaldAPIV2.Components.Schemas.DomainmigrationMigrationData;
+        warnings?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarning[];
       }
 
       export interface DomainmigrationMigrationData {
@@ -7156,8 +7176,9 @@ export declare module MittwaldAPIV2 {
 
       export interface DomainmigrationNonMigratableDomain {
         hostname: string;
-        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReasons;
+        issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
         migratable: false;
+        warnings?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarning[];
       }
 
       export interface DomainmigrationSubdomain {
@@ -7503,7 +7524,7 @@ export declare module MittwaldAPIV2 {
           | "secretRotated"
           | "instanceRemovedFromContext";
         nextScheduledExecution?: string;
-        state: "running" | "queued" | "halted" | "failed" | "successful";
+        state: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecutionState;
       }
 
       export interface MarketplaceExtensionSecret {
@@ -10558,6 +10579,38 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export type MarketplaceExtensionInstanceWebhookExecutionState =
+        | "running"
+        | "queued"
+        | "halted"
+        | "failed"
+        | "successful";
+
+      /**
+       * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
+       */
+      export interface DomainmigrationDomainMigrationWarning {
+        reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarningReason;
+        /**
+         * The affected COAB entity, e.g. the skipped wildcard subdomain hostname.
+         */
+        subject: string;
+      }
+
+      /**
+       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`) needs attention during migration.
+       *
+       * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
+       * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
+       * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
+       * * `registrantPhoneNeedsEpp`: the registry owner (registrant) phone is not EPP-conformant; a reformat-to-EPP heal will be attempted during migration. Non-blocking — the read path cannot tell whether the heal will ultimately succeed, so it only warns; the create path is the actual gate.
+       */
+      export type DomainmigrationDomainMigrationWarningReason =
+        | "subdomainInvalidIngressHostname"
+        | "subdomainInvalidDnsName"
+        | "subdomainNsRecordsOverridden"
+        | "registrantPhoneNeedsEpp";
 
       export interface CommonsAddress {
         street: string;
@@ -24835,6 +24888,53 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2ProjectsProjectIdDomainMigrations {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
       namespace Post {
         namespace Parameters {
@@ -27032,6 +27132,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             extensionId?: string;
             extensionInstanceId?: string;
+            state?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecutionState[];
             limit?: number;
             skip?: number;
             page?: number;

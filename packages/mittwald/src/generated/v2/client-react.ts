@@ -721,6 +721,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
   ).getApiResource,
+  /** List Domain-Migrations belonging to a Project. */
+  migrationListMigrationsByProjectId: new ApiCallAsyncResourceFactory(
+    descriptors.domainMigrationListMigrationsByProjectId,
+    baseClient.domain.migrationListMigrationsByProjectId,
+  ).getApiResource,
   /** Suggest a list of domains based on a prompt using AI. */
   suggest: new ApiCallAsyncResourceFactory(
     descriptors.domainSuggest,
