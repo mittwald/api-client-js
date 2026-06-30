@@ -9411,44 +9411,24 @@ export declare module MittwaldAPIV2 {
       export type PolicyPolicy = string;
 
       export interface ActivitylogAppInstallationCopyRequested {
-        changes: {
-          after?: {
-            appId: string;
-            sourceAppInstallationId: string;
-          };
-          before?: {
-            appId?: string | null;
-            sourceAppInstallationId?: string | null;
-          };
-        };
         name: "app.copy-requested";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          sourceAppInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
       }
 
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
         changes: {
           after?: {
-            software: string;
-            softwareVersion: string;
-            updatePolicy:
-              | "UPDATE_POLICY_UNSPECIFIED"
-              | "UPDATE_POLICY_NONE"
-              | "UPDATE_POLICY_INHERITED_FROM_APP"
-              | "UPDATE_POLICY_PATCH_LEVEL"
-              | "UPDATE_POLICY_ALL";
-          };
-          before?: {
-            software?: string;
             softwareVersion?: string;
-            updatePolicy?:
-              | "UPDATE_POLICY_UNSPECIFIED"
-              | "UPDATE_POLICY_NONE"
-              | "UPDATE_POLICY_INHERITED_FROM_APP"
-              | "UPDATE_POLICY_PATCH_LEVEL"
-              | "UPDATE_POLICY_ALL";
-          };
+          } | null;
+          before?: {
+            softwareVersion?: string;
+          } | null;
         };
-        name: "app.systemsoftware-set" | "app.systemsoftware-deleted";
-        parameters?: {
+        name: "app.systemsoftware-set";
+        parameters: {
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -9457,15 +9437,16 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationAppVersionSet {
         changes: {
           after?: {
-            appId: string;
-            appVersionId: string;
+            version: string;
           };
           before?: {
-            appId?: string | null;
-            appVersionId?: string | null;
+            version?: string | null;
           };
         };
         name: "app.version-set";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
       }
 
       export interface ActivitylogDatabaseCreated {
@@ -9483,6 +9464,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-created" | "database.redis-created";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -9492,6 +9474,7 @@ export declare module MittwaldAPIV2 {
         changes: {};
         name: "database.mysql-deleted" | "database.redis-deleted";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9509,6 +9492,7 @@ export declare module MittwaldAPIV2 {
           | "database.mysql-description-set"
           | "database.redis-description-set";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9534,18 +9518,21 @@ export declare module MittwaldAPIV2 {
             description: string;
             externalAccess: boolean;
             name: string;
-            permissions: {};
+            permissionsRead: boolean;
+            permissionsWrite: boolean;
           };
           before?: {
             description?: string | null;
             externalAccess?: boolean | null;
             name?: string | null;
-            permissions?: {} | null;
+            permissionsRead?: boolean | null;
+            permissionsWrite?: boolean | null;
           };
         };
         name: "database.mysql-user-created";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9555,6 +9542,7 @@ export declare module MittwaldAPIV2 {
         name: "database.mysql-user-deleted";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9564,17 +9552,20 @@ export declare module MittwaldAPIV2 {
           after?: {
             description: string;
             externalAccess: boolean;
-            permissions: {};
+            permissionsRead: boolean;
+            permissionsWrite: boolean;
           };
           before?: {
             description: string | null;
             externalAccess: boolean | null;
-            permissions: {};
+            permissionsRead: boolean;
+            permissionsWrite: boolean;
           };
         };
         name: "database.mysql-user-updated";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9827,9 +9818,11 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         dateTime: string;
@@ -9870,6 +9863,7 @@ export declare module MittwaldAPIV2 {
         customerMeta: {
           id: string;
         };
+        deletionRequested: boolean;
         description: string;
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
         disabledAt?: string;
@@ -9890,6 +9884,7 @@ export declare module MittwaldAPIV2 {
         readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
         serverGroupId: string;
         serverId?: string;
+        serverShortId?: string;
         shortId: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
         statusSetAt: string;
@@ -10611,6 +10606,30 @@ export declare module MittwaldAPIV2 {
         | "subdomainInvalidDnsName"
         | "subdomainNsRecordsOverridden"
         | "registrantPhoneNeedsEpp";
+
+      export interface ActivitylogAppInstallationDesiredSystemSoftwareDeleted {
+        changes: {
+          after?: {
+            softwareVersion?: string;
+          } | null;
+          before?: {
+            softwareVersion?: string;
+          } | null;
+        };
+        name: "app.systemsoftware-deleted";
+        parameters: {
+          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationRequested {
+        name: "app.requested";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
 
       export interface CommonsAddress {
         street: string;
