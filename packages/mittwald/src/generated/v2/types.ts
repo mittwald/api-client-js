@@ -9508,6 +9508,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-name-set";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
       }
@@ -9581,6 +9582,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-version-set" | "database.redis-version-set";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -10629,6 +10631,14 @@ export declare module MittwaldAPIV2 {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
+      }
+
+      /**
+       * DesiredSystemSoftware describes the desired SystemSoftwareVersion and update policy to apply for a SystemSoftware of an AppInstallation.
+       */
+      export interface AppDesiredSystemSoftware {
+        systemSoftwareVersion?: string;
+        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
       }
 
       export interface CommonsAddress {
@@ -12178,10 +12188,9 @@ export declare module MittwaldAPIV2 {
             customDocumentRoot?: string;
             description?: string;
             systemSoftware?: {
-              [k: string]: {
-                systemSoftwareVersion?: string;
-                updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
-              };
+              [
+                k: string
+              ]: MittwaldAPIV2.Components.Schemas.AppDesiredSystemSoftware;
             };
             updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
             userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
@@ -12639,6 +12648,11 @@ export declare module MittwaldAPIV2 {
             appVersionId: string;
             description: string;
             installationPath?: string;
+            systemSoftware?: {
+              [
+                k: string
+              ]: MittwaldAPIV2.Components.Schemas.AppDesiredSystemSoftware;
+            };
             updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
             userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
           }
