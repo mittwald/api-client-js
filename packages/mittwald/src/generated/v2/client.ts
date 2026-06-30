@@ -1103,9 +1103,21 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List TLDs. */
     listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
+    /** Check if a Domain-Migration from a pAccount into a Project is possible. */
+    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
+      descriptors.domainMigrationCheckMigrationIsPossible,
+    ),
+    /** List Domain-Migrations belonging to a pAccount. */
+    migrationListMigrationsByPaccount: this.requestFunctionFactory(
+      descriptors.domainMigrationListMigrationsByPaccount,
+    ),
     /** List Domain-Migrations belonging to a Project. */
     migrationListMigrationsByProjectId: this.requestFunctionFactory(
       descriptors.domainMigrationListMigrationsByProjectId,
+    ),
+    /** Order a Domain-Migration from a pAccount into a Project. */
+    migrationOrderDomainMigration: this.requestFunctionFactory(
+      descriptors.domainMigrationOrderDomainMigration,
     ),
     /** Resends a Contact-Verification email. */
     resendContactVerificationEmail: this.requestFunctionFactory(
