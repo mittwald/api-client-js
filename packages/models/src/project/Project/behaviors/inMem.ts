@@ -9,6 +9,7 @@ export const inMemProjectBehaviors = (
   list: async () => {
     const items = Array.from(store.values()).map((detailedProject) => ({
       ...detailedProject,
+      deletionRequested: detailedProject.deletionRequested ?? false,
       customerMeta: {
         id: detailedProject.customerId,
       },
