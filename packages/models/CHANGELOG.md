@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.400.0](https://github.com/mittwald/api-client-js/compare/4.399.0...4.400.0) (2026-06-30)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.399.0](https://github.com/mittwald/api-client-js/compare/4.398.1...4.399.0) (2026-06-30)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.398.1](https://github.com/mittwald/api-client-js/compare/4.398.0...4.398.1) (2026-06-30)
+
+### Bug Fixes
+
+* **Models:** fix compile issue ([88e91bc](https://github.com/mittwald/api-client-js/commit/88e91bccd3f1f7e862ca1e9434b06b99dcfc3c5c))
+
+# [4.398.0](https://github.com/mittwald/api-client-js/compare/4.397.0...4.398.0) (2026-06-26)
+
+**Note:** Version bump only for package @mittwald/api-models
+
 # [4.397.0](https://github.com/mittwald/api-client-js/compare/4.396.0...4.397.0) (2026-06-24)
 
 **Note:** Version bump only for package @mittwald/api-models

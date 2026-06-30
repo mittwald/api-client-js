@@ -2368,28 +2368,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.domainListTlds, TStatus>;
     }
 
-    namespace DomainMigrationCheckMigrationIsPossible {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationCheckMigrationIsPossible
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationCheckMigrationIsPossible,
-          TStatus
-        >;
-    }
-
-    namespace DomainMigrationListMigrationsByPAccount {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationListMigrationsByPaccount
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationListMigrationsByPaccount,
-          TStatus
-        >;
-    }
-
     namespace DomainMigrationListMigrationsByProjectId {
       type RequestData = InferredRequestData<
         typeof descriptors.domainMigrationListMigrationsByProjectId
@@ -2397,17 +2375,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainMigrationListMigrationsByProjectId,
-          TStatus
-        >;
-    }
-
-    namespace DomainMigrationOrderDomainMigration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainMigrationOrderDomainMigration
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainMigrationOrderDomainMigration,
           TStatus
         >;
     }
@@ -7228,31 +7195,6 @@ export declare module MittwaldAPIV2 {
         | "NS";
 
       /**
-       * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
-       */
-      export interface DomainmigrationDomainMigrationWarning {
-        reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarningReason;
-        /**
-         * The affected COAB entity, e.g. the skipped wildcard subdomain hostname.
-         */
-        subject: string;
-      }
-
-      /**
-       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`) needs attention during migration.
-       *
-       * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
-       * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
-       * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
-       * * `registrantPhoneNeedsEpp`: the registry owner (registrant) phone is not EPP-conformant; a reformat-to-EPP heal will be attempted during migration. Non-blocking — the read path cannot tell whether the heal will ultimately succeed, so it only warns; the create path is the actual gate.
-       */
-      export type DomainmigrationDomainMigrationWarningReason =
-        | "subdomainInvalidIngressHostname"
-        | "subdomainInvalidDnsName"
-        | "subdomainNsRecordsOverridden"
-        | "registrantPhoneNeedsEpp";
-
-      /**
        * Typed reason a domain cannot be migrated:
        *
        * * `needEpp`: the domain owner's phone number is not EPP/RFC 5733 conformant at the registry and cannot be reformatted, so the migration is rejected.
@@ -9574,14 +9516,14 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
         changes: {
           after?: {
-            softwareVersion: string;
-          };
+            softwareVersion?: string;
+          } | null;
           before?: {
             softwareVersion?: string;
-          };
+          } | null;
         };
-        name: "app.systemsoftware-set" | "app.systemsoftware-deleted";
-        parameters?: {
+        name: "app.systemsoftware-set";
+        parameters: {
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -9627,6 +9569,7 @@ export declare module MittwaldAPIV2 {
         changes: {};
         name: "database.mysql-deleted" | "database.redis-deleted";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9644,6 +9587,7 @@ export declare module MittwaldAPIV2 {
           | "database.mysql-description-set"
           | "database.redis-description-set";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9659,6 +9603,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-name-set";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
       }
@@ -9683,6 +9628,7 @@ export declare module MittwaldAPIV2 {
         name: "database.mysql-user-created";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9692,6 +9638,7 @@ export declare module MittwaldAPIV2 {
         name: "database.mysql-user-deleted";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9714,6 +9661,7 @@ export declare module MittwaldAPIV2 {
         name: "database.mysql-user-updated";
         parameters: {
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -9729,6 +9677,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-version-set" | "database.redis-version-set";
         parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -9970,6 +9919,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         dateTime: string;
@@ -10010,6 +9960,7 @@ export declare module MittwaldAPIV2 {
         customerMeta: {
           id: string;
         };
+        deletionRequested: boolean;
         description: string;
         disableReason?: MittwaldAPIV2.Components.Schemas.ProjectDisableReason;
         disabledAt?: string;
@@ -10030,6 +9981,7 @@ export declare module MittwaldAPIV2 {
         readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
         serverGroupId: string;
         serverId?: string;
+        serverShortId?: string;
         shortId: string;
         status: MittwaldAPIV2.Components.Schemas.ProjectProjectStatus;
         statusSetAt: string;
@@ -10727,12 +10679,61 @@ export declare module MittwaldAPIV2 {
         | "failed"
         | "successful";
 
+      /**
+       * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
+       */
+      export interface DomainmigrationDomainMigrationWarning {
+        reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarningReason;
+        /**
+         * The affected COAB entity, e.g. the skipped wildcard subdomain hostname.
+         */
+        subject: string;
+      }
+
+      /**
+       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`) needs attention during migration.
+       *
+       * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
+       * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
+       * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
+       * * `registrantPhoneNeedsEpp`: the registry owner (registrant) phone is not EPP-conformant; a reformat-to-EPP heal will be attempted during migration. Non-blocking — the read path cannot tell whether the heal will ultimately succeed, so it only warns; the create path is the actual gate.
+       */
+      export type DomainmigrationDomainMigrationWarningReason =
+        | "subdomainInvalidIngressHostname"
+        | "subdomainInvalidDnsName"
+        | "subdomainNsRecordsOverridden"
+        | "registrantPhoneNeedsEpp";
+
+      export interface ActivitylogAppInstallationDesiredSystemSoftwareDeleted {
+        changes: {
+          after?: {
+            softwareVersion?: string;
+          } | null;
+          before?: {
+            softwareVersion?: string;
+          } | null;
+        };
+        name: "app.systemsoftware-deleted";
+        parameters: {
+          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogAppInstallationRequested {
         name: "app.requested";
         parameters: {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
+      }
+
+      /**
+       * DesiredSystemSoftware describes the desired SystemSoftwareVersion and update policy to apply for a SystemSoftware of an AppInstallation.
+       */
+      export interface AppDesiredSystemSoftware {
+        systemSoftwareVersion?: string;
+        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
       }
 
       export interface CommonsAddress {
@@ -12280,10 +12281,9 @@ export declare module MittwaldAPIV2 {
             customDocumentRoot?: string;
             description?: string;
             systemSoftware?: {
-              [k: string]: {
-                systemSoftwareVersion?: string;
-                updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
-              };
+              [
+                k: string
+              ]: MittwaldAPIV2.Components.Schemas.AppDesiredSystemSoftware;
             };
             updatePolicy?: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
             userInputs?: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
@@ -12731,6 +12731,11 @@ export declare module MittwaldAPIV2 {
             appVersionId: string;
             description: string;
             installationPath?: string;
+            systemSoftware?: {
+              [
+                k: string
+              ]: MittwaldAPIV2.Components.Schemas.AppDesiredSystemSoftware;
+            };
             updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
             userInputs: MittwaldAPIV2.Components.Schemas.AppSavedUserInput[];
           }
@@ -24954,110 +24959,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DomainMigrationsActionsPossibilityCheck {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * Name of the pAccount in customer center to migrate domains from.
-             */
-            pAccount: string;
-            /**
-             * ID of the Project to migrate the domains into.
-             */
-            projectId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
-              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainmigrationCheckMigrationResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2PAccountsPAccountDomainMigrations {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            pAccount: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DomainmigrationMigration[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdDomainMigrations {
       namespace Get {
         namespace Parameters {
@@ -25079,97 +24980,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DomainMigrations {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domains: string[];
-            /**
-             * Name of the pAccount in customer center to migrate domains from.
-             */
-            pAccount: string;
-            /**
-             * ID of the Project to migrate the domains into.
-             */
-            projectId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
-              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                message: string;
-                params?: {
-                  [k: string]: string;
-                };
-                type: string;
-                /**
-                 * One entry per problem. Each entry is a oneOf, mutually exclusive on type: a DomainNotMigratableValidationError (type domainNotMigratable, path = the affected domain, context.reason = the typed reason code), or a generic service-base validation error (type = the JSON-schema keyword such as required/pattern/format, path = the request field).
-                 */
-                validationErrors: (
-                  | MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableValidationError
-                  | {
-                      context?: {
-                        [k: string]: string;
-                      };
-                      message: string;
-                      /**
-                       * The request field that failed validation (JS property-access notation, e.g. .pAccount).
-                       */
-                      path: string;
-                      /**
-                       * JSON-schema validation keyword (e.g. required, pattern, format).
-                       */
-                      type: string;
-                    }
-                )[];
-              }
-            }
-          }
-
-          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
