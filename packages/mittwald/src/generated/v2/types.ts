@@ -5182,6 +5182,14 @@ export declare module MittwaldAPIV2 {
         urlTemplate?: string;
       }
 
+      /**
+       * DesiredSystemSoftware describes the desired SystemSoftwareVersion and update policy to apply for a SystemSoftware of an AppInstallation.
+       */
+      export interface AppDesiredSystemSoftware {
+        systemSoftwareVersion?: string;
+        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
+      }
+
       export interface AppError {
         message: string;
         type: string;
@@ -5993,6 +6001,11 @@ export declare module MittwaldAPIV2 {
          */
         version: string;
         website?: string;
+      }
+
+      export interface ContainerTemplateTranslatedString {
+        de: string;
+        en: string;
       }
 
       export interface ContainerUpdateRegistry {
@@ -7357,6 +7370,207 @@ export declare module MittwaldAPIV2 {
 
       export type DomainRegistrar = "INTERNETX" | "DENIC" | "HEXONET";
 
+      export interface DeMittwaldDomainNextAuthCode {
+        cipher?: string;
+        expires?: number;
+        value?: string;
+      }
+
+      export interface DeMittwaldDomainNextCaaRecord {
+        flags?: number;
+        tag?: string;
+        value?: string;
+      }
+
+      export interface DeMittwaldDomainNextCaaRecords {
+        records?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextCaaRecord[];
+        settings?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettings;
+      }
+
+      export interface DeMittwaldDomainNextCnameRecord {
+        fqdn?: string;
+        settings?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettings;
+      }
+
+      export interface DeMittwaldDomainNextCombinedARecordsCustom {
+        a?: string[];
+        aaaa?: string[];
+        settings?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettings;
+      }
+
+      export interface DeMittwaldDomainNextCombinedARecordsManaged {
+        ingressId?: string;
+      }
+
+      export type DeMittwaldDomainNextCombinedARecords =
+        | {
+            managedBy: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextCombinedARecordsManaged;
+          }
+        | {
+            custom: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextCombinedARecordsCustom;
+          };
+
+      export interface DeMittwaldDomainNextContainer {
+        id?: string;
+        portProtocol?: string;
+      }
+
+      export interface DeMittwaldDomainNextDns {
+        recordSet?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSet;
+      }
+
+      export interface DeMittwaldDomainNextDomain {
+        dns: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextDns;
+        dnsValidationErrors: string[];
+        /**
+         * The hostname this domain represents.
+         */
+        hostname: string;
+        /**
+         * ID of the underlying ingress. Absent for a registrable domain that has no ingress; such a domain is identified via registrarData.id.
+         */
+        id?: string;
+        ips: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextIps;
+        isDefault: boolean;
+        isEnabled: boolean;
+        ownership: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextOwnership;
+        paths: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextPath[];
+        /**
+         * ID of the project this domain belongs to.
+         */
+        projectId: string;
+        registrarData: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRegistrarData;
+        tls: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextTls;
+        /**
+         * Whether this is a registrable domain, a subdomain of a registrable domain, or a plain vHost.
+         */
+        type: "domain" | "subdomain" | "vhost";
+      }
+
+      export interface DeMittwaldDomainNextHandleData {
+        fields?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextHandleField[];
+        ref?: string;
+      }
+
+      export interface DeMittwaldDomainNextHandleField {
+        name?: string;
+        value?: string;
+      }
+
+      export interface DeMittwaldDomainNextHandles {
+        ownerC?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextHandleData;
+      }
+
+      export interface DeMittwaldDomainNextIps {
+        v4?: string[];
+        v6?: string[];
+      }
+
+      export interface DeMittwaldDomainNextMxRecord {
+        fqdn?: string;
+        priority?: number;
+      }
+
+      export interface DeMittwaldDomainNextMxRecordsCustom {
+        records?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextMxRecord[];
+        settings?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettings;
+      }
+
+      export type DeMittwaldDomainNextMxRecords =
+        | {
+            managed: boolean;
+          }
+        | {
+            custom: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextMxRecordsCustom;
+          };
+
+      export interface DeMittwaldDomainNextOwnership {
+        cause?: string;
+        txtRecord?: string;
+        verified?: boolean;
+      }
+
+      export interface DeMittwaldDomainNextPath {
+        container?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextContainer;
+        directory?: string;
+        installationId?: string;
+        path?: string;
+        targetType?: string;
+        url?: string;
+        useDefaultPage?: boolean;
+      }
+
+      export interface DeMittwaldDomainNextProcessError {
+        props?: {
+          [k: string]: string;
+        };
+        reason?: string;
+      }
+
+      export interface DeMittwaldDomainNextProcess {
+        code?: string;
+        error?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextProcessError;
+        lastUpdate?: string;
+        registrar?: string;
+        state?: string;
+        status?: string;
+        type?: string;
+      }
+
+      export interface DeMittwaldDomainNextRecordSet {
+        aCombined?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextCombinedARecords;
+        caa?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextCaaRecords;
+        cname?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextCnameRecord;
+        mx?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextMxRecords;
+        srv?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextSrvRecords;
+        txt?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextTxtRecords;
+      }
+
+      export interface DeMittwaldDomainNextRecordSettingTtl {
+        auto?: boolean;
+        seconds?: number;
+      }
+
+      export interface DeMittwaldDomainNextRecordSettings {
+        ttl?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettingTtl;
+      }
+
+      export interface DeMittwaldDomainNextRegistrarData {
+        authCode?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextAuthCode;
+        connected?: boolean;
+        deleted?: boolean;
+        domain?: string;
+        handles?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextHandles;
+        id?: string;
+        nameservers?: string[];
+        processes?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextProcess[];
+        registrar?: string;
+        usesDefaultNameservers?: boolean;
+      }
+
+      export interface DeMittwaldDomainNextSrvRecord {
+        fqdn?: string;
+        port?: number;
+        priority?: number;
+        weight?: number;
+      }
+
+      export interface DeMittwaldDomainNextSrvRecords {
+        records?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextSrvRecord[];
+        settings?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettings;
+      }
+
+      export interface DeMittwaldDomainNextTls {
+        acme?: boolean;
+        certificateId?: string;
+        mode?: string;
+      }
+
+      export interface DeMittwaldDomainNextTxtRecords {
+        entries?: string[];
+        settings?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRecordSettings;
+      }
+
       export interface DomainSuggestedDomains {
         domains: string[];
       }
@@ -7669,6 +7883,13 @@ export declare module MittwaldAPIV2 {
         nextScheduledExecution?: string;
         state: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstanceWebhookExecutionState;
       }
+
+      export type MarketplaceExtensionInstanceWebhookExecutionState =
+        | "running"
+        | "queued"
+        | "halted"
+        | "failed"
+        | "successful";
 
       export interface MarketplaceExtensionSecret {
         secretId: string;
@@ -9571,6 +9792,22 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogAppInstallationDesiredSystemSoftwareDeleted {
+        changes: {
+          after?: {
+            softwareVersion?: string;
+          } | null;
+          before?: {
+            softwareVersion?: string;
+          } | null;
+        };
+        name: "app.systemsoftware-deleted";
+        parameters: {
+          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogAppInstallationDesiredSystemSoftwareSet {
         changes: {
           after?: {
@@ -9583,6 +9820,14 @@ export declare module MittwaldAPIV2 {
         name: "app.systemsoftware-set";
         parameters: {
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationRequested {
+        name: "app.requested";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
@@ -10729,50 +10974,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export type MarketplaceExtensionInstanceWebhookExecutionState =
-        | "running"
-        | "queued"
-        | "halted"
-        | "failed"
-        | "successful";
-
-      export interface ActivitylogAppInstallationRequested {
-        name: "app.requested";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAppInstallationDesiredSystemSoftwareDeleted {
-        changes: {
-          after?: {
-            softwareVersion?: string;
-          } | null;
-          before?: {
-            softwareVersion?: string;
-          } | null;
-        };
-        name: "app.systemsoftware-deleted";
-        parameters: {
-          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      /**
-       * DesiredSystemSoftware describes the desired SystemSoftwareVersion and update policy to apply for a SystemSoftware of an AppInstallation.
-       */
-      export interface AppDesiredSystemSoftware {
-        systemSoftwareVersion?: string;
-        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
-      }
-
-      export interface ContainerTemplateTranslatedString {
-        de: string;
-        en: string;
-      }
 
       export interface CommonsAddress {
         street: string;
