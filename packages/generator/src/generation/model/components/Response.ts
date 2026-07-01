@@ -5,6 +5,7 @@ import { Responses } from "./Responses.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
 import invariant from "invariant";
+import { populateNullableTypes } from "../../populateNullableTypes.js";
 
 export class Response {
   public readonly name: Name;
@@ -21,7 +22,13 @@ export class Response {
     this.contents = Object.entries(mediaTypesDoc).map(
       ([mediaType, mediaTypeObj]) => {
         invariant(!!mediaTypeObj?.schema, "No schema set");
-        return new ResponseContent(this, mediaType, mediaTypeObj?.schema);
+        return new ResponseContent(
+          this,
+          mediaType,
+          mediaTypeObj?.schema
+            ? populateNullableTypes(mediaTypeObj.schema)
+            : mediaTypeObj.schema,
+        );
       },
     );
   }
