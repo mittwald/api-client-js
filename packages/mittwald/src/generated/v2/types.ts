@@ -5840,10 +5840,7 @@ export declare module MittwaldAPIV2 {
 
       export interface ContainerTemplate {
         categories: string[];
-        description: {
-          de: string;
-          en: string;
-        };
+        description: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         developer: string;
         domains?: {
           port: string;
@@ -5852,17 +5849,18 @@ export declare module MittwaldAPIV2 {
         }[];
         icon: string;
         id: string;
-        license?: string;
+        license?: {
+          link?: string;
+          name: string;
+        };
         /**
          * Version of the manifest for this template, e.g. '1.0'
          */
         manifestVersion: string;
-        name: string;
+        name: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         repository?: string;
-        tagline: {
-          de: string;
-          en: string;
-        };
+        supportLink?: string;
+        tagline: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         userInputs?: {
           dataSource?: string;
           defaultValue?: string;
@@ -10639,6 +10637,11 @@ export declare module MittwaldAPIV2 {
       export interface AppDesiredSystemSoftware {
         systemSoftwareVersion?: string;
         updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
+      }
+
+      export interface ContainerTemplateTranslatedString {
+        de: string;
+        en: string;
       }
 
       export interface CommonsAddress {
@@ -15883,6 +15886,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             category?: string;
             searchTerm?: string;
+            type?: "component" | "standalone";
             limit?: number;
             skip?: number;
             page?: number;
