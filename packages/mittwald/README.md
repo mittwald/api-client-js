@@ -14,6 +14,7 @@ see the [LICENSE](../../LICENSE) file for details.
 
 - [Installing](#installing)
 - [Usage](#usage)
+  - [Using the v3-next client](#using-the-v3-next-client)
   - [Setting request parameters](#setting-request-parameters)
     - [Path parameters](#path-parameters)
     - [Headers, query parameters and request body](#headers-query-parameters-and-request-body)
@@ -57,6 +58,34 @@ different types of authentication:
 
 Have a look at our [API introduction][api-getting-started] for more information
 on how to obtain an API token and how to get started with the API.
+
+### Using the v3-next client
+
+The default import path exposes the v2 client. To use the production
+`v3-next` client, import it from the `@mittwald/api-client/v3-next` subpath:
+
+```typescript
+import { MittwaldAPIClient } from "@mittwald/api-client/v3-next";
+
+const mittwaldApi = MittwaldAPIClient.newWithToken("your-access-token");
+```
+
+The React client is available from the matching React subpath:
+
+```typescript
+import { MittwaldAPIClientReact } from "@mittwald/api-client/v3-next/react";
+```
+
+TypeScript request and response types are exported through the
+`MittwaldAPIV3Next` namespace:
+
+```typescript
+import { MittwaldAPIV3Next } from "@mittwald/api-client/v3-next";
+```
+
+This uses the published, non-development `v3-next` client. The package does not
+expose a `@mittwald/api-client/v3-next-dev` import path; the `v3-next-dev`
+OpenAPI spec is only used for generating development builds.
 
 ### Setting request parameters
 

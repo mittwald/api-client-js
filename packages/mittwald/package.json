@@ -25,6 +25,22 @@
     "./react": {
       "types": "./dist/types/react.d.ts",
       "import": "./dist/esm/react.js"
+    },
+    "./v2": {
+      "types": "./dist/types/v2/index.d.ts",
+      "import": "./dist/esm/v2/index.js"
+    },
+    "./v2/react": {
+      "types": "./dist/types/v2/react.d.ts",
+      "import": "./dist/esm/v2/react.js"
+    },
+    "./v3-next": {
+      "types": "./dist/types/v3-next/index.d.ts",
+      "import": "./dist/esm/v3-next/index.js"
+    },
+    "./v3-next/react": {
+      "types": "./dist/types/v3-next/react.d.ts",
+      "import": "./dist/esm/v3-next/react.js"
     }
   },
   "files": [
@@ -33,11 +49,21 @@
   "scripts": {
     "build": "run build:clean && run tsc",
     "build:clean": "run rimraf dist",
-    "build:client-base": "run acg generate --name MittwaldAPIV2 /dev/stdin src/generated/v2 --optionalHeader x-access-token",
-    "build:client-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-base'",
-    "build:client-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-base'",
-    "build:fetch-openapi-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v2-dev.json > spec/openapi-dev.json",
-    "build:fetch-openapi-prod": "curl --location --fail --silent 'https://api.mittwald.de/v2/openapi.json?withExperimental=true' > spec/openapi.json",
+    "build:client-base": "run build:client-v2-base",
+    "build:client-dev": "run build:client-v2-dev && run build:client-v3-next-dev",
+    "build:client-prod": "run build:client-v2-prod && run build:client-v3-next-prod",
+    "build:client-v2-base": "run acg generate --name MittwaldAPIV2 /dev/stdin src/generated/v2 --optionalHeader x-access-token",
+    "build:client-v2-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-dev.json | run build:client-v2-base'",
+    "build:client-v2-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi.json | run build:client-v2-base'",
+    "build:client-v3-next-base": "run acg generate --name MittwaldAPIV3Next /dev/stdin src/generated/v3-next --optionalHeader x-access-token",
+    "build:client-v3-next-dev": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-v3-next-dev.json | run build:client-v3-next-base'",
+    "build:client-v3-next-prod": "bash -e -o pipefail -c 'spec/transform-openapi.sh < spec/openapi-v3-next.json | run build:client-v3-next-base'",
+    "build:fetch-openapi-dev": "run build:fetch-openapi-v2-dev && run build:fetch-openapi-v3-next-dev",
+    "build:fetch-openapi-prod": "run build:fetch-openapi-v2-prod && run build:fetch-openapi-v3-next-prod",
+    "build:fetch-openapi-v2-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v2-dev.json > spec/openapi-dev.json",
+    "build:fetch-openapi-v2-prod": "curl --location --fail --silent 'https://api.mittwald.de/v2/openapi.json?withExperimental=true' > spec/openapi.json",
+    "build:fetch-openapi-v3-next-dev": "curl --location --fail --silent https://developer.mittwald.de/specs/openapi-v3-next-dev.json > spec/openapi-v3-next-dev.json",
+    "build:fetch-openapi-v3-next-prod": "curl --location --fail --silent 'https://api.mittwald.de/v3-next/openapi.json?withExperimental=true' > spec/openapi-v3-next.json",
     "build:write-version-file": "run tsx dev/writeVersion.ts",
     "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
