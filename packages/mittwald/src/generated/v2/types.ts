@@ -5844,9 +5844,23 @@ export declare module MittwaldAPIV2 {
         developer: string;
         domains?: {
           port: string;
+          purpose?: string;
           service: string;
           userInput: string;
         }[];
+        help?: {
+          alerts?: {
+            content: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            heading: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            link?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            linkText?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            status: string;
+          }[];
+          technicalDetails?: {
+            key: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            value: string;
+          }[];
+        };
         icon: string;
         id: string;
         license?: {
@@ -9530,6 +9544,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-user-created";
         parameters: {
+          databaseDescription: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -9540,6 +9555,7 @@ export declare module MittwaldAPIV2 {
         changes: {};
         name: "database.mysql-user-deleted";
         parameters: {
+          databaseDescription: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -9563,6 +9579,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-user-updated";
         parameters: {
+          databaseDescription: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -10624,7 +10641,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ActivitylogAppInstallationRequested {
-        name: "app.requested";
+        name: "app.installation-requested";
         parameters: {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
