@@ -759,6 +759,17 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerGetService, TStatus>;
     }
 
+    namespace ContainerGetTemplateIcon {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplateIcon
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetTemplateIcon,
+          TStatus
+        >;
+    }
+
     namespace ContainerGetTemplate {
       type RequestData = InferredRequestData<
         typeof descriptors.containerGetTemplate
@@ -4856,17 +4867,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContainerGetTemplateIcon {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateIcon
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetTemplateIcon,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7466,10 +7466,7 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         registrarData: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextRegistrarData;
         tls: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextTls;
-        /**
-         * Whether this is a registrable domain, a subdomain of a registrable domain, or a plain vHost.
-         */
-        type: "domain" | "subdomain" | "vhost";
+        type: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextDomainType;
       }
 
       export interface DeMittwaldDomainNextHandleData {
@@ -7570,6 +7567,8 @@ export declare module MittwaldAPIV2 {
         nameservers?: string[];
         processes?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextProcess[];
         registrar?: string;
+        scheduledDeletionDate?: string;
+        transferInAuthCode?: string;
         usesDefaultNameservers?: boolean;
       }
 
@@ -7588,7 +7587,9 @@ export declare module MittwaldAPIV2 {
       export interface DeMittwaldDomainNextTls {
         acme?: boolean;
         certificateId?: string;
+        isCreated?: boolean;
         mode?: string;
+        requestDeadline?: string;
       }
 
       export interface DeMittwaldDomainNextTxtRecords {
@@ -9850,7 +9851,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ActivitylogAppInstallationRequested {
-        name: "app.requested";
+        name: "app.installation-requested";
         parameters: {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -11003,74 +11004,29 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export type MarketplaceExtensionInstanceWebhookExecutionState =
-        | "running"
-        | "queued"
-        | "halted"
-        | "failed"
-        | "successful";
-
       /**
-       * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
-       */
-      export interface DomainmigrationDomainMigrationWarning {
-        reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarningReason;
-        /**
-         * The affected COAB entity, e.g. the skipped wildcard subdomain hostname.
-         */
-        subject: string;
-      }
-
-      /**
-       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`) needs attention during migration.
+       * Classifies a result:
        *
-       * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
-       * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
-       * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
-       * * `registrantPhoneNeedsEpp`: the registry owner (registrant) phone is not EPP-conformant; a reformat-to-EPP heal will be attempted during migration. Non-blocking — the read path cannot tell whether the heal will ultimately succeed, so it only warns; the create path is the actual gate.
+       * * `domain`: a registrable domain (carries registrarData).
+       * * `subdomain`: a subdomain of a registrable domain.
+       * * `vhost`: a plain vHost without a registrable domain.
        */
-      export type DomainmigrationDomainMigrationWarningReason =
-        | "subdomainInvalidIngressHostname"
-        | "subdomainInvalidDnsName"
-        | "subdomainNsRecordsOverridden"
-        | "registrantPhoneNeedsEpp";
-
-      export interface ActivitylogAppInstallationDesiredSystemSoftwareDeleted {
-        changes: {
-          after?: {
-            softwareVersion?: string;
-          } | null;
-          before?: {
-            softwareVersion?: string;
-          } | null;
-        };
-        name: "app.systemsoftware-deleted";
-        parameters: {
-          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAppInstallationRequested {
-        name: "app.installation-requested";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
+      export type DeMittwaldDomainNextDomainType =
+        | "domain"
+        | "subdomain"
+        | "vhost";
 
       /**
-       * DesiredSystemSoftware describes the desired SystemSoftwareVersion and update policy to apply for a SystemSoftware of an AppInstallation.
+       * Ordering of the domain list:
+       *
+       * * `hostnameGrouped` (default): group by registrable (public-suffix) domain, the main domain before its subdomains, then by full hostname.
+       * * `hostnameAsc`: full hostname ascending.
+       * * `hostnameDesc`: full hostname descending.
        */
-      export interface AppDesiredSystemSoftware {
-        systemSoftwareVersion?: string;
-        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
-      }
-
-      export interface ContainerTemplateTranslatedString {
-        de: string;
-        en: string;
-      }
+      export type DeMittwaldDomainNextSortOrder =
+        | "hostnameGrouped"
+        | "hostnameAsc"
+        | "hostnameDesc";
 
       export interface CommonsAddress {
         street: string;
@@ -15995,6 +15951,89 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplatesTemplateIdIcon {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationOctetStream = string;
+
+              export type ImageJpeg = string;
+
+              export type ImagePng = string;
+
+              export type ImageSvgXml = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -40471,89 +40510,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ContainerTemplatesTemplateIdIcon {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            templateId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationOctetStream = string;
-
-              export type ImageJpeg = string;
-
-              export type ImagePng = string;
-
-              export type ImageSvgXml = string;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
