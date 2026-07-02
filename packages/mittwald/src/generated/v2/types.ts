@@ -4856,6 +4856,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContainerGetTemplateIcon {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplateIcon
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetTemplateIcon,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5972,10 +5983,24 @@ export declare module MittwaldAPIV2 {
         developer: string;
         domains?: {
           port: string;
+          purpose?: string;
           service: string;
           userInput: string;
         }[];
-        icon: string;
+        help?: {
+          alerts?: {
+            content: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            heading: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            link?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            linkText?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            status: string;
+          }[];
+          technicalDetails?: {
+            key: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            value: string;
+          }[];
+        };
+        iconUrl: string;
         id: string;
         license?: {
           link?: string;
@@ -9930,6 +9955,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-user-created";
         parameters: {
+          databaseDescription: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -9940,6 +9966,7 @@ export declare module MittwaldAPIV2 {
         changes: {};
         name: "database.mysql-user-deleted";
         parameters: {
+          databaseDescription: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -9963,6 +9990,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "database.mysql-user-updated";
         parameters: {
+          databaseDescription: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           databaseName: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -10974,6 +11002,75 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export type MarketplaceExtensionInstanceWebhookExecutionState =
+        | "running"
+        | "queued"
+        | "halted"
+        | "failed"
+        | "successful";
+
+      /**
+       * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
+       */
+      export interface DomainmigrationDomainMigrationWarning {
+        reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarningReason;
+        /**
+         * The affected COAB entity, e.g. the skipped wildcard subdomain hostname.
+         */
+        subject: string;
+      }
+
+      /**
+       * Typed non-blocking migration warning: the domain migrates, but the named subject (`warnings[].subject`) needs attention during migration.
+       *
+       * * `subdomainInvalidIngressHostname`: a non-CNAME subdomain (provisioned as an ingress) does not match the `idn-hostname` format (e.g. a wildcard `*.example.de`); it is skipped and the rest of the domain migrates.
+       * * `subdomainInvalidDnsName`: a CNAME subdomain (provisioned as a DNS subzone) does not match the `idn-dnsname` format; it is skipped and the rest of the domain migrates.
+       * * `subdomainNsRecordsOverridden`: a subdomain carries its own NS records that differ from the domain's nameservers; per-subdomain delegation is not supported, so those NS records are dropped and the subdomain is served from the domain's nameservers (the rest of the subdomain still migrates).
+       * * `registrantPhoneNeedsEpp`: the registry owner (registrant) phone is not EPP-conformant; a reformat-to-EPP heal will be attempted during migration. Non-blocking — the read path cannot tell whether the heal will ultimately succeed, so it only warns; the create path is the actual gate.
+       */
+      export type DomainmigrationDomainMigrationWarningReason =
+        | "subdomainInvalidIngressHostname"
+        | "subdomainInvalidDnsName"
+        | "subdomainNsRecordsOverridden"
+        | "registrantPhoneNeedsEpp";
+
+      export interface ActivitylogAppInstallationDesiredSystemSoftwareDeleted {
+        changes: {
+          after?: {
+            softwareVersion?: string;
+          } | null;
+          before?: {
+            softwareVersion?: string;
+          } | null;
+        };
+        name: "app.systemsoftware-deleted";
+        parameters: {
+          software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationRequested {
+        name: "app.installation-requested";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      /**
+       * DesiredSystemSoftware describes the desired SystemSoftwareVersion and update policy to apply for a SystemSoftware of an AppInstallation.
+       */
+      export interface AppDesiredSystemSoftware {
+        systemSoftwareVersion?: string;
+        updatePolicy?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareUpdatePolicy;
+      }
+
+      export interface ContainerTemplateTranslatedString {
+        de: string;
+        en: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -28544,6 +28641,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -40366,6 +40471,89 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplatesTemplateIdIcon {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationOctetStream = string;
+
+              export type ImageJpeg = string;
+
+              export type ImagePng = string;
+
+              export type ImageSvgXml = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
