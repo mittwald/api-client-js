@@ -5897,6 +5897,7 @@ export declare module MittwaldAPIV2 {
         userInputs?: {
           dataSource?: string;
           defaultValue?: string;
+          label?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
           name: string;
           required: boolean;
           validationSchema?: string;
