@@ -4867,6 +4867,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AiHostingCustomerGetSubscriptions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetSubscriptions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetSubscriptions,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4911,7 +4922,6 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingKey {
         containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
-        contractId?: string;
         customerId?: string;
         /**
          * Indicates whether the key is blocked.
@@ -4933,6 +4943,7 @@ export declare module MittwaldAPIV2 {
         name: string;
         projectId?: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        subscriptionId?: string;
         tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
       }
 
@@ -4946,13 +4957,13 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface AihostingPlanOptions {
-        contractId?: string;
         customerId: string;
         deletedAt?: string;
         keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
         modelTermsApprovalRequired: boolean;
         nextTokenReset: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        subscriptionId?: string;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
         topUsages?: {
           keyId?: string;
@@ -9868,7 +9879,7 @@ export declare module MittwaldAPIV2 {
             version?: string | null;
           };
         };
-        name: "app.version-set";
+        name: "app.version-set" | "app.version-updated";
         parameters: {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
@@ -11005,6 +11016,62 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
+      /**
+       * Classifies a result:
+       *
+       * * `domain`: a registrable domain (carries registrarData).
+       * * `subdomain`: a subdomain of a registrable domain.
+       * * `vhost`: a plain vHost without a registrable domain.
+       */
+      export type DeMittwaldDomainNextDomainType =
+        | "domain"
+        | "subdomain"
+        | "vhost";
+
+      /**
+       * Ordering of the domain list:
+       *
+       * * `hostnameGrouped` (default): group by registrable (public-suffix) domain, the main domain before its subdomains, then by full hostname.
+       * * `hostnameAsc`: full hostname ascending.
+       * * `hostnameDesc`: full hostname descending.
+       */
+      export type DeMittwaldDomainNextSortOrder =
+        | "hostnameGrouped"
+        | "hostnameAsc"
+        | "hostnameDesc";
+
+      export interface DeMittwaldDomainNextDomainListItem {
+        dnsValidationErrors: string[];
+        /**
+         * The hostname this domain represents.
+         */
+        hostname: string;
+        /**
+         * ID of the underlying ingress. Absent for a registrable domain that has no ingress; such a domain is identified via registrarData.id.
+         */
+        id?: string;
+        isDefault: boolean;
+        ownership: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextOwnership;
+        paths: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextPath[];
+        /**
+         * ID of the project this domain belongs to.
+         */
+        projectId: string;
+        registrarData: {
+          handles?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextHandles;
+          id?: string;
+          processes?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextProcess[];
+          scheduledDeletionDate?: string;
+          transferInAuthCode?: string;
+        };
+        tls: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextTls;
+        type: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextDomainType;
+      }
+
+      export interface AihostingProfile {
+        subscriptionIds: string[];
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -11284,7 +11351,7 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
-            contractId?: string;
+            subscriptionId?: string;
           };
         }
         namespace Responses {
@@ -11344,10 +11411,10 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            contractId?: string;
             createWebuiContainer?: boolean;
             name: string;
             projectId?: string;
+            subscriptionId?: string;
           }
 
           export type Header = {};
@@ -11716,7 +11783,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             topUsageCount?: number;
-            contractId?: string;
+            subscriptionId?: string;
           };
         }
         namespace Responses {
@@ -11840,7 +11907,7 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
-            contractId?: string;
+            subscriptionId?: string;
           };
         }
         namespace Responses {
@@ -11900,9 +11967,9 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            contractId?: string;
             createWebuiContainer?: boolean;
             name: string;
+            subscriptionId?: string;
           }
 
           export type Header = {};
@@ -12269,7 +12336,7 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
-            contractId?: string;
+            subscriptionId?: string;
           };
         }
         namespace Responses {
@@ -26519,7 +26586,6 @@ export declare module MittwaldAPIV2 {
             extensionId?: string;
             searchTerm?: string;
             anchor?: string;
-            hasAcceptedAllScopes?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -40483,6 +40549,68 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdAiSubscriptions {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingProfile;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

@@ -52,6 +52,11 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,
   ).getApiResource,
+  /** Get ai hosting subscriptions of a customer. */
+  customerGetSubscriptions: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetSubscriptions,
+    baseClient.aiHosting.customerGetSubscriptions,
+  ).getApiResource,
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({

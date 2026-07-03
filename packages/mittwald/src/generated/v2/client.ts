@@ -73,6 +73,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
+    /** Get ai hosting subscriptions of a customer. */
+    customerGetSubscriptions: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetSubscriptions,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
