@@ -6017,6 +6017,7 @@ export declare module MittwaldAPIV2 {
         userInputs?: {
           dataSource?: string;
           defaultValue?: string;
+          label?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
           name: string;
           required: boolean;
           validationSchema?: string;
@@ -11003,30 +11004,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      /**
-       * Classifies a result:
-       *
-       * * `domain`: a registrable domain (carries registrarData).
-       * * `subdomain`: a subdomain of a registrable domain.
-       * * `vhost`: a plain vHost without a registrable domain.
-       */
-      export type DeMittwaldDomainNextDomainType =
-        | "domain"
-        | "subdomain"
-        | "vhost";
-
-      /**
-       * Ordering of the domain list:
-       *
-       * * `hostnameGrouped` (default): group by registrable (public-suffix) domain, the main domain before its subdomains, then by full hostname.
-       * * `hostnameAsc`: full hostname ascending.
-       * * `hostnameDesc`: full hostname descending.
-       */
-      export type DeMittwaldDomainNextSortOrder =
-        | "hostnameGrouped"
-        | "hostnameAsc"
-        | "hostnameDesc";
 
       export interface CommonsAddress {
         street: string;
