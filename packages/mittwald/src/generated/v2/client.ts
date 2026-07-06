@@ -343,6 +343,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Get Container Template statistics. */
+    getTemplateStatistics: this.requestFunctionFactory(
+      descriptors.containerGetTemplateStatistics,
+    ),
+    /** Get Container Template statistics by category. */
+    getTemplateStatisticsByCategory: this.requestFunctionFactory(
+      descriptors.containerGetTemplateStatisticsByCategory,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */

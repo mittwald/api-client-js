@@ -4878,6 +4878,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContainerGetTemplateStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplateStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetTemplateStatistics,
+          TStatus
+        >;
+    }
+
+    namespace ContainerGetTemplateStatisticsByCategory {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplateStatisticsByCategory
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetTemplateStatisticsByCategory,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -10120,14 +10142,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface ActivitylogDnsZoneCreated {
-        changes: {
-          after?: {
-            domain: string;
-          };
-          before?: {
-            domain: string | null;
-          };
-        };
+        changes: {};
         name: "dns.zone-created";
         parameters: {
           domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -10243,6 +10258,8 @@ export declare module MittwaldAPIV2 {
 
       export interface ActivitylogLogEntry {
         action:
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsDomainDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsIngressDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsZoneCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsZoneDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsCnameRecordSet
@@ -10250,7 +10267,9 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsCaaRecordSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsTxtRecordSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsARecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsARecordSetManaged
           | MittwaldAPIV2.Components.Schemas.ActivitylogDnsMxRecordSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDnsMxRecordSetManaged
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDescriptionSet
@@ -11070,6 +11089,63 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingProfile {
         subscriptionIds: string[];
+      }
+
+      export interface ActivitylogDnsARecordSetManaged {
+        changes: {
+          after?: {
+            aRecords: {
+              managedByIngressId: string;
+            };
+          };
+          before?: {};
+        };
+        name: "dns.a-record-set-managed";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsDomainDeleted {
+        changes: {};
+        name: "dns.domain-deleted";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsMxRecordSetManaged {
+        changes: {
+          after?: {
+            mx: {
+              managed: boolean;
+            };
+          };
+          before?: {};
+        };
+        name: "dns.mx-record-set-managed";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDnsIngressDeleted {
+        changes: {};
+        name: "dns.ingress-deleted";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ContainerTemplateStatsResponse {
+        id: string;
+        installations: number;
+        installations30Days: number;
+      }
+
+      export interface ContainerTemplateStatsByCategoryResponse {
+        category: string;
+        templates: MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse[];
       }
 
       export interface CommonsAddress {
@@ -40615,6 +40691,122 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplatesTemplateIdStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplateCategoriesCategoryStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            category: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsByCategoryResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
