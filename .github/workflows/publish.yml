@@ -9,7 +9,7 @@ on:
       - master
       - dev
   workflow_run:
-    workflows: 
+    workflows:
       - Update API client
       - Update API client (dev)
     types:
@@ -22,8 +22,10 @@ permissions:
 jobs:
   publish:
     if:
-       (github.event.workflow_run.name == 'Update API client' || github.event.pull_request.base.ref == 'master') && 
-       (github.event.pull_request.merged == true || github.event.workflow_run.conclusion == 'success')
+      (github.event.workflow_run.name == 'Update API client' ||
+      github.event.pull_request.base.ref == 'master') &&
+      (github.event.pull_request.merged == true ||
+      github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
 
     env:
@@ -68,12 +70,6 @@ jobs:
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
 
-      # TODO: Uses the previous version. Needs a fix!
-      - name: Create version file 🔢
-        run: |
-          yarn nx run @mittwald/api-client:build:write-version-file
-          git add .
-
       - name: Version and publish 🚀
         if:
           github.event.workflow_run.head_branch == 'master' || github.ref ==
@@ -90,10 +86,10 @@ jobs:
               --tag-version-prefix ""
           fi
 
-
   publish-dev:
     if:
-       github.event.workflow_run.name == 'Update API client (dev)' && github.event.workflow_run.conclusion == 'success'
+      github.event.workflow_run.name == 'Update API client (dev)' &&
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     env:
@@ -138,12 +134,6 @@ jobs:
 
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
-
-      # TODO: Uses the previous version. Needs a fix!
-      - name: Create version file 🔢
-        run: |
-          yarn nx run @mittwald/api-client:build:write-version-file
-          git add .
 
       - name: Version and publish 🚀
         run: |

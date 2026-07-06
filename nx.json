@@ -17,7 +17,7 @@
       "dependsOn": ["^build"]
     },
     "build:write-version-file": {
-      "cache": true,
+      "cache": false,
       "dependsOn": ["build"]
     },
     "lint": {
