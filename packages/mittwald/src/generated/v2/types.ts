@@ -28639,6 +28639,7 @@ export declare module MittwaldAPIV2 {
             certificateId?: string;
             hostnameSubstring?: string;
             appInstallationId?: string;
+            containerId?: string;
             limit?: number;
             skip?: number;
             page?: number;

@@ -151,12 +151,12 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** Remove linkage between an AppInstallation and a Database. */
-    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
     /** Create linkage between an AppInstallation and DatabaseUsers. */
     setDatabaseUsers: this.requestFunctionFactory(
       descriptors.appSetDatabaseUsers,
     ),
+    /** Remove linkage between an AppInstallation and a Database. */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 
   /** The article API allows you to read article information. */
