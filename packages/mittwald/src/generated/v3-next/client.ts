@@ -35,7 +35,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a customer. */
+    /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
     customerGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetUsage,
     ),
@@ -72,6 +72,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
+    ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
     ),
   };
 
@@ -339,6 +347,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Get Container Template statistics. */
+    getTemplateStatistics: this.requestFunctionFactory(
+      descriptors.containerGetTemplateStatistics,
+    ),
+    /** Get Container Template statistics by category. */
+    getTemplateStatisticsByCategory: this.requestFunctionFactory(
+      descriptors.containerGetTemplateStatisticsByCategory,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1029,8 +1045,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
 
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain = {
-    /** List Domains */
-    listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /** List domains. */
+    serviceNextListDomains: this.requestFunctionFactory(
+      descriptors.domainServiceNextListDomains,
+    ),
     /** Update the nameservers of a Domain. */
     updateDomainNameservers: this.requestFunctionFactory(
       descriptors.domainUpdateDomainNameservers,
@@ -1085,8 +1103,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     createDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainCreateDomainAuthCode,
     ),
-    /** Get a Domain. */
-    getDomain: this.requestFunctionFactory(descriptors.domainGetDomain),
+    /** Get a domain. */
+    serviceNextGetDomain: this.requestFunctionFactory(
+      descriptors.domainServiceNextGetDomain,
+    ),
     /** Delete a Domain. */
     deleteDomain: this.requestFunctionFactory(descriptors.domainDeleteDomain),
     /** Get a Contact-Verification. */
@@ -1107,9 +1127,21 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** List TLDs. */
     listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
+    /** Check if a Domain-Migration from a pAccount into a Project is possible. */
+    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
+      descriptors.domainMigrationCheckMigrationIsPossible,
+    ),
+    /** List Domain-Migrations belonging to a pAccount. */
+    migrationListMigrationsByPaccount: this.requestFunctionFactory(
+      descriptors.domainMigrationListMigrationsByPaccount,
+    ),
     /** List Domain-Migrations belonging to a Project. */
     migrationListMigrationsByProjectId: this.requestFunctionFactory(
       descriptors.domainMigrationListMigrationsByProjectId,
+    ),
+    /** Order a Domain-Migration from a pAccount into a Project. */
+    migrationOrderDomainMigration: this.requestFunctionFactory(
+      descriptors.domainMigrationOrderDomainMigration,
     ),
     /** Resends a Contact-Verification email. */
     resendContactVerificationEmail: this.requestFunctionFactory(
@@ -1197,6 +1229,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
+    /** Update the certificate of a CertificateRequest. */
+    sslSetCertificateRequestCertificate: this.requestFunctionFactory(
+      descriptors.sslSetCertificateRequestCertificate,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
@@ -1257,6 +1293,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     disableMailArchive: this.requestFunctionFactory(
       descriptors.mailDisableMailArchive,
     ),
+    /** Get a Mail RateLimit. */
+    getMailRateLimit: this.requestFunctionFactory(
+      descriptors.mailGetMailRateLimit,
+    ),
     /** List backups belonging to a MailAddress. */
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,
@@ -1265,9 +1305,29 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listMailAddressesForUser: this.requestFunctionFactory(
       descriptors.mailListMailAddressesForUser,
     ),
+    /** List Mail RateLimits. */
+    listMailRateLimits: this.requestFunctionFactory(
+      descriptors.mailListMailRateLimits,
+    ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
+    ),
+    /** Check if a Migration between two projects is possible. */
+    migrationCheckMigrationIsPossible: this.requestFunctionFactory(
+      descriptors.mailMigrationCheckMigrationIsPossible,
+    ),
+    /** Get a Migration. */
+    migrationGetMigration: this.requestFunctionFactory(
+      descriptors.mailMigrationGetMigration,
+    ),
+    /** List Migrations belonging to a Project in customer center or mStudio. */
+    migrationListMigrations: this.requestFunctionFactory(
+      descriptors.mailMigrationListMigrations,
+    ),
+    /** Request a Mail Migration between two projects. */
+    migrationRequestMailMigration: this.requestFunctionFactory(
+      descriptors.mailMigrationRequestMailMigration,
     ),
     /** Recover emails for a MailAddress from a backup. */
     recoverMailAddressEmails: this.requestFunctionFactory(
@@ -1288,6 +1348,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
+    ),
+    /** Request a rate limit change for a MailAddress. */
+    requestMailAddressRateLimitChange: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressRateLimitChange,
     ),
   };
 

@@ -22,7 +22,7 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingCustomerGetDetailedModels,
     baseClient.aiHosting.customerGetDetailedModels,
   ).getApiResource,
-  /** Get ai hosting plan and usages of a customer. */
+  /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
     baseClient.aiHosting.customerGetUsage,
@@ -51,6 +51,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
   projectGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
+  /** Get ai hosting plan and usages of a customer by planId. */
+  customerGetPlan: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlan,
+    baseClient.aiHosting.customerGetPlan,
+  ).getApiResource,
+  /** Get all ai hosting plans of a customer. */
+  customerGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlans,
+    baseClient.aiHosting.customerGetPlans,
   ).getApiResource,
 });
 
@@ -258,6 +268,16 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
+  ).getApiResource,
+  /** Get Container Template statistics. */
+  getTemplateStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetTemplateStatistics,
+    baseClient.container.getTemplateStatistics,
+  ).getApiResource,
+  /** Get Container Template statistics by category. */
+  getTemplateStatisticsByCategory: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetTemplateStatisticsByCategory,
+    baseClient.container.getTemplateStatisticsByCategory,
   ).getApiResource,
 });
 
@@ -676,10 +696,10 @@ const buildDatabaseApi = (baseClient: MittwaldAPIV3NextClient) => ({
 });
 
 const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
-  /** List Domains */
-  listDomains: new ApiCallAsyncResourceFactory(
-    descriptors.domainListDomains,
-    baseClient.domain.listDomains,
+  /** List domains. */
+  serviceNextListDomains: new ApiCallAsyncResourceFactory(
+    descriptors.domainServiceNextListDomains,
+    baseClient.domain.serviceNextListDomains,
   ).getApiResource,
   /** Get a DNSZone. */
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
@@ -696,10 +716,10 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.dnsListDnsZones,
     baseClient.domain.dnsListDnsZones,
   ).getApiResource,
-  /** Get a Domain. */
-  getDomain: new ApiCallAsyncResourceFactory(
-    descriptors.domainGetDomain,
-    baseClient.domain.getDomain,
+  /** Get a domain. */
+  serviceNextGetDomain: new ApiCallAsyncResourceFactory(
+    descriptors.domainServiceNextGetDomain,
+    baseClient.domain.serviceNextGetDomain,
   ).getApiResource,
   /** Get a Contact-Verification. */
   getContactVerification: new ApiCallAsyncResourceFactory(
@@ -725,6 +745,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listTlds: new ApiCallAsyncResourceFactory(
     descriptors.domainListTlds,
     baseClient.domain.listTlds,
+  ).getApiResource,
+  /** List Domain-Migrations belonging to a pAccount. */
+  migrationListMigrationsByPaccount: new ApiCallAsyncResourceFactory(
+    descriptors.domainMigrationListMigrationsByPaccount,
+    baseClient.domain.migrationListMigrationsByPaccount,
   ).getApiResource,
   /** List Domain-Migrations belonging to a Project. */
   migrationListMigrationsByProjectId: new ApiCallAsyncResourceFactory(
@@ -878,6 +903,11 @@ const buildMailApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.mailGetMailAddress,
     baseClient.mail.getMailAddress,
   ).getApiResource,
+  /** Get a Mail RateLimit. */
+  getMailRateLimit: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailRateLimit,
+    baseClient.mail.getMailRateLimit,
+  ).getApiResource,
   /** List backups belonging to a MailAddress. */
   listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
     descriptors.mailListBackupsForMailAddress,
@@ -888,10 +918,25 @@ const buildMailApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.mailListMailAddressesForUser,
     baseClient.mail.listMailAddressesForUser,
   ).getApiResource,
+  /** List Mail RateLimits. */
+  listMailRateLimits: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailRateLimits,
+    baseClient.mail.listMailRateLimits,
+  ).getApiResource,
   /** List mail settings of a Project. */
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
+  ).getApiResource,
+  /** Get a Migration. */
+  migrationGetMigration: new ApiCallAsyncResourceFactory(
+    descriptors.mailMigrationGetMigration,
+    baseClient.mail.migrationGetMigration,
+  ).getApiResource,
+  /** List Migrations belonging to a Project in customer center or mStudio. */
+  migrationListMigrations: new ApiCallAsyncResourceFactory(
+    descriptors.mailMigrationListMigrations,
+    baseClient.mail.migrationListMigrations,
   ).getApiResource,
 });
 

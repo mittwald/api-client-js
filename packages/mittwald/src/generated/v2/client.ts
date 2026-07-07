@@ -35,7 +35,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a customer. */
+    /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
     customerGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetUsage,
     ),
@@ -73,9 +73,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
-    /** Get ai hosting subscriptions of a customer. */
-    customerGetSubscriptions: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetSubscriptions,
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
     ),
   };
 
@@ -1325,10 +1329,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     recoverMailAddressEmails: this.requestFunctionFactory(
       descriptors.mailRecoverMailAddressEmails,
     ),
-    /** Request a rate limit change for a MailAddress. */
-    requestMailAddressRateLimitChange: this.requestFunctionFactory(
-      descriptors.mailRequestMailAddressRateLimitChange,
-    ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
       descriptors.mailUpdateDeliveryBoxDescription,
@@ -1344,6 +1344,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
+    ),
+    /** Request a rate limit change for a MailAddress. */
+    requestMailAddressRateLimitChange: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressRateLimitChange,
     ),
   };
 
