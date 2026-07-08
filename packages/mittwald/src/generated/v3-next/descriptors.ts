@@ -18758,3 +18758,164 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** List Container Template statistics. */
+export const containerListTemplateStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/container-template-statistics",
+  method: "GET",
+  operationId: "container-list-template-statistics",
+};
+
+/** Get a Mail RateLimit. */
+export const mailGetMailRateLimit: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-rate-limits/{mailRateLimitId}",
+  method: "GET",
+  operationId: "mail-get-mail-rate-limit",
+};
+
+/** List Mail RateLimits. */
+export const mailListMailRateLimits: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-rate-limits",
+  method: "GET",
+  operationId: "mail-list-mail-rate-limits",
+};
+
+/** Request a rate limit change for a MailAddress. */
+export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
+  method: "POST",
+  operationId: "mail-request-mail-address-rate-limit-change",
+};

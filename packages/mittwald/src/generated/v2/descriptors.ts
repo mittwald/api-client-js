@@ -18758,3 +18758,164 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** List Container Template statistics. */
+export const containerListTemplateStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-template-statistics",
+  method: "GET",
+  operationId: "container-list-template-statistics",
+};
+
+/** Get a Mail RateLimit. */
+export const mailGetMailRateLimit: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-rate-limits/{mailRateLimitId}",
+  method: "GET",
+  operationId: "mail-get-mail-rate-limit",
+};
+
+/** List Mail RateLimits. */
+export const mailListMailRateLimits: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-rate-limits",
+  method: "GET",
+  operationId: "mail-list-mail-rate-limits",
+};
+
+/** Request a rate limit change for a MailAddress. */
+export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
+  method: "POST",
+  operationId: "mail-request-mail-address-rate-limit-change",
+};

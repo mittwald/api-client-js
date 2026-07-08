@@ -259,6 +259,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
+  /** List Container Template statistics. */
+  listTemplateStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.containerListTemplateStatistics,
+    baseClient.container.listTemplateStatistics,
+  ).getApiResource,
 });
 
 const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -892,6 +897,16 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
+  ).getApiResource,
+  /** Get a Mail RateLimit. */
+  getMailRateLimit: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailRateLimit,
+    baseClient.mail.getMailRateLimit,
+  ).getApiResource,
+  /** List Mail RateLimits. */
+  listMailRateLimits: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailRateLimits,
+    baseClient.mail.listMailRateLimits,
   ).getApiResource,
 });
 

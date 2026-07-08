@@ -4749,6 +4749,47 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace ContainerListTemplateStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListTemplateStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListTemplateStatistics,
+          TStatus
+        >;
+    }
+
+    namespace MailGetMailRateLimit {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailGetMailRateLimit
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.mailGetMailRateLimit, TStatus>;
+    }
+
+    namespace MailListMailRateLimits {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailListMailRateLimits
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailListMailRateLimits,
+          TStatus
+        >;
+    }
+
+    namespace MailRequestMailAddressRateLimitChange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.mailRequestMailAddressRateLimitChange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.mailRequestMailAddressRateLimitChange,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -8597,6 +8638,7 @@ export declare module MittwaldAPIV3Next {
         isBackupInProgress: boolean;
         isCatchAll: boolean;
         mailbox?: {
+          mailsystemSettings: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailMailsystemSettings;
           name: string;
           passwordUpdatedAt: string;
           sendingEnabled: boolean;
@@ -8615,13 +8657,17 @@ export declare module MittwaldAPIV3Next {
           };
         };
         projectId: string;
+        rateLimitChangeRequest?: {
+          /**
+           * id of the rate limit requested
+           */
+          rateLimitId: string;
+        };
         receivingDisabled: boolean;
         updatedAt: string;
       }
 
       export interface DeMittwaldMailMailsystemSettings {
-        imapClusterId: string;
-        mailDirectory: string;
         rateLimitId: string;
       }
 
@@ -9563,7 +9609,7 @@ export declare module MittwaldAPIV3Next {
             version?: string | null;
           };
         };
-        name: "app.version-set";
+        name: "app.version-set" | "app.version-updated";
         parameters: {
           appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
         };
@@ -9804,14 +9850,7 @@ export declare module MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldActivitylogDnsZoneCreated {
-        changes: {
-          after?: {
-            domain: string;
-          };
-          before?: {
-            domain: string | null;
-          };
-        };
+        changes: {};
         name: "dns.zone-created";
         parameters: {
           domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
@@ -9927,6 +9966,8 @@ export declare module MittwaldAPIV3Next {
 
       export interface DeMittwaldActivitylogLogEntry {
         action:
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsDomainDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsIngressDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsZoneCreated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsZoneDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsCnameRecordSet
@@ -9934,7 +9975,9 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsCaaRecordSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsTxtRecordSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsARecordSet
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsARecordSetManaged
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsMxRecordSet
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDnsMxRecordSetManaged
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseCreated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseDescriptionSet
@@ -10709,6 +10752,68 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface DeMittwaldActivitylogDnsARecordSetManaged {
+        changes: {
+          after?: {
+            aRecords: {
+              managedByIngressId: string;
+            };
+          };
+          before?: {};
+        };
+        name: "dns.a-record-set-managed";
+        parameters: {
+          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogDnsDomainDeleted {
+        changes: {};
+        name: "dns.domain-deleted";
+        parameters: {
+          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogDnsIngressDeleted {
+        changes: {};
+        name: "dns.ingress-deleted";
+        parameters: {
+          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
+        changes: {
+          after?: {
+            mx: {
+              managed: boolean;
+            };
+          };
+          before?: {};
+        };
+        name: "dns.mx-record-set-managed";
+        parameters: {
+          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldContainerTemplateStatsListResponse {
+        category?: string;
+        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
+      }
+
+      export interface DeMittwaldContainerTemplateStatsResponse {
+        id: string;
+        installations: number;
+        installations30Days: number;
+      }
+
+      export interface DeMittwaldMailsystemRateLimit {
+        id: string;
+        rateLimit: number;
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -14569,6 +14674,7 @@ export declare module MittwaldAPIV3Next {
             {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -39552,6 +39658,235 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextContainerTemplateStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            templateId?: string;
+            category?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsListResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMailRateLimitsMailRateLimitId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            mailRateLimitId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailsystemRateLimit;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMailRateLimits {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailsystemRateLimit[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            rateLimitId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
