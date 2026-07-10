@@ -269,15 +269,10 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
-  /** Get Container Template statistics. */
-  getTemplateStatistics: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplateStatistics,
-    baseClient.container.getTemplateStatistics,
-  ).getApiResource,
-  /** Get Container Template statistics by category. */
-  getTemplateStatisticsByCategory: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplateStatisticsByCategory,
-    baseClient.container.getTemplateStatisticsByCategory,
+  /** List Container Template statistics. */
+  listTemplateStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.containerListTemplateStatistics,
+    baseClient.container.listTemplateStatistics,
   ).getApiResource,
 });
 
@@ -928,15 +923,15 @@ const buildMailApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
   ).getApiResource,
-  /** Get a Migration. */
-  migrationGetMigration: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationGetMigration,
-    baseClient.mail.migrationGetMigration,
+  /** Get a Mail RateLimit. */
+  getMailRateLimit: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailRateLimit,
+    baseClient.mail.getMailRateLimit,
   ).getApiResource,
-  /** List Migrations belonging to a Project in customer center or mStudio. */
-  migrationListMigrations: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationListMigrations,
-    baseClient.mail.migrationListMigrations,
+  /** List Mail RateLimits. */
+  listMailRateLimits: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailRateLimits,
+    baseClient.mail.listMailRateLimits,
   ).getApiResource,
 });
 

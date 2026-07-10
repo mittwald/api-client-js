@@ -4863,46 +4863,32 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
-    namespace ContainerGetTemplateStatistics {
+    namespace ContainerListTemplateStatistics {
       type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateStatistics
+        typeof descriptors.containerListTemplateStatistics
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.containerGetTemplateStatistics,
+          typeof descriptors.containerListTemplateStatistics,
           TStatus
         >;
     }
 
-    namespace ContainerGetTemplateStatisticsByCategory {
+    namespace MailGetMailRateLimit {
       type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateStatisticsByCategory
+        typeof descriptors.mailGetMailRateLimit
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetTemplateStatisticsByCategory,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.mailGetMailRateLimit, TStatus>;
     }
 
-    namespace AiHostingCustomerGetPlan {
+    namespace MailListMailRateLimits {
       type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerGetPlan
+        typeof descriptors.mailListMailRateLimits
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.aiHostingCustomerGetPlan,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingCustomerGetPlans {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerGetPlans
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingCustomerGetPlans,
+          typeof descriptors.mailListMailRateLimits,
           TStatus
         >;
     }
@@ -11090,62 +11076,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      /**
-       * Classifies a result:
-       *
-       * * `domain`: a registrable domain (carries registrarData).
-       * * `subdomain`: a subdomain of a registrable domain.
-       * * `vhost`: a plain vHost without a registrable domain.
-       */
-      export type DeMittwaldDomainNextDomainType =
-        | "domain"
-        | "subdomain"
-        | "vhost";
-
-      /**
-       * Ordering of the domain list:
-       *
-       * * `hostnameGrouped` (default): group by registrable (public-suffix) domain, the main domain before its subdomains, then by full hostname.
-       * * `hostnameAsc`: full hostname ascending.
-       * * `hostnameDesc`: full hostname descending.
-       */
-      export type DeMittwaldDomainNextSortOrder =
-        | "hostnameGrouped"
-        | "hostnameAsc"
-        | "hostnameDesc";
-
-      export interface DeMittwaldDomainNextDomainListItem {
-        dnsValidationErrors: string[];
-        /**
-         * The hostname this domain represents.
-         */
-        hostname: string;
-        /**
-         * ID of the underlying ingress. Absent for a registrable domain that has no ingress; such a domain is identified via registrarData.id.
-         */
-        id?: string;
-        isDefault: boolean;
-        ownership: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainNextOwnership;
-        paths: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainNextPath[];
-        /**
-         * ID of the project this domain belongs to.
-         */
-        projectId: string;
-        registrarData: {
-          handles?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainNextHandles;
-          id?: string;
-          processes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainNextProcess[];
-          scheduledDeletionDate?: string;
-          transferInAuthCode?: string;
-        };
-        tls: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainNextTls;
-        type: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainNextDomainType;
-      }
-
-      export interface DeMittwaldAihostingProfile {
-        planIds: string[];
-      }
-
       export interface DeMittwaldActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
@@ -11169,6 +11099,14 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldActivitylogDnsIngressDeleted {
+        changes: {};
+        name: "dns.ingress-deleted";
+        parameters: {
+          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
@@ -11184,28 +11122,20 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
-      export interface DeMittwaldActivitylogDnsIngressDeleted {
-        changes: {};
-        name: "dns.ingress-deleted";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
       export interface DeMittwaldContainerTemplateStatsResponse {
         id: string;
         installations: number;
         installations30Days: number;
       }
 
-      export interface DeMittwaldContainerTemplateStatsByCategoryResponse {
-        category: string;
-        templates: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
+      export interface DeMittwaldContainerTemplateStatsListResponse {
+        category?: string;
+        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
       }
 
-      export interface DeMittwaldAihostingCustomerPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanOptions[];
+      export interface DeMittwaldMailsystemRateLimit {
+        id: string;
+        rateLimit: number;
       }
 
       export interface DeMittwaldCommonsAddress {
@@ -15075,6 +15005,7 @@ export declare module MittwaldAPIV3Next {
             {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -40644,22 +40575,23 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContainerTemplatesTemplateIdStatistics {
+    namespace V3NextContainerTemplateStatistics {
       namespace Get {
         namespace Parameters {
-          export type Path = {
-            templateId: string;
-          };
+          export type Path = {};
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            templateId?: string;
+            category?: string;
+          };
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse;
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsListResponse;
             }
           }
 
@@ -40706,14 +40638,15 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContainerTemplateCategoriesCategoryStatistics {
+    namespace V3NextMailRateLimitsMailRateLimitId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            category: string;
+            mailRateLimitId: string;
           };
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {};
         }
@@ -40721,80 +40654,7 @@ export declare module MittwaldAPIV3Next {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsByCategoryResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCustomersCustomerIdAiHostingsPlanId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            planId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            topUsageCount?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanOptions;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailsystemRateLimit;
             }
           }
 
@@ -40825,48 +40685,21 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextCustomersCustomerIdAiHostings {
+    namespace V3NextMailRateLimits {
       namespace Get {
         namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
+          export type Path = {};
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-          export type Query = {
-            topUsageCount?: number;
-          };
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlans;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailsystemRateLimit[];
             }
           }
 
@@ -40889,7 +40722,7 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextMailAddressesMailAddressIdRequestRateLimitChange {
+    namespace V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange {
       namespace Post {
         namespace Parameters {
           export type Path = {

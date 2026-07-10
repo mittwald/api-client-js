@@ -347,13 +347,9 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Get Container Template statistics. */
-    getTemplateStatistics: this.requestFunctionFactory(
-      descriptors.containerGetTemplateStatistics,
-    ),
-    /** Get Container Template statistics by category. */
-    getTemplateStatisticsByCategory: this.requestFunctionFactory(
-      descriptors.containerGetTemplateStatisticsByCategory,
+    /** List Container Template statistics. */
+    listTemplateStatistics: this.requestFunctionFactory(
+      descriptors.containerListTemplateStatistics,
     ),
   };
 
@@ -1348,6 +1344,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
+    ),
+    /** Get a Mail RateLimit. */
+    getMailRateLimit: this.requestFunctionFactory(
+      descriptors.mailGetMailRateLimit,
+    ),
+    /** List Mail RateLimits. */
+    listMailRateLimits: this.requestFunctionFactory(
+      descriptors.mailListMailRateLimits,
     ),
     /** Request a rate limit change for a MailAddress. */
     requestMailAddressRateLimitChange: this.requestFunctionFactory(

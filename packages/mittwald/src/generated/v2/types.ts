@@ -4857,46 +4857,32 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContainerGetTemplateStatistics {
+    namespace ContainerListTemplateStatistics {
       type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateStatistics
+        typeof descriptors.containerListTemplateStatistics
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.containerGetTemplateStatistics,
+          typeof descriptors.containerListTemplateStatistics,
           TStatus
         >;
     }
 
-    namespace ContainerGetTemplateStatisticsByCategory {
+    namespace MailGetMailRateLimit {
       type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateStatisticsByCategory
+        typeof descriptors.mailGetMailRateLimit
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetTemplateStatisticsByCategory,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.mailGetMailRateLimit, TStatus>;
     }
 
-    namespace AiHostingCustomerGetPlan {
+    namespace MailListMailRateLimits {
       type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerGetPlan
+        typeof descriptors.mailListMailRateLimits
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.aiHostingCustomerGetPlan,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingCustomerGetPlans {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerGetPlans
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingCustomerGetPlans,
+          typeof descriptors.mailListMailRateLimits,
           TStatus
         >;
     }
@@ -11047,62 +11033,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      /**
-       * Classifies a result:
-       *
-       * * `domain`: a registrable domain (carries registrarData).
-       * * `subdomain`: a subdomain of a registrable domain.
-       * * `vhost`: a plain vHost without a registrable domain.
-       */
-      export type DeMittwaldDomainNextDomainType =
-        | "domain"
-        | "subdomain"
-        | "vhost";
-
-      /**
-       * Ordering of the domain list:
-       *
-       * * `hostnameGrouped` (default): group by registrable (public-suffix) domain, the main domain before its subdomains, then by full hostname.
-       * * `hostnameAsc`: full hostname ascending.
-       * * `hostnameDesc`: full hostname descending.
-       */
-      export type DeMittwaldDomainNextSortOrder =
-        | "hostnameGrouped"
-        | "hostnameAsc"
-        | "hostnameDesc";
-
-      export interface DeMittwaldDomainNextDomainListItem {
-        dnsValidationErrors: string[];
-        /**
-         * The hostname this domain represents.
-         */
-        hostname: string;
-        /**
-         * ID of the underlying ingress. Absent for a registrable domain that has no ingress; such a domain is identified via registrarData.id.
-         */
-        id?: string;
-        isDefault: boolean;
-        ownership: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextOwnership;
-        paths: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextPath[];
-        /**
-         * ID of the project this domain belongs to.
-         */
-        projectId: string;
-        registrarData: {
-          handles?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextHandles;
-          id?: string;
-          processes?: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextProcess[];
-          scheduledDeletionDate?: string;
-          transferInAuthCode?: string;
-        };
-        tls: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextTls;
-        type: MittwaldAPIV2.Components.Schemas.DeMittwaldDomainNextDomainType;
-      }
-
-      export interface AihostingProfile {
-        planIds: string[];
-      }
-
       export interface ActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
@@ -11126,6 +11056,14 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogDnsIngressDeleted {
+        changes: {};
+        name: "dns.ingress-deleted";
+        parameters: {
+          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
@@ -11141,12 +11079,9 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDnsIngressDeleted {
-        changes: {};
-        name: "dns.ingress-deleted";
-        parameters: {
-          domain: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
+      export interface ContainerTemplateStatsListResponse {
+        category?: string;
+        templates?: MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse[];
       }
 
       export interface ContainerTemplateStatsResponse {
@@ -11155,14 +11090,9 @@ export declare module MittwaldAPIV2 {
         installations30Days: number;
       }
 
-      export interface ContainerTemplateStatsByCategoryResponse {
-        category: string;
-        templates: MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse[];
-      }
-
-      export interface AihostingCustomerPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: MittwaldAPIV2.Components.Schemas.AihostingPlanOptions[];
+      export interface MailsystemRateLimit {
+        id: string;
+        rateLimit: number;
       }
 
       export interface CommonsAddress {
@@ -15032,6 +14962,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -40592,22 +40523,23 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContainerTemplatesTemplateIdStatistics {
+    namespace V2ContainerTemplateStatistics {
       namespace Get {
         namespace Parameters {
-          export type Path = {
-            templateId: string;
-          };
+          export type Path = {};
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            templateId?: string;
+            category?: string;
+          };
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse;
+                MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsListResponse;
             }
           }
 
@@ -40654,14 +40586,15 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContainerTemplateCategoriesCategoryStatistics {
+    namespace V2MailRateLimitsMailRateLimitId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            category: string;
+            mailRateLimitId: string;
           };
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
@@ -40669,80 +40602,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsByCategoryResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdAiHostingsPlanId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            planId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            topUsageCount?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingPlanOptions;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+                MittwaldAPIV2.Components.Schemas.MailsystemRateLimit;
             }
           }
 
@@ -40773,48 +40633,21 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdAiHostings {
+    namespace V2MailRateLimits {
       namespace Get {
         namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
+          export type Path = {};
 
-          export type Header = {};
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {
-            topUsageCount?: number;
-          };
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingCustomerPlans;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+                MittwaldAPIV2.Components.Schemas.MailsystemRateLimit[];
             }
           }
 
@@ -40837,7 +40670,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2MailAddressesMailAddressIdRequestRateLimitChange {
+    namespace V2MailAddressesMailAddressIdActionsRequestRateLimitChange {
       namespace Post {
         namespace Parameters {
           export type Path = {
