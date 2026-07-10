@@ -345,6 +345,138 @@ export const aiHostingCustomerGetDetailedModels: OpenAPIOperation<
   operationId: "ai-hosting-customer-get-detailed-models",
 };
 
+/** Get ai hosting plan and usages of a customer by planId. */
+export const aiHostingCustomerGetPlan: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-plan",
+};
+
+/** Renames an AI hosting plan. */
+export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}",
+  method: "PATCH",
+  operationId: "ai-hosting-customer-update-plan",
+};
+
+/** Get all ai hosting plans of a customer. */
+export const aiHostingCustomerGetPlans: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-plans",
+};
+
 /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
 export const aiHostingCustomerGetUsage: OpenAPIOperation<
   RequestType<
@@ -2299,6 +2431,65 @@ export const backupUpdateProjectBackupDescription: OpenAPIOperation<
   operationId: "backup-update-project-backup-description",
 };
 
+/** Add a component to a Stack. */
+export const containerAddComponent: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/stacks/{stackId}/actions/add-component",
+  method: "POST",
+  operationId: "container-add-component",
+};
+
 /** Call pull-image webhook */
 export const containerCallPullImageWebhookForService: OpenAPIOperation<
   RequestType<
@@ -3405,6 +3596,50 @@ export const containerListStackVolumes: OpenAPIOperation<
   path: "/v2/stacks/{stackId}/volumes",
   method: "GET",
   operationId: "container-list-stack-volumes",
+};
+
+/** List Container Template statistics. */
+export const containerListTemplateStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-template-statistics",
+  method: "GET",
+  operationId: "container-list-template-statistics",
 };
 
 /** List Container Templates. */
@@ -13935,6 +14170,60 @@ export const mailRecoverMailAddressEmails: OpenAPIOperation<
   operationId: "mail-recover-mail-address-emails",
 };
 
+/** Request a rate limit change for a MailAddress. */
+export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
+  method: "POST",
+  operationId: "mail-request-mail-address-rate-limit-change",
+};
+
 /** Update the description of a DeliveryBox. */
 export const mailUpdateDeliveryBoxDescription: OpenAPIOperation<
   RequestType<
@@ -19112,165 +19401,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** List Container Template statistics. */
-export const containerListTemplateStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/container-template-statistics",
-  method: "GET",
-  operationId: "container-list-template-statistics",
-};
-
-/** Get a Mail RateLimit. */
-export const mailGetMailRateLimit: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-rate-limits/{mailRateLimitId}",
-  method: "GET",
-  operationId: "mail-get-mail-rate-limit",
-};
-
-/** List Mail RateLimits. */
-export const mailListMailRateLimits: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-rate-limits",
-  method: "GET",
-  operationId: "mail-list-mail-rate-limits",
-};
-
-/** Request a rate limit change for a MailAddress. */
-export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
-  method: "POST",
-  operationId: "mail-request-mail-address-rate-limit-change",
 };

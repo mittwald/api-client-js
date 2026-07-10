@@ -35,6 +35,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
     /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
     customerGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetUsage,
@@ -72,14 +84,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Get ai hosting plan and usages of a customer by planId. */
-    customerGetPlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlan,
-    ),
-    /** Get all ai hosting plans of a customer. */
-    customerGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlans,
     ),
   };
 
@@ -245,6 +249,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
   public readonly container = {
+    /** Add a component to a Stack. */
+    addComponent: this.requestFunctionFactory(
+      descriptors.containerAddComponent,
+    ),
     /** Call pull-image webhook */
     callPullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerCallPullImageWebhookForService,
@@ -315,6 +323,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
     ),
+    /** List Container Template statistics. */
+    listTemplateStatistics: this.requestFunctionFactory(
+      descriptors.containerListTemplateStatistics,
+    ),
     /** List Container Templates. */
     listTemplates: this.requestFunctionFactory(
       descriptors.containerListTemplates,
@@ -347,10 +359,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** List Container Template statistics. */
-    listTemplateStatistics: this.requestFunctionFactory(
-      descriptors.containerListTemplateStatistics,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1325,6 +1333,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     recoverMailAddressEmails: this.requestFunctionFactory(
       descriptors.mailRecoverMailAddressEmails,
     ),
+    /** Request a rate limit change for a MailAddress. */
+    requestMailAddressRateLimitChange: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressRateLimitChange,
+    ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
       descriptors.mailUpdateDeliveryBoxDescription,
@@ -1340,18 +1352,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
-    ),
-    /** Get a Mail RateLimit. */
-    getMailRateLimit: this.requestFunctionFactory(
-      descriptors.mailGetMailRateLimit,
-    ),
-    /** List Mail RateLimits. */
-    listMailRateLimits: this.requestFunctionFactory(
-      descriptors.mailListMailRateLimits,
-    ),
-    /** Request a rate limit change for a MailAddress. */
-    requestMailAddressRateLimitChange: this.requestFunctionFactory(
-      descriptors.mailRequestMailAddressRateLimitChange,
     ),
   };
 
