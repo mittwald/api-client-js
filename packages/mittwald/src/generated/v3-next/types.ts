@@ -8298,7 +8298,8 @@ export declare module MittwaldAPIV3Next {
           | "returnDebitNote"
           | "returnDebitNoteWaitingForPayment"
           | "debtWrittenOff"
-          | "bankrupt";
+          | "bankrupt"
+          | "notReachable";
       }
 
       export interface DeMittwaldInvoicePaymentSettingsDebit {

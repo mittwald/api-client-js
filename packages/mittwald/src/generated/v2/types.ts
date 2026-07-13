@@ -8273,7 +8273,8 @@ export declare module MittwaldAPIV2 {
           | "returnDebitNote"
           | "returnDebitNoteWaitingForPayment"
           | "debtWrittenOff"
-          | "bankrupt";
+          | "bankrupt"
+          | "notReachable";
       }
 
       export interface InvoicePaymentSettingsDebit {
