@@ -11949,7 +11949,7 @@ export declare module MittwaldAPIV2 {
         }
       }
 
-      namespace Patch {
+      namespace Put {
         namespace Parameters {
           export type Path = {
             customerId: string;
@@ -11957,7 +11957,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            name: string;
+            name?: string;
           }
 
           export type Header = {};
@@ -27237,6 +27237,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

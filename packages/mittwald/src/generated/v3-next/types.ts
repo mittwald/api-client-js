@@ -11228,68 +11228,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export interface DeMittwaldActivitylogDnsARecordSetManaged {
-        changes: {
-          after?: {
-            aRecords: {
-              managedByIngressId: string;
-            };
-          };
-          before?: {};
-        };
-        name: "dns.a-record-set-managed";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogDnsDomainDeleted {
-        changes: {};
-        name: "dns.domain-deleted";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogDnsIngressDeleted {
-        changes: {};
-        name: "dns.ingress-deleted";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
-        changes: {
-          after?: {
-            mx: {
-              managed: boolean;
-            };
-          };
-          before?: {};
-        };
-        name: "dns.mx-record-set-managed";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldContainerTemplateStatsListResponse {
-        category?: string;
-        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
-      }
-
-      export interface DeMittwaldContainerTemplateStatsResponse {
-        id: string;
-        installations: number;
-        installations30Days: number;
-      }
-
-      export interface DeMittwaldMailsystemRateLimit {
-        id: string;
-        rateLimit: number;
-      }
-
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
@@ -12054,7 +11992,7 @@ export declare module MittwaldAPIV3Next {
         }
       }
 
-      namespace Patch {
+      namespace Put {
         namespace Parameters {
           export type Path = {
             customerId: string;
@@ -12062,7 +12000,7 @@ export declare module MittwaldAPIV3Next {
           };
 
           export interface RequestBody {
-            name: string;
+            name?: string;
           }
 
           export type Header = {};
@@ -27351,6 +27289,14 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
