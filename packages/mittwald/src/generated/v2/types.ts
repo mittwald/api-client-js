@@ -5007,6 +5007,7 @@ export declare module MittwaldAPIV2 {
         deletedAt?: string;
         keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
         modelTermsApprovalRequired: boolean;
+        name?: string;
         nextTokenReset: string;
         planId?: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
@@ -12650,6 +12651,7 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
                 modelTermsApprovalRequired: boolean;
+                name?: string;
                 nextTokenReset?: string;
                 projectId: string;
               }

@@ -5013,6 +5013,7 @@ export declare module MittwaldAPIV3Next {
         deletedAt?: string;
         keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
         modelTermsApprovalRequired: boolean;
+        name?: string;
         nextTokenReset: string;
         planId?: string;
         rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
@@ -12693,6 +12694,7 @@ export declare module MittwaldAPIV3Next {
               export interface ApplicationJson {
                 keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
                 modelTermsApprovalRequired: boolean;
+                name?: string;
                 nextTokenReset?: string;
                 projectId: string;
               }
