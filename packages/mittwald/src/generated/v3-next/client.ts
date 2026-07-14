@@ -249,10 +249,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
   public readonly container = {
-    /** Add a component to a Stack. */
-    addComponent: this.requestFunctionFactory(
-      descriptors.containerAddComponent,
-    ),
     /** Call pull-image webhook */
     callPullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerCallPullImageWebhookForService,
@@ -322,10 +318,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** List Volumes belonging to a Stack. */
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
-    ),
-    /** List Container Template statistics. */
-    listTemplateStatistics: this.requestFunctionFactory(
-      descriptors.containerListTemplateStatistics,
     ),
     /** List Container Templates. */
     listTemplates: this.requestFunctionFactory(

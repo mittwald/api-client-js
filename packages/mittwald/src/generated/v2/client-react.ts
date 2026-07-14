@@ -259,11 +259,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListStackVolumes,
     baseClient.container.listStackVolumes,
   ).getApiResource,
-  /** List Container Template statistics. */
-  listTemplateStatistics: new ApiCallAsyncResourceFactory(
-    descriptors.containerListTemplateStatistics,
-    baseClient.container.listTemplateStatistics,
-  ).getApiResource,
   /** List Container Templates. */
   listTemplates: new ApiCallAsyncResourceFactory(
     descriptors.containerListTemplates,

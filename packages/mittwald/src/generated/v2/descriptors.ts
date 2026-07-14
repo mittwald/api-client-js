@@ -2431,65 +2431,6 @@ export const backupUpdateProjectBackupDescription: OpenAPIOperation<
   operationId: "backup-update-project-backup-description",
 };
 
-/** Add a component to a Stack. */
-export const containerAddComponent: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdActionsAddComponent.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/stacks/{stackId}/actions/add-component",
-  method: "POST",
-  operationId: "container-add-component",
-};
-
 /** Call pull-image webhook */
 export const containerCallPullImageWebhookForService: OpenAPIOperation<
   RequestType<
@@ -3596,50 +3537,6 @@ export const containerListStackVolumes: OpenAPIOperation<
   path: "/v2/stacks/{stackId}/volumes",
   method: "GET",
   operationId: "container-list-stack-volumes",
-};
-
-/** List Container Template statistics. */
-export const containerListTemplateStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/container-template-statistics",
-  method: "GET",
-  operationId: "container-list-template-statistics",
 };
 
 /** List Container Templates. */
