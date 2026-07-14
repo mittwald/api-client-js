@@ -16728,7 +16728,7 @@ export declare module MittwaldAPIV3Next {
             category?: string;
             searchTerm?: string;
             type?: "component" | "standalone";
-            trend?: "30days" | "all";
+            sortOrder?: "trend30days" | "trendAll";
             limit?: number;
             skip?: number;
             page?: number;
