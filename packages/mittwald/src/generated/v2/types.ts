@@ -18339,6 +18339,16 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             extensionId?: string;
             extensionInstanceId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: (
+              | "createdAt"
+              | "extensionId"
+              | "parentCustomerId"
+              | "contractPartner.company"
+            )[];
+            order?: ("asc" | "desc")[];
           };
         }
         namespace Responses {
@@ -26332,6 +26342,14 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.MarketplaceExtensionInstance;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
