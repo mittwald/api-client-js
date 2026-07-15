@@ -11222,6 +11222,22 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldContainerTemplateStatsResponse {
+        id: string;
+        installations: number;
+        installations30Days: number;
+      }
+
+      export interface DeMittwaldContainerTemplateStatsListResponse {
+        category?: string;
+        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
+      }
+
+      export interface DeMittwaldMailsystemRateLimit {
+        id: string;
+        rateLimit: number;
+      }
+
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
