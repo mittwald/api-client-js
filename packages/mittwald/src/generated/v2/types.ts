@@ -10093,9 +10093,7 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
-            aRecords: {
-              managedByIngressId: string;
-            };
+            aRecords: string;
           };
           before?: {};
         };
@@ -10108,12 +10106,12 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsARecordSet {
         changes: {
           after?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            aRecords?: string[];
+            aaaaRecords?: string[];
           };
           before?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            aRecords?: string[];
+            aaaaRecords?: string[];
           };
         };
         name: "dns.a-record-set";
@@ -10171,9 +10169,7 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
-            mx: {
-              managed: boolean;
-            };
+            mx: string;
           };
           before?: {};
         };

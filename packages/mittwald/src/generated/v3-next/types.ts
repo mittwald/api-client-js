@@ -10126,9 +10126,7 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
-            aRecords: {
-              managedByIngressId: string;
-            };
+            aRecords: string;
           };
           before?: {};
         };
@@ -10141,12 +10139,12 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsARecordSet {
         changes: {
           after?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            aRecords?: string[];
+            aaaaRecords?: string[];
           };
           before?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            aRecords?: string[];
+            aaaaRecords?: string[];
           };
         };
         name: "dns.a-record-set";
@@ -10204,9 +10202,7 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
-            mx: {
-              managed: boolean;
-            };
+            mx: string;
           };
           before?: {};
         };
@@ -11220,22 +11216,6 @@ export declare module MittwaldAPIV3Next {
         parameters: {
           appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
-      }
-
-      export interface DeMittwaldContainerTemplateStatsResponse {
-        id: string;
-        installations: number;
-        installations30Days: number;
-      }
-
-      export interface DeMittwaldContainerTemplateStatsListResponse {
-        category?: string;
-        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
-      }
-
-      export interface DeMittwaldMailsystemRateLimit {
-        id: string;
-        rateLimit: number;
       }
 
       export interface DeMittwaldCommonsAddress {
