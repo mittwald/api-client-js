@@ -3157,75 +3157,6 @@ export const containerGetService: OpenAPIOperation<
   operationId: "container-get-service",
 };
 
-/** Get a Container Template icon. */
-export const containerGetTemplateIcon: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ApplicationOctetStream>,
-      200,
-      "application/octet-stream"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageJpeg>,
-      200,
-      "image/jpeg"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImagePng>,
-      200,
-      "image/png"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageSvgXml>,
-      200,
-      "image/svg+xml"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/container-templates/{templateId}/icon",
-  method: "GET",
-  operationId: "container-get-template-icon",
-};
-
 /** Get a Container Template by ID. */
 export const containerGetTemplate: OpenAPIOperation<
   RequestType<
@@ -18764,50 +18695,6 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** List Container Template statistics. */
-export const containerListTemplateStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/container-template-statistics",
-  method: "GET",
-  operationId: "container-list-template-statistics",
-};
-
 /** Get a Mail RateLimit. */
 export const mailGetMailRateLimit: OpenAPIOperation<
   RequestType<
@@ -18923,4 +18810,73 @@ export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
   path: "/v2/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
   method: "POST",
   operationId: "mail-request-mail-address-rate-limit-change",
+};
+
+/** Get a Container Template asset. */
+export const containerGetTemplateAsset: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageJpeg>,
+      200,
+      "image/jpeg"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImagePng>,
+      200,
+      "image/png"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageSvgXml>,
+      200,
+      "image/svg+xml"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageWebp>,
+      200,
+      "image/webp"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-templates/{templateId}/assets/{assetPath}",
+  method: "GET",
+  operationId: "container-get-template-asset",
 };

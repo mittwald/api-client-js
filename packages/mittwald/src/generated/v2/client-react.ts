@@ -224,11 +224,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetService,
     baseClient.container.getService,
   ).getApiResource,
-  /** Get a Container Template icon. */
-  getTemplateIcon: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplateIcon,
-    baseClient.container.getTemplateIcon,
-  ).getApiResource,
   /** Get a Container Template by ID. */
   getTemplate: new ApiCallAsyncResourceFactory(
     descriptors.containerGetTemplate,
@@ -259,10 +254,10 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
-  /** List Container Template statistics. */
-  listTemplateStatistics: new ApiCallAsyncResourceFactory(
-    descriptors.containerListTemplateStatistics,
-    baseClient.container.listTemplateStatistics,
+  /** Get a Container Template asset. */
+  getTemplateAsset: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetTemplateAsset,
+    baseClient.container.getTemplateAsset,
   ).getApiResource,
 });
 

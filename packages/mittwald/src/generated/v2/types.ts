@@ -759,17 +759,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerGetService, TStatus>;
     }
 
-    namespace ContainerGetTemplateIcon {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateIcon
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetTemplateIcon,
-          TStatus
-        >;
-    }
-
     namespace ContainerGetTemplate {
       type RequestData = InferredRequestData<
         typeof descriptors.containerGetTemplate
@@ -4750,17 +4739,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace ContainerListTemplateStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerListTemplateStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerListTemplateStatistics,
-          TStatus
-        >;
-    }
-
     namespace MailGetMailRateLimit {
       type RequestData = InferredRequestData<
         typeof descriptors.mailGetMailRateLimit
@@ -4787,6 +4765,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.mailRequestMailAddressRateLimitChange,
+          TStatus
+        >;
+    }
+
+    namespace ContainerGetTemplateAsset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplateAsset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetTemplateAsset,
           TStatus
         >;
     }
@@ -5933,6 +5922,11 @@ export declare module MittwaldAPIV2 {
         manifestVersion: string;
         name: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         repository?: string;
+        screenshots?: {
+          bg: string;
+          screenshot: string;
+          text: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+        }[];
         supportLink?: string;
         tagline: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         userInputs?: {
@@ -9637,22 +9631,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseMysqlNameSet {
-        changes: {
-          after?: {
-            name: string;
-          };
-          before?: {
-            name: string | null;
-          };
-        };
-        name: "database.mysql-name-set";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
       export interface ActivitylogDatabaseMysqlUserCreated {
         changes: {
           after?: {
@@ -9714,32 +9692,15 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogDatabaseVersionSet {
-        changes: {
-          after?: {
-            version: string;
-          };
-          before?: {
-            version: string;
-          };
-        };
-        name: "database.mysql-version-set" | "database.redis-version-set";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogDnsARecordSet {
         changes: {
           after?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            aRecords?: string[];
+            aaaaRecords?: string[];
           };
           before?: {
-            aRecords: string[];
-            aaaaRecords: string[];
+            aRecords?: string[];
+            aaaaRecords?: string[];
           };
         };
         name: "dns.a-record-set";
@@ -9955,13 +9916,15 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDescriptionSet
-          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseVersionSet
-          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlNameSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDescriptionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDeleted
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseLinked
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseUnlinked
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareDeleted
@@ -10720,9 +10683,7 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
-            aRecords: {
-              managedByIngressId: string;
-            };
+            aRecords: string;
           };
           before?: {};
         };
@@ -10751,9 +10712,7 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
-            mx: {
-              managed: boolean;
-            };
+            mx: string;
           };
           before?: {};
         };
@@ -10777,6 +10736,61 @@ export declare module MittwaldAPIV2 {
       export interface MailsystemRateLimit {
         id: string;
         rateLimit: number;
+      }
+
+      export interface ActivitylogAppInstallationDatabaseLinked {
+        changes: {
+          after: {
+            database: {};
+          };
+          before: {
+            database: {} | null;
+          };
+        };
+        name: "app.database-linked";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDatabaseUnlinked {
+        changes: {
+          after: {
+            database: {} | null;
+          };
+          before: {
+            database: {};
+          };
+        };
+        name: "app.database-unlinked";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDeleted {
+        changes: {};
+        name: "app.deleted";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDescriptionSet {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "app.description-set";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
       }
 
       export interface CommonsAddress {
@@ -15735,89 +15749,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContainerTemplatesTemplateIdIcon {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            templateId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationOctetStream = string;
-
-              export type ImageJpeg = string;
-
-              export type ImagePng = string;
-
-              export type ImageSvgXml = string;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ContainerTemplatesTemplateId {
       namespace Get {
         namespace Parameters {
@@ -16106,6 +16037,7 @@ export declare module MittwaldAPIV2 {
             category?: string;
             searchTerm?: string;
             type?: "component" | "standalone";
+            sortOrder?: "trend30days" | "trendAll";
             limit?: number;
             skip?: number;
             page?: number;
@@ -39818,68 +39750,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContainerTemplateStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            templateId?: string;
-            category?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsListResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2ContainerTemplateStatistics {}
 
     namespace V2MailRateLimitsMailRateLimitId {
       namespace Get {
@@ -39985,6 +39856,90 @@ export declare module MittwaldAPIV2 {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContainerTemplatesTemplateIdAssetsAssetPath {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+            assetPath: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ImageJpeg = string;
+
+              export type ImagePng = string;
+
+              export type ImageSvgXml = string;
+
+              export type ImageWebp = string;
             }
           }
 
