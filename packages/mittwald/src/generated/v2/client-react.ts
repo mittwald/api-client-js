@@ -234,10 +234,10 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetService,
     baseClient.container.getService,
   ).getApiResource,
-  /** Get a Container Template icon. */
-  getTemplateIcon: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplateIcon,
-    baseClient.container.getTemplateIcon,
+  /** Get a Container Template asset. */
+  getTemplateAsset: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetTemplateAsset,
+    baseClient.container.getTemplateAsset,
   ).getApiResource,
   /** Get a Container Template by ID. */
   getTemplate: new ApiCallAsyncResourceFactory(
@@ -917,16 +917,6 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   listProjectMailSettings: new ApiCallAsyncResourceFactory(
     descriptors.mailListProjectMailSettings,
     baseClient.mail.listProjectMailSettings,
-  ).getApiResource,
-  /** Get a Migration. */
-  migrationGetMigration: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationGetMigration,
-    baseClient.mail.migrationGetMigration,
-  ).getApiResource,
-  /** List Migrations belonging to a Project in customer center or mStudio. */
-  migrationListMigrations: new ApiCallAsyncResourceFactory(
-    descriptors.mailMigrationListMigrations,
-    baseClient.mail.migrationListMigrations,
   ).getApiResource,
 });
 

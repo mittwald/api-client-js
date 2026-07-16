@@ -792,13 +792,13 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.containerGetService, TStatus>;
     }
 
-    namespace ContainerGetTemplateIcon {
+    namespace ContainerGetTemplateAsset {
       type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateIcon
+        typeof descriptors.containerGetTemplateAsset
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.containerGetTemplateIcon,
+          typeof descriptors.containerGetTemplateAsset,
           TStatus
         >;
     }
@@ -6055,6 +6055,11 @@ export declare module MittwaldAPIV2 {
         manifestVersion: string;
         name: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         repository?: string;
+        screenshots?: {
+          bg: string;
+          screenshot: string;
+          text: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+        }[];
         supportLink?: string;
         tagline: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
         userInputs?: {
@@ -7357,6 +7362,7 @@ export declare module MittwaldAPIV2 {
        * * `insufficientState`: the COAB data is incomplete (e.g. missing registrar, price or owner) or the domain is still reserved at the registry.
        * * `contractDateOutOfRange`: the COAB contract's next-period date is in the past or more than two years in the future.
        * * `invalidDomainName`: the COAB domain name does not match the `idn-naked-domain` format we accept.
+       * * `ownerContactInvalid`: the domain's owner contact data (Inhaberdaten) failed validation at the registry/domain-service (invalid characters, or a TLD-specific contact-schema rule such as no consecutive whitespaces), so the migration is rejected. `ownerContactIssues` on the domain carries the affected field(s)/rule(s).
        */
       export type DomainmigrationDomainNotMigratableReason =
         | "needEpp"
@@ -7367,7 +7373,8 @@ export declare module MittwaldAPIV2 {
         | "notOrderable"
         | "insufficientState"
         | "contractDateOutOfRange"
-        | "invalidDomainName";
+        | "invalidDomainName"
+        | "ownerContactInvalid";
 
       /**
        * A non-migratable-domain failure: one selected domain cannot be migrated. type is always domainNotMigratable, path is the affected domain, and context.reason carries the typed reason code.
@@ -7414,6 +7421,7 @@ export declare module MittwaldAPIV2 {
         hostname: string;
         issues: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason[];
         migratable: false;
+        ownerContactIssues: MittwaldAPIV2.Components.Schemas.DomainmigrationOwnerContactIssue[];
         warnings?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarning[];
       }
 
@@ -9918,6 +9926,61 @@ export declare module MittwaldAPIV2 {
 
       export type PolicyPolicy = string;
 
+      export interface ActivitylogAppInstallationDatabaseLinked {
+        changes: {
+          after: {
+            database: {};
+          };
+          before: {
+            database: {} | null;
+          };
+        };
+        name: "app.database-linked";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDatabaseUnlinked {
+        changes: {
+          after: {
+            database: {} | null;
+          };
+          before: {
+            database: {};
+          };
+        };
+        name: "app.database-unlinked";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDeleted {
+        changes: {};
+        name: "app.deleted";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDescriptionSet {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "app.description-set";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogAppInstallationCopyRequested {
         name: "app.copy-requested";
         parameters: {
@@ -11120,59 +11183,18 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface ActivitylogAppInstallationDatabaseLinked {
-        changes: {
-          after: {
-            database: {};
-          };
-          before: {
-            database: {} | null;
-          };
-        };
-        name: "app.database-linked";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAppInstallationDatabaseUnlinked {
-        changes: {
-          after: {
-            database: {} | null;
-          };
-          before: {
-            database: {};
-          };
-        };
-        name: "app.database-unlinked";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAppInstallationDeleted {
-        changes: {};
-        name: "app.deleted";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogAppInstallationDescriptionSet {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name: "app.description-set";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
+      /**
+       * One invalid owner contact field behind an ownerContactInvalid issue. A consumer can show a generic 'owner contact invalid' message and append a field-/rule-specific hint via translation.
+       */
+      export interface DomainmigrationOwnerContactIssue {
+        /**
+         * The affected owner contact field, e.g. street, name, zip.
+         */
+        field: string;
+        /**
+         * Stable title of the violated contact-schema rule - a translation key for consumers. Absent for the general character validation, which has no such rule title (hence optional).
+         */
+        schemaTitle?: string;
       }
 
       export interface CommonsAddress {
@@ -16310,11 +16332,12 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContainerTemplatesTemplateIdIcon {
+    namespace V2ContainerTemplatesTemplateIdAssetsAssetPath {
       namespace Get {
         namespace Parameters {
           export type Path = {
             templateId: string;
+            assetPath: string;
           };
 
           export type Header = {};
@@ -16324,13 +16347,13 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationOctetStream = string;
-
               export type ImageJpeg = string;
 
               export type ImagePng = string;
 
               export type ImageSvgXml = string;
+
+              export type ImageWebp = string;
             }
           }
 
@@ -16669,6 +16692,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ContainerTemplateStatistics {}
 
     namespace V2ContainerTemplates {
       namespace Get {
@@ -23703,6 +23728,8 @@ export declare module MittwaldAPIV2 {
     namespace V2AppInstallationsAppInstallationIdActionsAction {}
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
+
+    namespace V2ContainerTemplatesTemplateIdIcon {}
 
     namespace V2ActionsValidateContainerRegistryUri {}
 
@@ -32468,6 +32495,8 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectsProjectIdMailsettings {}
 
     namespace V2ProjectsProjectIdMailSettings {
       namespace Get {
