@@ -224,6 +224,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetService,
     baseClient.container.getService,
   ).getApiResource,
+  /** Get a Container Template asset. */
+  getTemplateAsset: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetTemplateAsset,
+    baseClient.container.getTemplateAsset,
+  ).getApiResource,
   /** Get a Container Template by ID. */
   getTemplate: new ApiCallAsyncResourceFactory(
     descriptors.containerGetTemplate,
@@ -253,11 +258,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** Get a Container Template asset. */
-  getTemplateAsset: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplateAsset,
-    baseClient.container.getTemplateAsset,
   ).getApiResource,
 });
 
@@ -878,6 +878,11 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailGetMailAddress,
     baseClient.mail.getMailAddress,
   ).getApiResource,
+  /** Get a Mail RateLimit. */
+  getMailRateLimit: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailRateLimit,
+    baseClient.mail.getMailRateLimit,
+  ).getApiResource,
   /** List backups belonging to a MailAddress. */
   listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
     descriptors.mailListBackupsForMailAddress,
@@ -888,20 +893,15 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.mailListMailAddressesForUser,
     baseClient.mail.listMailAddressesForUser,
   ).getApiResource,
-  /** List mail settings of a Project. */
-  listProjectMailSettings: new ApiCallAsyncResourceFactory(
-    descriptors.mailListProjectMailSettings,
-    baseClient.mail.listProjectMailSettings,
-  ).getApiResource,
-  /** Get a Mail RateLimit. */
-  getMailRateLimit: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetMailRateLimit,
-    baseClient.mail.getMailRateLimit,
-  ).getApiResource,
   /** List Mail RateLimits. */
   listMailRateLimits: new ApiCallAsyncResourceFactory(
     descriptors.mailListMailRateLimits,
     baseClient.mail.listMailRateLimits,
+  ).getApiResource,
+  /** List mail settings of a Project. */
+  listProjectMailSettings: new ApiCallAsyncResourceFactory(
+    descriptors.mailListProjectMailSettings,
+    baseClient.mail.listProjectMailSettings,
   ).getApiResource,
 });
 

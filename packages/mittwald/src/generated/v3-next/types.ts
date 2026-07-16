@@ -7231,6 +7231,7 @@ export declare module MittwaldAPIV3Next {
        * * `insufficientState`: the COAB data is incomplete (e.g. missing registrar, price or owner) or the domain is still reserved at the registry.
        * * `contractDateOutOfRange`: the COAB contract's next-period date is in the past or more than two years in the future.
        * * `invalidDomainName`: the COAB domain name does not match the `idn-naked-domain` format we accept.
+       * * `ownerContactInvalid`: the domain's owner contact data (Inhaberdaten) failed validation at the registry/domain-service (invalid characters, or a TLD-specific contact-schema rule such as no consecutive whitespaces), so the migration is rejected. `ownerContactIssues` on the domain carries the affected field(s)/rule(s).
        */
       export type DeMittwaldDomainmigrationDomainNotMigratableReason =
         | "needEpp"
@@ -7241,7 +7242,8 @@ export declare module MittwaldAPIV3Next {
         | "notOrderable"
         | "insufficientState"
         | "contractDateOutOfRange"
-        | "invalidDomainName";
+        | "invalidDomainName"
+        | "ownerContactInvalid";
 
       /**
        * A non-migratable-domain failure: one selected domain cannot be migrated. type is always domainNotMigratable, path is the affected domain, and context.reason carries the typed reason code.
@@ -7288,6 +7290,7 @@ export declare module MittwaldAPIV3Next {
         hostname: string;
         issues: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDomainNotMigratableReason[];
         migratable: false;
+        ownerContactIssues: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationOwnerContactIssue[];
         warnings?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDomainMigrationWarning[];
       }
 
@@ -10828,6 +10831,20 @@ export declare module MittwaldAPIV3Next {
         parameters: {
           appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
+      }
+
+      /**
+       * One invalid owner contact field behind an ownerContactInvalid issue. A consumer can show a generic 'owner contact invalid' message and append a field-/rule-specific hint via translation.
+       */
+      export interface DeMittwaldDomainmigrationOwnerContactIssue {
+        /**
+         * The affected owner contact field, e.g. street, name, zip.
+         */
+        field: string;
+        /**
+         * Stable title of the violated contact-schema rule - a translation key for consumers. Absent for the general character validation, which has no such rule title (hence optional).
+         */
+        schemaTitle?: string;
       }
 
       export interface DeMittwaldCommonsAddress {
@@ -39878,5 +39895,7 @@ export declare module MittwaldAPIV3Next {
         }
       }
     }
+
+    namespace V3NextContainerTemplatesTemplateIdIcon {}
   }
 }
