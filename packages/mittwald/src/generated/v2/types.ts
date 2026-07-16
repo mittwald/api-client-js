@@ -7425,6 +7425,20 @@ export declare module MittwaldAPIV2 {
         warnings?: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainMigrationWarning[];
       }
 
+      /**
+       * One invalid owner contact field behind an ownerContactInvalid issue. A consumer can show a generic 'owner contact invalid' message and append a field-/rule-specific hint via translation.
+       */
+      export interface DomainmigrationOwnerContactIssue {
+        /**
+         * The affected owner contact field, e.g. street, name, zip.
+         */
+        field: string;
+        /**
+         * Stable title of the violated contact-schema rule - a translation key for consumers. Absent for the general character validation, which has no such rule title (hence optional).
+         */
+        schemaTitle?: string;
+      }
+
       export interface DomainmigrationSubdomain {
         dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
         hostname: string;
@@ -8151,6 +8165,8 @@ export declare module MittwaldAPIV2 {
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+          purgeScopes?: boolean;
+          purgeWebhookUrls?: boolean;
           scopes?: string[];
           webhookUrls?:
             | MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls
@@ -11182,20 +11198,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      /**
-       * One invalid owner contact field behind an ownerContactInvalid issue. A consumer can show a generic 'owner contact invalid' message and append a field-/rule-specific hint via translation.
-       */
-      export interface DomainmigrationOwnerContactIssue {
-        /**
-         * The affected owner contact field, e.g. street, name, zip.
-         */
-        field: string;
-        /**
-         * Stable title of the violated contact-schema rule - a translation key for consumers. Absent for the general character validation, which has no such rule title (hence optional).
-         */
-        schemaTitle?: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -32495,8 +32497,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ProjectsProjectIdMailsettings {}
 
     namespace V2ProjectsProjectIdMailSettings {
       namespace Get {

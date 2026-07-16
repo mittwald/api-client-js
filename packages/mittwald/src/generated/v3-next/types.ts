@@ -792,6 +792,17 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.containerGetService, TStatus>;
     }
 
+    namespace ContainerGetTemplateAsset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetTemplateAsset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetTemplateAsset,
+          TStatus
+        >;
+    }
+
     namespace ContainerGetTemplate {
       type RequestData = InferredRequestData<
         typeof descriptors.containerGetTemplate
@@ -4895,47 +4906,6 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
-
-    namespace MailGetMailRateLimit {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailGetMailRateLimit
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.mailGetMailRateLimit, TStatus>;
-    }
-
-    namespace MailListMailRateLimits {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailListMailRateLimits
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailListMailRateLimits,
-          TStatus
-        >;
-    }
-
-    namespace MailRequestMailAddressRateLimitChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.mailRequestMailAddressRateLimitChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.mailRequestMailAddressRateLimitChange,
-          TStatus
-        >;
-    }
-
-    namespace ContainerGetTemplateAsset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateAsset
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetTemplateAsset,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7474,6 +7444,20 @@ export declare module MittwaldAPIV3Next {
         warnings?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDomainMigrationWarning[];
       }
 
+      /**
+       * One invalid owner contact field behind an ownerContactInvalid issue. A consumer can show a generic 'owner contact invalid' message and append a field-/rule-specific hint via translation.
+       */
+      export interface DeMittwaldDomainmigrationOwnerContactIssue {
+        /**
+         * The affected owner contact field, e.g. street, name, zip.
+         */
+        field: string;
+        /**
+         * Stable title of the violated contact-schema rule - a translation key for consumers. Absent for the general character validation, which has no such rule title (hence optional).
+         */
+        schemaTitle?: string;
+      }
+
       export interface DeMittwaldDomainmigrationSubdomain {
         dnsRecords: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDNSRecord[];
         hostname: string;
@@ -8210,6 +8194,8 @@ export declare module MittwaldAPIV3Next {
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContext;
+          purgeScopes?: boolean;
+          purgeWebhookUrls?: boolean;
           scopes?: string[];
           webhookUrls?:
             | MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookUrls
@@ -9989,6 +9975,61 @@ export declare module MittwaldAPIV3Next {
 
       export type DeMittwaldPolicyPolicy = string;
 
+      export interface DeMittwaldActivitylogAppInstallationDatabaseLinked {
+        changes: {
+          after: {
+            database: {};
+          };
+          before: {
+            database: {} | null;
+          };
+        };
+        name: "app.database-linked";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogAppInstallationDatabaseUnlinked {
+        changes: {
+          after: {
+            database: {} | null;
+          };
+          before: {
+            database: {};
+          };
+        };
+        name: "app.database-unlinked";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogAppInstallationDeleted {
+        changes: {};
+        name: "app.deleted";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogAppInstallationDescriptionSet {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "app.description-set";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogAppInstallationCopyRequested {
         name: "app.copy-requested";
         parameters: {
@@ -10158,6 +10199,19 @@ export declare module MittwaldAPIV3Next {
           databaseName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogDnsARecordSetManaged {
+        changes: {
+          after?: {
+            aRecords: string;
+          };
+          before?: {};
+        };
+        name: "dns.a-record-set-managed";
+        parameters: {
+          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
       }
 
@@ -11187,172 +11241,6 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface DeMittwaldActivitylogAppInstallationDatabaseLinked {
-        changes: {
-          after: {
-            database: {};
-          };
-          before: {
-            database: {} | null;
-          };
-        };
-        name: "app.database-linked";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDatabaseUnlinked {
-        changes: {
-          after: {
-            database: {} | null;
-          };
-          before: {
-            database: {};
-          };
-        };
-        name: "app.database-unlinked";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDeleted {
-        changes: {};
-        name: "app.deleted";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDescriptionSet {
-        changes: {
-          after?: {
-            aRecords: string;
-          };
-          before?: {};
-        };
-        name: "dns.a-record-set-managed";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogDnsDomainDeleted {
-        changes: {};
-        name: "dns.domain-deleted";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogDnsIngressDeleted {
-        changes: {};
-        name: "dns.ingress-deleted";
-        parameters: {
-          domain: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
-        changes: {
-          after?: {
-            mx: string;
-          };
-        };
-        name: "app.description-set";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldContainerTemplateStatsListResponse {
-        category?: string;
-        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
-      }
-
-      export interface DeMittwaldContainerTemplateStatsResponse {
-        id: string;
-        installations: number;
-        installations30Days: number;
-      }
-
-      export interface DeMittwaldMailsystemRateLimit {
-        id: string;
-        rateLimit: number;
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDatabaseLinked {
-        changes: {
-          after: {
-            database: {};
-          };
-          before: {
-            database: {} | null;
-          };
-        };
-        name: "app.database-linked";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDatabaseUnlinked {
-        changes: {
-          after: {
-            database: {} | null;
-          };
-          before: {
-            database: {};
-          };
-        };
-        name: "app.database-unlinked";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDeleted {
-        changes: {};
-        name: "app.deleted";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogAppInstallationDescriptionSet {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name: "app.description-set";
-        parameters: {
-          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      /**
-       * One invalid owner contact field behind an ownerContactInvalid issue. A consumer can show a generic 'owner contact invalid' message and append a field-/rule-specific hint via translation.
-       */
-      export interface DeMittwaldDomainmigrationOwnerContactIssue {
-        /**
-         * The affected owner contact field, e.g. street, name, zip.
-         */
-        field: string;
-        /**
-         * Stable title of the violated contact-schema rule - a translation key for consumers. Absent for the general character validation, which has no such rule title (hence optional).
-         */
-        schemaTitle?: string;
-      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -16489,6 +16377,90 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextContainerTemplatesTemplateIdAssetsAssetPath {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+            assetPath: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ImageJpeg = string;
+
+              export type ImagePng = string;
+
+              export type ImageSvgXml = string;
+
+              export type ImageWebp = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextContainerTemplatesTemplateId {
       namespace Get {
         namespace Parameters {
@@ -16765,6 +16737,8 @@ export declare module MittwaldAPIV3Next {
         }
       }
     }
+
+    namespace V3NextContainerTemplateStatistics {}
 
     namespace V3NextContainerTemplates {
       namespace Get {
@@ -23799,6 +23773,8 @@ export declare module MittwaldAPIV3Next {
     namespace V3NextAppInstallationsAppInstallationIdActionsAction {}
 
     namespace V3NextAppinstallationsAppInstallationIdDatabases {}
+
+    namespace V3NextContainerTemplatesTemplateIdIcon {}
 
     namespace V3NextActionsValidateContainerRegistryUri {}
 
@@ -40994,259 +40970,5 @@ export declare module MittwaldAPIV3Next {
         }
       }
     }
-
-    namespace V3NextContainerTemplateStatistics {}
-
-    namespace V3NextMailRateLimitsMailRateLimitId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            mailRateLimitId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailsystemRateLimit;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextMailRateLimits {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailsystemRateLimit[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            mailAddressId: string;
-          };
-
-          export interface RequestBody {
-            rateLimitId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextContainerTemplatesTemplateIdAssetsAssetPath {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            templateId: string;
-            assetPath: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ImageJpeg = string;
-
-              export type ImagePng = string;
-
-              export type ImageSvgXml = string;
-
-              export type ImageWebp = string;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextContainerTemplatesTemplateIdIcon {}
   }
 }

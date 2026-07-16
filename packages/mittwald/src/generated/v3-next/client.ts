@@ -301,6 +301,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
+    /** Get a Container Template asset. */
+    getTemplateAsset: this.requestFunctionFactory(
+      descriptors.containerGetTemplateAsset,
+    ),
     /** Get a Container Template by ID. */
     getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
     /** List Stacks belonging to the executing user. */
@@ -347,10 +351,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Get a Container Template asset. */
-    getTemplateAsset: this.requestFunctionFactory(
-      descriptors.containerGetTemplateAsset,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */

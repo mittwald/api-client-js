@@ -3289,6 +3289,75 @@ export const containerGetService: OpenAPIOperation<
   operationId: "container-get-service",
 };
 
+/** Get a Container Template asset. */
+export const containerGetTemplateAsset: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageJpeg>,
+      200,
+      "image/jpeg"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImagePng>,
+      200,
+      "image/png"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageSvgXml>,
+      200,
+      "image/svg+xml"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageWebp>,
+      200,
+      "image/webp"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/container-templates/{templateId}/assets/{assetPath}",
+  method: "GET",
+  operationId: "container-get-template-asset",
+};
+
 /** Get a Container Template by ID. */
 export const containerGetTemplate: OpenAPIOperation<
   RequestType<
@@ -19239,190 +19308,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get a Mail RateLimit. */
-export const mailGetMailRateLimit: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mail-rate-limits/{mailRateLimitId}",
-  method: "GET",
-  operationId: "mail-get-mail-rate-limit",
-};
-
-/** List Mail RateLimits. */
-export const mailListMailRateLimits: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mail-rate-limits",
-  method: "GET",
-  operationId: "mail-list-mail-rate-limits",
-};
-
-/** Request a rate limit change for a MailAddress. */
-export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
-  method: "POST",
-  operationId: "mail-request-mail-address-rate-limit-change",
-};
-
-/** Get a Container Template asset. */
-export const containerGetTemplateAsset: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageJpeg>,
-      200,
-      "image/jpeg"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImagePng>,
-      200,
-      "image/png"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageSvgXml>,
-      200,
-      "image/svg+xml"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageWebp>,
-      200,
-      "image/webp"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/container-templates/{templateId}/assets/{assetPath}",
-  method: "GET",
-  operationId: "container-get-template-asset",
 };
