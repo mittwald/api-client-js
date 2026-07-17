@@ -289,10 +289,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
-    /** Get a Container Template asset. */
-    getTemplateAsset: this.requestFunctionFactory(
-      descriptors.containerGetTemplateAsset,
-    ),
     /** Get a Container Template by ID. */
     getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
     /** List Stacks belonging to the executing user. */
@@ -339,6 +335,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Get a Container Template asset. */
+    getTemplateAsset: this.requestFunctionFactory(
+      descriptors.containerGetTemplateAsset,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1257,10 +1257,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     disableMailArchive: this.requestFunctionFactory(
       descriptors.mailDisableMailArchive,
     ),
-    /** Get a Mail RateLimit. */
-    getMailRateLimit: this.requestFunctionFactory(
-      descriptors.mailGetMailRateLimit,
-    ),
     /** List backups belonging to a MailAddress. */
     listBackupsForMailAddress: this.requestFunctionFactory(
       descriptors.mailListBackupsForMailAddress,
@@ -1269,10 +1265,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listMailAddressesForUser: this.requestFunctionFactory(
       descriptors.mailListMailAddressesForUser,
     ),
-    /** List Mail RateLimits. */
-    listMailRateLimits: this.requestFunctionFactory(
-      descriptors.mailListMailRateLimits,
-    ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
       descriptors.mailListProjectMailSettings,
@@ -1280,10 +1272,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Recover emails for a MailAddress from a backup. */
     recoverMailAddressEmails: this.requestFunctionFactory(
       descriptors.mailRecoverMailAddressEmails,
-    ),
-    /** Request a rate limit change for a MailAddress. */
-    requestMailAddressRateLimitChange: this.requestFunctionFactory(
-      descriptors.mailRequestMailAddressRateLimitChange,
     ),
     /** Update the description of a DeliveryBox. */
     updateDeliveryBoxDescription: this.requestFunctionFactory(
@@ -1300,6 +1288,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the catch-all of a MailAddress. */
     updateMailAddressCatchAll: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressCatchAll,
+    ),
+    /** Get a Mail RateLimit. */
+    getMailRateLimit: this.requestFunctionFactory(
+      descriptors.mailGetMailRateLimit,
+    ),
+    /** List Mail RateLimits. */
+    listMailRateLimits: this.requestFunctionFactory(
+      descriptors.mailListMailRateLimits,
+    ),
+    /** Request a rate limit change for a MailAddress. */
+    requestMailAddressRateLimitChange: this.requestFunctionFactory(
+      descriptors.mailRequestMailAddressRateLimitChange,
     ),
   };
 

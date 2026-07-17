@@ -7776,6 +7776,8 @@ export declare module MittwaldAPIV3Next {
         published: boolean;
         requestedChanges?: {
           context?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContext;
+          purgeScopes?: boolean;
+          purgeWebhookUrls?: boolean;
           scopes?: string[];
           webhookUrls?:
             | MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookUrls
@@ -10762,15 +10764,15 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
-      export interface DeMittwaldContainerTemplateStatsListResponse {
-        category?: string;
-        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
-      }
-
       export interface DeMittwaldContainerTemplateStatsResponse {
         id: string;
         installations: number;
         installations30Days: number;
+      }
+
+      export interface DeMittwaldContainerTemplateStatsListResponse {
+        category?: string;
+        templates?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsResponse[];
       }
 
       export interface DeMittwaldMailsystemRateLimit {
