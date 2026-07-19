@@ -10727,15 +10727,15 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ContainerTemplateStatsListResponse {
+        category?: string;
+        templates?: MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse[];
+      }
+
       export interface ContainerTemplateStatsResponse {
         id: string;
         installations: number;
         installations30Days: number;
-      }
-
-      export interface ContainerTemplateStatsListResponse {
-        category?: string;
-        templates?: MittwaldAPIV2.Components.Schemas.ContainerTemplateStatsResponse[];
       }
 
       export interface MailsystemRateLimit {
