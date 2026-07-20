@@ -961,10 +961,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a MySQLUser. */
     getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
-    /** Update a MySQLUser. */
-    replaceMysqlUser: this.requestFunctionFactory(
-      descriptors.databaseReplaceMysqlUser,
-    ),
     /** Delete a MySQLUser. */
     deleteMysqlUser: this.requestFunctionFactory(
       descriptors.databaseDeleteMysqlUser,
@@ -1008,10 +1004,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** List RedisVersions. */
     listRedisVersions: this.requestFunctionFactory(
       descriptors.databaseListRedisVersions,
-    ),
-    /** Update a MySQLUser's password. */
-    updateMysqlUserPassword: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlUserPassword,
     ),
   };
 

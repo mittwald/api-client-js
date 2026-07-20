@@ -1879,17 +1879,6 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.databaseGetMysqlUser, TStatus>;
     }
 
-    namespace DatabaseReplaceMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseReplaceMysqlUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseReplaceMysqlUser,
-          TStatus
-        >;
-    }
-
     namespace DatabaseDeleteMysqlUser {
       type RequestData = InferredRequestData<
         typeof descriptors.databaseDeleteMysqlUser
@@ -2007,17 +1996,6 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.databaseListRedisVersions,
-          TStatus
-        >;
-    }
-
-    namespace DatabaseUpdateMysqlUserPassword {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlUserPassword
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateMysqlUserPassword,
           TStatus
         >;
     }
@@ -22137,65 +22115,6 @@ export declare module MittwaldAPIV3Next {
         }
       }
 
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            mysqlUserId: string;
-          };
-
-          export interface RequestBody {
-            accessIpMask?: string;
-            accessLevel: "full" | "readonly";
-            description: string;
-            externalAccess?: boolean;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
       namespace Delete {
         namespace Parameters {
           export type Path = {
@@ -22787,64 +22706,6 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV3Next.Components.Schemas.DeMittwaldDatabaseRedisVersion[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextMysqlUsersMysqlUserIdPassword {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            mysqlUserId: string;
-          };
-
-          export interface RequestBody {
-            password: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
             }
           }
 
