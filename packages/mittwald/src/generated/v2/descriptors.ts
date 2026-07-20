@@ -3157,6 +3157,75 @@ export const containerGetService: OpenAPIOperation<
   operationId: "container-get-service",
 };
 
+/** Get a Container Template asset. */
+export const containerGetTemplateAsset: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageJpeg>,
+      200,
+      "image/jpeg"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImagePng>,
+      200,
+      "image/png"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageSvgXml>,
+      200,
+      "image/svg+xml"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageWebp>,
+      200,
+      "image/webp"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-templates/{templateId}/assets/{assetPath}",
+  method: "GET",
+  operationId: "container-get-template-asset",
+};
+
 /** Get a Container Template by ID. */
 export const containerGetTemplate: OpenAPIOperation<
   RequestType<
@@ -7411,7 +7480,7 @@ export const databaseGetMysqlUser: OpenAPIOperation<
 };
 
 /** Update a MySQLUser. */
-export const databaseUpdateMysqlUser: OpenAPIOperation<
+export const databaseReplaceMysqlUser: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Path>,
@@ -7446,7 +7515,7 @@ export const databaseUpdateMysqlUser: OpenAPIOperation<
 > = {
   path: "/v2/mysql-users/{mysqlUserId}",
   method: "PUT",
-  operationId: "database-update-mysql-user",
+  operationId: "database-replace-mysql-user",
 };
 
 /** Delete a MySQLUser. */
@@ -7486,6 +7555,45 @@ export const databaseDeleteMysqlUser: OpenAPIOperation<
   path: "/v2/mysql-users/{mysqlUserId}",
   method: "DELETE",
   operationId: "database-delete-mysql-user",
+};
+
+/** Update a MySQLUser. */
+export const databaseUpdateMysqlUser: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{mysqlUserId}",
+  method: "PATCH",
+  operationId: "database-update-mysql-user",
 };
 
 /** Get a RedisDatabase. */
@@ -7854,84 +7962,6 @@ export const databaseListRedisVersions: OpenAPIOperation<
   operationId: "database-list-redis-versions",
 };
 
-/** Update a MySQLDatabase's default character settings. */
-export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mysql-databases/{mysqlDatabaseId}/default-charset",
-  method: "PATCH",
-  operationId: "database-update-mysql-database-default-charset",
-};
-
-/** Update a MySQLDatabase's description. */
-export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mysql-databases/{mysqlDatabaseId}/description",
-  method: "PATCH",
-  operationId: "database-update-mysql-database-description",
-};
-
 /** Update a MySQLUser's password. */
 export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
   RequestType<
@@ -7969,84 +7999,6 @@ export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
   path: "/v2/mysql-users/{mysqlUserId}/password",
   method: "PATCH",
   operationId: "database-update-mysql-user-password",
-};
-
-/** Update a RedisDatabase's configuration. */
-export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/redis-databases/{redisDatabaseId}/configuration",
-  method: "PATCH",
-  operationId: "database-update-redis-database-configuration",
-};
-
-/** Update a RedisDatabase's description. */
-export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/redis-databases/{redisDatabaseId}/description",
-  method: "PATCH",
-  operationId: "database-update-redis-database-description",
 };
 
 /** List Domains */
@@ -13364,6 +13316,40 @@ export const mailDisableMailArchive: OpenAPIOperation<
   operationId: "mail-disable-mail-archive",
 };
 
+/** Get a Mail RateLimit. */
+export const mailGetMailRateLimit: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-rate-limits/{mailRateLimitId}",
+  method: "GET",
+  operationId: "mail-get-mail-rate-limit",
+};
+
 /** List backups belonging to a MailAddress. */
 export const mailListBackupsForMailAddress: OpenAPIOperation<
   RequestType<
@@ -13467,6 +13453,35 @@ export const mailListMailAddressesForUser: OpenAPIOperation<
   operationId: "mail-list-mail-addresses-for-user",
 };
 
+/** List Mail RateLimits. */
+export const mailListMailRateLimits: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-rate-limits",
+  method: "GET",
+  operationId: "mail-list-mail-rate-limits",
+};
+
 /** List mail settings of a Project. */
 export const mailListProjectMailSettings: OpenAPIOperation<
   RequestType<
@@ -13558,6 +13573,60 @@ export const mailRecoverMailAddressEmails: OpenAPIOperation<
   path: "/v2/mail-addresses/{mailAddressId}/backups/{backupId}/recovery",
   method: "POST",
   operationId: "mail-recover-mail-address-emails",
+};
+
+/** Request a rate limit change for a MailAddress. */
+export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
+  method: "POST",
+  operationId: "mail-request-mail-address-rate-limit-change",
 };
 
 /** Update the description of a DeliveryBox. */
@@ -18693,190 +18762,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get a Mail RateLimit. */
-export const mailGetMailRateLimit: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimitsMailRateLimitId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-rate-limits/{mailRateLimitId}",
-  method: "GET",
-  operationId: "mail-get-mail-rate-limit",
-};
-
-/** List Mail RateLimits. */
-export const mailListMailRateLimits: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailRateLimits.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-rate-limits",
-  method: "GET",
-  operationId: "mail-list-mail-rate-limits",
-};
-
-/** Request a rate limit change for a MailAddress. */
-export const mailRequestMailAddressRateLimitChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdActionsRequestRateLimitChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/mail-addresses/{mailAddressId}/actions/request-rate-limit-change",
-  method: "POST",
-  operationId: "mail-request-mail-address-rate-limit-change",
-};
-
-/** Get a Container Template asset. */
-export const containerGetTemplateAsset: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageJpeg>,
-      200,
-      "image/jpeg"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImagePng>,
-      200,
-      "image/png"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageSvgXml>,
-      200,
-      "image/svg+xml"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageWebp>,
-      200,
-      "image/webp"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/container-templates/{templateId}/assets/{assetPath}",
-  method: "GET",
-  operationId: "container-get-template-asset",
 };
