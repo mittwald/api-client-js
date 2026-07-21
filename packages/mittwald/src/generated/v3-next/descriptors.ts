@@ -8055,8 +8055,8 @@ export const databaseListRedisVersions: OpenAPIOperation<
   operationId: "database-list-redis-versions",
 };
 
-/** List Domains */
-export const domainListDomains: OpenAPIOperation<
+/** List domains. */
+export const domainServiceNextListDomains: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Get.Parameters.Path>,

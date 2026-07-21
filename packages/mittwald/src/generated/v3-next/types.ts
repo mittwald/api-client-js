@@ -2044,7 +2044,7 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
-    namespace DomainListDomains {
+    namespace DomainServiceNextListDomains {
       type RequestData = InferredRequestData<
         typeof descriptors.domainServiceNextListDomains
       >;
