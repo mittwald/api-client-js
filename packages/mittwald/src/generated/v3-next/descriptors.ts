@@ -7611,45 +7611,6 @@ export const databaseGetMysqlUser: OpenAPIOperation<
   operationId: "database-get-mysql-user",
 };
 
-/** Update a MySQLUser. */
-export const databaseUpdateMysqlUser: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mysql-users/{mysqlUserId}",
-  method: "PUT",
-  operationId: "database-update-mysql-user",
-};
-
 /** Delete a MySQLUser. */
 export const databaseDeleteMysqlUser: OpenAPIOperation<
   RequestType<
@@ -7687,6 +7648,45 @@ export const databaseDeleteMysqlUser: OpenAPIOperation<
   path: "/v3-next/mysql-users/{mysqlUserId}",
   method: "DELETE",
   operationId: "database-delete-mysql-user",
+};
+
+/** Update a MySQLUser. */
+export const databaseUpdateMysqlUser: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mysql-users/{mysqlUserId}",
+  method: "PATCH",
+  operationId: "database-update-mysql-user",
 };
 
 /** Get a RedisDatabase. */
@@ -8055,203 +8055,8 @@ export const databaseListRedisVersions: OpenAPIOperation<
   operationId: "database-list-redis-versions",
 };
 
-/** Update a MySQLDatabase's default character settings. */
-export const databaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mysql-databases/{mysqlDatabaseId}/default-charset",
-  method: "PATCH",
-  operationId: "database-update-mysql-database-default-charset",
-};
-
-/** Update a MySQLDatabase's description. */
-export const databaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mysql-databases/{mysqlDatabaseId}/description",
-  method: "PATCH",
-  operationId: "database-update-mysql-database-description",
-};
-
-/** Update a MySQLUser's password. */
-export const databaseUpdateMysqlUserPassword: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/mysql-users/{mysqlUserId}/password",
-  method: "PATCH",
-  operationId: "database-update-mysql-user-password",
-};
-
-/** Update a RedisDatabase's configuration. */
-export const databaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/redis-databases/{redisDatabaseId}/configuration",
-  method: "PATCH",
-  operationId: "database-update-redis-database-configuration",
-};
-
-/** Update a RedisDatabase's description. */
-export const databaseUpdateRedisDatabaseDescription: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/redis-databases/{redisDatabaseId}/description",
-  method: "PATCH",
-  operationId: "database-update-redis-database-description",
-};
-
-/** List domains. */
-export const domainServiceNextListDomains: OpenAPIOperation<
+/** List Domains */
+export const domainListDomains: OpenAPIOperation<
   RequestType<
     Simplify<null>,
     Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Get.Parameters.Path>,

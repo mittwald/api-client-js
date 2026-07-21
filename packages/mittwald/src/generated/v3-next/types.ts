@@ -1923,17 +1923,6 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.databaseGetMysqlUser, TStatus>;
     }
 
-    namespace DatabaseUpdateMysqlUser {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlUser
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateMysqlUser,
-          TStatus
-        >;
-    }
-
     namespace DatabaseDeleteMysqlUser {
       type RequestData = InferredRequestData<
         typeof descriptors.databaseDeleteMysqlUser
@@ -1941,6 +1930,17 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.databaseDeleteMysqlUser,
+          TStatus
+        >;
+    }
+
+    namespace DatabaseUpdateMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.databaseUpdateMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.databaseUpdateMysqlUser,
           TStatus
         >;
     }
@@ -2044,62 +2044,7 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
-    namespace DatabaseUpdateMysqlDatabaseDefaultCharset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateMysqlDatabaseDefaultCharset,
-          TStatus
-        >;
-    }
-
-    namespace DatabaseUpdateMysqlDatabaseDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlDatabaseDescription
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateMysqlDatabaseDescription,
-          TStatus
-        >;
-    }
-
-    namespace DatabaseUpdateMysqlUserPassword {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateMysqlUserPassword
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateMysqlUserPassword,
-          TStatus
-        >;
-    }
-
-    namespace DatabaseUpdateRedisDatabaseConfiguration {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateRedisDatabaseConfiguration
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateRedisDatabaseConfiguration,
-          TStatus
-        >;
-    }
-
-    namespace DatabaseUpdateRedisDatabaseDescription {
-      type RequestData = InferredRequestData<
-        typeof descriptors.databaseUpdateRedisDatabaseDescription
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.databaseUpdateRedisDatabaseDescription,
-          TStatus
-        >;
-    }
-
-    namespace DomainServiceNextListDomains {
+    namespace DomainListDomains {
       type RequestData = InferredRequestData<
         typeof descriptors.domainServiceNextListDomains
       >;
@@ -22852,18 +22797,11 @@ export declare module MittwaldAPIV3Next {
         }
       }
 
-      namespace Put {
+      namespace Delete {
         namespace Parameters {
           export type Path = {
             mysqlUserId: string;
           };
-
-          export interface RequestBody {
-            accessIpMask?: string;
-            accessLevel: "full" | "readonly";
-            description: string;
-            externalAccess?: boolean;
-          }
 
           export type Header =
             {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
@@ -22911,11 +22849,19 @@ export declare module MittwaldAPIV3Next {
         }
       }
 
-      namespace Delete {
+      namespace Patch {
         namespace Parameters {
           export type Path = {
             mysqlUserId: string;
           };
+
+          export interface RequestBody {
+            accessIpMask?: string;
+            accessLevel?: "full" | "readonly";
+            description?: string;
+            externalAccess?: boolean;
+            password?: string;
+          }
 
           export type Header =
             {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
@@ -23480,296 +23426,6 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            mysqlDatabaseId: string;
-          };
-
-          export interface RequestBody {
-            characterSettings: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDatabaseCharacterSettings;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextMysqlDatabasesMysqlDatabaseIdDescription {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            mysqlDatabaseId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextMysqlUsersMysqlUserIdPassword {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            mysqlUserId: string;
-          };
-
-          export interface RequestBody {
-            password: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextRedisDatabasesRedisDatabaseIdConfiguration {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            redisDatabaseId: string;
-          };
-
-          export interface RequestBody {
-            configuration?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDatabaseRedisDatabaseConfiguration;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextRedisDatabasesRedisDatabaseIdDescription {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            redisDatabaseId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V3NextAppInstallationsAppInstallationIdActionsAction {}
 
     namespace V3NextAppinstallationsAppInstallationIdDatabases {}
@@ -23783,6 +23439,16 @@ export declare module MittwaldAPIV3Next {
     namespace V3NextContractsContractIdItemsContractItemIdNextTerminationDates {}
 
     namespace V3NextCustomersCustomerIdActionsLeave {}
+
+    namespace V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset {}
+
+    namespace V3NextMysqlDatabasesMysqlDatabaseIdDescription {}
+
+    namespace V3NextMysqlUsersMysqlUserIdPassword {}
+
+    namespace V3NextRedisDatabasesRedisDatabaseIdConfiguration {}
+
+    namespace V3NextRedisDatabasesRedisDatabaseIdDescription {}
 
     namespace V3NextDnsZonesZoneIdRecordsetAcombinedCustom {}
 

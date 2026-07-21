@@ -973,13 +973,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a MySQLUser. */
     getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
-    /** Update a MySQLUser. */
-    updateMysqlUser: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlUser,
-    ),
     /** Delete a MySQLUser. */
     deleteMysqlUser: this.requestFunctionFactory(
       descriptors.databaseDeleteMysqlUser,
+    ),
+    /** Update a MySQLUser. */
+    updateMysqlUser: this.requestFunctionFactory(
+      descriptors.databaseUpdateMysqlUser,
     ),
     /** Get a RedisDatabase. */
     getRedisDatabase: this.requestFunctionFactory(
@@ -1016,26 +1016,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** List RedisVersions. */
     listRedisVersions: this.requestFunctionFactory(
       descriptors.databaseListRedisVersions,
-    ),
-    /** Update a MySQLDatabase's default character settings. */
-    updateMysqlDatabaseDefaultCharset: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlDatabaseDefaultCharset,
-    ),
-    /** Update a MySQLDatabase's description. */
-    updateMysqlDatabaseDescription: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlDatabaseDescription,
-    ),
-    /** Update a MySQLUser's password. */
-    updateMysqlUserPassword: this.requestFunctionFactory(
-      descriptors.databaseUpdateMysqlUserPassword,
-    ),
-    /** Update a RedisDatabase's configuration. */
-    updateRedisDatabaseConfiguration: this.requestFunctionFactory(
-      descriptors.databaseUpdateRedisDatabaseConfiguration,
-    ),
-    /** Update a RedisDatabase's description. */
-    updateRedisDatabaseDescription: this.requestFunctionFactory(
-      descriptors.databaseUpdateRedisDatabaseDescription,
     ),
   };
 
