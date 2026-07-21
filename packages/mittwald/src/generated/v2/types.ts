@@ -10720,14 +10720,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogAppInstallationDeleted {
-        changes: {};
-        name: "app.deleted";
-        parameters: {
-          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogAppInstallationDescriptionSet {
         changes: {
           after?: {
@@ -10738,6 +10730,14 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "app.description-set";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationDeleted {
+        changes: {};
+        name: "app.deleted";
         parameters: {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
