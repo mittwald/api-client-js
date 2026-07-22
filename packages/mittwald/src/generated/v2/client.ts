@@ -1671,6 +1671,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     deleteProject: this.requestFunctionFactory(
       descriptors.projectDeleteProject,
     ),
+    /** Update a Project. */
+    updateProject: this.requestFunctionFactory(
+      descriptors.projectUpdateProject,
+    ),
     /** Request a Server avatar upload. */
     requestServerAvatarUpload: this.requestFunctionFactory(
       descriptors.projectRequestServerAvatarUpload,
@@ -1689,6 +1693,8 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** Update a Server. */
+    updateServer: this.requestFunctionFactory(descriptors.projectUpdateServer),
     /** List Projects belonging to a Customer. */
     listCustomerProjects: this.requestFunctionFactory(
       descriptors.projectListCustomerProjects,

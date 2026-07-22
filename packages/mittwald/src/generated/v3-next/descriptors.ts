@@ -15065,6 +15065,45 @@ export const projectDeleteProject: OpenAPIOperation<
   operationId: "project-delete-project",
 };
 
+/** Update a Project. */
+export const projectUpdateProject: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}",
+  method: "PATCH",
+  operationId: "project-update-project",
+};
+
 /** Request a Server avatar upload. */
 export const projectRequestServerAvatarUpload: OpenAPIOperation<
   RequestType<
@@ -15498,6 +15537,45 @@ export const projectGetServer: OpenAPIOperation<
   path: "/v3-next/servers/{serverId}",
   method: "GET",
   operationId: "project-get-server",
+};
+
+/** Update a Server. */
+export const projectUpdateServer: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}",
+  method: "PATCH",
+  operationId: "project-update-server",
 };
 
 /** List Projects belonging to a Customer. */
