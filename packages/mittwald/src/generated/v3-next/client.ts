@@ -225,6 +225,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     deleteProjectBackup: this.requestFunctionFactory(
       descriptors.backupDeleteProjectBackup,
     ),
+    /** Update a ProjectBackup. */
+    updateProjectBackup: this.requestFunctionFactory(
+      descriptors.backupUpdateProjectBackup,
+    ),
     /** List database dump's for a ProjectBackup. */
     getProjectBackupDatabaseDumps: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDatabaseDumps,
@@ -351,6 +355,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Add a template component to a Stack. */
+    addTemplateComponent: this.requestFunctionFactory(
+      descriptors.containerAddTemplateComponent,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1711,6 +1719,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     deleteProject: this.requestFunctionFactory(
       descriptors.projectDeleteProject,
     ),
+    /** Update a Project. */
+    updateProject: this.requestFunctionFactory(
+      descriptors.projectUpdateProject,
+    ),
     /** Request a Server avatar upload. */
     requestServerAvatarUpload: this.requestFunctionFactory(
       descriptors.projectRequestServerAvatarUpload,
@@ -1729,6 +1741,8 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** Update a Server. */
+    updateServer: this.requestFunctionFactory(descriptors.projectUpdateServer),
     /** List Projects belonging to a Customer. */
     listCustomerProjects: this.requestFunctionFactory(
       descriptors.projectListCustomerProjects,
@@ -1769,9 +1783,17 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     storagespaceGetProjectStatistics: this.requestFunctionFactory(
       descriptors.storagespaceGetProjectStatistics,
     ),
+    /** Update a Project's storage space statistics. */
+    storagespaceUpdateProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceUpdateProjectStatistics,
+    ),
     /** Get storage space Statistics belonging to a Server. */
     storagespaceGetServerStatistics: this.requestFunctionFactory(
       descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Server's storage space statistics. */
+    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceUpdateServerStatistics,
     ),
     /** Update a Project's storage space notification threshold. */
     storagespaceReplaceProjectNotificationThreshold:

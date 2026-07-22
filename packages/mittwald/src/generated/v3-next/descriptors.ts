@@ -2201,6 +2201,50 @@ export const backupDeleteProjectBackup: OpenAPIOperation<
   operationId: "backup-delete-project-backup",
 };
 
+/** Update a ProjectBackup. */
+export const backupUpdateProjectBackup: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/project-backups/{projectBackupId}",
+  method: "PATCH",
+  operationId: "backup-update-project-backup",
+};
+
 /** List database dump's for a ProjectBackup. */
 export const backupGetProjectBackupDatabaseDumps: OpenAPIOperation<
   RequestType<
@@ -15406,6 +15450,45 @@ export const projectDeleteProject: OpenAPIOperation<
   operationId: "project-delete-project",
 };
 
+/** Update a Project. */
+export const projectUpdateProject: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}",
+  method: "PATCH",
+  operationId: "project-update-project",
+};
+
 /** Request a Server avatar upload. */
 export const projectRequestServerAvatarUpload: OpenAPIOperation<
   RequestType<
@@ -15839,6 +15922,45 @@ export const projectGetServer: OpenAPIOperation<
   path: "/v3-next/servers/{serverId}",
   method: "GET",
   operationId: "project-get-server",
+};
+
+/** Update a Server. */
+export const projectUpdateServer: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}",
+  method: "PATCH",
+  operationId: "project-update-server",
 };
 
 /** List Projects belonging to a Customer. */
@@ -17083,6 +17205,45 @@ export const storagespaceGetProjectStatistics: OpenAPIOperation<
   operationId: "storagespace-get-project-statistics",
 };
 
+/** Update a Project's storage space statistics. */
+export const storagespaceUpdateProjectStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/storage-space-statistics",
+  method: "PATCH",
+  operationId: "storagespace-update-project-statistics",
+};
+
 /** Get storage space Statistics belonging to a Server. */
 export const storagespaceGetServerStatistics: OpenAPIOperation<
   RequestType<
@@ -17130,6 +17291,45 @@ export const storagespaceGetServerStatistics: OpenAPIOperation<
   path: "/v3-next/servers/{serverId}/storage-space-statistics",
   method: "GET",
   operationId: "storagespace-get-server-statistics",
+};
+
+/** Update a Server's storage space statistics. */
+export const storagespaceUpdateServerStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/storage-space-statistics",
+  method: "PATCH",
+  operationId: "storagespace-update-server-statistics",
 };
 
 /** Update a Project's storage space notification threshold. */
@@ -19113,4 +19313,63 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Add a template component to a Stack. */
+export const containerAddTemplateComponent: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/stacks/{stackId}/actions/add-template-component",
+  method: "POST",
+  operationId: "container-add-template-component",
 };
