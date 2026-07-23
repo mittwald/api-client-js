@@ -15794,6 +15794,18 @@ export declare module MittwaldAPIV3Next {
               ]: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceRequest;
             };
             /**
+             * Schedule for automatic image updates of this stack. Set to `null` to remove the
+             * schedule; omit the property to leave it unchanged.
+             *
+             */
+            updateSchedule?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
+            };
+            /**
              * A set of named volumes that should be created for this stack. Removing a volume
              * from this set will not delete the volume (for safety), but only detach it from the
              * stack. To delete a volume, use the `DELETE /stacks/{stackId}/volumes/{volumeId}` endpoint.
