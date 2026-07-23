@@ -35,19 +35,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a customer by planId. */
-    customerGetPlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlan,
-    ),
-    /** Renames an AI hosting plan. */
-    customerUpdatePlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdatePlan,
-    ),
-    /** Get all ai hosting plans of a customer. */
-    customerGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlans,
-    ),
-    /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
+    /** Get ai hosting plan and usages of a customer. */
     customerGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetUsage,
     ),
