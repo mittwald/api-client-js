@@ -5944,6 +5944,7 @@ export declare module MittwaldAPIV3Next {
         }[];
         supportLink?: string;
         tagline: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateTranslatedString;
+        type: "component" | "standalone";
         userInputs?: {
           dataSource?: string;
           defaultValue?: string;

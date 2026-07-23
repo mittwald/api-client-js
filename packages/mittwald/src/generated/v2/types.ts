@@ -5934,6 +5934,7 @@ export declare module MittwaldAPIV2 {
         }[];
         supportLink?: string;
         tagline: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+        type: "component" | "standalone";
         userInputs?: {
           dataSource?: string;
           defaultValue?: string;
