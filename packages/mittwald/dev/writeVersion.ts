@@ -2,7 +2,9 @@ import { readPackage } from "read-pkg";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-const { version } = await readPackage();
+const { version } = await readPackage({
+  cwd: path.join(import.meta.dirname, ".."),
+});
 
 const distFolder = path.join(import.meta.dirname, "../dist");
 
