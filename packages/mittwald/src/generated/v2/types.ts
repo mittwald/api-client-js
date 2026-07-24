@@ -4872,6 +4872,39 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AiHostingCustomerGetPlan {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetPlan
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetPlan,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingCustomerUpdatePlan {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerUpdatePlan
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerUpdatePlan,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingCustomerGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetPlans,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4935,6 +4968,7 @@ export declare module MittwaldAPIV2 {
          */
         models: string[];
         name: string;
+        planId?: string;
         projectId?: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
@@ -4954,7 +4988,9 @@ export declare module MittwaldAPIV2 {
         deletedAt?: string;
         keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
         modelTermsApprovalRequired: boolean;
+        name?: string;
         nextTokenReset: string;
+        planId?: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
         topUsages?: {
@@ -9437,6 +9473,7 @@ export declare module MittwaldAPIV2 {
       export interface OrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
+        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
@@ -11173,6 +11210,15 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface AihostingCustomerPlans {
+        modelTermsApprovalRequired: boolean;
+        plans: MittwaldAPIV2.Components.Schemas.AihostingPlanOptions[];
+      }
+
+      export interface AihostingProfile {
+        planIds: string[];
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -11451,7 +11497,9 @@ export declare module MittwaldAPIV2 {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            planId?: string;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -11512,6 +11560,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             createWebuiContainer?: boolean;
             name: string;
+            planId?: string;
             projectId?: string;
           }
 
@@ -12003,7 +12052,9 @@ export declare module MittwaldAPIV2 {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            planId?: string;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -12064,6 +12115,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             createWebuiContainer?: boolean;
             name: string;
+            planId?: string;
           }
 
           export type Header = {};
@@ -12429,7 +12481,9 @@ export declare module MittwaldAPIV2 {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            planId?: string;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -12437,6 +12491,7 @@ export declare module MittwaldAPIV2 {
               export interface ApplicationJson {
                 keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
                 modelTermsApprovalRequired: boolean;
+                name?: string;
                 nextTokenReset?: string;
                 projectId: string;
               }
@@ -40796,6 +40851,199 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdAiHostingsPlanId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            planId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            topUsageCount?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingPlanOptions;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            planId: string;
+          };
+
+          export interface RequestBody {
+            name?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdAiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            topUsageCount?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingCustomerPlans;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
