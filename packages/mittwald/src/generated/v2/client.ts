@@ -345,10 +345,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     rotatePullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerRotatePullImageWebhookForService,
     ),
-    /** Set an update schedule for a Stack. */
-    setStackUpdateSchedule: this.requestFunctionFactory(
-      descriptors.containerSetStackUpdateSchedule,
-    ),
     /** Start a stopped Service. */
     startService: this.requestFunctionFactory(
       descriptors.containerStartService,
@@ -386,10 +382,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Return the BaseItem of the Contract with the given ID. */
     getBaseItemOfContract: this.requestFunctionFactory(
       descriptors.contractGetBaseItemOfContract,
-    ),
-    /** Return the AI Hosting Contract for the given Customer. */
-    getDetailOfContractByAiHosting: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByAiHosting,
     ),
     /** Return the Contract for the given Certificate. */
     getDetailOfContractByCertificate: this.requestFunctionFactory(
@@ -474,6 +466,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
+    ),
+    /** Return the AI Hosting Contract for the given Customer. */
+    getDetailOfContractByAiHosting: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByAiHosting,
     ),
   };
 

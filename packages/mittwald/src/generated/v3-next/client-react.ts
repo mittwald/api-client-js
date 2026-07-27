@@ -277,11 +277,6 @@ const buildContractApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.contractGetBaseItemOfContract,
     baseClient.contract.getBaseItemOfContract,
   ).getApiResource,
-  /** Return the AI Hosting Contract for the given Customer. */
-  getDetailOfContractByAiHosting: new ApiCallAsyncResourceFactory(
-    descriptors.contractGetDetailOfContractByAiHosting,
-    baseClient.contract.getDetailOfContractByAiHosting,
-  ).getApiResource,
   /** Return the Contract for the given Certificate. */
   getDetailOfContractByCertificate: new ApiCallAsyncResourceFactory(
     descriptors.contractGetDetailOfContractByCertificate,
@@ -371,6 +366,11 @@ const buildContractApi = (baseClient: MittwaldAPIV3NextClient) => ({
   orderListProjectOrders: new ApiCallAsyncResourceFactory(
     descriptors.orderListProjectOrders,
     baseClient.contract.orderListProjectOrders,
+  ).getApiResource,
+  /** Return the AI Hosting Contract for the given Customer. */
+  getDetailOfContractByAiHosting: new ApiCallAsyncResourceFactory(
+    descriptors.contractGetDetailOfContractByAiHosting,
+    baseClient.contract.getDetailOfContractByAiHosting,
   ).getApiResource,
 });
 

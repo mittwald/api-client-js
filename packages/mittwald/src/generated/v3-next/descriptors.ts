@@ -3750,60 +3750,6 @@ export const containerRotatePullImageWebhookForService: OpenAPIOperation<
   operationId: "container-rotate-pull-image-webhook-for-service",
 };
 
-/** Set an update schedule for a Stack. */
-export const containerSetStackUpdateSchedule: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/stacks/{stackId}/update-schedule",
-  method: "PUT",
-  operationId: "container-set-stack-update-schedule",
-};
-
 /** Start a stopped Service. */
 export const containerStartService: OpenAPIOperation<
   RequestType<
@@ -4149,45 +4095,6 @@ export const contractGetBaseItemOfContract: OpenAPIOperation<
   path: "/v3-next/contracts/{contractId}/base-items",
   method: "GET",
   operationId: "contract-get-base-item-of-contract",
-};
-
-/** Return the AI Hosting Contract for the given Customer. */
-export const contractGetDetailOfContractByAiHosting: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/customers/{customerId}/ai-hosting/contract",
-  method: "GET",
-  operationId: "contract-get-detail-of-contract-by-ai-hosting",
 };
 
 /** Return the Contract for the given Certificate. */
@@ -19372,4 +19279,43 @@ export const aiHostingCustomerGetPlans: OpenAPIOperation<
   path: "/v3-next/customers/{customerId}/ai-hostings",
   method: "GET",
   operationId: "ai-hosting-customer-get-plans",
+};
+
+/** Return the AI Hosting Contract for the given Customer. */
+export const contractGetDetailOfContractByAiHosting: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/ai-hostings/{aiHostingId}/contract",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-ai-hosting",
 };
