@@ -5811,6 +5811,10 @@ export declare module MittwaldAPIV3Next {
         stackId: string;
         status: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceStatus;
         statusSetAt: string;
+        /**
+         * ID of the template used to create this service, if one was used.
+         */
+        templateId?: string;
       }
 
       export interface DeMittwaldContainerServiceState {

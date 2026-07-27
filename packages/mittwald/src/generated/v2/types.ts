@@ -5801,6 +5801,10 @@ export declare module MittwaldAPIV2 {
         stackId: string;
         status: MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;
         statusSetAt: string;
+        /**
+         * ID of the template used to create this service, if one was used.
+         */
+        templateId?: string;
       }
 
       export interface ContainerServiceState {
