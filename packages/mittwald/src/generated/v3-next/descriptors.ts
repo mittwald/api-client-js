@@ -941,6 +941,11 @@ export const appPatchAppinstallation: OpenAPIOperation<
       "empty"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationId.Patch.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -2211,50 +2216,6 @@ export const backupGetProjectBackupDirectories: OpenAPIOperation<
   operationId: "backup-get-project-backup-directories",
 };
 
-/** Update a Backup's expiration time. */
-export const backupReplaceProjectBackupExpirationTime: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/project-backups/{projectBackupId}/expiration-time",
-  method: "PUT",
-  operationId: "backup-replace-project-backup-expiration-time",
-};
-
 /** Restore a ProjectBackup. */
 export const backupRequestProjectBackupRestore: OpenAPIOperation<
   RequestType<
@@ -2299,48 +2260,63 @@ export const backupRequestProjectBackupRestore: OpenAPIOperation<
   operationId: "backup-request-project-backup-restore",
 };
 
-/** Change the description of a ProjectBackup. */
-export const backupUpdateProjectBackupDescription: OpenAPIOperation<
+/** Add a template component to a Stack. */
+export const containerAddTemplateComponent: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.Header>
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v3-next/project-backups/{projectBackupId}/description",
-  method: "PATCH",
-  operationId: "backup-update-project-backup-description",
+  path: "/v3-next/stacks/{stackId}/actions/add-template-component",
+  method: "POST",
+  operationId: "container-add-template-component",
 };
 
 /** Call pull-image webhook */
@@ -4095,6 +4071,45 @@ export const contractGetBaseItemOfContract: OpenAPIOperation<
   path: "/v3-next/contracts/{contractId}/base-items",
   method: "GET",
   operationId: "contract-get-base-item-of-contract",
+};
+
+/** Return the AI Hosting Contract for the given Customer. */
+export const contractGetDetailOfContractByAiHosting: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/ai-hostings/{aiHostingId}/contract",
+  method: "GET",
+  operationId: "contract-get-detail-of-contract-by-ai-hosting",
 };
 
 /** Return the Contract for the given Certificate. */
@@ -16040,84 +16055,6 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
   operationId: "project-resend-project-invite-mail",
 };
 
-/** Update a Project's description. */
-export const projectUpdateProjectDescription: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/description",
-  method: "PATCH",
-  operationId: "project-update-project-description",
-};
-
-/** Update a Servers's description. */
-export const projectUpdateServerDescription: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/servers/{serverId}/description",
-  method: "PATCH",
-  operationId: "project-update-server-description",
-};
-
 /** Register a tariff change for a legacy tariff. */
 export const relocationCreateLegacyTariffChange: OpenAPIOperation<
   RequestType<
@@ -17105,84 +17042,6 @@ export const storagespaceUpdateServerStatistics: OpenAPIOperation<
   path: "/v3-next/servers/{serverId}/storage-space-statistics",
   method: "PATCH",
   operationId: "storagespace-update-server-statistics",
-};
-
-/** Update a Project's storage space notification threshold. */
-export const storagespaceReplaceProjectNotificationThreshold: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/storage-space-notification-threshold",
-  method: "PUT",
-  operationId: "storagespace-replace-project-notification-threshold",
-};
-
-/** Update a Server's storage space notification threshold. */
-export const storagespaceReplaceServerNotificationThreshold: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/servers/{serverId}/storage-space-notification-threshold",
-  method: "PUT",
-  operationId: "storagespace-replace-server-notification-threshold",
 };
 
 /** Add phone number and start verification process. */
@@ -19088,234 +18947,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Add a template component to a Stack. */
-export const containerAddTemplateComponent: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdActionsAddTemplateComponent.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/stacks/{stackId}/actions/add-template-component",
-  method: "POST",
-  operationId: "container-add-template-component",
-};
-
-/** Get ai hosting plan and usages of a customer by planId. */
-export const aiHostingCustomerGetPlan: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/customers/{customerId}/ai-hostings/{planId}",
-  method: "GET",
-  operationId: "ai-hosting-customer-get-plan",
-};
-
-/** Renames an AI hosting plan. */
-export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsPlanId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/customers/{customerId}/ai-hostings/{planId}",
-  method: "PUT",
-  operationId: "ai-hosting-customer-update-plan",
-};
-
-/** Get all ai hosting plans of a customer. */
-export const aiHostingCustomerGetPlans: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostings.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/customers/{customerId}/ai-hostings",
-  method: "GET",
-  operationId: "ai-hosting-customer-get-plans",
-};
-
-/** Return the AI Hosting Contract for the given Customer. */
-export const contractGetDetailOfContractByAiHosting: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/customers/{customerId}/ai-hostings/{aiHostingId}/contract",
-  method: "GET",
-  operationId: "contract-get-detail-of-contract-by-ai-hosting",
 };
