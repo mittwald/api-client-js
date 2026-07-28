@@ -225,22 +225,18 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
-    /** Update a Backup's expiration time. */
-    replaceProjectBackupExpirationTime: this.requestFunctionFactory(
-      descriptors.backupReplaceProjectBackupExpirationTime,
-    ),
     /** Restore a ProjectBackup. */
     requestProjectBackupRestore: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestore,
-    ),
-    /** Change the description of a ProjectBackup. */
-    updateProjectBackupDescription: this.requestFunctionFactory(
-      descriptors.backupUpdateProjectBackupDescription,
     ),
   };
 
   /** The container API allows you to manage your stacks, containers, volumes and registries. */
   public readonly container = {
+    /** Add a template component to a Stack. */
+    addTemplateComponent: this.requestFunctionFactory(
+      descriptors.containerAddTemplateComponent,
+    ),
     /** Call pull-image webhook */
     callPullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerCallPullImageWebhookForService,
@@ -333,20 +329,12 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     rotatePullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerRotatePullImageWebhookForService,
     ),
-    /** Set an update schedule for a Stack. */
-    setStackUpdateSchedule: this.requestFunctionFactory(
-      descriptors.containerSetStackUpdateSchedule,
-    ),
     /** Start a stopped Service. */
     startService: this.requestFunctionFactory(
       descriptors.containerStartService,
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Add a template component to a Stack. */
-    addTemplateComponent: this.requestFunctionFactory(
-      descriptors.containerAddTemplateComponent,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -374,6 +362,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Return the BaseItem of the Contract with the given ID. */
     getBaseItemOfContract: this.requestFunctionFactory(
       descriptors.contractGetBaseItemOfContract,
+    ),
+    /** Return the AI Hosting Contract for the given Customer. */
+    getDetailOfContractByAiHosting: this.requestFunctionFactory(
+      descriptors.contractGetDetailOfContractByAiHosting,
     ),
     /** Return the Contract for the given Certificate. */
     getDetailOfContractByCertificate: this.requestFunctionFactory(
@@ -458,10 +450,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Preview TariffChange. */
     orderPreviewTariffChange: this.requestFunctionFactory(
       descriptors.orderPreviewTariffChange,
-    ),
-    /** Return the AI Hosting Contract for the given Customer. */
-    getDetailOfContractByAiHosting: this.requestFunctionFactory(
-      descriptors.contractGetDetailOfContractByAiHosting,
     ),
   };
 
@@ -1723,14 +1711,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     resendProjectInviteMail: this.requestFunctionFactory(
       descriptors.projectResendProjectInviteMail,
     ),
-    /** Update a Project's description. */
-    updateProjectDescription: this.requestFunctionFactory(
-      descriptors.projectUpdateProjectDescription,
-    ),
-    /** Update a Servers's description. */
-    updateServerDescription: this.requestFunctionFactory(
-      descriptors.projectUpdateServerDescription,
-    ),
     /** Get storage space Statistics belonging to a Project. */
     storagespaceGetProjectStatistics: this.requestFunctionFactory(
       descriptors.storagespaceGetProjectStatistics,
@@ -1746,15 +1726,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Update a Server's storage space statistics. */
     storagespaceUpdateServerStatistics: this.requestFunctionFactory(
       descriptors.storagespaceUpdateServerStatistics,
-    ),
-    /** Update a Project's storage space notification threshold. */
-    storagespaceReplaceProjectNotificationThreshold:
-      this.requestFunctionFactory(
-        descriptors.storagespaceReplaceProjectNotificationThreshold,
-      ),
-    /** Update a Server's storage space notification threshold. */
-    storagespaceReplaceServerNotificationThreshold: this.requestFunctionFactory(
-      descriptors.storagespaceReplaceServerNotificationThreshold,
     ),
   };
 
