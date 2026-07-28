@@ -64,7 +64,7 @@ export const apiProjectBehaviors = (
   },
 
   updateDescription: async (id: string, description: string) => {
-    const response = await client.project.updateProjectDescription({
+    const response = await client.project.updateProject({
       projectId: id,
       data: {
         description,
