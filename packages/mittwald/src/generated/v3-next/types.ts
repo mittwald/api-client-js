@@ -5871,6 +5871,11 @@ export declare module MittwaldAPIV3Next {
           defaultValue?: string;
           label?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateTranslatedString;
           name: string;
+          positionMeta?: {
+            index?: number;
+            section?: string;
+            step?: string;
+          };
           required: boolean;
           validationSchema?: string;
         }[];
@@ -22552,6 +22557,8 @@ export declare module MittwaldAPIV3Next {
 
     namespace V3NextAppinstallationsAppInstallationIdDatabases {}
 
+    namespace V3NextAppInstallationsAppInstallationIdDatabaseReplace {}
+
     namespace V3NextProjectBackupsProjectBackupIdExpirationTime {}
 
     namespace V3NextProjectBackupsProjectBackupIdDescription {}
@@ -22567,6 +22574,8 @@ export declare module MittwaldAPIV3Next {
     namespace V3NextCustomersCustomerIdAiHostingContract {}
 
     namespace V3NextContractsContractIdItemsContractItemIdNextTerminationDates {}
+
+    namespace V3NextCronjobsCronjobIdAppInstallationId {}
 
     namespace V3NextCustomersCustomerIdActionsLeave {}
 

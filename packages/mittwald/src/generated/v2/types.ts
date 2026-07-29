@@ -5861,6 +5861,11 @@ export declare module MittwaldAPIV2 {
           defaultValue?: string;
           label?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
           name: string;
+          positionMeta?: {
+            index?: number;
+            section?: string;
+            step?: string;
+          };
           required: boolean;
           validationSchema?: string;
         }[];
@@ -22543,6 +22548,8 @@ export declare module MittwaldAPIV2 {
 
     namespace V2AppinstallationsAppInstallationIdDatabases {}
 
+    namespace V2AppInstallationsAppInstallationIdDatabaseReplace {}
+
     namespace V2ProjectBackupsProjectBackupIdExpirationTime {}
 
     namespace V2ProjectBackupsProjectBackupIdDescription {}
@@ -22558,6 +22565,10 @@ export declare module MittwaldAPIV2 {
     namespace V2CustomersCustomerIdAiHostingContract {}
 
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
+
+    namespace V2CronjobsCronjobIdAppInstallationId {}
+
+    namespace V2CronjobsCronjobIdAppId {}
 
     namespace V2CustomerCustomerIdActionsLeave {}
 
