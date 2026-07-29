@@ -1136,45 +1136,6 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
-/** Create linkage between an AppInstallation and a MySQLDatabase. */
-export const appLinkDatabase: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/app-installations/{appInstallationId}/database",
-  method: "PATCH",
-  operationId: "app-link-database",
-};
-
 /** List AppInstallations that a user has access to. */
 export const appListAppinstallationsForUser: OpenAPIOperation<
   RequestType<
@@ -1417,45 +1378,6 @@ export const appListUpdateCandidatesForAppversion: OpenAPIOperation<
   operationId: "app-list-update-candidates-for-appversion",
 };
 
-/** Replace a MySQL Database with another MySQL Database. */
-export const appReplaceDatabase: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/app-installations/{appInstallationId}/database/replace",
-  method: "PATCH",
-  operationId: "app-replace-database",
-};
-
 /** Request a copy of an AppInstallation. */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
@@ -1522,40 +1444,6 @@ export const appRetrieveStatus: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/status",
   method: "GET",
   operationId: "app-retrieve-status",
-};
-
-/** Create linkage between an AppInstallation and DatabaseUsers. */
-export const appSetDatabaseUsers: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/app-installations/{appInstallationId}/databases/{databaseId}/users",
-  method: "PUT",
-  operationId: "app-set-database-users",
 };
 
 /** Remove linkage between an AppInstallation and a Database. */
@@ -6020,45 +5908,6 @@ export const cronjobGetExecution: OpenAPIOperation<
   path: "/v3-next/cronjobs/{cronjobId}/executions/{executionId}",
   method: "GET",
   operationId: "cronjob-get-execution",
-};
-
-/** Update a Cronjob's app installation id. */
-export const cronjobReplaceCronjobAppInstallationId: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/cronjobs/{cronjobId}/app-installation-id",
-  method: "PUT",
-  operationId: "cronjob-replace-cronjob-app-installation-id",
 };
 
 /** Accept a CustomerInvite. */

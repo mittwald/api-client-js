@@ -279,14 +279,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AppLinkDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appLinkDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
-    }
-
     namespace AppListAppinstallationsForUser {
       type RequestData = InferredRequestData<
         typeof descriptors.appListAppinstallationsForUser
@@ -367,14 +359,6 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace AppReplaceDatabase {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appReplaceDatabase
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appReplaceDatabase, TStatus>;
-    }
-
     namespace AppRequestAppinstallationCopy {
       type RequestData = InferredRequestData<
         typeof descriptors.appRequestAppinstallationCopy
@@ -400,14 +384,6 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.appUnlinkDatabase, TStatus>;
-    }
-
-    namespace AppSetDatabaseUsers {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appSetDatabaseUsers
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>;
     }
 
     namespace ArticleGetArticle {
@@ -1488,17 +1464,6 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
-    }
-
-    namespace CronjobReplaceCronjobAppInstallationId {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobReplaceCronjobAppInstallationId
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobReplaceCronjobAppInstallationId,
-          TStatus
-        >;
     }
 
     namespace CustomerAcceptCustomerInvite {
@@ -12648,67 +12613,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppInstallationsAppInstallationIdDatabase {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            databaseId: string;
-            databaseUserIds?: {
-              [k: string]: string;
-            };
-            purpose: "primary" | "cache" | "custom";
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2AppInstallationsAppInstallationIdDatabase {}
 
     namespace V2AppInstallations {
       namespace Get {
@@ -13081,77 +12986,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppInstallationsAppInstallationIdDatabaseReplace {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * The IDs of the users of the database you want the old database to be replaced with.
-             */
-            databaseUserIds?: {
-              [k: string]: string;
-            };
-            /**
-             * The ID of the database you want the old database to be replaced with.
-             */
-            newDatabaseId: string;
-            /**
-             * The ID of the database you want to be replaced.
-             */
-            oldDatabaseId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2AppinstallationsAppInstallationIdActionsCopy {}
 
     namespace V2AppInstallationsAppInstallationIdActionsCopy {
@@ -13305,58 +13139,7 @@ export declare module MittwaldAPIV2 {
 
     namespace V2AppinstallationsAppInstallationIdDatabasesDatabaseId {}
 
-    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-            databaseId: string;
-          };
-
-          export interface RequestBody {
-            databaseUserIds: {
-              [k: string]: string;
-            };
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {}
 
     namespace V2ArticlesArticleId {
       namespace Get {
@@ -20081,66 +19864,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2CronjobsCronjobIdAppInstallationId {
-      namespace Put {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-          };
-
-          export interface RequestBody {
-            appInstallationId: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CronjobsCronjobIdAppId {}
 
     namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
       namespace Post {

@@ -109,8 +109,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getSystemsoftwareversion: this.requestFunctionFactory(
       descriptors.appGetSystemsoftwareversion,
     ),
-    /** Create linkage between an AppInstallation and a MySQLDatabase. */
-    linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
     /** List AppInstallations that a user has access to. */
     listAppinstallationsForUser: this.requestFunctionFactory(
       descriptors.appListAppinstallationsForUser,
@@ -141,20 +139,12 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion,
     ),
-    /** Replace a MySQL Database with another MySQL Database. */
-    replaceDatabase: this.requestFunctionFactory(
-      descriptors.appReplaceDatabase,
-    ),
     /** Request a copy of an AppInstallation. */
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy,
     ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** Create linkage between an AppInstallation and DatabaseUsers. */
-    setDatabaseUsers: this.requestFunctionFactory(
-      descriptors.appSetDatabaseUsers,
-    ),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
@@ -811,10 +801,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
-    /** Update a Cronjob's app installation id. */
-    replaceCronjobAppInstallationId: this.requestFunctionFactory(
-      descriptors.cronjobReplaceCronjobAppInstallationId,
-    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */
