@@ -19952,9 +19952,10 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             limit?: number;
             skip?: number;
-            searchTerm?: string;
+            page?: number;
           };
         }
         namespace Responses {
@@ -20991,11 +20992,11 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            hasExpiry?: boolean;
+            role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
             limit?: number;
             skip?: number;
             page?: number;
-            hasExpiry?: boolean;
-            role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           };
         }
         namespace Responses {
@@ -21052,11 +21053,12 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            limit?: number;
-            skip?: number;
             hasExpiry?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
             searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -33062,9 +33064,10 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
+            searchTerm?: string;
             limit?: number;
             skip?: number;
-            searchTerm?: string;
+            page?: number;
           };
         }
         namespace Responses {
@@ -34540,13 +34543,14 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            limit?: number;
-            skip?: number;
             hasExpiry?: boolean;
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
             hasMfa?: boolean;
             searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -34724,12 +34728,12 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
             hasExpiry?: boolean;
             isInherited?: boolean;
             role?: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
