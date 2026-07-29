@@ -8973,6 +8973,10 @@ export declare module MittwaldAPIV2 {
             limit: number;
           };
         };
+        /**
+         * For archived mail addresses, the address the mailbox had right before it was archived.
+         */
+        originalAddress?: string;
         projectId: string;
         rateLimitChangeRequest?: {
           /**
@@ -13562,8 +13566,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppinstallationsAppInstallationIdActionsCopy {}
-
     namespace V2AppInstallationsAppInstallationIdActionsCopy {
       namespace Post {
         namespace Parameters {
@@ -13664,19 +13666,15 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {
-      namespace Put {
+    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {}
+
+    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseId {
+      namespace Delete {
         namespace Parameters {
           export type Path = {
             appInstallationId: string;
             databaseId: string;
           };
-
-          export interface RequestBody {
-            databaseUserIds: {
-              [k: string]: string;
-            };
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -13716,10 +13714,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2AppinstallationsAppInstallationIdDatabasesDatabaseId {}
-
-    namespace V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {}
 
     namespace V2ArticlesArticleId {
       namespace Get {
@@ -23142,10 +23136,6 @@ export declare module MittwaldAPIV2 {
     namespace V2ContractsContractIdItemsContractItemIdNextTerminationDates {}
 
     namespace V2CronjobsCronjobIdAppInstallationId {}
-
-    namespace V2CronjobsCronjobIdAppId {}
-
-    namespace V2CustomerCustomerIdActionsLeave {}
 
     namespace V2CustomersCustomerIdActionsLeave {}
 
