@@ -9445,6 +9445,7 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldOrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
+        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
@@ -10169,10 +10170,12 @@ export declare module MittwaldAPIV3Next {
           after?: {
             aRecords?: string[];
             aaaaRecords?: string[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             aRecords?: string[];
             aaaaRecords?: string[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.a-record-set";
@@ -10185,9 +10188,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             caa: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             caa: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.caa-record-set";
@@ -10200,9 +10205,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             cname: string;
+            ttl?: (number | "auto") | null;
           };
           before?: {
             cname: string;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.cname-record-set";
@@ -10246,9 +10253,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             mx: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             mx: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.mx-record-set";
@@ -10261,9 +10270,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             srv: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             srv: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.srv-record-set";
@@ -10275,9 +10286,11 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsTxtRecordSet {
         changes: {
           after?: {
+            ttl?: (number | "auto") | null;
             txt: string[];
           };
           before?: {
+            ttl?: (number | "auto") | null;
             txt: string[];
           };
         };
