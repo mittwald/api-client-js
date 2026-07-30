@@ -10152,9 +10152,11 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
-            aRecords: string;
+            aRecords: "managed";
           };
-          before?: {};
+          before?: {
+            aRecords: string[] | null;
+          };
         };
         name: "dns.a-record-set-managed";
         parameters: {
@@ -10228,9 +10230,11 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
-            mx: string;
+            mx: "managed";
           };
-          before?: {};
+          before?: {
+            mx: {}[] | null;
+          };
         };
         name: "dns.mx-record-set-managed";
         parameters: {
