@@ -22,16 +22,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingCustomerGetDetailedModels,
     baseClient.aiHosting.customerGetDetailedModels,
   ).getApiResource,
-  /** Get ai hosting plan and usages of a customer by planId. */
-  customerGetPlan: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlan,
-    baseClient.aiHosting.customerGetPlan,
-  ).getApiResource,
-  /** Get all ai hosting plans of a customer. */
-  customerGetPlans: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlans,
-    baseClient.aiHosting.customerGetPlans,
-  ).getApiResource,
   /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
@@ -61,6 +51,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
   projectGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
+  /** Get ai hosting plan and usages of a customer by planId. */
+  customerGetPlan: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlan,
+    baseClient.aiHosting.customerGetPlan,
+  ).getApiResource,
+  /** Get all ai hosting plans of a customer. */
+  customerGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlans,
+    baseClient.aiHosting.customerGetPlans,
   ).getApiResource,
 });
 
