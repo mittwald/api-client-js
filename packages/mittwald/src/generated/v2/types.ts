@@ -9873,10 +9873,12 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationDatabaseLinked {
         changes: {
           after: {
-            database: {};
+            name: string;
+            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
           before: {
-            database: {} | null;
+            name: string | null;
+            purpose: string | null;
           };
         };
         name: "app.database-linked";
@@ -9889,10 +9891,12 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationDatabaseUnlinked {
         changes: {
           after: {
-            database: {} | null;
+            name: string | null;
+            purpose: string | null;
           };
           before: {
-            database: {};
+            name: string;
+            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
         };
         name: "app.database-unlinked";
@@ -10390,6 +10394,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDescriptionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserPasswordSet
@@ -10397,6 +10402,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDescriptionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationFailed
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseLinked
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseUnlinked
@@ -11162,6 +11168,32 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingProfile {
         planIds: string[];
+      }
+
+      export interface ActivitylogAppInstallationFailed {
+        changes: {};
+        name: "app.failed";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          error?: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseVersionSet {
+        changes: {
+          after?: {
+            version: string;
+          };
+          before?: {
+            version: string | null;
+          };
+        };
+        name: "database.mysql-version-set";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
       }
 
       export interface CommonsAddress {
