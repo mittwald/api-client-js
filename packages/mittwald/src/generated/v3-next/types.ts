@@ -735,17 +735,6 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.containerGetService, TStatus>;
     }
 
-    namespace ContainerGetTemplateAsset {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerGetTemplateAsset
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerGetTemplateAsset,
-          TStatus
-        >;
-    }
-
     namespace ContainerGetTemplate {
       type RequestData = InferredRequestData<
         typeof descriptors.containerGetTemplate
@@ -15599,90 +15588,6 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContainerTemplatesTemplateIdAssetsAssetPath {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            templateId: string;
-            assetPath: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ImageJpeg = string;
-
-              export type ImagePng = string;
-
-              export type ImageSvgXml = string;
-
-              export type ImageWebp = string;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V3NextContainerTemplatesTemplateId {
       namespace Get {
         namespace Parameters {
@@ -22568,6 +22473,8 @@ export declare module MittwaldAPIV3Next {
     namespace V3NextProjectBackupsProjectBackupIdExpirationTime {}
 
     namespace V3NextProjectBackupsProjectBackupIdDescription {}
+
+    namespace V3NextContainerTemplatesTemplateIdAssetsAssetPath {}
 
     namespace V3NextContainerTemplatesTemplateIdIcon {}
 
