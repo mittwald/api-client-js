@@ -234,11 +234,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerGetService,
     baseClient.container.getService,
   ).getApiResource,
-  /** Get a Container Template asset. */
-  getTemplateAsset: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetTemplateAsset,
-    baseClient.container.getTemplateAsset,
-  ).getApiResource,
   /** Get a Container Template by ID. */
   getTemplate: new ApiCallAsyncResourceFactory(
     descriptors.containerGetTemplate,

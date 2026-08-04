@@ -159,6 +159,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /** Delete a staging AppInstallation. */
+    deleteAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appDeleteAppinstallationStaging,
+    ),
+    /** Detach a staging AppInstallation from its source. */
+    detachAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appDetachAppinstallationStaging,
+    ),
+    /** Promote a staging AppInstallation. */
+    promoteAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appPromoteAppinstallationStaging,
+    ),
+    /** Request a staging for an AppInstallation. */
+    requestAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationStaging,
+    ),
   };
 
   /** The article API allows you to read article information. */
@@ -291,10 +307,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
-    /** Get a Container Template asset. */
-    getTemplateAsset: this.requestFunctionFactory(
-      descriptors.containerGetTemplateAsset,
-    ),
     /** Get a Container Template by ID. */
     getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
     /** List Stacks belonging to the executing user. */

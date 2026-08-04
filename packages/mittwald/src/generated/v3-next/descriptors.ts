@@ -3065,75 +3065,6 @@ export const containerGetService: OpenAPIOperation<
   operationId: "container-get-service",
 };
 
-/** Get a Container Template asset. */
-export const containerGetTemplateAsset: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageJpeg>,
-      200,
-      "image/jpeg"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImagePng>,
-      200,
-      "image/png"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageSvgXml>,
-      200,
-      "image/svg+xml"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$200.Content.ImageWebp>,
-      200,
-      "image/webp"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/container-templates/{templateId}/assets/{assetPath}",
-  method: "GET",
-  operationId: "container-get-template-asset",
-};
-
 /** Get a Container Template by ID. */
 export const containerGetTemplate: OpenAPIOperation<
   RequestType<
@@ -18928,4 +18859,150 @@ export const aiHostingCustomerGetPlans: OpenAPIOperation<
   path: "/v3-next/customers/{customerId}/ai-hostings",
   method: "GET",
   operationId: "ai-hosting-customer-get-plans",
+};
+
+/** Delete a staging AppInstallation. */
+export const appDeleteAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdStaging.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/staging",
+  method: "DELETE",
+  operationId: "app-delete-appinstallation-staging",
+};
+
+/** Detach a staging AppInstallation from its source. */
+export const appDetachAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/detach-staging",
+  method: "POST",
+  operationId: "app-detach-appinstallation-staging",
+};
+
+/** Promote a staging AppInstallation. */
+export const appPromoteAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/promote-staging",
+  method: "POST",
+  operationId: "app-promote-appinstallation-staging",
+};
+
+/** Request a staging for an AppInstallation. */
+export const appRequestAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/staging",
+  method: "POST",
+  operationId: "app-request-appinstallation-staging",
 };
