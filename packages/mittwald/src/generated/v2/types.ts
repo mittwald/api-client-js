@@ -8586,6 +8586,10 @@ export declare module MittwaldAPIV2 {
             limit: number;
           };
         };
+        /**
+         * For archived mail addresses, the address the mailbox had right before it was archived.
+         */
+        originalAddress?: string;
         projectId: string;
         rateLimitChangeRequest?: {
           /**
