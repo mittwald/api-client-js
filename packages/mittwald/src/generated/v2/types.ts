@@ -11195,15 +11195,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface AihostingCustomerPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: MittwaldAPIV2.Components.Schemas.AihostingPlanOptions[];
-      }
-
-      export interface AihostingProfile {
-        planIds: string[];
-      }
-
       export interface ActivitylogAppInstallationFailed {
         changes: {};
         name: "app.failed";
@@ -22928,6 +22919,8 @@ export declare module MittwaldAPIV2 {
     namespace V2ProjectBackupsProjectBackupIdExpirationTime {}
 
     namespace V2ProjectBackupsProjectBackupIdDescription {}
+
+    namespace V2ContainerTemplatesTemplateIdAssetsAssetPath {}
 
     namespace V2ContainerTemplatesTemplateIdIcon {}
 

@@ -11238,15 +11238,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export interface DeMittwaldAihostingCustomerPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanOptions[];
-      }
-
-      export interface DeMittwaldAihostingProfile {
-        planIds: string[];
-      }
-
       export interface DeMittwaldActivitylogAppInstallationFailed {
         changes: {};
         name: "app.failed";
@@ -22971,6 +22962,8 @@ export declare module MittwaldAPIV3Next {
     namespace V3NextProjectBackupsProjectBackupIdExpirationTime {}
 
     namespace V3NextProjectBackupsProjectBackupIdDescription {}
+
+    namespace V3NextContainerTemplatesTemplateIdAssetsAssetPath {}
 
     namespace V3NextContainerTemplatesTemplateIdIcon {}
 
