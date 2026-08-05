@@ -9510,10 +9510,12 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogAppInstallationDatabaseLinked {
         changes: {
           after: {
-            database: {};
+            name: string;
+            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
           before: {
-            database: {} | null;
+            name: string | null;
+            purpose: string | null;
           };
         };
         name: "app.database-linked";
@@ -9526,10 +9528,12 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogAppInstallationDatabaseUnlinked {
         changes: {
           after: {
-            database: {} | null;
+            name: string | null;
+            purpose: string | null;
           };
           before: {
-            database: {};
+            name: string;
+            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
         };
         name: "app.database-unlinked";
@@ -9748,9 +9752,11 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
-            aRecords: string;
+            aRecords: "managed";
           };
-          before?: {};
+          before?: {
+            aRecords: string[] | null;
+          };
         };
         name: "dns.a-record-set-managed";
         parameters: {
@@ -9763,10 +9769,12 @@ export declare module MittwaldAPIV3Next {
           after?: {
             aRecords?: string[];
             aaaaRecords?: string[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             aRecords?: string[];
             aaaaRecords?: string[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.a-record-set";
@@ -9779,9 +9787,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             caa: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             caa: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.caa-record-set";
@@ -9794,9 +9804,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             cname: string;
+            ttl?: (number | "auto") | null;
           };
           before?: {
             cname: string;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.cname-record-set";
@@ -9824,9 +9836,11 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
-            mx: string;
+            mx: "managed";
           };
-          before?: {};
+          before?: {
+            mx: {}[] | null;
+          };
         };
         name: "dns.mx-record-set-managed";
         parameters: {
@@ -9838,9 +9852,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             mx: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             mx: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.mx-record-set";
@@ -9853,9 +9869,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             srv: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             srv: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.srv-record-set";
@@ -9867,9 +9885,11 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogDnsTxtRecordSet {
         changes: {
           after?: {
+            ttl?: (number | "auto") | null;
             txt: string[];
           };
           before?: {
+            ttl?: (number | "auto") | null;
             txt: string[];
           };
         };
@@ -10011,6 +10031,7 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseCreated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseDescriptionSet
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseVersionSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogDatabaseMysqlUserPasswordSet
@@ -10018,6 +10039,7 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationRequested
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationCopyRequested
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDescriptionSet
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationFailed
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDatabaseLinked
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDatabaseUnlinked
@@ -10785,6 +10807,32 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface DeMittwaldActivitylogAppInstallationFailed {
+        changes: {};
+        name: "app.failed";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          error?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogDatabaseVersionSet {
+        changes: {
+          after?: {
+            version: string;
+          };
+          before?: {
+            version: string | null;
+          };
+        };
+        name: "database.mysql-version-set";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          version: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;

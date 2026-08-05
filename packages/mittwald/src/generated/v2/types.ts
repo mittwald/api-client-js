@@ -9483,10 +9483,12 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationDatabaseLinked {
         changes: {
           after: {
-            database: {};
+            name: string;
+            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
           before: {
-            database: {} | null;
+            name: string | null;
+            purpose: string | null;
           };
         };
         name: "app.database-linked";
@@ -9499,10 +9501,12 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogAppInstallationDatabaseUnlinked {
         changes: {
           after: {
-            database: {} | null;
+            name: string | null;
+            purpose: string | null;
           };
           before: {
-            database: {};
+            name: string;
+            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
         };
         name: "app.database-unlinked";
@@ -9721,9 +9725,11 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsARecordSetManaged {
         changes: {
           after?: {
-            aRecords: string;
+            aRecords: "managed";
           };
-          before?: {};
+          before?: {
+            aRecords: string[] | null;
+          };
         };
         name: "dns.a-record-set-managed";
         parameters: {
@@ -9736,10 +9742,12 @@ export declare module MittwaldAPIV2 {
           after?: {
             aRecords?: string[];
             aaaaRecords?: string[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             aRecords?: string[];
             aaaaRecords?: string[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.a-record-set";
@@ -9752,9 +9760,11 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             caa: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             caa: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.caa-record-set";
@@ -9767,9 +9777,11 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             cname: string;
+            ttl?: (number | "auto") | null;
           };
           before?: {
             cname: string;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.cname-record-set";
@@ -9797,9 +9809,11 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsMxRecordSetManaged {
         changes: {
           after?: {
-            mx: string;
+            mx: "managed";
           };
-          before?: {};
+          before?: {
+            mx: {}[] | null;
+          };
         };
         name: "dns.mx-record-set-managed";
         parameters: {
@@ -9811,9 +9825,11 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             mx: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             mx: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.mx-record-set";
@@ -9826,9 +9842,11 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             srv: {}[];
+            ttl?: (number | "auto") | null;
           };
           before?: {
             srv: {}[];
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.srv-record-set";
@@ -9840,9 +9858,11 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogDnsTxtRecordSet {
         changes: {
           after?: {
+            ttl?: (number | "auto") | null;
             txt: string[];
           };
           before?: {
+            ttl?: (number | "auto") | null;
             txt: string[];
           };
         };
@@ -9984,6 +10004,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDescriptionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserPasswordSet
@@ -9991,6 +10012,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationCopyRequested
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDescriptionSet
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationFailed
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseLinked
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseUnlinked
@@ -10748,6 +10770,32 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ActivitylogAppInstallationFailed {
+        changes: {};
+        name: "app.failed";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          error?: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogDatabaseVersionSet {
+        changes: {
+          after?: {
+            version: string;
+          };
+          before?: {
+            version: string | null;
+          };
+        };
+        name: "database.mysql-version-set";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
 
       export interface CommonsAddress {
         street: string;
