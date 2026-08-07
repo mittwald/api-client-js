@@ -9445,7 +9445,6 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldOrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
-        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }

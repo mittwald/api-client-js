@@ -9412,7 +9412,6 @@ export declare module MittwaldAPIV2 {
       export interface OrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
-        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
