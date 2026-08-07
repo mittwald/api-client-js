@@ -1,7 +1,7 @@
 import Request from "./Request.js";
 import { AxiosInstance } from "axios";
 import { jest } from "@jest/globals";
-import { QueryParameters } from "../types/index.js";
+import { OpenAPIOperation, QueryParameters } from "../types/index.js";
 
 const requestFn = jest.fn();
 
@@ -20,8 +20,14 @@ describe("query parameters", () => {
     method: "GET",
   } as const;
 
-  const executeRequest = (query: QueryParameters): string => {
-    const request = new Request(op, { queryParameters: query });
+  const executeRequest = (
+    query: QueryParameters,
+    opOverwrites?: Partial<OpenAPIOperation>,
+  ): string => {
+    const request = new Request(
+      { ...op, ...opOverwrites },
+      { queryParameters: query },
+    );
     request.execute(mockedAxios);
     const requestConfig = requestFn.mock.calls[0][0] as {
       params: URLSearchParams;
@@ -60,13 +66,21 @@ describe("query parameters", () => {
     expect(query).toBe("foo=bar&foo=bam");
   });
 
-  test("Number, boolean, JSON", () => {
-    const query = executeRequest({
-      foo: 1,
-      bar: true,
-      baz: { some: "value" },
-    });
+  test("Number, boolean, JSON, deepObject", () => {
+    const query = executeRequest(
+      {
+        foo: 1,
+        bar: true,
+        baz: { some: "value" },
+        deep: { object: "value" },
+      },
+      {
+        serialization: { query: { baz: { style: "contentJSON" } } },
+      },
+    );
 
-    expect(query).toBe("foo=1&bar=true&baz=%7B%22some%22%3A%22value%22%7D");
+    expect(query).toBe(
+      "foo=1&bar=true&baz=%7B%22some%22%3A%22value%22%7D&deep%5Bobject%5D=value",
+    );
   });
 });
