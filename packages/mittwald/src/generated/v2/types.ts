@@ -10150,9 +10150,11 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             aRecords: "managed";
+            ttl?: (number | "auto") | null;
           };
           before?: {
             aRecords: string[] | null;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.a-record-set-managed";
@@ -10234,9 +10236,11 @@ export declare module MittwaldAPIV2 {
         changes: {
           after?: {
             mx: "managed";
+            ttl?: (number | "auto") | null;
           };
           before?: {
             mx: {}[] | null;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.mx-record-set-managed";
