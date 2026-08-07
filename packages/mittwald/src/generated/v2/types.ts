@@ -22513,8 +22513,6 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ProjectBackupsProjectBackupIdDescription {}
 
-    namespace V2ContainerTemplatesTemplateIdAssetsAssetPath {}
-
     namespace V2ContainerTemplatesTemplateIdIcon {}
 
     namespace V2StacksStackIdUpdateSchedule {}

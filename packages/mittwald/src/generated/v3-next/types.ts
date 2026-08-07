@@ -22522,8 +22522,6 @@ export declare module MittwaldAPIV3Next {
 
     namespace V3NextProjectBackupsProjectBackupIdDescription {}
 
-    namespace V3NextContainerTemplatesTemplateIdAssetsAssetPath {}
-
     namespace V3NextContainerTemplatesTemplateIdIcon {}
 
     namespace V3NextStacksStackIdUpdateSchedule {}
