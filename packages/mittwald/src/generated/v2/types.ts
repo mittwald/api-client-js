@@ -8314,6 +8314,7 @@ export declare module MittwaldAPIV2 {
         id: string;
         mimeType: string;
         name: string;
+        shortId: string;
         sizeInBytes: number;
         /**
          * @deprecated

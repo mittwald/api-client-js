@@ -8345,6 +8345,7 @@ export declare module MittwaldAPIV3Next {
         id: string;
         mimeType: string;
         name: string;
+        shortId: string;
         sizeInBytes: number;
         /**
          * @deprecated
