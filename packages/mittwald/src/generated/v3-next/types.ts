@@ -9916,11 +9916,9 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after: {
             name: string;
-            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
           before: {
             name: string | null;
-            purpose: string | null;
           };
         };
         name: "app.database-linked";
@@ -9934,11 +9932,9 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after: {
             name: string | null;
-            purpose: string | null;
           };
           before: {
             name: string;
-            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
         };
         name: "app.database-unlinked";
@@ -9977,6 +9973,22 @@ export declare module MittwaldAPIV3Next {
         parameters: {
           appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           error?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogAppInstallationMainDatabaseChanged {
+        changes: {
+          after: {
+            name: string | null;
+          };
+          before: {
+            name: string | null;
+          };
+        };
+        name: "app.main-database-changed";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
       }
 
@@ -10478,6 +10490,7 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDatabaseLinked
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDatabaseUnlinked
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationMainDatabaseChanged
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDesiredSystemSoftwareSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDesiredSystemSoftwareDeleted

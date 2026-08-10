@@ -9883,11 +9883,9 @@ export declare module MittwaldAPIV2 {
         changes: {
           after: {
             name: string;
-            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
           before: {
             name: string | null;
-            purpose: string | null;
           };
         };
         name: "app.database-linked";
@@ -9901,11 +9899,9 @@ export declare module MittwaldAPIV2 {
         changes: {
           after: {
             name: string | null;
-            purpose: string | null;
           };
           before: {
             name: string;
-            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
         };
         name: "app.database-unlinked";
@@ -9944,6 +9940,22 @@ export declare module MittwaldAPIV2 {
         parameters: {
           appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           error?: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogAppInstallationMainDatabaseChanged {
+        changes: {
+          after: {
+            name: string | null;
+          };
+          before: {
+            name: string | null;
+          };
+        };
+        name: "app.main-database-changed";
+        parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          database: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
       }
 
@@ -10445,6 +10457,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseLinked
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseUnlinked
+          | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationMainDatabaseChanged
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareSet
           | MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareDeleted
