@@ -279,6 +279,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Service belonging to a Stack. */
     getService: this.requestFunctionFactory(descriptors.containerGetService),
+    /** Get a Container Template asset. */
+    getTemplateAsset: this.requestFunctionFactory(
+      descriptors.containerGetTemplateAsset,
+    ),
     /** Get a Container Template by ID. */
     getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
     /** List Stacks belonging to the executing user. */
