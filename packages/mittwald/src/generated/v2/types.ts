@@ -10087,7 +10087,11 @@ export declare module MittwaldAPIV2 {
         | "maliciousConduct"
         | "suspended";
 
-      export type ProjectProjectFeature = "redis" | "node" | "container";
+      export type ProjectProjectFeature =
+        | "redis"
+        | "node"
+        | "runtimeApps"
+        | "container";
 
       export interface ProjectProjectListItem {
         backupStorageUsageInBytes: number;
