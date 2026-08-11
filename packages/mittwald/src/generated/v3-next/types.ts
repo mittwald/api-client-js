@@ -10527,6 +10527,7 @@ export declare module MittwaldAPIV3Next {
       export type DeMittwaldProjectProjectFeature =
         | "redis"
         | "node"
+        | "runtimeApps"
         | "container";
 
       export interface DeMittwaldProjectProjectListItem {
