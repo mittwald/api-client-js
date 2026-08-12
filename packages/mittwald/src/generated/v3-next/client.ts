@@ -85,6 +85,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
