@@ -15674,6 +15674,12 @@ export declare module MittwaldAPIV3Next {
             }
           }
 
+          namespace $304 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
           namespace $400 {
             namespace Content {
               export interface ApplicationJson {

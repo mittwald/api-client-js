@@ -3094,6 +3094,11 @@ export const containerGetTemplateAsset: OpenAPIOperation<
       "image/webp"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$304.Content.Empty>,
+      304,
+      "empty"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdAssetsAssetPath.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
