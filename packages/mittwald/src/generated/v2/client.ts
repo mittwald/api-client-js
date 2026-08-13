@@ -19,6 +19,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerCreateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerCreateKey,
     ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
     /** Get a key of a customer. */
     customerGetKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetKey,
@@ -84,10 +88,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Creates an AI hosting profile and accepts the current model terms. */
-    customerDeclareProfile: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeclareProfile,
     ),
   };
 
