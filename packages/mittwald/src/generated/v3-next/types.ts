@@ -4672,6 +4672,17 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace ContainerListAccessibleServices {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListAccessibleServices
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListAccessibleServices,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -8537,7 +8548,7 @@ export declare module MittwaldAPIV3Next {
           enableSpamProtection: boolean;
           password: string;
           /**
-           * 2 GB
+           * Storage limit of the mailbox in bytes. Must be at least 209715200 (200 MiB), or -1 for an unlimited quota.
            */
           quotaInBytes: number;
         };
@@ -8565,6 +8576,9 @@ export declare module MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldMailMailAddressBackup {
+        /**
+         * Name of the backup; an eight-digit date in YYYYMMDD format. Use it as the backupId path parameter to recover emails from this backup.
+         */
         name: string;
       }
 
@@ -8572,15 +8586,15 @@ export declare module MittwaldAPIV3Next {
         address: string;
         archive: {
           /**
-           * shows if the mail-archive is enabled
+           * Shows if the mail-archive is enabled.
            */
           active: boolean;
           /**
-           * maximum available mail-archive storage in bytes
+           * Maximum available mail-archive storage in bytes.
            */
           quota: number;
           /**
-           * current mail-archive usage in bytes
+           * Current mail-archive usage in bytes.
            */
           usedBytes: number;
         };
@@ -8621,7 +8635,7 @@ export declare module MittwaldAPIV3Next {
         projectId: string;
         rateLimitChangeRequest?: {
           /**
-           * id of the rate limit requested
+           * ID of the rate limit requested.
            */
           rateLimitId: string;
         };
@@ -23201,7 +23215,7 @@ export declare module MittwaldAPIV3Next {
 
           export interface RequestBody {
             /**
-             * 2 GB
+             * Storage limit of the mailbox in bytes. Must be at least 209715200 (200 MiB), or -1 for an unlimited quota.
              */
             quotaInBytes: number;
           }
@@ -30323,6 +30337,9 @@ export declare module MittwaldAPIV3Next {
 
           export interface RequestBody {
             description: string;
+            /**
+             * Password of the Deliverybox. Write-only: it is never returned by any route.
+             */
             password: string;
           }
 
@@ -39347,6 +39364,73 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextServices {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            searchTerm?: string;
+            sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceSortOrder;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceResponse[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

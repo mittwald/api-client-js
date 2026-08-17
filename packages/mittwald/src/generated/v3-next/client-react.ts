@@ -259,6 +259,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
   ).getApiResource,
+  /** List Services the executing user has access to. */
+  listAccessibleServices: new ApiCallAsyncResourceFactory(
+    descriptors.containerListAccessibleServices,
+    baseClient.container.listAccessibleServices,
+  ).getApiResource,
 });
 
 const buildContractApi = (baseClient: MittwaldAPIV3NextClient) => ({
