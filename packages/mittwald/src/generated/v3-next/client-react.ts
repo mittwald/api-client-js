@@ -22,17 +22,7 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingCustomerGetDetailedModels,
     baseClient.aiHosting.customerGetDetailedModels,
   ).getApiResource,
-  /** Get ai hosting plan and usages of a customer by planId. */
-  customerGetPlan: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlan,
-    baseClient.aiHosting.customerGetPlan,
-  ).getApiResource,
-  /** Get all ai hosting plans of a customer. */
-  customerGetPlans: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlans,
-    baseClient.aiHosting.customerGetPlans,
-  ).getApiResource,
-  /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
+  /** Get ai hosting plan and usages of a customer. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
     baseClient.aiHosting.customerGetUsage,
