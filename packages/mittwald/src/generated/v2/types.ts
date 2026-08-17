@@ -8919,7 +8919,7 @@ export declare module MittwaldAPIV2 {
           enableSpamProtection: boolean;
           password: string;
           /**
-           * 2 GB
+           * Storage limit of the mailbox in bytes. Must be at least 209715200 (200 MiB), or -1 for an unlimited quota.
            */
           quotaInBytes: number;
         };
@@ -8947,6 +8947,9 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface MailMailAddressBackup {
+        /**
+         * Name of the backup; an eight-digit date in YYYYMMDD format. Use it as the backupId path parameter to recover emails from this backup.
+         */
         name: string;
       }
 
@@ -8954,15 +8957,15 @@ export declare module MittwaldAPIV2 {
         address: string;
         archive: {
           /**
-           * shows if the mail-archive is enabled
+           * Shows if the mail-archive is enabled.
            */
           active: boolean;
           /**
-           * maximum available mail-archive storage in bytes
+           * Maximum available mail-archive storage in bytes.
            */
           quota: number;
           /**
-           * current mail-archive usage in bytes
+           * Current mail-archive usage in bytes.
            */
           usedBytes: number;
         };
@@ -9003,7 +9006,7 @@ export declare module MittwaldAPIV2 {
         projectId: string;
         rateLimitChangeRequest?: {
           /**
-           * id of the rate limit requested
+           * ID of the rate limit requested.
            */
           rateLimitId: string;
         };
@@ -23858,7 +23861,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * 2 GB
+             * Storage limit of the mailbox in bytes. Must be at least 209715200 (200 MiB), or -1 for an unlimited quota.
              */
             quotaInBytes: number;
           }
@@ -31175,6 +31178,9 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
+            /**
+             * Password of the Deliverybox. Write-only: it is never returned by any route.
+             */
             password: string;
           }
 
