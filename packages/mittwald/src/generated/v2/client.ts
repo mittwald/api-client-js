@@ -19,6 +19,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerCreateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerCreateKey,
     ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
     /** Get a key of a customer. */
     customerGetKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetKey,
@@ -34,6 +38,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get a list of currently active models. */
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
+    ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
     ),
     /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
     customerGetUsage: this.requestFunctionFactory(
@@ -73,21 +89,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
-    /** Get ai hosting plan and usages of a customer by planId. */
-    customerGetPlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlan,
-    ),
-    /** Renames an AI hosting plan. */
-    customerUpdatePlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdatePlan,
-    ),
-    /** Get all ai hosting plans of a customer. */
-    customerGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlans,
-    ),
-    /** Creates an AI hosting profile and accepts the current model terms. */
-    customerDeclareProfile: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeclareProfile,
+    /** Get all ai hosting plans and usages of a project. */
+    projectGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetPlans,
     ),
   };
 
@@ -301,6 +305,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Container Template by ID. */
     getTemplate: this.requestFunctionFactory(descriptors.containerGetTemplate),
+    /** List Services the executing user has access to. */
+    listAccessibleServices: this.requestFunctionFactory(
+      descriptors.containerListAccessibleServices,
+    ),
     /** List Stacks belonging to the executing user. */
     listSelfStacks: this.requestFunctionFactory(
       descriptors.containerListSelfStacks,
@@ -341,10 +349,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** List Services the executing user has access to. */
-    listAccessibleServices: this.requestFunctionFactory(
-      descriptors.containerListAccessibleServices,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -1025,17 +1029,29 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Get a DNSZone. */
-    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
-    /** Delete a DNSZone. */
-    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
-    /** Get a zone file for a DNSZone. */
-    dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
+    /** Start a server-side DNS zone-file import for a Project. */
+    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsCreateDnsZoneFileImport,
+    ),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Create a DNSZone for a domain in a Project. */
     dnsCreateProjectDnsZone: this.requestFunctionFactory(
       descriptors.dnsCreateProjectDnsZone,
+    ),
+    /** Get a DNSZone. */
+    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
+    /** Delete a DNSZone. */
+    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** Get the status of a DNS zone-file import job. */
+    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsGetDnsZoneFileImport,
+    ),
+    /** Get a zone file for a DNSZone. */
+    dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
+    /** Preview a DNS zone-file import for a Project. */
+    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsPreviewProjectDnsZoneFileImport,
     ),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
@@ -1196,18 +1212,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** Get the status of a DNS zone-file import job. */
-    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsGetDnsZoneFileImport,
-    ),
-    /** Start a server-side DNS zone-file import for a Project. */
-    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsCreateDnsZoneFileImport,
-    ),
-    /** Preview a DNS zone-file import for a Project. */
-    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsPreviewProjectDnsZoneFileImport,
     ),
   };
 

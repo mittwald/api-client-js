@@ -22,6 +22,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingCustomerGetDetailedModels,
     baseClient.aiHosting.customerGetDetailedModels,
   ).getApiResource,
+  /** Get ai hosting plan and usages of a customer by planId. */
+  customerGetPlan: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlan,
+    baseClient.aiHosting.customerGetPlan,
+  ).getApiResource,
+  /** Get all ai hosting plans of a customer. */
+  customerGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlans,
+    baseClient.aiHosting.customerGetPlans,
+  ).getApiResource,
   /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetUsage,
@@ -52,15 +62,10 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingProjectGetUsage,
     baseClient.aiHosting.projectGetUsage,
   ).getApiResource,
-  /** Get ai hosting plan and usages of a customer by planId. */
-  customerGetPlan: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlan,
-    baseClient.aiHosting.customerGetPlan,
-  ).getApiResource,
-  /** Get all ai hosting plans of a customer. */
-  customerGetPlans: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlans,
-    baseClient.aiHosting.customerGetPlans,
+  /** Get all ai hosting plans and usages of a project. */
+  projectGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetPlans,
+    baseClient.aiHosting.projectGetPlans,
   ).getApiResource,
 });
 
@@ -244,6 +249,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.containerGetTemplate,
     baseClient.container.getTemplate,
   ).getApiResource,
+  /** List Services the executing user has access to. */
+  listAccessibleServices: new ApiCallAsyncResourceFactory(
+    descriptors.containerListAccessibleServices,
+    baseClient.container.listAccessibleServices,
+  ).getApiResource,
   /** List Stacks belonging to the executing user. */
   listSelfStacks: new ApiCallAsyncResourceFactory(
     descriptors.containerListSelfStacks,
@@ -268,11 +278,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** List Services the executing user has access to. */
-  listAccessibleServices: new ApiCallAsyncResourceFactory(
-    descriptors.containerListAccessibleServices,
-    baseClient.container.listAccessibleServices,
   ).getApiResource,
 });
 
@@ -696,20 +701,25 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.domainServiceNextListDomains,
     baseClient.domain.serviceNextListDomains,
   ).getApiResource,
+  /** List DNSZones belonging to a Project. */
+  dnsListDnsZones: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZones,
+    baseClient.domain.dnsListDnsZones,
+  ).getApiResource,
   /** Get a DNSZone. */
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetDnsZone,
     baseClient.domain.dnsGetDnsZone,
   ).getApiResource,
+  /** Get the status of a DNS zone-file import job. */
+  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZoneFileImport,
+    baseClient.domain.dnsGetDnsZoneFileImport,
+  ).getApiResource,
   /** Get a zone file for a DNSZone. */
   dnsGetZoneFile: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetZoneFile,
     baseClient.domain.dnsGetZoneFile,
-  ).getApiResource,
-  /** List DNSZones belonging to a Project. */
-  dnsListDnsZones: new ApiCallAsyncResourceFactory(
-    descriptors.dnsListDnsZones,
-    baseClient.domain.dnsListDnsZones,
   ).getApiResource,
   /** Get a domain. */
   serviceNextGetDomain: new ApiCallAsyncResourceFactory(
@@ -785,11 +795,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
-  ).getApiResource,
-  /** Get the status of a DNS zone-file import job. */
-  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZoneFileImport,
-    baseClient.domain.dnsGetDnsZoneFileImport,
   ).getApiResource,
 });
 
