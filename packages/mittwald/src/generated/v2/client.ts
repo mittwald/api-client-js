@@ -35,7 +35,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a customer. */
+    /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
     customerGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetUsage,
     ),
@@ -72,6 +72,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
+    ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
     ),
   };
 
@@ -1009,8 +1025,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Create a DNSZone. */
-    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
@@ -1019,6 +1033,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
+    /** Create a DNSZone for a domain in a Project. */
+    dnsCreateProjectDnsZone: this.requestFunctionFactory(
+      descriptors.dnsCreateProjectDnsZone,
+    ),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
@@ -1178,6 +1196,18 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
+    ),
+    /** Get the status of a DNS zone-file import job. */
+    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsGetDnsZoneFileImport,
+    ),
+    /** Start a server-side DNS zone-file import for a Project. */
+    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsCreateDnsZoneFileImport,
+    ),
+    /** Preview a DNS zone-file import for a Project. */
+    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsPreviewProjectDnsZoneFileImport,
     ),
   };
 
