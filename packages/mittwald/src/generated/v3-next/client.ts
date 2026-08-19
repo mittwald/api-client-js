@@ -81,6 +81,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
+    /** Get all ai hosting plans and usages of a project. */
+    projectGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetPlans,
+    ),
     /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
     projectGetUsage: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetUsage,
@@ -88,10 +92,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Get all ai hosting plans and usages of a project. */
-    projectGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetPlans,
     ),
   };
 

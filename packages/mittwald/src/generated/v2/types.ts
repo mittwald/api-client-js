@@ -216,6 +216,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace AiHostingProjectGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectGetPlans,
+          TStatus
+        >;
+    }
+
     namespace AiHostingProjectGetUsage {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingProjectGetUsage
@@ -4993,6 +5004,18 @@ export declare module MittwaldAPIV2 {
         tokenFactor: number;
       }
 
+      export interface AihostingProjectPlans {
+        modelTermsApprovalRequired: boolean;
+        plans: {
+          description?: string;
+          keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+          modelTermsApprovalRequired: boolean;
+          nextTokenReset?: string;
+          planId: string;
+          projectId: string;
+        }[];
+      }
+
       /**
        * The number of allowed requests per unit. Limits are shared across all keys within the same project.
        */
@@ -6756,6 +6779,10 @@ export declare module MittwaldAPIV2 {
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
+        /**
+         * German electronic invoicing routing ID (XRechnung). Only allowed for public authorities and requires a company.
+         */
+        leitwegId?: string;
         phoneNumbers?: string[];
         salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
         title?: string;
@@ -9547,7 +9574,6 @@ export declare module MittwaldAPIV2 {
       export interface OrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
-        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
@@ -11346,18 +11372,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface AihostingProjectPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: {
-          description?: string;
-          keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-          modelTermsApprovalRequired: boolean;
-          nextTokenReset?: string;
-          planId: string;
-          projectId: string;
-        }[];
-      }
-
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -12819,6 +12833,68 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AihostingProjectDetailedModel[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingProjectPlans;
             }
           }
 

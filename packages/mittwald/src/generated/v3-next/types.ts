@@ -216,6 +216,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace AiHostingProjectGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectGetPlans,
+          TStatus
+        >;
+    }
+
     namespace AiHostingProjectGetUsage {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingProjectGetUsage
@@ -4999,6 +5010,18 @@ export declare module MittwaldAPIV3Next {
         tokenFactor: number;
       }
 
+      export interface DeMittwaldAihostingProjectPlans {
+        modelTermsApprovalRequired: boolean;
+        plans: {
+          description?: string;
+          keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
+          modelTermsApprovalRequired: boolean;
+          nextTokenReset?: string;
+          planId: string;
+          projectId: string;
+        }[];
+      }
+
       /**
        * The number of allowed requests per unit. Limits are shared across all keys within the same project.
        */
@@ -6775,6 +6798,10 @@ export declare module MittwaldAPIV3Next {
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
+        /**
+         * German electronic invoicing routing ID (XRechnung). Only allowed for public authorities and requires a company.
+         */
+        leitwegId?: string;
         phoneNumbers?: string[];
         salutation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsSalutation;
         title?: string;
@@ -9580,7 +9607,6 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldOrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
-        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
@@ -11386,18 +11412,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export interface DeMittwaldAihostingProjectPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: {
-          description?: string;
-          keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
-          modelTermsApprovalRequired: boolean;
-          nextTokenReset?: string;
-          planId: string;
-          projectId: string;
-        }[];
-      }
-
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
@@ -12859,6 +12873,68 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectDetailedModel[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdAiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlans;
             }
           }
 
