@@ -6576,6 +6576,10 @@ export declare module MittwaldAPIV2 {
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
+        /**
+         * German electronic invoicing routing ID (XRechnung). Only allowed for public authorities and requires a company.
+         */
+        leitwegId?: string;
         phoneNumbers?: string[];
         salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
         title?: string;
