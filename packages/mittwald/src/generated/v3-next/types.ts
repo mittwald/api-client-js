@@ -754,6 +754,17 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.containerGetTemplate, TStatus>;
     }
 
+    namespace ContainerListAccessibleServices {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListAccessibleServices
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListAccessibleServices,
+          TStatus
+        >;
+    }
+
     namespace ContainerListSelfStacks {
       type RequestData = InferredRequestData<
         typeof descriptors.containerListSelfStacks
@@ -4672,17 +4683,6 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
-
-    namespace ContainerListAccessibleServices {
-      type RequestData = InferredRequestData<
-        typeof descriptors.containerListAccessibleServices
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.containerListAccessibleServices,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7578,6 +7578,7 @@ export declare module MittwaldAPIV3Next {
         nextScheduledWebhookExecution?: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
+        scopeChangeAcceptanceDeadline?: string;
         variantKey?: string;
         webhookExecutionHalted: boolean;
       }
@@ -9537,11 +9538,9 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after: {
             name: string;
-            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
           before: {
             name: string | null;
-            purpose: string | null;
           };
         };
         name: "app.database-linked";
@@ -9555,11 +9554,9 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after: {
             name: string | null;
-            purpose: string | null;
           };
           before: {
             name: string;
-            purpose: "unspecified" | "primary" | "cache" | "custom";
           };
         };
         name: "app.database-unlinked";
@@ -9598,6 +9595,22 @@ export declare module MittwaldAPIV3Next {
         parameters: {
           appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           error?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogAppInstallationMainDatabaseChanged {
+        changes: {
+          after: {
+            name: string | null;
+          };
+          before: {
+            name: string | null;
+          };
+        };
+        name: "app.main-database-changed";
+        parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          database: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
       }
 
@@ -9793,7 +9806,7 @@ export declare module MittwaldAPIV3Next {
             version: string | null;
           };
         };
-        name: "database.mysql-version-set";
+        name: "database.mysql-version-set" | "database.redis-version-set";
         parameters: {
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
@@ -9805,9 +9818,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             aRecords: "managed";
+            ttl?: (number | "auto") | null;
           };
           before?: {
             aRecords: string[] | null;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.a-record-set-managed";
@@ -9889,9 +9904,11 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             mx: "managed";
+            ttl?: (number | "auto") | null;
           };
           before?: {
             mx: {}[] | null;
+            ttl?: (number | "auto") | null;
           };
         };
         name: "dns.mx-record-set-managed";
@@ -10095,6 +10112,7 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDatabaseLinked
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDatabaseUnlinked
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationMainDatabaseChanged
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDesiredSystemSoftwareSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDesiredSystemSoftwareDeleted
@@ -10605,12 +10623,6 @@ export declare module MittwaldAPIV3Next {
         name: string;
         notificationThresholdInBytes?: number;
         statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
-      }
-
-      export interface DeMittwaldTaskAggregateReference {
-        aggregate: string;
-        domain: string;
-        id: string;
       }
 
       export interface DeMittwaldSignupAccount {
@@ -15815,6 +15827,73 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextServices {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            searchTerm?: string;
+            sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceSortOrder;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceResponse[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextStacks {
       namespace Get {
         namespace Parameters {
@@ -19456,6 +19535,7 @@ export declare module MittwaldAPIV3Next {
 
           export type Query = {
             includeServiceCronjobs?: boolean;
+            stackId?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -25660,6 +25740,7 @@ export declare module MittwaldAPIV3Next {
             extensionId?: string;
             searchTerm?: string;
             anchor?: string;
+            hasAcceptedAllScopes?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -35115,6 +35196,7 @@ export declare module MittwaldAPIV3Next {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -35401,6 +35483,7 @@ export declare module MittwaldAPIV3Next {
           export type Query = {
             limit?: number;
             skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -39364,73 +39447,6 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextServices {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {
-            searchTerm?: string;
-            sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceSortOrder;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceResponse[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
