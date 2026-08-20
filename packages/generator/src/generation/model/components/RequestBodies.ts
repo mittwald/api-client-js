@@ -4,6 +4,7 @@ import { Components } from "./Components.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
+import { populateNullableTypesForRequestBody } from "../../populateNullableTypes.js";
 
 export class RequestBodies {
   public static readonly ns = "RequestBodies";
@@ -20,7 +21,10 @@ export class RequestBodies {
     this.name = new Name(RequestBodies.ns, components.name);
     this.schemas = Object.entries(schemas ?? {}).map(
       ([schemaName, schema]) =>
-        new JSONSchema(new Name(schemaName, this.name), schema),
+        new JSONSchema(
+          new Name(schemaName, this.name),
+          populateNullableTypesForRequestBody(schema),
+        ),
     );
   }
 
