@@ -7067,43 +7067,37 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DnsImportDiagnostic {
-        code?: string;
-        message?: string;
+        code: string;
+        message: string;
         /**
          * INFO, WARNING or ERROR.
          */
-        severity?: string;
+        severity: string;
         sourceLine?: number;
       }
 
       export interface DnsImportRecord {
         flags?: number;
-        note?: string;
         port?: number;
         priority?: number;
-        sourceLine?: number;
-        /**
-         * Per-record status: OK, NORMALIZED, UNSUPPORTED or INVALID.
-         */
-        status?: string;
         tag?: string;
-        value?: string;
+        value: string;
         weight?: number;
       }
 
       export interface DnsImportRecordSet {
-        records?: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
-        ttlNormalized?: boolean;
-        ttlSeconds?: number;
+        records: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
+        ttlNormalized: boolean;
+        ttlSeconds: number;
         /**
          * Record-set type: A_AAAA, MX, TXT, CNAME, SRV or CAA.
          */
-        type?: string;
+        type: string;
       }
 
       export interface DnsPreviewZoneFileImportResponse {
-        diagnostics?: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
-        zones?: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
+        diagnostics: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
+        zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
       }
 
       export type DnsRecordCAA =
@@ -7256,35 +7250,34 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DnsZoneFileImport {
-        failedZones?: {
-          error?: string;
-          name?: string;
+        failedZones: {
+          error: string;
+          name: string;
         }[];
-        id?: string;
-        importedZones?: string[];
-        projectId?: string;
-        skippedZones?: {
-          name?: string;
-          reason?: string;
+        id: string;
+        importedZones: string[];
+        projectId: string;
+        skippedZones: {
+          name: string;
+          reason: string;
         }[];
         /**
          * RUNNING, SUCCEEDED, FAILED or COMPLETED_WITH_ERRORS.
          */
-        status?: string;
+        status: string;
       }
 
       export interface DnsZoneImportPreview {
-        alreadyExists?: boolean;
-        importable?: boolean;
-        isRoot?: boolean;
+        alreadyExists: boolean;
+        importable: boolean;
+        isRoot: boolean;
         /**
          * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone.
          */
-        name?: string;
-        recordSets?: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
-        requiresVerifiedIngress?: boolean;
-        verifiedIngressSatisfied?: boolean;
-        warnings?: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
+        name: string;
+        recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
+        targetProjectId?: string;
+        warnings: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
       }
 
       export interface DomainAuthCode {
@@ -24561,6 +24554,22 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
@@ -24656,6 +24665,22 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -24809,6 +24834,14 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
             namespace Content {
               export interface ApplicationJson {
@@ -24902,6 +24935,22 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
