@@ -2207,7 +2207,7 @@ export const containerAddTemplateComponent: OpenAPIOperation<
   operationId: "container-add-template-component",
 };
 
-/** Call pull-image webhook */
+/** Call a Service pull-image webhook. */
 export const containerCallPullImageWebhookForService: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -3447,7 +3447,7 @@ export const containerListVolumes: OpenAPIOperation<
   operationId: "container-list-volumes",
 };
 
-/** Pull image and recreate */
+/** Pull a Service image and recreate. */
 export const containerPullImageForService: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -3609,7 +3609,7 @@ export const containerRestartService: OpenAPIOperation<
   operationId: "container-restart-service",
 };
 
-/** Create or rotate pull-image webhook token */
+/** Create or rotate a Service pull-image webhook token. */
 export const containerRotatePullImageWebhookForService: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -12508,7 +12508,7 @@ export const licenseListLicensesForProject: OpenAPIOperation<
   operationId: "license-list-licenses-for-project",
 };
 
-/** rotate a License's key, i.e. revoke the old and generate a new one. */
+/** Rotate a License's key, i.e. revoke the old and generate a new one. */
 export const licenseRotateLicenseKey: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV3Next.Paths.V3NextLicensesLicenseIdActionsRotateKey.Post.Parameters.RequestBody>,
@@ -14710,7 +14710,7 @@ export const projectDeleteProjectInvite: OpenAPIOperation<
   operationId: "project-delete-project-invite",
 };
 
-/** Get a ProjectMembership */
+/** Get a ProjectMembership. */
 export const projectGetProjectMembership: OpenAPIOperation<
   RequestType<
     Simplify<null>,

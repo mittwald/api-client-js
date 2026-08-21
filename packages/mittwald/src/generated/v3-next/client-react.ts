@@ -179,7 +179,7 @@ const buildBackupApi = (baseClient: MittwaldAPIV3NextClient) => ({
 });
 
 const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
-  /** Call pull-image webhook */
+  /** Call a Service pull-image webhook. */
   callPullImageWebhookForService: new ApiCallAsyncResourceFactory(
     descriptors.containerCallPullImageWebhookForService,
     baseClient.container.callPullImageWebhookForService,
@@ -1053,7 +1053,7 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.projectGetProjectInvite,
     baseClient.project.getProjectInvite,
   ).getApiResource,
-  /** Get a ProjectMembership */
+  /** Get a ProjectMembership. */
   getProjectMembership: new ApiCallAsyncResourceFactory(
     descriptors.projectGetProjectMembership,
     baseClient.project.getProjectMembership,
