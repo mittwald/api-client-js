@@ -19066,3 +19066,37 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+export const appGetAppInstallationSystemSoftware: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftware.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/system-software",
+  method: "GET",
+  operationId: "app-get-app-installation-system-software",
+};
