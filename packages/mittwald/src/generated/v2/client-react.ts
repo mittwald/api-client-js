@@ -145,11 +145,6 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
   ).getApiResource,
-  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-  getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
-    descriptors.appGetAppInstallationSystemSoftware,
-    baseClient.app.getAppInstallationSystemSoftware,
-  ).getApiResource,
 });
 
 const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({

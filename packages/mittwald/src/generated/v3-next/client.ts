@@ -167,10 +167,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-    getAppInstallationSystemSoftware: this.requestFunctionFactory(
-      descriptors.appGetAppInstallationSystemSoftware,
-    ),
   };
 
   /** The article API allows you to read article information. */

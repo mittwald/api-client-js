@@ -4826,17 +4826,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace AppGetAppInstallationSystemSoftware {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetAppInstallationSystemSoftware
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetAppInstallationSystemSoftware,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7886,10 +7875,6 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published: true;
-        /**
-         * Date of the first publishing.
-         */
-        publishedAt: string;
         scopes: string[];
         /**
          * @deprecated
@@ -8066,7 +8051,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceExtensionStatistics {
         /**
-         * The amount of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
          */
         amountOfInstances?: number;
       }
@@ -8147,7 +8132,6 @@ export declare module MittwaldAPIV2 {
         blocked?: boolean;
         context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
-        createdAt?: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
@@ -8177,10 +8161,6 @@ export declare module MittwaldAPIV2 {
         pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         pricingDetails?: MittwaldAPIV2.Components.Schemas.MarketplacePricePlanDetails;
         published: boolean;
-        /**
-         * Date of the first publishing.
-         */
-        publishedAt?: string;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
           purgeScopes?: boolean;
@@ -8321,10 +8301,6 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published?: false;
-        /**
-         * Date of the first publishing.
-         */
-        publishedAt?: string;
         scopes: string[];
         /**
          * @deprecated
@@ -9506,6 +9482,7 @@ export declare module MittwaldAPIV2 {
       export interface OrderAIHostingOrder {
         customerId: string;
         monthlyTokens: number;
+        name?: string;
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
@@ -13336,8 +13313,6 @@ export declare module MittwaldAPIV2 {
     }
 
     namespace V2AppInstallationsAppInstallationIdSystemSoftware {}
-
-    namespace V2AppinstallationsAppInstallationIdMissingDependencies {}
 
     namespace V2AppInstallationsAppInstallationIdMissingDependencies {
       namespace Get {
@@ -28037,7 +28012,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name" | "pricing.priceInCents" | "relevance";
+            sort?: "name" | "pricing.priceInCents";
             order?: "asc" | "desc";
           };
         }
@@ -40672,55 +40647,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            tagFilter?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
