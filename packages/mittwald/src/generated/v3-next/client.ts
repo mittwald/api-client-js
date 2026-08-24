@@ -247,7 +247,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     addTemplateComponent: this.requestFunctionFactory(
       descriptors.containerAddTemplateComponent,
     ),
-    /** Call pull-image webhook */
+    /** Call a Service pull-image webhook. */
     callPullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerCallPullImageWebhookForService,
     ),
@@ -327,7 +327,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** List Volumes belonging to a Project. */
     listVolumes: this.requestFunctionFactory(descriptors.containerListVolumes),
-    /** Pull image and recreate */
+    /** Pull a Service image and recreate. */
     pullImageForService: this.requestFunctionFactory(
       descriptors.containerPullImageForService,
     ),
@@ -339,7 +339,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     restartService: this.requestFunctionFactory(
       descriptors.containerRestartService,
     ),
-    /** Create or rotate pull-image webhook token */
+    /** Create or rotate a Service pull-image webhook token. */
     rotatePullImageWebhookForService: this.requestFunctionFactory(
       descriptors.containerRotatePullImageWebhookForService,
     ),
@@ -1613,7 +1613,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listLicensesForProject: this.requestFunctionFactory(
       descriptors.licenseListLicensesForProject,
     ),
-    /** rotate a License's key, i.e. revoke the old and generate a new one. */
+    /** Rotate a License's key, i.e. revoke the old and generate a new one. */
     rotateLicenseKey: this.requestFunctionFactory(
       descriptors.licenseRotateLicenseKey,
     ),
@@ -1701,7 +1701,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     deleteProjectInvite: this.requestFunctionFactory(
       descriptors.projectDeleteProjectInvite,
     ),
-    /** Get a ProjectMembership */
+    /** Get a ProjectMembership. */
     getProjectMembership: this.requestFunctionFactory(
       descriptors.projectGetProjectMembership,
     ),
