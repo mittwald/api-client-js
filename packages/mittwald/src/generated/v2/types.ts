@@ -43,6 +43,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace AiHostingCustomerGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetPlans,
+          TStatus
+        >;
+    }
+
     namespace AiHostingCustomerDeclareProfile {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingCustomerDeclareProfile
@@ -116,17 +127,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.aiHostingCustomerUpdatePlan,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingCustomerGetPlans {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerGetPlans
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingCustomerGetPlans,
           TStatus
         >;
     }
@@ -249,6 +249,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace AppGetAppInstallationSystemSoftware {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppInstallationSystemSoftware
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetAppInstallationSystemSoftware,
+          TStatus
+        >;
+    }
+
     namespace AppGetApp {
       type RequestData = InferredRequestData<typeof descriptors.appGetApp>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -291,17 +302,6 @@ export declare module MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
-    }
-
-    namespace AppGetInstalledSystemsoftwareForAppinstallation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-          TStatus
-        >;
     }
 
     namespace AppGetMissingDependenciesForAppinstallation {
@@ -2157,34 +2157,12 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
     }
 
-    namespace DnsCreateDnsZoneFileImport {
+    namespace DnsCreateDnsZone {
       type RequestData = InferredRequestData<
-        typeof descriptors.dnsCreateDnsZoneFileImport
+        typeof descriptors.dnsCreateDnsZone
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsCreateDnsZoneFileImport,
-          TStatus
-        >;
-    }
-
-    namespace DnsListDnsZones {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsListDnsZones
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsListDnsZones, TStatus>;
-    }
-
-    namespace DnsCreateProjectDnsZone {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsCreateProjectDnsZone
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsCreateProjectDnsZone,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.dnsCreateDnsZone, TStatus>;
     }
 
     namespace DnsGetDnsZone {
@@ -2201,32 +2179,18 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>;
     }
 
-    namespace DnsGetDnsZoneFileImport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsGetDnsZoneFileImport
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsGetDnsZoneFileImport,
-          TStatus
-        >;
-    }
-
     namespace DnsGetZoneFile {
       type RequestData = InferredRequestData<typeof descriptors.dnsGetZoneFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.dnsGetZoneFile, TStatus>;
     }
 
-    namespace DnsPreviewProjectDnsZoneFileImport {
+    namespace DnsListDnsZones {
       type RequestData = InferredRequestData<
-        typeof descriptors.dnsPreviewProjectDnsZoneFileImport
+        typeof descriptors.dnsListDnsZones
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsPreviewProjectDnsZoneFileImport,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.dnsListDnsZones, TStatus>;
     }
 
     namespace DnsSetRecordSetManaged {
@@ -4899,9 +4863,30 @@ export declare module MittwaldAPIV2 {
         tokenFactor: number;
       }
 
+      export type AihostingCustomerPlanOptions =
+        MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan;
+
+      export interface AihostingCustomerPlan {
+        customerId: string;
+        deletedAt?: string;
+        description: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        modelTermsApprovalRequired: boolean;
+        nextTokenReset: string;
+        planId?: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+        topUsages?: {
+          keyId?: string;
+          name: string;
+          projectId?: string;
+          tokenUsed: number;
+        }[];
+      }
+
       export interface AihostingCustomerPlans {
         modelTermsApprovalRequired: boolean;
-        plans: MittwaldAPIV2.Components.Schemas.AihostingPlanOptions[];
+        plans: MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan[];
       }
 
       export type AihostingDetailedModelStatus =
@@ -4911,6 +4896,9 @@ export declare module MittwaldAPIV2 {
 
       export interface AihostingKey {
         containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
+        /**
+         * @deprecated
+         */
         customerId?: string;
         /**
          * Indicates whether the key is blocked.
@@ -4930,7 +4918,8 @@ export declare module MittwaldAPIV2 {
          */
         models: string[];
         name: string;
-        planId?: string;
+        planId: string;
+        profileId: string;
         projectId?: string;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
@@ -4945,23 +4934,8 @@ export declare module MittwaldAPIV2 {
         tokenFactor: number;
       }
 
-      export interface AihostingPlanOptions {
-        customerId: string;
-        deletedAt?: string;
-        description: string;
-        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-        modelTermsApprovalRequired: boolean;
-        nextTokenReset: string;
-        planId?: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
-        topUsages?: {
-          keyId?: string;
-          name: string;
-          projectId?: string;
-          tokenUsed: number;
-        }[];
-      }
+      export type AihostingPlanOptions =
+        MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan;
 
       export interface AihostingPlanUsageBig {
         available: number;
@@ -5004,16 +4978,21 @@ export declare module MittwaldAPIV2 {
         tokenFactor: number;
       }
 
+      export type AihostingProjectPlanOptions =
+        MittwaldAPIV2.Components.Schemas.AihostingProjectPlans;
+
+      export interface AihostingProjectPlan {
+        description?: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        modelTermsApprovalRequired: boolean;
+        nextTokenReset?: string;
+        planId: string;
+        projectId: string;
+      }
+
       export interface AihostingProjectPlans {
         modelTermsApprovalRequired: boolean;
-        plans: {
-          description?: string;
-          keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-          modelTermsApprovalRequired: boolean;
-          nextTokenReset?: string;
-          planId: string;
-          projectId: string;
-        }[];
+        plans: MittwaldAPIV2.Components.Schemas.AihostingProjectPlan[];
       }
 
       /**
@@ -7066,40 +7045,6 @@ export declare module MittwaldAPIV2 {
         number: string;
       }
 
-      export interface DnsImportDiagnostic {
-        code: string;
-        message: string;
-        /**
-         * INFO, WARNING or ERROR.
-         */
-        severity: string;
-        sourceLine?: number;
-      }
-
-      export interface DnsImportRecord {
-        flags?: number;
-        port?: number;
-        priority?: number;
-        tag?: string;
-        value: string;
-        weight?: number;
-      }
-
-      export interface DnsImportRecordSet {
-        records: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
-        ttlNormalized: boolean;
-        ttlSeconds: number;
-        /**
-         * Record-set type: A_AAAA, MX, TXT, CNAME, SRV or CAA.
-         */
-        type: string;
-      }
-
-      export interface DnsPreviewZoneFileImportResponse {
-        diagnostics: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
-        zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
-      }
-
       export type DnsRecordCAA =
         | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
         | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
@@ -7247,37 +7192,6 @@ export declare module MittwaldAPIV2 {
           srv: MittwaldAPIV2.Components.Schemas.DnsRecordSRV;
           txt: MittwaldAPIV2.Components.Schemas.DnsRecordTXT;
         };
-      }
-
-      export interface DnsZoneFileImport {
-        failedZones: {
-          error: string;
-          name: string;
-        }[];
-        id: string;
-        importedZones: string[];
-        projectId: string;
-        skippedZones: {
-          name: string;
-          reason: string;
-        }[];
-        /**
-         * RUNNING, SUCCEEDED, FAILED or COMPLETED_WITH_ERRORS.
-         */
-        status: string;
-      }
-
-      export interface DnsZoneImportPreview {
-        alreadyExists: boolean;
-        importable: boolean;
-        isRoot: boolean;
-        /**
-         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone.
-         */
-        name: string;
-        recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
-        targetProjectId?: string;
-        warnings: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
       }
 
       export interface DomainAuthCode {
@@ -7961,6 +7875,10 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published: true;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt: string;
         scopes: string[];
         /**
          * @deprecated
@@ -8079,6 +7997,7 @@ export declare module MittwaldAPIV2 {
         };
         id: string;
         nextScheduledWebhookExecution?: string;
+        parentCustomerId: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
         scopeChangeAcceptanceDeadline?: string;
@@ -8136,7 +8055,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceExtensionStatistics {
         /**
-         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         * The amount of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
          */
         amountOfInstances?: number;
       }
@@ -8217,6 +8136,7 @@ export declare module MittwaldAPIV2 {
         blocked?: boolean;
         context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
+        createdAt?: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
@@ -8246,6 +8166,10 @@ export declare module MittwaldAPIV2 {
         pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         pricingDetails?: MittwaldAPIV2.Components.Schemas.MarketplacePricePlanDetails;
         published: boolean;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
           purgeScopes?: boolean;
@@ -8386,6 +8310,10 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published?: false;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         scopes: string[];
         /**
          * @deprecated
@@ -10132,6 +10060,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "app.systemsoftware-deleted";
         parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -10148,6 +10077,7 @@ export declare module MittwaldAPIV2 {
         };
         name: "app.systemsoftware-set";
         parameters: {
+          appInstallation: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           software: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           version: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
         };
@@ -11706,7 +11636,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             createWebuiContainer?: boolean;
             name: string;
-            planId?: string;
+            planId: string;
             projectId?: string;
           }
 
@@ -11781,7 +11711,69 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdAiHostingsProfile {
+    namespace V2CustomersCustomerIdAiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            topUsageCount?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingCustomerPlans;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
           export type Path = {
@@ -12144,7 +12136,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingPlanOptions;
+                MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan;
             }
           }
 
@@ -12255,70 +12247,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CustomersCustomerIdAiHostings {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            topUsageCount?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingCustomerPlans;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2CustomersCustomerIdAiHosting {
       namespace Get {
         namespace Parameters {
@@ -12336,7 +12264,7 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingPlanOptions;
+                MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan;
             }
           }
 
@@ -12515,7 +12443,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             createWebuiContainer?: boolean;
             name: string;
-            planId?: string;
+            planId: string;
           }
 
           export type Header = {};
@@ -13079,6 +13007,55 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            tagFilter?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2AppsAppId {
       namespace Get {
         namespace Parameters {
@@ -13347,54 +13324,7 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppInstallationsAppInstallationIdSystemSoftware {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            tagFilter?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2AppInstallationsAppInstallationIdSystemSoftware {}
 
     namespace V2AppInstallationsAppInstallationIdMissingDependencies {
       namespace Get {
@@ -24518,136 +24448,14 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmailVerify {}
 
-    namespace V2ProjectsProjectIdDnsZoneImports {
+    namespace V2DnsZones {
       namespace Post {
         namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
+          export type Path = {};
 
           export interface RequestBody {
-            /**
-             * Raw RFC-1035 zone file content to import.
-             */
-            zoneFile: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZones {}
-
-    namespace V2ProjectsProjectIdDnsZones {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZone[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Fully-qualified name of the DNSZone to create (e.g. example.com or _autoconfig.example.com). The backend resolves root vs subzone via the public suffix list.
-             */
             name: string;
+            parentZoneId: string;
           }
 
           export type Header =
@@ -24665,14 +24473,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -24681,14 +24481,6 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -24806,61 +24598,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DnsZoneImportsZoneFileImportId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            zoneFileImportId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2DnsZonesDnsZoneIdZoneFile {
       namespace Get {
         namespace Parameters {
@@ -24907,19 +24644,12 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdDnsZonesImportPreview {
-      namespace Post {
+    namespace V2ProjectsProjectIdDnsZones {
+      namespace Get {
         namespace Parameters {
           export type Path = {
             projectId: string;
           };
-
-          export interface RequestBody {
-            /**
-             * Raw RFC-1035 zone file content to preview.
-             */
-            zoneFile: string;
-          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -24930,27 +24660,11 @@ export declare module MittwaldAPIV2 {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsPreviewZoneFileImportResponse;
+                MittwaldAPIV2.Components.Schemas.DnsZone[];
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -26971,6 +26685,7 @@ export declare module MittwaldAPIV2 {
             searchTerm?: string;
             anchor?: string;
             hasAcceptedAllScopes?: boolean;
+            parentCustomerId?: string;
             limit?: number;
             skip?: number;
             page?: number;
@@ -28309,7 +28024,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name" | "pricing.priceInCents";
+            sort?: "name" | "pricing.priceInCents" | "relevance";
             order?: "asc" | "desc";
           };
         }

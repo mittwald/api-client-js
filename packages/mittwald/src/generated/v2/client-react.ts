@@ -12,6 +12,11 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingCustomerGetKeys,
     baseClient.aiHosting.customerGetKeys,
   ).getApiResource,
+  /** Get all ai hosting plans of a customer. */
+  customerGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlans,
+    baseClient.aiHosting.customerGetPlans,
+  ).getApiResource,
   /** Get a key of a customer. */
   customerGetKey: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetKey,
@@ -26,11 +31,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
   customerGetPlan: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetPlan,
     baseClient.aiHosting.customerGetPlan,
-  ).getApiResource,
-  /** Get all ai hosting plans of a customer. */
-  customerGetPlans: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlans,
-    baseClient.aiHosting.customerGetPlans,
   ).getApiResource,
   /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
   customerGetUsage: new ApiCallAsyncResourceFactory(
@@ -70,6 +70,11 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+  getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
+    descriptors.appGetAppInstallationSystemSoftware,
+    baseClient.app.getAppInstallationSystemSoftware,
+  ).getApiResource,
   /** Get an App. */
   getApp: new ApiCallAsyncResourceFactory(
     descriptors.appGetApp,
@@ -84,11 +89,6 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   getAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppversion,
     baseClient.app.getAppversion,
-  ).getApiResource,
-  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
-    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
   ).getApiResource,
   /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
   getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
@@ -701,25 +701,20 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListDomains,
     baseClient.domain.listDomains,
   ).getApiResource,
-  /** List DNSZones belonging to a Project. */
-  dnsListDnsZones: new ApiCallAsyncResourceFactory(
-    descriptors.dnsListDnsZones,
-    baseClient.domain.dnsListDnsZones,
-  ).getApiResource,
   /** Get a DNSZone. */
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetDnsZone,
     baseClient.domain.dnsGetDnsZone,
   ).getApiResource,
-  /** Get the status of a DNS zone-file import job. */
-  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZoneFileImport,
-    baseClient.domain.dnsGetDnsZoneFileImport,
-  ).getApiResource,
   /** Get a zone file for a DNSZone. */
   dnsGetZoneFile: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetZoneFile,
     baseClient.domain.dnsGetZoneFile,
+  ).getApiResource,
+  /** List DNSZones belonging to a Project. */
+  dnsListDnsZones: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZones,
+    baseClient.domain.dnsListDnsZones,
   ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(

@@ -19,6 +19,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerCreateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerCreateKey,
     ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
     /** Creates an AI hosting profile and accepts the current model terms. */
     customerDeclareProfile: this.requestFunctionFactory(
       descriptors.aiHostingCustomerDeclareProfile,
@@ -46,10 +50,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Renames an AI hosting plan. */
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
-    ),
-    /** Get all ai hosting plans of a customer. */
-    customerGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlans,
     ),
     /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
     customerGetUsage: this.requestFunctionFactory(
@@ -97,6 +97,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
+    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+    getAppInstallationSystemSoftware: this.requestFunctionFactory(
+      descriptors.appGetAppInstallationSystemSoftware,
+    ),
     /** Get an App. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
     /** Get an AppInstallation. */
@@ -113,10 +117,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get an AppVersion. */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
-    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-    getInstalledSystemsoftwareForAppinstallation: this.requestFunctionFactory(
-      descriptors.appGetInstalledSystemsoftwareForAppinstallation,
-    ),
     /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
     getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
       descriptors.appGetMissingDependenciesForAppinstallation,
@@ -1029,30 +1029,16 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Start a server-side DNS zone-file import for a Project. */
-    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsCreateDnsZoneFileImport,
-    ),
-    /** List DNSZones belonging to a Project. */
-    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
-    /** Create a DNSZone for a domain in a Project. */
-    dnsCreateProjectDnsZone: this.requestFunctionFactory(
-      descriptors.dnsCreateProjectDnsZone,
-    ),
+    /** Create a DNSZone. */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
     dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
-    /** Get the status of a DNS zone-file import job. */
-    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsGetDnsZoneFileImport,
-    ),
     /** Get a zone file for a DNSZone. */
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
-    /** Preview a DNS zone-file import for a Project. */
-    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsPreviewProjectDnsZoneFileImport,
-    ),
+    /** List DNSZones belonging to a Project. */
+    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
