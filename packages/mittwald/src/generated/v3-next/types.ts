@@ -6782,6 +6782,10 @@ export declare module MittwaldAPIV3Next {
          */
         leitwegId?: string;
         phoneNumbers?: string[];
+        /**
+         * Purchase order reference used on invoices for this customer. Not allowed together with a leitwegId.
+         */
+        purchaseOrderReference?: string;
         salutation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
