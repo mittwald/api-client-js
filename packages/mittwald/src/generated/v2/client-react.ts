@@ -791,6 +791,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
   ).getApiResource,
+  /** Get the status of a DNS zone-file import job. */
+  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZoneFileImport,
+    baseClient.domain.dnsGetDnsZoneFileImport,
+  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
