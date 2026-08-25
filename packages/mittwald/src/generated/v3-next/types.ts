@@ -6594,6 +6594,10 @@ export declare module MittwaldAPIV3Next {
          */
         leitwegId?: string;
         phoneNumbers?: string[];
+        /**
+         * Purchase order reference used on invoices for this customer. Not allowed together with a leitwegId.
+         */
+        purchaseOrderReference?: string;
         salutation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
@@ -7580,6 +7584,7 @@ export declare module MittwaldAPIV3Next {
         };
         id: string;
         nextScheduledWebhookExecution?: string;
+        parentCustomerId: string;
         pendingInstallation: boolean;
         pendingRemoval: boolean;
         scopeChangeAcceptanceDeadline?: string;
@@ -9637,6 +9642,7 @@ export declare module MittwaldAPIV3Next {
         };
         name: "app.systemsoftware-deleted";
         parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           software: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           version: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -9653,6 +9659,7 @@ export declare module MittwaldAPIV3Next {
         };
         name: "app.systemsoftware-set";
         parameters: {
+          appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           software: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           version: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -25698,6 +25705,7 @@ export declare module MittwaldAPIV3Next {
             searchTerm?: string;
             anchor?: string;
             hasAcceptedAllScopes?: boolean;
+            parentCustomerId?: string;
             limit?: number;
             skip?: number;
             page?: number;
