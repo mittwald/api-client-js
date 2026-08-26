@@ -33527,6 +33527,9 @@ export declare module MittwaldAPIV3Next {
             severity?: ("success" | "info" | "warning" | "error")[];
             type?: string[];
             "type-not"?: string[];
+            referenceId?: string;
+            referenceDomain?: string;
+            referenceAggregate?: string;
             limit?: number;
             skip?: number;
             page?: number;

@@ -33478,6 +33478,9 @@ export declare module MittwaldAPIV2 {
             severity?: ("success" | "info" | "warning" | "error")[];
             type?: string[];
             "type-not"?: string[];
+            referenceId?: string;
+            referenceDomain?: string;
+            referenceAggregate?: string;
             limit?: number;
             skip?: number;
             page?: number;
