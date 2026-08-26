@@ -4862,6 +4862,39 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AppDetachAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appDetachAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appDetachAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppPromoteAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appPromoteAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appPromoteAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallationStaging,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5157,6 +5190,11 @@ export declare module MittwaldAPIV2 {
         screenshotId?: string;
         screenshotRef?: string;
         shortId: string;
+        /**
+         * The source AppInstallation ID for a staging AppInstallation.
+         */
+        sourceAppInstallationId?: string;
+        staging?: boolean;
         systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
         updateAvailable: boolean;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
@@ -7915,6 +7953,10 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published: true;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt: string;
         scopes: string[];
         /**
          * @deprecated
@@ -8091,7 +8133,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceExtensionStatistics {
         /**
-         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         * The amount of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
          */
         amountOfInstances?: number;
       }
@@ -8172,6 +8214,7 @@ export declare module MittwaldAPIV2 {
         blocked?: boolean;
         context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
+        createdAt?: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
@@ -8201,6 +8244,10 @@ export declare module MittwaldAPIV2 {
         pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         pricingDetails?: MittwaldAPIV2.Components.Schemas.MarketplacePricePlanDetails;
         published: boolean;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
           purgeScopes?: boolean;
@@ -8341,6 +8388,10 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published?: false;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         scopes: string[];
         /**
          * @deprecated
@@ -8756,7 +8807,15 @@ export declare module MittwaldAPIV2 {
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
+        /**
+         * German electronic invoicing routing ID (XRechnung). Only allowed for public authorities and requires a company.
+         */
+        leitwegId?: string;
         phoneNumbers?: string[];
+        /**
+         * Purchase order reference printed on the invoice. Not allowed together with a leitwegId.
+         */
+        purchaseOrderReference?: string;
         salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
@@ -11324,21 +11383,21 @@ export declare module MittwaldAPIV2 {
         | "storageDesc";
 
       export interface DnsPreviewZoneFileImportResponse {
-        diagnostics: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
+        conflicts: MittwaldAPIV2.Components.Schemas.DnsImportConflict[];
         zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
       }
 
       export interface DnsZoneImportPreview {
         alreadyExists: boolean;
-        importable: boolean;
-        isRoot: boolean;
         /**
          * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone.
          */
         name: string;
         recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
+        /**
+         * Project the zone would be created in. Empty when the zone is not importable (a conflict names it).
+         */
         targetProjectId?: string;
-        warnings: MittwaldAPIV2.Components.Schemas.DnsImportDiagnostic[];
       }
 
       export interface DnsImportRecordSet {
@@ -11360,16 +11419,6 @@ export declare module MittwaldAPIV2 {
         weight?: number;
       }
 
-      export interface DnsImportDiagnostic {
-        code: string;
-        message: string;
-        /**
-         * INFO, WARNING or ERROR.
-         */
-        severity: string;
-        sourceLine?: number;
-      }
-
       export interface DnsZoneFileImport {
         failedZones: {
           error: string;
@@ -11386,6 +11435,24 @@ export declare module MittwaldAPIV2 {
          * RUNNING, SUCCEEDED, FAILED or COMPLETED_WITH_ERRORS.
          */
         status: string;
+      }
+
+      export interface DnsImportConflict {
+        code: string;
+        message: string;
+        /**
+         * Offending record/owner name. Empty for a file-level parse error, where sourceLine locates the bad line.
+         */
+        name?: string;
+        /**
+         * For an invalid_record conflict: the offending record's rendered value (e.g. "10 ." for an MX).
+         */
+        record?: string;
+        /**
+         * For an invalid_record conflict: the offending record's set type — A_AAAA, MX, TXT, CNAME, SRV or CAA.
+         */
+        recordSetType?: string;
+        sourceLine?: number;
       }
 
       export interface CommonsAddress {
@@ -28137,7 +28204,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name" | "pricing.priceInCents";
+            sort?: "name" | "pricing.priceInCents" | "relevance";
             order?: "asc" | "desc";
           };
         }
@@ -40964,6 +41031,169 @@ export declare module MittwaldAPIV2 {
           }
 
           namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsDetachStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsPromoteStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            domain: string;
+            installationPath?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

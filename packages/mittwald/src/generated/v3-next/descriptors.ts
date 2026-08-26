@@ -19203,3 +19203,115 @@ export const dnsPreviewProjectDnsZoneFileImport: OpenAPIOperation<
   method: "POST",
   operationId: "dns-preview-project-dns-zone-file-import",
 };
+
+/** Detach a staging AppInstallation from its source. */
+export const appDetachAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/detach-staging",
+  method: "POST",
+  operationId: "app-detach-appinstallation-staging",
+};
+
+/** Promote a staging AppInstallation. */
+export const appPromoteAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/promote-staging",
+  method: "POST",
+  operationId: "app-promote-appinstallation-staging",
+};
+
+/** Request a staging for an AppInstallation. */
+export const appRequestAppinstallationStaging: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsStaging.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/staging",
+  method: "POST",
+  operationId: "app-request-appinstallation-staging",
+};
