@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.448.2](https://github.com/mittwald/api-client-js/compare/4.448.1...4.448.2) (2026-08-27)
+
+### Bug Fixes
+
+* **ci:** recover from partial npm publishes via lerna from-package ([#292](https://github.com/mittwald/api-client-js/issues/292)) ([df4e37f](https://github.com/mittwald/api-client-js/commit/df4e37fceb54d74b643a218f01444701a4050e85))
+
 ## [4.448.1](https://github.com/mittwald/api-client-js/compare/0.0.0-development-f13d74a-20260826.0...4.448.1) (2026-08-27)
 
 ### Bug Fixes
