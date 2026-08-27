@@ -179,6 +179,18 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     requestAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationStaging,
     ),
+    /** Detach a staging AppInstallation from its source. */
+    detachAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appDetachAppinstallationStaging,
+    ),
+    /** Promote a staging AppInstallation. */
+    promoteAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appPromoteAppinstallationStaging,
+    ),
+    /** Request a staging for an AppInstallation. */
+    requestAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationStaging,
+    ),
   };
 
   /** The article API allows you to read article information. */
