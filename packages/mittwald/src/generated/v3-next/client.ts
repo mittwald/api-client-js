@@ -1535,6 +1535,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Submitted feedback of the given user. */
+    getSpotlightInfo: this.requestFunctionFactory(
+      descriptors.userGetSpotlightInfo,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

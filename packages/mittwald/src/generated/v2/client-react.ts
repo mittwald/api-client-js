@@ -1075,6 +1075,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
   ).getApiResource,
+  /** Submitted feedback of the given user. */
+  getSpotlightInfo: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSpotlightInfo,
+    baseClient.user.getSpotlightInfo,
+  ).getApiResource,
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({

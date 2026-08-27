@@ -4895,6 +4895,14 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace UserGetSpotlightInfo {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetSpotlightInfo
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetSpotlightInfo, TStatus>;
+    }
   }
 
   namespace Components {
@@ -6873,6 +6881,7 @@ export declare module MittwaldAPIV2 {
           | "hasActiveContracts"
           | "hasActiveExtensionSubscriptions"
           | "isActiveContributor"
+          | "hasOrdersInProgress"
         )[];
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
         flags?: MittwaldAPIV2.Components.Schemas.CustomerCustomerFlag[];
@@ -11390,12 +11399,12 @@ export declare module MittwaldAPIV2 {
       export interface DnsZoneImportPreview {
         alreadyExists: boolean;
         /**
-         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone.
+         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
          */
         name: string;
         recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
         /**
-         * Project the zone would be created in. Empty when the zone is not importable (a conflict names it).
+         * Project the zone would be created in. Always set, since only importable zones are listed.
          */
         targetProjectId?: string;
       }
@@ -41200,6 +41209,51 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfSpotlightsSpotlightId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            spotlightId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                acknowledged: {
+                  [k: string]: unknown;
+                };
+                decision?: "keep" | "kill" | "ignore";
+                spotlightId: string;
+                used: boolean;
               }
             }
           }

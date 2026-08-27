@@ -19315,3 +19315,32 @@ export const appRequestAppinstallationStaging: OpenAPIOperation<
   method: "POST",
   operationId: "app-request-appinstallation-staging",
 };
+
+/** Submitted feedback of the given user. */
+export const userGetSpotlightInfo: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/spotlights/{spotlightId}",
+  method: "GET",
+  operationId: "user-get-spotlight-info",
+};

@@ -4901,6 +4901,14 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace UserGetSpotlightInfo {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetSpotlightInfo
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetSpotlightInfo, TStatus>;
+    }
   }
 
   namespace Components {
@@ -6892,6 +6900,7 @@ export declare module MittwaldAPIV3Next {
           | "hasActiveContracts"
           | "hasActiveExtensionSubscriptions"
           | "isActiveContributor"
+          | "hasOrdersInProgress"
         )[];
         executingUserRoles?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCustomerRole[];
         flags?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCustomerCustomerFlag[];
@@ -11427,19 +11436,6 @@ export declare module MittwaldAPIV3Next {
         zones: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZoneImportPreview[];
       }
 
-      export interface DeMittwaldDnsZoneImportPreview {
-        alreadyExists: boolean;
-        /**
-         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone.
-         */
-        name: string;
-        recordSets: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecordSet[];
-        /**
-         * Project the zone would be created in. Empty when the zone is not importable (a conflict names it).
-         */
-        targetProjectId?: string;
-      }
-
       export interface DeMittwaldDnsImportRecordSet {
         records: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecord[];
         ttlNormalized: boolean;
@@ -11448,6 +11444,19 @@ export declare module MittwaldAPIV3Next {
          * Record-set type: A_AAAA, MX, TXT, CNAME, SRV or CAA.
          */
         type: string;
+      }
+
+      export interface DeMittwaldDnsZoneImportPreview {
+        alreadyExists: boolean;
+        /**
+         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
+         */
+        name: string;
+        recordSets: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecordSet[];
+        /**
+         * Project the zone would be created in. Always set, since only importable zones are listed.
+         */
+        targetProjectId?: string;
       }
 
       export interface DeMittwaldDnsImportRecord {
@@ -41249,6 +41258,51 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUsersSelfSpotlightsSpotlightId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            spotlightId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                acknowledged: {
+                  [k: string]: unknown;
+                };
+                decision?: "keep" | "kill" | "ignore";
+                spotlightId: string;
+                used: boolean;
               }
             }
           }
