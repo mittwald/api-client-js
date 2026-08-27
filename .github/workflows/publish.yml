@@ -9,7 +9,7 @@ on:
       - master
       - dev
   workflow_run:
-    workflows: 
+    workflows:
       - Update API client
       - Update API client (dev)
     types:
@@ -22,8 +22,10 @@ permissions:
 jobs:
   publish:
     if:
-       (github.event.workflow_run.name == 'Update API client' || github.event.pull_request.base.ref == 'master') && 
-       (github.event.pull_request.merged == true || github.event.workflow_run.conclusion == 'success')
+      (github.event.workflow_run.name == 'Update API client' ||
+      github.event.pull_request.base.ref == 'master') &&
+      (github.event.pull_request.merged == true ||
+      github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
 
     env:
@@ -79,6 +81,11 @@ jobs:
           github.event.workflow_run.head_branch == 'master' || github.ref ==
           'refs/heads/master'
         run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$branch" != "master" ]; then
+            echo "::error::Refusing to publish a release from '$branch'"
+            exit 1
+          fi
           git describe --exact-match --tags || code=$?
           if [ "${code:-0}" -eq 128 ]; then
             yarn lerna publish \
@@ -90,10 +97,10 @@ jobs:
               --tag-version-prefix ""
           fi
 
-
   publish-dev:
     if:
-       github.event.workflow_run.name == 'Update API client (dev)' && github.event.workflow_run.conclusion == 'success'
+      github.event.workflow_run.name == 'Update API client (dev)' &&
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     env:
@@ -106,7 +113,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
-          ref: ${{ github.event.workflow_run.head_branch }}
+          ref: dev
 
       - name: Setup Node 🎛️
         uses: actions/setup-node@v6
@@ -128,14 +135,6 @@ jobs:
         with:
           main-branch-name: dev
 
-      # This step is needed for nx affected to work when CI is running on a PR
-      # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
-      - name: Setup NX 2/2 🎛
-        if:
-          (github.ref != 'refs/heads/dev' &&
-          github.event.workflow_run.head_branch != 'dev')
-        run: git branch --track dev origin/dev
-
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
 
@@ -147,6 +146,11 @@ jobs:
 
       - name: Version and publish 🚀
         run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$branch" != "dev" ]; then
+            echo "::error::Refusing to publish a development version from '$branch'"
+            exit 1
+          fi
           git describe --exact-match --tags || code=$?
           if [ "${code:-0}" -eq 128 ]; then
             yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
