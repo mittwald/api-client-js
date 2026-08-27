@@ -4683,6 +4683,39 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AppDetachAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appDetachAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appDetachAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppPromoteAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appPromoteAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appPromoteAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallationStaging,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4939,6 +4972,11 @@ export declare module MittwaldAPIV2 {
         screenshotId?: string;
         screenshotRef?: string;
         shortId: string;
+        /**
+         * The source AppInstallation ID for a staging AppInstallation.
+         */
+        sourceAppInstallationId?: string;
+        staging?: boolean;
         systemSoftware: MittwaldAPIV2.Components.Schemas.AppInstalledSystemSoftware[];
         updateAvailable: boolean;
         updatePolicy: MittwaldAPIV2.Components.Schemas.AppAppUpdatePolicy;
@@ -6617,6 +6655,7 @@ export declare module MittwaldAPIV2 {
           | "hasActiveContracts"
           | "hasActiveExtensionSubscriptions"
           | "isActiveContributor"
+          | "hasOrdersInProgress"
         )[];
         executingUserRoles?: MittwaldAPIV2.Components.Schemas.CustomerRole[];
         flags?: MittwaldAPIV2.Components.Schemas.CustomerCustomerFlag[];
@@ -39583,6 +39622,169 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.AppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsDetachStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsPromoteStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AppInstallationsAppInstallationIdActionsStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            domain: string;
+            installationPath?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
             }
           }
 

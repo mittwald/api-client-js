@@ -4683,6 +4683,39 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace AppDetachAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appDetachAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appDetachAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppPromoteAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appPromoteAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appPromoteAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallationStaging,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -4941,6 +4974,11 @@ export declare module MittwaldAPIV3Next {
         screenshotId?: string;
         screenshotRef?: string;
         shortId: string;
+        /**
+         * The source AppInstallation ID for a staging AppInstallation.
+         */
+        sourceAppInstallationId?: string;
+        staging?: boolean;
         systemSoftware: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppInstalledSystemSoftware[];
         updateAvailable: boolean;
         updatePolicy: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAppUpdatePolicy;
@@ -6630,6 +6668,7 @@ export declare module MittwaldAPIV3Next {
           | "hasActiveContracts"
           | "hasActiveExtensionSubscriptions"
           | "isActiveContributor"
+          | "hasOrdersInProgress"
         )[];
         executingUserRoles?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCustomerRole[];
         flags?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCustomerCustomerFlag[];
@@ -39457,6 +39496,169 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAppInstallationsAppInstallationIdActionsDetachStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAppInstallationsAppInstallationIdActionsPromoteStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAppInstallationsAppInstallationIdActionsStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            domain: string;
+            installationPath?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
             }
           }
 
