@@ -179,18 +179,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     requestAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationStaging,
     ),
-    /** Detach a staging AppInstallation from its source. */
-    detachAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appDetachAppinstallationStaging,
-    ),
-    /** Promote a staging AppInstallation. */
-    promoteAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appPromoteAppinstallationStaging,
-    ),
-    /** Request a staging for an AppInstallation. */
-    requestAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appRequestAppinstallationStaging,
-    ),
   };
 
   /** The article API allows you to read article information. */
@@ -1229,6 +1217,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsGetDnsZoneFileImport: this.requestFunctionFactory(
       descriptors.dnsGetDnsZoneFileImport,
     ),
+    /** List DNS zone-file import jobs belonging to a Project. */
+    dnsListDnsZoneFileImports: this.requestFunctionFactory(
+      descriptors.dnsListDnsZoneFileImports,
+    ),
     /** Start a server-side DNS zone-file import for a Project. */
     dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
       descriptors.dnsCreateDnsZoneFileImport,
@@ -1542,10 +1534,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
-    ),
-    /** Submitted feedback of the given user. */
-    getSpotlightInfo: this.requestFunctionFactory(
-      descriptors.userGetSpotlightInfo,
     ),
   };
 

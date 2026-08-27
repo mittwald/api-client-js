@@ -796,6 +796,11 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.dnsGetDnsZoneFileImport,
     baseClient.domain.dnsGetDnsZoneFileImport,
   ).getApiResource,
+  /** List DNS zone-file import jobs belonging to a Project. */
+  dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZoneFileImports,
+    baseClient.domain.dnsListDnsZoneFileImports,
+  ).getApiResource,
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -1074,11 +1079,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
-  ).getApiResource,
-  /** Submitted feedback of the given user. */
-  getSpotlightInfo: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSpotlightInfo,
-    baseClient.user.getSpotlightInfo,
   ).getApiResource,
 });
 
