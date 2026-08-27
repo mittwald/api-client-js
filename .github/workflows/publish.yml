@@ -2,6 +2,11 @@ name: Publish packages to NPM
 
 on:
   workflow_dispatch:
+    inputs:
+      from_package:
+        description: "Publish missing packages to npm (no version bump)"
+        type: boolean
+        default: false
   pull_request:
     types:
       - closed
@@ -22,10 +27,11 @@ permissions:
 jobs:
   publish:
     if:
-      (github.event.workflow_run.name == 'Update API client' ||
+      github.event_name == 'workflow_dispatch' ||
+      ((github.event.workflow_run.name == 'Update API client' ||
       github.event.pull_request.base.ref == 'master') &&
       (github.event.pull_request.merged == true ||
-      github.event.workflow_run.conclusion == 'success')
+      github.event.workflow_run.conclusion == 'success'))
     runs-on: ubuntu-latest
 
     env:
@@ -68,7 +74,12 @@ jobs:
         run: git branch --track master origin/master
 
       - name: Build 🔨
-        run: yarn nx affected -t build --parallel=3
+        run: |
+          if [ "${{ inputs.from_package }}" = "true" ]; then
+            yarn nx run-many -t build --parallel=3
+          else
+            yarn nx affected -t build --parallel=3
+          fi
 
       # TODO: Uses the previous version. Needs a fix!
       - name: Create version file 🔢
@@ -86,15 +97,27 @@ jobs:
             echo "::error::Refusing to publish a release from '$branch'"
             exit 1
           fi
+          # Recovery run: no version bump, only push what is missing on npm.
+          if [ "${{ inputs.from_package }}" = "true" ]; then
+            exec yarn lerna publish from-package --yes --no-private
+          fi
+
           git describe --exact-match --tags || code=$?
           if [ "${code:-0}" -eq 128 ]; then
+            # npm publish can fail for a single package (e.g. flaky sigstore
+            # provenance), which leaves the release half-published on npm.
+            # from-package then re-publishes only the missing packages.
             yarn lerna publish \
               --message "chore(release): bump version to %v" \
               --skip-bump-only-releases \
               --conventional-commits \
               --create-release github \
               --yes --no-private \
-              --tag-version-prefix ""
+              --tag-version-prefix "" \
+            || {
+              echo "::warning::lerna publish failed - retrying missing packages via from-package"
+              yarn lerna publish from-package --yes --no-private
+            }
           fi
 
   publish-dev:
