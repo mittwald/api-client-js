@@ -5989,7 +5989,15 @@ export declare module MittwaldAPIV2 {
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
+        /**
+         * German electronic invoicing routing ID (XRechnung). Only allowed for public authorities and requires a company.
+         */
+        leitwegId?: string;
         phoneNumbers?: string[];
+        /**
+         * Purchase order reference the customer wants to see on their invoices.
+         */
+        purchaseOrderReference?: string;
         salutation: MittwaldAPIV2.Components.Schemas.CommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
@@ -7482,6 +7490,10 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published: true;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt: string;
         scopes: string[];
         /**
          * @deprecated
@@ -7658,7 +7670,7 @@ export declare module MittwaldAPIV2 {
 
       export interface MarketplaceExtensionStatistics {
         /**
-         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         * The amount of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
          */
         amountOfInstances?: number;
       }
@@ -7739,6 +7751,7 @@ export declare module MittwaldAPIV2 {
         blocked?: boolean;
         context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
+        createdAt?: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
         description?: string;
@@ -7768,6 +7781,10 @@ export declare module MittwaldAPIV2 {
         pricing?: MittwaldAPIV2.Components.Schemas.MarketplaceMonthlyPricePlanStrategy;
         pricingDetails?: MittwaldAPIV2.Components.Schemas.MarketplacePricePlanDetails;
         published: boolean;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         requestedChanges?: {
           context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
           purgeScopes?: boolean;
@@ -7908,6 +7925,10 @@ export declare module MittwaldAPIV2 {
          * Whether the extension has been published by the contributor.
          */
         published?: false;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         scopes: string[];
         /**
          * @deprecated
@@ -11008,6 +11029,7 @@ export declare module MittwaldAPIV2 {
           reasons: {
             domainAgeTooSmall: boolean;
             domainDoesNotExist: boolean;
+            inRedemptionPeriod: boolean;
             transferLock: boolean;
             wrongAuthCode: boolean;
           };
@@ -26013,9 +26035,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -26250,9 +26270,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -26369,9 +26387,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -27119,7 +27135,7 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name" | "pricing.priceInCents";
+            sort?: "name" | "pricing.priceInCents" | "relevance";
             order?: "asc" | "desc";
           };
         }

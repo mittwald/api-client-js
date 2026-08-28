@@ -5999,7 +5999,15 @@ export declare module MittwaldAPIV3Next {
         emailAddress?: string;
         firstName?: string;
         lastName?: string;
+        /**
+         * German electronic invoicing routing ID (XRechnung). Only allowed for public authorities and requires a company.
+         */
+        leitwegId?: string;
         phoneNumbers?: string[];
+        /**
+         * Purchase order reference the customer wants to see on their invoices.
+         */
+        purchaseOrderReference?: string;
         salutation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsSalutation;
         title?: string;
         useFormalTerm?: boolean;
@@ -7505,6 +7513,10 @@ export declare module MittwaldAPIV3Next {
          * Whether the extension has been published by the contributor.
          */
         published: true;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt: string;
         scopes: string[];
         /**
          * @deprecated
@@ -7681,7 +7693,7 @@ export declare module MittwaldAPIV3Next {
 
       export interface DeMittwaldMarketplaceExtensionStatistics {
         /**
-         * The amout of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
+         * The amount of instances for this extension. Accurate for the Contributor. Publicly rounded to the next lower hundred.
          */
         amountOfInstances?: number;
       }
@@ -7762,6 +7774,7 @@ export declare module MittwaldAPIV3Next {
         blocked?: boolean;
         context?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContext;
         contributorId: string;
+        createdAt?: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceExtensionDeprecation;
         description?: string;
@@ -7791,6 +7804,10 @@ export declare module MittwaldAPIV3Next {
         pricing?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceMonthlyPricePlanStrategy;
         pricingDetails?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplacePricePlanDetails;
         published: boolean;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         requestedChanges?: {
           context?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContext;
           purgeScopes?: boolean;
@@ -7933,6 +7950,10 @@ export declare module MittwaldAPIV3Next {
          * Whether the extension has been published by the contributor.
          */
         published?: false;
+        /**
+         * Date of the first publishing.
+         */
+        publishedAt?: string;
         scopes: string[];
         /**
          * @deprecated
@@ -11042,6 +11063,7 @@ export declare module MittwaldAPIV3Next {
           reasons: {
             domainAgeTooSmall: boolean;
             domainDoesNotExist: boolean;
+            inRedemptionPeriod: boolean;
             transferLock: boolean;
             wrongAuthCode: boolean;
           };
@@ -25987,9 +26009,7 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -26224,9 +26244,7 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -26343,9 +26361,7 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -27091,7 +27107,7 @@ export declare module MittwaldAPIV3Next {
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: "name" | "pricing.priceInCents";
+            sort?: "name" | "pricing.priceInCents" | "relevance";
             order?: "asc" | "desc";
           };
         }

@@ -9819,9 +9819,9 @@ export const extensionDeleteExtensionInstance: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceId.Delete.Responses.$412.Content.ApplicationJson>,
@@ -9970,9 +9970,9 @@ export const extensionDisableExtensionInstance: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsDisable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$400.Content.ApplicationJson>,
@@ -10038,9 +10038,9 @@ export const extensionEnableExtensionInstance: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsEnable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$400.Content.ApplicationJson>,

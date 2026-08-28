@@ -9819,9 +9819,9 @@ export const extensionDeleteExtensionInstance: OpenAPIOperation<
     Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceId.Delete.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceId.Delete.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceId.Delete.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceId.Delete.Responses.$412.Content.ApplicationJson>,
@@ -9970,9 +9970,9 @@ export const extensionDisableExtensionInstance: OpenAPIOperation<
     Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsDisable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsDisable.Post.Responses.$400.Content.ApplicationJson>,
@@ -10038,9 +10038,9 @@ export const extensionEnableExtensionInstance: OpenAPIOperation<
     Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsEnable.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextExtensionInstancesExtensionInstanceIdActionsEnable.Post.Responses.$400.Content.ApplicationJson>,
