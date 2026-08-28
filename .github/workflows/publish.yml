@@ -2,6 +2,11 @@ name: Publish packages to NPM
 
 on:
   workflow_dispatch:
+    inputs:
+      from_package:
+        description: "Publish missing packages to npm (no version bump)"
+        type: boolean
+        default: false
   pull_request:
     types:
       - closed
@@ -9,7 +14,7 @@ on:
       - master
       - dev
   workflow_run:
-    workflows: 
+    workflows:
       - Update API client
       - Update API client (dev)
     types:
@@ -22,8 +27,11 @@ permissions:
 jobs:
   publish:
     if:
-       (github.event.workflow_run.name == 'Update API client' || github.event.pull_request.base.ref == 'master') && 
-       (github.event.pull_request.merged == true || github.event.workflow_run.conclusion == 'success')
+      github.event_name == 'workflow_dispatch' ||
+      ((github.event.workflow_run.name == 'Update API client' ||
+      github.event.pull_request.base.ref == 'master') &&
+      (github.event.pull_request.merged == true ||
+      github.event.workflow_run.conclusion == 'success'))
     runs-on: ubuntu-latest
 
     env:
@@ -66,7 +74,12 @@ jobs:
         run: git branch --track master origin/master
 
       - name: Build 🔨
-        run: yarn nx affected -t build --parallel=3
+        run: |
+          if [ "${{ inputs.from_package }}" = "true" ]; then
+            yarn nx run-many -t build --parallel=3
+          else
+            yarn nx affected -t build --parallel=3
+          fi
 
       # TODO: Uses the previous version. Needs a fix!
       - name: Create version file 🔢
@@ -79,21 +92,38 @@ jobs:
           github.event.workflow_run.head_branch == 'master' || github.ref ==
           'refs/heads/master'
         run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$branch" != "master" ]; then
+            echo "::error::Refusing to publish a release from '$branch'"
+            exit 1
+          fi
+          # Recovery run: no version bump, only push what is missing on npm.
+          if [ "${{ inputs.from_package }}" = "true" ]; then
+            exec yarn lerna publish from-package --yes --no-private
+          fi
+
           git describe --exact-match --tags || code=$?
           if [ "${code:-0}" -eq 128 ]; then
+            # npm publish can fail for a single package (e.g. flaky sigstore
+            # provenance), which leaves the release half-published on npm.
+            # from-package then re-publishes only the missing packages.
             yarn lerna publish \
               --message "chore(release): bump version to %v" \
               --skip-bump-only-releases \
               --conventional-commits \
               --create-release github \
               --yes --no-private \
-              --tag-version-prefix ""
+              --tag-version-prefix "" \
+            || {
+              echo "::warning::lerna publish failed - retrying missing packages via from-package"
+              yarn lerna publish from-package --yes --no-private
+            }
           fi
-
 
   publish-dev:
     if:
-       github.event.workflow_run.name == 'Update API client (dev)' && github.event.workflow_run.conclusion == 'success'
+      github.event.workflow_run.name == 'Update API client (dev)' &&
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
 
     env:
@@ -106,7 +136,7 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.PUBLISH_PAT }}
-          ref: ${{ github.event.workflow_run.head_branch }}
+          ref: dev
 
       - name: Setup Node 🎛️
         uses: actions/setup-node@v6
@@ -128,14 +158,6 @@ jobs:
         with:
           main-branch-name: dev
 
-      # This step is needed for nx affected to work when CI is running on a PR
-      # See also https://nx.dev/ci/recipes/set-up/monorepo-ci-github-actions#configuring-ci-using-github-actions-and-nx
-      - name: Setup NX 2/2 🎛
-        if:
-          (github.ref != 'refs/heads/dev' &&
-          github.event.workflow_run.head_branch != 'dev')
-        run: git branch --track dev origin/dev
-
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
 
@@ -147,6 +169,11 @@ jobs:
 
       - name: Version and publish 🚀
         run: |
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$branch" != "dev" ]; then
+            echo "::error::Refusing to publish a development version from '$branch'"
+            exit 1
+          fi
           git describe --exact-match --tags || code=$?
           if [ "${code:-0}" -eq 128 ]; then
             yarn lerna publish 0.0.0-development-$(git rev-parse --short=7 HEAD)-$(date +%Y%m%d) \
