@@ -701,20 +701,30 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListDomains,
     baseClient.domain.listDomains,
   ).getApiResource,
-  /** Get a DNSZone. */
-  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZone,
-    baseClient.domain.dnsGetDnsZone,
-  ).getApiResource,
-  /** Get a zone file for a DNSZone. */
-  dnsGetZoneFile: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetZoneFile,
-    baseClient.domain.dnsGetZoneFile,
+  /** List DNS zone-file import jobs belonging to a Project. */
+  dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZoneFileImports,
+    baseClient.domain.dnsListDnsZoneFileImports,
   ).getApiResource,
   /** List DNSZones belonging to a Project. */
   dnsListDnsZones: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZones,
     baseClient.domain.dnsListDnsZones,
+  ).getApiResource,
+  /** Get a DNSZone. */
+  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZone,
+    baseClient.domain.dnsGetDnsZone,
+  ).getApiResource,
+  /** Get the status of a DNS zone-file import job. */
+  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZoneFileImport,
+    baseClient.domain.dnsGetDnsZoneFileImport,
+  ).getApiResource,
+  /** Get a zone file for a DNSZone. */
+  dnsGetZoneFile: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetZoneFile,
+    baseClient.domain.dnsGetZoneFile,
   ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
@@ -790,16 +800,6 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   sslListCertificates: new ApiCallAsyncResourceFactory(
     descriptors.sslListCertificates,
     baseClient.domain.sslListCertificates,
-  ).getApiResource,
-  /** Get the status of a DNS zone-file import job. */
-  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZoneFileImport,
-    baseClient.domain.dnsGetDnsZoneFileImport,
-  ).getApiResource,
-  /** List DNS zone-file import jobs belonging to a Project. */
-  dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
-    descriptors.dnsListDnsZoneFileImports,
-    baseClient.domain.dnsListDnsZoneFileImports,
   ).getApiResource,
 });
 

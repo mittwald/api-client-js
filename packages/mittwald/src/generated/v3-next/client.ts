@@ -97,6 +97,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
+    /** Detach a staging AppInstallation from its source. */
+    detachAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appDetachAppinstallationStaging,
+    ),
     /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
     getAppInstallationSystemSoftware: this.requestFunctionFactory(
       descriptors.appGetAppInstallationSystemSoftware,
@@ -159,26 +163,22 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion,
     ),
-    /** Request a copy of an AppInstallation. */
-    requestAppinstallationCopy: this.requestFunctionFactory(
-      descriptors.appRequestAppinstallationCopy,
-    ),
-    /** Get runtime status belonging to an AppInstallation. */
-    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** Remove linkage between an AppInstallation and a Database. */
-    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** Detach a staging AppInstallation from its source. */
-    detachAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appDetachAppinstallationStaging,
-    ),
     /** Promote a staging AppInstallation. */
     promoteAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appPromoteAppinstallationStaging,
+    ),
+    /** Request a copy of an AppInstallation. */
+    requestAppinstallationCopy: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationCopy,
     ),
     /** Request a staging for an AppInstallation. */
     requestAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationStaging,
     ),
+    /** Get runtime status belonging to an AppInstallation. */
+    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /** Remove linkage between an AppInstallation and a Database. */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 
   /** The article API allows you to read article information. */
@@ -1043,17 +1043,33 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Get a DNSZone. */
-    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
-    /** Delete a DNSZone. */
-    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
-    /** Get a zone file for a DNSZone. */
-    dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
+    /** List DNS zone-file import jobs belonging to a Project. */
+    dnsListDnsZoneFileImports: this.requestFunctionFactory(
+      descriptors.dnsListDnsZoneFileImports,
+    ),
+    /** Start a server-side DNS zone-file import for a Project. */
+    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsCreateDnsZoneFileImport,
+    ),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Create a DNSZone for a domain in a Project. */
     dnsCreateProjectDnsZone: this.requestFunctionFactory(
       descriptors.dnsCreateProjectDnsZone,
+    ),
+    /** Get a DNSZone. */
+    dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
+    /** Delete a DNSZone. */
+    dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** Get the status of a DNS zone-file import job. */
+    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsGetDnsZoneFileImport,
+    ),
+    /** Get a zone file for a DNSZone. */
+    dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
+    /** Preview a DNS zone-file import for a Project. */
+    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsPreviewProjectDnsZoneFileImport,
     ),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
@@ -1216,22 +1232,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** Get the status of a DNS zone-file import job. */
-    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsGetDnsZoneFileImport,
-    ),
-    /** List DNS zone-file import jobs belonging to a Project. */
-    dnsListDnsZoneFileImports: this.requestFunctionFactory(
-      descriptors.dnsListDnsZoneFileImports,
-    ),
-    /** Start a server-side DNS zone-file import for a Project. */
-    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsCreateDnsZoneFileImport,
-    ),
-    /** Preview a DNS zone-file import for a Project. */
-    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsPreviewProjectDnsZoneFileImport,
     ),
   };
 
