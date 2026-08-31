@@ -7413,7 +7413,6 @@ export declare module MittwaldAPIV2 {
       export interface DomainDomain {
         authCode?: MittwaldAPIV2.Components.Schemas.DomainAuthCode;
         authCode2?: MittwaldAPIV2.Components.Schemas.DomainAuthCode2;
-        authInfo2CreatedAt?: string;
         connected: boolean;
         contactHash?: string;
         deleted: boolean;
