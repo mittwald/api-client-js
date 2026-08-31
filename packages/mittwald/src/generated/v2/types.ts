@@ -4978,6 +4978,7 @@ export declare module MittwaldAPIV2 {
         containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
         /**
          * @deprecated
+         * This Field is deprecated. Use the profileId field instead.
          */
         customerId?: string;
         /**
@@ -7412,6 +7413,7 @@ export declare module MittwaldAPIV2 {
       export interface DomainDomain {
         authCode?: MittwaldAPIV2.Components.Schemas.DomainAuthCode;
         authCode2?: MittwaldAPIV2.Components.Schemas.DomainAuthCode2;
+        authInfo2CreatedAt?: string;
         connected: boolean;
         contactHash?: string;
         deleted: boolean;
@@ -29179,7 +29181,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {}
+              export type Empty = unknown;
             }
           }
 
