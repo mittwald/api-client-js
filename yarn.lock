@@ -1664,7 +1664,7 @@ __metadata:
   resolution: "@mittwald/api-client-commons@workspace:packages/commons"
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@mittwald/react-use-promise": "npm:~4.0.2"
+    "@mittwald/react-use-promise": "npm:^4.2.3"
     "@types/jest": "npm:^29.5.14"
     "@types/parse-path": "npm:^7.0.3"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
@@ -1704,7 +1704,7 @@ __metadata:
   dependencies:
     "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/api-code-generator": "workspace:^"
-    "@mittwald/react-use-promise": "npm:~4.0.2"
+    "@mittwald/react-use-promise": "npm:^4.2.3"
     "@types/node": "npm:^22.18.11"
     "@types/react": "npm:^18.3.26"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
@@ -1792,7 +1792,7 @@ __metadata:
   dependencies:
     "@jest/globals": "npm:^29.7.0"
     "@mittwald/api-client": "workspace:^"
-    "@mittwald/react-use-promise": "npm:~4.0.2"
+    "@mittwald/react-use-promise": "npm:^4.2.3"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/jest-dom": "npm:^6.9.1"
     "@testing-library/react": "npm:^16.3.0"
@@ -1833,22 +1833,23 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mittwald/react-use-promise@npm:~4.0.2":
-  version: 4.0.2
-  resolution: "@mittwald/react-use-promise@npm:4.0.2"
+"@mittwald/react-use-promise@npm:^4.2.3":
+  version: 4.2.3
+  resolution: "@mittwald/react-use-promise@npm:4.2.3"
   dependencies:
-    "@types/luxon": "npm:3.6.2"
+    "@types/luxon": "npm:3.7.1"
     browser-or-node: "npm:^3.0.0"
-    luxon: "npm:~3.6.1"
+    context: "npm:^3.0.33"
+    luxon: "npm:~3.7.2"
     minimatch: "npm:^10.0.3"
-    object-code: "npm:^1.3.3"
+    object-code: "npm:^1.3.4"
   peerDependencies:
     axios: ^1.6.7
     react: ">=18.3"
   peerDependenciesMeta:
     axios:
       optional: true
-  checksum: 10/40596a1c39b1cf260cbafb29163fcb51ef5b1a87bd682d5ebf8f033b47d215166463ae044f7b91a7fe37c4c1b9dfc858ba82b16f63d67f3a6dd68c85c5621aad
+  checksum: 10/e76157a664e8de44ff69c0c47a780110962ac0ae65d4d7572dcf53db5a6e3c15ecf83214efe08e979fe611176f806b106bb50a7f648790cec8f21183f96610f1
   languageName: node
   linkType: hard
 
@@ -3296,14 +3297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:3.6.2":
-  version: 3.6.2
-  resolution: "@types/luxon@npm:3.6.2"
-  checksum: 10/73ca30059e0b1e352ce3a208837bc042e0bae9cf6e5b42f63de9ddfe15348a9e9bf9fcde3d4034038be24cb24adc579ae984cadff3bf70432e54fed1ad249d12
-  languageName: node
-  linkType: hard
-
-"@types/luxon@npm:^3.7.1":
+"@types/luxon@npm:3.7.1, @types/luxon@npm:^3.7.1":
   version: 3.7.1
   resolution: "@types/luxon@npm:3.7.1"
   checksum: 10/c7bc164c278393ea0be938f986c74b4cddfab9013b1aff4495b016f771ded1d5b7b7b4825b2c7f0b8799edce19c5f531c28ff434ab3dedf994ac2d99a20fd4c4
@@ -8489,17 +8483,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^3.7.2":
+"luxon@npm:^3.7.2, luxon@npm:~3.7.2":
   version: 3.7.2
   resolution: "luxon@npm:3.7.2"
   checksum: 10/b24cd205ed306ce7415991687897dcc4027921ae413c9116590bc33a95f93b86ce52cf74ba72b4f5c5ab1c10090517f54ac8edfb127c049e0bf55b90dc2260be
-  languageName: node
-  linkType: hard
-
-"luxon@npm:~3.6.1":
-  version: 3.6.1
-  resolution: "luxon@npm:3.6.1"
-  checksum: 10/35aad425607708c87af110a52c949190bc35b987770079ec8007ef2365cd29639413db3360d2883777aa01cb3ca5bdb37f42ee3e8e5a0dd277fe22e90cc8a786
   languageName: node
   linkType: hard
 
@@ -9884,13 +9871,6 @@ __metadata:
     should: "npm:^13.2.1"
     yaml: "npm:^1.10.0"
   checksum: 10/3e392d6c99659e58860b78ef1a46eaf8ad782449fe9a21ccb594b74f88a2c211d39ab9d016ec08c995d8728a250229aba84cb02ca3381f0fb2cc1e6782f4e21a
-  languageName: node
-  linkType: hard
-
-"object-code@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "object-code@npm:1.3.3"
-  checksum: 10/f6413d2097556a2f0643d145ce57ced10025e381927bb5688d32757424ef674463e3487bd17cfff45e2efe378419a30a364fc46f2f96c29ae3d9c8f6f573ca52
   languageName: node
   linkType: hard
 
