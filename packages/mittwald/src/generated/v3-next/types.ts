@@ -27654,7 +27654,7 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {}
+              export type Empty = unknown;
             }
           }
 
@@ -32176,6 +32176,9 @@ export declare module MittwaldAPIV3Next {
             severity?: ("success" | "info" | "warning" | "error")[];
             type?: string[];
             "type-not"?: string[];
+            referenceId?: string;
+            referenceDomain?: string;
+            referenceAggregate?: string;
             limit?: number;
             skip?: number;
             page?: number;

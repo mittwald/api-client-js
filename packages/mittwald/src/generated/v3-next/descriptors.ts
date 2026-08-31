@@ -10860,9 +10860,9 @@ export const extensionRequestExtensionVerification: OpenAPIOperation<
     Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.$204.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.$204.Content.Empty>,
       204,
-      "application/json"
+      "empty"
     >
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdVerificationProcess.Post.Responses.$400.Content.ApplicationJson>,

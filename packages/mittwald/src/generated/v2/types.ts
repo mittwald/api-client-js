@@ -27682,7 +27682,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $204 {
             namespace Content {
-              export interface ApplicationJson {}
+              export type Empty = unknown;
             }
           }
 
@@ -32260,6 +32260,9 @@ export declare module MittwaldAPIV2 {
             severity?: ("success" | "info" | "warning" | "error")[];
             type?: string[];
             "type-not"?: string[];
+            referenceId?: string;
+            referenceDomain?: string;
+            referenceAggregate?: string;
             limit?: number;
             skip?: number;
             page?: number;
