@@ -7238,7 +7238,7 @@ export declare module MittwaldAPIV3Next {
        * * `registrarNotSupported`: COAB names a registrar we do not support for migration.
        * * `notOrderable`: the order service rejected the domain for a reason other than an unsupported TLD or a still-reserved domain.
        * * `insufficientState`: the COAB data is incomplete (e.g. missing registrar, price or owner) or the domain is still reserved at the registry.
-       * * `contractDateOutOfRange`: the COAB contract's next-period date is in the past or more than two years in the future.
+       * * `contractDateOutOfRange`: the COAB contract's next-period date is more than two years in the future (implausible data). A next-period date in the past is *not* rejected - the domain stays migratable and its order is billed from now.
        * * `invalidDomainName`: the COAB domain name does not match the `idn-naked-domain` format we accept.
        * * `ownerContactInvalid`: the domain's owner contact data (Inhaberdaten) failed validation at the registry/domain-service (invalid characters, or a TLD-specific contact-schema rule such as no consecutive whitespaces), so the migration is rejected. `ownerContactIssues` on the domain carries the affected field(s)/rule(s).
        */
@@ -39561,7 +39561,7 @@ export declare module MittwaldAPIV3Next {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -39614,7 +39614,7 @@ export declare module MittwaldAPIV3Next {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }

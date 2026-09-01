@@ -18559,8 +18559,8 @@ export const appDetachAppinstallationStaging: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsDetachStaging.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsDetachStaging.Post.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
@@ -18598,8 +18598,8 @@ export const appPromoteAppinstallationStaging: OpenAPIOperation<
     Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsPromoteStaging.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$200.Content.Empty>,
-      200,
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsPromoteStaging.Post.Responses.$204.Content.Empty>,
+      204,
       "empty"
     >
   | Response<
