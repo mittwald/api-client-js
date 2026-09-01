@@ -7359,9 +7359,9 @@ export declare module MittwaldAPIV3Next {
 
       export interface DeMittwaldDnsZoneFileImport {
         /**
-         * When the import job was created. Absent on jobs created before this field existed.
+         * When the import job was created (publish time of the created event).
          */
-        createdAt?: string;
+        createdAt: string;
         failedZones: {
           error: string;
           name: string;
@@ -13248,7 +13248,7 @@ export declare module MittwaldAPIV3Next {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -14131,7 +14131,7 @@ export declare module MittwaldAPIV3Next {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
             namespace Content {
               export type Empty = unknown;
             }
@@ -22459,9 +22459,11 @@ export declare module MittwaldAPIV3Next {
             }
           }
 
-          namespace $500 {
+          namespace Default {
             namespace Content {
-              export interface ApplicationJson {}
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
@@ -41320,218 +41322,6 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdSystemSoftware {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {
-            tagFilter?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftware[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdActionsDetachStaging {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdActionsPromoteStaging {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdActionsStaging {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-            domain: string;
-            installationPath?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
