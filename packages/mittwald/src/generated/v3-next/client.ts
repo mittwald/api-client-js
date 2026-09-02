@@ -35,10 +35,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a customer. */
-    customerGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetUsage,
-    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
     /** Get a list of keys of a project. */
@@ -65,13 +61,33 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-    projectGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetUsage,
-    ),
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
+    ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
+    /** Get ai hosting plan and usages of a project by planId. */
+    projectGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetPlan,
+    ),
+    /** Get all ai hosting plans and usages of a project. */
+    projectGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetPlans,
     ),
   };
 
