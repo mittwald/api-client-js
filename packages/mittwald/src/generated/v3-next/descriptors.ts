@@ -3235,6 +3235,11 @@ export const containerGetServiceLogs: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdServicesServiceIdLogs.Get.Responses.$416.Content.ApplicationJson>,
+      416,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdServicesServiceIdLogs.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
@@ -8618,7 +8623,7 @@ export const dnsListDnsZoneFileImports: OpenAPIOperation<
   operationId: "dns-list-dns-zone-file-imports",
 };
 
-/** Start a server-side DNS zone-file import for a Project. */
+/** Import a DNS zone file into a Project, or preview it with dry-run. */
 export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Parameters.RequestBody>,
@@ -8627,8 +8632,8 @@ export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
     Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$201.Content.ApplicationJson>,
-      201,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$200.Content.ApplicationJson>,
+      200,
       "application/json"
     >
   | Response<
@@ -8884,50 +8889,6 @@ export const dnsGetZoneFile: OpenAPIOperation<
   path: "/v3-next/dns-zones/{dnsZoneId}/zone-file",
   method: "GET",
   operationId: "dns-get-zone-file",
-};
-
-/** Preview a DNS zone-file import for a Project. */
-export const dnsPreviewProjectDnsZoneFileImport: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZonesActionsImportPreview.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/dns-zones/actions/import-preview",
-  method: "POST",
-  operationId: "dns-preview-project-dns-zone-file-import",
 };
 
 /** Set a record set on a DNSZone to managed. */
@@ -15799,6 +15760,11 @@ export const projectFileSystemGetFileContent: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdFilesystemFileContent.Get.Responses.$404.Content.ApplicationJson>,
       404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdFilesystemFileContent.Get.Responses.$416.Content.ApplicationJson>,
+      416,
       "application/json"
     >
   | Response<

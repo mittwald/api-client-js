@@ -1041,7 +1041,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsListDnsZoneFileImports: this.requestFunctionFactory(
       descriptors.dnsListDnsZoneFileImports,
     ),
-    /** Start a server-side DNS zone-file import for a Project. */
+    /** Import a DNS zone file into a Project, or preview it with dry-run. */
     dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
       descriptors.dnsCreateDnsZoneFileImport,
     ),
@@ -1061,10 +1061,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a zone file for a DNSZone. */
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
-    /** Preview a DNS zone-file import for a Project. */
-    dnsPreviewProjectDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsPreviewProjectDnsZoneFileImport,
-    ),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
