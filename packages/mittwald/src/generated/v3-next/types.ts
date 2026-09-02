@@ -194,6 +194,28 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace AppDetachAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appDetachAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appDetachAppinstallationStaging,
+          TStatus
+        >;
+    }
+
+    namespace AppGetAppInstallationSystemSoftware {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppInstallationSystemSoftware
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetAppInstallationSystemSoftware,
+          TStatus
+        >;
+    }
+
     namespace AppGetApp {
       type RequestData = InferredRequestData<typeof descriptors.appGetApp>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -348,6 +370,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace AppPromoteAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appPromoteAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appPromoteAppinstallationStaging,
+          TStatus
+        >;
+    }
+
     namespace AppRequestAppinstallationCopy {
       type RequestData = InferredRequestData<
         typeof descriptors.appRequestAppinstallationCopy
@@ -355,6 +388,17 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.appRequestAppinstallationCopy,
+          TStatus
+        >;
+    }
+
+    namespace AppRequestAppinstallationStaging {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appRequestAppinstallationStaging
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appRequestAppinstallationStaging,
           TStatus
         >;
     }
@@ -4672,50 +4716,6 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
-
-    namespace AppGetAppInstallationSystemSoftware {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appGetAppInstallationSystemSoftware
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appGetAppInstallationSystemSoftware,
-          TStatus
-        >;
-    }
-
-    namespace AppDetachAppinstallationStaging {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appDetachAppinstallationStaging
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appDetachAppinstallationStaging,
-          TStatus
-        >;
-    }
-
-    namespace AppPromoteAppinstallationStaging {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appPromoteAppinstallationStaging
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appPromoteAppinstallationStaging,
-          TStatus
-        >;
-    }
-
-    namespace AppRequestAppinstallationStaging {
-      type RequestData = InferredRequestData<
-        typeof descriptors.appRequestAppinstallationStaging
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.appRequestAppinstallationStaging,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -4946,6 +4946,10 @@ export declare module MittwaldAPIV3Next {
         appId: string;
         appName: string;
         appVersion: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppVersionStatus;
+        /**
+         * Whether automatic updates are activated.
+         */
+        autoUpdatesActivated?: boolean;
         createdAt: string;
         customDocumentRoot?: string;
         deletionRequested?: boolean;
@@ -6551,6 +6555,7 @@ export declare module MittwaldAPIV3Next {
 
       export interface DeMittwaldCronjobCronjobExecutionAnalysis {
         message: string;
+        recommendation?: string;
       }
 
       export type DeMittwaldCronjobCronjobExecutionSortOrder =
@@ -12342,6 +12347,112 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextAppInstallationsAppInstallationIdActionsDetachStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAppInstallationsAppInstallationIdSystemSoftware {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            tagFilter?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextAppsAppId {
       namespace Get {
         namespace Parameters {
@@ -13123,6 +13234,59 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextAppInstallationsAppInstallationIdActionsPromoteStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextAppInstallationsAppInstallationIdActionsCopy {
       namespace Post {
         namespace Parameters {
@@ -13135,6 +13299,59 @@ export declare module MittwaldAPIV3Next {
             domain?: string;
             installationPath?: string;
             targetProjectId?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAppInstallationsAppInstallationIdActionsStaging {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            domain: string;
+            installationPath?: string;
           }
 
           export type Header = {};
@@ -15563,8 +15780,10 @@ export declare module MittwaldAPIV3Next {
             serviceId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+          export type Header = {
+            Range?: string;
+            "If-Range"?: string;
+          } & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {
             tail?: number;
@@ -15572,6 +15791,12 @@ export declare module MittwaldAPIV3Next {
         }
         namespace Responses {
           namespace $200 {
+            namespace Content {
+              export type TextPlain = string;
+            }
+          }
+
+          namespace $206 {
             namespace Content {
               export type TextPlain = string;
             }
@@ -15586,6 +15811,14 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $416 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -21355,9 +21588,11 @@ export declare module MittwaldAPIV3Next {
             }
           }
 
-          namespace $500 {
+          namespace Default {
             namespace Content {
-              export interface ApplicationJson {}
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
         }
@@ -34142,8 +34377,10 @@ export declare module MittwaldAPIV3Next {
             projectId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+          export type Header = {
+            Range?: string;
+            "If-Range"?: string;
+          } & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {
             file?: string;
@@ -34152,6 +34389,12 @@ export declare module MittwaldAPIV3Next {
         }
         namespace Responses {
           namespace $200 {
+            namespace Content {
+              export type ApplicationOctetStream = string;
+            }
+          }
+
+          namespace $206 {
             namespace Content {
               export type ApplicationOctetStream = string;
             }
@@ -34166,6 +34409,14 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $416 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -39474,218 +39725,6 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdSystemSoftware {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {
-            tagFilter?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftware[];
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdActionsDetachStaging {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdActionsPromoteStaging {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAppInstallationsAppInstallationIdActionsStaging {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            appInstallationId: string;
-          };
-
-          export interface RequestBody {
-            description: string;
-            domain: string;
-            installationPath?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

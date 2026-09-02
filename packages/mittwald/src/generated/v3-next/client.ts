@@ -77,6 +77,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
+    /** Detach a staging AppInstallation from its source. */
+    detachAppinstallationStaging: this.requestFunctionFactory(
+      descriptors.appDetachAppinstallationStaging,
+    ),
+    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+    getAppInstallationSystemSoftware: this.requestFunctionFactory(
+      descriptors.appGetAppInstallationSystemSoftware,
+    ),
     /** Get an App. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
     /** Get an AppInstallation. */
@@ -135,30 +143,22 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listUpdateCandidatesForAppversion: this.requestFunctionFactory(
       descriptors.appListUpdateCandidatesForAppversion,
     ),
-    /** Request a copy of an AppInstallation. */
-    requestAppinstallationCopy: this.requestFunctionFactory(
-      descriptors.appRequestAppinstallationCopy,
-    ),
-    /** Get runtime status belonging to an AppInstallation. */
-    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
-    /** Remove linkage between an AppInstallation and a Database. */
-    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-    getAppInstallationSystemSoftware: this.requestFunctionFactory(
-      descriptors.appGetAppInstallationSystemSoftware,
-    ),
-    /** Detach a staging AppInstallation from its source. */
-    detachAppinstallationStaging: this.requestFunctionFactory(
-      descriptors.appDetachAppinstallationStaging,
-    ),
     /** Promote a staging AppInstallation. */
     promoteAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appPromoteAppinstallationStaging,
+    ),
+    /** Request a copy of an AppInstallation. */
+    requestAppinstallationCopy: this.requestFunctionFactory(
+      descriptors.appRequestAppinstallationCopy,
     ),
     /** Request a staging for an AppInstallation. */
     requestAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationStaging,
     ),
+    /** Get runtime status belonging to an AppInstallation. */
+    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /** Remove linkage between an AppInstallation and a Database. */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
   };
 
   /** The article API allows you to read article information. */

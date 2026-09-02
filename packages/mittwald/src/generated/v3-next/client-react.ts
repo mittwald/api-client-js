@@ -55,6 +55,11 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
+  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
+  getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
+    descriptors.appGetAppInstallationSystemSoftware,
+    baseClient.app.getAppInstallationSystemSoftware,
+  ).getApiResource,
   /** Get an App. */
   getApp: new ApiCallAsyncResourceFactory(
     descriptors.appGetApp,
@@ -124,11 +129,6 @@ const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
   retrieveStatus: new ApiCallAsyncResourceFactory(
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
-  ).getApiResource,
-  /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
-  getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
-    descriptors.appGetAppInstallationSystemSoftware,
-    baseClient.app.getAppInstallationSystemSoftware,
   ).getApiResource,
 });
 
