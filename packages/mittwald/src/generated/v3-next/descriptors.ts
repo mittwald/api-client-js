@@ -521,50 +521,6 @@ export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-update-plan",
 };
 
-/** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
-export const aiHostingCustomerGetUsage: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/customers/{customerId}/ai-hosting",
-  method: "GET",
-  operationId: "ai-hosting-customer-get-usage",
-};
-
 /** Get a list of currently active models. */
 export const aiHostingGetModels: OpenAPIOperation<
   RequestType<
@@ -945,50 +901,6 @@ export const aiHostingProjectGetPlans: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/ai-hostings",
   method: "GET",
   operationId: "ai-hosting-project-get-plans",
-};
-
-/** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-export const aiHostingProjectGetUsage: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/ai-hosting",
-  method: "GET",
-  operationId: "ai-hosting-project-get-usage",
 };
 
 /** Links a container with a project licence. */
@@ -3305,6 +3217,11 @@ export const containerGetServiceLogs: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdServicesServiceIdLogs.Get.Responses.$200.Content.TextPlain>,
       200,
+      "text/plain"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdServicesServiceIdLogs.Get.Responses.$206.Content.TextPlain>,
+      206,
       "text/plain"
     >
   | Response<
@@ -15870,6 +15787,11 @@ export const projectFileSystemGetFileContent: OpenAPIOperation<
       "application/octet-stream"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdFilesystemFileContent.Get.Responses.$206.Content.ApplicationOctetStream>,
+      206,
+      "application/octet-stream"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdFilesystemFileContent.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
@@ -19348,4 +19270,48 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Get ai hosting plan and usages of a project by planId. */
+export const aiHostingProjectGetPlan: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/ai-hostings/{planId}",
+  method: "GET",
+  operationId: "ai-hosting-project-get-plan",
 };

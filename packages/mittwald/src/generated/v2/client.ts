@@ -51,10 +51,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
-    /** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
-    customerGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetUsage,
-    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
     /** Get a list of keys of a project. */
@@ -85,13 +81,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectGetPlans: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlans,
     ),
-    /** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-    projectGetUsage: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetUsage,
-    ),
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
+    ),
+    /** Get ai hosting plan and usages of a project by planId. */
+    projectGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetPlan,
     ),
   };
 

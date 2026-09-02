@@ -521,50 +521,6 @@ export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-update-plan",
 };
 
-/** Get ai hosting plan and usages of a customer. Deprecated: use /ai-hostings/{planId} instead. */
-export const aiHostingCustomerGetUsage: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/ai-hosting",
-  method: "GET",
-  operationId: "ai-hosting-customer-get-usage",
-};
-
 /** Get a list of currently active models. */
 export const aiHostingGetModels: OpenAPIOperation<
   RequestType<
@@ -945,50 +901,6 @@ export const aiHostingProjectGetPlans: OpenAPIOperation<
   path: "/v2/projects/{projectId}/ai-hostings",
   method: "GET",
   operationId: "ai-hosting-project-get-plans",
-};
-
-/** Get ai hosting plan and usages of a project. Same as the customer route, but less details. */
-export const aiHostingProjectGetUsage: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/ai-hosting",
-  method: "GET",
-  operationId: "ai-hosting-project-get-usage",
 };
 
 /** Links a container with a project licence. */
@@ -3305,6 +3217,11 @@ export const containerGetServiceLogs: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogs.Get.Responses.$200.Content.TextPlain>,
       200,
+      "text/plain"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogs.Get.Responses.$206.Content.TextPlain>,
+      206,
       "text/plain"
     >
   | Response<
@@ -15865,6 +15782,11 @@ export const projectFileSystemGetFileContent: OpenAPIOperation<
       "application/octet-stream"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$206.Content.ApplicationOctetStream>,
+      206,
+      "application/octet-stream"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFileContent.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
@@ -19343,4 +19265,48 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Get ai hosting plan and usages of a project by planId. */
+export const aiHostingProjectGetPlan: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hostings/{planId}",
+  method: "GET",
+  operationId: "ai-hosting-project-get-plan",
 };
