@@ -175,6 +175,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /** Get an analysis of the error of an AppInstallation. */
+    getAppinstallationErrorAnalysis: this.requestFunctionFactory(
+      descriptors.appGetAppinstallationErrorAnalysis,
+    ),
   };
 
   /** The article API allows you to read article information. */
@@ -357,6 +361,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Get an analysis of the logs belonging to a Service. */
+    getServiceLogsAnalysis: this.requestFunctionFactory(
+      descriptors.containerGetServiceLogsAnalysis,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */

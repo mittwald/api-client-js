@@ -18857,3 +18857,91 @@ export const aiHostingProjectGetPlans: OpenAPIOperation<
   method: "GET",
   operationId: "ai-hosting-project-get-plans",
 };
+
+/** Get an analysis of the logs belonging to a Service. */
+export const containerGetServiceLogsAnalysis: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/stacks/{stackId}/services/{serviceId}/log-analysis",
+  method: "GET",
+  operationId: "container-get-service-logs-analysis",
+};
+
+/** Get an analysis of the error of an AppInstallation. */
+export const appGetAppinstallationErrorAnalysis: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/error-analysis",
+  method: "GET",
+  operationId: "app-get-appinstallation-error-analysis",
+};

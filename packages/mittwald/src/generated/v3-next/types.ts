@@ -4760,6 +4760,28 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace ContainerGetServiceLogsAnalysis {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerGetServiceLogsAnalysis
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerGetServiceLogsAnalysis,
+          TStatus
+        >;
+    }
+
+    namespace AppGetAppinstallationErrorAnalysis {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetAppinstallationErrorAnalysis
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetAppinstallationErrorAnalysis,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5358,7 +5380,10 @@ export declare module MittwaldAPIV3Next {
          * Whether to clear the target path before restoring. If true, existing files in the target path will be deleted before the restore. If false, existing files will be kept and may be overwritten if they exist in the backup.
          */
         clearTargetPath?: boolean;
-        sourcePaths: string[];
+        /**
+         * @minItems 1
+         */
+        sourcePaths: [string, ...string[]];
         /**
          * Target path where the source paths should be restored to. If not set, the target path will be determined to equal the origin source. The target path should always be a folder, no files allowed here.
          */
@@ -5377,7 +5402,13 @@ export declare module MittwaldAPIV3Next {
         | "completed";
 
       export interface DeMittwaldBackupProjectBackupRestoreRequest {
-        databaseRestores?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldBackupProjectBackupRestoreDatabaseRequest[];
+        /**
+         * @minItems 1
+         */
+        databaseRestores?: [
+          MittwaldAPIV3Next.Components.Schemas.DeMittwaldBackupProjectBackupRestoreDatabaseRequest,
+          ...MittwaldAPIV3Next.Components.Schemas.DeMittwaldBackupProjectBackupRestoreDatabaseRequest[],
+        ];
         pathRestore?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldBackupProjectBackupRestorePathRequest;
       }
 
@@ -6591,8 +6622,13 @@ export declare module MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldCronjobCronjobExecutionAnalysis {
+        /**
+         * @deprecated
+         * Deprecated: contains summary and recommendation combined. Use the separate fields instead.
+         */
         message: string;
         recommendation?: string;
+        summary: string;
       }
 
       export type DeMittwaldCronjobCronjobExecutionSortOrder =
@@ -11040,6 +11076,16 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldAihostingProjectPlans {
         modelTermsApprovalRequired: boolean;
         plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlan[];
+      }
+
+      export interface DeMittwaldContainerServiceLogsAnalysis {
+        recommendation?: string;
+        summary: string;
+      }
+
+      export interface DeMittwaldAppAppInstallationErrorAnalysis {
+        recommendation?: string;
+        summary: string;
       }
 
       export interface DeMittwaldCommonsAddress {
@@ -40059,6 +40105,133 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextStacksStackIdServicesServiceIdLogAnalysis {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            stackId: string;
+            serviceId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerServiceLogsAnalysis;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAppInstallationsAppInstallationIdErrorAnalysis {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAppInstallationErrorAnalysis;
+            }
+          }
+
+          namespace $400 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

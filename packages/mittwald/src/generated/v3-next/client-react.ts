@@ -140,6 +140,11 @@ const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
   ).getApiResource,
+  /** Get an analysis of the error of an AppInstallation. */
+  getAppinstallationErrorAnalysis: new ApiCallAsyncResourceFactory(
+    descriptors.appGetAppinstallationErrorAnalysis,
+    baseClient.app.getAppinstallationErrorAnalysis,
+  ).getApiResource,
 });
 
 const buildArticleApi = (baseClient: MittwaldAPIV3NextClient) => ({
@@ -273,6 +278,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
+  ).getApiResource,
+  /** Get an analysis of the logs belonging to a Service. */
+  getServiceLogsAnalysis: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetServiceLogsAnalysis,
+    baseClient.container.getServiceLogsAnalysis,
   ).getApiResource,
 });
 
