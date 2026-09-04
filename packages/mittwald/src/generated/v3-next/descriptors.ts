@@ -18945,3 +18945,47 @@ export const appGetAppinstallationErrorAnalysis: OpenAPIOperation<
   method: "GET",
   operationId: "app-get-appinstallation-error-analysis",
 };
+
+/** Set how the customer became aware of mittwald. */
+export const customerSetCustomerReferralSource: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdReferralSource.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/referral-source",
+  method: "PUT",
+  operationId: "customer-set-customer-referral-source",
+};

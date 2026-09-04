@@ -937,6 +937,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail,
     ),
+    /** Set how the customer became aware of mittwald. */
+    setCustomerReferralSource: this.requestFunctionFactory(
+      descriptors.customerSetCustomerReferralSource,
+    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */

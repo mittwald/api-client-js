@@ -4782,6 +4782,17 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace CustomerSetCustomerReferralSource {
+      type RequestData = InferredRequestData<
+        typeof descriptors.customerSetCustomerReferralSource
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.customerSetCustomerReferralSource,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -11369,6 +11380,9 @@ export declare module MittwaldAPIV3Next {
 
           export type Query = {
             planId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -11862,6 +11876,9 @@ export declare module MittwaldAPIV3Next {
 
           export type Query = {
             planId?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -39902,6 +39919,9 @@ export declare module MittwaldAPIV3Next {
 
           export type Query = {
             topUsageCount?: number;
+            limit?: number;
+            skip?: number;
+            page?: number;
           };
         }
         namespace Responses {
@@ -40086,7 +40106,11 @@ export declare module MittwaldAPIV3Next {
 
           export type Header = {};
 
-          export type Query = {};
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -40232,6 +40256,77 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextCustomersCustomerIdReferralSource {
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * free answer on how the customer became aware of mittwald.
+             */
+            referralSource: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
