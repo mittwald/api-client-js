@@ -39,6 +39,19 @@ test.each([
       },
     },
   ],
+  [
+    {
+      $ref: "#/components/foo/bar",
+      deprecated: true,
+      description: "Do not use",
+    },
+    {
+      type: "object",
+      tsType: "Test.Components.Foo.Bar",
+      deprecated: true,
+      description: "Do not use",
+    },
+  ],
 ])("componentRefsToCustomTypes works for test %#", (input, expected) => {
   const result = componentRefsToCustomTypes("test", input);
   expect(result).toMatchObject(expected);
