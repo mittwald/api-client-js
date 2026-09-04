@@ -1803,7 +1803,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
     another-deep-freeze: "npm:1.0.0"
-    context: "npm:^3.0.33"
+    context: "npm:^4.0.17"
     dinero.js: "npm:^1.9.1"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.2"
@@ -4956,12 +4956,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"context@npm:^3.0.33":
-  version: 3.0.33
-  resolution: "context@npm:3.0.33"
+"context@npm:^4.0.17":
+  version: 4.0.17
+  resolution: "context@npm:4.0.17"
   dependencies:
-    vest-utils: "npm:^1.3.3"
-  checksum: 10/e84269675faea70ec0b7a8ce908282e3d530b48a806d9d88ba7a31ee09775d9aa501aae3f1b612d71cd6a2db4ebfc88ef31564d14e9bab5c81af53f69403d2ea
+    vest-utils: "npm:^2.0.17"
+  checksum: 10/0b9cac370c25f8f317ee2b95393e0bebfb60fdce5d712ebcd4674551f3b393a78cfa6acf6862ef4ffbd9fb3a168cb0b06d1260a17897b681c3507ed2d54e54dd
   languageName: node
   linkType: hard
 
@@ -12531,10 +12531,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vest-utils@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "vest-utils@npm:1.3.3"
-  checksum: 10/b0f6204f56e04755d6adc85effd8d3a483261a066a5aa71e354b87c79d61bbfc803c7957c7737e456c6062c090f44e7a80782b79b5176122037a9f8b254c3234
+"vest-utils@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "vest-utils@npm:2.0.17"
+  checksum: 10/5e4cefa47b2d3003301148fe71165b26ac4efa180d9493e7bdfbae75b8177489a1f6ed5f8aa90ae9b99e0489faeaee298a3da1fd8f0091cd87366664ec662c86
   languageName: node
   linkType: hard
 
