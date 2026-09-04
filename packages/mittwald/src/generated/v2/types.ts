@@ -3,6 +3,7 @@
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
 import * as descriptors from "./descriptors.js";
 import {
+  BinaryData,
   InferredRequestData,
   InferredResponseData,
   HttpStatus,
@@ -28168,7 +28169,7 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            file: BinaryData;
           }
 
           export type Header = {
@@ -39185,7 +39186,30 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            /**
+             * The authorization code received from the authorization server.
+             *
+             */
+            code: string;
+            /**
+             * The code verifier used to generate the code challenge as described in
+             * [RFC7636](https://datatracker.ietf.org/doc/html/rfc7636#section-4.1).
+             * If the authorization flow was initiated with a code challenge, this parameter is required.
+             *
+             */
+            code_verifier?: string;
+            /**
+             * The grant type as described in
+             * [RFC6749](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3).
+             *
+             */
+            grant_type: "authorization_code";
+            /**
+             * The redirection URI used in the authorization request.
+             * Must be a valid URI.
+             *
+             */
+            redirect_uri: string;
           }
 
           export type Header = {
@@ -39765,7 +39789,7 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            [k: string]: unknown;
+            emailEml: BinaryData;
           }
 
           export type Header = {};

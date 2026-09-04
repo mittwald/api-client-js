@@ -2,6 +2,7 @@ import { Name } from "./global/Name.js";
 import { Components } from "./components/Components.js";
 import { Paths } from "./paths/Paths.js";
 import { Tag } from "./tags/Tag.js";
+import { binaryTsType } from "../binarySchemasToCustomTypes.js";
 import { OpenAPIV3 } from "openapi-types";
 
 export interface TypeCompilationOptions {
@@ -41,10 +42,11 @@ export class CodeGenerationModel {
 
     return `\
       import * as descriptors from "./descriptors.js";
-      import { 
-        InferredRequestData, 
-        InferredResponseData, 
-        HttpStatus 
+      import {
+        ${binaryTsType},
+        InferredRequestData,
+        InferredResponseData,
+        HttpStatus
       } from "@mittwald/api-client-commons";
 
       export declare module ${t.ns} {
