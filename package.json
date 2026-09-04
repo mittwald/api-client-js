@@ -21,8 +21,8 @@
   "devDependencies": {
     "@lerna-lite/cli": "^4.9.1",
     "@lerna-lite/publish": "^4.9.1",
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
+    "@typescript-eslint/eslint-plugin": "^8.68.0",
+    "@typescript-eslint/parser": "^8.68.0",
     "@yarnpkg/pnpify": "^4.1.6",
     "concurrently": "^8.2.2",
     "conventional-commits-filter": "^5.0.0",
