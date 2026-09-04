@@ -1761,7 +1761,7 @@ __metadata:
     eslint-plugin-json: "npm:^3.1.0"
     eslint-plugin-prettier: "npm:^5.5.4"
     fs-jetpack: "npm:^5.1.0"
-    get-stdin: "npm:^9.0.0"
+    get-stdin: "npm:^10.0.0"
     invariant: "npm:^2.2.4"
     jest: "npm:^29.7.0"
     js-yaml: "npm:^4.1.0"
@@ -6489,10 +6489,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-stdin@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "get-stdin@npm:9.0.0"
-  checksum: 10/5972bc34d05932b45512c8e2d67b040f1c1ca8afb95c56cbc480985f2d761b7e37fe90dc8abd22527f062cc5639a6930ff346e9952ae4c11a2d4275869459594
+"get-stdin@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "get-stdin@npm:10.0.0"
+  checksum: 10/dc83008cd5ab7d250d55c8e395bfdd336b3dc3cfd1020258678c91a57b1e67b8350288db44225860535c2a3e58e1f063e81255217c9e6392b57c4d7099a327ec
   languageName: node
   linkType: hard
 
