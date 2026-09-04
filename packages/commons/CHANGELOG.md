@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.456.0](https://github.com/mittwald/api-client-js/compare/4.455.0...4.456.0) (2026-09-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.455.0](https://github.com/mittwald/api-client-js/compare/4.454.0...4.455.0) (2026-09-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.454.0](https://github.com/mittwald/api-client-js/compare/4.453.0...4.454.0) (2026-09-03)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.453.0](https://github.com/mittwald/api-client-js/compare/4.452.0...4.453.0) (2026-09-02)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.452.0](https://github.com/mittwald/api-client-js/compare/4.451.0...4.452.0) (2026-09-02)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
 # [4.451.0](https://github.com/mittwald/api-client-js/compare/4.450.0...4.451.0) (2026-09-01)
 
 **Note:** Version bump only for package @mittwald/api-client-commons

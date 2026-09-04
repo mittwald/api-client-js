@@ -43,14 +43,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
-    /** Get ai hosting plan and usages of a customer by planId. */
-    customerGetPlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlan,
-    ),
-    /** Renames an AI hosting plan. */
-    customerUpdatePlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdatePlan,
-    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
     /** Get a list of keys of a project. */
@@ -77,17 +69,33 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
-    /** Get all ai hosting plans and usages of a project. */
-    projectGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingProjectGetPlans,
-    ),
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
+    ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
     /** Get ai hosting plan and usages of a project by planId. */
     projectGetPlan: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlan,
+    ),
+    /** Get all ai hosting plans and usages of a project. */
+    projectGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetPlans,
     ),
   };
 
@@ -170,6 +178,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Request a staging for an AppInstallation. */
     requestAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationStaging,
+    ),
+    /** Get runtime status belonging to an AppInstallation. */
+    retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /** Remove linkage between an AppInstallation and a Database. */
+    unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /** Get an analysis of the error of an AppInstallation. */
+    getAppinstallationErrorAnalysis: this.requestFunctionFactory(
+      descriptors.appGetAppinstallationErrorAnalysis,
     ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
@@ -357,6 +373,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /** Get an analysis of the logs belonging to a Service. */
+    getServiceLogsAnalysis: this.requestFunctionFactory(
+      descriptors.containerGetServiceLogsAnalysis,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -928,6 +948,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend the mail for a CustomerInvite. */
     resendCustomerInviteMail: this.requestFunctionFactory(
       descriptors.customerResendCustomerInviteMail,
+    ),
+    /** Set how the customer became aware of mittwald. */
+    setCustomerReferralSource: this.requestFunctionFactory(
+      descriptors.customerSetCustomerReferralSource,
     ),
   };
 
