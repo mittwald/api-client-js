@@ -11088,6 +11088,7 @@ export const fileCreateFile: OpenAPIOperation<
   path: "/v2/files",
   method: "POST",
   operationId: "file-create-file",
+  requestContentType: "multipart/form-data",
 };
 
 /** Get a File's meta. */
@@ -18203,6 +18204,7 @@ export const userOauthRetrieveAccessToken: OpenAPIOperation<
   path: "/v2/oauth2/token",
   method: "POST",
   operationId: "user-oauth-retrieve-access-token",
+  requestContentType: "application/x-www-form-urlencoded",
 };
 
 /** Register with email and password. */
@@ -18529,6 +18531,7 @@ export const verificationDetectPhishingEmail: OpenAPIOperation<
   path: "/v2/actions/detect-phishing-email",
   method: "POST",
   operationId: "verification-detect-phishing-email",
+  requestContentType: "multipart/form-data",
 };
 
 /** Check if an address exists. */
