@@ -1745,7 +1745,6 @@ __metadata:
     "@types/clone-deep": "npm:^4.0.4"
     "@types/invariant": "npm:^2.2.37"
     "@types/jest": "npm:^29.5.14"
-    "@types/js-yaml": "npm:^4.0.9"
     "@types/prettier": "npm:^3.0.0"
     "@types/swagger2openapi": "npm:^7.0.4"
     "@types/verror": "npm:^1.10.11"
@@ -1764,7 +1763,7 @@ __metadata:
     get-stdin: "npm:^10.0.0"
     invariant: "npm:^2.2.4"
     jest: "npm:^29.7.0"
-    js-yaml: "npm:^4.1.0"
+    js-yaml: "npm:^5.4.1"
     json-schema-to-typescript: "npm:^15.0.4"
     openapi-schema-validator: "npm:^12.1.3"
     openapi-types: "npm:^12.1.3"
@@ -3253,13 +3252,6 @@ __metadata:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
   checksum: 10/59ec7a9c4688aae8ee529316c43853468b6034f453d08a2e1064b281af9c81234cec986be796288f1bbb29efe943bc950e70c8fa8faae1e460d50e3cf9760f9b
-  languageName: node
-  linkType: hard
-
-"@types/js-yaml@npm:^4.0.9":
-  version: 4.0.9
-  resolution: "@types/js-yaml@npm:4.0.9"
-  checksum: 10/a0ce595db8a987904badd21fc50f9f444cb73069f4b95a76cc222e0a17b3ff180669059c763ec314bc4c3ce284379177a9da80e83c5f650c6c1310cafbfaa8e6
   languageName: node
   linkType: hard
 
@@ -7924,6 +7916,17 @@ __metadata:
   bin:
     js-yaml: bin/js-yaml.js
   checksum: 10/c138a34a3fd0d08ebaf71273ad4465569a483b8a639e0b118ff65698d257c2791d3199e3f303631f2cb98213fa7b5f5d6a4621fd0fff819421b990d30d967140
+  languageName: node
+  linkType: hard
+
+"js-yaml@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "js-yaml@npm:5.4.1"
+  dependencies:
+    argparse: "npm:^2.0.1"
+  bin:
+    js-yaml: bin/js-yaml.mjs
+  checksum: 10/6fff9ee00bd59aeb7e1484b4281f5e927b117cbfbf3ffa6c0fef0c58519317eb61527e93c4aa70f417709229bc1eeed63cba773913577a64405975a72fba7180
   languageName: node
   linkType: hard
 
