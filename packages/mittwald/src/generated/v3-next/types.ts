@@ -7349,7 +7349,9 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldDomainmigrationDomainNotMigratableValidationError {
         context: {
           reason: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDomainNotMigratableReason;
-          [k: string]: string;
+          [k: string]:
+            | string
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDomainNotMigratableReason;
         };
         message: string;
         /**
@@ -15279,7 +15281,7 @@ export declare module MittwaldAPIV3Next {
                * Valid timezones can be retrieved via GET /v2/time-zones
                */
               timezone?: string;
-            };
+            } | null;
             /**
              * A set of named volumes that should be created for this stack. Removing a volume
              * from this set will not delete the volume (for safety), but only detach it from the
@@ -18201,10 +18203,10 @@ export declare module MittwaldAPIV3Next {
 
           export interface RequestBody {
             contactPersonUserId?: string;
-            descriptions?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceLocalizedDescription;
-            deviatingContractOwner?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContractOwner;
+            descriptions?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceLocalizedDescription | null;
+            deviatingContractOwner?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContractOwner | null;
             deviatingName?: string;
-            deviatingSupportInformation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceSupportMeta;
+            deviatingSupportInformation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceSupportMeta | null;
             homepage?: string;
             imprint?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceContributorImprint;
           }
@@ -23346,7 +23348,7 @@ export declare module MittwaldAPIV3Next {
               expiresAt?: string;
               message: string;
               startsAt?: string;
-            };
+            } | null;
           }
 
           export type Header =
@@ -26425,19 +26427,21 @@ export declare module MittwaldAPIV3Next {
             assets?: string[];
             deprecation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceExtensionDeprecation;
             description?: string;
-            detailedDescriptions?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceDetailedDescriptions;
-            externalFrontends?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceExternalComponent[];
+            detailedDescriptions?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceDetailedDescriptions | null;
+            externalFrontends?:
+              | MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceExternalComponent[]
+              | null;
             frontendFragments?: {
               [
                 k: string
               ]: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceFrontendFragment;
-            };
+            } | null;
             name?: string;
             scopes?: string[];
             subTitle?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceSubTitle;
             support?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceSupportMeta;
             tags?: string[];
-            webhookUrls?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookUrls;
+            webhookUrls?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookUrls | null;
           }
 
           export type Header =
@@ -33068,7 +33072,7 @@ export declare module MittwaldAPIV3Next {
                 metrics?: {
                   createdAt: string;
                   name: string;
-                  score?: number;
+                  score?: number | null;
                   value: number;
                 }[];
                 moreDataAvailable?: string[];
@@ -36601,7 +36605,7 @@ export declare module MittwaldAPIV3Next {
           };
 
           export interface RequestBody {
-            notificationThresholdInBytes?: number;
+            notificationThresholdInBytes?: number | null;
           }
 
           export type Header =
@@ -36728,7 +36732,7 @@ export declare module MittwaldAPIV3Next {
           };
 
           export interface RequestBody {
-            notificationThresholdInBytes?: number;
+            notificationThresholdInBytes?: number | null;
           }
 
           export type Header =
