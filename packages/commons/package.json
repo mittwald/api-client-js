@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@mittwald/react-use-promise": "^2.6.2",
+    "@mittwald/react-use-promise": "^4.2.3",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -69,7 +69,7 @@
     "typescript": "^5.7.2"
   },
   "peerDependencies": {
-    "@mittwald/react-use-promise": "^2.6.0"
+    "@mittwald/react-use-promise": "^2.6.0 || ^3.0.0 || ^4.0.0"
   },
   "peerDependenciesMeta": {
     "@jest/globals": {
