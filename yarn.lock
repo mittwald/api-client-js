@@ -1741,7 +1741,7 @@ __metadata:
     "@oclif/core": "npm:^3.27.0"
     "@oclif/plugin-help": "npm:^6.2.33"
     "@oclif/plugin-plugins": "npm:^4.3.10"
-    "@sindresorhus/is": "npm:^6.3.1"
+    "@sindresorhus/is": "npm:^8.1.0"
     "@types/clone-deep": "npm:^4.0.4"
     "@types/invariant": "npm:^2.2.37"
     "@types/jest": "npm:^29.5.14"
@@ -2940,10 +2940,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sindresorhus/is@npm:^6.3.1":
-  version: 6.3.1
-  resolution: "@sindresorhus/is@npm:6.3.1"
-  checksum: 10/d28893760d7cb347a28164d1ceb55150b6bb66c5771d0c4dbefd88db63b9e4dac945d9afde2af2e0e113b1ab498985dc58d0c7e6c2ae9cc94aebc5b24d74d92c
+"@sindresorhus/is@npm:^8.1.0":
+  version: 8.1.0
+  resolution: "@sindresorhus/is@npm:8.1.0"
+  checksum: 10/4511f60fa5f21c28694eabff61b4c2fd7b65d7ac895a9330a2e862fd35e880b9b10393c6ccb44c94fa0a1d2320044ac413277ffbdb33e75cffcb0fca8fa56b76
   languageName: node
   linkType: hard
 
