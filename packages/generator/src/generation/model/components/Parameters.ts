@@ -4,6 +4,7 @@ import { Components, ComponentType } from "./Components.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { assertNoRefs } from "../../refs/assertNoRefs.js";
+import { populateNullableTypes } from "../../populateNullableTypes.js";
 
 export class Parameters {
   public static readonly ns = "Parameters";
@@ -24,7 +25,12 @@ export class Parameters {
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {
     const schemas = Object.entries(this.parameters).map(([name, param]) => {
       assertNoRefs(param);
-      return new JSONSchema(new Name(name, this.name), param.schema);
+      return new JSONSchema(
+        new Name(name, this.name),
+        param.schema !== undefined
+          ? populateNullableTypes(param.schema)
+          : undefined,
+      );
     });
 
     const t = {
