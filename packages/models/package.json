@@ -43,7 +43,7 @@
     "another-deep-freeze": "1.0.0",
     "context": "^3.0.33",
     "dinero.js": "^1.9.1",
-    "object-code": "^1.3.4",
+    "object-code": "^2.0.0",
     "polytype": "^0.17.0",
     "tsd": "^0.31.2",
     "type-fest": "^4.30.0"
