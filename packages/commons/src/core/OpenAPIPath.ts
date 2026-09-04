@@ -18,7 +18,10 @@ export class OpenAPIPath {
 
     const finalPath = asEntries.reduce((path, entry) => {
       const [key, value] = entry;
-      return path.replace(`{${key}}`, encodeURIComponent(value));
+      return path.replace(
+        `{${key}}`,
+        encodeURIComponent(value instanceof Date ? value.toISOString() : value),
+      );
     }, path);
 
     return finalPath.startsWith("/") ? finalPath.substring(1) : finalPath;
