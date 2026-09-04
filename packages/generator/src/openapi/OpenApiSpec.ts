@@ -2,12 +2,34 @@ import { OpenAPIV3 } from "openapi-types";
 import { OpenAPISchemaValidationError } from "./OpenAPISchemaValidationError.js";
 import VError from "verror";
 import { makeError } from "../lib/makeError.js";
-import OpenAPISchemaValidator from "openapi-schema-validator";
+import openApiSchemaValidatorModule from "openapi-schema-validator";
+import type {
+  IOpenAPISchemaValidator,
+  OpenAPISchemaValidatorArgs,
+} from "openapi-schema-validator";
 import { convert } from "swagger2openapi";
 import { ux } from "@oclif/core";
+import { openApiSchemaValidatorExtensions } from "./openApiSchemaValidatorExtensions.js";
 
-const validator = new OpenAPISchemaValidator.default({
+type OpenAPISchemaValidatorConstructor = new (
+  args: OpenAPISchemaValidatorArgs,
+) => IOpenAPISchemaValidator;
+
+/**
+ * `openapi-schema-validator` is a CommonJS module. Depending on the module
+ * interop of the environment, the default import either _is_ the class or is a
+ * namespace object carrying it in a nested `default` property.
+ */
+const OpenAPISchemaValidator = ((
+  openApiSchemaValidatorModule as unknown as {
+    default?: OpenAPISchemaValidatorConstructor;
+  }
+).default ??
+  openApiSchemaValidatorModule) as unknown as OpenAPISchemaValidatorConstructor;
+
+const validator = new OpenAPISchemaValidator({
   version: 3,
+  extensions: openApiSchemaValidatorExtensions,
 });
 
 interface ParserOptions {
