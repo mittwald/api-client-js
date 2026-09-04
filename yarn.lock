@@ -1755,7 +1755,7 @@ __metadata:
     axios: "npm:^1.15.2"
     camelcase: "npm:^9.0.0"
     clone-deep: "npm:^4.0.1"
-    dot-prop: "npm:^8.0.2"
+    dot-prop: "npm:^10.2.0"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.2"
     eslint-plugin-json: "npm:^3.1.0"
@@ -5426,21 +5426,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dot-prop@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "dot-prop@npm:10.2.0"
+  dependencies:
+    type-fest: "npm:^5.0.0"
+  checksum: 10/a63940cee92fd701c8a1802ac65da33cc1f699e7f2a791e09cd5db907853f57fdf556b401f321119a719cfce58c3a075b5a2b04b76af27a73c7753fc76fcada2
+  languageName: node
+  linkType: hard
+
 "dot-prop@npm:^5.1.0":
   version: 5.3.0
   resolution: "dot-prop@npm:5.3.0"
   dependencies:
     is-obj: "npm:^2.0.0"
   checksum: 10/33b2561617bd5c73cf9305368ba4638871c5dbf9c8100c8335acd2e2d590a81ec0e75c11cfaea5cc3cf8c2f668cad4beddb52c11856d0c9e666348eee1baf57a
-  languageName: node
-  linkType: hard
-
-"dot-prop@npm:^8.0.2":
-  version: 8.0.2
-  resolution: "dot-prop@npm:8.0.2"
-  dependencies:
-    type-fest: "npm:^3.8.0"
-  checksum: 10/b321e43393c6efba35875c493ebfc6115d8a56c251431e88f055b82224e104c8a6eeb567877339715fb81cdbb67009bfa9cffb57cc423a560756874989dabb45
   languageName: node
   linkType: hard
 
@@ -11902,6 +11902,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tagged-tag@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "tagged-tag@npm:1.0.0"
+  checksum: 10/e37653df3e495daa7ea7790cb161b810b00075bba2e4d6c93fb06a709e747e3ae9da11a120d0489833203926511b39e038a2affbd9d279cfb7a2f3fcccd30b5d
+  languageName: node
+  linkType: hard
+
 "tar-stream@npm:~2.2.0":
   version: 2.2.0
   resolution: "tar-stream@npm:2.2.0"
@@ -12273,13 +12280,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^3.8.0":
-  version: 3.13.1
-  resolution: "type-fest@npm:3.13.1"
-  checksum: 10/9a8a2359ada34c9b3affcaf3a8f73ee14c52779e89950db337ce66fb74c3399776c697c99f2532e9b16e10e61cfdba3b1c19daffb93b338b742f0acd0117ce12
-  languageName: node
-  linkType: hard
-
 "type-fest@npm:^4.23.0":
   version: 4.41.0
   resolution: "type-fest@npm:4.41.0"
@@ -12298,6 +12298,15 @@ __metadata:
   version: 4.23.0
   resolution: "type-fest@npm:4.23.0"
   checksum: 10/c411dea83262f9a4453e09ff82e3ac729dd26afc2e68b7a9fe93dd633b1a2bf7bf2bf3e041676497ae8b8411266019b3add91d4fe34b926a82ba09eb41e9e52b
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^5.0.0":
+  version: 5.8.0
+  resolution: "type-fest@npm:5.8.0"
+  dependencies:
+    tagged-tag: "npm:^1.0.0"
+  checksum: 10/4dbe4c78ac6933d3d165b01f9d552991a84d63e5352110e01bebb5c46499fb1f44d199fc88835b18ee5662ee44c73926621f59525e46f7faa031086ac00b2686
   languageName: node
   linkType: hard
 

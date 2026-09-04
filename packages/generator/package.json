@@ -40,7 +40,7 @@
     "axios": "^1.15.2",
     "camelcase": "^9.0.0",
     "clone-deep": "^4.0.1",
-    "dot-prop": "^8.0.2",
+    "dot-prop": "^10.2.0",
     "fs-jetpack": "^5.1.0",
     "get-stdin": "^9.0.0",
     "invariant": "^2.2.4",
