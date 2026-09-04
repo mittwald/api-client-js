@@ -38,7 +38,7 @@
     "@types/verror": "^1.10.11",
     "@types/yieldable-json": "^2.0.2",
     "axios": "^1.15.2",
-    "camelcase": "^8.0.0",
+    "camelcase": "^9.0.0",
     "clone-deep": "^4.0.1",
     "dot-prop": "^8.0.2",
     "fs-jetpack": "^5.1.0",
