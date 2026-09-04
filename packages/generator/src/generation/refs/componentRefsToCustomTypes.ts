@@ -12,6 +12,23 @@ const getComponentRef = (something: object): string | undefined => {
   }
 };
 
+/**
+ * Annotation keywords that may sit next to a `$ref` (see
+ * `referenceObjectAnnotationExtensions` in `openapi/OpenApiSpec.ts`). They
+ * describe the referencing property, not the referenced component, so they must
+ * survive the conversion into a custom `tsType` reference.
+ */
+const refSiblingAnnotationKeys = ["deprecated", "description"] as const;
+
+const getRefSiblingAnnotations = (
+  something: Record<string, unknown>,
+): Record<string, unknown> =>
+  Object.fromEntries(
+    refSiblingAnnotationKeys
+      .filter((key) => something[key] !== undefined)
+      .map((key) => [key, something[key]]),
+  );
+
 export const componentRefsToCustomTypes = (
   rootNamespace: string,
   something: unknown,
@@ -36,6 +53,7 @@ export const componentRefsToCustomTypes = (
   if (componentRef !== undefined) {
     // see https://github.com/bcherny/json-schema-to-typescript#custom-schema-properties
     return {
+      ...getRefSiblingAnnotations(something),
       tsType: refNameToTSName(rootNamespace, componentRef),
       type: "object",
     };
