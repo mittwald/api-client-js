@@ -11042,6 +11042,9 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
+      export type DeMittwaldAihostingCustomerPlanOptions =
+        MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlan;
+
       export interface DeMittwaldAihostingCustomerPlan {
         customerId: string;
         deletedAt?: string;
@@ -11060,17 +11063,22 @@ export declare module MittwaldAPIV3Next {
         }[];
       }
 
-      export type DeMittwaldAihostingCustomerPlanOptions =
-        MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlan;
-
       export interface DeMittwaldAihostingCustomerPlans {
         modelTermsApprovalRequired: boolean;
         plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlan[];
       }
 
+      export interface DeMittwaldAihostingProjectPlans {
+        modelTermsApprovalRequired: boolean;
+        plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlan[];
+      }
+
       export interface DeMittwaldAihostingProfile {
         planIds: string[];
       }
+
+      export type DeMittwaldAihostingProjectPlanOptions =
+        MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlans;
 
       export interface DeMittwaldAihostingProjectPlan {
         description?: string;
@@ -11079,14 +11087,6 @@ export declare module MittwaldAPIV3Next {
         nextTokenReset?: string;
         planId: string;
         projectId: string;
-      }
-
-      export type DeMittwaldAihostingProjectPlanOptions =
-        MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlans;
-
-      export interface DeMittwaldAihostingProjectPlans {
-        modelTermsApprovalRequired: boolean;
-        plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlan[];
       }
 
       export interface DeMittwaldContainerServiceLogsAnalysis {

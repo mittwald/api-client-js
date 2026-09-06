@@ -11026,13 +11026,13 @@ export declare module MittwaldAPIV2 {
         }[];
       }
 
+      export type AihostingCustomerPlanOptions =
+        MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan;
+
       export interface AihostingCustomerPlans {
         modelTermsApprovalRequired: boolean;
         plans: MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan[];
       }
-
-      export type AihostingCustomerPlanOptions =
-        MittwaldAPIV2.Components.Schemas.AihostingCustomerPlan;
 
       export interface AihostingProfile {
         planIds: string[];
@@ -11047,13 +11047,13 @@ export declare module MittwaldAPIV2 {
         projectId: string;
       }
 
-      export type AihostingProjectPlanOptions =
-        MittwaldAPIV2.Components.Schemas.AihostingProjectPlans;
-
       export interface AihostingProjectPlans {
         modelTermsApprovalRequired: boolean;
         plans: MittwaldAPIV2.Components.Schemas.AihostingProjectPlan[];
       }
+
+      export type AihostingProjectPlanOptions =
+        MittwaldAPIV2.Components.Schemas.AihostingProjectPlans;
 
       export interface ContainerServiceLogsAnalysis {
         recommendation?: string;
