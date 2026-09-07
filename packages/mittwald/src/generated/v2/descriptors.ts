@@ -18656,6 +18656,64 @@ export const userTerminateSession: OpenAPIOperation<
   operationId: "user-terminate-session",
 };
 
+/** Submitted feedback of the given user. */
+export const userGetSpotlightInfo: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/spotlights/{spotlightId}",
+  method: "GET",
+  operationId: "user-get-spotlight-info",
+};
+
+/** Submit your usage of the spotlight. */
+export const userSpotlightUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/spotlights/{spotlightId}",
+  method: "POST",
+  operationId: "user-spotlight-usage",
+};
+
 /** Get profile information for a user. */
 export const userGetUser: OpenAPIOperation<
   RequestType<
@@ -19161,6 +19219,35 @@ export const userResendVerificationEmail: OpenAPIOperation<
   operationId: "user-resend-verification-email",
 };
 
+/** Submit your spotlight usage. */
+export const userSpotlightFeedback: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/spotlights/{spotlightId}/feedback",
+  method: "POST",
+  operationId: "user-spotlight-feedback",
+};
+
 /** Request a support code. */
 export const userSupportCodeRequest: OpenAPIOperation<
   RequestType<
@@ -19407,4 +19494,92 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** List the contract months of an ai hosting plan. */
+export const aiHostingPlanGetBillingPeriods: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}/billing-periods",
+  method: "GET",
+  operationId: "ai-hosting-plan-get-billing-periods",
+};
+
+/** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+export const aiHostingPlanGetUsageStats: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}/usage",
+  method: "GET",
+  operationId: "ai-hosting-plan-get-usage-stats",
 };

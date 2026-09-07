@@ -62,6 +62,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetPlans,
     baseClient.aiHosting.projectGetPlans,
   ).getApiResource,
+  /** List the contract months of an ai hosting plan. */
+  planGetBillingPeriods: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetBillingPeriods,
+    baseClient.aiHosting.planGetBillingPeriods,
+  ).getApiResource,
+  /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+  planGetUsageStats: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetUsageStats,
+    baseClient.aiHosting.planGetUsageStats,
+  ).getApiResource,
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -1059,6 +1069,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   getSession: new ApiCallAsyncResourceFactory(
     descriptors.userGetSession,
     baseClient.user.getSession,
+  ).getApiResource,
+  /** Submitted feedback of the given user. */
+  getSpotlightInfo: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSpotlightInfo,
+    baseClient.user.getSpotlightInfo,
   ).getApiResource,
   /** Get profile information for a user. */
   getUser: new ApiCallAsyncResourceFactory(

@@ -89,6 +89,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
+    /** List the contract months of an ai hosting plan. */
+    planGetBillingPeriods: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetBillingPeriods,
+    ),
+    /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+    planGetUsageStats: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetUsageStats,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
@@ -1485,6 +1493,12 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     terminateSession: this.requestFunctionFactory(
       descriptors.userTerminateSession,
     ),
+    /** Submitted feedback of the given user. */
+    getSpotlightInfo: this.requestFunctionFactory(
+      descriptors.userGetSpotlightInfo,
+    ),
+    /** Submit your usage of the spotlight. */
+    spotlightUsage: this.requestFunctionFactory(descriptors.userSpotlightUsage),
     /** Get profile information for a user. */
     getUser: this.requestFunctionFactory(descriptors.userGetUser),
     /** Change personal information. */
@@ -1528,6 +1542,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Resend the Email-Address verification email. */
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail,
+    ),
+    /** Submit your spotlight usage. */
+    spotlightFeedback: this.requestFunctionFactory(
+      descriptors.userSpotlightFeedback,
     ),
     /** Request a support code. */
     supportCodeRequest: this.requestFunctionFactory(
