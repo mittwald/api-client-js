@@ -7,7 +7,14 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
   - prettier
-overrides: []
+overrides:
+  # Type-level test files assert types via bare member expressions (often
+  # paired with @ts-expect-error); they are expressions on purpose.
+  - files:
+      - "*.test-types.ts"
+      - "*.test-types.tsx"
+    rules:
+      "@typescript-eslint/no-unused-expressions": "off"
 parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: latest
