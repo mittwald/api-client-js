@@ -11564,6 +11564,63 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
+      export type DeMittwaldAihostingCustomerPlanOptions =
+        MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlan;
+
+      export interface DeMittwaldAihostingCustomerPlan {
+        customerId: string;
+        deletedAt?: string;
+        description: string;
+        keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
+        modelTermsApprovalRequired: boolean;
+        nextTokenReset: string;
+        planId: string;
+        rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
+        tokens: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsageBig;
+        topUsages?: {
+          keyId?: string;
+          name: string;
+          projectId?: string;
+          tokenUsed: number;
+        }[];
+      }
+
+      export interface DeMittwaldAihostingCustomerPlans {
+        modelTermsApprovalRequired: boolean;
+        plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlan[];
+      }
+
+      export interface DeMittwaldAihostingProjectPlans {
+        modelTermsApprovalRequired: boolean;
+        plans: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlan[];
+      }
+
+      export interface DeMittwaldAihostingProfile {
+        planIds: string[];
+      }
+
+      export type DeMittwaldAihostingProjectPlanOptions =
+        MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlans;
+
+      export interface DeMittwaldAihostingProjectPlan {
+        description?: string;
+        keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
+        modelTermsApprovalRequired: boolean;
+        nextTokenReset?: string;
+        planId: string;
+        projectId: string;
+      }
+
+      export interface DeMittwaldContainerServiceLogsAnalysis {
+        recommendation?: string;
+        summary: string;
+      }
+
+      export interface DeMittwaldAppAppInstallationErrorAnalysis {
+        recommendation?: string;
+        summary: string;
+      }
+
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
