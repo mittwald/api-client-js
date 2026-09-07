@@ -2,6 +2,17 @@ import { AnyResponse, Response } from "./Response.js";
 import { AnyRequest, RequestType } from "./RequestType.js";
 import { HttpMethod, HttpStatus } from "./http.js";
 
+export type QuerySerializationStyles =
+  | "form"
+  | "spaceDelimited"
+  | "pipeDelimited"
+  | "deepObject"
+  | "contentJSON";
+export interface SerializationOptions<TStyle extends string> {
+  style: TStyle;
+  explode?: boolean;
+}
+
 export interface OpenAPIOperation<
   TIgnoredRequest extends AnyRequest = RequestType,
   IgnoredResponse extends AnyResponse = Response,
@@ -9,6 +20,9 @@ export interface OpenAPIOperation<
   operationId: string;
   path: string;
   method: HttpMethod;
+  serialization?: {
+    query?: Record<string, SerializationOptions<QuerySerializationStyles>>;
+  };
 }
 
 export type InferredRequestType<TOp> =
