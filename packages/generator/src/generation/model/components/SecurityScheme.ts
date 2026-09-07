@@ -4,8 +4,7 @@ import { SecuritySchemes } from "./SecuritySchemes.js";
 import { JSONSchema } from "../global/JSONSchema.js";
 
 export type SecuritySchemeType =
-  | OpenAPIV3.ApiKeySecurityScheme
-  | OpenAPIV3.HttpSecurityScheme;
+  OpenAPIV3.ApiKeySecurityScheme | OpenAPIV3.HttpSecurityScheme;
 
 export class SecurityScheme {
   public readonly in: string;

@@ -46,9 +46,7 @@ export class IngressUndefinedTarget extends IngressTargetBase<IngressUndefinedTa
 }
 
 export type IngressTarget =
-  | IngressRedirectTarget
-  | IngressAppInstallationTarget
-  | IngressUndefinedTarget;
+  IngressRedirectTarget | IngressAppInstallationTarget | IngressUndefinedTarget;
 
 export const ingressTargetFactory = (
   path: IngressPath,
