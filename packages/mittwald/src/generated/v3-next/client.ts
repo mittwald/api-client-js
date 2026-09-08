@@ -53,6 +53,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
+    /** List the contract months of an ai hosting plan. */
+    planGetBillingPeriods: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetBillingPeriods,
+    ),
+    /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+    planGetUsageStats: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetUsageStats,
+    ),
     /** Get a list of keys of a project. */
     projectGetKeys: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetKeys,
@@ -1051,30 +1059,16 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** List DNS zone-file import jobs belonging to a Project. */
-    dnsListDnsZoneFileImports: this.requestFunctionFactory(
-      descriptors.dnsListDnsZoneFileImports,
-    ),
-    /** Import a DNS zone file into a Project, or preview it with dry-run. */
-    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsCreateDnsZoneFileImport,
-    ),
-    /** List DNSZones belonging to a Project. */
-    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
-    /** Create a DNSZone for a domain in a Project. */
-    dnsCreateProjectDnsZone: this.requestFunctionFactory(
-      descriptors.dnsCreateProjectDnsZone,
-    ),
+    /** Create a DNSZone. */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
     dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
-    /** Get the status of a DNS zone-file import job. */
-    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsGetDnsZoneFileImport,
-    ),
     /** Get a zone file for a DNSZone. */
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
+    /** List DNSZones belonging to a Project. */
+    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,

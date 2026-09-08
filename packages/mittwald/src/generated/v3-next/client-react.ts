@@ -37,6 +37,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingGetModels,
     baseClient.aiHosting.getModels,
   ).getApiResource,
+  /** List the contract months of an ai hosting plan. */
+  planGetBillingPeriods: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetBillingPeriods,
+    baseClient.aiHosting.planGetBillingPeriods,
+  ).getApiResource,
+  /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+  planGetUsageStats: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetUsageStats,
+    baseClient.aiHosting.planGetUsageStats,
+  ).getApiResource,
   /** Get a list of keys of a project. */
   projectGetKeys: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetKeys,
@@ -61,16 +71,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
   projectGetPlans: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetPlans,
     baseClient.aiHosting.projectGetPlans,
-  ).getApiResource,
-  /** List the contract months of an ai hosting plan. */
-  planGetBillingPeriods: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingPlanGetBillingPeriods,
-    baseClient.aiHosting.planGetBillingPeriods,
-  ).getApiResource,
-  /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
-  planGetUsageStats: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingPlanGetUsageStats,
-    baseClient.aiHosting.planGetUsageStats,
   ).getApiResource,
 });
 
@@ -716,30 +716,20 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.domainServiceNextListDomains,
     baseClient.domain.serviceNextListDomains,
   ).getApiResource,
-  /** List DNS zone-file import jobs belonging to a Project. */
-  dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
-    descriptors.dnsListDnsZoneFileImports,
-    baseClient.domain.dnsListDnsZoneFileImports,
-  ).getApiResource,
-  /** List DNSZones belonging to a Project. */
-  dnsListDnsZones: new ApiCallAsyncResourceFactory(
-    descriptors.dnsListDnsZones,
-    baseClient.domain.dnsListDnsZones,
-  ).getApiResource,
   /** Get a DNSZone. */
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetDnsZone,
     baseClient.domain.dnsGetDnsZone,
   ).getApiResource,
-  /** Get the status of a DNS zone-file import job. */
-  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZoneFileImport,
-    baseClient.domain.dnsGetDnsZoneFileImport,
-  ).getApiResource,
   /** Get a zone file for a DNSZone. */
   dnsGetZoneFile: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetZoneFile,
     baseClient.domain.dnsGetZoneFile,
+  ).getApiResource,
+  /** List DNSZones belonging to a Project. */
+  dnsListDnsZones: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZones,
+    baseClient.domain.dnsListDnsZones,
   ).getApiResource,
   /** Get a domain. */
   serviceNextGetDomain: new ApiCallAsyncResourceFactory(
