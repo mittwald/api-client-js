@@ -6,6 +6,7 @@ import {
   ResponsePromise,
 } from "../types/index.js";
 import OpenAPIPath from "./OpenAPIPath.js";
+import { serializeRequestBody } from "./requestBody.js";
 import {
   AxiosError,
   AxiosInstance,
@@ -49,26 +50,29 @@ export class Request<TOp extends OpenAPIOperation> {
   }
 
   private buildAxiosConfig(): AxiosRequestConfig {
-    const { method, path } = this.operationDescriptor;
+    const { method, path, requestContentType } = this.operationDescriptor;
 
     const pathParameters = this.requestObject;
 
     const openApiPath = new OpenAPIPath(path, pathParameters as PathParameters);
     const url = openApiPath.buildUrl();
 
-    const data =
+    const rawData =
       this.requestObject && "data" in this.requestObject
         ? this.requestObject.data
         : undefined;
+
+    const { data, contentType } = serializeRequestBody(
+      rawData,
+      requestContentType,
+    );
 
     const headersConfig =
       this.requestObject && "headers" in this.requestObject
         ? this.requestObject.headers
         : undefined;
 
-    const headers = headersConfig
-      ? this.makeAxiosHeaders(headersConfig)
-      : undefined;
+    const headers = this.makeAxiosHeaders(headersConfig, contentType);
 
     const queryParametersConfig =
       this.requestObject && "queryParameters" in this.requestObject
@@ -92,10 +96,30 @@ export class Request<TOp extends OpenAPIOperation> {
     };
   }
 
-  private makeAxiosHeaders(headers: HttpHeaders): RawAxiosRequestHeaders {
-    return Object.fromEntries(
-      Object.entries(headers).map(([key, value]) => [key, value?.toString()]),
+  private makeAxiosHeaders(
+    headers: HttpHeaders | undefined,
+    contentType?: string,
+  ): RawAxiosRequestHeaders | undefined {
+    if (!headers && contentType === undefined) {
+      return undefined;
+    }
+
+    const axiosHeaders: RawAxiosRequestHeaders = Object.fromEntries(
+      Object.entries(headers ?? {}).map(([key, value]) => [
+        key,
+        value?.toString(),
+      ]),
     );
+
+    const hasContentTypeHeader = Object.keys(axiosHeaders).some(
+      (key) => key.toLowerCase() === "content-type",
+    );
+
+    if (contentType !== undefined && !hasContentTypeHeader) {
+      axiosHeaders["Content-Type"] = contentType;
+    }
+
+    return axiosHeaders;
   }
 
   private convertQueryToUrlSearchParams(
