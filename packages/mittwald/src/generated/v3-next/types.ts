@@ -4947,28 +4947,6 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
-
-    namespace AiHostingPlanGetBillingPeriods {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingPlanGetBillingPeriods
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingPlanGetBillingPeriods,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingPlanGetUsageStats {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingPlanGetUsageStats
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingPlanGetUsageStats,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7012,7 +6990,12 @@ export declare module MittwaldAPIV3Next {
         owner?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCustomerContact;
         projectCount: number;
         vatId?: string;
-        vatIdValidationState?: "valid" | "invalid" | "pending" | "unspecified";
+        vatIdValidationState?:
+          | "valid"
+          | "invalid"
+          | "pending"
+          | "unsupported"
+          | "unspecified";
       }
 
       export interface DeMittwaldDatabaseCreateMySqlDatabase {
@@ -11611,76 +11594,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export type DeMittwaldUserUserFeedbackSpotlightDecision =
-        | "keep"
-        | "kill"
-        | "ignore";
-
-      export interface DeMittwaldAihostingPlanBillingPeriods {
-        customerId: string;
-        /**
-         * End of the current period, i.e. when the token counter next resets.
-         */
-        nextTokenReset?: string;
-        /**
-         * Every contract month of the plan from its start up to the current one, anchored on the plan start date rather than the calendar.
-         */
-        periods: {
-          end: string;
-          isCurrent: boolean;
-          /**
-           * True when an upgrade cut this period short: the token counter is reset immediately on an upgrade, so the period ends there instead of on the regular grid. A downgrade does not do this - it takes effect at the next regular boundary.
-           */
-          shortenedByUpgrade: boolean;
-          start: string;
-          /**
-           * The limit that applied during this period, which after a tariff change differs from the plan's current limit.
-           */
-          tokenLimit: number;
-        }[];
-        planId: string;
-      }
-
-      export interface DeMittwaldAihostingPlanUsageStats {
-        customerId: string;
-        daily: {
-          byKey: {
-            [k: string]: number;
-          };
-          date: string;
-          totalTokens: number;
-        }[];
-        detailed?: {
-          [k: string]: {
-            byKey?: {
-              [k: string]: {
-                byModel?: {
-                  [k: string]: number;
-                };
-                tokens?: number;
-              };
-            };
-          };
-        };
-        /**
-         * Every licence of the plan, most used in the timeframe first. Includes licences deleted inside the timeframe, which still carry usage but are no longer returned by the keys endpoint. Ordered, so callers can key chart colours off the position.
-         */
-        keys: {
-          id: string;
-          name: string;
-        }[];
-        modelShare: {
-          model: string;
-          tokens: number;
-        }[];
-        planId: string;
-        timeframe: {
-          end: string;
-          start: string;
-        };
-        totalTokens: number;
-      }
-
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
@@ -13501,9 +13414,8 @@ export declare module MittwaldAPIV3Next {
             appInstallationId: string;
           };
 
-          export type Header = {
-            "Accept-Language"?: "de" | "en";
-          } & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {};
         }
@@ -16831,9 +16743,8 @@ export declare module MittwaldAPIV3Next {
             serviceId: string;
           };
 
-          export type Header = {
-            "Accept-Language"?: "de" | "en";
-          } & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {};
         }
@@ -41736,136 +41647,6 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCustomersCustomerIdAiHostingsPlanIdBillingPeriods {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            planId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanBillingPeriods;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCustomersCustomerIdAiHostingsPlanIdUsage {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            planId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            startDate: string;
-            endDate: string;
-            detailed?: boolean;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsageStats;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
