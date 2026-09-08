@@ -4,7 +4,6 @@
     "outDir": "./dist/esm",
     "rootDir": "./src"
   },
-  "exclude": ["test-d/**/*", "*.test.ts"],
   "extends": "../../tsconfig.json",
   "include": ["src/**/*.ts"]
 }

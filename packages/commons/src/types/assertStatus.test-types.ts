@@ -1,6 +1,7 @@
-import { expectAssignable } from "tsd";
 import { Response } from "./Response.js";
 import assertStatus from "./assertStatus.js";
+
+/* Type-level tests, checked by `tsc --noEmit` (the `test:compile` target). */
 
 type Response200 = Response<{ a: string }, 200, "application/json">;
 type Response201 = Response<{ b: string }, 201>;
@@ -10,7 +11,7 @@ declare const someResponse: SomeResponse;
 
 function ignoredTestAssertStatusAssertsAlsoTheCorrectResponseType() {
   assertStatus(someResponse, 200);
-  expectAssignable<Response200>(someResponse);
+  void (someResponse satisfies Response200);
   // @ts-expect-error Not assignable
-  expectAssignable<Response201>(someResponse);
+  void (someResponse satisfies Response201);
 }
