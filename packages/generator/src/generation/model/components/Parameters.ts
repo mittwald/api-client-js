@@ -29,7 +29,13 @@ export class Parameters {
 
     const t = {
       ns: Parameters.ns,
-      types: await asyncStringJoin(schemas, (schema) => schema.compile(opts)),
+      // parameters are request-only, so they can be widened in place
+      types: await asyncStringJoin(schemas, (schema) =>
+        schema.compileAsRequestInput(
+          opts,
+          this.components.model.dateTimeInputSchemaNames,
+        ),
+      ),
     };
 
     return `\

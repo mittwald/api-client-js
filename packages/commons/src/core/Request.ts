@@ -6,6 +6,7 @@ import {
   ResponsePromise,
 } from "../types/index.js";
 import OpenAPIPath from "./OpenAPIPath.js";
+import { serializeDates } from "./serializeDates.js";
 import {
   AxiosError,
   AxiosInstance,
@@ -51,19 +52,24 @@ export class Request<TOp extends OpenAPIOperation> {
   private buildAxiosConfig(): AxiosRequestConfig {
     const { method, path } = this.operationDescriptor;
 
-    const pathParameters = this.requestObject;
+    /**
+     * Any `Date` passed by the caller – in the body, in query, path or header
+     * parameters, nested at any depth – is converted to an ISO 8601 string
+     * here. The original request object is left untouched.
+     */
+    const requestObject = serializeDates(this.requestObject);
+
+    const pathParameters = requestObject;
 
     const openApiPath = new OpenAPIPath(path, pathParameters as PathParameters);
     const url = openApiPath.buildUrl();
 
     const data =
-      this.requestObject && "data" in this.requestObject
-        ? this.requestObject.data
-        : undefined;
+      requestObject && "data" in requestObject ? requestObject.data : undefined;
 
     const headersConfig =
-      this.requestObject && "headers" in this.requestObject
-        ? this.requestObject.headers
+      requestObject && "headers" in requestObject
+        ? requestObject.headers
         : undefined;
 
     const headers = headersConfig
@@ -71,8 +77,8 @@ export class Request<TOp extends OpenAPIOperation> {
       : undefined;
 
     const queryParametersConfig =
-      this.requestObject && "queryParameters" in this.requestObject
-        ? this.requestObject.queryParameters
+      requestObject && "queryParameters" in requestObject
+        ? requestObject.queryParameters
         : undefined;
     const params = this.convertQueryToUrlSearchParams(queryParametersConfig);
 
@@ -94,7 +100,10 @@ export class Request<TOp extends OpenAPIOperation> {
 
   private makeAxiosHeaders(headers: HttpHeaders): RawAxiosRequestHeaders {
     return Object.fromEntries(
-      Object.entries(headers).map(([key, value]) => [key, value?.toString()]),
+      Object.entries(serializeDates(headers)).map(([key, value]) => [
+        key,
+        value?.toString(),
+      ]),
     );
   }
 
@@ -116,7 +125,7 @@ export class Request<TOp extends OpenAPIOperation> {
     if (typeof query === "object") {
       const searchParams = new URLSearchParams();
 
-      for (const [key, value] of Object.entries(query)) {
+      for (const [key, value] of Object.entries(serializeDates(query))) {
         if (value === undefined) {
           continue;
         }

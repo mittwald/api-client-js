@@ -3,6 +3,7 @@ import { Components } from "./components/Components.js";
 import { Paths } from "./paths/Paths.js";
 import { Tag } from "./tags/Tag.js";
 import { OpenAPIV3 } from "openapi-types";
+import { dateTimeInputSchemaNames } from "../dateTime/dateTimeInputSchemaNames.js";
 
 export interface TypeCompilationOptions {
   optionalHeaders?: string[];
@@ -16,9 +17,16 @@ export class CodeGenerationModel {
   public readonly tags: Tag[];
   public readonly doc: OpenAPIV3.Document;
 
+  /**
+   * Component schemas that need a widened request variant, because they are
+   * used in request position and contain a `format: date-time` string.
+   */
+  public readonly dateTimeInputSchemaNames: ReadonlySet<string>;
+
   private constructor(rootNamespace: string, doc: OpenAPIV3.Document) {
     this.rootNamespace = new Name(rootNamespace);
     this.doc = doc;
+    this.dateTimeInputSchemaNames = dateTimeInputSchemaNames(doc);
     this.components = new Components(this);
     this.tags = this.doc.tags?.map((doc) => Tag.fromDoc(doc)) ?? [];
     this.paths = new Paths(this, this.doc.paths);

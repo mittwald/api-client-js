@@ -6,12 +6,16 @@ type SafeHttpMethod = "GET" | "HEAD" | "OPTIONS";
 type UnsafeHttpMethod = "PUT" | "DELETE" | "POST" | "PATCH";
 export type HttpMethod = SafeHttpMethod | UnsafeHttpMethod;
 
-type HeaderValue = string | number | boolean;
+/**
+ * `Date` is accepted wherever the API expects a `format: date-time` string; it
+ * is serialized to ISO 8601 before the request is sent (see `serializeDates`).
+ */
+type HeaderValue = string | number | boolean | Date;
 
 export type HttpHeaders = Partial<{
   [TKey: string]: HeaderValue | HeaderValue[];
 }>;
 
-export type PathParameters = Record<string, string | number>;
+export type PathParameters = Record<string, string | number | Date>;
 
 export type QueryParameters = Record<string, unknown>;
