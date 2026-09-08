@@ -19,6 +19,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerCreateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerCreateKey,
     ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
     /** Get a key of a customer. */
     customerGetKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetKey,
@@ -34,6 +42,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get a list of currently active models. */
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
+    ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
     ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
@@ -61,26 +77,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
-    /** Links a container with a project licence. */
-    projectLinkContainer: this.requestFunctionFactory(
-      descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Get ai hosting plan and usages of a customer by planId. */
-    customerGetPlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlan,
-    ),
-    /** Renames an AI hosting plan. */
-    customerUpdatePlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdatePlan,
-    ),
-    /** Get all ai hosting plans of a customer. */
-    customerGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlans,
-    ),
-    /** Creates an AI hosting profile and accepts the current model terms. */
-    customerDeclareProfile: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeclareProfile,
-    ),
     /** Get ai hosting plan and usages of a project by planId. */
     projectGetPlan: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlan,
@@ -88,6 +84,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get all ai hosting plans and usages of a project. */
     projectGetPlans: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlans,
+    ),
+    /** Links a container with a project licence. */
+    projectLinkContainer: this.requestFunctionFactory(
+      descriptors.aiHostingProjectLinkContainer,
     ),
   };
 
@@ -103,6 +103,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get an App. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
+    /** Get an analysis of the error of an AppInstallation. */
+    getAppinstallationErrorAnalysis: this.requestFunctionFactory(
+      descriptors.appGetAppinstallationErrorAnalysis,
+    ),
     /** Get an AppInstallation. */
     getAppinstallation: this.requestFunctionFactory(
       descriptors.appGetAppinstallation,
@@ -175,10 +179,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** Get an analysis of the error of an AppInstallation. */
-    getAppinstallationErrorAnalysis: this.requestFunctionFactory(
-      descriptors.appGetAppinstallationErrorAnalysis,
-    ),
   };
 
   /** The article API allows you to read article information. */
@@ -305,6 +305,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getContainerImageConfig: this.requestFunctionFactory(
       descriptors.containerGetContainerImageConfig,
     ),
+    /** Get an analysis of the logs belonging to a Service. */
+    getServiceLogsAnalysis: this.requestFunctionFactory(
+      descriptors.containerGetServiceLogsAnalysis,
+    ),
     /** Get logs belonging to a Service. */
     getServiceLogs: this.requestFunctionFactory(
       descriptors.containerGetServiceLogs,
@@ -361,10 +365,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Get an analysis of the logs belonging to a Service. */
-    getServiceLogsAnalysis: this.requestFunctionFactory(
-      descriptors.containerGetServiceLogsAnalysis,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
