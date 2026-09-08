@@ -11328,41 +11328,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11395,41 +11390,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11462,57 +11452,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11541,41 +11524,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11608,57 +11586,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11684,57 +11655,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11762,41 +11726,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11824,41 +11783,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11891,41 +11845,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -11957,57 +11906,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12036,41 +11978,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12102,57 +12039,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12178,57 +12108,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12256,41 +12179,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12326,49 +12244,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12399,33 +12311,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12456,25 +12364,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12503,25 +12408,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12550,25 +12452,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12594,33 +12493,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12668,33 +12563,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12724,25 +12615,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12777,25 +12665,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12824,25 +12709,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12872,25 +12754,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12926,17 +12805,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -12972,17 +12849,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13022,33 +12897,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13078,17 +12949,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13120,17 +12989,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13161,17 +13028,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13203,17 +13068,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13245,17 +13108,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13282,33 +13143,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13344,25 +13201,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13397,25 +13251,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13443,25 +13294,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13492,25 +13340,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13540,25 +13385,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13600,17 +13442,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13649,41 +13489,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13709,33 +13544,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13764,17 +13595,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13816,33 +13645,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13880,17 +13705,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13928,33 +13751,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -13983,33 +13802,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14035,33 +13850,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14102,41 +13913,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14165,33 +13971,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14217,33 +14019,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14280,41 +14078,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14344,49 +14137,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14417,49 +14204,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14492,41 +14273,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14557,65 +14333,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14644,57 +14412,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14728,41 +14489,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14792,65 +14548,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14884,41 +14632,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -14948,65 +14691,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15035,41 +14770,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15127,49 +14857,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15195,49 +14919,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15310,49 +15028,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15381,41 +15093,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15441,49 +15148,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15512,57 +15213,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15592,57 +15286,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15669,49 +15356,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15743,57 +15424,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15832,57 +15506,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $416 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -15912,57 +15579,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16002,57 +15662,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16080,41 +15733,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16147,41 +15795,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16213,41 +15856,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16285,49 +15923,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16362,41 +15994,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16432,33 +16059,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16494,41 +16117,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16559,57 +16177,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16638,57 +16249,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16717,57 +16321,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16797,57 +16394,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16876,57 +16466,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -16955,57 +16538,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17051,33 +16627,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17108,33 +16680,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17167,33 +16735,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17239,33 +16803,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17294,41 +16854,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17357,33 +16912,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17413,33 +16964,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17468,33 +17015,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17523,33 +17066,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17578,33 +17117,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17633,33 +17168,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17688,33 +17219,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17743,33 +17270,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17798,33 +17321,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17854,33 +17373,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17909,33 +17424,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -17972,33 +17483,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18026,25 +17533,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18070,25 +17574,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18117,25 +17618,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18161,33 +17659,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18224,33 +17718,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18291,25 +17781,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18342,33 +17829,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18401,33 +17884,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18457,33 +17936,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18513,41 +17988,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18589,17 +18059,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18651,33 +18119,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18714,33 +18178,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18772,33 +18232,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18855,25 +18311,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18899,25 +18352,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -18960,33 +18410,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19026,17 +18472,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19071,25 +18515,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19120,33 +18561,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19179,41 +18616,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19241,33 +18673,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19295,41 +18723,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19357,41 +18780,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19419,41 +18837,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19486,41 +18899,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19551,33 +18959,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19603,17 +19007,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19661,25 +19063,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19712,41 +19111,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19780,41 +19174,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19849,17 +19238,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19890,33 +19277,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19954,17 +19337,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -19995,33 +19376,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20050,25 +19427,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20094,33 +19468,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20166,41 +19536,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20230,57 +19595,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20310,25 +19668,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20363,41 +19718,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20431,25 +19781,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20492,41 +19839,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20559,25 +19901,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20611,25 +19950,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20663,49 +19999,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20738,49 +20068,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20810,49 +20134,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20880,17 +20198,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20919,25 +20235,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -20963,17 +20276,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21002,25 +20313,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21046,17 +20354,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21090,17 +20396,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21129,41 +20433,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21200,33 +20499,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21254,33 +20549,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21308,25 +20599,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21356,33 +20644,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21413,33 +20697,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21472,33 +20752,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21534,25 +20810,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21600,9 +20873,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
@@ -21614,17 +20886,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21650,9 +20920,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
@@ -21664,17 +20933,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21702,25 +20969,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21756,33 +21020,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21811,33 +21071,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21871,33 +21127,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21926,33 +21178,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -21983,33 +21231,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22038,33 +21282,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22104,33 +21344,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22159,41 +21395,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22219,49 +21450,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22293,33 +21518,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22348,33 +21569,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22400,33 +21617,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22460,33 +21673,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22515,41 +21724,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22575,49 +21779,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22649,33 +21847,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22703,33 +21897,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22757,33 +21947,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22812,33 +21998,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22866,33 +22048,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22921,33 +22099,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -22976,33 +22150,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23090,25 +22260,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23143,33 +22310,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23216,25 +22379,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23280,41 +22440,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23363,57 +22518,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23447,57 +22595,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23529,57 +22670,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23614,57 +22748,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23701,57 +22828,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23788,57 +22908,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23873,25 +22986,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -23952,17 +23062,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24025,33 +23133,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24080,25 +23184,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24124,25 +23225,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24170,25 +23268,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24217,25 +23312,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24268,33 +23360,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24332,33 +23420,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24386,33 +23470,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24448,25 +23528,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24492,25 +23569,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24542,25 +23616,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24584,41 +23655,36 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldDomainTransferabilityResponse.ApplicationJson;
             }
           }
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24649,33 +23715,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24704,41 +23766,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24761,49 +23818,43 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldDomainSuccessResponse.ApplicationJson;
             }
           }
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24832,33 +23883,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24888,25 +23935,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24936,25 +23980,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -24984,17 +24025,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25020,17 +24059,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25059,25 +24096,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25105,33 +24139,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25159,41 +24189,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25223,33 +24248,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25275,41 +24296,36 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldDomainSuccessResponse.ApplicationJson;
             }
           }
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25346,41 +24362,36 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldDomainSuccessResponse.ApplicationJson;
             }
           }
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25412,33 +24423,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25481,17 +24488,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25534,25 +24539,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25589,33 +24591,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25645,33 +24643,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25715,33 +24709,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25771,33 +24761,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25837,25 +24823,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25887,25 +24870,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25937,25 +24917,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -25993,33 +24970,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26059,25 +25032,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26111,9 +25081,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
@@ -26126,33 +25095,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26183,25 +25148,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26230,33 +25192,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26282,25 +25240,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26330,25 +25285,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26379,33 +25331,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26455,41 +25403,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26517,25 +25460,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26588,25 +25528,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26634,25 +25571,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26684,41 +25618,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26749,33 +25678,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26807,33 +25732,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26862,33 +25783,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26921,33 +25838,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -26977,25 +25890,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27025,25 +25935,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27072,25 +25979,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27122,33 +26026,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27179,25 +26079,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27227,41 +26124,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27299,17 +26191,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27341,17 +26231,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27388,17 +26276,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27431,17 +26317,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27492,25 +26376,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27537,17 +26418,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27599,41 +26478,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27663,25 +26537,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27739,25 +26610,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27784,25 +26652,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27864,41 +26729,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27927,25 +26787,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -27988,25 +26845,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28093,41 +26947,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28159,65 +27008,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $406 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $422 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28249,65 +27090,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $422 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28335,41 +27168,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28402,33 +27230,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28465,65 +27289,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $422 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28561,65 +27377,57 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $422 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28655,25 +27463,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28709,33 +27514,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28764,25 +27565,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28808,25 +27606,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28854,41 +27649,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28923,33 +27713,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -28977,41 +27763,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29040,33 +27821,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29095,33 +27872,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29162,33 +27935,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29220,33 +27989,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29289,33 +28054,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29343,41 +28104,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29408,49 +28164,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29514,49 +28264,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29584,41 +28328,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29646,41 +28385,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29710,41 +28444,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29773,41 +28502,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29841,41 +28565,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29904,41 +28623,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -29966,41 +28680,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30058,25 +28767,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30135,41 +28841,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30199,49 +28900,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30269,49 +28964,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30340,41 +29029,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30407,41 +29091,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30477,57 +29156,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30565,57 +29237,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30649,57 +29314,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30735,57 +29393,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30834,57 +29485,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30916,57 +29560,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -30995,57 +29632,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31071,57 +29701,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31150,57 +29773,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31226,57 +29842,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31304,57 +29913,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31383,25 +29985,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31430,49 +30029,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31520,57 +30113,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31597,17 +30183,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31639,57 +30223,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31718,33 +30295,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31776,57 +30349,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31858,57 +30424,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -31940,57 +30499,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32022,57 +30574,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32104,57 +30649,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32187,33 +30725,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32245,33 +30779,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32297,17 +30827,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32337,17 +30865,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32371,17 +30897,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32413,17 +30937,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32461,17 +30983,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32512,25 +31032,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32564,25 +31081,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32617,17 +31131,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32674,9 +31186,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
@@ -32690,17 +31201,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32741,25 +31250,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32788,17 +31294,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32834,17 +31338,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32880,17 +31382,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -32943,9 +31443,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
@@ -32959,17 +31458,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33012,9 +31509,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
@@ -33028,17 +31524,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33084,33 +31578,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33145,33 +31635,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33209,33 +31695,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33272,41 +31754,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33334,17 +31811,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33381,41 +31856,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33449,25 +31919,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33510,33 +31977,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33573,41 +32036,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33635,17 +32093,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33676,33 +32132,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33728,33 +32180,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33783,25 +32231,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33827,17 +32272,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33866,25 +32309,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33910,17 +32350,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33954,17 +32392,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -33993,25 +32429,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34037,49 +32470,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34109,33 +32536,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34166,33 +32589,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34218,33 +32637,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34280,49 +32695,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34353,49 +32762,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34434,57 +32837,50 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $416 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34513,49 +32909,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34586,49 +32976,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $502 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $503 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34656,25 +33040,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34703,33 +33084,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34758,33 +33135,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34814,33 +33187,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34876,33 +33245,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34940,25 +33305,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -34998,41 +33360,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35063,33 +33420,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35123,33 +33476,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35185,33 +33534,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35246,25 +33591,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35292,25 +33634,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35342,17 +33681,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35472,25 +33809,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35523,33 +33857,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35587,33 +33917,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35642,33 +33968,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35694,25 +34016,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35751,33 +34070,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35810,33 +34125,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35869,33 +34180,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35924,33 +34231,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -35976,25 +34279,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36028,33 +34328,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36088,25 +34384,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36136,25 +34429,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36184,49 +34474,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldSslValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36254,25 +34538,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36300,25 +34581,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36347,25 +34625,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36394,25 +34669,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36443,33 +34715,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldSslValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36499,25 +34767,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36546,49 +34811,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36618,33 +34877,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36673,49 +34928,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36745,33 +34994,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36803,33 +35048,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36855,33 +35096,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -36958,17 +35195,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37049,17 +35284,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37102,25 +35335,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37148,25 +35378,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37204,17 +35431,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37270,9 +35495,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $202 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldSignupSecondFactorRequiredError.ApplicationJson;
             }
           }
 
@@ -37285,17 +35509,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37324,17 +35546,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37399,17 +35619,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37474,17 +35692,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37522,17 +35738,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37579,17 +35793,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37620,17 +35832,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37670,25 +35880,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37737,33 +35944,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $401 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37795,17 +35998,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37834,25 +36035,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37881,25 +36079,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37930,25 +36125,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -37974,25 +36166,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38022,25 +36211,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38071,25 +36257,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38115,17 +36298,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38159,9 +36340,8 @@ export declare module MittwaldAPIV3Next {
 
           namespace $202 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldSignupSecondFactorRequiredError.ApplicationJson;
             }
           }
 
@@ -38174,25 +36354,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38235,17 +36412,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38275,17 +36450,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38315,17 +36488,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38355,25 +36526,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38401,33 +36569,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38458,33 +36622,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38513,25 +36673,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38557,25 +36714,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38604,33 +36758,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $412 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38660,25 +36810,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38725,17 +36872,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38774,17 +36919,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38815,17 +36958,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38856,17 +36997,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38907,25 +37046,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38949,17 +37085,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -38994,17 +37128,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39048,17 +37180,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39135,17 +37265,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39191,17 +37319,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39269,25 +37395,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39313,25 +37436,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39375,17 +37495,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39422,17 +37540,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39476,25 +37592,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39527,41 +37640,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $409 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39608,25 +37716,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39656,25 +37761,22 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39714,17 +37816,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39762,17 +37862,15 @@ export declare module MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39803,41 +37901,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39867,41 +37960,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39934,41 +38022,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -39993,41 +38076,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -40056,41 +38134,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -40122,41 +38195,36 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -40186,49 +38254,43 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace $500 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -40257,33 +38319,29 @@ export declare module MittwaldAPIV3Next {
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }
@@ -40312,49 +38370,43 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCustomerGenericResponse.ApplicationJson;
             }
           }
 
           namespace $400 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsValidationError.ApplicationJson;
             }
           }
 
           namespace $403 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
 
           namespace $404 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsNotFoundError.ApplicationJson;
             }
           }
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsRateLimitError.ApplicationJson;
             }
           }
 
           namespace Default {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Responses.DeMittwaldCommonsDefaultError.ApplicationJson;
             }
           }
         }

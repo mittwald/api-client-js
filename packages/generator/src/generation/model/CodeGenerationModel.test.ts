@@ -152,31 +152,29 @@ describe("compiled types", () => {
   });
 
   /**
-   * `ResponseContentTypes.buildContentTypesFromReferenceObject` passes
-   * `c.schema` — a `JSONSchema` _model instance_ — into `ResponseContent`,
-   * whose parameter is a raw JSON schema object. The instance is then wrapped
-   * in another `JSONSchema`, so nothing usable reaches
-   * `json-schema-to-typescript` and it falls back to an index signature.
-   * `c.schema.schemaObject` is what it should pass.
-   *
    * Every error response in the real mittwald spec is a `$ref` to a component
-   * response, so every error payload in the published client is untyped even
-   * though `Components.Responses.*.ApplicationJson` is generated correctly.
+   * response, so this is the difference between typed and `unknown` error
+   * payloads for every operation in the published client.
    */
-  test("loses the type of a response that references a component response", () => {
+  test("resolves a response that references a component response", () => {
     expect(flat(types)).toContain(
-      "export interface ApplicationJson { [k: string]: unknown; }",
-    );
-    expect(flat(types)).not.toContain(
       "export type ApplicationJson = PetstoreAPI.Components.Responses.NotFound.ApplicationJson;",
     );
   });
 
-  /** Same root cause, reached through the request body component. */
-  test("loses the type of a request body component that references a schema", () => {
+  test("resolves a request body component to the schema it references", () => {
     expect(flat(types)).toContain(
-      "export interface PetBody { [k: string]: unknown; }",
+      "export type PetBody = PetstoreAPI.Components.Schemas.Pet;",
     );
+  });
+
+  /**
+   * The index signature is what `json-schema-to-typescript` emits when it is
+   * handed something that is not a schema — a model instance, or a
+   * `RequestBodyObject` wrapper. Nothing in the fixture should compile to one.
+   */
+  test("compiles no type to an untyped index signature", () => {
+    expect(flat(types)).not.toContain("[k: string]: unknown;");
   });
 });
 

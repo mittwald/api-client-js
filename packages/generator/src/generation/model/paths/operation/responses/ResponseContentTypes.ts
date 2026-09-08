@@ -52,8 +52,14 @@ export class ResponseContentTypes {
       `Referenced response ${doc.$ref} not found`,
     );
 
+    // Reference the component response's own content type rather than
+    // rebuilding it: `c.schema` is a `JSONSchema` model instance, and handing
+    // it to `ResponseContent` — which expects a raw schema object — wraps it in
+    // a second `JSONSchema`, leaving nothing for
+    // `json-schema-to-typescript` to compile but an index signature.
     return referencedResponse.contents.map(
-      (c) => new ResponseContent(this, c.mediaType.raw, c.schema),
+      (c) =>
+        new ResponseContent(this, c.mediaType.raw, c.schema.asCustomTypeRef()),
     );
   }
 
