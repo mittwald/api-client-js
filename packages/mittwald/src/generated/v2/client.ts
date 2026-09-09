@@ -53,6 +53,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
+    /** List the contract months of an ai hosting plan. */
+    planGetBillingPeriods: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetBillingPeriods,
+    ),
+    /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+    planGetUsageStats: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetUsageStats,
+    ),
     /** Get a list of keys of a project. */
     projectGetKeys: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetKeys,
@@ -88,14 +96,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** List the contract months of an ai hosting plan. */
-    planGetBillingPeriods: this.requestFunctionFactory(
-      descriptors.aiHostingPlanGetBillingPeriods,
-    ),
-    /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
-    planGetUsageStats: this.requestFunctionFactory(
-      descriptors.aiHostingPlanGetUsageStats,
     ),
   };
 

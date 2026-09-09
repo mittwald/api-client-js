@@ -37,6 +37,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingGetModels,
     baseClient.aiHosting.getModels,
   ).getApiResource,
+  /** List the contract months of an ai hosting plan. */
+  planGetBillingPeriods: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetBillingPeriods,
+    baseClient.aiHosting.planGetBillingPeriods,
+  ).getApiResource,
+  /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+  planGetUsageStats: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetUsageStats,
+    baseClient.aiHosting.planGetUsageStats,
+  ).getApiResource,
   /** Get a list of keys of a project. */
   projectGetKeys: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetKeys,
@@ -61,16 +71,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
   projectGetPlans: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetPlans,
     baseClient.aiHosting.projectGetPlans,
-  ).getApiResource,
-  /** List the contract months of an ai hosting plan. */
-  planGetBillingPeriods: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingPlanGetBillingPeriods,
-    baseClient.aiHosting.planGetBillingPeriods,
-  ).getApiResource,
-  /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
-  planGetUsageStats: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingPlanGetUsageStats,
-    baseClient.aiHosting.planGetUsageStats,
   ).getApiResource,
 });
 
