@@ -5085,18 +5085,6 @@ export declare module MittwaldAPIV2 {
           date: string;
           totalTokens: number;
         }[];
-        detailed?: {
-          [k: string]: {
-            byKey?: {
-              [k: string]: {
-                byModel?: {
-                  [k: string]: number;
-                };
-                tokens?: number;
-              };
-            };
-          };
-        };
         /**
          * Every licence of the plan, most used in the timeframe first. Includes licences deleted inside the timeframe, which still carry usage but are no longer returned by the keys endpoint. Ordered, so callers can key chart colours off the position.
          */
@@ -7046,7 +7034,7 @@ export declare module MittwaldAPIV2 {
 
       export interface DatabaseCreateMySqlUser {
         /**
-         * An IP range (in CIDR notation) for which access should be allowed.
+         * An IP range (in CIDR notation) for which access should be allowed. This field currently has no effect.
          */
         accessIpMask?: string;
         /**
@@ -7068,6 +7056,9 @@ export declare module MittwaldAPIV2 {
       }
 
       export interface DatabaseCreateMySqlUserWithDatabase {
+        /**
+         * This field currently has no effect.
+         */
         accessIpMask?: string;
         /**
          * The access level that this MySQLUser should have for the database. The `full` access level grants the user read/write privileges on the database.
@@ -7169,7 +7160,7 @@ export declare module MittwaldAPIV2 {
 
       export interface DatabaseMySqlUser {
         /**
-         * An IP range (in CIDR notation) for which access should be allowed.
+         * An IP range (in CIDR notation) for which access should be allowed. This field currently has no effect.
          */
         accessIpMask?: string;
         /**
@@ -12625,7 +12616,7 @@ export declare module MittwaldAPIV2 {
           export type Query = {
             startDate: string;
             endDate: string;
-            detailed?: boolean;
+            keyId?: string;
           };
         }
         namespace Responses {
@@ -23584,6 +23575,9 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * This field currently has no effect.
+             */
             accessIpMask?: string;
             accessLevel?: "full" | "readonly";
             description?: string;
