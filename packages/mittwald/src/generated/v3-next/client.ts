@@ -89,6 +89,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
+    /** List the contract months of an ai hosting plan. */
+    planGetBillingPeriods: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetBillingPeriods,
+    ),
+    /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+    planGetUsageStats: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetUsageStats,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
