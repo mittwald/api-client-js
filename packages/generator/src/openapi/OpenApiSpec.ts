@@ -2,11 +2,30 @@ import { OpenAPIV3 } from "openapi-types";
 import { OpenAPISchemaValidationError } from "./OpenAPISchemaValidationError.js";
 import VError from "verror";
 import { makeError } from "../lib/makeError.js";
-import OpenAPISchemaValidator from "openapi-schema-validator";
+import OpenAPISchemaValidator, {
+  IOpenAPISchemaValidator,
+  OpenAPISchemaValidatorArgs,
+} from "openapi-schema-validator";
 import { convert } from "swagger2openapi";
 import { ux } from "@oclif/core";
 
-const validator = new OpenAPISchemaValidator.default({
+type OpenAPISchemaValidatorConstructor = new (
+  args: OpenAPISchemaValidatorArgs,
+) => IOpenAPISchemaValidator;
+
+/**
+ * `openapi-schema-validator` is a CommonJS package, and the shape of its
+ * default import depends on the module resolution of the consumer: the ESM
+ * build sees the whole `module.exports` (so the class sits on `.default`),
+ * while a CommonJS resolution already unwraps it. Normalize both.
+ */
+const ValidatorConstructor: OpenAPISchemaValidatorConstructor = (
+  "default" in OpenAPISchemaValidator
+    ? OpenAPISchemaValidator.default
+    : OpenAPISchemaValidator
+) as OpenAPISchemaValidatorConstructor;
+
+const validator = new ValidatorConstructor({
   version: 3,
 });
 
