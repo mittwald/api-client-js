@@ -7,9 +7,9 @@ import {
 } from "../types/index.js";
 import OpenAPIPath from "./OpenAPIPath.js";
 import {
-  AxiosError,
   AxiosInstance,
   AxiosRequestConfig,
+  isAxiosError,
   RawAxiosRequestHeaders,
 } from "axios";
 
@@ -32,16 +32,16 @@ export class Request<TOp extends OpenAPIOperation> {
       const response = await axios.request(this.requestConfig);
       return response as unknown as ResponsePromise<TOp>;
     } catch (e) {
-      const error = AxiosError.from(e);
       /**
-       * Since Axios 1.13.3 the error object does not contain the response
-       * anymore, even if the error is an HTTP error. To maintain the previous
-       * behavior of returning the response even for HTTP errors, the
-       * validateStatus option is set to always return true, which means that
-       * HTTP errors will not throw an error.
+       * The client is designed to return all responses, regardless of the
+       * status code; the validateStatus option in buildAxiosConfig() makes sure
+       * axios does not reject on an HTTP status in the first place. Should it
+       * reject with a response anyway - for example because a caller overrides
+       * validateStatus in its own axios config - the response is still returned
+       * instead of thrown.
        */
-      if (error.isAxiosError && error.response) {
-        return error.response as unknown as ResponsePromise<TOp>;
+      if (isAxiosError(e) && e.response) {
+        return e.response as unknown as ResponsePromise<TOp>;
       }
 
       throw e;
