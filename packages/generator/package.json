@@ -24,7 +24,8 @@
     "lint": "run eslint .",
     "test": "",
     "test:compile": "run tsc --noEmit",
-    "test:unit": "node --experimental-vm-modules $(yarn bin jest)"
+    "test:unit": "node --experimental-vm-modules $(yarn bin jest)",
+    "test:unit:coverage": "run test:unit --coverage"
   },
   "dependencies": {
     "@oclif/core": "^3.27.0",
