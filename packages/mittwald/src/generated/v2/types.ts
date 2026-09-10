@@ -7476,7 +7476,9 @@ export declare module MittwaldAPIV2 {
       export interface DomainmigrationDomainNotMigratableValidationError {
         context: {
           reason: MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason;
-          [k: string]: string;
+          [k: string]:
+            | string
+            | MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableReason;
         };
         message: string;
         /**
@@ -15921,7 +15923,7 @@ export declare module MittwaldAPIV2 {
                * Valid timezones can be retrieved via GET /v2/time-zones
                */
               timezone?: string;
-            };
+            } | null;
             /**
              * A set of named volumes that should be created for this stack. Removing a volume
              * from this set will not delete the volume (for safety), but only detach it from the
@@ -18915,10 +18917,10 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             contactPersonUserId?: string;
-            descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription;
-            deviatingContractOwner?: MittwaldAPIV2.Components.Schemas.MarketplaceContractOwner;
+            descriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceLocalizedDescription | null;
+            deviatingContractOwner?: MittwaldAPIV2.Components.Schemas.MarketplaceContractOwner | null;
             deviatingName?: string;
-            deviatingSupportInformation?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
+            deviatingSupportInformation?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta | null;
             homepage?: string;
             imprint?: MittwaldAPIV2.Components.Schemas.MarketplaceContributorImprint;
           }
@@ -24144,7 +24146,7 @@ export declare module MittwaldAPIV2 {
               expiresAt?: string;
               message: string;
               startsAt?: string;
-            };
+            } | null;
           }
 
           export type Header =
@@ -27249,19 +27251,21 @@ export declare module MittwaldAPIV2 {
             assets?: string[];
             deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
             description?: string;
-            detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
-            externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
+            detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions | null;
+            externalFrontends?:
+              | MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[]
+              | null;
             frontendFragments?: {
               [
                 k: string
               ]: MittwaldAPIV2.Components.Schemas.MarketplaceFrontendFragment;
-            };
+            } | null;
             name?: string;
             scopes?: string[];
             subTitle?: MittwaldAPIV2.Components.Schemas.MarketplaceSubTitle;
             support?: MittwaldAPIV2.Components.Schemas.MarketplaceSupportMeta;
             tags?: string[];
-            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls;
+            webhookUrls?: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls | null;
           }
 
           export type Header =
@@ -33952,7 +33956,7 @@ export declare module MittwaldAPIV2 {
                 metrics?: {
                   createdAt: string;
                   name: string;
-                  score?: number;
+                  score?: number | null;
                   value: number;
                 }[];
                 moreDataAvailable?: string[];
@@ -37501,7 +37505,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            notificationThresholdInBytes?: number;
+            notificationThresholdInBytes?: number | null;
           }
 
           export type Header =
@@ -37628,7 +37632,7 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
-            notificationThresholdInBytes?: number;
+            notificationThresholdInBytes?: number | null;
           }
 
           export type Header =
