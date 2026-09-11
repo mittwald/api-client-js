@@ -38690,7 +38690,8 @@ export declare module MittwaldAPIV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
