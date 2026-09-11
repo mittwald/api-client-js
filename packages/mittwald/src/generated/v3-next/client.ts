@@ -1059,6 +1059,8 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
+    /** Create a DNSZone. */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
@@ -1067,10 +1069,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
-    /** Create a DNSZone for a domain in a Project. */
-    dnsCreateProjectDnsZone: this.requestFunctionFactory(
-      descriptors.dnsCreateProjectDnsZone,
-    ),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
@@ -1232,18 +1230,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** List DNS zone-file import jobs belonging to a Project. */
-    dnsListDnsZoneFileImports: this.requestFunctionFactory(
-      descriptors.dnsListDnsZoneFileImports,
-    ),
-    /** Import a DNS zone file into a Project, or preview it with dry-run. */
-    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsCreateDnsZoneFileImport,
-    ),
-    /** Get the status of a DNS zone-file import job. */
-    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
-      descriptors.dnsGetDnsZoneFileImport,
     ),
   };
 
