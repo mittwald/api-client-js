@@ -20,12 +20,14 @@ type OpenAPISchemaValidatorConstructor = new (
  * interop of the environment, the default import either _is_ the class or is a
  * namespace object carrying it in a nested `default` property.
  */
-const OpenAPISchemaValidator = ((
-  openApiSchemaValidatorModule as unknown as {
-    default?: OpenAPISchemaValidatorConstructor;
-  }
-).default ??
-  openApiSchemaValidatorModule) as unknown as OpenAPISchemaValidatorConstructor;
+const interopDefault = (
+  imported:
+    | OpenAPISchemaValidatorConstructor
+    | { default: OpenAPISchemaValidatorConstructor },
+): OpenAPISchemaValidatorConstructor =>
+  typeof imported === "function" ? imported : imported.default;
+
+const OpenAPISchemaValidator = interopDefault(openApiSchemaValidatorModule);
 
 const validator = new OpenAPISchemaValidator({
   version: 3,

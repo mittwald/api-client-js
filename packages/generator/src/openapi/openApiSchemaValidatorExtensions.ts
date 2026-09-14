@@ -14,7 +14,7 @@ import { IJsonSchema } from "openapi-types";
  * @see https://spec.openapis.org/oas/v3.1.0.html#schema-object
  * @see https://json-schema.org/draft/2020-12/json-schema-validation#name-const
  */
-export const openApiSchemaValidatorExtensions = {
+export const openApiSchemaValidatorExtensions: IJsonSchema = {
   definitions: {
     schema: {
       properties: {
@@ -30,4 +30,4 @@ export const openApiSchemaValidatorExtensions = {
       },
     },
   },
-} as unknown as IJsonSchema;
+};
