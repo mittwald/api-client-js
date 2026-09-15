@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.462.0](https://github.com/mittwald/api-client-js/compare/4.461.0...4.462.0) (2026-09-15)
+
+### Features
+
+* **generator:** support the JSON Schema `const` keyword ([#296](https://github.com/mittwald/api-client-js/issues/296)) ([56ae2db](https://github.com/mittwald/api-client-js/commit/56ae2db0b0d8217c0ab1075135b656391fc560a5)), closes [#283](https://github.com/mittwald/api-client-js/issues/283)
+
 # [4.461.0](https://github.com/mittwald/api-client-js/compare/4.460.0...4.461.0) (2026-09-11)
 
 ### Features
