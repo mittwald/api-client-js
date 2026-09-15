@@ -26839,11 +26839,18 @@ export declare module MittwaldAPIV3Next {
             searchTerm?: string;
             anchor?: string;
             hasAcceptedAllScopes?: boolean;
+            "contract.interactionRequired"?: boolean;
             parentCustomerId?: string;
             limit?: number;
             skip?: number;
             page?: number;
-            sort?: ("createdAt" | "extensionId" | "extensionName")[];
+            sort?: (
+              | "createdAt"
+              | "extensionId"
+              | "extensionName"
+              | "unacceptedScopeChanges"
+              | "contract.interactionRequired"
+            )[];
             order?: ("asc" | "desc")[];
           };
         }
