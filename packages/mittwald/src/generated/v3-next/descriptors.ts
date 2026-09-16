@@ -18325,6 +18325,64 @@ export const userTerminateSession: OpenAPIOperation<
   operationId: "user-terminate-session",
 };
 
+/** Submitted feedback of the given user. */
+export const userGetSpotlightInfo: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/spotlights/{spotlightId}",
+  method: "GET",
+  operationId: "user-get-spotlight-info",
+};
+
+/** Submit your usage of the spotlight. */
+export const userSpotlightUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/spotlights/{spotlightId}",
+  method: "POST",
+  operationId: "user-spotlight-usage",
+};
+
 /** Get profile information for a user. */
 export const userGetUser: OpenAPIOperation<
   RequestType<
@@ -18828,6 +18886,35 @@ export const userResendVerificationEmail: OpenAPIOperation<
   path: "/v3-next/users/self/credentials/email/actions/resend-email",
   method: "POST",
   operationId: "user-resend-verification-email",
+};
+
+/** Submit your spotlight usage. */
+export const userSpotlightFeedback: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/spotlights/{spotlightId}/feedback",
+  method: "POST",
+  operationId: "user-spotlight-feedback",
 };
 
 /** Request a support code. */

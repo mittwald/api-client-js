@@ -1443,6 +1443,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     terminateSession: this.requestFunctionFactory(
       descriptors.userTerminateSession,
     ),
+    /** Submitted feedback of the given user. */
+    getSpotlightInfo: this.requestFunctionFactory(
+      descriptors.userGetSpotlightInfo,
+    ),
+    /** Submit your usage of the spotlight. */
+    spotlightUsage: this.requestFunctionFactory(descriptors.userSpotlightUsage),
     /** Get profile information for a user. */
     getUser: this.requestFunctionFactory(descriptors.userGetUser),
     /** Change personal information. */
@@ -1486,6 +1492,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend the Email-Address verification email. */
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail,
+    ),
+    /** Submit your spotlight usage. */
+    spotlightFeedback: this.requestFunctionFactory(
+      descriptors.userSpotlightFeedback,
     ),
     /** Request a support code. */
     supportCodeRequest: this.requestFunctionFactory(

@@ -4615,6 +4615,22 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.userTerminateSession, TStatus>;
     }
 
+    namespace UserGetSpotlightInfo {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetSpotlightInfo
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetSpotlightInfo, TStatus>;
+    }
+
+    namespace UserSpotlightUsage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userSpotlightUsage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userSpotlightUsage, TStatus>;
+    }
+
     namespace UserGetUser {
       type RequestData = InferredRequestData<typeof descriptors.userGetUser>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -4743,6 +4759,14 @@ export declare module MittwaldAPIV3Next {
           typeof descriptors.userResendVerificationEmail,
           TStatus
         >;
+    }
+
+    namespace UserSpotlightFeedback {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userSpotlightFeedback
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userSpotlightFeedback, TStatus>;
     }
 
     namespace UserSupportCodeRequest {
@@ -11181,6 +11205,11 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export type DeMittwaldUserUserFeedbackSpotlightDecision =
+        | "keep"
+        | "kill"
+        | "ignore";
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -39388,6 +39417,94 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextUsersSelfSpotlightsSpotlightId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            spotlightId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                acknowledged: boolean;
+                decision?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUserUserFeedbackSpotlightDecision;
+                spotlightId: string;
+                used: boolean;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            spotlightId: string;
+          };
+
+          export interface RequestBody {
+            acknowledged?: boolean;
+            /**
+             * The Owner of the Feature the spotlight is highlighting.
+             */
+            owner?: string;
+            used?: boolean;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextUsersUserId {
       namespace Get {
         namespace Parameters {
@@ -40176,6 +40293,56 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUsersSelfSpotlightsSpotlightIdFeedback {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            spotlightId: string;
+          };
+
+          export interface RequestBody {
+            decision: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUserUserFeedbackSpotlightDecision;
+            /**
+             * Personal feedback message.
+             */
+            message?: string;
+            /**
+             * The Owner of the Feature the spotlight is highlighting.
+             */
+            owner: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
             }
           }
 

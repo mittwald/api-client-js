@@ -1045,6 +1045,11 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.userGetSession,
     baseClient.user.getSession,
   ).getApiResource,
+  /** Submitted feedback of the given user. */
+  getSpotlightInfo: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSpotlightInfo,
+    baseClient.user.getSpotlightInfo,
+  ).getApiResource,
   /** Get profile information for a user. */
   getUser: new ApiCallAsyncResourceFactory(
     descriptors.userGetUser,
