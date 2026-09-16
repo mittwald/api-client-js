@@ -11549,6 +11549,40 @@ export const extensionRequestExtensionVerification: OpenAPIOperation<
   operationId: "extension-request-extension-verification",
 };
 
+/** Resume the webhook execution of an ExtensionInstance. */
+export const extensionResumeWebhookExecutionForExtensionInstance: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/contributors/{contributorId}/extensions/{extensionId}/extension-instances/{extensionInstanceId}/actions/resume-webhook-execution",
+  method: "POST",
+  operationId: "extension-resume-webhook-execution-for-extension-instance",
+};
+
 /** Publish or withdraw an Extension. */
 export const extensionSetExtensionPublishedState: OpenAPIOperation<
   RequestType<
