@@ -1,5 +1,7 @@
+import { expectTypeOf } from "expect-type";
 import { provideReact } from "./provideReact.js";
-import { expectType } from "tsd";
+
+/* Type-level tests, checked by `tsc --noEmit` (the `test:compile` target). */
 
 const reactProvided = provideReact(
   async (ignoredP1: string, ignoredP2?: boolean) => Promise.resolve("foo"),
@@ -8,8 +10,8 @@ const reactProvided = provideReact(
 function ignoredTestReturnTypesOfProvideReact() {
   const usedValue = reactProvided.use("foo");
   const asAsyncResource = reactProvided.asResource("foo");
-  expectType<string>(usedValue);
-  expectType<string>(asAsyncResource.use());
+  expectTypeOf(usedValue).toEqualTypeOf<string>();
+  expectTypeOf(asAsyncResource.use()).toEqualTypeOf<string>();
 }
 
 function ignoredTestParameterTypesOfProvideReact() {
