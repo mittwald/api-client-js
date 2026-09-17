@@ -8848,43 +8848,165 @@ export const userUpdateAccount: OpenAPIOperation<
   operationId: "user-update-account",
 };
 
-/** Create a DNSZone. */
-export const dnsCreateDnsZone: OpenAPIOperation<
+/** List DNS zone-file import jobs belonging to a Project. */
+export const dnsListDnsZoneFileImports: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$201.Content.ApplicationJson>,
-      201,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$200.Content.ApplicationJson>,
+      200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/dns-zones",
+  path: "/v2/projects/{projectId}/dns-zone-imports",
+  method: "GET",
+  operationId: "dns-list-dns-zone-file-imports",
+};
+
+/** Import a DNS zone file into a Project, or preview it with dry-run. */
+export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zone-imports",
   method: "POST",
-  operationId: "dns-create-dns-zone",
+  operationId: "dns-create-dns-zone-file-import",
+};
+
+/** List DNSZones belonging to a Project. */
+export const dnsListDnsZones: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zones",
+  method: "GET",
+  operationId: "dns-list-dns-zones",
+};
+
+/** Create a DNSZone for a domain in a Project. */
+export const dnsCreateProjectDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zones",
+  method: "POST",
+  operationId: "dns-create-project-dns-zone",
 };
 
 /** Get a DNSZone. */
@@ -8955,6 +9077,45 @@ export const dnsDeleteDnsZone: OpenAPIOperation<
   operationId: "dns-delete-dns-zone",
 };
 
+/** Get the status of a DNS zone-file import job. */
+export const dnsGetDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zone-imports/{zoneFileImportId}",
+  method: "GET",
+  operationId: "dns-get-dns-zone-file-import",
+};
+
 /** Get a zone file for a DNSZone. */
 export const dnsGetZoneFile: OpenAPIOperation<
   RequestType<
@@ -8987,40 +9148,6 @@ export const dnsGetZoneFile: OpenAPIOperation<
   path: "/v2/dns-zones/{dnsZoneId}/zone-file",
   method: "GET",
   operationId: "dns-get-zone-file",
-};
-
-/** List DNSZones belonging to a Project. */
-export const dnsListDnsZones: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/dns-zones",
-  method: "GET",
-  operationId: "dns-list-dns-zones",
 };
 
 /** Set a record set on a DNSZone to managed. */

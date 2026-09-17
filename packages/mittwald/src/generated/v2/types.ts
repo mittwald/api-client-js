@@ -2234,12 +2234,45 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
     }
 
-    namespace DnsCreateDnsZone {
+    namespace DnsListDnsZoneFileImports {
       type RequestData = InferredRequestData<
-        typeof descriptors.dnsCreateDnsZone
+        typeof descriptors.dnsListDnsZoneFileImports
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsCreateDnsZone, TStatus>;
+        InferredResponseData<
+          typeof descriptors.dnsListDnsZoneFileImports,
+          TStatus
+        >;
+    }
+
+    namespace DnsCreateDnsZoneFileImport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsCreateDnsZoneFileImport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsCreateDnsZoneFileImport,
+          TStatus
+        >;
+    }
+
+    namespace DnsListDnsZones {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsListDnsZones
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsListDnsZones, TStatus>;
+    }
+
+    namespace DnsCreateProjectDnsZone {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsCreateProjectDnsZone
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsCreateProjectDnsZone,
+          TStatus
+        >;
     }
 
     namespace DnsGetDnsZone {
@@ -2256,18 +2289,21 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>;
     }
 
+    namespace DnsGetDnsZoneFileImport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsGetDnsZoneFileImport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsGetDnsZoneFileImport,
+          TStatus
+        >;
+    }
+
     namespace DnsGetZoneFile {
       type RequestData = InferredRequestData<typeof descriptors.dnsGetZoneFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.dnsGetZoneFile, TStatus>;
-    }
-
-    namespace DnsListDnsZones {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsListDnsZones
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsListDnsZones, TStatus>;
     }
 
     namespace DnsSetRecordSetManaged {
@@ -7266,6 +7302,55 @@ export declare module MittwaldAPIV2 {
         number: string;
       }
 
+      export interface DnsCreateZoneFileImportResponse {
+        conflicts: MittwaldAPIV2.Components.Schemas.DnsImportConflict[];
+        /**
+         * ID of the started import job. Absent on a dry-run (dry-run=true), which creates no job.
+         */
+        id?: string;
+        zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
+      }
+
+      export interface DnsImportConflict {
+        code:
+          | "parseError"
+          | "invalidRecord"
+          | "unsupportedRecordType"
+          | "cnameConflict"
+          | "foreignCustomerIngress"
+          | "rootZoneUnavailable";
+        message: string;
+        /**
+         * Offending record/owner name. Empty for a file-level parse error, where sourceLine locates the bad line.
+         */
+        name?: string;
+        /**
+         * Only on an invalidRecord conflict: the offending record's rendered value (e.g. "10 ." for an MX).
+         */
+        record?: string;
+        /**
+         * Only on an invalidRecord conflict: the offending record's set type.
+         */
+        recordSetType?: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+        sourceLine?: number;
+      }
+
+      export interface DnsImportRecord {
+        flags?: number;
+        port?: number;
+        priority?: number;
+        tag?: string;
+        value: string;
+        weight?: number;
+      }
+
+      export interface DnsImportRecordSet {
+        records: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
+        ttlNormalized: boolean;
+        ttlSeconds: number;
+        type: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+      }
+
       export type DnsRecordCAA =
         | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
         | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
@@ -7413,6 +7498,38 @@ export declare module MittwaldAPIV2 {
           srv: MittwaldAPIV2.Components.Schemas.DnsRecordSRV;
           txt: MittwaldAPIV2.Components.Schemas.DnsRecordTXT;
         };
+      }
+
+      export interface DnsZoneFileImport {
+        /**
+         * When the import job was created (publish time of the created event).
+         */
+        createdAt: string;
+        failedZones: {
+          error: string;
+          name: string;
+        }[];
+        id: string;
+        importedZones: string[];
+        projectId: string;
+        skippedZones: {
+          name: string;
+          reason: string;
+        }[];
+        status: "running" | "succeeded" | "failed" | "completedWithErrors";
+      }
+
+      export interface DnsZoneImportPreview {
+        alreadyExists: boolean;
+        /**
+         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
+         */
+        name: string;
+        recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
+        /**
+         * Project the zone would be created in. Always set, since only importable zones are listed.
+         */
+        targetProjectId?: string;
       }
 
       export interface DomainAuthCode {
@@ -8498,7 +8615,7 @@ export declare module MittwaldAPIV2 {
          * @deprecated
          */
         blocked: boolean;
-        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
@@ -10336,6 +10453,236 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogCronjobActiveUpdated {
+        changes: {
+          after?: {
+            active: boolean;
+          };
+          before?: {
+            active: boolean | null;
+          };
+        };
+        name: "cronjob.activated" | "cronjob.deactivated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobAlertThresholdUpdated {
+        changes: {
+          after?: {
+            failedExecutionAlertThreshold: number | null;
+          };
+          before?: {
+            failedExecutionAlertThreshold: number | null;
+          };
+        };
+        name: "cronjob.alert-threshold-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobCommandUpdated {
+        changes: {
+          after?: {
+            command: string;
+          };
+          before?: {
+            command: string | null;
+          };
+        };
+        name: "cronjob.command-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobConcurrencyPolicyUpdated {
+        changes: {
+          after?: {
+            concurrencyPolicy: number;
+          };
+          before?: {
+            concurrencyPolicy: number | null;
+          };
+        };
+        name: "cronjob.concurrency-policy-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobCreated {
+        changes: {
+          after?: {
+            active: boolean;
+            concurrencyPolicy: number;
+            description: string;
+            failedExecutionAlertThreshold: number | null;
+            interval: string;
+            notificationEmailConfigured: boolean;
+            shortId: string;
+            target: {} | null;
+            timeZone: string;
+            timeout: number;
+          };
+          before?: {
+            active: boolean | null;
+            concurrencyPolicy: number | null;
+            description: string | null;
+            failedExecutionAlertThreshold: number | null;
+            interval: string | null;
+            notificationEmailConfigured: boolean | null;
+            shortId: string | null;
+            target: {} | null;
+            timeZone: string | null;
+            timeout: number | null;
+          };
+        };
+        name: "cronjob.created";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobDeleted {
+        changes: {};
+        name: "cronjob.deleted";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "cronjob.description-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobExecution {
+        changes: {};
+        name: "cronjob.execution-triggered" | "cronjob.execution-aborted";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobIntervalUpdated {
+        changes: {
+          after?: {
+            interval: string;
+          };
+          before?: {
+            interval: string | null;
+          };
+        };
+        name: "cronjob.interval-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobNotificationEmailUpdated {
+        changes: {
+          after?: {
+            notificationEmailConfigured: boolean;
+          };
+          before?: {
+            notificationEmailConfigured: boolean | null;
+          };
+        };
+        name:
+          | "cronjob.notification-email-updated"
+          | "cronjob.notification-email-removed";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobServiceReferenceUpdated {
+        changes: {
+          after?: {
+            serviceReference: {} | null;
+          };
+          before?: {
+            serviceReference: {} | null;
+          };
+        };
+        name: "cronjob.service-reference-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobTargetUpdated {
+        changes: {
+          after?: {
+            destination: {} | null;
+          };
+          before?: {
+            destination: {} | null;
+          };
+        };
+        name: "cronjob.target-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobTimeZoneUpdated {
+        changes: {
+          after?: {
+            timeZone: string;
+          };
+          before?: {
+            timeZone: string | null;
+          };
+        };
+        name: "cronjob.time-zone-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobTimeoutUpdated {
+        changes: {
+          after?: {
+            timeout: number;
+          };
+          before?: {
+            timeout: number | null;
+          };
+        };
+        name: "cronjob.timeout-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
       export interface ActivitylogDatabaseCreated {
         changes: {
           after?: {
@@ -11543,236 +11890,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface ActivitylogCronjobActiveUpdated {
-        changes: {
-          after?: {
-            active: boolean;
-          };
-          before?: {
-            active: boolean | null;
-          };
-        };
-        name: "cronjob.activated" | "cronjob.deactivated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobAlertThresholdUpdated {
-        changes: {
-          after?: {
-            failedExecutionAlertThreshold: number | null;
-          };
-          before?: {
-            failedExecutionAlertThreshold: number | null;
-          };
-        };
-        name: "cronjob.alert-threshold-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobCommandUpdated {
-        changes: {
-          after?: {
-            command: string;
-          };
-          before?: {
-            command: string | null;
-          };
-        };
-        name: "cronjob.command-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobConcurrencyPolicyUpdated {
-        changes: {
-          after?: {
-            concurrencyPolicy: number;
-          };
-          before?: {
-            concurrencyPolicy: number | null;
-          };
-        };
-        name: "cronjob.concurrency-policy-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobCreated {
-        changes: {
-          after?: {
-            active: boolean;
-            concurrencyPolicy: number;
-            description: string;
-            failedExecutionAlertThreshold: number | null;
-            interval: string;
-            notificationEmailConfigured: boolean;
-            shortId: string;
-            target: {} | null;
-            timeZone: string;
-            timeout: number;
-          };
-          before?: {
-            active: boolean | null;
-            concurrencyPolicy: number | null;
-            description: string | null;
-            failedExecutionAlertThreshold: number | null;
-            interval: string | null;
-            notificationEmailConfigured: boolean | null;
-            shortId: string | null;
-            target: {} | null;
-            timeZone: string | null;
-            timeout: number | null;
-          };
-        };
-        name: "cronjob.created";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobDeleted {
-        changes: {};
-        name: "cronjob.deleted";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobDescriptionUpdated {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name: "cronjob.description-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobExecution {
-        changes: {};
-        name: "cronjob.execution-triggered" | "cronjob.execution-aborted";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobIntervalUpdated {
-        changes: {
-          after?: {
-            interval: string;
-          };
-          before?: {
-            interval: string | null;
-          };
-        };
-        name: "cronjob.interval-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobNotificationEmailUpdated {
-        changes: {
-          after?: {
-            notificationEmailConfigured: boolean;
-          };
-          before?: {
-            notificationEmailConfigured: boolean | null;
-          };
-        };
-        name:
-          | "cronjob.notification-email-updated"
-          | "cronjob.notification-email-removed";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobServiceReferenceUpdated {
-        changes: {
-          after?: {
-            serviceReference: {} | null;
-          };
-          before?: {
-            serviceReference: {} | null;
-          };
-        };
-        name: "cronjob.service-reference-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobTargetUpdated {
-        changes: {
-          after?: {
-            destination: {} | null;
-          };
-          before?: {
-            destination: {} | null;
-          };
-        };
-        name: "cronjob.target-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobTimeoutUpdated {
-        changes: {
-          after?: {
-            timeout: number;
-          };
-          before?: {
-            timeout: number | null;
-          };
-        };
-        name: "cronjob.timeout-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobTimeZoneUpdated {
-        changes: {
-          after?: {
-            timeZone: string;
-          };
-          before?: {
-            timeZone: string | null;
-          };
-        };
-        name: "cronjob.time-zone-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -25397,14 +25514,188 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmailVerify {}
 
-    namespace V2DnsZones {
+    namespace V2ProjectsProjectIdDnsZoneImports {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "createdAt";
+            order?: "asc" | "desc";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
-          export type Path = {};
+          export type Path = {
+            projectId: string;
+          };
 
           export interface RequestBody {
+            /**
+             * Raw RFC-1035 zone file content to import.
+             */
+            zoneFile: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            "dry-run"?: boolean;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsCreateZoneFileImportResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DnsZones {}
+
+    namespace V2ProjectsProjectIdDnsZones {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsZone[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Fully-qualified name of the DNSZone to create (e.g. example.com or _autoconfig.example.com). The backend resolves root vs subzone via the public suffix list.
+             */
             name: string;
-            parentZoneId: string;
           }
 
           export type Header =
@@ -25429,7 +25720,23 @@ export declare module MittwaldAPIV2 {
             }
           }
 
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -25547,11 +25854,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2DnsZonesDnsZoneIdZoneFile {
+    namespace V2DnsZoneImportsZoneFileImportId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            dnsZoneId: string;
+            zoneFileImportId: string;
           };
 
           export type Header =
@@ -25562,11 +25869,20 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type TextPlain = string;
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport;
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -25593,11 +25909,11 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdDnsZones {
+    namespace V2DnsZonesDnsZoneIdZoneFile {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            projectId: string;
+            dnsZoneId: string;
           };
 
           export type Header =
@@ -25608,8 +25924,7 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZone[];
+              export type TextPlain = string;
             }
           }
 
