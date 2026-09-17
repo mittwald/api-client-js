@@ -2962,6 +2962,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ExtensionResumeWebhookExecutionForExtensionInstance {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionResumeWebhookExecutionForExtensionInstance
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionResumeWebhookExecutionForExtensionInstance,
+          TStatus
+        >;
+    }
+
     namespace ExtensionSetExtensionPublishedState {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionSetExtensionPublishedState
@@ -28773,6 +28784,54 @@ export declare module MittwaldAPIV2 {
           export type Path = {
             contributorId: string;
             extensionId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionInstanceId: string;
           };
 
           export type Header =

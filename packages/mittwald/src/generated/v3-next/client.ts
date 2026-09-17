@@ -739,6 +739,11 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     extensionRequestExtensionVerification: this.requestFunctionFactory(
       descriptors.extensionRequestExtensionVerification,
     ),
+    /** Resume the webhook execution of an ExtensionInstance. */
+    extensionResumeWebhookExecutionForExtensionInstance:
+      this.requestFunctionFactory(
+        descriptors.extensionResumeWebhookExecutionForExtensionInstance,
+      ),
     /** Publish or withdraw an Extension. */
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
       descriptors.extensionSetExtensionPublishedState,
