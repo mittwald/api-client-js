@@ -39,7 +39,7 @@
     "typescript": "^5.7.2"
   },
   "resolutions": {
-    "axios": "^1.15.2"
+    "axios": "^1.20.0"
   },
   "workspaces": [
     "packages/*"
