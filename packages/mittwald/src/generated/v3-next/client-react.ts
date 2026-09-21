@@ -526,6 +526,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.marketplaceCustomerGetPaymentMethod,
     baseClient.marketplace.customerGetPaymentMethod,
   ).getApiResource,
+  /** Get a specific OAuth2 client. */
+  contributorGetOauthClient: new ApiCallAsyncResourceFactory(
+    descriptors.contributorGetOauthClient,
+    baseClient.marketplace.contributorGetOauthClient,
+  ).getApiResource,
 });
 
 const buildConversationApi = (baseClient: MittwaldAPIV3NextClient) => ({
