@@ -5857,6 +5857,10 @@ export declare module MittwaldAPIV2 {
          */
         command?: string[];
         deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
+        /**
+         * @deprecated
+         * Deprecated by 'x-description' (which takes precedence). This field will be removed in a future version.
+         */
         description?: string;
         /**
          * The container entrypoint (equivalent to the [Docker entrypoint](https://docs.docker.com/reference/dockerfile/#entrypoint)). When omitted, this defaults to the entrypoint defined in the image.
@@ -5892,12 +5896,25 @@ export declare module MittwaldAPIV2 {
          *
          */
         ports?: string[];
+        /**
+         * Restart policy for the container, matching the [Docker Compose `restart` field](https://docs.docker.com/reference/compose-file/services/#restart): `no`, `always`, `on-failure` (optionally `on-failure:<max-retries>`) or `unless-stopped`.
+         *
+         */
+        restart?: string;
+        /**
+         * @deprecated
+         * Deprecated by 'restart' (which takes precedence). This field will be removed in a future version.
+         */
         restartPolicy?: string;
         /**
          * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
          *
          */
         volumes?: string[];
+        /**
+         * Human-readable description of this container.
+         */
+        "x-description"?: string;
       }
 
       export interface ContainerDeploy {
@@ -5927,6 +5944,10 @@ export declare module MittwaldAPIV2 {
          */
         command?: string[];
         deploy?: MittwaldAPIV2.Components.Schemas.ContainerDeploy;
+        /**
+         * @deprecated
+         * Deprecated by 'x-description' (which takes precedence). This field will be removed in a future version.
+         */
         description?: string;
         /**
          * The container entrypoint (equivalent to the [Docker entrypoint](https://docs.docker.com/reference/dockerfile/#entrypoint)). When omitted, this defaults to the entrypoint defined in the image.
@@ -5962,12 +5983,25 @@ export declare module MittwaldAPIV2 {
          *
          */
         ports?: string[];
+        /**
+         * Restart policy for the container, matching the [Docker Compose `restart` field](https://docs.docker.com/reference/compose-file/services/#restart): `no`, `always`, `on-failure` (optionally `on-failure:<max-retries>`) or `unless-stopped`.
+         *
+         */
+        restart?: string;
+        /**
+         * @deprecated
+         * Deprecated by 'restart' (which takes precedence). This field will be removed in a future version.
+         */
         restartPolicy?: string;
         /**
          * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
          *
          */
         volumes?: string[];
+        /**
+         * Human-readable description of this container.
+         */
+        "x-description"?: string;
       }
 
       export interface ContainerResourceSpec {
@@ -8156,7 +8190,7 @@ export declare module MittwaldAPIV2 {
          * @deprecated
          */
         blocked: boolean;
-        context: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
+        context?: MittwaldAPIV2.Components.Schemas.MarketplaceContext;
         contributorId: string;
         deletionDeadline?: string;
         deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
@@ -15932,6 +15966,10 @@ export declare module MittwaldAPIV2 {
           };
 
           export interface RequestBody {
+            /**
+             * @deprecated
+             * Deprecated by 'x-description' (which takes precedence). This field will be removed in a future version.
+             */
             description?: string;
             /**
              * A set of containers that should be started in this stack. The key is relevant for
@@ -15951,8 +15989,9 @@ export declare module MittwaldAPIV2 {
               ]: MittwaldAPIV2.Components.Schemas.ContainerServiceRequest;
             };
             /**
-             * Schedule for automatic image updates of this stack. Set to `null` to remove the
-             * schedule; omit the property to leave it unchanged.
+             * @deprecated
+             * Deprecated by 'x-update-schedule' (which takes precedence). This field will be
+             * removed in a future version.
              *
              */
             updateSchedule?: {
@@ -15972,6 +16011,22 @@ export declare module MittwaldAPIV2 {
               [
                 k: string
               ]: MittwaldAPIV2.Components.Schemas.ContainerVolumeRequest;
+            };
+            /**
+             * Description of the stack.
+             */
+            "x-description"?: string;
+            /**
+             * Schedule for automatic image updates of this stack. Set to `null` to remove the
+             * schedule; omit the property to leave it unchanged.
+             *
+             */
+            "x-update-schedule"?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
             };
           }
 
@@ -16405,8 +16460,9 @@ export declare module MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {
+            "Accept-Language"?: "de" | "en";
+          } & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
             imageReference: string;
@@ -16490,8 +16546,9 @@ export declare module MittwaldAPIV2 {
             serviceId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {
+            "Accept-Language"?: "de" | "en";
+          } & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {};
         }
