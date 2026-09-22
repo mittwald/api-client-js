@@ -33,7 +33,7 @@ of every test file that installs behaviors:
 
 ```ts
 import { afterEach } from "vitest";
-import { resetBehaviors } from "../testing";
+import { resetBehaviors } from "../testing/index.js";
 
 afterEach(resetBehaviors);
 ```
@@ -45,8 +45,8 @@ becomes its own package with its own vitest config (P0-4).
 
 ```ts
 import { afterEach, expect, test, vi } from "vitest";
-import { config } from "../config/config";
-import { buildContainerData, installBehaviors, resetBehaviors } from "../testing";
+import { config } from "../config/config.js";
+import { buildContainerData, installBehaviors, resetBehaviors } from "../testing/index.js";
 
 afterEach(resetBehaviors);
 
