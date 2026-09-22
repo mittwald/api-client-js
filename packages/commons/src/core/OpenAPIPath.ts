@@ -1,4 +1,5 @@
 import { PathParameters } from "../types/http.js";
+import { serializeDates } from "./serializeDates.js";
 
 export class OpenAPIPath {
   private readonly rawPath: string;
@@ -20,7 +21,7 @@ export class OpenAPIPath {
       const [key, value] = entry;
       return path.replace(
         `{${key}}`,
-        encodeURIComponent(value instanceof Date ? value.toISOString() : value),
+        encodeURIComponent(String(serializeDates(value))),
       );
     }, path);
 
