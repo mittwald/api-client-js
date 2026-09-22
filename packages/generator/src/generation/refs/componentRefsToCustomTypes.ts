@@ -21,14 +21,16 @@ export const componentRefsToCustomTypes = (
     something = cloneDeep(something);
   }
 
-  if (!is.nonEmptyObject(something)) {
-    return something;
-  }
-
+  // Note: as of @sindresorhus/is v8, `is.nonEmptyObject()` no longer reports
+  // `true` for arrays, so arrays have to be handled before that check.
   if (is.array(something)) {
     return something.map((item) =>
       componentRefsToCustomTypes(rootNamespace, item, false),
     );
+  }
+
+  if (!is.nonEmptyObject(something)) {
+    return something;
   }
 
   const componentRef = getComponentRef(something);
