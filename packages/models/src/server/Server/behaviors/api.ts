@@ -1,33 +1,74 @@
-import {
-  assertStatus,
-  assertOneOfStatus,
-  MittwaldAPIV2Client,
-  extractTotalCountHeader,
-} from "@mittwald/api-client";
-import { ServerBehaviors } from "./types.js";
+import type { MittwaldAPIV2Client } from "@mittwald/api-client";
+
+import type { ServerBehaviors } from "./types";
+
+import { withAxiosRequestConfig,resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse";
 
 export const apiServerBehaviors = (
   client: MittwaldAPIV2Client,
 ): ServerBehaviors => ({
-  find: async (id) => {
-    const response = await client.project.getServer({
-      serverId: id,
+  updateStorageNotificationThreshold: async (
+    serverId,
+    thresholdInBytes?: number,
+  ) => {
+    const response = await client.project.storagespaceUpdateServerStatistics({
+      data: { notificationThresholdInBytes: thresholdInBytes },
+      serverId,
     });
+
+    validateResponse(response, 204);
+  },
+
+  find: async (serverId, options) => {
+    const response = await client.project.getServer(
+      {
+        serverId,
+      },
+      withAxiosRequestConfig(options),
+    );
 
     if (response.status === 200) {
       return response.data;
     }
-    assertOneOfStatus(response, [403, 404]);
+    validateResponse(response, [403, 404]);
+  },
+
+  createAvatarUploadToken: async (serverId) => {
+    const response = await client.project.requestServerAvatarUpload({
+      serverId,
+    });
+    validateResponse(response, 200);
+    return {
+      token: response.data.refId,
+      rules: response.data.rules,
+    };
   },
 
   list: async (query) => {
     const response = await client.project.listServers({
       queryParameters: query,
     });
-    assertStatus(response, 200);
+    validateResponse(response, 200);
     return {
+      totalCount: resolveTotalCount(response),
       items: response.data,
-      totalCount: extractTotalCountHeader(response),
     };
+  },
+
+  updateDescription: async (serverId, description) => {
+    const response = await client.project.updateServer({
+      data: {
+        description,
+      },
+      serverId,
+    });
+    validateResponse(response, 204);
+  },
+
+  removeAvatar: async (serverId) => {
+    const response = await client.project.deleteServerAvatar({ serverId });
+
+    validateResponse(response, 204);
   },
 });

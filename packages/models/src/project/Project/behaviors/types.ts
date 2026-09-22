@@ -1,19 +1,42 @@
-import {
+import type { AxiosRequestConfig } from "axios";
+
+import type { FileUploadTokenData } from "../../../file";
+import type { QueryResponseData } from "../../../base";
+import type {
+  FileSystemDirectoriesData,
+  ProjectListQueryData,
   ProjectListItemData,
   ProjectData,
-  ProjectListQueryData,
-} from "../types.js";
-import { QueryResponseData } from "../../../base/index.js";
+} from "../types";
 
 export interface ProjectBehaviors {
-  find: (id: string) => Promise<ProjectData | undefined>;
+  findFileSystemDirectories: (
+    projectId: string,
+    directory?: string,
+    requestConfig?: AxiosRequestConfig,
+  ) => Promise<FileSystemDirectoriesData | undefined>;
+
+  updateStorageNotificationThreshold: (
+    projectId: string,
+    thresholdInBytes?: number,
+  ) => Promise<void>;
+
+  find: (
+    projectId: string,
+    options?: AxiosRequestConfig,
+  ) => Promise<ProjectData | undefined>;
+
   list: (
     query?: ProjectListQueryData,
   ) => Promise<QueryResponseData<ProjectListItemData>>;
 
+  updateDescription: (projectId: string, description: string) => Promise<void>;
+
+  createAvatarUploadToken: (projectId: string) => Promise<FileUploadTokenData>;
+
   create: (serverId: string, description: string) => Promise<{ id: string }>;
 
-  leave: (projectId: string) => Promise<void>;
+  removeAvatar: (projectId: string) => Promise<void>;
+
   delete: (projectId: string) => Promise<void>;
-  updateDescription: (projectId: string, description: string) => Promise<void>;
 }

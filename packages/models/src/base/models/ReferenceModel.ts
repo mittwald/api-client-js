@@ -1,0 +1,19 @@
+import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+
+import { BaseModel } from "./BaseModel";
+
+@GhostMakerModel({
+  getId: (model) => model.id,
+})
+export abstract class ReferenceModel extends BaseModel {
+  public readonly id: string;
+
+  public constructor(id: string) {
+    super();
+    this.id = id;
+  }
+
+  public describe(): string {
+    return `${this.constructor.name}@${this.id}`;
+  }
+}

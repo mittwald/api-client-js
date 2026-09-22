@@ -1,25 +1,25 @@
-import { classes } from "polytype";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { Money } from "../../base/Money.js";
-import { provideReact } from "../../react.js";
 import { DateTime } from "luxon";
-import type { Contributor } from "./Contributor.js";
+
+import type { Contributor } from "./Contributor";
 import type {
-  ContributorIncomingInvoiceData,
   ContributorListIncomingInvoiceQueryData,
-} from "./types.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
-import { DataModel } from "../../base/DataModel.js";
-import { config } from "../../config/config.js";
+  ContributorIncomingInvoiceData,
+} from "./types";
+
+import { ContributorIncomingInvoicePdfAccessTokenProvider } from "./ContributorIncomingInvoicePdfAccessTokenProvider";
+import { ListQueryModel, WithListData, DataModel } from "../../base";
+import { File } from "../../file/File/internal";
+import { config } from "../../config";
+import { Money } from "../../common";
 
 export class ContributorIncomingInvoice extends DataModel<ContributorIncomingInvoiceData> {
   public readonly contributor: Contributor;
-  public readonly id: string;
-  public readonly pdfId: string;
-  public readonly invoiceNumber: string;
   public readonly date: DateTime;
-  public readonly totalNet: Money;
+  public readonly id: string;
+  public readonly invoiceNumber: string;
+  public readonly pdf: File;
   public readonly totalGross: Money;
+  public readonly totalNet: Money;
 
   public constructor(
     contributor: Contributor,
@@ -28,7 +28,10 @@ export class ContributorIncomingInvoice extends DataModel<ContributorIncomingInv
     super(data);
     this.contributor = contributor;
     this.id = data.id;
-    this.pdfId = data.pdfId;
+    this.pdf = File.ofId(
+      data.pdfId,
+      new ContributorIncomingInvoicePdfAccessTokenProvider(this),
+    );
     this.invoiceNumber = data.invoiceNumber;
     this.date = DateTime.fromISO(data.date);
     this.totalNet = Money({ amount: data.totalNet, currency: "EUR" });
@@ -42,19 +45,12 @@ export class ContributorIncomingInvoiceListQuery extends ListQueryModel<Contribu
     contributor: Contributor,
     query: ContributorListIncomingInvoiceQueryData = {},
   ) {
-    super(query, { dependencies: [contributor.id] });
+    super(query);
     this.contributor = contributor;
   }
 
-  public refine(query: ContributorListIncomingInvoiceQueryData) {
-    return new ContributorIncomingInvoiceListQuery(this.contributor, {
-      ...this.query,
-      ...query,
-    });
-  }
-
-  public execute = provideReact(async () => {
-    const { items, totalCount } =
+  public async execute() {
+    const { totalCount, items } =
       await config.behaviors.contributor.listIncomingInvoices(
         this.contributor.id,
         this.query,
@@ -66,24 +62,34 @@ export class ContributorIncomingInvoiceListQuery extends ListQueryModel<Contribu
       items.map((i) => new ContributorIncomingInvoice(this.contributor, i)),
       totalCount,
     );
-  }, [this.queryId]);
+  }
 
-  public getTotalCount = provideReact(async () => {
+  public async getTotalCount() {
     const result = await this.refine({ limit: 1, skip: 0 }).execute();
     return result.totalCount;
-  });
+  }
+
+  public refine(query: ContributorListIncomingInvoiceQueryData) {
+    return new ContributorIncomingInvoiceListQuery(this.contributor, {
+      ...this.query,
+      ...query,
+    });
+  }
 }
 
-export class ContributorIncomingInvoicesList extends classes(
+export class ContributorIncomingInvoicesList extends WithListData<ContributorIncomingInvoice>()(
   ContributorIncomingInvoiceListQuery,
-  ListDataModel<ContributorIncomingInvoice>,
 ) {
+  public override readonly items: readonly ContributorIncomingInvoice[];
+  public override readonly totalCount: number;
   public constructor(
     contributor: Contributor,
     query: ContributorListIncomingInvoiceQueryData,
     invoices: ContributorIncomingInvoice[],
     totalCount: number,
   ) {
-    super([contributor, query], [invoices, totalCount]);
+    super(contributor, query);
+    this.items = Object.freeze(invoices);
+    this.totalCount = totalCount;
   }
 }

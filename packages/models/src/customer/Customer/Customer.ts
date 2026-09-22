@@ -1,110 +1,401 @@
-import { config } from "../../config/config.js";
-import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
-import assertObjectFound from "../../base/assertObjectFound.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
-import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
-import {
-  CustomerData,
-  CustomerListItemData,
-  CustomerListQueryData,
-  CustomerUpdateRequestData,
-} from "./types.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
-import { ServerListQuery } from "../../server/index.js";
-import { ProjectListQuery } from "../../project/index.js";
+import type { AxiosRequestConfig } from "axios";
 
+import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { DateTime } from "luxon";
+
+import type { ProjectListQuery as ProjectListQueryType } from "../../project";
+import type { ExtensionInstanceListQuery } from "../../marketplace";
+import type { CustomerPermission } from "../customerPermissions";
+import type { ContractListQuery } from "../../contract";
+import type { InvoiceListQuery } from "../../invoice";
+import type { ServerListQuery } from "../../server";
+import type { OrderListQuery } from "../../order";
+import type {
+  CustomerMembershipListQuery,
+  CustomerRole,
+} from "../CustomerMembership";
+import type {
+  CustomerInviteCreateRequestData,
+  CustomerInviteListQuery,
+} from "../CustomerInvite";
+import type {
+  CustomerAIModelListQuery,
+  CustomerAIPlanListQuery,
+} from "../../ai";
+import type {
+  CustomerExpressInterestToContributeRequestData,
+  CustomerVatIdValidationState,
+  CustomerExecutingUserRoles,
+  ContractPartnerModelData,
+  CustomerListQueryData,
+  CustomerListItemData,
+  CustomerData,
+} from "./types";
+
+import { ExtensionInstance } from "../../marketplace/ExtensionInstance/ExtensionInstance";
+import { CustomerAvatarAccessTokenProvider } from "./CustomerAvatarAccessTokenProvider";
+import { CustomerAIModel } from "../../ai/CustomerAIModel/CustomerAIModel";
+import { CustomerAIPlan } from "../../ai/CustomerAIPlan/CustomerAIPlan";
+import { type FileAccessTokenProvider, type DomFile } from "../../file";
+import assertObjectFound from "../../base/lib/assertObjectFound";
+import { customerPermissions } from "../customerPermissions";
+import { Contract } from "../../contract/Contract/Contract";
+import { CustomerMembership } from "../CustomerMembership";
+import { ProjectListQuery } from "../../project/internal";
+import { Invoice } from "../../invoice/Invoice/Invoice";
+import { ContractPartner } from "../ContractPartner";
+import { InvoiceSettings } from "../InvoiceSettings";
+import { Server } from "../../server/Server/Server";
+import { CustomerInvite } from "../CustomerInvite";
+import { AggregateMetaData } from "../../common";
+import { Contributor } from "../../marketplace";
+import { Order } from "../../order/Order/Order";
+import { File } from "../../file/File/internal";
+import { config } from "../../config";
+import { User } from "../../user";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base";
+
+@GhostMakerModel({
+  name: "Customer",
+})
 export class Customer extends ReferenceModel {
+  public static aggregateMetaData = new AggregateMetaData(
+    "customer",
+    "customer",
+  );
+  public readonly aiModelsQuery: CustomerAIModelListQuery;
+  public readonly aiPlans: CustomerAIPlanListQuery;
+
+  public readonly contracts: ContractListQuery;
+
+  public readonly extensionInstances: ExtensionInstanceListQuery;
+
+  public readonly fileAccessTokenProvider: FileAccessTokenProvider;
+  public readonly invites: CustomerInviteListQuery;
+
+  public readonly invoices: InvoiceListQuery;
+
+  public readonly invoiceSettings: InvoiceSettings;
+
+  public readonly memberships: CustomerMembershipListQuery;
+  public readonly orders: OrderListQuery;
+  public readonly projects: ProjectListQueryType;
+
   public readonly servers: ServerListQuery;
-  public readonly projects: ProjectListQuery;
 
   public constructor(id: string) {
     super(id);
-    this.servers = new ServerListQuery({
-      customer: this,
-    });
+    this.fileAccessTokenProvider = new CustomerAvatarAccessTokenProvider(this);
     this.projects = new ProjectListQuery({
       customer: this,
     });
+    this.invites = CustomerInvite.query(this);
+    this.memberships = CustomerMembership.query(this);
+    this.contracts = Contract.query({ customer: this });
+    this.invoices = Invoice.query({ customer: this });
+    this.orders = Order.query({ customer: this });
+    this.servers = Server.query({ customer: id });
+    this.invoiceSettings = InvoiceSettings.ofCustomerId(id);
+    this.extensionInstances = ExtensionInstance.query({ customer: id });
+    this.aiPlans = CustomerAIPlan.query(this.id);
+    this.aiModelsQuery = CustomerAIModel.query(this.id);
   }
 
-  public static ofId(id: string): Customer {
+  public static async create(data: {
+    owner?: ContractPartnerModelData;
+    vatId?: string;
+    name: string;
+  }) {
+    const { vatId, owner, name } = data;
+
+    const response = await config.behaviors.customer.create({
+      owner: owner
+        ? {
+            ...owner,
+            phoneNumbers: owner.phoneNumber ? [owner.phoneNumber] : undefined,
+          }
+        : undefined,
+      vatId: vatId ?? undefined,
+      name,
+    });
+
+    return new Customer(response.id);
+  }
+
+  public static async find(id: string, options?: AxiosRequestConfig) {
+    const data = await config.behaviors.customer.find(id, options);
+    if (data) {
+      return new CustomerDetailed(data);
+    }
+  }
+
+  public static findAggregate(customerId?: string) {
+    return customerId
+      ? { id: customerId, ...Customer.aggregateMetaData }
+      : undefined;
+  }
+
+  public static async get(id: string, options?: AxiosRequestConfig) {
+    const customer = await this.find(id, options);
+    assertObjectFound(customer, Customer, id);
+    return customer;
+  }
+
+  public static ofId(id: string) {
     return new Customer(id);
   }
-
-  public static find = provideReact(
-    async (id: string): Promise<CustomerDetailed | undefined> => {
-      const data = await config.behaviors.customer.find(id);
-      if (data !== undefined) {
-        return new CustomerDetailed(data);
-      }
-    },
-  );
 
   public static query(query: CustomerListQueryData = {}) {
     return new CustomerListQuery(query);
   }
 
-  /** @deprecated Use query() */
-  public static list = provideReact(
-    async (
-      query: CustomerListQueryData = {},
-    ): Promise<Readonly<Array<CustomerListItem>>> =>
-      new CustomerListQuery(query).execute().then((res) => res.items),
-  );
+  public async delete() {
+    await config.behaviors.customer.delete(this.id);
+  }
 
-  public static get = provideReact(
-    async (id: string): Promise<CustomerDetailed> => {
-      const customer = await this.find(id);
-      assertObjectFound(customer, this, id);
-      return customer;
-    },
-  );
+  public async expressInterestToContribute(
+    customerData: CustomerExpressInterestToContributeRequestData,
+  ) {
+    const response =
+      await config.behaviors.customer.expressInterestToContribute(
+        this.id,
+        customerData,
+      );
 
-  public getDetailed = provideReact(
-    () => Customer.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<CustomerDetailed>>;
+    return response;
+  }
 
-  public findDetailed = provideReact(
-    () => Customer.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<CustomerDetailed | undefined>>;
+  public async findCommon(
+    options?: AxiosRequestConfig,
+  ): Promise<CustomerCommon | undefined> {
+    return this instanceof CustomerCommon ? this : this.findDetailed(options);
+  }
 
-  public async update(data: CustomerUpdateRequestData): Promise<void> {
-    await config.behaviors.customer.update(this.id, data);
+  public async findContributor() {
+    return Contributor.find(this.id);
+  }
+
+  public async findDetailed(
+    options?: AxiosRequestConfig,
+  ): Promise<CustomerDetailed | undefined> {
+    return Customer.find(this.id, options);
+  }
+
+  public async findOpenExtensionOrders() {
+    return await ExtensionInstance.listOpenOrders(this);
+  }
+
+  public async findPaymentMethod() {
+    return config.behaviors.customer.findMarketplacePaymentMethod(this.id);
+  }
+
+  public async getAvatarUploadRules() {
+    return File.getUploadRules("avatar");
+  }
+
+  public async getBillingPortalLink() {
+    return await config.behaviors.customer.getBillingPortalLink(this.id);
+  }
+
+  public async getCommon(
+    options?: AxiosRequestConfig,
+  ): Promise<CustomerCommon> {
+    return this instanceof CustomerCommon ? this : this.getDetailed(options);
+  }
+
+  public async getDetailed(
+    options?: AxiosRequestConfig,
+  ): Promise<CustomerDetailed> {
+    return Customer.get(this.id, options);
+  }
+
+  public async getOwnMembership() {
+    return await CustomerMembership.getOwn(this);
+  }
+
+  public async inviteMember(data: CustomerInviteCreateRequestData) {
+    return CustomerInvite.create(this, data);
+  }
+
+  public async isBankrupt(options?: AxiosRequestConfig) {
+    const invoiceSettings = await this.invoiceSettings.findDetailed({
+      ...options,
+      retryCache: {
+        retry: false,
+      },
+    });
+    return !!invoiceSettings?.isBankrupt;
+  }
+
+  public async removeAvatar() {
+    await config.behaviors.customer.removeAvatar(this.id);
+  }
+
+  public async requestAvatarUpload(): Promise<string> {
+    const response = await config.behaviors.customer.createAvatarUploadToken(
+      this.id,
+    );
+
+    return response.token;
+  }
+
+  public async suggestReward(suggestion: string) {
+    await config.behaviors.customer.createRecommendationSuggestion(
+      this.id,
+      suggestion,
+    );
+  }
+
+  public async update(data: {
+    owner?: ContractPartnerModelData;
+    vatId?: string;
+    name: string;
+  }) {
+    const { vatId, owner, name } = data;
+
+    await config.behaviors.customer.update(this.id, {
+      owner: owner
+        ? {
+            ...owner,
+            phoneNumbers: owner.phoneNumber ? [owner.phoneNumber] : undefined,
+          }
+        : undefined,
+      vatId,
+      name,
+    });
+  }
+
+  public async updatePaymentMethod(
+    contextId: string,
+    currentUrl: string,
+    variantKey?: string,
+  ) {
+    const returnUrl = new URL(currentUrl);
+    returnUrl.searchParams.set("paymentDataFilled", "");
+    returnUrl.searchParams.set("contextId", contextId);
+    if (variantKey) {
+      returnUrl.searchParams.set("variantKey", variantKey);
+    }
+
+    return await config.behaviors.customer.updateMarketplacePaymentMethod(
+      this.id,
+      returnUrl.toString(),
+    );
+  }
+
+  public async uploadAvatar(file: DomFile) {
+    await File.upload(file, this.fileAccessTokenProvider);
   }
 }
 
-// Common class for future extension
-class CustomerCommon extends classes(
-  DataModel<CustomerListItemData | CustomerData>,
-  Customer,
-) {
+export class CustomerCommon extends WithData<
+  CustomerListItemData | CustomerData
+>()(Customer) {
+  public readonly avatar?: File;
+  public readonly avatarRefId?: string;
+  public readonly contractPartner?: ContractPartner;
+  public readonly creationDate?: string;
+  public readonly customerNumber?: string;
+  public override readonly data: CustomerListItemData | CustomerData;
+  public readonly deletionProhibitedBy?: string[];
+  public readonly executingUserRoles?: CustomerExecutingUserRoles[];
+  public readonly isAllowedToPlaceOrders: boolean;
+  public readonly isBanned?: boolean;
+  public readonly isInDefaultOfPayment?: boolean;
+  public readonly isPublicSector?: boolean;
+  public readonly memberCount: number;
+  public readonly name: string;
+  public readonly ownRole: CustomerRole;
+  public readonly projectCount: number;
+  public readonly suspendedSince?: DateTime;
+  public readonly undeliverableDunningNotice?: boolean;
+  public readonly vatId?: string;
+  public readonly vatIdValidationState?: CustomerVatIdValidationState;
+
+  public get isEligible(): boolean {
+    return !this.isBanned && this.isAllowedToPlaceOrders;
+  }
+
   public constructor(data: CustomerListItemData | CustomerData) {
-    super([data], [data.customerId]);
+    super(data.customerId);
+    this.data = data;
+    this.name = data.name;
+    if (data.owner) {
+      this.contractPartner = new ContractPartner(data.owner);
+      this.isPublicSector = !!data.owner.leitwegId;
+    }
+    this.avatar = data.avatarRefId ? File.ofId(data.avatarRefId) : undefined;
+    this.vatId = data.vatId;
+    this.isBanned = data.isBanned;
+    if (data.activeSuspension) {
+      this.suspendedSince = DateTime.fromISO(data.activeSuspension?.createdAt);
+    }
+    this.creationDate = data.creationDate;
+    this.memberCount = data.memberCount;
+    this.projectCount = data.projectCount;
+    this.vatIdValidationState = data.vatIdValidationState;
+    this.executingUserRoles = data.executingUserRoles;
+    this.avatarRefId = data.avatarRefId;
+    this.customerNumber = data.customerNumber;
+    this.isInDefaultOfPayment = data.isInDefaultOfPayment;
+    this.ownRole = data.executingUserRoles?.[0] ?? "notset";
+    this.isAllowedToPlaceOrders = data.isAllowedToPlaceOrders ?? true;
+    this.undeliverableDunningNotice = !!data.levelOfUndeliverableDunningNotice;
+    this.deletionProhibitedBy = data.deletionProhibitedBy;
+  }
+
+  public hasPermission(permission: CustomerPermission) {
+    return customerPermissions[permission].includes(this.ownRole);
+  }
+
+  public async updateContractPartner(data: {
+    owner: ContractPartnerModelData;
+    vatId?: string;
+  }) {
+    const { owner, vatId } = data;
+
+    return await this.update({ name: this.name, vatId, owner });
+  }
+
+  public async updateName(name: string) {
+    return await this.update({
+      owner: this.contractPartner
+        ? {
+            purchaseOrderReference: this.contractPartner.purchaseOrderReference,
+            salutation: this.contractPartner.salutation ?? "other",
+            emailAddress: this.contractPartner.emailAddress,
+            phoneNumber: this.contractPartner.phoneNumber,
+            address: { ...this.contractPartner.address },
+            firstName: this.contractPartner.firstName,
+            leitwegId: this.contractPartner.leitwegId,
+            lastName: this.contractPartner.lastName,
+            company: this.contractPartner.company,
+          }
+        : undefined,
+      vatId: this.vatId,
+      name,
+    });
   }
 }
 
-export class CustomerDetailed extends classes(
-  CustomerCommon,
-  DataModel<CustomerData>,
-) {
+export class CustomerDetailed extends CustomerCommon {
+  public override readonly data: CustomerData;
   public constructor(data: CustomerData) {
-    super([data], [data]);
+    super(data);
+    this.data = data;
   }
 }
 
-export class CustomerListItem extends classes(
-  CustomerCommon,
-  DataModel<CustomerListItemData>,
-) {
+export class CustomerListItem extends CustomerCommon {
+  public override readonly data: CustomerListItemData;
   public constructor(data: CustomerListItemData) {
-    super([data], [data]);
+    super(data);
+    this.data = data;
   }
 }
 
@@ -113,48 +404,86 @@ export class CustomerListQuery extends ListQueryModel<CustomerListQueryData> {
     super(query);
   }
 
-  public refine(query: CustomerListQueryData) {
-    return new CustomerListQuery({
-      ...this.query,
-      ...query,
-    });
-  }
-
-  public execute = provideReact(async () => {
-    const { items, totalCount } = await config.behaviors.customer.list({
+  public async execute() {
+    const { totalCount, items } = await config.behaviors.customer.list({
       limit: config.defaultPaginationLimit,
       ...this.query,
     });
 
     return new CustomerList(
       this.query,
-      items.map((d) => new CustomerListItem(d)),
+      items
+        .map((d) => new CustomerListItem(d))
+        .sort((a, b) => a.name.localeCompare(b.name)),
       totalCount,
     );
-  }, [this.queryId]);
+  }
 
-  public getTotalCount = provideReact(async () => {
+  public async getTotalCount() {
     const { totalCount } = await this.refine({ limit: 1 }).execute();
     return totalCount;
-  }, [this.queryId]);
+  }
 
-  public findOneAndOnly = provideReact(async () => {
-    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
-    if (totalCount === 1) {
-      return items[0];
+  public async hasAnyCustomerWhereIsLastOwner(): Promise<boolean> {
+    const currentUser = await User.self.getCommon();
+    const limit = config.defaultPaginationLimit;
+
+    const currentUserIsLastOwner = async (
+      customer: CustomerListItem,
+    ): Promise<boolean> => {
+      if (!customer.executingUserRoles?.includes("owner")) {
+        return false;
+      }
+
+      const { items: memberships } = await customer.memberships.execute();
+      const ownMembership = memberships.find(
+        (membership) => membership.user.id === currentUser.id,
+      );
+
+      return (
+        !!ownMembership &&
+        !!CustomerMembership.memberIsLastOwner(memberships, ownMembership)
+      );
+    };
+
+    for (let skip = 0; ; skip += limit) {
+      const customerList = await this.refine({
+        limit,
+        skip,
+      }).execute();
+
+      for (const customer of customerList.items) {
+        if (await currentUserIsLastOwner(customer)) {
+          return true;
+        }
+      }
+
+      if (skip + customerList.items.length >= customerList.totalCount) {
+        return false;
+      }
     }
-  }, [this.queryId]);
+  }
+
+  public refine(query: CustomerListQueryData) {
+    return new CustomerListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
 }
 
-export class CustomerList extends classes(
+export class CustomerList extends WithListData<CustomerListItem>()(
   CustomerListQuery,
-  ListDataModel<CustomerListItem>,
 ) {
+  public override readonly items: readonly CustomerListItem[];
+  public override readonly totalCount: number;
   public constructor(
     query: CustomerListQueryData,
     customers: CustomerListItem[],
     totalCount: number,
   ) {
-    super([query], [customers, totalCount]);
+    super(query);
+    this.items = Object.freeze(customers);
+    this.totalCount = totalCount;
   }
 }

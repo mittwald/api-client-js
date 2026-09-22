@@ -1,3 +1,4 @@
-export * from "./Contributor.js";
-export * from "./ContributorIncomingInvoice.js";
-export * from "./types.js";
+export * from "./Contributor";
+export * from "./ContributorIncomingInvoice";
+export * from "./ContributorOutgoingInvoice";
+export * from "./types";

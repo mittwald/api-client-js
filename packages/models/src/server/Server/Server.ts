@@ -1,122 +1,214 @@
-import { ReferenceModel } from "../../base/ReferenceModel.js";
-import {
-  ServerData,
-  ServerListItemData,
-  ServerListQueryData,
-  ServerListQueryModelData,
-} from "./types.js";
-import { config } from "../../config/config.js";
-import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
-import assertObjectFound from "../../base/assertObjectFound.js";
-import { Project, ProjectListQuery } from "../../project/index.js";
-import { FirstParameter, ParamsExceptFirst } from "../../lib/types.js";
-import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
+import type { AxiosRequestConfig } from "axios";
 
+import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import invariant from "tiny-invariant";
+import { DateTime } from "luxon";
+
+import type { ProjectListQuery as ProjectListQueryType } from "../../project";
+import type {
+  ServerListQueryModelData,
+  ServerDisableReason,
+  ServerListItemData,
+  ServerStatus,
+  ServerData,
+} from "./types";
+
+import { ServerAvatarAccessTokenProvider } from "./ServerAvatarAccessTokenProvider";
+import { type FileAccessTokenProvider, type DomFile } from "../../file";
+import { ServerUsageMetrics, StorageMetrics } from "../../monitoring";
+import assertObjectFound from "../../base/lib/assertObjectFound";
+import { Customer } from "../../customer/Customer/Customer";
+import { ProjectListQuery } from "../../project/internal";
+import { AggregateMetaData } from "../../common";
+import { File } from "../../file/File/internal";
+import { Contract } from "../../contract";
+import { config } from "../../config";
+import { Order } from "../../order";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base";
+
+@GhostMakerModel({
+  name: "Server",
+})
 export class Server extends ReferenceModel {
-  public readonly projects: ProjectListQuery;
+  public static aggregateMetaData = new AggregateMetaData(
+    "project",
+    "placementgroup",
+  );
+  public readonly fileAccessTokenProvider: FileAccessTokenProvider;
+
+  public readonly projects: ProjectListQueryType;
 
   public constructor(id: string) {
     super(id);
+    this.fileAccessTokenProvider = new ServerAvatarAccessTokenProvider(this);
     this.projects = new ProjectListQuery({
       server: this,
     });
   }
 
-  public static ofId(id: string): Server {
-    return new Server(id);
+  public static async find(id: string, options?: AxiosRequestConfig) {
+    const data = await config.behaviors.server.find(id, options);
+
+    if (data) {
+      return new ServerDetailed(data);
+    }
   }
 
-  public static find = provideReact(
-    async (id: string): Promise<ServerDetailed | undefined> => {
-      const data = await config.behaviors.server.find(id);
+  public static findAggregate(serverId?: string) {
+    return serverId ? { id: serverId, ...Server.aggregateMetaData } : undefined;
+  }
 
-      if (data !== undefined) {
-        return new ServerDetailed(data);
-      }
-    },
-  );
+  public static async get(id: string, options?: AxiosRequestConfig) {
+    const server = await Server.find(id, options);
+    assertObjectFound(server, Server, id);
+    return server;
+  }
 
-  public static get = provideReact(
-    async (id: string): Promise<ServerDetailed> => {
-      const server = await this.find(id);
-      assertObjectFound(server, this, id);
-      return server;
-    },
-  );
+  public static ofId(id: string) {
+    return new Server(id);
+  }
 
   public static query(query: ServerListQueryModelData = {}) {
     return new ServerListQuery(query);
   }
 
-  /** @deprecated: use query() or customer.servers */
-  public static list = provideReact(
-    async (
-      query: ServerListQueryData = {},
-    ): Promise<Readonly<ServerListItem[]>> => {
-      return new ServerListQuery(query).execute().then((r) => r.items);
-    },
-  );
-
-  public async createProject(
-    ...parameters: ParamsExceptFirst<typeof Project.create>
-  ): ReturnType<typeof Project.create> {
-    return Project.create(this.id, ...parameters);
+  public async findCommon(
+    options?: AxiosRequestConfig,
+  ): Promise<ServerCommon | undefined> {
+    return this instanceof ServerCommon ? this : this.findDetailed(options);
   }
 
-  /** @deprecated Use Server.projects property */
-  public listProjects = provideReact(
-    async (
-      query: Omit<FirstParameter<typeof Project.list>, "serverId"> = {},
-    ): ReturnType<typeof Project.list> => {
-      return Project.list({
-        ...query,
-        serverId: this.id,
-      });
-    },
-  );
+  public async findDetailed(
+    options?: AxiosRequestConfig,
+  ): Promise<ServerDetailed | undefined> {
+    return Server.find(this.id, options);
+  }
 
-  public getDetailed = provideReact(
-    () => Server.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ServerDetailed>>;
+  public async findStorageMetrics() {
+    return await StorageMetrics.find(this.id, "server");
+  }
 
-  public findDetailed = provideReact(
-    () => Server.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ServerDetailed | undefined>>;
+  public async getAvatarUploadRules() {
+    return File.getUploadRules("avatar");
+  }
+
+  public async getCommon(options?: AxiosRequestConfig): Promise<ServerCommon> {
+    return this instanceof ServerCommon ? this : this.getDetailed(options);
+  }
+
+  public async getContract() {
+    return await Contract.getByServer(this.id);
+  }
+
+  public async getDetailed(
+    options?: AxiosRequestConfig,
+  ): Promise<ServerDetailed> {
+    return Server.get(this.id, options);
+  }
+
+  public async removeAvatar() {
+    await config.behaviors.server.removeAvatar(this.id);
+  }
+
+  public async requestAvatarUpload(): Promise<string> {
+    const response = await config.behaviors.server.createAvatarUploadToken(
+      this.id,
+    );
+
+    return response.token;
+  }
+
+  public async updateDescription(description: string) {
+    await config.behaviors.server.updateDescription(this.id, description);
+  }
+
+  public async updatePlan(data: { machineType?: string; storage: number }) {
+    const { machineType, storage } = data;
+
+    invariant(!!machineType, "Machine type is required for plan change");
+
+    const contract = await this.getContract();
+
+    await Order.changePlan({
+      tariffChangeData: {
+        machineType: machineType,
+        diskspaceInGiB: storage,
+        contractId: contract.id,
+      },
+      tariffChangeType: "server",
+    });
+  }
+
+  public async updateStorageNotificationThreshold(threshold?: number) {
+    await config.behaviors.server.updateStorageNotificationThreshold(
+      this.id,
+      threshold,
+    );
+  }
+
+  public async uploadAvatar(file: DomFile) {
+    await File.upload(file, this.fileAccessTokenProvider);
+  }
 }
 
-// Common class for future extension
-class ServerCommon extends classes(
-  DataModel<ServerListItemData | ServerData>,
+export class ServerCommon extends WithData<ServerListItemData | ServerData>()(
   Server,
 ) {
+  public readonly avatar?: File;
+  public readonly clusterName: string;
+  public readonly createdAt: DateTime;
+  public readonly customer: Customer;
+  public override readonly data: ServerListItemData | ServerData;
+  public readonly description: string;
+  public readonly disabledReason?: ServerDisableReason;
+  public readonly groupId: string;
+  public readonly machineType: string;
+  public readonly ram: number;
+  public readonly shortId: string;
+  public readonly status: ServerStatus;
+  public readonly storage: number;
+  public readonly vcpu: number;
+
   public constructor(data: ServerListItemData | ServerData) {
-    super([data], [data.id]);
+    super(data.id);
+    this.data = data;
+    this.customer = Customer.ofId(data.customerId);
+    this.shortId = data.shortId;
+    this.groupId = data.groupId;
+    this.vcpu = parseInt(data.machineType.cpu);
+    this.ram = parseInt(data.machineType.memory.replace("Gi", ""));
+    this.storage = parseInt(data.storage.replace("Gi", ""));
+    this.description = data.description;
+    this.clusterName = data.clusterName;
+    this.createdAt = DateTime.fromISO(data.createdAt);
+    this.avatar = data.imageRefId ? File.ofId(data.imageRefId) : undefined;
+    this.machineType = data.machineType.name;
+    this.status = data.status;
+    this.disabledReason = data.disabledReason;
   }
 }
 
-export class ServerDetailed extends classes(
-  ServerCommon,
-  DataModel<ServerData>,
-) {
+export class ServerDetailed extends ServerCommon {
+  public override readonly data: ServerData;
+  public readonly usageMetrics: ServerUsageMetrics;
   public constructor(data: ServerData) {
-    super([data], [data]);
+    super(data);
+    this.data = data;
+    this.usageMetrics = ServerUsageMetrics.of(this);
   }
 }
 
-export class ServerListItem extends classes(
-  ServerCommon,
-  DataModel<ServerListItemData>,
-) {
+export class ServerListItem extends ServerCommon {
+  public override readonly data: ServerListItemData;
   public constructor(data: ServerListItemData) {
-    super([data], [data]);
+    super(data);
+    this.data = data;
   }
 }
 
@@ -125,18 +217,11 @@ export class ServerListQuery extends ListQueryModel<ServerListQueryModelData> {
     super(query);
   }
 
-  public refine(query: ServerListQueryModelData) {
-    return new ServerListQuery({
-      ...this.query,
-      ...query,
-    });
-  }
-
-  public execute = provideReact(async () => {
+  public async execute() {
     const { customer, ...query } = this.query;
-    const { items, totalCount } = await config.behaviors.server.list({
+    const { totalCount, items } = await config.behaviors.server.list({
       limit: config.defaultPaginationLimit,
-      customerId: customer?.id,
+      customerId: extractId(customer),
       ...query,
     });
 
@@ -145,30 +230,43 @@ export class ServerListQuery extends ListQueryModel<ServerListQueryModelData> {
       items.map((d) => new ServerListItem(d)),
       totalCount,
     );
-  }, [this.queryId]);
+  }
 
-  public getTotalCount = provideReact(async () => {
+  public async findLatest() {
+    const { items } = await this.refine({
+      sort: "createdAt",
+      order: "desc",
+      limit: 1,
+    }).execute();
+
+    return items[0];
+  }
+
+  public async getTotalCount() {
     const { totalCount } = await this.refine({ limit: 1 }).execute();
     return totalCount;
-  }, [this.queryId]);
+  }
 
-  public findOneAndOnly = provideReact(async () => {
-    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
-    if (totalCount === 1) {
-      return items[0];
-    }
-  }, [this.queryId]);
+  public refine(query: ServerListQueryModelData) {
+    return new ServerListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
 }
 
-export class ServerList extends classes(
+export class ServerList extends WithListData<ServerListItem>()(
   ServerListQuery,
-  ListDataModel<ServerListItem>,
 ) {
+  public override readonly items: readonly ServerListItem[];
+  public override readonly totalCount: number;
   public constructor(
-    query: ServerListQueryData,
+    query: ServerListQueryModelData,
     servers: ServerListItem[],
     totalCount: number,
   ) {
-    super([query], [servers, totalCount]);
+    super(query);
+    this.items = Object.freeze(servers);
+    this.totalCount = totalCount;
   }
 }

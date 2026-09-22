@@ -1,2 +1,6 @@
-export * from "./Contract/index.js";
-export * from "./ContractItem/index.js";
+export * from "./Contract";
+export * from "./ContractArticle";
+export * from "./ContractItem";
+export * from "./ContractTermination";
+export * from "./PlanChange";
+

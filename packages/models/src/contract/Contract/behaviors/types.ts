@@ -1,14 +1,34 @@
-import {
-  ContractData,
-  ContractListItemData,
+import type { AxiosRequestConfig } from "axios";
+
+import type { QueryResponseData } from "../../../base";
+import type {
+  ContractTerminationCreateRequestData,
   ContractListQueryData,
-} from "../types.js";
-import { QueryResponseData } from "../../../base/index.js";
+  ContractListItemData,
+  ContractData,
+} from "../types";
 
 export interface ContractBehaviors {
-  find: (id: string) => Promise<ContractData | undefined>;
-  list: (request: {
-    customerId: string;
-    queryParameters?: ContractListQueryData;
-  }) => Promise<QueryResponseData<ContractListItemData>>;
+  list: (
+    customerId: string,
+    query?: ContractListQueryData,
+  ) => Promise<QueryResponseData<ContractListItemData>>;
+  findByProject: (
+    projectId: string,
+    requestConfig?: AxiosRequestConfig,
+  ) => Promise<ContractData | undefined>;
+  terminate: (
+    contractId: string,
+    data: ContractTerminationCreateRequestData,
+  ) => Promise<void>;
+
+  cancelPlanChange: (
+    contractId: string,
+    contractItemId: string,
+  ) => Promise<void>;
+
+  findByServer: (serverId: string) => Promise<ContractData | undefined>;
+  find: (contractId: string) => Promise<ContractData | undefined>;
+
+  cancelTermination: (contractId: string) => Promise<void>;
 }

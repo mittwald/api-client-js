@@ -1,32 +1,32 @@
-import { ArticleBehaviors } from "./types.js";
-import {
-  MittwaldAPIV2Client,
-  assertStatus,
-  extractTotalCountHeader,
-} from "@mittwald/api-client";
+import type { MittwaldAPIV2Client } from "@mittwald/api-client";
+
+import type { ArticleBehaviors } from "./types";
+
+import { validateResponse } from "../../../base/api/validateResponse";
+import { resolveTotalCount } from "../../../base";
 
 export const apiArticleBehaviors = (
   client: MittwaldAPIV2Client,
 ): ArticleBehaviors => ({
-  find: async (id) => {
+  list: async (query) => {
+    const response = await client.article.listArticles({
+      queryParameters: query,
+    });
+    validateResponse(response, 200);
+    return {
+      totalCount: resolveTotalCount(response),
+      items: response.data,
+    };
+  },
+
+  find: async (articleId) => {
     const response = await client.article.getArticle({
-      articleId: id,
+      articleId,
     });
 
     if (response.status === 200) {
       return response.data;
     }
-    assertStatus(response, 404);
-  },
-
-  list: async (query) => {
-    const response = await client.article.listArticles({
-      queryParameters: query,
-    });
-    assertStatus(response, 200);
-    return {
-      items: response.data,
-      totalCount: extractTotalCountHeader(response),
-    };
+    validateResponse(response, 404);
   },
 });

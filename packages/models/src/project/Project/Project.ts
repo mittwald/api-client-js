@@ -1,148 +1,542 @@
-import {
-  ProjectData,
-  ProjectListItemData,
-  ProjectListQueryData,
-  ProjectListQueryModelData,
-} from "./types.js";
-import { config } from "../../config/config.js";
-import { classes } from "polytype";
-import { DataModel } from "../../base/DataModel.js";
-import assertObjectFound from "../../base/assertObjectFound.js";
-import { Server } from "../../server/index.js";
-import {
-  AsyncResourceVariant,
-  provideReact,
-} from "../../react/provideReact.js";
-import { Customer } from "../../customer/Customer/Customer.js";
-import { ReferenceModel } from "../../base/ReferenceModel.js";
-import {
-  Ingress,
-  IngressListItem,
-  IngressListQuery,
-} from "../../domain/index.js";
-import { ListQueryModel } from "../../base/ListQueryModel.js";
-import { ListDataModel } from "../../base/ListDataModel.js";
-import { AppInstallationListQuery } from "../../app/index.js";
+import type { AxiosRequestConfig } from "axios";
 
+import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { DateTime } from "luxon";
+
+import type { CronjobCreateRequestData, CronjobListQuery } from "../../cronjob";
+import type { ProjectMembershipListQuery } from "../ProjectMembership";
+import type { ExtensionInstanceListQuery } from "../../marketplace";
+import type { ProjectPermission } from "../projectPermissions";
+import type { CertificateListQuery } from "../../certificate";
+import type { PerformanceListQuery } from "../../performance";
+import type { IngressListQuery } from "../../ingress";
+import type { DomainListQuery } from "../../domain";
+import type { DnsZoneListQuery } from "../../dns";
+import type { OrderListQuery } from "../../order";
+import type {
+  ProjectInviteCreateRequestData,
+  ProjectInviteListQuery,
+} from "../ProjectInvite";
+import type {
+  ContainerStackPatchRequestData,
+  RegistryCreateRequestData,
+  ContainerStackListQuery,
+  ContainerListQuery,
+  RegistryListQuery,
+  RegistryLoginType,
+  VolumeListQuery,
+} from "../../container";
+import type {
+  RedisCreateRequestData,
+  MySqlCreateRequest,
+  MySqlListQuery,
+  RedisListQuery,
+} from "../../database";
+import type {
+  SftpUserCreateRequestData,
+  SshUserCreateRequestData,
+  SftpUserListQuery,
+  SshUserListQuery,
+} from "../../access";
+import type {
+  BackupScheduleCreateRequestData,
+  BackupCreateRequestData,
+  BackupScheduleListQuery,
+  BackupListQuery,
+} from "../../backup";
+import type {
+  MailAddressRequestData,
+  DeliveryBoxListQuery,
+  MailAddressListQuery,
+  ForwardRequestData,
+} from "../../mail";
+import type {
+  AppInstallationCreateRequestData,
+  AppInstallationListQuery,
+  LicenseListQuery,
+} from "../../app";
+import type {
+  ProjectAIModelListQuery,
+  ProjectAIPlanListQuery,
+} from "../../ai";
+import type {
+  ProjectListQueryModelData,
+  ProjectDisableReason,
+  ProjectListItemData,
+  ProjectFeature,
+  ProjectStatus,
+  ProjectData,
+} from "./types";
+
+import { ExtensionInstance } from "../../marketplace/ExtensionInstance/ExtensionInstance";
+import { ProjectAvatarAccessTokenProvider } from "./ProjectAvatarAccessTokenProvider";
+import { AppInstallation } from "../../app/AppInstallation/AppInstallation";
+import { BackupSchedule } from "../../backup/BackupSchedule/BackupSchedule";
+import { ContainerStack } from "../../container/Container/ContainerStack";
+import { ProjectAIModel } from "../../ai/ProjectAIModel/ProjectAIModel";
+import { Certificate } from "../../certificate/Certificate/Certificate";
+import { type FileAccessTokenProvider, type DomFile } from "../../file";
+import { Performance } from "../../performance/Performance/Performance";
+import { ProjectUsageMetrics, StorageMetrics } from "../../monitoring";
+import { ProjectAIPlan } from "../../ai/ProjectAIPlan/ProjectAIPlan";
+import { MailSettings } from "../../mail/MailSettings/MailSettings";
+import assertObjectFound from "../../base/lib/assertObjectFound";
+import { DeliveryBox } from "../../mail/DeliveryBox/DeliveryBox";
+import { MailAddress } from "../../mail/MailAddress/MailAddress";
+import { Container } from "../../container/Container/Container";
+import { HostingContractItem, Contract } from "../../contract";
+import { Registry } from "../../container/Registry/Registry";
+import { Customer } from "../../customer/Customer/Customer";
+import { projectPermissions } from "../projectPermissions";
+import { SftpUser } from "../../access/SftpUser/SftpUser";
+import { ProjectMembership } from "../ProjectMembership";
+import { Cronjob } from "../../cronjob/Cronjob/Cronjob";
+import { Ingress } from "../../ingress/Ingress/Ingress";
+import { SshUser } from "../../access/SshUser/SshUser";
+import { CertificateRequest } from "../../certificate";
+import { Volume } from "../../container/Volume/Volume";
+import { License } from "../../app/License/License";
+import { Backup } from "../../backup/Backup/Backup";
+import { DnsZone } from "../../dns/DnsZone/DnsZone";
+import { Domain } from "../../domain/Domain/Domain";
+import { Server } from "../../server/Server/Server";
+import { MySql } from "../../database/MySql/MySql";
+import { Redis } from "../../database/Redis/Redis";
+import { AggregateMetaData } from "../../common";
+import { ProjectInvite } from "../ProjectInvite";
+import { Order } from "../../order/Order/Order";
+import { File } from "../../file/File/internal";
+import { HardwareSpecs } from "../internal";
+import {
+  CpuArticleAttribute,
+  RamArticleAttribute,
+} from "../../article/Article/internal";
+import { config } from "../../config";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base";
+
+@GhostMakerModel({
+  name: "Project",
+})
 export class Project extends ReferenceModel {
-  public readonly ingresses: IngressListQuery;
+  public static aggregateMetaData = new AggregateMetaData("project", "project");
+  public readonly aiModelsQuery: ProjectAIModelListQuery;
+
+  public readonly aiPlans: ProjectAIPlanListQuery;
+
   public readonly appInstallations: AppInstallationListQuery;
+
+  public readonly backups: BackupListQuery;
+  public readonly backupSchedules: BackupScheduleListQuery;
+
+  public readonly certificates: CertificateListQuery;
+
+  public readonly containers: ContainerListQuery;
+  public readonly cronjobs: CronjobListQuery;
+
+  public readonly deliveryBoxes: DeliveryBoxListQuery;
+  public readonly dnsZones: DnsZoneListQuery;
+  public readonly domains: DomainListQuery;
+  public readonly extensionInstances: ExtensionInstanceListQuery;
+
+  public readonly fileAccessTokenProvider: FileAccessTokenProvider;
+
+  public readonly ingresses: IngressListQuery;
+
+  public readonly invites: ProjectInviteListQuery;
+
+  public readonly licenses: LicenseListQuery;
+
+  public readonly mailAddresses: MailAddressListQuery;
+
+  public readonly mailSettings: MailSettings;
+
+  public readonly memberships: ProjectMembershipListQuery;
+  public readonly mySqlDatabases: MySqlListQuery;
+
+  public readonly orders: OrderListQuery;
+
+  public readonly performanceInsights: PerformanceListQuery;
+
+  public readonly redisDatabases: RedisListQuery;
+  public readonly registries: RegistryListQuery;
+  public readonly sftpUsers: SftpUserListQuery;
+  public readonly sshUsers: SshUserListQuery;
+
+  public readonly stacks: ContainerStackListQuery;
+
+  public readonly volumes: VolumeListQuery;
 
   public constructor(id: string) {
     super(id);
-    this.ingresses = new IngressListQuery({
-      project: this,
+    this.fileAccessTokenProvider = new ProjectAvatarAccessTokenProvider(this);
+    this.dnsZones = DnsZone.query({ project: this });
+    this.invites = ProjectInvite.query(this);
+    this.memberships = ProjectMembership.query(this);
+    this.deliveryBoxes = DeliveryBox.query({ project: this });
+    this.sshUsers = SshUser.query({ project: this });
+    this.sftpUsers = SftpUser.query({ project: this });
+    this.mySqlDatabases = MySql.query({ project: this });
+    this.redisDatabases = Redis.query({ project: this });
+    this.backups = Backup.query({ project: this });
+    this.backupSchedules = BackupSchedule.query(this);
+    this.cronjobs = Cronjob.query({ project: this });
+    this.performanceInsights = Performance.query(this);
+    this.containers = Container.query({ project: this });
+    this.volumes = Volume.query({ project: this });
+    this.registries = Registry.query({ project: this });
+    this.licenses = License.query(this);
+    this.stacks = ContainerStack.query({ project: this });
+    this.ingresses = Ingress.query({
+      project: id,
     });
-    this.appInstallations = new AppInstallationListQuery(this);
+    this.domains = Domain.query({
+      project: id,
+    });
+    this.appInstallations = AppInstallation.query({ project: id });
+    this.mailAddresses = MailAddress.query({ project: id });
+    this.certificates = Certificate.query({ project: id });
+    this.extensionInstances = ExtensionInstance.query({ project: id });
+    this.mailSettings = MailSettings.ofId(this.id);
+    this.orders = Order.query({ project: id });
+    this.aiPlans = ProjectAIPlan.query(this.id);
+    this.aiModelsQuery = ProjectAIModel.query(this.id);
   }
 
-  public static ofId(id: string): Project {
+  public static async create(data: { description: string; serverId: string }) {
+    const { description, serverId } = data;
+
+    const { id } = await config.behaviors.project.create(serverId, description);
     return new Project(id);
   }
 
-  public static find = provideReact(
-    async (id: string): Promise<ProjectDetailed | undefined> => {
-      const data = await config.behaviors.project.find(id);
+  public static async find(id: string, options?: AxiosRequestConfig) {
+    const data = await config.behaviors.project.find(id, options);
+    if (data) {
+      return new ProjectDetailed(data);
+    }
+  }
+  public static findAggregate(projectId?: string) {
+    return projectId
+      ? { id: projectId, ...Project.aggregateMetaData }
+      : undefined;
+  }
 
-      if (data !== undefined) {
-        return new ProjectDetailed(data);
-      }
-    },
-  );
+  public static async get(id: Project | string, options?: AxiosRequestConfig) {
+    const project = await Project.find(extractId(id), options);
+    assertObjectFound(project, Project, id);
+    return project;
+  }
 
-  public static get = provideReact(
-    async (id: string): Promise<ProjectDetailed> => {
-      const project = await this.find(id);
-      assertObjectFound(project, this, id);
-      return project;
-    },
-  );
+  public static ofId(id: string) {
+    return new Project(id);
+  }
+
+  public static ofReference(ref?: Project | string) {
+    const id = extractId(ref);
+    return id ? Project.ofId(id) : undefined;
+  }
 
   public static query(query: ProjectListQueryModelData = {}) {
     return new ProjectListQuery(query);
   }
 
-  /** @deprecated: use query(), Customer.projects or Server.projects */
-  public static list = provideReact(
-    async (
-      query: ProjectListQueryData = {},
-    ): Promise<Readonly<Array<ProjectListItem>>> => {
-      return new ProjectListQuery(query).execute().then((r) => r.items);
-    },
-  );
-
-  public static async create(
-    serverId: string,
-    description: string,
-  ): Promise<Project> {
-    const { id } = await config.behaviors.project.create(serverId, description);
-    return new Project(id);
+  public async createBackup(data: BackupCreateRequestData) {
+    return Backup.create(this, data);
   }
 
-  public getDetailed = provideReact(
-    () => Project.get(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ProjectDetailed>>;
+  public async createBackupSchedule(data: BackupScheduleCreateRequestData) {
+    return BackupSchedule.create(this, data);
+  }
 
-  public findDetailed = provideReact(
-    () => Project.find(this.id),
-    [this.id],
-  ) as AsyncResourceVariant<() => Promise<ProjectDetailed | undefined>>;
+  public async createContainer(
+    data: ContainerStackPatchRequestData,
+    stackId: string,
+  ) {
+    return Container.create(stackId, data);
+  }
 
-  /** @deprecated: use ingresses property */
-  public listIngresses = provideReact(() =>
-    Ingress.list({ projectId: this.id }),
-  );
+  public async createCronjob(data: CronjobCreateRequestData) {
+    return Cronjob.create(this, data);
+  }
 
-  public getDefaultIngress = provideReact(async () => {
-    const ingresses = await Project.ofId(this.id).listIngresses();
-    const defaultIngress = ingresses.find((i) => i.data.isDefault);
-    assertObjectFound(defaultIngress, IngressListItem, this);
+  public async createDeliveryBox(description: string, password: string) {
+    return DeliveryBox.create(this, description, password);
+  }
+
+  public async createDnsCertificateRequest(commonName: string) {
+    return CertificateRequest.createDnsCertificate(this, commonName);
+  }
+
+  public async createForward(data: ForwardRequestData) {
+    return MailAddress.createForward(this, data);
+  }
+
+  public async createMailAddress(data: MailAddressRequestData) {
+    return MailAddress.create(this, data);
+  }
+
+  public async createMySql(data: MySqlCreateRequest) {
+    return MySql.create(this, data);
+  }
+
+  public async createRedis(data: RedisCreateRequestData) {
+    return Redis.create(this, data);
+  }
+
+  public async createRegistry(
+    data: RegistryCreateRequestData,
+    loginType: RegistryLoginType,
+  ) {
+    return Registry.create(this, data, loginType);
+  }
+
+  public async createSftpUser(data: SftpUserCreateRequestData) {
+    return SftpUser.create(this, data);
+  }
+
+  public async createSshUser(data: SshUserCreateRequestData) {
+    return SshUser.create(this, data);
+  }
+
+  public async createVolume(name: string, stackId: string) {
+    return Volume.create(name, stackId);
+  }
+
+  public async delete() {
+    await config.behaviors.project.delete(this.id);
+  }
+
+  public findCommon(): Promise<ProjectCommon | undefined> | ProjectCommon {
+    return this instanceof ProjectCommon ? this : this.findDetailed();
+  }
+
+  public async findContract(requestConfig?: AxiosRequestConfig) {
+    return await Contract.findByProject(this.id, requestConfig);
+  }
+
+  public async findDefaultIngress() {
+    const ingresses = await this.ingresses.execute();
+    return ingresses.items.find((i) => i.data.isDefault);
+  }
+
+  public async findDetailed(): Promise<ProjectDetailed | undefined> {
+    return Project.find(this.id);
+  }
+
+  public async findOpenExtensionOrders() {
+    return await ExtensionInstance.listOpenOrders(this);
+  }
+
+  public async findStorageMetrics() {
+    return await StorageMetrics.find(this.id, "project");
+  }
+
+  public async getAvatarUploadRules() {
+    return File.getUploadRules("avatar");
+  }
+
+  public getCommon(
+    options?: AxiosRequestConfig,
+  ): Promise<ProjectCommon> | ProjectCommon {
+    return this instanceof ProjectCommon ? this : this.getDetailed(options);
+  }
+
+  public async getContract() {
+    return await Contract.getByProject(this.id);
+  }
+
+  public async getContractArticle() {
+    const contract = await this.getContract();
+    return contract.baseItem.baseArticle;
+  }
+
+  public async getDefaultIngress() {
+    const defaultIngress = await this.findDefaultIngress();
+    assertObjectFound(defaultIngress, Ingress, this);
     return defaultIngress;
-  });
+  }
 
-  public async updateDescription(description: string): Promise<void> {
+  public async getDetailed(
+    options?: AxiosRequestConfig,
+  ): Promise<ProjectDetailed> {
+    return Project.get(this.id, options);
+  }
+
+  public async getHardwareSpecs() {
+    const article = await this.getContractArticle().then((a) =>
+      a!.article.getDetailed(),
+    );
+
+    const vcpuAttribute = article.getAttribute(CpuArticleAttribute);
+    const ramAttribute = article.getAttribute(RamArticleAttribute);
+
+    if (vcpuAttribute && ramAttribute) {
+      return new HardwareSpecs(vcpuAttribute.cpuCount, ramAttribute.bytes);
+    }
+  }
+
+  public async getOwnMembership() {
+    return await ProjectMembership.getOwn(this);
+  }
+
+  public async getStorage() {
+    const contract = await this.getContract();
+    const hostingContractItem = HostingContractItem.fromContractItem(
+      contract.baseItem,
+    );
+    return hostingContractItem.getStorage();
+  }
+
+  public async installApp(data: AppInstallationCreateRequestData) {
+    return AppInstallation.create(this, data);
+  }
+
+  public async inviteMember(data: ProjectInviteCreateRequestData) {
+    return ProjectInvite.create(this, data);
+  }
+
+  public async removeAvatar() {
+    await config.behaviors.project.removeAvatar(this.id);
+  }
+
+  public async requestAvatarUpload(): Promise<string> {
+    const response = await config.behaviors.project.createAvatarUploadToken(
+      this.id,
+    );
+
+    return response.token;
+  }
+
+  public async updateDescription(description: string) {
     await config.behaviors.project.updateDescription(this.id, description);
   }
 
-  public async leave(): Promise<void> {
-    await config.behaviors.project.leave(this.id);
+  public async updateStorageNotificationThreshold(threshold?: number) {
+    await config.behaviors.project.updateStorageNotificationThreshold(
+      this.id,
+      threshold,
+    );
   }
 
-  public async delete(): Promise<void> {
-    await config.behaviors.project.delete(this.id);
+  public async uploadAvatar(file: DomFile) {
+    await File.upload(file, this.fileAccessTokenProvider);
   }
 }
 
-class ProjectCommon extends classes(
-  DataModel<ProjectListItemData | ProjectData>,
-  Project,
-) {
-  public readonly server: Server | undefined;
+export class ProjectCommon extends WithData<
+  ProjectListItemData | ProjectData
+>()(Project) {
+  public readonly avatar?: File;
+  public readonly createdAt: DateTime;
   public readonly customer: Customer;
+  public override readonly data: ProjectListItemData | ProjectData;
+  public readonly description: string;
+  public readonly disabledAt?: DateTime;
+  public readonly disabledReason?: ProjectDisableReason;
+  public readonly enabled: boolean;
+  public readonly features?: ProjectFeature[];
+  public readonly hasContainerAccess?: boolean;
+  public readonly isAllowedToPlaceOrders: boolean;
+  public readonly isDisabled: boolean;
+  public readonly isProSpaceLite: boolean;
+  public readonly isSuspended: boolean;
+  public readonly server?: Server;
+  public readonly shortId: string;
+  public readonly status: ProjectStatus;
 
   public constructor(data: ProjectListItemData | ProjectData) {
-    super([data], [data.id]);
-    this.server = data.serverId ? Server.ofId(data.serverId) : undefined;
+    super(data.id);
+    this.data = data;
+    this.server =
+      !data.projectHostingId && data.serverId
+        ? Server.ofId(data.serverId)
+        : undefined;
     this.customer = Customer.ofId(data.customerId);
+    this.shortId = data.shortId;
+    this.description = data.description;
+    if (data.disabledAt) {
+      this.disabledAt = DateTime.fromISO(data.disabledAt);
+    }
+    this.createdAt = DateTime.fromISO(data.createdAt);
+    this.avatar = data.imageRefId ? File.ofId(data.imageRefId) : undefined;
+    this.isProSpaceLite = !!data.projectHostingId && !data.serverId;
+    this.enabled = data.enabled;
+    this.features = data.supportedFeatures;
+    this.status = data.status;
+    this.isDisabled = !!data.disableReason;
+    this.isSuspended = data.disableReason === "suspended";
+    this.disabledReason = data.disableReason;
+    this.isAllowedToPlaceOrders = !this.isSuspended;
+    if (this.features) {
+      this.hasContainerAccess = this.features.includes("container");
+    }
+  }
+
+  public async hasPermission(permission: ProjectPermission) {
+    const ownMembership = await this.getOwnMembership();
+
+    const inheritedRequired =
+      projectPermissions[permission].includes("inheritedOwner");
+
+    if (inheritedRequired) {
+      return ownMembership.inherited;
+    }
+
+    return projectPermissions[permission].includes(ownMembership.role);
   }
 }
 
-export class ProjectDetailed extends classes(
-  ProjectCommon,
-  DataModel<ProjectData>,
-) {
+export class ProjectDetailed extends ProjectCommon {
+  public override readonly data: ProjectData;
+  public readonly hostname: string;
+  public readonly serverGroupId?: string;
+  public readonly serverShortId?: string;
+  public readonly usageMetrics: ProjectUsageMetrics;
+
   public constructor(data: ProjectData) {
-    super([data], [data]);
+    super(data);
+    this.data = data;
+    this.hostname = `ssh.${data.clusterID}.${data.clusterDomain}`;
+    this.serverShortId = data.serverShortId;
+    this.serverGroupId = data.serverGroupId;
+    this.usageMetrics = ProjectUsageMetrics.of(this);
+  }
+
+  public async findFileSystemDirectories(
+    directory: string,
+    requestConfig?: AxiosRequestConfig,
+  ) {
+    return await config.behaviors.project.findFileSystemDirectories(
+      this.id,
+      directory,
+      requestConfig,
+    );
+  }
+
+  public getBaseDirectory(base?: "Home" | "Logs" | "Web") {
+    if (!base) {
+      return "";
+    }
+
+    return this.data.directories[base];
+  }
+
+  public getMetrics() {
+    return new ProjectUsageMetrics(this);
   }
 }
 
-export class ProjectListItem extends classes(
-  ProjectCommon,
-  DataModel<ProjectListItemData>,
-) {
+export class ProjectListItem extends ProjectCommon {
+  public override readonly data: ProjectListItemData;
   public constructor(data: ProjectListItemData) {
-    super([data], [data]);
+    super(data);
+    this.data = data;
   }
 }
 
@@ -151,19 +545,12 @@ export class ProjectListQuery extends ListQueryModel<ProjectListQueryModelData> 
     super(query);
   }
 
-  public refine(query: ProjectListQueryModelData) {
-    return new ProjectListQuery({
-      ...this.query,
+  public async execute() {
+    const { customer, server, ...query } = this.query;
+    const { totalCount, items } = await config.behaviors.project.list({
       ...query,
-    });
-  }
-
-  public execute = provideReact(async () => {
-    const { server, customer, ...query } = this.query;
-    const { items, totalCount } = await config.behaviors.project.list({
-      ...query,
-      serverId: server?.id,
-      customerId: customer?.id,
+      customerId: extractId(customer),
+      serverId: extractId(server),
     });
 
     return new ProjectList(
@@ -171,30 +558,43 @@ export class ProjectListQuery extends ListQueryModel<ProjectListQueryModelData> 
       items.map((d) => new ProjectListItem(d)),
       totalCount,
     );
-  }, [this.queryId]);
+  }
 
-  public getTotalCount = provideReact(async () => {
+  public async findLatest() {
+    const { items } = await this.refine({
+      sort: "createdAt",
+      order: "desc",
+      limit: 1,
+    }).execute();
+
+    return items[0];
+  }
+
+  public async getTotalCount() {
     const { totalCount } = await this.refine({ limit: 1 }).execute();
     return totalCount;
-  }, [this.queryId]);
+  }
 
-  public findOneAndOnly = provideReact(async () => {
-    const { items, totalCount } = await this.refine({ limit: 2 }).execute();
-    if (totalCount === 1) {
-      return items[0];
-    }
-  }, [this.queryId]);
+  public refine(query: ProjectListQueryModelData) {
+    return new ProjectListQuery({
+      ...this.query,
+      ...query,
+    });
+  }
 }
 
-export class ProjectList extends classes(
+export class ProjectList extends WithListData<ProjectListItem>()(
   ProjectListQuery,
-  ListDataModel<ProjectListItem>,
 ) {
+  public override readonly items: readonly ProjectListItem[];
+  public override readonly totalCount: number;
   public constructor(
     query: ProjectListQueryModelData,
     projects: ProjectListItem[],
     totalCount: number,
   ) {
-    super([query], [projects, totalCount]);
+    super(query);
+    this.items = Object.freeze(projects);
+    this.totalCount = totalCount;
   }
 }

@@ -1,2 +1,3 @@
-export * from "./ContractItem.js";
-export * from "./types.js";
+export * from "./ContractItem";
+export * from "./HostingContractItem";
+export * from "./types";

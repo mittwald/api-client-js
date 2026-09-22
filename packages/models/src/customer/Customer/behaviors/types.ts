@@ -1,15 +1,54 @@
-import {
+import type {
+  FileUploadTokenData,
+  AxiosRequestConfig,
+  QueryResponseData,
+} from "../../../index";
+import type {
+  CustomerExpressInterestToContributeRequestData,
+  CustomerCreateRequestData,
+  CustomerPaymentMethodData,
+  CustomerUpdateRequestData,
+  CustomerListQueryData,
   CustomerListItemData,
   CustomerData,
-  CustomerListQueryData,
-  CustomerUpdateRequestData,
-} from "../types.js";
-import { QueryResponseData } from "../../../base/index.js";
+} from "../types";
 
 export interface CustomerBehaviors {
-  find: (id: string) => Promise<CustomerData | undefined>;
+  expressInterestToContribute: (
+    customerId: string,
+    data: CustomerExpressInterestToContributeRequestData,
+  ) => Promise<{ id: string }>;
+  findMarketplacePaymentMethod: (
+    customerId: string,
+  ) => Promise<CustomerPaymentMethodData | "noAccess" | undefined>;
+  updateMarketplacePaymentMethod: (
+    customerId: string,
+    customReturnUrl?: string,
+  ) => Promise<string | undefined>;
+  find: (
+    customerId: string,
+    options?: AxiosRequestConfig,
+  ) => Promise<CustomerData | undefined>;
+  createRecommendationSuggestion: (
+    customerId: string,
+    suggestion: string,
+  ) => Promise<void>;
+
   list: (
     query?: CustomerListQueryData,
   ) => Promise<QueryResponseData<CustomerListItemData>>;
-  update: (id: string, data: CustomerUpdateRequestData) => Promise<void>;
+
+  update: (
+    customerId: string,
+    data: CustomerUpdateRequestData,
+  ) => Promise<void>;
+
+  createAvatarUploadToken: (customerId: string) => Promise<FileUploadTokenData>;
+
+  getBillingPortalLink: (customerId: string) => Promise<string | undefined>;
+
+  create: (data: CustomerCreateRequestData) => Promise<{ id: string }>;
+  removeAvatar: (customerId: string) => Promise<void>;
+
+  delete: (customerId: string) => Promise<void>;
 }
