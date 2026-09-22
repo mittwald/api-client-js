@@ -1,6 +1,7 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileUploadTokenData, QueryResponseData } from "../../../index.js";
+import type { FileUploadTokenData } from "../../../index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   CustomerExpressInterestToContributeRequestData,
   CustomerCreateRequestData,
