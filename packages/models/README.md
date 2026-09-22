@@ -61,3 +61,4 @@ Details and rationale: [ADR-0001](docs/adr/0001-initialization.md).
 - [CONTEXT.md](CONTEXT.md) — glossary / ubiquitous language
 - [docs/implementation-patterns.md](docs/implementation-patterns.md) — recurring code idioms (helpers, conventions)
 - [docs/adr/](docs/adr/) — architecture decision records (ADRs)
+- [docs/api-drift.md](docs/api-drift.md) — known deviations from the generated OpenAPI spec
