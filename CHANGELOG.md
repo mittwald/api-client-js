@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.467.0](https://github.com/mittwald/api-client-js/compare/4.466.0...4.467.0) (2026-09-22)
+
+### Features
+
+* accept JS Date for date-time request values ([#299](https://github.com/mittwald/api-client-js/issues/299)) ([cd1c20a](https://github.com/mittwald/api-client-js/commit/cd1c20adb198314de4cc0f041e37c9d4079386e0)), closes [#209](https://github.com/mittwald/api-client-js/issues/209)
+
 # [4.466.0](https://github.com/mittwald/api-client-js/compare/4.465.0...4.466.0) (2026-09-21)
 
 ### Features
