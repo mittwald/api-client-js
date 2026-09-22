@@ -1809,6 +1809,7 @@ __metadata:
     dinero.js: "npm:^1.9.1"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.2"
+    eslint-plugin-api-models: "portal:./eslint-rules"
     eslint-plugin-json: "npm:^3.1.0"
     eslint-plugin-prettier: "npm:^5.5.4"
     filesize-parser: "npm:^1.5.1"
@@ -5969,6 +5970,12 @@ __metadata:
   checksum: 10/e8e0cd3843513fff32a70b036dd349fdab81d73b5e522f23685181c907a1faf2b2ebcae1688dc71d0fc026184011792f7e39b833d349df18fe2baea00d017901
   languageName: node
   linkType: hard
+
+"eslint-plugin-api-models@portal:./eslint-rules::locator=%40mittwald%2Fapi-models%40workspace%3Apackages%2Fmodels":
+  version: 0.0.0-use.local
+  resolution: "eslint-plugin-api-models@portal:./eslint-rules::locator=%40mittwald%2Fapi-models%40workspace%3Apackages%2Fmodels"
+  languageName: node
+  linkType: soft
 
 "eslint-plugin-json@npm:^3.1.0":
   version: 3.1.0

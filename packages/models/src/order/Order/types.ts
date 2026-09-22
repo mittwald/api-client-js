@@ -11,7 +11,6 @@ export type OrderListItemData =
   MittwaldAPIV2.Operations.OrderListOrders.ResponseData[number];
 
 export type OrderListQueryData =
-  // eslint-disable-next-line perfectionist/sort-intersection-types
   MittwaldAPIV2.Paths.V2Orders.Get.Parameters.Query & {
     customerId?: string;
     projectId?: string;

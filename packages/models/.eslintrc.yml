@@ -1,2 +1,25 @@
 extends:
   - "../../config/.eslintrc.yml"
+plugins:
+  - api-models
+rules:
+  # Load-bearing guards for invariants tsc cannot see. Do not disable: the
+  # hand-ordered internal.ts barrels crash at runtime when bypassed, and a
+  # mismatching ghost name resolves silently to the wrong model.
+  # See docs/implementation-patterns.md.
+  api-models/no-deep-cluster-imports: error
+  api-models/ghostmaker-name-matches-class: error
+  # The base model machinery is intentionally generic and uses `any` in type
+  # positions (`Class<any>`, the type-level API fixes in base/api) where a
+  # concrete type is impossible. Relaxed package-wide rather than contorting
+  # the existing types; tighten later if desired.
+  "@typescript-eslint/no-explicit-any": off
+overrides:
+  # The local ESLint plugin is CommonJS — ESLint 8's eslintrc loader requires()
+  # its plugins, so these files cannot be ESM like the rest of the package.
+  - files:
+      - "eslint-rules/**/*.js"
+    parserOptions:
+      sourceType: script
+    rules:
+      "@typescript-eslint/no-var-requires": off

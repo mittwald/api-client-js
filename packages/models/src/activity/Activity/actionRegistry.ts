@@ -51,7 +51,8 @@ type ActionConstructor<TName extends KnownActionName> = new (
  * until it is handled – point it at `GenericAction` to opt out visibly. A name
  * only the API emits stays invisible until it shows up as a `GenericAction`.
  */
-/* eslint-disable perfectionist/sort-objects -- grouped by domain so the map reads like the API's action list; alphabetical within each group */
+// Grouped by domain so the map reads like the API's action list;
+// alphabetical within each group.
 const actionRegistry: {
   [TName in KnownActionName]: ActionConstructor<TName>;
 } = {
@@ -99,7 +100,6 @@ const actionRegistry: {
   "dns.zone-created": DnsZoneCreatedAction,
   "dns.zone-deleted": DnsZoneDeletedAction,
 };
-/* eslint-enable perfectionist/sort-objects */
 
 const isKnownActionName = (name: string): name is KnownActionName =>
   name in actionRegistry;
