@@ -12013,6 +12013,84 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace RequestSchemas {
+      /**
+       * PricePlan with Variants.
+       */
+      export interface ExtensionPricePlan {
+        /**
+         * Indicates whether downgrading between variants is allowed.
+         */
+        isDowngradeAllowed?: boolean;
+        /**
+         * Indicates whether upgrading between variants is allowed.
+         */
+        isUpgradeAllowed?: boolean;
+        variants: MittwaldAPIV2.Components.RequestSchemas.ExtensionVariant[];
+      }
+
+      export interface ExtensionVariant {
+        /**
+         * deadline for scheduled deletion of extension variant
+         */
+        deletionDeadline?: string | Date;
+        /**
+         * Description of Variant.
+         */
+        description?: string;
+        /**
+         * DescriptionChangeType defines how the description change should be handled. Values:
+         *   - FEATURE_SET_MODIFIED: The users have to confirm to the new contract details equal as price changes.
+         *   - FEATURE_SET_UNCHANGED: The changes are only wording updates and do not impact the contract details, so no confirm is required.
+         *
+         */
+        descriptionChangeType?:
+          | "FEATURE_SET_MODIFIED"
+          | "FEATURE_SET_UNCHANGED";
+        /**
+         * stop extension variant from being booked
+         */
+        isBookingStopped?: boolean;
+        /**
+         * deletion of extension variant is scheduled
+         */
+        isDeletionScheduled?: boolean;
+        /**
+         * Key that needs to be unique in Variant.
+         */
+        key: string;
+        /**
+         * Name of Variant.
+         */
+        name?: string;
+        /**
+         * Price in cents.
+         */
+        priceInCents: number;
+      }
+
+      /**
+       * The Extension is deprecated by the contributor and will expire at the given date.
+       */
+      export interface MarketplaceExtensionDeprecation {
+        deprecatedAt: string | Date;
+        note?: string;
+        /**
+         * The ID of the successor extension.
+         */
+        successorId?: string;
+      }
+
+      export interface IngressTlsAcme {
+        /**
+         * Has to be `true`, as ssl cannot be deactivated.
+         */
+        acme: boolean;
+        isCreated: boolean;
+        requestDeadline?: string | Date;
+      }
+    }
+
     namespace Parameters {}
 
     namespace RequestBodies {}
@@ -15321,7 +15399,7 @@ export declare module MittwaldAPIV2 {
             /**
              * Time when to expire the Backup. Must be at least 7 days and no more than one year in the future.
              */
-            expirationTime: string;
+            expirationTime: string | Date;
           }
 
           export type Header =
@@ -15674,7 +15752,7 @@ export declare module MittwaldAPIV2 {
             /**
              * Time when to expire the Backup. Must be no more than one year in the future.
              */
-            expirationTime?: string;
+            expirationTime?: string | Date;
           }
 
           export type Header =
@@ -18534,7 +18612,7 @@ export declare module MittwaldAPIV2 {
             /**
              * The termination date has to be a valid date according to activation and contract period of the ContractItem. If none given, the next possible termination date will be used.
              */
-            terminationTargetDate?: string;
+            terminationTargetDate?: string | Date;
           }
 
           export type Header =
@@ -18722,7 +18800,7 @@ export declare module MittwaldAPIV2 {
             /**
              * The termination date has to be a valid date according to activation and contract period of the base ContractItem. If none given, the next possible termination date will be used.
              */
-            terminationTargetDate?: string;
+            terminationTargetDate?: string | Date;
           }
 
           export type Header =
@@ -21440,8 +21518,8 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            since?: string;
-            until?: string;
+            since?: string | Date;
+            until?: string | Date;
             status?: string;
             triggeredByUser?: boolean;
             sortOrder?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecutionSortOrder;
@@ -21976,7 +22054,7 @@ export declare module MittwaldAPIV2 {
             /**
              * Time the resulting CustomerMembership should expire at.
              */
-            membershipExpiresAt?: string;
+            membershipExpiresAt?: string | Date;
             /**
              * Message contained in the CustomerInvite.
              */
@@ -22579,7 +22657,7 @@ export declare module MittwaldAPIV2 {
             /**
              * Time the CustomerMembership should expire at.
              */
-            expiresAt?: string;
+            expiresAt?: string | Date;
             role: MittwaldAPIV2.Components.Schemas.MembershipCustomerRoles;
           }
 
@@ -24841,7 +24919,7 @@ export declare module MittwaldAPIV2 {
                  * @deprecated
                  * Was added by mistake. Never did anything.
                  */
-                requestDeadline?: string;
+                requestDeadline?: string | Date;
               }
             | {
                 certificateId: string;
@@ -24924,9 +25002,9 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             autoResponder: {
               active: boolean;
-              expiresAt?: string;
+              expiresAt?: string | Date;
               message: string;
-              startsAt?: string;
+              startsAt?: string | Date;
             };
           }
 
@@ -26210,7 +26288,7 @@ export declare module MittwaldAPIV2 {
              * Whether to also delete the corresponding Ingress and subdomain Ingresses.
              */
             deleteIngresses?: boolean;
-            deletionDate: string;
+            deletionDate: string | Date;
           }
 
           export type Header =
@@ -28404,7 +28482,7 @@ export declare module MittwaldAPIV2 {
              * Used to patch asset order.
              */
             assets?: string[];
-            deprecation?: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionDeprecation;
+            deprecation?: MittwaldAPIV2.Components.RequestSchemas.MarketplaceExtensionDeprecation;
             description?: string;
             detailedDescriptions?: MittwaldAPIV2.Components.Schemas.MarketplaceDetailedDescriptions;
             externalFrontends?: MittwaldAPIV2.Components.Schemas.MarketplaceExternalComponent[];
@@ -28540,7 +28618,7 @@ export declare module MittwaldAPIV2 {
             contextId?: string;
             scopes?: string[];
             instanceDisabled?: boolean;
-            createdAt?: string;
+            createdAt?: string | Date;
             secret?: string;
           };
         }
@@ -30066,7 +30144,7 @@ export declare module MittwaldAPIV2 {
                  * If set to true, the request will be validated but not executed.
                  */
                 dryRun?: boolean;
-                pricePlan: MittwaldAPIV2.Components.Schemas.ExtensionPricePlan;
+                pricePlan: MittwaldAPIV2.Components.RequestSchemas.ExtensionPricePlan;
               };
 
           export type Header =
@@ -35721,7 +35799,7 @@ export declare module MittwaldAPIV2 {
             /**
              * Time the resulting ProjectMembership should expire at.
              */
-            membershipExpiresAt?: string;
+            membershipExpiresAt?: string | Date;
             /**
              * Message contained in the ProjectInvite.
              */
@@ -36170,7 +36248,7 @@ export declare module MittwaldAPIV2 {
             /**
              * Time the ProjectMembership should expire at.
              */
-            expiresAt?: string;
+            expiresAt?: string | Date;
             role: MittwaldAPIV2.Components.Schemas.MembershipProjectRoles;
           }
 
@@ -37212,8 +37290,8 @@ export declare module MittwaldAPIV2 {
             aggregateName?: string;
             aggregateDomain?: string;
             aggregateId?: string;
-            startTime?: string;
-            endTime?: string;
+            startTime?: string | Date;
+            endTime?: string | Date;
             fulltextSearch?: string;
             limit?: number;
             skip?: number;
@@ -37803,7 +37881,7 @@ export declare module MittwaldAPIV2 {
              * @minItems 1
              */
             directories: [string, ...string[]];
-            expiresAt?: string;
+            expiresAt?: string | Date;
           }
 
           export type Header =
@@ -37966,7 +38044,7 @@ export declare module MittwaldAPIV2 {
              * @minItems 1
              */
             directories?: [string, ...string[]];
-            expiresAt?: string;
+            expiresAt?: string | Date;
             password?: string;
             publicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKey[];
           }
@@ -38085,7 +38163,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             authentication: MittwaldAPIV2.Components.Schemas.SshuserAuthentication;
             description: string;
-            expiresAt?: string;
+            expiresAt?: string | Date;
           }
 
           export type Header =
@@ -38243,7 +38321,7 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             active?: boolean;
             description?: string;
-            expiresAt?: string;
+            expiresAt?: string | Date;
             password?: string;
             publicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKey[];
           }
@@ -39943,7 +40021,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
-            expiresAt?: string;
+            expiresAt?: string | Date;
             /**
              * Determines the access rights of the ApiToken.
              *
@@ -40117,7 +40195,7 @@ export declare module MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
-            expiresAt?: string;
+            expiresAt?: string | Date;
             publicKey: string;
           }
 
@@ -40214,7 +40292,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             description: string;
-            expiresAt?: string;
+            expiresAt?: string | Date;
           }
 
           export type Header =
@@ -40355,7 +40433,7 @@ export declare module MittwaldAPIV2 {
 
           export interface RequestBody {
             comment: string;
-            expiresAt?: string;
+            expiresAt?: string | Date;
           }
 
           export type Header =
