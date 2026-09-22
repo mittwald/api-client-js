@@ -30,6 +30,7 @@
     "build": "run build:clean && run tsc",
     "build:clean": "rimraf dist",
     "lint": "run eslint .",
+    "test": "",
     "test:compile": "run tsc --noEmit",
     "test:unit": "run vitest run"
   },
@@ -58,11 +59,20 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@tanstack/react-query": "^5.102.8",
     "@types/d3-array": "^3.2.2",
     "@types/dinero.js": "^1.9.4",
     "@types/filesize-parser": "^1.5.3",
     "@types/luxon": "^3.7.1",
     "@types/semver-compare": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "react": "^19.2.7",
     "rimraf": "^5.0.10",
     "typescript": "^5.7.2",
     "vitest": "^4.1.8"

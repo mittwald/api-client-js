@@ -1669,7 +1669,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mittwald/api-client@workspace:packages/mittwald":
+"@mittwald/api-client@workspace:^, @mittwald/api-client@workspace:packages/mittwald":
   version: 0.0.0-use.local
   resolution: "@mittwald/api-client@workspace:packages/mittwald"
   dependencies:
@@ -1761,12 +1761,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mittwald/api-models-react@workspace:packages/models-react"
   dependencies:
+    "@mittwald/api-client": "workspace:^"
+    "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/api-models": "workspace:^"
     "@mittwald/react-async-proxy": "npm:^0.0.12"
     "@mittwald/react-ghostmaker": "npm:^1.5.4"
     "@sindresorhus/is": "npm:^8.1.0"
+    "@tanstack/react-query": "npm:^5.102.8"
     "@types/react": "npm:^19.2.17"
+    "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
+    "@typescript-eslint/parser": "npm:^7.18.0"
+    eslint: "npm:^8.57.1"
+    eslint-config-prettier: "npm:^9.1.2"
+    eslint-plugin-json: "npm:^3.1.0"
+    eslint-plugin-prettier: "npm:^5.5.4"
     minimatch: "npm:^10.2.5"
+    prettier: "npm:^3.6.2"
     react: "npm:^19.2.7"
     rimraf: "npm:^5.0.10"
     typescript: "npm:^5.7.2"
@@ -1784,21 +1794,30 @@ __metadata:
     "@internationalized/date": "npm:^3.12.2"
     "@mittwald/react-ghostmaker": "npm:^1.5.4"
     "@sindresorhus/is": "npm:^8.1.0"
+    "@tanstack/react-query": "npm:^5.102.8"
     "@types/d3-array": "npm:^3.2.2"
     "@types/dinero.js": "npm:^1.9.4"
     "@types/filesize-parser": "npm:^1.5.3"
     "@types/luxon": "npm:^3.7.1"
     "@types/semver-compare": "npm:^1.0.3"
+    "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
+    "@typescript-eslint/parser": "npm:^7.18.0"
     axios: "npm:^1.15.2"
     convert: "npm:^7.0.0"
     d3-array: "npm:^3.2.4"
     dinero.js: "npm:^1.9.1"
+    eslint: "npm:^8.57.1"
+    eslint-config-prettier: "npm:^9.1.2"
+    eslint-plugin-json: "npm:^3.1.0"
+    eslint-plugin-prettier: "npm:^5.5.4"
     filesize-parser: "npm:^1.5.1"
     jsonschema: "npm:^1.5.0"
     luxon: "npm:^3.7.2"
     minimatch: "npm:^10.2.5"
     object-code: "npm:^2.0.0"
+    prettier: "npm:^3.6.2"
     pretty-bytes: "npm:^7.1.0"
+    react: "npm:^19.2.7"
     remeda: "npm:^2.37.0"
     rimraf: "npm:^5.0.10"
     semver-compare: "npm:^1.0.0"
@@ -3146,6 +3165,24 @@ __metadata:
   dependencies:
     defer-to-connect: "npm:^2.0.0"
   checksum: 10/c29df3bcec6fc3bdec2b17981d89d9c9fc9bd7d0c9bcfe92821dc533f4440bc890ccde79971838b4ceed1921d456973c4180d7175ee1d0023ad0562240a58d95
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.102.8":
+  version: 5.102.8
+  resolution: "@tanstack/query-core@npm:5.102.8"
+  checksum: 10/4e3e72281e54dc5c00157d42ba662c75640d1109b5f087c447ca40ed22af643fb442ab3d5c46a878db96e72f85a883866d7c662e98ae5100ac5d1e91d9c9a299
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.102.8":
+  version: 5.102.8
+  resolution: "@tanstack/react-query@npm:5.102.8"
+  dependencies:
+    "@tanstack/query-core": "npm:5.102.8"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10/b778fbc43c2d3276195e76582430dedf74687c23fcf904f96a2e4da8d22af497a46c7b5bb185a7b7d22cb1ed8c4476eb137ed581e2f929de71745e140c9b5909
   languageName: node
   linkType: hard
 
