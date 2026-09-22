@@ -1,5 +1,6 @@
-const { existsSync, readFileSync, statSync } = require("node:fs");
+const { readFileSync, existsSync, statSync } = require("node:fs");
 const { dirname, join, relative, resolve } = require("node:path");
+const { JS_EXT_RE, SOURCE_EXTS, resolveModule } = require("./resolveModule.js");
 
 /**
  * Enforces the internal-module pattern in packages that use `internal.ts`
@@ -13,29 +14,6 @@ const { dirname, join, relative, resolve } = require("node:path");
  * See docs/implementation-patterns.md › "internal.ts — the internal-module
  * pattern".
  */
-
-const SOURCE_EXTS = [".ts", ".tsx"];
-const JS_EXT_RE = /\.(js|jsx|mjs|cjs)$/;
-
-// This package emits NodeNext ESM, so a relative specifier carries the emitted
-// `.js` extension while the file on disk is the `.ts` source.
-const resolveModule = (base) => {
-  const candidates = [base];
-  if (JS_EXT_RE.test(base)) candidates.push(base.replace(JS_EXT_RE, ""));
-
-  for (const candidate of candidates) {
-    for (const ext of SOURCE_EXTS) {
-      if (existsSync(candidate + ext)) return candidate + ext;
-    }
-  }
-  for (const candidate of candidates) {
-    for (const ext of SOURCE_EXTS) {
-      const indexed = join(candidate, "index" + ext);
-      if (existsSync(indexed)) return indexed;
-    }
-  }
-  return null;
-};
 
 // Cache each internal.ts's member set, keyed by file path + mtime.
 const clusterCache = new Map();

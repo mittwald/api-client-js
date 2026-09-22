@@ -9,6 +9,9 @@ rules:
   # See docs/implementation-patterns.md.
   api-models/no-deep-cluster-imports: error
   api-models/ghostmaker-name-matches-class: error
+  # package.json#exports opens only ".", so a model missing from the root
+  # barrel is unreachable for consumers and nothing else notices.
+  api-models/ghostmaker-model-exported: error
   # The base model machinery is intentionally generic and uses `any` in type
   # positions (`Class<any>`, the type-level API fixes in base/api) where a
   # concrete type is impossible. Relaxed package-wide rather than contorting

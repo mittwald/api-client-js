@@ -654,6 +654,12 @@ Invariants worth internalizing:
 - **The `index.ts` barrels only re-export** (`export * from "./Container";` …) —
   no logic. The public contract is the **root** barrel, never a deep import
   ([ADR-0003](adr/0003-public-api-root-barrel.md)).
+- **A forgotten `export *` makes a model unreachable**, and nothing inside the
+  package notices — it imports the model by relative path and compiles fine.
+  `api-models/ghostmaker-model-exported` therefore checks that every
+  `@GhostMakerModel({ name })` class is reachable from `src/index.ts`. A model
+  that is deliberately internal opts out at the class with a reason:
+  `// eslint-disable-next-line api-models/ghostmaker-model-exported -- internal: <why>`.
 - **Naming is mechanical**: interface `XBehaviors`, adapter `apiXBehaviors`,
   wire types `XData` / `XListItemData` / `XListQueryData`, model variants
   `XCommon` / `XDetailed` / `XListItem`, query pair `XListQuery` / `XList`.
