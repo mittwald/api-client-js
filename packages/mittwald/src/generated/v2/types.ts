@@ -1289,6 +1289,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorGetOauthClient {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorGetOauthClient
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorGetOauthClient,
+          TStatus
+        >;
+    }
+
     namespace ContributorListContractPartnersOfContributor {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListContractPartnersOfContributor
@@ -4974,17 +4985,6 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
-
-    namespace ContributorGetOauthClient {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorGetOauthClient
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorGetOauthClient,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -7350,7 +7350,7 @@ export declare module MittwaldAPIV2 {
       export interface DnsCreateZoneFileImportResponse {
         conflicts: MittwaldAPIV2.Components.Schemas.DnsImportConflict[];
         /**
-         * ID of the started import job. Absent on a dry-run (dry-run=true), which creates no job.
+         * ID of the started import job. Absent on a dry-run (dryRun=true), which creates no job.
          */
         id?: string;
         zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
@@ -7360,6 +7360,7 @@ export declare module MittwaldAPIV2 {
         code:
           | "parseError"
           | "invalidRecord"
+          | "invalidZoneName"
           | "unsupportedRecordType"
           | "cnameConflict"
           | "foreignCustomerIngress"
@@ -7550,10 +7551,6 @@ export declare module MittwaldAPIV2 {
          * When the import job was created (publish time of the created event).
          */
         createdAt: string;
-        failedZones: {
-          error: string;
-          name: string;
-        }[];
         id: string;
         importedZones: string[];
         projectId: string;
@@ -7561,7 +7558,7 @@ export declare module MittwaldAPIV2 {
           name: string;
           reason: string;
         }[];
-        status: "running" | "succeeded" | "failed" | "completedWithErrors";
+        status: "running" | "succeeded" | "completedWithErrors";
       }
 
       export interface DnsZoneImportPreview {
@@ -13109,8 +13106,8 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
-            startDate: string;
-            endDate: string;
+            startDate: string | Date;
+            endDate: string | Date;
             keyId?: string;
           };
         }
@@ -20138,6 +20135,52 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2Oauth2ClientsOauthClientId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            oauthClientId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                allowedGrantTypes?: string[];
+                allowedRedirectUris?: string[];
+                allowedScopes?: string[];
+                description?: string;
+                humanReadableName: string;
+                id: string;
+                type?: "public" | "confidential";
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdContractPartners {
       namespace Get {
         namespace Parameters {
@@ -25727,7 +25770,7 @@ export declare module MittwaldAPIV2 {
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
           export type Query = {
-            "dry-run"?: boolean;
+            dryRun?: boolean;
           };
         }
         namespace Responses {
@@ -42274,52 +42317,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Oauth2ClientsOauthClientId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            oauthClientId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                allowedGrantTypes?: string[];
-                allowedRedirectUris?: string[];
-                allowedScopes?: string[];
-                description?: string;
-                humanReadableName: string;
-                id: string;
-                type?: "public" | "confidential";
-              }
             }
           }
 

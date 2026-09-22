@@ -533,6 +533,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     contributorGetLoginLink: this.requestFunctionFactory(
       descriptors.contributorGetLoginLink,
     ),
+    /** Get a specific OAuth2 client. */
+    contributorGetOauthClient: this.requestFunctionFactory(
+      descriptors.contributorGetOauthClient,
+    ),
     /** List ContractPartners of the contributor. */
     contributorListContractPartnersOfContributor: this.requestFunctionFactory(
       descriptors.contributorListContractPartnersOfContributor,
@@ -759,10 +763,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Get a specific OAuth2 client. */
-    contributorGetOauthClient: this.requestFunctionFactory(
-      descriptors.contributorGetOauthClient,
     ),
   };
 
