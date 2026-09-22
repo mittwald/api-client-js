@@ -1792,6 +1792,7 @@ __metadata:
   resolution: "@mittwald/api-models@workspace:packages/models"
   dependencies:
     "@internationalized/date": "npm:^3.12.2"
+    "@mittwald/axios-cache-with-retry": "npm:^1.0.0"
     "@mittwald/react-ghostmaker": "npm:^1.5.4"
     "@sindresorhus/is": "npm:^8.1.0"
     "@tanstack/react-query": "npm:^5.102.8"
@@ -1836,6 +1837,15 @@ __metadata:
     "@mittwald/api-client-commons": "workspace:^"
   languageName: unknown
   linkType: soft
+
+"@mittwald/axios-cache-with-retry@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@mittwald/axios-cache-with-retry@npm:1.0.0"
+  peerDependencies:
+    axios: ^1
+  checksum: 10/48454f33db565bac3d61cbd8c2279d97675179688379554fcdaf51c01c4029088af979c3af6286ab02fb6c73236da06dc29345f77721aeef9eabe1629f57d20f
+  languageName: node
+  linkType: hard
 
 "@mittwald/react-async-proxy@npm:^0.0.12":
   version: 0.0.12
