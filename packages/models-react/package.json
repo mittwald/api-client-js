@@ -1,0 +1,54 @@
+{
+  "name": "@mittwald/api-models-react",
+  "version": "0.0.0",
+  "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
+  "type": "module",
+  "description": "React bindings for the mittwald API domain models",
+  "keywords": [
+    "api",
+    "client",
+    "mittwald",
+    "models",
+    "react"
+  ],
+  "homepage": "https://developer.mittwald.de",
+  "repository": "github:mittwald/api-client-js",
+  "bugs": {
+    "url": "https://github.com/mittwald/api-client-js/issues"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run build:clean && run tsc",
+    "build:clean": "rimraf dist",
+    "lint": "run eslint .",
+    "test:compile": "run tsc --noEmit",
+    "test:unit": "run vitest run"
+  },
+  "dependencies": {
+    "@mittwald/api-models": "workspace:^",
+    "@mittwald/react-async-proxy": "^0.0.12",
+    "@mittwald/react-ghostmaker": "^1.5.4",
+    "@sindresorhus/is": "^8.1.0",
+    "minimatch": "^10.2.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.8"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": "^5",
+    "react": "^18 || ^19"
+  }
+}
