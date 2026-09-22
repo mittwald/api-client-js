@@ -2,31 +2,36 @@ import { OpenAPIV3 } from "openapi-types";
 import { OpenAPISchemaValidationError } from "./OpenAPISchemaValidationError.js";
 import VError from "verror";
 import { makeError } from "../lib/makeError.js";
-import OpenAPISchemaValidator, {
+import openApiSchemaValidatorModule from "openapi-schema-validator";
+import type {
   IOpenAPISchemaValidator,
   OpenAPISchemaValidatorArgs,
 } from "openapi-schema-validator";
 import { convert } from "swagger2openapi";
 import { ux } from "@oclif/core";
+import { openApiSchemaValidatorExtensions } from "./openApiSchemaValidatorExtensions.js";
 
 type OpenAPISchemaValidatorConstructor = new (
   args: OpenAPISchemaValidatorArgs,
 ) => IOpenAPISchemaValidator;
 
 /**
- * `openapi-schema-validator` is a CommonJS package, and the shape of its
- * default import depends on the module resolution of the consumer: the ESM
- * build sees the whole `module.exports` (so the class sits on `.default`),
- * while a CommonJS resolution already unwraps it. Normalize both.
+ * `openapi-schema-validator` is a CommonJS module. Depending on the module
+ * interop of the environment, the default import either _is_ the class or is a
+ * namespace object carrying it in a nested `default` property.
  */
-const ValidatorConstructor: OpenAPISchemaValidatorConstructor = (
-  "default" in OpenAPISchemaValidator
-    ? OpenAPISchemaValidator.default
-    : OpenAPISchemaValidator
-) as OpenAPISchemaValidatorConstructor;
+const interopDefault = (
+  imported:
+    | OpenAPISchemaValidatorConstructor
+    | { default: OpenAPISchemaValidatorConstructor },
+): OpenAPISchemaValidatorConstructor =>
+  typeof imported === "function" ? imported : imported.default;
 
-const validator = new ValidatorConstructor({
+const OpenAPISchemaValidator = interopDefault(openApiSchemaValidatorModule);
+
+const validator = new OpenAPISchemaValidator({
   version: 3,
+  extensions: openApiSchemaValidatorExtensions,
 });
 
 interface ParserOptions {
