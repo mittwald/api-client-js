@@ -1,5 +1,6 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
+import invariant from "tiny-invariant";
 
 import type { MarketplaceContext } from "../ExtensionInstance/index.js";
 import type { ExtensionPricePlan } from "./ExtensionPricePlan.js";
@@ -89,7 +90,7 @@ export class ExtensionCommon extends WithData<
 ) {
   public readonly amountOfInstances?: number;
   public readonly assets: ExtensionAsset[];
-  public readonly context: MarketplaceContext;
+  public readonly context?: MarketplaceContext;
   public readonly contributor: Contributor;
   public readonly createdAt?: DateTime;
   public override readonly data: ExtensionListItemData | ExtensionData;
@@ -162,6 +163,8 @@ export class ExtensionCommon extends WithData<
   }
 
   public async install(contextId: string, variantKey?: string) {
+    invariant(this.context, "no context available");
+
     const { id } = await config.behaviors.extensionInstance.create({
       consentedScopes: this.scopes,
       variantKey: variantKey,
@@ -174,6 +177,8 @@ export class ExtensionCommon extends WithData<
   }
 
   public async order(contextId: string, variantKey?: string) {
+    invariant(this.context, "no context available");
+
     return await config.behaviors.extension.order(this.id, {
       consentedScopes: this.scopes,
       ...(this.context === "customer"

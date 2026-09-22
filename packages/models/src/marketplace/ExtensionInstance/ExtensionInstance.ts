@@ -335,7 +335,7 @@ export class ExtensionInstanceCommon extends WithData<
     return url
       .replace(":userId", retrievalKeyData.userId)
       .replace(":contextId", this.context.value.id)
-      .replace(":context", extension.context)
+      .replace(":context", this.context.type)
       .replace(":contributorId", extension.data.contributorId)
       .replace(":extensionId", this.data.extensionId)
       .replace(":extensionInstanceId", this.id)
