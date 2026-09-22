@@ -29,6 +29,7 @@
   "scripts": {
     "build": "run build:clean && run tsc",
     "build:clean": "rimraf dist",
+    "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
     "lint": "run eslint .",
     "test": "",
     "test:compile": "run tsc --noEmit",
