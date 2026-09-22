@@ -4,7 +4,7 @@
 import * as descriptors from "./descriptors.js";
 import { ApiClientBase } from "@mittwald/api-client-commons";
 
-export class MittwaldAPIV2Client extends ApiClientBase {
+export class MittwaldAPIV3NextClient extends ApiClientBase {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting = {
     /** Accepts the model terms for a customer. */
@@ -1861,4 +1861,4 @@ export class MittwaldAPIV2Client extends ApiClientBase {
   };
 }
 
-export default MittwaldAPIV2Client;
+export default MittwaldAPIV3NextClient;

@@ -3,6 +3,278 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.466.0](https://github.com/mittwald/api-client-js/compare/4.465.0...4.466.0) (2026-09-21)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.465.0](https://github.com/mittwald/api-client-js/compare/4.464.0...4.465.0) (2026-09-17)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.464.0](https://github.com/mittwald/api-client-js/compare/4.463.0...4.464.0) (2026-09-16)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.463.0](https://github.com/mittwald/api-client-js/compare/4.462.0...4.463.0) (2026-09-15)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.462.0](https://github.com/mittwald/api-client-js/compare/4.461.0...4.462.0) (2026-09-15)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.461.0](https://github.com/mittwald/api-client-js/compare/4.460.0...4.461.0) (2026-09-11)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.460.0](https://github.com/mittwald/api-client-js/compare/4.459.0...4.460.0) (2026-09-09)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.459.0](https://github.com/mittwald/api-client-js/compare/4.458.0...4.459.0) (2026-09-09)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.458.0](https://github.com/mittwald/api-client-js/compare/4.457.1...4.458.0) (2026-09-08)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+## [4.457.1](https://github.com/mittwald/api-client-js/compare/4.457.0...4.457.1) (2026-09-08)
+
+### Bug Fixes
+
+* **deps:** widen @mittwald/react-use-promise peer range to 3.x and 4.x ([#294](https://github.com/mittwald/api-client-js/issues/294)) ([9d15968](https://github.com/mittwald/api-client-js/commit/9d159686b3ef00f5ef88746eb5188c773b71a398)), closes [#293](https://github.com/mittwald/api-client-js/issues/293)
+
+# [4.457.0](https://github.com/mittwald/api-client-js/compare/4.456.0...4.457.0) (2026-09-06)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.456.0](https://github.com/mittwald/api-client-js/compare/4.455.0...4.456.0) (2026-09-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.455.0](https://github.com/mittwald/api-client-js/compare/4.454.0...4.455.0) (2026-09-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.454.0](https://github.com/mittwald/api-client-js/compare/4.453.0...4.454.0) (2026-09-03)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.453.0](https://github.com/mittwald/api-client-js/compare/4.452.0...4.453.0) (2026-09-02)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.452.0](https://github.com/mittwald/api-client-js/compare/4.451.0...4.452.0) (2026-09-02)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.451.0](https://github.com/mittwald/api-client-js/compare/4.450.0...4.451.0) (2026-09-01)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.450.0](https://github.com/mittwald/api-client-js/compare/4.449.0...4.450.0) (2026-08-31)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.449.0](https://github.com/mittwald/api-client-js/compare/4.448.2...4.449.0) (2026-08-28)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+## [4.448.2](https://github.com/mittwald/api-client-js/compare/4.448.1...4.448.2) (2026-08-27)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+## [4.448.1](https://github.com/mittwald/api-client-js/compare/0.0.0-development-f13d74a-20260826.0...4.448.1) (2026-08-27)
+
+### Bug Fixes
+
+* **ci:** pin dev publish job to dev branch and restore version 4.448.0 ([92494a7](https://github.com/mittwald/api-client-js/commit/92494a7ae4c9a317ef5387bb85d66ded75d2ac5e))
+
+# [0.0.0-development-f13d74a-20260826.0](https://github.com/mittwald/api-client-js/compare/0.0.0-development-f13d74a-20260826...0.0.0-development-f13d74a-20260826.0) (2026-08-27)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.448.0](https://github.com/mittwald/api-client-js/compare/4.447.0...4.448.0) (2026-08-25)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.447.0](https://github.com/mittwald/api-client-js/compare/4.446.0...4.447.0) (2026-08-24)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.446.0](https://github.com/mittwald/api-client-js/compare/4.445.0...4.446.0) (2026-08-24)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.445.0](https://github.com/mittwald/api-client-js/compare/4.444.0...4.445.0) (2026-08-21)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.444.0](https://github.com/mittwald/api-client-js/compare/4.443.0...4.444.0) (2026-08-19)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.443.0](https://github.com/mittwald/api-client-js/compare/4.442.0...4.443.0) (2026-08-19)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.442.0](https://github.com/mittwald/api-client-js/compare/4.441.0...4.442.0) (2026-08-17)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.441.0](https://github.com/mittwald/api-client-js/compare/4.440.0...4.441.0) (2026-08-13)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.440.0](https://github.com/mittwald/api-client-js/compare/4.439.0...4.440.0) (2026-08-11)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.439.0](https://github.com/mittwald/api-client-js/compare/4.438.0...4.439.0) (2026-08-10)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.438.0](https://github.com/mittwald/api-client-js/compare/4.437.0...4.438.0) (2026-08-07)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.437.0](https://github.com/mittwald/api-client-js/compare/4.436.0...4.437.0) (2026-08-05)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.436.0](https://github.com/mittwald/api-client-js/compare/4.435.0...4.436.0) (2026-08-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.435.0](https://github.com/mittwald/api-client-js/compare/4.434.0...4.435.0) (2026-08-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.434.0](https://github.com/mittwald/api-client-js/compare/4.433.0...4.434.0) (2026-08-03)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.433.0](https://github.com/mittwald/api-client-js/compare/4.432.0...4.433.0) (2026-07-29)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.432.0](https://github.com/mittwald/api-client-js/compare/4.431.0...4.432.0) (2026-07-29)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.431.0](https://github.com/mittwald/api-client-js/compare/4.430.0...4.431.0) (2026-07-29)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.430.0](https://github.com/mittwald/api-client-js/compare/4.429.1...4.430.0) (2026-07-28)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+## [4.429.1](https://github.com/mittwald/api-client-js/compare/4.429.0...4.429.1) (2026-07-28)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.429.0](https://github.com/mittwald/api-client-js/compare/4.428.0...4.429.0) (2026-07-28)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.428.0](https://github.com/mittwald/api-client-js/compare/4.427.0...4.428.0) (2026-07-27)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.427.0](https://github.com/mittwald/api-client-js/compare/4.426.0...4.427.0) (2026-07-23)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.426.0](https://github.com/mittwald/api-client-js/compare/4.425.0...4.426.0) (2026-07-23)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.425.0](https://github.com/mittwald/api-client-js/compare/4.424.0...4.425.0) (2026-07-22)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.424.0](https://github.com/mittwald/api-client-js/compare/4.422.0...4.424.0) (2026-07-22)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.423.0](https://github.com/mittwald/api-client-js/compare/4.422.0...4.423.0) (2026-07-22)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.422.0](https://github.com/mittwald/api-client-js/compare/4.421.0...4.422.0) (2026-07-21)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.421.0](https://github.com/mittwald/api-client-js/compare/4.420.0...4.421.0) (2026-07-21)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.420.0](https://github.com/mittwald/api-client-js/compare/4.419.0...4.420.0) (2026-07-20)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.419.0](https://github.com/mittwald/api-client-js/compare/4.418.0...4.419.0) (2026-07-20)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.418.0](https://github.com/mittwald/api-client-js/compare/4.417.0...4.418.0) (2026-07-19)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.417.0](https://github.com/mittwald/api-client-js/compare/4.416.0...4.417.0) (2026-07-18)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.416.0](https://github.com/mittwald/api-client-js/compare/4.415.0...4.416.0) (2026-07-17)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.415.0](https://github.com/mittwald/api-client-js/compare/4.414.0...4.415.0) (2026-07-16)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.414.0](https://github.com/mittwald/api-client-js/compare/4.413.0...4.414.0) (2026-07-16)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.413.0](https://github.com/mittwald/api-client-js/compare/4.412.0...4.413.0) (2026-07-15)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.412.0](https://github.com/mittwald/api-client-js/compare/4.411.0...4.412.0) (2026-07-14)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.411.0](https://github.com/mittwald/api-client-js/compare/4.410.0...4.411.0) (2026-07-13)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.410.0](https://github.com/mittwald/api-client-js/compare/4.409.0...4.410.0) (2026-07-11)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.409.0](https://github.com/mittwald/api-client-js/compare/4.408.0...4.409.0) (2026-07-10)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.408.0](https://github.com/mittwald/api-client-js/compare/4.407.0...4.408.0) (2026-07-09)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.407.0](https://github.com/mittwald/api-client-js/compare/4.406.0...4.407.0) (2026-07-08)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.406.0](https://github.com/mittwald/api-client-js/compare/4.405.1...4.406.0) (2026-07-07)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+## [4.405.1](https://github.com/mittwald/api-client-js/compare/4.405.0...4.405.1) (2026-07-07)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
 # [4.405.0](https://github.com/mittwald/api-client-js/compare/4.404.0...4.405.0) (2026-07-03)
 
 **Note:** Version bump only for package @mittwald/api-client-commons

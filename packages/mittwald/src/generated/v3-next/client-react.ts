@@ -1,12 +1,12 @@
 /* eslint-disable */
 /* prettier-ignore */
 /* This file is auto-generated with acg (@mittwald/api-code-generator) */
-import MittwaldAPIV2Client from "./client.js";
+import MittwaldAPIV3NextClient from "./client.js";
 import { ApiCallAsyncResourceFactory } from "@mittwald/api-client-commons/react";
 import * as descriptors from "./descriptors.js";
 export * from "@mittwald/react-use-promise";
 
-const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get a list of already created keys. */
   customerGetKeys: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetKeys,
@@ -74,7 +74,7 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
   getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppInstallationSystemSoftware,
@@ -157,7 +157,7 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildArticleApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get an Article. */
   getArticle: new ApiCallAsyncResourceFactory(
     descriptors.articleGetArticle,
@@ -170,7 +170,7 @@ const buildArticleApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildBackupApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List BackupSchedules belonging to a Project. */
   listProjectBackupSchedules: new ApiCallAsyncResourceFactory(
     descriptors.backupListProjectBackupSchedules,
@@ -203,7 +203,7 @@ const buildBackupApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Call a Service pull-image webhook. */
   callPullImageWebhookForService: new ApiCallAsyncResourceFactory(
     descriptors.containerCallPullImageWebhookForService,
@@ -296,7 +296,7 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildContractApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Return the BaseItem of the Contract with the given ID. */
   getBaseItemOfContract: new ApiCallAsyncResourceFactory(
     descriptors.contractGetBaseItemOfContract,
@@ -399,7 +399,7 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildMarketplaceApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get a Contributor. */
   extensionGetContributor: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetContributor,
@@ -528,7 +528,7 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildConversationApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get all conversation the authenticated user has created or has access to. */
   listConversations: new ApiCallAsyncResourceFactory(
     descriptors.conversationListConversations,
@@ -571,7 +571,7 @@ const buildConversationApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildCronjobApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List Cronjobs belonging to a Project. */
   listCronjobs: new ApiCallAsyncResourceFactory(
     descriptors.cronjobListCronjobs,
@@ -599,7 +599,7 @@ const buildCronjobApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildCustomerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List Invites belonging to a Customer. */
   listInvitesForCustomer: new ApiCallAsyncResourceFactory(
     descriptors.customerListInvitesForCustomer,
@@ -657,7 +657,7 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildDatabaseApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List MySQLDatabases belonging to a Project. */
   listMysqlDatabases: new ApiCallAsyncResourceFactory(
     descriptors.databaseListMysqlDatabases,
@@ -710,7 +710,7 @@ const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List Domains */
   listDomains: new ApiCallAsyncResourceFactory(
     descriptors.domainListDomains,
@@ -803,7 +803,7 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildFileApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get a File's meta. */
   getFileMeta: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileMeta,
@@ -831,7 +831,7 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildLeadFyndrApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get your LeadFyndr request. */
   leadfyndrGetLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
     descriptors.leadfyndrGetLeadFyndrProfileRequest,
@@ -879,7 +879,7 @@ const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildLicenseApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get a license. */
   getLicense: new ApiCallAsyncResourceFactory(
     descriptors.licenseGetLicense,
@@ -892,7 +892,7 @@ const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildMailApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List DeliveryBoxes belonging to a Project. */
   listDeliveryBoxes: new ApiCallAsyncResourceFactory(
     descriptors.mailListDeliveryBoxes,
@@ -940,7 +940,7 @@ const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildMiscApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List valid time zones. */
   ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
     descriptors.miscellaneousListTimeZones,
@@ -948,7 +948,7 @@ const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildNotificationApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Getting the subscription status of the subscription. */
   newsletterGetInfo: new ApiCallAsyncResourceFactory(
     descriptors.newsletterGetInfo,
@@ -966,7 +966,7 @@ const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildPageInsightsApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get detailed performance data for a given domain and path. */
   pageinsightsGetPerformanceData: new ApiCallAsyncResourceFactory(
     descriptors.pageinsightsGetPerformanceData,
@@ -984,7 +984,7 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get a PasswordPolicy. */
   passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
     descriptors.passwordValidationGetPasswordPolicy,
@@ -1077,7 +1077,7 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List Invites belonging to a Project. */
   listInvitesForProject: new ApiCallAsyncResourceFactory(
     descriptors.projectListInvitesForProject,
@@ -1160,7 +1160,7 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildProjectFileSystemApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** List directories belonging to a Project. */
   getDirectories: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetDirectories,
@@ -1188,7 +1188,7 @@ const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
+const buildSshsftpUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get all SFTPUsers for a Project. */
   sftpUserListSftpUsers: new ApiCallAsyncResourceFactory(
     descriptors.sftpUserListSftpUsers,
@@ -1211,7 +1211,7 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-export class MittwaldAPIV2ClientReact {
+export class MittwaldAPIV3NextClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
 
@@ -1283,7 +1283,7 @@ export class MittwaldAPIV2ClientReact {
   /** The SSH/SFTP User API allows you to manage your SSH/SFTP users within a project. */
   public readonly sshsftpUser: ReturnType<typeof buildSshsftpUserApi>;
 
-  private constructor(baseClient: MittwaldAPIV2Client) {
+  private constructor(baseClient: MittwaldAPIV3NextClient) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
     this.app = buildAppApi(baseClient);
@@ -1332,8 +1332,8 @@ export class MittwaldAPIV2ClientReact {
   }
 
   public static fromBaseClient(
-    baseClient: MittwaldAPIV2Client,
-  ): MittwaldAPIV2ClientReact {
-    return new MittwaldAPIV2ClientReact(baseClient);
+    baseClient: MittwaldAPIV3NextClient,
+  ): MittwaldAPIV3NextClientReact {
+    return new MittwaldAPIV3NextClientReact(baseClient);
   }
 }

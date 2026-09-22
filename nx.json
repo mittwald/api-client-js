@@ -12,7 +12,19 @@
       "cache": true,
       "dependsOn": ["^build"]
     },
+    "build:client-v2-prod": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "build:client-v3-next-prod": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
     "build:client-dev": {
+      "cache": true,
+      "dependsOn": ["^build"]
+    },
+    "build:client-v2-dev": {
       "cache": true,
       "dependsOn": ["^build"]
     },
