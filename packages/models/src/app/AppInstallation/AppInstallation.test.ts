@@ -220,9 +220,7 @@ describe("AppInstallation", () => {
   });
 
   test("preserves ghostmaker composition chains", () => {
-    const detailed = new AppInstallationDetailed(
-      buildAppInstallationData(),
-    );
+    const detailed = new AppInstallationDetailed(buildAppInstallationData());
 
     expect(detailed).toBeInstanceOf(AppInstallation);
     expect(detailed).toBeInstanceOf(ReferenceModel);

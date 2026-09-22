@@ -1,4 +1,7 @@
-import type { RelocationRequestApiData, RelocationRequestData } from "./types.js";
+import type {
+  RelocationRequestApiData,
+  RelocationRequestData,
+} from "./types.js";
 
 import { Project } from "../../project/index.js";
 import { config } from "../../config/index.js";

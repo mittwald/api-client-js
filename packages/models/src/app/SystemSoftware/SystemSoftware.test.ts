@@ -9,7 +9,10 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 }));
 
 import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
-import { buildSystemSoftwareListItemData , buildSystemSoftwareData } from "../../testing/builders/buildSystemSoftwareData.js";
+import {
+  buildSystemSoftwareListItemData,
+  buildSystemSoftwareData,
+} from "../../testing/builders/buildSystemSoftwareData.js";
 import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
@@ -27,7 +30,9 @@ afterEach(resetBehaviors);
 
 describe("SystemSoftware reference and delegation", () => {
   test("find delegates by id and returns a detailed model", async () => {
-    const find = vi.fn().mockResolvedValue(buildSystemSoftwareData({ id: "ss-1" }));
+    const find = vi
+      .fn()
+      .mockResolvedValue(buildSystemSoftwareData({ id: "ss-1" }));
     installBehaviors({ systemSoftware: { find } });
 
     const result = await SystemSoftware.find("ss-1");
@@ -48,7 +53,9 @@ describe("SystemSoftware reference and delegation", () => {
   test("get returns a detailed model", async () => {
     installBehaviors({
       systemSoftware: {
-        find: vi.fn().mockResolvedValue(buildSystemSoftwareData({ id: "ss-1" })),
+        find: vi
+          .fn()
+          .mockResolvedValue(buildSystemSoftwareData({ id: "ss-1" })),
       },
     });
 
@@ -58,7 +65,9 @@ describe("SystemSoftware reference and delegation", () => {
   });
 
   test("ofId creates a reference whose findDetailed delegates by id", async () => {
-    const find = vi.fn().mockResolvedValue(buildSystemSoftwareData({ id: "ss-1" }));
+    const find = vi
+      .fn()
+      .mockResolvedValue(buildSystemSoftwareData({ id: "ss-1" }));
     installBehaviors({ systemSoftware: { find } });
 
     const reference = SystemSoftware.ofId("ss-1");

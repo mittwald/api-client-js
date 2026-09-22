@@ -9,24 +9,24 @@ package `@mittwald/api-models-react`.
 Two layers:
 
 - **`@mittwald/api-models`** — the agnostic core.
-- **`@mittwald/api-models-react`** — thin React bindings (Ghosts). The dependency
-  runs **one-way**, react → core.
+- **`@mittwald/api-models-react`** — thin React bindings (Ghosts). The
+  dependency runs **one-way**, react → core.
 
 ### Building blocks
 
-- **Base classes** (`base/`): `BaseModel` → `ReferenceModel` (identity via `id`),
-  plus `DataModel<T>` / `ListDataModel` / `ListQueryModel`. Concrete models are
-  composed from these via `polytype` multiple inheritance today; the decision is
-  to move to plain mixin functions
+- **Base classes** (`base/`): `BaseModel` → `ReferenceModel` (identity via
+  `id`), plus `DataModel<T>` / `ListDataModel` / `ListQueryModel`. Concrete
+  models are composed from these via `polytype` multiple inheritance today; the
+  decision is to move to plain mixin functions
   ([ADR-0004](docs/adr/0004-mixin-functions-instead-of-polytype.md)).
-- **Naming convention** per entity `X`: `X` (reference) · `XCommon` · `XDetailed`
-  · `XListItem` · `XListQuery` · `XList`. Data types in `types.ts` come from
-  `MittwaldAPIV2.*`.
+- **Naming convention** per entity `X`: `X` (reference) · `XCommon` ·
+  `XDetailed` · `XListItem` · `XListQuery` · `XList`. Data types in `types.ts`
+  come from `MittwaldAPIV2.*`.
 - **Behaviors**: per model an interface (`behaviors/types.ts`) plus an API
   implementation (`behaviors/api.ts`). Models never call `api-client` directly,
   only through their behaviors.
-- **Registry**: all behaviors hang off a central `config.behaviors`, populated by
-  `initApiModels` (see below).
+- **Registry**: all behaviors hang off a central `config.behaviors`, populated
+  by `initApiModels` (see below).
 - **Taxonomy**: ~35 domain-oriented top-level groups. The public contract is the
   root barrel, not the folder structure
   ([ADR-0003](docs/adr/0003-public-api-root-barrel.md)).
@@ -40,7 +40,9 @@ The consumer passes its dependencies in once at startup:
 ```ts
 import { initApiModels } from "@mittwald/api-models";
 
-initApiModels({ apiClient /*, defaultPaginationLimit?, usageMetricsUrl?, … */ });
+initApiModels({
+  apiClient /*, defaultPaginationLimit?, usageMetricsUrl?, … */,
+});
 ```
 
 Details and rationale: [ADR-0001](docs/adr/0001-initialization.md).
@@ -59,6 +61,8 @@ Details and rationale: [ADR-0001](docs/adr/0001-initialization.md).
 ## Documentation
 
 - [CONTEXT.md](CONTEXT.md) — glossary / ubiquitous language
-- [docs/implementation-patterns.md](docs/implementation-patterns.md) — recurring code idioms (helpers, conventions)
+- [docs/implementation-patterns.md](docs/implementation-patterns.md) — recurring
+  code idioms (helpers, conventions)
 - [docs/adr/](docs/adr/) — architecture decision records (ADRs)
-- [docs/api-drift.md](docs/api-drift.md) — known deviations from the generated OpenAPI spec
+- [docs/api-drift.md](docs/api-drift.md) — known deviations from the generated
+  OpenAPI spec

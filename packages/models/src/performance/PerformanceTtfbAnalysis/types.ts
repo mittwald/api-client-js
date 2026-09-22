@@ -41,10 +41,9 @@ export type PerformanceTtfbAnalysisStraceDataNetworkingOpStats =
   NonNullable<PerformanceTtfbAnalysisStraceDataNetworkOps>[number]["stats"] &
     WithTtfb;
 
-export type EnrichedFileOp =
-  {
-    stats: PerformanceTtfbAnalysisStraceDataFileOpStats;
-  } & NonNullable<PerformanceTtfbAnalysisStraceDataFileOps>[number];
+export type EnrichedFileOp = {
+  stats: PerformanceTtfbAnalysisStraceDataFileOpStats;
+} & NonNullable<PerformanceTtfbAnalysisStraceDataFileOps>[number];
 export type EnrichedFileOps = EnrichedFileOp[];
 
 export type EnrichedDbQuery =
@@ -53,8 +52,7 @@ export type EnrichedDbQuery =
   };
 export type EnrichedDbQueries = EnrichedDbQuery[];
 
-export type EnrichedNetworkingOp =
-  {
-    stats: PerformanceTtfbAnalysisStraceDataNetworkingOpStats;
-  } & NonNullable<PerformanceTtfbAnalysisStraceDataNetworkOps>[number];
+export type EnrichedNetworkingOp = {
+  stats: PerformanceTtfbAnalysisStraceDataNetworkingOpStats;
+} & NonNullable<PerformanceTtfbAnalysisStraceDataNetworkOps>[number];
 export type EnrichedNetworkingOps = EnrichedNetworkingOp[];

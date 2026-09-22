@@ -121,7 +121,8 @@ export class MailAddress extends ReferenceModel {
 
   public static async previewMultipleMailArchiveOrders(
     mailAddresses:
-      readonly MailAddressListItem[] | readonly MailAddressDetailed[],
+      | readonly MailAddressListItem[]
+      | readonly MailAddressDetailed[],
     syncExistingMails?: boolean,
   ) {
     return await Promise.all(

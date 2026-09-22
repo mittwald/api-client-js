@@ -22,20 +22,32 @@ afterEach(resetBehaviors);
 
 describe("Lead", () => {
   test("find and get delegate and handle missing data", async () => {
-    const find = vi.fn().mockResolvedValueOnce(buildLeadData()).mockResolvedValueOnce(buildLeadData()).mockResolvedValueOnce(undefined);
+    const find = vi
+      .fn()
+      .mockResolvedValueOnce(buildLeadData())
+      .mockResolvedValueOnce(buildLeadData())
+      .mockResolvedValueOnce(undefined);
     installBehaviors({ lead: { find } });
 
     expect(await Lead.find("c-1", "l-1")).toBeInstanceOf(LeadDetailed);
     expect(find).toHaveBeenCalledWith("c-1", "l-1");
     expect(await Lead.get("c-1", "l-1")).toBeInstanceOf(LeadDetailed);
-    await expect(Lead.get("c-1", "missing")).rejects.toBeInstanceOf(ObjectNotFoundError);
+    await expect(Lead.get("c-1", "missing")).rejects.toBeInstanceOf(
+      ObjectNotFoundError,
+    );
   });
 
   test("exposes derived lead data", () => {
-    const lead = new LeadDetailed("c-1", buildLeadData({ businessFields: ["IT", "Retail"] }));
+    const lead = new LeadDetailed(
+      "c-1",
+      buildLeadData({ businessFields: ["IT", "Retail"] }),
+    );
     const medium = new LeadDetailed("c-1", buildLeadData({ potential: 0.55 }));
     const low = new LeadDetailed("c-1", buildLeadData({ potential: 0.5 }));
-    const unversioned = new LeadDetailed("c-1", buildLeadData({ mainTechnology: { categoryPriority: 1, name: "React" } }));
+    const unversioned = new LeadDetailed(
+      "c-1",
+      buildLeadData({ mainTechnology: { categoryPriority: 1, name: "React" } }),
+    );
 
     expect(lead.businessFields).toBe("IT, Retail");
     expect(lead.potential).toBe(72);
@@ -57,7 +69,9 @@ describe("Lead", () => {
   });
 
   test("queries and maps lead lists", async () => {
-    const list = vi.fn().mockResolvedValue({ items: [buildLeadData()], totalCount: 9 });
+    const list = vi
+      .fn()
+      .mockResolvedValue({ items: [buildLeadData()], totalCount: 9 });
     installBehaviors({ lead: { list } });
 
     const result = await Lead.query("c-1", { limit: 4 }).execute();
@@ -87,17 +101,26 @@ describe("Lead", () => {
       businessFields: ["IT"],
     }).execute();
     expect(list).toHaveBeenLastCalledWith("c-1", {
-      technologies: ["TYPO3 CMS", "React"], locationPostCode: "24103",
-      businessFields: ["IT"], locationRadiusInKm: 25,
-      employeeCountMin: 10, employeeCountMax: 50, locationCity: "Kiel",
+      technologies: ["TYPO3 CMS", "React"],
+      locationPostCode: "24103",
+      businessFields: ["IT"],
+      locationRadiusInKm: 25,
+      employeeCountMin: 10,
+      employeeCountMax: 50,
+      locationCity: "Kiel",
     });
 
     await Lead.queryFromStoreFilters("c-1", {
-      location: { zipCode: "DACH-RAUM", radius: "100", city: "" }, employeeCount: null, businessFields: [],
+      location: { zipCode: "DACH-RAUM", radius: "100", city: "" },
+      employeeCount: null,
+      businessFields: [],
       technologies: [],
     }).execute();
     expect(list).toHaveBeenLastCalledWith("c-1", {
-      employeeCountMin: undefined, employeeCountMax: undefined, businessFields: [], technologies: [],
+      employeeCountMin: undefined,
+      employeeCountMax: undefined,
+      businessFields: [],
+      technologies: [],
     });
   });
 
@@ -114,16 +137,14 @@ describe("Lead", () => {
       .mockResolvedValueOnce(undefined);
     installBehaviors({ lead: { find } });
 
-    expect(
-      await Lead.ofId("c-1", "l-1").findCommon(),
-    ).toBeInstanceOf(LeadDetailed);
+    expect(await Lead.ofId("c-1", "l-1").findCommon()).toBeInstanceOf(
+      LeadDetailed,
+    );
     expect(find).toHaveBeenCalledWith("c-1", "l-1");
-    expect(
-      await Lead.ofId("c-1", "l-1").findCommon(),
-    ).toBeUndefined();
-    expect(
-      await Lead.ofId("c-1", "l-1").getCommon(),
-    ).toBeInstanceOf(LeadDetailed);
+    expect(await Lead.ofId("c-1", "l-1").findCommon()).toBeUndefined();
+    expect(await Lead.ofId("c-1", "l-1").getCommon()).toBeInstanceOf(
+      LeadDetailed,
+    );
     await expect(
       Lead.ofId("c-1", "missing").getCommon(),
     ).rejects.toBeInstanceOf(ObjectNotFoundError);

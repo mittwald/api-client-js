@@ -1,12 +1,11 @@
 import { DateTime } from "luxon";
 
-import type {
-  SystemSoftwareName} from "../SystemSoftware/index.js";
+import type { SystemSoftwareName } from "../SystemSoftware/index.js";
 import type { InstalledSystemSoftwareData } from "./types.js";
 
 import {
   SystemSoftwareFullNames,
-  SystemSoftware
+  SystemSoftware,
 } from "../SystemSoftware/index.js";
 import { SystemSoftwareVersion } from "../SystemSoftwareVersion/index.js";
 import { User } from "../../user/User/User.js";

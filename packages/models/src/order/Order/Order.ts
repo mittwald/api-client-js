@@ -14,7 +14,13 @@ import { Customer } from "../../customer/Customer/Customer.js";
 import { AggregateMetaData, Money } from "../../common/index.js";
 import { OrderItem } from "../OrderItem/index.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Order",

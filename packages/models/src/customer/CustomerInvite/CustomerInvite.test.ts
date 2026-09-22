@@ -63,7 +63,10 @@ describe("CustomerInvite delegation", () => {
       message: "Join us",
     };
 
-    const result = await CustomerInvite.create(Customer.ofId("customer-id"), data);
+    const result = await CustomerInvite.create(
+      Customer.ofId("customer-id"),
+      data,
+    );
 
     expect(create).toHaveBeenCalledWith("customer-id", data);
     expect(result).toBeInstanceOf(CustomerInvite);

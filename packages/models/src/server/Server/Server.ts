@@ -14,7 +14,10 @@ import type {
 } from "./types.js";
 
 import { ServerAvatarAccessTokenProvider } from "./ServerAvatarAccessTokenProvider.js";
-import { type FileAccessTokenProvider, type DomFile } from "../../file/index.js";
+import {
+  type FileAccessTokenProvider,
+  type DomFile,
+} from "../../file/index.js";
 import { ServerUsageMetrics, StorageMetrics } from "../../monitoring/index.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { Customer } from "../../customer/Customer/Customer.js";

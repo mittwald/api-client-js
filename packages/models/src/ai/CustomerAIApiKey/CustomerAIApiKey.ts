@@ -99,9 +99,7 @@ export class CustomerAIApiKey extends ReferenceModel {
 
 export class CustomerAIApiKeyCommon extends WithData<
   CustomerAIApiKeyListItemData | AIApiKeyData
->()(
-  CustomerAIApiKey,
-) {
+>()(CustomerAIApiKey) {
   public readonly containerMeta?: AIApiKeyContainerMetaData;
   public readonly customer: Customer;
   public override readonly data: CustomerAIApiKeyListItemData | AIApiKeyData;

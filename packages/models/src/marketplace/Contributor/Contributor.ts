@@ -25,7 +25,12 @@ import { File } from "../../file/File/internal.js";
 import { LocalizedText } from "../../common/index.js";
 import { type DomFile } from "../../file/index.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base/index.js";
 
 const mittwaldContributorId = "322ba411-aafc-493a-b8ad-a42a01939f42";
 
@@ -44,7 +49,9 @@ export class Contributor extends ReferenceModel {
   public constructor(id: string) {
     super(id);
     this.ownExtensions = ContributorExtension.query(this);
-    this.avatarAccessTokenProvider = new ContributorAvatarAccessTokenProvider(this);
+    this.avatarAccessTokenProvider = new ContributorAvatarAccessTokenProvider(
+      this,
+    );
     this.incomingInvoices = new ContributorIncomingInvoiceListQuery(this);
     this.isMittwald = id === mittwaldContributorId;
   }
@@ -154,15 +161,11 @@ export class Contributor extends ReferenceModel {
 
 export class ContributorCommon extends WithData<
   ContributorListItemData | ContributorData
->()(
-  Contributor,
-) {
+>()(Contributor) {
   public readonly avatar?: File;
   public readonly contributorNumber?: string;
   public readonly customer: Customer;
-  public override readonly data:
-    | ContributorListItemData
-    | ContributorData;
+  public override readonly data: ContributorListItemData | ContributorData;
   public readonly description: LocalizedText;
   public readonly email?: string;
   public readonly homepage?: string;

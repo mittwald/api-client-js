@@ -22,7 +22,13 @@ import { Project } from "../../project/internal.js";
 import { formatTokenUsage } from "../helper.js";
 import { Ingress } from "../../ingress/index.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 export const AI_HOSTING_DOCUMENTATION_LINK =
   "https://developer.mittwald.de/de/docs/v2/platform/aihosting/";
@@ -109,9 +115,7 @@ export class ProjectAIApiKey extends ReferenceModel {
 
 export class ProjectAIApiKeyCommon extends WithData<
   ProjectAIApiKeyListItemData | AIApiKeyData
->()(
-  ProjectAIApiKey,
-) {
+>()(ProjectAIApiKey) {
   public readonly containerMeta: AIApiKeyContainerMetaData | undefined;
   public readonly customer: Customer | undefined;
   public override readonly data: ProjectAIApiKeyListItemData | AIApiKeyData;
@@ -142,9 +146,7 @@ export class ProjectAIApiKeyCommon extends WithData<
       formattedUsed: formatTokenUsage(data.tokenUsage.used),
     };
 
-    this.customer = data.profileId
-      ? Customer.ofId(data.profileId)
-      : undefined;
+    this.customer = data.profileId ? Customer.ofId(data.profileId) : undefined;
   }
 
   public async addContainer(

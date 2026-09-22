@@ -351,7 +351,7 @@ export class PerformanceDetailed extends PerformanceCommon {
 
   private findMetric(
     name: string,
-  ): { value: number; name: string; } | undefined {
+  ): { value: number; name: string } | undefined {
     return this.metrics?.find((m) => m.name === name);
   }
 }

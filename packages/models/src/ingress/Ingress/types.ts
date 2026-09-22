@@ -26,8 +26,8 @@ export type IngressListItemData =
   MittwaldAPIV2.Operations.IngressListIngresses.ResponseData[number];
 
 export type CertificateSettings =
-  | { certificateId: string; type: "certificate"; }
-  | { acme: boolean; type: "acme"; };
+  | { certificateId: string; type: "certificate" }
+  | { acme: boolean; type: "acme" };
 
 export interface IngressPathSettings {
   target: IngressTargetData;

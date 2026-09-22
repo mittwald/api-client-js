@@ -1,27 +1,37 @@
 import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
-import { afterEach , describe, expect, test, vi } from "vitest";
+import { afterEach, describe, expect, test, vi } from "vitest";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import { DateTime } from "luxon";
 
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
-import { buildSessionListItemData, buildSessionData } from "../../testing/builders/buildSessionData.js";
+import {
+  buildSessionListItemData,
+  buildSessionData,
+} from "../../testing/builders/buildSessionData.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
-import { SessionDetailed, SessionListItem, SessionList, Session } from "./Session.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
+import {
+  SessionDetailed,
+  SessionListItem,
+  SessionList,
+  Session,
+} from "./Session.js";
 
 afterEach(resetBehaviors);
 
 test("find and get map found and missing sessions", async () => {
-  const find = vi.fn()
+  const find = vi
+    .fn()
     .mockResolvedValueOnce(buildSessionData({ tokenId: "t-1" }))
     .mockResolvedValueOnce(buildSessionData({ tokenId: "t-2" }))
     .mockResolvedValueOnce(undefined)
@@ -33,7 +43,9 @@ test("find and get map found and missing sessions", async () => {
   expect(found?.id).toBe("t-1");
   expect(await Session.get("t-2")).toBeInstanceOf(SessionDetailed);
   expect(await Session.find("missing")).toBeUndefined();
-  await expect(Session.get("missing")).rejects.toBeInstanceOf(ObjectNotFoundError);
+  await expect(Session.get("missing")).rejects.toBeInstanceOf(
+    ObjectNotFoundError,
+  );
 });
 
 test("findDetailed delegates with the reference id", async () => {
@@ -45,7 +57,16 @@ test("findDetailed delegates with the reference id", async () => {
 
 describe("derived session data", () => {
   test("maps device and date fields", () => {
-    const session = new SessionDetailed(buildSessionData({ device: { browser: "Firefox", model: "Phone", type: "mobile", os: "Linux" } }));
+    const session = new SessionDetailed(
+      buildSessionData({
+        device: {
+          browser: "Firefox",
+          model: "Phone",
+          type: "mobile",
+          os: "Linux",
+        },
+      }),
+    );
     expect(session.isMobile).toBe(true);
     expect(session.browser).toBe("Firefox");
     expect(session.os).toBe("Linux");
@@ -61,12 +82,15 @@ describe("derived session data", () => {
     [{ city: "Espelkamp" }, "Espelkamp"],
     [undefined, undefined],
   ])("formats location", (location, expected) => {
-    expect(new SessionDetailed(buildSessionData({ location })).location).toBe(expected);
+    expect(new SessionDetailed(buildSessionData({ location })).location).toBe(
+      expected,
+    );
   });
 });
 
 test("findCommon/getCommon resolve references and stay idempotent once materialized", async () => {
-  const find = vi.fn()
+  const find = vi
+    .fn()
     .mockResolvedValueOnce(buildSessionData({ tokenId: "s-c" }))
     .mockResolvedValueOnce(buildSessionData({ tokenId: "s-g" }));
   installBehaviors({ session: { find } });
@@ -75,7 +99,9 @@ test("findCommon/getCommon resolve references and stay idempotent once materiali
   expect(common?.id).toBe("s-c");
   expect(await Session.ofId("s-g").getCommon()).toBeInstanceOf(SessionDetailed);
 
-  const materialized = new SessionDetailed(buildSessionData({ tokenId: "s-1" }));
+  const materialized = new SessionDetailed(
+    buildSessionData({ tokenId: "s-1" }),
+  );
   find.mockClear();
   expect(await materialized.findCommon()).toBe(materialized);
   expect(await materialized.getCommon()).toBe(materialized);
@@ -85,7 +111,9 @@ test("findCommon/getCommon resolve references and stay idempotent once materiali
 test("findCommon yields undefined and getCommon throws for missing sessions", async () => {
   installBehaviors({ session: { find: vi.fn().mockResolvedValue(undefined) } });
   expect(await Session.ofId("missing").findCommon()).toBeUndefined();
-  await expect(Session.ofId("missing").getCommon()).rejects.toBeInstanceOf(ObjectNotFoundError);
+  await expect(Session.ofId("missing").getCommon()).rejects.toBeInstanceOf(
+    ObjectNotFoundError,
+  );
 });
 
 test("leaves the optional device model undefined when absent", () => {
@@ -103,7 +131,9 @@ test("token helpers delegate and identify the current session", async () => {
 });
 
 test("materializes a paginated list and preserves item composition", async () => {
-  const list = vi.fn().mockResolvedValue({ items: [buildSessionListItemData()], totalCount: 4 });
+  const list = vi
+    .fn()
+    .mockResolvedValue({ items: [buildSessionListItemData()], totalCount: 4 });
   installBehaviors({ session: { list } });
   const result = await Session.query().execute();
   const item = result.items[0];

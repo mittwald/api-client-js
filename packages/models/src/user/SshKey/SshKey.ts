@@ -108,7 +108,8 @@ export class SshKeyListQuery extends ListQueryModel<Record<string, never>> {
       items.map((d) => new SshKeyListItem(d)),
       totalCount,
     );
-  }}
+  }
+}
 
 export class SshKeyList extends ListDataModel<SshKeyListItem> {
   public constructor(sshKeys: SshKeyListItem[], totalCount: number) {

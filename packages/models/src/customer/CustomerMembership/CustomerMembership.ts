@@ -15,7 +15,12 @@ import { File } from "../../file/File/internal.js";
 import { User } from "../../user/User/User.js";
 import { Customer } from "../Customer/index.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CustomerMembership",

@@ -58,10 +58,10 @@ export abstract class ListQueryModel<TQuery> {
    * Resolve just the total number of matching items. The default runs the query
    * and reads `totalCount` off the result. A model may override this to
    * `refine({ limit: 1 })` first — fetching a single-item page instead of the
-   * default one — but only where its query accepts a `limit` **and** the endpoint
-   * reports the total independently of the page size (otherwise `resolveTotalCount`
-   * would fall back to the page length and report `1`). Not every limit-capable
-   * model overrides; the rest use this default.
+   * default one — but only where its query accepts a `limit` **and** the
+   * endpoint reports the total independently of the page size (otherwise
+   * `resolveTotalCount` would fall back to the page length and report `1`). Not
+   * every limit-capable model overrides; the rest use this default.
    */
   public async getTotalCount(options?: AxiosRequestConfig): Promise<number> {
     const { totalCount } = await this.execute(options);

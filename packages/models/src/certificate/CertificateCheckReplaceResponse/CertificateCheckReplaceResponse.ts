@@ -1,4 +1,7 @@
-import type { CertificateDetailed, CertificateListItem } from "../Certificate/index.js";
+import type {
+  CertificateDetailed,
+  CertificateListItem,
+} from "../Certificate/index.js";
 import type { IngressListItem } from "../../ingress/Ingress/index.js";
 import type {
   CertificateDifferencesResolveResponse,

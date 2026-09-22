@@ -1,7 +1,10 @@
 import { afterEach, describe, expect, test } from "vitest";
 
 import { buildDomainListItemData } from "../../testing/builders/buildDomainListItemData.js";
-import { IngressDomainListQuery, IngressDomainList } from "./IngressDomainList.js";
+import {
+  IngressDomainListQuery,
+  IngressDomainList,
+} from "./IngressDomainList.js";
 import { buildIngressData } from "../../testing/builders/buildIngressData.js";
 import { resetBehaviors } from "../../testing/installBehaviors.js";
 import { DomainListItem } from "../../domain/Domain/index.js";

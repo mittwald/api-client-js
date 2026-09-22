@@ -173,8 +173,8 @@ export class ContractItemCommon extends WithData<ContractItemData>()(
     }
     this.freeTrialUntil =
       data.isInFreeTrial &&
-        this.activationDate &&
-        this.activationDate.diff(DateTime.now()).toMillis() > 0
+      this.activationDate &&
+      this.activationDate.diff(DateTime.now()).toMillis() > 0
         ? this.activationDate
         : undefined;
     this.articles = data.articles.map(

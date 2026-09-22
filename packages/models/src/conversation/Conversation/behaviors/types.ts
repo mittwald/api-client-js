@@ -1,7 +1,10 @@
 import type { AxiosRequestConfig } from "axios";
 
 import type { ConversationCategoryListItemData } from "../../ConversationCategory/types.js";
-import type { FileDownloadTokenData, FileUploadTokenData } from "../../../file/index.js";
+import type {
+  FileDownloadTokenData,
+  FileUploadTokenData,
+} from "../../../file/index.js";
 import type { ConversationMemberData } from "../../ConversationUser/types.js";
 import type { QueryResponseData } from "../../../base/index.js";
 import type {

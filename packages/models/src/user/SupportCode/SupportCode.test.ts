@@ -1,10 +1,13 @@
-import { afterEach , expect, test, vi } from "vitest";
+import { afterEach, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
 import { buildSupportCodeData } from "../../testing/builders/buildSupportCodeData.js";
 import { SupportCodeDetailed, SupportCode } from "./SupportCode.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

@@ -54,9 +54,7 @@ describe("BackupSchedule lookup and creation", () => {
   test("get returns a detailed schedule", async () => {
     installBehaviors({
       backupSchedule: {
-        find: vi
-          .fn()
-          .mockResolvedValue(buildBackupScheduleData({ id: "s-2" })),
+        find: vi.fn().mockResolvedValue(buildBackupScheduleData({ id: "s-2" })),
       },
     });
 

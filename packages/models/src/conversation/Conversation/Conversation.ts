@@ -55,7 +55,8 @@ export class Conversation extends ReferenceModel {
 
   public constructor(id: string) {
     super(id);
-    this.fileAccessTokenProvider = new ConversationMessageFileAttachmentAccessTokenProvider(this);
+    this.fileAccessTokenProvider =
+      new ConversationMessageFileAttachmentAccessTokenProvider(this);
     this.users = new ConversationUserListQuery(this);
   }
 

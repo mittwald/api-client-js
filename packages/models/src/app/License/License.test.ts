@@ -44,7 +44,9 @@ describe("License", () => {
   });
 
   test("get throws for a missing license", async () => {
-    installBehaviors({ license: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      license: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(License.get("missing")).rejects.toBeInstanceOf(
       ObjectNotFoundError,
@@ -66,7 +68,9 @@ describe("License", () => {
   });
 
   test("findCommon resolves undefined and getCommon throws when missing", async () => {
-    installBehaviors({ license: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      license: { find: vi.fn().mockResolvedValue(undefined) },
+    });
     const reference = License.ofId("missing");
 
     await expect(reference.findCommon()).resolves.toBeUndefined();

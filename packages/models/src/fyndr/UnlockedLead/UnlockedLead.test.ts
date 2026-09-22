@@ -28,21 +28,46 @@ afterEach(resetBehaviors);
 
 describe("UnlockedLead", () => {
   test("find and get delegate and handle missing data", async () => {
-    const find = vi.fn().mockResolvedValueOnce(buildUnlockedLeadData()).mockResolvedValueOnce(buildUnlockedLeadData()).mockResolvedValueOnce(undefined);
+    const find = vi
+      .fn()
+      .mockResolvedValueOnce(buildUnlockedLeadData())
+      .mockResolvedValueOnce(buildUnlockedLeadData())
+      .mockResolvedValueOnce(undefined);
     installBehaviors({ unlockedLead: { find } });
 
-    expect(await UnlockedLead.find("c-1", "l-1")).toBeInstanceOf(UnlockedLeadDetailed);
+    expect(await UnlockedLead.find("c-1", "l-1")).toBeInstanceOf(
+      UnlockedLeadDetailed,
+    );
     expect(find).toHaveBeenCalledWith("c-1", "l-1");
-    expect(await UnlockedLead.get("c-1", "l-1")).toBeInstanceOf(UnlockedLeadDetailed);
-    await expect(UnlockedLead.get("c-1", "missing")).rejects.toBeInstanceOf(ObjectNotFoundError);
+    expect(await UnlockedLead.get("c-1", "l-1")).toBeInstanceOf(
+      UnlockedLeadDetailed,
+    );
+    await expect(UnlockedLead.get("c-1", "missing")).rejects.toBeInstanceOf(
+      ObjectNotFoundError,
+    );
   });
 
   test("exposes unlocked lead data through getters", () => {
-    const data = buildUnlockedLeadData({ reservedAt: "2024-03-01T00:00:00.000Z", businessFields: ["IT", "Retail"], reservationAllowed: undefined });
+    const data = buildUnlockedLeadData({
+      reservedAt: "2024-03-01T00:00:00.000Z",
+      businessFields: ["IT", "Retail"],
+      reservationAllowed: undefined,
+    });
     const lead = new UnlockedLeadDetailed("c-1", data);
-    const medium = new UnlockedLeadDetailed("c-1", buildUnlockedLeadData({ potential: 0.55 }));
-    const low = new UnlockedLeadDetailed("c-1", buildUnlockedLeadData({ potential: 0.5 }));
-    const unversioned = new UnlockedLeadDetailed("c-1", buildUnlockedLeadData({ mainTechnology: { categoryPriority: 1, name: "React" } }));
+    const medium = new UnlockedLeadDetailed(
+      "c-1",
+      buildUnlockedLeadData({ potential: 0.55 }),
+    );
+    const low = new UnlockedLeadDetailed(
+      "c-1",
+      buildUnlockedLeadData({ potential: 0.5 }),
+    );
+    const unversioned = new UnlockedLeadDetailed(
+      "c-1",
+      buildUnlockedLeadData({
+        mainTechnology: { categoryPriority: 1, name: "React" },
+      }),
+    );
 
     expect(lead.businessFields).toBe("IT, Retail");
     expect(lead.potential).toBe(72);
@@ -77,7 +102,9 @@ describe("UnlockedLead", () => {
   });
 
   test("queries and maps unlocked lead lists", async () => {
-    const list = vi.fn().mockResolvedValue({ items: [buildUnlockedLeadData()], totalCount: 9 });
+    const list = vi
+      .fn()
+      .mockResolvedValue({ items: [buildUnlockedLeadData()], totalCount: 9 });
     installBehaviors({ unlockedLead: { list } });
 
     const result = await UnlockedLead.query("c-1", { limit: 4 }).execute();
@@ -92,14 +119,18 @@ describe("UnlockedLead", () => {
     const list = vi.fn().mockResolvedValue({ totalCount: 12, items: [] });
     installBehaviors({ unlockedLead: { list } });
 
-    expect(await UnlockedLead.query("c-1", { skip: 2 }).getTotalCount()).toBe(12);
+    expect(await UnlockedLead.query("c-1", { skip: 2 }).getTotalCount()).toBe(
+      12,
+    );
     expect(list).toHaveBeenLastCalledWith("c-1", { limit: 0, skip: 2 });
     await UnlockedLeadListQuery.reserved("c-1", { limit: 3 }).execute();
     expect(list).toHaveBeenLastCalledWith("c-1", { reserved: true, limit: 3 });
   });
 
   test("detailed unlocked leads retain reference identity", () => {
-    expect(new UnlockedLeadDetailed("c-1", buildUnlockedLeadData())).toBeInstanceOf(UnlockedLead);
+    expect(
+      new UnlockedLeadDetailed("c-1", buildUnlockedLeadData()),
+    ).toBeInstanceOf(UnlockedLead);
   });
 
   test("findCommon and getCommon delegate to find", async () => {
@@ -111,16 +142,14 @@ describe("UnlockedLead", () => {
       .mockResolvedValueOnce(undefined);
     installBehaviors({ unlockedLead: { find } });
 
-    expect(
-      await UnlockedLead.ofId("c-1", "l-1").findCommon(),
-    ).toBeInstanceOf(UnlockedLeadDetailed);
+    expect(await UnlockedLead.ofId("c-1", "l-1").findCommon()).toBeInstanceOf(
+      UnlockedLeadDetailed,
+    );
     expect(find).toHaveBeenCalledWith("c-1", "l-1");
-    expect(
-      await UnlockedLead.ofId("c-1", "l-1").findCommon(),
-    ).toBeUndefined();
-    expect(
-      await UnlockedLead.ofId("c-1", "l-1").getCommon(),
-    ).toBeInstanceOf(UnlockedLeadDetailed);
+    expect(await UnlockedLead.ofId("c-1", "l-1").findCommon()).toBeUndefined();
+    expect(await UnlockedLead.ofId("c-1", "l-1").getCommon()).toBeInstanceOf(
+      UnlockedLeadDetailed,
+    );
     await expect(
       UnlockedLead.ofId("c-1", "missing").getCommon(),
     ).rejects.toBeInstanceOf(ObjectNotFoundError);
@@ -129,10 +158,7 @@ describe("UnlockedLead", () => {
   test("getCommon and findCommon are idempotent on a materialized unlocked lead", async () => {
     const find = vi.fn();
     installBehaviors({ unlockedLead: { find } });
-    const detailed = new UnlockedLeadDetailed(
-      "c-1",
-      buildUnlockedLeadData(),
-    );
+    const detailed = new UnlockedLeadDetailed("c-1", buildUnlockedLeadData());
 
     expect(await detailed.getCommon()).toBe(detailed);
     expect(await detailed.findCommon()).toBe(detailed);

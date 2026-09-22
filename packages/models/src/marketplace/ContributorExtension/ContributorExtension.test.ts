@@ -14,9 +14,7 @@ import {
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import {
@@ -37,9 +35,11 @@ describe("reference and delegation", () => {
   });
 
   test("find delegates with both identifiers", async () => {
-    const find = vi.fn().mockResolvedValue(
-      buildContributorExtensionData({ contributorId: "c-1", id: "e-1" }),
-    );
+    const find = vi
+      .fn()
+      .mockResolvedValue(
+        buildContributorExtensionData({ contributorId: "c-1", id: "e-1" }),
+      );
     installBehaviors({ contributorExtension: { find } });
 
     const extension = await ContributorExtension.find("c-1", "e-1");
@@ -144,9 +144,11 @@ describe("get on a missing contributor extension", () => {
 });
 describe("common variant and idempotency", () => {
   test("findCommon delegates to the detailed variant from a bare reference", async () => {
-    const find = vi.fn().mockResolvedValue(
-      buildContributorExtensionData({ contributorId: "c-1", id: "e-1" }),
-    );
+    const find = vi
+      .fn()
+      .mockResolvedValue(
+        buildContributorExtensionData({ contributorId: "c-1", id: "e-1" }),
+      );
     installBehaviors({ contributorExtension: { find } });
 
     const common = await ContributorExtension.ofId("c-1", "e-1").findCommon();

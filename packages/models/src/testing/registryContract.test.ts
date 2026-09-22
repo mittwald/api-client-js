@@ -1,6 +1,10 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildContainerData, installBehaviors, resetBehaviors } from "./index.js";
+import {
+  buildContainerData,
+  installBehaviors,
+  resetBehaviors,
+} from "./index.js";
 import { config } from "../config/config.js";
 
 afterEach(resetBehaviors);
@@ -11,9 +15,7 @@ describe("behavior registry contract", () => {
   });
 
   test("resolves behaviors after installBehaviors", async () => {
-    const find = vi
-      .fn()
-      .mockResolvedValue(buildContainerData({ id: "c-1" }));
+    const find = vi.fn().mockResolvedValue(buildContainerData({ id: "c-1" }));
 
     installBehaviors({ container: { find } });
 

@@ -12,8 +12,7 @@ const rules: FileUploadErrorRule[] = [
     code: "malwareInfected",
   },
   {
-    test: (message) =>
-      message.includes("does not match to the file extension"),
+    test: (message) => message.includes("does not match to the file extension"),
     code: "fileTypeMismatch",
   },
   {
@@ -67,10 +66,7 @@ const rules: FileUploadErrorRule[] = [
   },
   {
     test: (message) =>
-      includesAny(message, [
-        "too many requests",
-        "upload attempts exceeded",
-      ]),
+      includesAny(message, ["too many requests", "upload attempts exceeded"]),
     code: "tooManyRequests",
   },
 ];

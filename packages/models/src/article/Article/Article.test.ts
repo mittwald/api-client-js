@@ -438,9 +438,7 @@ describe("Article absent optional data", () => {
   });
 
   test("returns undefined for an attribute type that is not present", () => {
-    const article = new ArticleDetailed(
-      buildArticleData({ attributes: [] }),
-    );
+    const article = new ArticleDetailed(buildArticleData({ attributes: [] }));
 
     expect(article.getAttribute(CpuArticleAttribute)).toBeUndefined();
   });

@@ -13,7 +13,12 @@ import type {
 
 import { Customer } from "../../customer/Customer/Customer.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "LeadsExport",

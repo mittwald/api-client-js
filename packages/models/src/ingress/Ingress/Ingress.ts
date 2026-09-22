@@ -110,7 +110,9 @@ export class Ingress extends ReferenceModel {
   }
 
   public findCommon():
-    Promise<IngressCommon | undefined> | IngressCommon | undefined {
+    | Promise<IngressCommon | undefined>
+    | IngressCommon
+    | undefined {
     return this instanceof IngressCommon ? this : this.findDetailed();
   }
 

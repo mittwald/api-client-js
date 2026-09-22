@@ -33,7 +33,8 @@ export class DomainMigrationCommon extends WithData<
   DomainMigrationListItemData | DomainMigrationData
 >()(DomainMigration) {
   public override readonly data:
-    DomainMigrationListItemData | DomainMigrationData;
+    | DomainMigrationListItemData
+    | DomainMigrationData;
   public readonly domains: DomainMigrationDomain[];
   public readonly finishedAt?: DateTime;
   public constructor(data: DomainMigrationListItemData | DomainMigrationData) {
@@ -118,7 +119,8 @@ export class DomainMigrationList extends WithListData<DomainMigrationListItem>()
   }
 
   public findMostRecentFinishedMigration():
-    DomainMigrationListItem | undefined {
+    | DomainMigrationListItem
+    | undefined {
     let migration: DomainMigrationListItem | undefined = undefined;
 
     for (const i of this.items) {

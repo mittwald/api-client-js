@@ -12,7 +12,10 @@ import type {
 } from "./types.js";
 
 import { ContractItemReference } from "../ContractItem/ContractItemReference.js";
-import { ContractItemDetailed, ContractItemCommon } from "../ContractItem/index.js";
+import {
+  ContractItemDetailed,
+  ContractItemCommon,
+} from "../ContractItem/index.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { ContractTermination } from "../ContractTermination/index.js";
 import { Customer } from "../../customer/Customer/Customer.js";

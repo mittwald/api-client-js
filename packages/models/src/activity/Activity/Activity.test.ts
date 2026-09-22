@@ -10,11 +10,11 @@ const listItemData = (aggregate: {
   domain: string;
   id: string;
 }): ActivityListItemData =>
-  (({
+  ({
     action: { name: "future.thing-happened", parameters: {}, changes: {} },
     dateTime: "2024-03-04T05:06:07.000Z",
-    aggregate
-  }) as ActivityListItemData);
+    aggregate,
+  }) as ActivityListItemData;
 
 test("resolves the aggregate reference to a model", () => {
   const activity = new ActivityListItem(

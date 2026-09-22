@@ -18,7 +18,9 @@ export class SupportCode extends ReferenceModel {
   }
 }
 
-export class SupportCodeCommon extends WithData<SupportCodeData>()(SupportCode) {
+export class SupportCodeCommon extends WithData<SupportCodeData>()(
+  SupportCode,
+) {
   public override readonly data: SupportCodeData;
   public readonly expiresAt: DateTime;
   public readonly supportCode: string;

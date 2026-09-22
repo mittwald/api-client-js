@@ -1,4 +1,7 @@
-import type { VerifyRegistrationModelData, RegisterRequestData } from "./types.js";
+import type {
+  VerifyRegistrationModelData,
+  RegisterRequestData,
+} from "./types.js";
 
 import { DataModel } from "../../base/index.js";
 import { config } from "../../config/index.js";

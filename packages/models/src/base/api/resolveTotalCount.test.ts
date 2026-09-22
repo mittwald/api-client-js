@@ -7,13 +7,13 @@ const responseWith = (
   data: unknown[],
   headers?: Record<string, string>,
 ): AxiosResponse<readonly unknown[]> =>
-  (({
+  ({
     headers: headers ? new AxiosHeaders(headers) : {},
     config: {} as never,
     statusText: "OK",
     status: 200,
-    data
-  }) as AxiosResponse<readonly unknown[]>);
+    data,
+  }) as AxiosResponse<readonly unknown[]>;
 
 describe("resolveTotalCount", () => {
   test("uses the x-pagination-totalcount header when present", () => {

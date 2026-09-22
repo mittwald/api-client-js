@@ -4,7 +4,14 @@ import type { User } from "../../user/index.js";
 
 import { File } from "../../file/File/internal.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, type Ctor, extractId, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  type Ctor,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 export class ConversationUser extends WithData<ConversationUserData>()(
   ReferenceModel as Ctor<ReferenceModel>,
@@ -45,7 +52,8 @@ export class ConversationUserListQuery extends ListQueryModel<null> {
   public async includes(otherUser: ConversationUser | string | User) {
     const { items } = await this.execute();
     return items.some((u) => u.id === extractId(otherUser));
-  }}
+  }
+}
 
 export class ConversationUserList extends WithListData<ConversationUser>()(
   ConversationUserListQuery,

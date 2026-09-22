@@ -2,7 +2,10 @@ import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
 import type { MfaBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig, validateResponse } from "../../../base/index.js";
+import {
+  withAxiosRequestConfig,
+  validateResponse,
+} from "../../../base/index.js";
 
 export const apiMfaBehaviors = (client: MittwaldAPIV2Client): MfaBehaviors => ({
   resetRecoveryCodes: async (multiFactorCode) => {

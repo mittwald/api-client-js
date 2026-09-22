@@ -1,13 +1,11 @@
 import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
-import { afterEach , describe, expect, test, vi } from "vitest";
+import { afterEach, describe, expect, test, vi } from "vitest";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import { DateTime } from "luxon";
@@ -17,14 +15,18 @@ import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import { UserDetailed, UserCommon, User } from "./User.js";
 import { AggregateMetaData } from "../../common/index.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
 import { Project } from "../../project/index.js";
 import { File } from "../../file/index.js";
 
 afterEach(resetBehaviors);
 
 test("find/get map found and missing users", async () => {
-  const find = vi.fn()
+  const find = vi
+    .fn()
     .mockResolvedValueOnce(buildUserData({ userId: "u-1" }))
     .mockResolvedValueOnce(buildUserData({ userId: "u-2" }))
     .mockResolvedValueOnce(undefined)
@@ -42,17 +44,24 @@ test("find/get map found and missing users", async () => {
 test("self and aggregate references expose their ids", () => {
   expect(User.self).toBeInstanceOf(User);
   expect(User.self.id).toBe("self");
-  expect(User.findAggregate("u-1")).toEqual(expect.objectContaining({ id: "u-1" }));
+  expect(User.findAggregate("u-1")).toEqual(
+    expect.objectContaining({ id: "u-1" }),
+  );
   expect(User.findAggregate()).toBeUndefined();
 });
 
 describe("derived user data", () => {
   test("maps personal information, avatar, and registration date", () => {
     const recent = DateTime.now().minus({ days: 1 }).toISO();
-    const user = new UserDetailed(buildUserData({
-      person: { firstName: "First", lastName: "Last", title: "ms" }, email: "ada@example.test", phoneNumber: "+49123", registeredAt: recent,
-      avatarRef: "file-1",
-    }));
+    const user = new UserDetailed(
+      buildUserData({
+        person: { firstName: "First", lastName: "Last", title: "ms" },
+        email: "ada@example.test",
+        phoneNumber: "+49123",
+        registeredAt: recent,
+        avatarRef: "file-1",
+      }),
+    );
     expect(user.fullName).toBe("First Last");
     expect(user.firstName).toBe("First");
     expect(user.lastName).toBe("Last");
@@ -65,15 +74,25 @@ describe("derived user data", () => {
   });
 
   test("handles absent avatars and old registrations", () => {
-    const user = new UserDetailed(buildUserData({ registeredAt: "2000-01-01T00:00:00.000Z" }));
+    const user = new UserDetailed(
+      buildUserData({ registeredAt: "2000-01-01T00:00:00.000Z" }),
+    );
     expect(user.avatar).toBeUndefined();
     expect(user.isNew).toBe(false);
   });
 
   test("findRole reads the matching project membership", async () => {
-    const user = new UserDetailed(buildUserData({ projectMemberships: {
-      "p-1": { memberSince: "2024-01-01T00:00:00.000Z", inherited: false, role: "owner" },
-    } }));
+    const user = new UserDetailed(
+      buildUserData({
+        projectMemberships: {
+          "p-1": {
+            memberSince: "2024-01-01T00:00:00.000Z",
+            inherited: false,
+            role: "owner",
+          },
+        },
+      }),
+    );
     expect(await user.findRole(Project.ofId("p-1"))).toBe("owner");
   });
 
@@ -101,12 +120,15 @@ describe("common variant and idempotency", () => {
   });
 
   test("findCommon yields undefined and getCommon throws for missing users", async () => {
-    const find = vi.fn()
+    const find = vi
+      .fn()
       .mockResolvedValueOnce(undefined)
       .mockResolvedValueOnce(undefined);
     installBehaviors({ user: { find } });
     expect(await User.ofId("missing").findCommon()).toBeUndefined();
-    await expect(User.ofId("missing").getCommon()).rejects.toBeInstanceOf(ObjectNotFoundError);
+    await expect(User.ofId("missing").getCommon()).rejects.toBeInstanceOf(
+      ObjectNotFoundError,
+    );
   });
 
   test("getCommon resolves a reference into the common variant", async () => {

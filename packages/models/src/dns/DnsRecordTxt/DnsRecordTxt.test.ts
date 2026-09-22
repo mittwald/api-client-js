@@ -13,7 +13,9 @@ afterEach(resetBehaviors);
 describe("DnsRecordTxt", () => {
   test("materializes component data and derived values", () => {
     const zone = new DnsZoneCommon(
-      buildDnsZoneData({ recordSet: { txt: buildDnsRecordTxtComponentData() } }),
+      buildDnsZoneData({
+        recordSet: { txt: buildDnsRecordTxtComponentData() },
+      }),
     );
     const record = zone.recordSet.txt;
 

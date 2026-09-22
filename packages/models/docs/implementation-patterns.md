@@ -1,8 +1,8 @@
 # Implementation patterns
 
 Small, recurring code idioms used throughout `@mittwald/api-models`. This is a
-contributor reference for the low-level building blocks — the *how*, not the
-*why* of the architecture. For the architecture and vocabulary see
+contributor reference for the low-level building blocks — the _how_, not the
+_why_ of the architecture. For the architecture and vocabulary see
 [README.md](../README.md) and [CONTEXT.md](../CONTEXT.md); for the larger
 decisions see [docs/adr/](adr/).
 
@@ -29,19 +29,22 @@ export function extractId(from?: ReferenceModel | string): string | undefined {
 }
 ```
 
-Used in: `base/lib/extractId.ts`,
-`order/Order/Request/DomainOrderRequest.ts` (`projectId: extractId(project)`),
-`app/AppInstallation/AppInstallation.ts`, `mail/MailAddress/MailAddress.ts`.
+Used in: `base/lib/extractId.ts`, `order/Order/Request/DomainOrderRequest.ts`
+(`projectId: extractId(project)`), `app/AppInstallation/AppInstallation.ts`,
+`mail/MailAddress/MailAddress.ts`.
 
 ## `required(value)` — fail fast on missing values
 
 A thin wrapper over `tiny-invariant` that asserts a value is neither `null` nor
-`undefined` and narrows the type. Use it to turn an optional into a
-non-optional at the exact point where absence is a programming error, with a
-readable message.
+`undefined` and narrows the type. Use it to turn an optional into a non-optional
+at the exact point where absence is a programming error, with a readable
+message.
 
 ```ts
-export function required<T>(value: T | undefined | null, valueType = "value"): T {
+export function required<T>(
+  value: T | undefined | null,
+  valueType = "value",
+): T {
   invariant(
     value !== undefined && value !== null,
     `Expected ${valueType} not to be undefined`,
@@ -66,7 +69,9 @@ export default function assertObjectFound<T>(
   obj: T | undefined,
   type: Class<unknown>,
   refIdOrObject: string | ReferenceModel,
-): asserts obj is T { /* throws ObjectNotFoundError when obj === undefined */ }
+): asserts obj is T {
+  /* throws ObjectNotFoundError when obj === undefined */
+}
 ```
 
 ```ts
@@ -111,10 +116,11 @@ re-fetched from a reference:
   is shown once and is never retrievable again, so the behavior is typed
   `Promise<string>` and the model passes it straight through
   (`user/ApiToken/ApiToken.ts`; the create-token modal displays it once).
-- **`LeadsExport.create` returns the generated export** (`{ exportId,
-  base64FileContent } | { errorType, … } | undefined`). It is really an export
-  *action* whose file content and error discrimination are the payload, not a
-  resource you would later look up (`fyndr/LeadsExport/LeadsExport.ts`).
+- **`LeadsExport.create` returns the generated export**
+  (`{ exportId, base64FileContent } | { errorType, … } | undefined`). It is
+  really an export _action_ whose file content and error discrimination are the
+  payload, not a resource you would later look up
+  (`fyndr/LeadsExport/LeadsExport.ts`).
 
 Operations with nothing meaningful to surface return `void` (`user/Feedback`,
 `user/SshKey`, `fyndr/FinderProfileRequest`). Reserve the raw-payload shape for
@@ -124,15 +130,16 @@ A model's **primary** creator is the bare `create()`; a second, differently
 shaped way to create the same entity gets a descriptive name alongside it
 (`MailAddress.create` for a mailbox + `MailAddress.createForward` for a forward;
 `DnsZone.create` + the instance `createSubZone`). `createXy` names are otherwise
-reserved for **relational** creators that build a *different* entity from a
+reserved for **relational** creators that build a _different_ entity from a
 parent context (`Project.createMySql`, `Project.createContainer`, …) and for
 sub-resource/action creators (`Backup.createExport`, `Domain.createAuthCode`,
 `*.createUploadToken`) — those never collapse to `create()`.
 
 Used in: `access/SshUser/SshUser.ts`, `database/Redis/Redis.ts`,
-`app/AppInstallation/AppInstallation.ts`, `project/ProjectInvite/ProjectInvite.ts`
-(reference); `user/ApiToken/ApiToken.ts`, `fyndr/LeadsExport/LeadsExport.ts`
-(payload); `user/Feedback/Feedback.ts` (void).
+`app/AppInstallation/AppInstallation.ts`,
+`project/ProjectInvite/ProjectInvite.ts` (reference);
+`user/ApiToken/ApiToken.ts`, `fyndr/LeadsExport/LeadsExport.ts` (payload);
+`user/Feedback/Feedback.ts` (void).
 
 ## `assertInstanceOf` and the `BaseModel` type guards
 
@@ -155,10 +162,10 @@ Used in: `base/models/BaseModel.ts`, `base/lib/assertInstanceOf.ts`.
 
 All model I/O runs through a single `config.behaviors` registry. It is a `Proxy`
 over a null-prototype object: reading a behavior that has not been populated
-throws a clear "not initialized" error instead of a confusing `undefined is not
-a function` further down. `initApiModels({ apiClient })` fills every slot with
-its API adapter at startup. This is what forces the "call `initApiModels` before
-using any model" contract to fail loud and early.
+throws a clear "not initialized" error instead of a confusing
+`undefined is not a function` further down. `initApiModels({ apiClient })` fills
+every slot with its API adapter at startup. This is what forces the "call
+`initApiModels` before using any model" contract to fail loud and early.
 
 ```ts
 // config/config.ts
@@ -166,10 +173,11 @@ export const config: Config = {
   defaultPaginationLimit: 50,
   behaviors: new Proxy<Behaviors>(Object.create(null), {
     get(target, property, receiver) {
-      if (Reflect.has(target, property)) return Reflect.get(target, property, receiver);
+      if (Reflect.has(target, property))
+        return Reflect.get(target, property, receiver);
       throw new Error(
         `@mittwald/api-models is not initialized — call initApiModels({ apiClient }) ` +
-        `at startup before using any model (accessed behaviors.${String(property)})`,
+          `at startup before using any model (accessed behaviors.${String(property)})`,
       );
     },
   }),
@@ -196,9 +204,14 @@ the uniform `QueryResponseData<T>` envelope (`{ items, totalCount }`).
 
 ```ts
 // container/Container/behaviors/api.ts
-export const apiContainerBehaviors = (client: MittwaldAPIV2Client): ContainerBehaviors => ({
+export const apiContainerBehaviors = (
+  client: MittwaldAPIV2Client,
+): ContainerBehaviors => ({
   find: async (containerId, stackId) => {
-    const response = await client.container.getService({ serviceId: containerId, stackId });
+    const response = await client.container.getService({
+      serviceId: containerId,
+      stackId,
+    });
     if (response.status === 200) return response.data;
     validateResponse(response, [403, 404]);
   },
@@ -232,8 +245,13 @@ identity for its Ghosts.
 @GhostMakerModel({ getId: (model) => model.id })
 export abstract class ReferenceModel extends BaseModel {
   public readonly id: string;
-  public constructor(id: string) { super(); this.id = id; }
-  public describe(): string { return `${this.constructor.name}@${this.id}`; }
+  public constructor(id: string) {
+    super();
+    this.id = id;
+  }
+  public describe(): string {
+    return `${this.constructor.name}@${this.id}`;
+  }
 }
 ```
 
@@ -250,13 +268,13 @@ expose a domain-specific factory instead of/alongside `ofId` (e.g.
 ## `Common` / `Detailed` / `ListItem` variants via capability mixins
 
 Per entity `X` there is a reference (`X`), the shared fields (`XCommon`), the
-full single view (`XDetailed`), and one list element (`XListItem`). Identity is a
-plain single-inheritance chain, so native `instanceof` holds across it
-(`ContainerDetailed instanceof ContainerCommon instanceof Container instanceof
-ReferenceModel`); methods use that multi-stage `instanceof` to decide whether a
-fetch is needed. Data is bolted on with the zero-dependency capability mixins
-`WithData<T>()` / `WithListData<TItem>()` (`base/models/mixins.ts`) — the move
-off `polytype` while keeping `instanceof` is
+full single view (`XDetailed`), and one list element (`XListItem`). Identity is
+a plain single-inheritance chain, so native `instanceof` holds across it
+(`ContainerDetailed instanceof ContainerCommon instanceof Container instanceof ReferenceModel`);
+methods use that multi-stage `instanceof` to decide whether a fetch is needed.
+Data is bolted on with the zero-dependency capability mixins `WithData<T>()` /
+`WithListData<TItem>()` (`base/models/mixins.ts`) — the move off `polytype`
+while keeping `instanceof` is
 [ADR-0004](adr/0004-mixin-functions-instead-of-polytype.md).
 
 ```ts
@@ -310,31 +328,33 @@ Used in every domain model, e.g. `container/Container/Container.ts`,
 
 1. **`DataModel` / `ListDataModel` are no longer nominal bases.** A composite is
    `WithData<T>()(X)`, not `extends DataModel`, so `x instanceof DataModel` is
-   always `false` — assert the observable payload (`x.data` / `x.items`) instead.
-   Standalone `extends DataModel<T>` / `extends ListDataModel<T>` classes still
-   exist and are unchanged; only the *combining* case uses the mixin.
+   always `false` — assert the observable payload (`x.data` / `x.items`)
+   instead. Standalone `extends DataModel<T>` / `extends ListDataModel<T>`
+   classes still exist and are unchanged; only the _combining_ case uses the
+   mixin.
 2. **Re-declaring a mixin field clobbers the parent's assignment.** With
    `useDefineForClassFields` (target ES2022), re-declaring `data` / `items` /
-   `totalCount` in a subclass emits a define-to-`undefined` that runs *after*
+   `totalCount` in a subclass emits a define-to-`undefined` that runs _after_
    `super()`. So any re-declared field that a parent constructor already assigns
    must be re-assigned in this constructor (that is why `ContainerDetailed`
    repeats `this.data = data`); conversely, never re-declare a field you do not
    re-assign.
 3. **Eager cross-model references in a constructor crash under import cycles.**
    A field initialized to another model at construction time — e.g.
-   `Ingress.certificates = Certificate.query(...)` — evaluates during module load.
-   If the two models sit in a peer/parent module cycle and the reference resolves
-   **through the root barrel**, the other class can still be `undefined` at that
-   point (temporal dead zone), throwing at import time. Two rules keep this safe:
-   (a) reach the other model by a **deep import** (`../../ingress/Ingress/Ingress`,
-   not the barrel) so resolution doesn't wait on the barrel's full evaluation, and
-   (b) prefer **lazy** cross-model access (a method that calls `Other.query()` when
-   invoked) over an eager ctor field wherever the ergonomics allow. Cross-aggregate
-   references by identity (`Other.ofId(id)`) are always safe — they touch only the
-   id, not the other class's statics. This is why `certificate ↔ ingress` is an
-   accepted module cycle: the eager `Ingress.certificates` ctor field
-   deep-imports `Certificate`, while `Certificate.linkedIngresses` (a lazy query
-   getter) deep-imports `Ingress`.
+   `Ingress.certificates = Certificate.query(...)` — evaluates during module
+   load. If the two models sit in a peer/parent module cycle and the reference
+   resolves **through the root barrel**, the other class can still be
+   `undefined` at that point (temporal dead zone), throwing at import time. Two
+   rules keep this safe: (a) reach the other model by a **deep import**
+   (`../../ingress/Ingress/Ingress`, not the barrel) so resolution doesn't wait
+   on the barrel's full evaluation, and (b) prefer **lazy** cross-model access
+   (a method that calls `Other.query()` when invoked) over an eager ctor field
+   wherever the ergonomics allow. Cross-aggregate references by identity
+   (`Other.ofId(id)`) are always safe — they touch only the id, not the other
+   class's statics. This is why `certificate ↔ ingress` is an accepted module
+   cycle: the eager `Ingress.certificates` ctor field deep-imports
+   `Certificate`, while `Certificate.linkedIngresses` (a lazy query getter)
+   deep-imports `Ingress`.
 
 ## Derived values built in the constructor
 
@@ -344,7 +364,7 @@ always get typed values: `DateTime` (luxon) for timestamps, `Bytes` for sizes,
 `Money` (dinero.js, pinned to EUR/de-DE) for amounts.
 
 ```ts
-this.statusSetAt = DateTime.fromISO(data.statusSetAt);          // container/Container
+this.statusSetAt = DateTime.fromISO(data.statusSetAt); // container/Container
 this.storageUsage = Bytes.of(data.storageUsageInBytes, "bytes"); // database/Redis, database/MySql
 this.totalGross = Money({ amount: data.totalGross ?? 0, currency: "EUR" }); // invoice/Invoice
 ```
@@ -378,8 +398,9 @@ Used in: `common/DownloadableFile.ts`, `container/Container/Container.ts`.
 
 ## `AggregateMetaData` / `AggregateReference` — cache/invalidation identity
 
-Each model declares a `static aggregateMetaData = new AggregateMetaData(domain,
-aggregate)`, its stable identity for caching and invalidation. A polymorphic
+Each model declares a
+`static aggregateMetaData = new AggregateMetaData(domain, aggregate)`, its
+stable identity for caching and invalidation. A polymorphic
 `{ aggregate, domain, id, parent? }` payload is resolved back to the right
 concrete reference by `resolveAggregateReference`, which matches on each model's
 `aggregateMetaData` and returns `Model.ofId(id)`. Models also expose a
@@ -402,8 +423,8 @@ export function resolveAggregateReference(data: AggregateReferenceData): Aggrega
 }
 ```
 
-Used in: `common/AggregateMetaData.ts`, `common/AggregateReference.ts`, and every
-model's `static aggregateMetaData`.
+Used in: `common/AggregateMetaData.ts`, `common/AggregateReference.ts`, and
+every model's `static aggregateMetaData`.
 
 ## `ListQueryModel` — stable `queryId`, `.refine()`, `.execute()`
 
@@ -411,23 +432,24 @@ A list is expressed as a **not-yet-executed** query. `ListQueryModel` hashes the
 query object (`object-code`) together with its parent dependencies into a stable
 `queryId` (via `joinedId`) — the same query always yields the same id, which is
 what caching keys on. Before hashing, `normalizeQueryForHash` reduces any
-`ReferenceModel` in the query to its `id`, so a query field typed `Model | string`
-(see the next section) produces the **same** `queryId` whether the caller passes a
-reference, a loaded model, or the bare id — the key is the identity, never the
-model payload. (`object-code` ignores `toJSON`, so without this a loaded model
-would hash its whole `data`.) `.refine()` returns a new query with merged parameters;
-`.execute()` — declared `abstract` on the base — materializes it into an `XList`
-(query + items + `totalCount`). Pagination defaults to
-`config.defaultPaginationLimit`. Because every result carries a `totalCount`, the
-base can offer `getTotalCount()` for free: it runs the query and reads the count
-off the result. A model **overrides** it with `refine({ limit: 1 })` (fetching a single-item
-page) wherever its list endpoint is genuinely paginated — safe because a
-paginated mittwald endpoint always returns the `x-pagination-totalcount` header,
-so `resolveTotalCount` reads the real total regardless of page size. Whether an
-endpoint paginates is decided by its generated query type: many are `{}` (no
-`limit`), and those correctly keep the plain default. The one genuinely-paginated
-list still on the default is `TldPrice`, whose behavior hardcodes `limit: 2000`
-and exposes no `refine`; optimising it would need a model change first.
+`ReferenceModel` in the query to its `id`, so a query field typed
+`Model | string` (see the next section) produces the **same** `queryId` whether
+the caller passes a reference, a loaded model, or the bare id — the key is the
+identity, never the model payload. (`object-code` ignores `toJSON`, so without
+this a loaded model would hash its whole `data`.) `.refine()` returns a new
+query with merged parameters; `.execute()` — declared `abstract` on the base —
+materializes it into an `XList` (query + items + `totalCount`). Pagination
+defaults to `config.defaultPaginationLimit`. Because every result carries a
+`totalCount`, the base can offer `getTotalCount()` for free: it runs the query
+and reads the count off the result. A model **overrides** it with
+`refine({ limit: 1 })` (fetching a single-item page) wherever its list endpoint
+is genuinely paginated — safe because a paginated mittwald endpoint always
+returns the `x-pagination-totalcount` header, so `resolveTotalCount` reads the
+real total regardless of page size. Whether an endpoint paginates is decided by
+its generated query type: many are `{}` (no `limit`), and those correctly keep
+the plain default. The one genuinely-paginated list still on the default is
+`TldPrice`, whose behavior hardcodes `limit: 2000` and exposes no `refine`;
+optimising it would need a model change first.
 
 ```ts
 // base/models/ListQueryModel.ts
@@ -438,7 +460,10 @@ export abstract class ListQueryModel<TQuery> {
     this.query = query;
     // normalizeQueryForHash: ReferenceModel -> id before hashing, so
     // `Model | string` fields key on identity, not the loaded payload
-    this.queryId = joinedId(...(opts.dependencies ?? []), hash(normalizeQueryForHash(query)));
+    this.queryId = joinedId(
+      ...(opts.dependencies ?? []),
+      hash(normalizeQueryForHash(query)),
+    );
   }
 
   // every list result has a totalCount, so execute is typed to guarantee it
@@ -479,10 +504,10 @@ Used in: `base/models/ListQueryModel.ts`, `base/models/ListDataModel.ts`,
 
 Every field of a `*ListQueryModelData` that references **another model** — the
 parent scope (`project`, `customer`, `database`, …) **and** any filter
-(`certificate`, `ingress`, `stack`, `extension`, `appInstallation`,
-`container`, …) — is typed `Model | string` and named after the model, **not**
-the raw `xxxId`. The generated OpenAPI `xxxId` is `Omit`ted from the base query
-type and re-mapped in `execute()` via `extractId`:
+(`certificate`, `ingress`, `stack`, `extension`, `appInstallation`, `container`,
+…) — is typed `Model | string` and named after the model, **not** the raw
+`xxxId`. The generated OpenAPI `xxxId` is `Omit`ted from the base query type and
+re-mapped in `execute()` via `extractId`:
 
 ```ts
 export type XListQueryModelData = Omit<XListQueryData, "certificateId"> & {
@@ -495,24 +520,25 @@ behavior.list({
 });
 ```
 
-Referenced model types are imported **type-only**, so this adds no runtime module
-edge. Callers may pass either a model or a bare id — and should **prefer passing
-the model** where they already hold one (`query({ certificate })` over `query({
-certificate: certificate.id })`). This is cache-safe: `ListQueryModel`
-(`normalizeQueryForHash`, previous section) reduces any `ReferenceModel` to its id
-before hashing the `queryId`, so a reference, a loaded model, and a bare id all
-produce the same key. The bare id stays accepted for the cases that only have one
-(a route param, or when the value in hand is a different model that merely shares
-the id — e.g. a `ContributorExtension` id passed where an `Extension` is typed).
+Referenced model types are imported **type-only**, so this adds no runtime
+module edge. Callers may pass either a model or a bare id — and should **prefer
+passing the model** where they already hold one (`query({ certificate })` over
+`query({ certificate: certificate.id })`). This is cache-safe: `ListQueryModel`
+(`normalizeQueryForHash`, previous section) reduces any `ReferenceModel` to its
+id before hashing the `queryId`, so a reference, a loaded model, and a bare id
+all produce the same key. The bare id stays accepted for the cases that only
+have one (a route param, or when the value in hand is a different model that
+merely shares the id — e.g. a `ContributorExtension` id passed where an
+`Extension` is typed).
 
 Watch the mismatch case: pass `.id` (not the model) when the model you hold is
 **not** the type the field expects. `tsc` catches this — a
-`ContributorExtensionCommon` is not assignable to `extension?: Extension | string`
-— so the field type is the guard.
+`ContributorExtensionCommon` is not assignable to
+`extension?: Extension | string` — so the field type is the guard.
 
 Used across every `*ListQuery`; the convention was swept package-wide
-(compiler-resolved over all `*ListQueryModelData` types) so no filter field still
-takes a raw id.
+(compiler-resolved over all `*ListQueryModelData` types) so no filter field
+still takes a raw id.
 
 ## `*Data` types are OpenAPI derivations
 
@@ -523,7 +549,8 @@ models in lock-step with the API contract. Drill into `Components.Schemas.*`,
 
 ```ts
 // container/Container/types.ts
-export type ContainerData = MittwaldAPIV2.Components.Schemas.ContainerServiceResponse;
+export type ContainerData =
+  MittwaldAPIV2.Components.Schemas.ContainerServiceResponse;
 export type ContainerListItemData =
   MittwaldAPIV2.Operations.ContainerListServices.ResponseData[number];
 export type ContainerListQueryData =
@@ -537,8 +564,8 @@ Used in every `*/types.ts`, e.g. `container/Container/types.ts`,
 
 Because every `*Data` type is derived from `@mittwald/api-client`, the models
 drift out of sync whenever that dependency is **bumped** and the generated
-`MittwaldAPIV2.*` types change shape. Where we deliberately keep a workaround for
-such drift, tag it in-code with a flat, greppable marker so it is
+`MittwaldAPIV2.*` types change shape. Where we deliberately keep a workaround
+for such drift, tag it in-code with a flat, greppable marker so it is
 self-documenting and discoverable — `grep -rn "API-DRIFT" src/packages/models`
 lists every open deviation:
 
@@ -558,26 +585,26 @@ makes the workaround unnecessary. Standalone markers:
 
 Every `anyStatus*` cast (`base/api/typeFixes.ts`, see that section) is likewise
 tagged with an `API-DRIFT` marker at its usage site, naming the operation whose
-generated response type omits the status and the resolve condition (drop the cast
-for the literal status once the client type declares it). The cast tokens stay
-greppable on their own, but the marker records _why_ each one is needed.
+generated response type omits the status and the resolve condition (drop the
+cast for the literal status once the client type declares it). The cast tokens
+stay greppable on their own, but the marker records _why_ each one is needed.
 
-> **Gotcha when adding markers in `behaviors/api.ts`:** `perfectionist/sort-objects`
-> orders the behavior methods by **line length** (`type: "line-length"`). A marker
-> comment is usually the longest line in its method, so inserting one inflates that
-> method's measured length and ESLint will reorder the object. Run `eslint --fix`
-> after adding markers and let it re-sort — the reordering is expected, not a
-> mistake.
+> **Gotcha when adding markers in `behaviors/api.ts`:**
+> `perfectionist/sort-objects` orders the behavior methods by **line length**
+> (`type: "line-length"`). A marker comment is usually the longest line in its
+> method, so inserting one inflates that method's measured length and ESLint
+> will reorder the object. Run `eslint --fix` after adding markers and let it
+> re-sort — the reordering is expected, not a mistake.
 
-The `/update-api-client` project command (`.claude/commands/update-api-client.md`)
-is the versioned job that keeps the package current: it **bumps
-`@mittwald/api-client` to the latest version, fixes the breaking changes that
-bump introduces**, then
-resolves the `API-DRIFT` markers whose resolve condition now holds (removing the
-resolved markers) and opens a GitLab MR. Doing the bump first is deliberate —
-it is what surfaces the drift in the first place. A weekly scheduled routine runs
-that command; triggering it straight from the dependency-update pipeline would be
-even more timely.
+The `/update-api-client` project command
+(`.claude/commands/update-api-client.md`) is the versioned job that keeps the
+package current: it **bumps `@mittwald/api-client` to the latest version, fixes
+the breaking changes that bump introduces**, then resolves the `API-DRIFT`
+markers whose resolve condition now holds (removing the resolved markers) and
+opens a GitLab MR. Doing the bump first is deliberate — it is what surfaces the
+drift in the first place. A weekly scheduled routine runs that command;
+triggering it straight from the dependency-update pipeline would be even more
+timely.
 
 ## Small `lib/` helpers
 
@@ -627,9 +654,9 @@ Invariants worth internalizing:
 - **The `index.ts` barrels only re-export** (`export * from "./Container";` …) —
   no logic. The public contract is the **root** barrel, never a deep import
   ([ADR-0003](adr/0003-public-api-root-barrel.md)).
-- **Naming is mechanical**: interface `XBehaviors`, adapter `apiXBehaviors`, wire
-  types `XData` / `XListItemData` / `XListQueryData`, model variants `XCommon` /
-  `XDetailed` / `XListItem`, query pair `XListQuery` / `XList`.
+- **Naming is mechanical**: interface `XBehaviors`, adapter `apiXBehaviors`,
+  wire types `XData` / `XListItemData` / `XListQueryData`, model variants
+  `XCommon` / `XDetailed` / `XListItem`, query pair `XListQuery` / `XList`.
 - **Folder is `behaviors/` (plural)**; a couple of older models use singular
   `behavior/` (e.g. `fyndr/Lead`, `ai/*PlanOptions`) — match the folder you are
   in, don't "fix" it in an unrelated change.
@@ -654,10 +681,11 @@ Two rules make it work — both easy to break silently:
    evaluated top to bottom, so a base class must be exported **before** the
    subclasses that `extends` it, and anything that imports subclasses at module
    scope (e.g. `articleFactory`, which imports `ServerArticle` et al.) must come
-   **last**. Get it wrong and the barrel evaluates `class ServerArticle extends
-   HostingArticle` before `HostingArticle` exists — a `TypeError: Class extends
-   value undefined is not a constructor or null` at import time, which takes out
-   the entire cluster (and every test that touches it).
+   **last**. Get it wrong and the barrel evaluates
+   `class ServerArticle extends HostingArticle` before `HostingArticle` exists —
+   a `TypeError: Class extends value undefined is not a constructor or null` at
+   import time, which takes out the entire cluster (and every test that touches
+   it).
 
 2. **Import cluster classes from `./internal`, not from the sibling file.** A
    direct `import { Article } from "./Article"` (or `./ArticleModifier`, …) can
@@ -668,18 +696,19 @@ Two rules make it work — both easy to break silently:
    base class in ahead of the barrel.
 
 Because the order is deliberate and non-alphabetical, **import/export sorting is
-turned off for `**/internal.ts`** in `eslint.config.ts` (otherwise
-`simple-import-sort` re-sorts the `export *` lines alphabetically and
-reintroduces bug 1). Keep the blank-line groups as documentation of the tiers
-(bases → subclasses → factory → attribute subclasses → modifier subclass) and
-hand-maintain them; do not let a formatter reorder the file.
+turned off for
+`**/internal.ts`** in `eslint.config.ts`(otherwise`simple-import-sort`re-sorts the`export
+\*` lines alphabetically and reintroduces bug 1). Keep the blank-line groups as
+documentation of the tiers (bases → subclasses → factory → attribute subclasses
+→ modifier subclass) and hand-maintain them; do not let a formatter reorder the
+file.
 
 ### When a cluster actually needs an `internal.ts`
 
 Do **not** add an `internal.ts` to every cluster "to be uniform" — it is only
 worth the hand-maintained ordering when the cluster has a genuine **load-time**
 reference to a sibling that also sits inside an import cycle. The decision rule
-is *load-time vs deferred*, not *"references a sibling at all"*:
+is _load-time vs deferred_, not _"references a sibling at all"_:
 
 **Genuine load-time refs (these warrant `internal.ts`, they are unguarded):**
 
@@ -690,7 +719,7 @@ is *load-time vs deferred*, not *"references a sibling at all"*:
   `static inMemoryFile = new File(...)` reaching `FileMeta.ofFile`. Runs at
   module load.
 - An **eager constructor field** that touches another model's statics under a
-  cycle — see trap #3 in *Traps that `tsc` does not catch* (deep-import + prefer
+  cycle — see trap #3 in _Traps that `tsc` does not catch_ (deep-import + prefer
   lazy).
 
 **Deferred / erased — these are safe and do NOT justify an `internal.ts`:**
@@ -698,7 +727,7 @@ is *load-time vs deferred*, not *"references a sibling at all"*:
 - A sibling value used **only inside method bodies** (`static get()`,
   `findDetailed()`, …). Method bodies run at call time, not import time.
 - `import type { … }` — fully erased, no runtime binding.
-- `@GhostMakerModel` + a constructor parameter *typed* as a sibling. This looks
+- `@GhostMakerModel` + a constructor parameter _typed_ as a sibling. This looks
   dangerous but `emitDecoratorMetadata` is resilient here: a **union** param
   type (`ContributorExtension | Extension`) degrades to `Object` (no ref at
   all), and a **single-class** param type emits a `typeof`-**guarded** ref
@@ -710,21 +739,21 @@ is *load-time vs deferred*, not *"references a sibling at all"*:
 Applying this rule, the only clusters that qualify today are the three that
 already have an `internal.ts`: `article/Article` (`extends` chains +
 `articleFactory` force-load), `file/File` (`File` static-init sentinel), and
-`project` (eager `HardwareSpecs` ctor fields). `marketplace/Extension` *looks*
-like a candidate (cycle `Extension → ExtensionPricePlan →
-ExtensionPricePlanVariant → Extension`, `@GhostMakerModel`, ctor param typed
-`Extension`) but is safe: the param is a union → `Object`, and every `Extension`
-value use is inside a method body.
+`project` (eager `HardwareSpecs` ctor fields). `marketplace/Extension` _looks_
+like a candidate (cycle
+`Extension → ExtensionPricePlan → ExtensionPricePlanVariant → Extension`,
+`@GhostMakerModel`, ctor param typed `Extension`) but is safe: the param is a
+union → `Object`, and every `Extension` value use is inside a method body.
 
 ## Behavior-side response mapping & error translation
 
 Adapters (`behaviors/api.ts`) are the only place that touches `api-client`. The
 mapping is uniform:
 
-- **Assert the status with `validateResponse(response, 200 | [403, 404] | …)`** —
-  it narrows the response union so `response.data` is typed. For "found or not"
-  lookups, return `data` on the success status and let `validateResponse` accept
-  the not-found status:
+- **Assert the status with `validateResponse(response, 200 | [403, 404] | …)`**
+  — it narrows the response union so `response.data` is typed. For "found or
+  not" lookups, return `data` on the success status and let `validateResponse`
+  accept the not-found status:
   ```ts
   if (response.status === 200) return response.data;
   validateResponse(response, [403, 404]); // throws on anything else
@@ -734,18 +763,19 @@ mapping is uniform:
   ```ts
   return { items: response.data, totalCount: resolveTotalCount(response) };
   ```
-  `resolveTotalCount` (`base/api/resolveTotalCount.ts`) is the **single source of
-  truth** for a list's total count: it prefers the `x-pagination-totalcount`
+  `resolveTotalCount` (`base/api/resolveTotalCount.ts`) is the **single source
+  of truth** for a list's total count: it prefers the `x-pagination-totalcount`
   header and falls back to the returned page length, and — unlike the old
-  `extractTotalCountHeader`, which **throws** when the header is absent — it never
-  throws. A route that starts sending the header is picked up automatically, with
-  the page-length fallback until then, so no per-route audit is needed. The total
-  is derived **here, in the behavior layer**; models must never compute it (no
-  `this.totalCount = items.length` in a `*List` constructor — take a `totalCount`
-  parameter and pass through the value the behavior returned). When the page items
-  are nested inside the response rather than being `response.data` itself, pass the
-  count explicitly as the second argument (e.g. `fyndr/Lead` /
-  `fyndr/UnlockedLead`: `resolveTotalCount(response, response.data.leads.length)`).
+  `extractTotalCountHeader`, which **throws** when the header is absent — it
+  never throws. A route that starts sending the header is picked up
+  automatically, with the page-length fallback until then, so no per-route audit
+  is needed. The total is derived **here, in the behavior layer**; models must
+  never compute it (no `this.totalCount = items.length` in a `*List` constructor
+  — take a `totalCount` parameter and pass through the value the behavior
+  returned). When the page items are nested inside the response rather than
+  being `response.data` itself, pass the count explicitly as the second argument
+  (e.g. `fyndr/Lead` / `fyndr/UnlockedLead`:
+  `resolveTotalCount(response, response.data.leads.length)`).
   `extractTotalCountHeader` is no longer used anywhere in the package.
 - **`400`-family validation errors become a `ValidationError`** via
   `withResponseValidation` (used inside `validateResponse`). Gotcha: it wraps a
@@ -760,16 +790,16 @@ every `*/behaviors/api.ts` (e.g. `container/Container/behaviors/api.ts`).
 
 Three error shapes, and only one of them is an `Error`:
 
-- **`ObjectNotFoundError extends Error`** — thrown by `assertObjectFound`; carries
-  `type` (resolved via ghostmaker's `getModelName`) and `refName`, and calls
-  `Object.setPrototypeOf(this, ObjectNotFoundError.prototype)` so `instanceof`
-  survives transpilation to ES5 (`errors/ObjectNotFoundError.ts`).
+- **`ObjectNotFoundError extends Error`** — thrown by `assertObjectFound`;
+  carries `type` (resolved via ghostmaker's `getModelName`) and `refName`, and
+  calls `Object.setPrototypeOf(this, ObjectNotFoundError.prototype)` so
+  `instanceof` survives transpilation to ES5 (`errors/ObjectNotFoundError.ts`).
 - **`ValidationError`** — a **plain class, not an `Error`**. Holds
   `errors: ValidationErrorObject[]` and is built with
-  `ValidationError.fromResponse(response, { pathMappings, typeMappings })`, which
-  returns `undefined` for non-validation responses. `pathMappings`/`typeMappings`
-  let a caller rename API field paths/types into its own vocabulary via
-  `performMappings` (`errors/ValidationError/`).
+  `ValidationError.fromResponse(response, { pathMappings, typeMappings })`,
+  which returns `undefined` for non-validation responses.
+  `pathMappings`/`typeMappings` let a caller rename API field paths/types into
+  its own vocabulary via `performMappings` (`errors/ValidationError/`).
 - **`FileUploadError`** — also a plain class; aggregates per-file `failures`
   (`{ file, error }[]`) for a bulk upload (`errors/FileUploadError.ts`).
 
@@ -789,7 +819,10 @@ idiom for "turn an opaque server string into a UI-switchable code" — extend th
 // file/File/behaviors/classifyFileUploadError.ts
 const rules: FileUploadErrorRule[] = [
   { code: "malwareInfected", test: (m) => m.includes("infected with malware") },
-  { code: "fileTooLarge", test: (m) => m.includes("exceeds the limit of") && m.includes("bytes") },
+  {
+    code: "fileTooLarge",
+    test: (m) => m.includes("exceeds the limit of") && m.includes("bytes"),
+  },
   // …
 ];
 export const classifyFileUploadError = (message: string): string | undefined =>
@@ -807,7 +840,9 @@ of the few things re-exported from the root barrel.
 
 ```ts
 // base/api/withModelRequestOptions.ts
-export const withAxiosRequestConfig = (requestOptions: AxiosRequestConfig = {}): Commons.RequestOptions => ({
+export const withAxiosRequestConfig = (
+  requestOptions: AxiosRequestConfig = {},
+): Commons.RequestOptions => ({
   onBeforeRequest: (config) => {
     Object.assign(config.requestConfig, requestOptions);
     executeDefaultOnBeforeRequestHandlers(config);
@@ -825,8 +860,9 @@ adapters use the pre-cast constants from `base/api/typeFixes.ts`
 (`anyStatus400`, `anyStatus403`, `anyStatus404`, `anyStatus409`, …) so
 `validateResponse(response, anyStatus409)` type-checks. Treat every use as a
 flag that the API spec and reality disagree — prefer fixing the spec, and don't
-invent new `as any` casts inline; add/extend the constant. Every usage carries an
-`API-DRIFT` marker (see that section) naming the operation and resolve condition.
+invent new `as any` casts inline; add/extend the constant. Every usage carries
+an `API-DRIFT` marker (see that section) naming the operation and resolve
+condition.
 
 ```ts
 export const anyStatus409 = 409 as any;
@@ -839,9 +875,9 @@ Used in: `base/api/typeFixes.ts`, e.g. `order/Order/behaviors/api.ts`,
 
 Anything needing an authenticated URL or a short-lived token (avatars, invoice
 PDFs, protected file downloads/uploads) takes an **optional injected**
-`XAccessTokenProvider` rather than knowing how tokens are minted. The model calls
-optional methods on it; the consumer supplies the implementation. This keeps
-auth policy out of the agnostic core and makes the token flow testable.
+`XAccessTokenProvider` rather than knowing how tokens are minted. The model
+calls optional methods on it; the consumer supplies the implementation. This
+keeps auth policy out of the agnostic core and makes the token flow testable.
 
 ```ts
 // file/FileAccessToken/FileAccessTokenProvider.ts
@@ -856,7 +892,8 @@ public get fileAccessTokenProvider(): FileAccessTokenProvider {
 }
 ```
 
-Recurs across ~10 models: `file/File/`, `server/Server/ServerAvatarAccessTokenProvider.ts`,
+Recurs across ~10 models: `file/File/`,
+`server/Server/ServerAvatarAccessTokenProvider.ts`,
 `customer/Customer/CustomerAvatarAccessTokenProvider.ts`,
 `invoice/Invoice/InvoicePdfAccessTokenProvider.ts`,
 `marketplace/Contributor/*AccessTokenProvider.ts`.
@@ -882,9 +919,9 @@ Used in: `file/File/File.ts` (e.g. `url` getter and download flows call
 
 The core is DOM-free ([ADR-0002](adr/0002-agnostic-core-two-packages.md)), but
 uploads genuinely need the browser `File` type. Rather than sprinkle the global
-`File` around, it is aliased once as `DomFile` (value **and** type) so the single
-legitimate DOM dependency is explicit and greppable, and the model's own class is
-also named `File` without collision.
+`File` around, it is aliased once as `DomFile` (value **and** type) so the
+single legitimate DOM dependency is explicit and greppable, and the model's own
+class is also named `File` without collision.
 
 ```ts
 // file/File/types.ts
@@ -898,10 +935,10 @@ Used in: `file/File/types.ts`, `file/File/File.ts` (`upload(file: DomFile, …)`
 ## `LocalizedText` — process-global language with `de` fallback
 
 Localized API strings are wrapped in `LocalizedText`. The current language is a
-**static on the class** (`LocalizedText.setLanguage(...)`), not per-instance, and
-lookups fall back to `de` when the active language is missing. `fromJsonString`
-parses leniently: invalid JSON or a bare string is treated as `de` text rather
-than throwing.
+**static on the class** (`LocalizedText.setLanguage(...)`), not per-instance,
+and lookups fall back to `de` when the active language is missing.
+`fromJsonString` parses leniently: invalid JSON or a bare string is treated as
+`de` text rather than throwing.
 
 ```ts
 // common/LocalizedText.ts
@@ -911,7 +948,7 @@ const value = this.data[LocalizedText.language] ?? this.data[defaultLanguage]; /
 Gotchas: `setLanguage` mutates a process-global for every instance (and leaks
 across tests if not reset); the fallback is specifically `de`, not "first
 available"; and the lookup uses `if (!value)`, so an empty string `""` is
-treated as *missing* and falls back too.
+treated as _missing_ and falls back too.
 
 Used in: `common/LocalizedText.ts`.
 
@@ -923,13 +960,14 @@ immutable. What is actually enforced today:
 - **`ListDataModel` shallow-freezes its `items`** with `Object.freeze`
   (`base/models/ListDataModel.ts`); a few models freeze their own derived arrays
   the same way (`domain/Ingress/Ingress.ts`, `user/Feedback/Feedback.ts`).
-- **`DataModel.data` is *not* frozen yet** — `base/models/DataModel.ts` carries a
-  `// todo: fix deep freeze`. So the deep-freeze the README describes is the
+- **`DataModel.data` is _not_ frozen yet** — `base/models/DataModel.ts` carries
+  a `// todo: fix deep freeze`. So the deep-freeze the README describes is the
   intended invariant, not a current runtime guarantee.
 - **The instance itself is not frozen.**
 - **Every instance property is `readonly`** (type-level; tsc-enforced) and there
   is no mutable instance state anywhere — all fields are assigned once in the
-  declaring class's constructor, with no post-construction mutation in the package.
+  declaring class's constructor, with no post-construction mutation in the
+  package.
 - **The `*Article` facets are stateless lazy getters** — `HostingArticle`
   (`hardwareSpecs`/`baseStorageAttribute`/`storageModifier`), `ServerArticle`
   (`machineTypeSpecs`), `StorageArticle` (`bytes`): computed on access, never in
@@ -938,8 +976,9 @@ immutable. What is actually enforced today:
   **throw** when the attribute is absent, and the facets are only conditionally
   valid per subtype (the code picks `machineTypeSpecs` vs `hardwareSpecs` via
   `isOfType(ServerArticle)`). Eager ctor-init was tried and **breaks
-  construction** — the HostingOrderRequest flow builds a `HostingArticle` with no
-  `StorageArticleModifier` (verified: 5 vitest failures). So compute on access.
+  construction** — the HostingOrderRequest flow builds a `HostingArticle` with
+  no `StorageArticleModifier` (verified: 5 vitest failures). So compute on
+  access.
 
 Practical rule: never mutate `data` or a frozen list; construct a new model
 instead. Don't rely on a runtime error to catch an accidental `data` mutation.
@@ -948,25 +987,27 @@ instead. Don't rely on a runtime error to catch an accidental `data` mutation.
 
 Value conversion, normalization, and relation-wiring happen **once in the
 constructor**, never lazily at each getter. Recurring moves: `.trim()` string
-fields, coalesce nullables with `?? 0` / `?? default` before wrapping, and derive
-related references I/O-free with `.ofId`.
+fields, coalesce nullables with `?? 0` / `?? default` before wrapping, and
+derive related references I/O-free with `.ofId`.
 
 ```ts
 // container/Container/Container.ts (ContainerCommon constructor)
 this.description = data.description.trim();
 this.statusSetAt = DateTime.fromISO(data.statusSetAt);
 this.cpuLimit = data.deploy?.resources?.limits?.cpus; // optional chaining, kept optional
-this.project = Project.ofId(data.projectId);          // relation without a fetch
+this.project = Project.ofId(data.projectId); // relation without a fetch
 ```
 
 Gotcha: **normalization is selective, not a global rule.** `.trim()` is applied
-only in domains that need it — don't assume every API string is trimmed. And
-the two nullable idioms are not interchangeable: `?? default` preserves `false`,
-`0`, and `""`, whereas a truthiness check (`data.avatarRefId ? File.ofId(...)  :
-undefined`) discards them. Pick deliberately.
+only in domains that need it — don't assume every API string is trimmed. And the
+two nullable idioms are not interchangeable: `?? default` preserves `false`,
+`0`, and `""`, whereas a truthiness check
+(`data.avatarRefId ? File.ofId(...)  : undefined`) discards them. Pick
+deliberately.
 
-Used across every `*Common` constructor, e.g. `container/Container/Container.ts`,
-`invoice/Invoice/Invoice.ts`, `server/Server/Server.ts`.
+Used across every `*Common` constructor, e.g.
+`container/Container/Container.ts`, `invoice/Invoice/Invoice.ts`,
+`server/Server/Server.ts`.
 
 ## `as const` tuples as runtime vocabulary + literal union
 
@@ -978,8 +1019,16 @@ uses this rather than `satisfies` — there are no `satisfies` expressions under
 
 ```ts
 // invoice/Invoice/types.ts
-export const invoiceStatusList = ["PAID", "PARTIALLY_PAID", "OVERPAID", "NEW", "CONFIRMED", "DENIED"] as const;
-export type InvoiceStatus = NonNullable<InvoiceData["status"]>[number] & (typeof invoiceStatusList)[number];
+export const invoiceStatusList = [
+  "PAID",
+  "PARTIALLY_PAID",
+  "OVERPAID",
+  "NEW",
+  "CONFIRMED",
+  "DENIED",
+] as const;
+export type InvoiceStatus = NonNullable<InvoiceData["status"]>[number] &
+  (typeof invoiceStatusList)[number];
 
 // common/LocalizedText.ts
 const supportedLanguages = ["de", "en"] as const;

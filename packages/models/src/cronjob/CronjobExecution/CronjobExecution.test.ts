@@ -7,9 +7,7 @@ import { DateTime } from "luxon";
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
@@ -60,9 +58,9 @@ describe("CronjobExecution reference + delegation", () => {
     const find = vi.fn().mockResolvedValue(undefined);
     installBehaviors({ cronjobExecution: { find } });
 
-    await expect(CronjobExecution.get("missing", cronjob)).rejects.toBeInstanceOf(
-      ObjectNotFoundError,
-    );
+    await expect(
+      CronjobExecution.get("missing", cronjob),
+    ).rejects.toBeInstanceOf(ObjectNotFoundError);
   });
 
   test("findDetailed delegates with the reference ids", async () => {

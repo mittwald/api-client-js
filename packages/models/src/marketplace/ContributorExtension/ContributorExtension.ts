@@ -44,7 +44,13 @@ import {
   ExtensionAsset,
   Extension,
 } from "../Extension/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ContributorExtension",
@@ -57,8 +63,10 @@ export class ContributorExtension extends ReferenceModel {
 
   public constructor(contributorId: string, extensionId: string) {
     super(extensionId);
-    this.logoAccessTokenProvider = new ContributorExtensionLogoAccessTokenProvider(this);
-    this.assetAccessTokenProvider = new ContributorExtensionAssetAccessTokenProvider(this);
+    this.logoAccessTokenProvider =
+      new ContributorExtensionLogoAccessTokenProvider(this);
+    this.assetAccessTokenProvider =
+      new ContributorExtensionAssetAccessTokenProvider(this);
     this.contributorId = contributorId;
   }
 
@@ -206,9 +214,7 @@ export class ContributorExtension extends ReferenceModel {
 
 export class ContributorExtensionCommon extends WithData<
   ContributorExtensionListItemData | ContributorExtensionData
->()(
-  ContributorExtension,
-) {
+>()(ContributorExtension) {
   public readonly amountOfInstances: number;
   public readonly assets: ExtensionAsset[];
   public readonly blocked?: boolean;
@@ -276,16 +282,16 @@ export class ContributorExtensionCommon extends WithData<
     this.externalFrontends = data.externalFrontends ?? [];
     this.frontendFragments = data.frontendFragments
       ? Object.entries(data.frontendFragments)
-        .filter(([key]) => Extension.isValidAnchor(key))
-        .map(
-          ([key, value]) =>
-            new FrontendFragment(
-              key as unknown as FrontendFragmentAnchor,
-              value,
-              this.name,
-              this,
-            ),
-        )
+          .filter(([key]) => Extension.isValidAnchor(key))
+          .map(
+            ([key, value]) =>
+              new FrontendFragment(
+                key as unknown as FrontendFragmentAnchor,
+                value,
+                this.name,
+                this,
+              ),
+          )
       : [];
     this.requestedChanges = data.requestedChanges;
     this.state = data.state;

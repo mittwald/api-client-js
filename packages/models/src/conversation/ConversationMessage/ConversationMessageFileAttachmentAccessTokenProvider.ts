@@ -5,7 +5,9 @@ import type { Conversation } from "../Conversation/index.js";
 
 import { config } from "../../config/index.js";
 
-export class ConversationMessageFileAttachmentAccessTokenProvider implements FileAccessTokenProvider {
+export class ConversationMessageFileAttachmentAccessTokenProvider
+  implements FileAccessTokenProvider
+{
   public readonly conversation: Conversation;
 
   public constructor(message: Conversation) {

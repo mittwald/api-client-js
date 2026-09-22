@@ -28,10 +28,7 @@ describe("DnsRecordCaa", () => {
 
   test("maps a component record to its observable values", () => {
     const dnsZone = {} as unknown as DnsZoneCommon;
-    const record = new DnsRecordCaa(
-      dnsZone,
-      buildDnsRecordCaaComponentData(),
-    );
+    const record = new DnsRecordCaa(dnsZone, buildDnsRecordCaaComponentData());
 
     expect(record.getTtl()).toBe(3600);
     expect(record.asList()).toEqual([

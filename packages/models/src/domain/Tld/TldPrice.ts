@@ -51,7 +51,7 @@ export class TldPriceCommon extends WithData<TldPriceData>()(TldPrice) {
     this.data = data;
 
     const topLevelAttr = (
-      data.attributes as { value: string; key: string; }[] | undefined
+      data.attributes as { value: string; key: string }[] | undefined
     )?.find((a) => a.key === "toplevel");
 
     this.tld = topLevelAttr?.value ?? "";

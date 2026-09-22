@@ -2,7 +2,12 @@ import { SpaceServerArticleTemplate } from "../templates/SpaceServerArticleTempl
 import { ProSpaceArticleTemplate } from "../templates/ProSpaceArticleTemplate.js";
 import { ServerArticleTemplate } from "../templates/ServerArticleTemplate.js";
 import { MachineTypeSpecs } from "../../../project/internal.js";
-import { RecommendedProjectsArticleAttribute, ArticleTagName, HostingArticle , Article } from "../internal.js";
+import {
+  RecommendedProjectsArticleAttribute,
+  ArticleTagName,
+  HostingArticle,
+  Article,
+} from "../internal.js";
 
 export class ServerArticle extends HostingArticle {
   public get isProSpace(): boolean {

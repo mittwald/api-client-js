@@ -1,7 +1,10 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { CustomerAIPlanListQueryData, CustomerAIPlanData } from "../types.js";
+import type {
+  CustomerAIPlanListQueryData,
+  CustomerAIPlanData,
+} from "../types.js";
 import type { QueryResponseData } from "../../../base/index.js";
 
 type ContractData =

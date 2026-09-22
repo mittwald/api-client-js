@@ -34,9 +34,7 @@ export function buildUnlockedLeadData(
       name: "TYPO3",
       version: "12",
     },
-    technologies: [
-      { categoryPriority: 1, name: "TYPO3", version: "12" },
-    ],
+    technologies: [{ categoryPriority: 1, name: "TYPO3", version: "12" }],
     socialMedia: [{ url: "https://linkedin.com", network: "LinkedIn" }],
     metrics: { basic: { desktop: {}, mobile: {} } },
     unlockedAt: "2024-02-01T00:00:00.000Z",

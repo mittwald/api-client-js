@@ -1,11 +1,12 @@
 /**
- * Zero-dependency capability mixins (ADR-0004). They bolt a data payload onto an
- * identity-chain base (a {@link BaseModel}/{@link ReferenceModel} subclass) while
- * preserving native `instanceof` across the whole prototype chain.
+ * Zero-dependency capability mixins (ADR-0004). They bolt a data payload onto
+ * an identity-chain base (a {@link BaseModel}/{@link ReferenceModel} subclass)
+ * while preserving native `instanceof` across the whole prototype chain.
  *
- * Each mixin only contributes a typed marker (`declare readonly …`); the concrete
- * class re-declares and assigns its own field(s) and threads the base constructor
- * arguments through `super(...)`. See `docs/adr/0004-mixin-functions-instead-of-polytype.md`.
+ * Each mixin only contributes a typed marker (`declare readonly …`); the
+ * concrete class re-declares and assigns its own field(s) and threads the base
+ * constructor arguments through `super(...)`. See
+ * `docs/adr/0004-mixin-functions-instead-of-polytype.md`.
  */
 
 // A base-class expression a mixin can extend. `...args: any[]` is required so the

@@ -5,6 +5,6 @@ export type FinderProfileData =
 
 export type FinderProfileListItemData = FinderProfileData;
 
-export interface FinderProfileListModelQueryData { }
+export interface FinderProfileListModelQueryData {}
 
 export type FinderProfilePlanOptions = FinderProfileData["tariff"];

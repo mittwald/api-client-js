@@ -4,7 +4,10 @@ import type { AxiosRequestConfig } from "axios";
 import type { CustomerCreateRequestData } from "../types.js";
 import type { CustomerBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig,resolveTotalCount } from "../../../base/index.js";
+import {
+  withAxiosRequestConfig,
+  resolveTotalCount,
+} from "../../../base/index.js";
 import { validateResponse } from "../../../base/api/validateResponse.js";
 import { anyStatus403 } from "../../../base/api/typeFixes.js";
 

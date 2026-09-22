@@ -5,7 +5,12 @@ import { DateTime } from "luxon";
 
 import type { AIModelLabel } from "../AIModel/index.js";
 
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base/index.js";
 
 type AIDetailedModelStatus =
   MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
@@ -31,12 +36,12 @@ export interface ScopedAIModelListBehavior<TData, TQuery> {
   list: (
     scopeId: string,
     query?: TQuery,
-  ) => Promise<{ totalCount: number; items: TData[]; }>;
+  ) => Promise<{ totalCount: number; items: TData[] }>;
 }
 
 /**
- * Builds the identical `ReferenceModel → Common → ListItem` + `ListQuery → List`
- * class family for a scoped AI-model context. `CustomerAIModel` and
+ * Builds the identical `ReferenceModel → Common → ListItem` + `ListQuery →
+ * List` class family for a scoped AI-model context. `CustomerAIModel` and
  * `ProjectAIModel` are 100 % identical apart from the ghost name and which
  * scoped `list` behavior they call, so both are produced from this one factory
  * (DDD-review finding #5). The generic keeps each scope's public data type.
@@ -103,7 +108,7 @@ export const makeScopedAIModelClasses = <
   // protected members (TS4094). Both `query` (protected in `ListQueryModel`)
   // and `scopeId` are therefore widened to public here.
   class ScopedAIModelListQuery extends ListQueryModel<TQuery> {
-    public declare readonly query: TQuery;
+    declare public readonly query: TQuery;
     public readonly scopeId: string;
     public constructor(scopeId: string, query: TQuery = {} as TQuery) {
       super(query);

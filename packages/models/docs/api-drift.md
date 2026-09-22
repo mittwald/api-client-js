@@ -120,8 +120,8 @@ path for pure-type drift.
 
 ## Summary
 
-- **26 missing status codes** across 13 areas (bridged via `anyStatus*`),
-  each confirmed with the literal-status `tsc` probe against `4.443.0`.
+- **26 missing status codes** across 13 areas (bridged via `anyStatus*`), each
+  confirmed with the literal-status `tsc` probe against `4.443.0`.
 - **3 behavioral/field deviations**: `auth` (checkToken endpoint), `domain`
   (findByHostname / route invalidation), `user` (registeredAt).
 - Notable: almost all missing codes are **`403` on protected `GET` detail

@@ -12,7 +12,10 @@ import type {
   DnsZoneData,
 } from "./types.js";
 
-import { type DownloadableFile, AggregateMetaData } from "../../common/index.js";
+import {
+  type DownloadableFile,
+  AggregateMetaData,
+} from "../../common/index.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { DnsRecordSet } from "../DnsRecordSet/index.js";
 import { config } from "../../config/index.js";
@@ -269,7 +272,8 @@ export class DnsZoneListQuery extends ListQueryModel<DnsZoneListQueryModelData> 
       ...this.query,
       ...query,
     });
-  }}
+  }
+}
 
 export class DnsZoneListItem extends DnsZoneCommon {
   public override readonly data: DnsZoneListItemData;

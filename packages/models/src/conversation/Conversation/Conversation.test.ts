@@ -194,15 +194,13 @@ describe("Conversation.findCommon / getCommon", () => {
   test("getCommon delegates for a bare reference and throws ObjectNotFoundError when missing", async () => {
     const find = vi
       .fn()
-      .mockResolvedValueOnce(
-        buildConversationData({ conversationId: "c-1" }),
-      )
+      .mockResolvedValueOnce(buildConversationData({ conversationId: "c-1" }))
       .mockResolvedValueOnce(undefined);
     installBehaviors({ conversation: { find } });
 
-    await expect(
-      Conversation.ofId("c-1").getCommon(),
-    ).resolves.toBeInstanceOf(ConversationDetailed);
+    await expect(Conversation.ofId("c-1").getCommon()).resolves.toBeInstanceOf(
+      ConversationDetailed,
+    );
     await expect(
       Conversation.ofId("missing").getCommon(),
     ).rejects.toBeInstanceOf(ObjectNotFoundError);

@@ -20,8 +20,14 @@ describe("PlanChange", () => {
     const item = new ContractItemDetailed(contract, buildContractItemData());
     const data = buildPlanChangeData({
       newArticles: [
-        buildContractArticleData({ unitPrice: { currency: "EUR", value: 500 }, amount: 2 }),
-        buildContractArticleData({ unitPrice: { currency: "EUR", value: 750 }, amount: 1 }),
+        buildContractArticleData({
+          unitPrice: { currency: "EUR", value: 500 },
+          amount: 2,
+        }),
+        buildContractArticleData({
+          unitPrice: { currency: "EUR", value: 750 },
+          amount: 1,
+        }),
       ],
       scheduledByUserId: "user-id",
       isForced: true,

@@ -5,7 +5,12 @@ import type {
   MailAddressBackupData,
 } from "./types.js";
 
-import { ListQueryModel, WithListData, DataModel, extractId } from "../../base/index.js";
+import {
+  ListQueryModel,
+  WithListData,
+  DataModel,
+  extractId,
+} from "../../base/index.js";
 import { MailAddress } from "../MailAddress/index.js";
 import { config } from "../../config/index.js";
 

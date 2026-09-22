@@ -10,7 +10,12 @@ import type {
 } from "./types.js";
 
 import { buildBackupExportData } from "../../testing/builders/buildBackupExportData.js";
-import { BackupDetailed, BackupListItem, BackupList, Backup } from "./Backup.js";
+import {
+  BackupDetailed,
+  BackupListItem,
+  BackupList,
+  Backup,
+} from "./Backup.js";
 import { buildBackupData } from "../../testing/builders/buildBackupData.js";
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import { BackupSchedule } from "../BackupSchedule/index.js";

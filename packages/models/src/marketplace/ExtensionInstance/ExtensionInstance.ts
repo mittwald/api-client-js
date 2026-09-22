@@ -28,7 +28,14 @@ import {
   FrontendFragment,
   Extension,
 } from "../Extension/index.js";
-import { type QueryResponseData, ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
+import {
+  type QueryResponseData,
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ExtensionInstance",
@@ -174,9 +181,7 @@ export class ExtensionInstance extends ReferenceModel {
 
 export class ExtensionInstanceCommon extends WithData<
   ExtensionInstanceListItemData | ExtensionInstanceData
->()(
-  ExtensionInstance,
-) {
+>()(ExtensionInstance) {
   public readonly chargeability?: ExtensionInstanceChargeability;
   public readonly consentedScopes: string[];
   public readonly context: ExtensionInstanceContext;

@@ -20,7 +20,7 @@ export interface CustomerAIApiKeyBehaviors {
     customerId: string,
     data: CustomerAIApiKeyRequestData,
   ) => Promise<{ id: string } | undefined>;
-  find: ( 
+  find: (
     customerId: string,
     licenceId: string,
   ) => Promise<AIApiKeyData | undefined>;

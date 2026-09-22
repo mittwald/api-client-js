@@ -31,7 +31,10 @@ afterEach(resetBehaviors);
 
 const item = (
   overrides?: Parameters<typeof buildCustomerMembershipListItemData>[0],
-) => new CustomerMembershipListItem(buildCustomerMembershipListItemData(overrides));
+) =>
+  new CustomerMembershipListItem(
+    buildCustomerMembershipListItemData(overrides),
+  );
 
 describe("CustomerMembership delegation", () => {
   test("find returns a detailed membership", async () => {
@@ -88,7 +91,9 @@ describe("CustomerMembership common variant", () => {
       customerMembership: { find: vi.fn().mockResolvedValue(undefined) },
     });
 
-    await expect(CustomerMembership.ofId("missing").getCommon()).rejects.toThrow();
+    await expect(
+      CustomerMembership.ofId("missing").getCommon(),
+    ).rejects.toThrow();
   });
 
   test("findCommon on an already materialized model returns itself without another call", async () => {
@@ -168,7 +173,9 @@ describe("CustomerMembership guards", () => {
         owner,
       ),
     ).toBe(false);
-    expect(CustomerMembership.memberIsLastOwner([item()], item())).toBeUndefined();
+    expect(
+      CustomerMembership.memberIsLastOwner([item()], item()),
+    ).toBeUndefined();
     const expiringOwner = item({
       expiresAt: "2024-03-01T00:00:00.000Z",
       id: "expiring",
@@ -182,8 +189,12 @@ describe("CustomerMembership guards", () => {
   test("identifies the own membership", () => {
     const own = item({ id: "own" });
 
-    expect(CustomerMembership.memberIsOwnMember(own, item({ id: "own" }))).toBe(true);
-    expect(CustomerMembership.memberIsOwnMember(own, item({ id: "other" }))).toBe(false);
+    expect(CustomerMembership.memberIsOwnMember(own, item({ id: "own" }))).toBe(
+      true,
+    );
+    expect(
+      CustomerMembership.memberIsOwnMember(own, item({ id: "other" })),
+    ).toBe(false);
   });
 
   test("allows an owner to edit and remove another non-last owner", () => {
@@ -200,18 +211,30 @@ describe("CustomerMembership guards", () => {
     const lastOwner = item({ role: "owner", id: "last" });
     const member = item({ role: "member", id: "member" });
 
-    expect(CustomerMembership.canEditMember(member, lastOwner, [lastOwner])).toBe(false);
-    expect(CustomerMembership.canRemoveMember(own, own, [own, lastOwner])).toBe(false);
-    expect(CustomerMembership.canEditMember(own, lastOwner, [lastOwner])).toBe(false);
-    expect(CustomerMembership.canRemoveMember(own, lastOwner, [lastOwner])).toBe(false);
+    expect(
+      CustomerMembership.canEditMember(member, lastOwner, [lastOwner]),
+    ).toBe(false);
+    expect(CustomerMembership.canRemoveMember(own, own, [own, lastOwner])).toBe(
+      false,
+    );
+    expect(CustomerMembership.canEditMember(own, lastOwner, [lastOwner])).toBe(
+      false,
+    );
+    expect(
+      CustomerMembership.canRemoveMember(own, lastOwner, [lastOwner]),
+    ).toBe(false);
   });
 
   test("allows the own member to leave when not the last owner", () => {
     const own = item({ role: "owner", id: "own" });
     const other = item({ role: "owner", id: "other" });
 
-    expect(CustomerMembership.canLeaveCustomer(own, own, [own, other])).toBe(true);
-    expect(CustomerMembership.canLeaveCustomer(own, other, [own, other])).toBe(false);
+    expect(CustomerMembership.canLeaveCustomer(own, own, [own, other])).toBe(
+      true,
+    );
+    expect(CustomerMembership.canLeaveCustomer(own, other, [own, other])).toBe(
+      false,
+    );
     expect(CustomerMembership.canLeaveCustomer(own, own, [own])).toBe(false);
   });
 });

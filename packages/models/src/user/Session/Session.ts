@@ -71,9 +71,9 @@ export class Session extends ReferenceModel {
   }
 }
 
-export class SessionCommon extends WithData<SessionListItemData | SessionData>()(
-  Session,
-) {
+export class SessionCommon extends WithData<
+  SessionListItemData | SessionData
+>()(Session) {
   public readonly browser?: string;
   public readonly createdAt: DateTime;
   public override readonly data: SessionListItemData | SessionData;
@@ -134,7 +134,8 @@ export class SessionListQuery extends ListQueryModel<Record<string, never>> {
       items.map((d) => new SessionListItem(d)),
       totalCount,
     );
-  }}
+  }
+}
 
 export class SessionList extends ListDataModel<SessionListItem> {
   public constructor(sessions: SessionListItem[], totalCount: number) {

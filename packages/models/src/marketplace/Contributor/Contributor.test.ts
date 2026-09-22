@@ -15,9 +15,7 @@ import {
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import {
@@ -93,9 +91,7 @@ describe("reference and delegation", () => {
   });
 
   test("find delegates and materializes a detailed contributor", async () => {
-    const find = vi
-      .fn()
-      .mockResolvedValue(buildContributorData({ id: "c-1" }));
+    const find = vi.fn().mockResolvedValue(buildContributorData({ id: "c-1" }));
     installBehaviors({ contributor: { find } });
 
     const contributor = await Contributor.find("c-1");
@@ -143,9 +139,7 @@ describe("get on a missing contributor", () => {
 
 describe("common variant and idempotency", () => {
   test("findCommon delegates to the detailed variant from a bare reference", async () => {
-    const find = vi
-      .fn()
-      .mockResolvedValue(buildContributorData({ id: "c-1" }));
+    const find = vi.fn().mockResolvedValue(buildContributorData({ id: "c-1" }));
     installBehaviors({ contributor: { find } });
 
     const common = await Contributor.ofId("c-1").findCommon();
@@ -265,9 +259,9 @@ describe("list query", () => {
       },
     });
 
-    await expect(
-      Contributor.ofId("c-1").query().getTotalCount(),
-    ).resolves.toBe(9);
+    await expect(Contributor.ofId("c-1").query().getTotalCount()).resolves.toBe(
+      9,
+    );
   });
 });
 

@@ -10,7 +10,10 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 }));
 
 import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
-import { buildSystemSoftwareVersionListItemData , buildSystemSoftwareVersionData } from "../../testing/builders/buildSystemSoftwareVersionData.js";
+import {
+  buildSystemSoftwareVersionListItemData,
+  buildSystemSoftwareVersionData,
+} from "../../testing/builders/buildSystemSoftwareVersionData.js";
 import { SystemSoftware } from "../SystemSoftware/index.js";
 import { ReferenceModel } from "../../base/index.js";
 import {
@@ -31,12 +34,15 @@ const systemSoftware = SystemSoftware.ofId("ss-1");
 
 describe("SystemSoftwareVersion reference and delegation", () => {
   test("find delegates with both ids and returns a detailed model", async () => {
-    const find = vi.fn().mockResolvedValue(
-      buildSystemSoftwareVersionData({ id: "version-1" }),
-    );
+    const find = vi
+      .fn()
+      .mockResolvedValue(buildSystemSoftwareVersionData({ id: "version-1" }));
     installBehaviors({ systemSoftwareVersion: { find } });
 
-    const result = await SystemSoftwareVersion.find("version-1", systemSoftware);
+    const result = await SystemSoftwareVersion.find(
+      "version-1",
+      systemSoftware,
+    );
 
     expect(find).toHaveBeenCalledWith("version-1", "ss-1");
     expect(result).toBeInstanceOf(SystemSoftwareVersionDetailed);
@@ -240,7 +246,9 @@ describe("SystemSoftwareVersion list query", () => {
     expect(list).toHaveBeenCalledWith("ss-1", { recommended: true });
     expect(result).toBeInstanceOf(SystemSoftwareVersionList);
     expect(
-      result.items.every((item) => item instanceof SystemSoftwareVersionListItem),
+      result.items.every(
+        (item) => item instanceof SystemSoftwareVersionListItem,
+      ),
     ).toBe(true);
     expect(result.items.map((item) => item.version)).toEqual([
       "8.4.0",

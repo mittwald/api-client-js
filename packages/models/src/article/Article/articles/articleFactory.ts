@@ -4,7 +4,11 @@ import { AIHostingArticleTemplate } from "../templates/AIHostingArticleTemplate.
 import { ProSpaceArticleTemplate } from "../templates/ProSpaceArticleTemplate.js";
 import { StorageArticleTemplate } from "../templates/StorageArticleTemplate.js";
 import { ServerArticleTemplate } from "../templates/ServerArticleTemplate.js";
-import { WebhostingArticle , AIHostingArticle , ServerArticle } from "../internal.js";
+import {
+  WebhostingArticle,
+  AIHostingArticle,
+  ServerArticle,
+} from "../internal.js";
 import {
   type ArticleCommon,
   ArticleTagName,

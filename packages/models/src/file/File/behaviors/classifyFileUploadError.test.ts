@@ -27,7 +27,10 @@ test.each([
     "fileTooLarge",
     "Your file size 10485761 bytes exceeds the limit of 10485760 bytes.",
   ],
-  ["fileExtensionMissing", "Your zip archive's file 'README' has no extension."],
+  [
+    "fileExtensionMissing",
+    "Your zip archive's file 'README' has no extension.",
+  ],
   ["zipEmpty", "Your zip archive is empty."],
   ["zipPasswordProtected", "Your zip archive cannot be password protected."],
   [

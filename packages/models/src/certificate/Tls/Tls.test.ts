@@ -47,9 +47,7 @@ describe("TlsAcme", () => {
   });
 
   test("constructs an ACME TLS model without a request deadline", () => {
-    const tls = new TlsAcme(
-      buildTlsAcmeData({ requestDeadline: undefined }),
-    );
+    const tls = new TlsAcme(buildTlsAcmeData({ requestDeadline: undefined }));
 
     expect(tls.requestDeadline).toBeUndefined();
   });

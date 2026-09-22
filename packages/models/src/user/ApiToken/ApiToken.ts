@@ -71,9 +71,9 @@ export class ApiToken extends ReferenceModel {
   }
 }
 
-export class ApiTokenCommon extends WithData<ApiTokenListItemData | ApiTokenData>()(
-  ApiToken,
-) {
+export class ApiTokenCommon extends WithData<
+  ApiTokenListItemData | ApiTokenData
+>()(ApiToken) {
   public override readonly data: ApiTokenListItemData | ApiTokenData;
   public readonly description: string;
   public readonly expired: boolean;
@@ -114,7 +114,8 @@ export class ApiTokenListQuery extends ListQueryModel<Record<string, never>> {
       items.map((d) => new ApiTokenListItem(d)),
       totalCount,
     );
-  }}
+  }
+}
 
 export class ApiTokenList extends ListDataModel<ApiTokenListItem> {
   public constructor(apiTokens: ApiTokenListItem[], totalCount: number) {

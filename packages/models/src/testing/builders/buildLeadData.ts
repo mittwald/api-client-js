@@ -7,9 +7,7 @@ export function buildLeadData(overrides?: Partial<LeadData>): LeadData {
       name: "TYPO3",
       version: "12",
     },
-    technologies: [
-      { categoryPriority: 1, name: "TYPO3", version: "12" },
-    ],
+    technologies: [{ categoryPriority: 1, name: "TYPO3", version: "12" }],
     company: { salesVolume: 2_000_000, county: "SH" },
     metrics: { desktop: {}, mobile: {} },
     hoster: { server: ["srv"] },

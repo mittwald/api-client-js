@@ -2,8 +2,15 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { buildCustomerAIDetailedModelData } from "../../testing/builders/buildCustomerAIDetailedModelData.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
-import { CustomerAIModelListItem, CustomerAIModelList, CustomerAIModel } from "./CustomerAIModel.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
+import {
+  CustomerAIModelListItem,
+  CustomerAIModelList,
+  CustomerAIModel,
+} from "./CustomerAIModel.js";
 
 afterEach(resetBehaviors);
 
@@ -28,7 +35,9 @@ describe("CustomerAIModel", () => {
       buildCustomerAIDetailedModelData({ replacesModelName: "gpt-old" }),
     );
     const withRemoval = new CustomerAIModelListItem(
-      buildCustomerAIDetailedModelData({ removalAt: "2025-01-01T00:00:00.000Z" }),
+      buildCustomerAIDetailedModelData({
+        removalAt: "2025-01-01T00:00:00.000Z",
+      }),
     );
 
     expect(withoutRemoval.activeAt.isValid).toBe(true);
@@ -36,11 +45,15 @@ describe("CustomerAIModel", () => {
     expect(withRemoval.removalAt?.isValid).toBe(true);
     expect(withoutRemoval.status).toBe("active");
     expect(withoutRemoval.replacesModelName).toBe("gpt-old");
-    expect(withoutRemoval.documentationLink).toBe("https://docs.example.com/detailed");
+    expect(withoutRemoval.documentationLink).toBe(
+      "https://docs.example.com/detailed",
+    );
   });
 
   it("preserves the model inheritance chain", () => {
-    const item = new CustomerAIModelListItem(buildCustomerAIDetailedModelData());
+    const item = new CustomerAIModelListItem(
+      buildCustomerAIDetailedModelData(),
+    );
 
     expect(item).toBeInstanceOf(CustomerAIModelListItem);
     expect(item).toBeInstanceOf(CustomerAIModel);

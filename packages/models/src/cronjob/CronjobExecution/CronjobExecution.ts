@@ -16,7 +16,12 @@ import type {
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { User } from "../../user/User/User.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base/index.js";
 
 const messageExtractionRegex = /"message"\s*:\s*"((?:\\.|[^"\\])*)"/g;
 
@@ -74,7 +79,9 @@ export class CronjobExecution extends ReferenceModel {
 export class CronjobExecutionCommon extends WithData<
   CronjobExecutionListItemData | CronjobExecutionData
 >()(CronjobExecution) {
-  public override readonly data: CronjobExecutionListItemData | CronjobExecutionData;
+  public override readonly data:
+    | CronjobExecutionListItemData
+    | CronjobExecutionData;
   public readonly durationInSeconds?: number;
   public readonly exitCode?: number;
   public readonly isRunning: boolean;

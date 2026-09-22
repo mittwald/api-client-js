@@ -6,7 +6,10 @@ import { buildAIApiKeyData } from "../../testing/builders/buildAIApiKeyData.js";
 import { buildIngressData } from "../../testing/builders/buildIngressData.js";
 import { ReferenceModel } from "../../base/index.js";
 import { Customer } from "../../customer/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
 import {
   CustomerAIApiKeyDetailed,
   CustomerAIApiKeyListItem,
@@ -34,13 +37,19 @@ describe("CustomerAIApiKey", () => {
   });
 
   it("returns undefined when an API key is not found", async () => {
-    installBehaviors({ customerAiApiKey: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      customerAiApiKey: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
-    await expect(CustomerAIApiKey.find("c-1", "missing")).resolves.toBeUndefined();
+    await expect(
+      CustomerAIApiKey.find("c-1", "missing"),
+    ).resolves.toBeUndefined();
   });
 
   it("throws when getting a missing API key", async () => {
-    installBehaviors({ customerAiApiKey: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      customerAiApiKey: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(CustomerAIApiKey.get("c-1", "missing")).rejects.toThrow();
   });
@@ -67,7 +76,9 @@ describe("CustomerAIApiKey", () => {
     await detailed.linkProject("p-9", true);
     await detailed.delete();
 
-    expect(update).toHaveBeenCalledWith("customer-id", "key-id", { name: "new" });
+    expect(update).toHaveBeenCalledWith("customer-id", "key-id", {
+      name: "new",
+    });
     expect(update).toHaveBeenCalledWith("customer-id", "key-id", {
       createWebuiContainer: true,
       projectId: "p-9",
@@ -84,7 +95,10 @@ describe("CustomerAIApiKey", () => {
       models: [],
     };
 
-    const result = await CustomerAIApiKey.create(Customer.ofId("c-1"), requestData);
+    const result = await CustomerAIApiKey.create(
+      Customer.ofId("c-1"),
+      requestData,
+    );
 
     expect(create).toHaveBeenCalledWith("c-1", requestData);
     expect(result).toBeInstanceOf(CustomerAIApiKey);

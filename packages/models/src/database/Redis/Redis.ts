@@ -203,7 +203,8 @@ export class RedisListQuery extends ListQueryModel<RedisListQueryModelData> {
       ...this.query,
       ...query,
     });
-  }}
+  }
+}
 
 export class RedisList extends WithListData<RedisListItem>()(RedisListQuery) {
   public override readonly items: readonly RedisListItem[];

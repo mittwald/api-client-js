@@ -1,4 +1,8 @@
-import type { DnsZoneListItemData, DnsSrvRecord, DnsZoneData } from "../types.js";
+import type {
+  DnsZoneListItemData,
+  DnsSrvRecord,
+  DnsZoneData,
+} from "../types.js";
 import type { DnsRecordSettingsData } from "../../DnsRecordSettings/index.js";
 import type { DnsRecordCaaEntry } from "../../DnsRecordCaa/index.js";
 import type { DnsRecordMxEntry } from "../../DnsRecordMx/index.js";

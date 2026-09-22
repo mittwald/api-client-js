@@ -8,13 +8,7 @@ import {
   installBehaviors,
   resetBehaviors,
 } from "../../testing/installBehaviors.js";
-import {
-  TldDetailed,
-  TldListItem,
-  TldCommon,
-  TldList,
-  Tld,
-} from "./Tld.js";
+import { TldDetailed, TldListItem, TldCommon, TldList, Tld } from "./Tld.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

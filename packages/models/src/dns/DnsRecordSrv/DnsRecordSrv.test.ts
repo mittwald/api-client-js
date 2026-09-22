@@ -13,7 +13,9 @@ afterEach(resetBehaviors);
 describe("DnsRecordSrv", () => {
   test("materializes component data and derived values", () => {
     const zone = new DnsZoneCommon(
-      buildDnsZoneData({ recordSet: { srv: buildDnsRecordSrvComponentData() } }),
+      buildDnsZoneData({
+        recordSet: { srv: buildDnsRecordSrvComponentData() },
+      }),
     );
     const record = zone.recordSet.srv;
 

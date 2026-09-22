@@ -34,10 +34,7 @@ export type ContainerAccessibleListQueryData =
 export type ContainerListQueryModelData = {
   stack?: ContainerStack | string;
   project?: Project | string;
-} & Omit<
-  ContainerListQueryData,
-  "stackId"
->;
+} & Omit<ContainerListQueryData, "stackId">;
 
 export type ContainerStackListQueryData =
   MittwaldAPIV2.Paths.V2Stacks.Get.Parameters.Query;
@@ -58,10 +55,7 @@ export type ContainerStackUpdateScheduleData = NonNullable<
 
 export type ContainerStackUpdateSchedulePatchRequestData = {
   updateSchedule?: ContainerStackUpdateScheduleData | null;
-} & Omit<
-  ContainerStackPatchRequestData,
-  "updateSchedule"
->;
+} & Omit<ContainerStackPatchRequestData, "updateSchedule">;
 
 export type ContainerPatchServiceData =
   MittwaldAPIV2.Components.Schemas.ContainerServiceRequest;

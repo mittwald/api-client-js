@@ -232,7 +232,8 @@ export class MySqlListQuery extends ListQueryModel<MySqlListQueryModelData> {
       ...this.query,
       ...query,
     });
-  }}
+  }
+}
 
 export class MySqlList extends WithListData<MySqlListItem>()(MySqlListQuery) {
   public override readonly items: readonly MySqlListItem[];

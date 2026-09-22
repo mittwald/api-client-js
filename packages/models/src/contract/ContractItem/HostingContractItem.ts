@@ -2,7 +2,7 @@ import type { ContractItemDetailed } from "./ContractItem.js";
 
 import { StorageArticleTemplate } from "../../article/Article/templates/StorageArticleTemplate.js";
 import { HostingArticle } from "../../article/Article/internal.js";
-import { type Money,ZeroMoney } from "../../common/index.js";
+import { type Money, ZeroMoney } from "../../common/index.js";
 import { ReferenceModel } from "../../base/index.js";
 
 export class HostingContractItem extends ReferenceModel {

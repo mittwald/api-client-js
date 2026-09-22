@@ -4,7 +4,12 @@ import type { AxiosRequestConfig } from "axios";
 import type { AuthBehaviors } from "./types.js";
 
 import { ValidationError } from "../../../errors/index.js";
-import { withAxiosRequestConfig, validateResponse,anyStatus401, anyStatus403  } from "../../../base/index.js";
+import {
+  withAxiosRequestConfig,
+  validateResponse,
+  anyStatus401,
+  anyStatus403,
+} from "../../../base/index.js";
 
 export const apiAuthBehaviors = (
   client: MittwaldAPIV2Client,

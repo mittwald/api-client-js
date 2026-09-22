@@ -18,7 +18,10 @@ import type {
   ContainerData,
 } from "./types.js";
 
-import { type DownloadableFile, AggregateMetaData } from "../../common/index.js";
+import {
+  type DownloadableFile,
+  AggregateMetaData,
+} from "../../common/index.js";
 import { ContainerVolumeRelation } from "./ContainerVolumeRelation.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { ContainerTemplate } from "./ContainerTemplate.js";
@@ -485,7 +488,13 @@ export class ContainerListQuery extends ListQueryModel<ContainerListQueryModelDa
           options,
         )
       : await config.behaviors.container.listAccessible(
-          pick(this.query, ["searchTerm", "sortOrder", "limit", "skip", "page"]),
+          pick(this.query, [
+            "searchTerm",
+            "sortOrder",
+            "limit",
+            "skip",
+            "page",
+          ]),
           options,
         );
 

@@ -5,9 +5,7 @@ import type MetricsTimeRange from "./MetricsTimeRange.js";
 
 import { TimeSeriesBin } from "./TimeSeriesBin.js";
 
-/**
- * Groups time series values into "time bins"
- */
+/** Groups time series values into "time bins" */
 export class TimeSeriesBins {
   public readonly bins: TimeSeriesBin[];
   public readonly label?: string;

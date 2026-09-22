@@ -5,12 +5,12 @@ status: accepted
 # The public API is the curated root barrel; subpaths are gated
 
 Today the root `index.ts` re-exports everything via `export *` — including the
-internal machinery (the `config` object, `base` helpers, behaviors) — and via the
-wildcard aliases any internal path is importable. For a versioned package this
-means: no encapsulation, a huge surface, and every internal rename is a breaking
-change. We decide: the **public contract is the curated root entry point**;
-internal machinery is not exported, and deep subpath imports are **gated** via
-`package.json#exports`.
+internal machinery (the `config` object, `base` helpers, behaviors) — and via
+the wildcard aliases any internal path is importable. For a versioned package
+this means: no encapsulation, a huge surface, and every internal rename is a
+breaking change. We decide: the **public contract is the curated root entry
+point**; internal machinery is not exported, and deep subpath imports are
+**gated** via `package.json#exports`.
 
 ## Consequences
 

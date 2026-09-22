@@ -28,18 +28,35 @@ afterEach(resetBehaviors);
 describe("FinderProfileRequest", () => {
   test("find and get delegate and handle missing data", async () => {
     const options = { retryCache: false };
-    const find = vi.fn().mockResolvedValueOnce(buildFinderProfileRequestData()).mockResolvedValueOnce(buildFinderProfileRequestData()).mockResolvedValueOnce(undefined);
+    const find = vi
+      .fn()
+      .mockResolvedValueOnce(buildFinderProfileRequestData())
+      .mockResolvedValueOnce(buildFinderProfileRequestData())
+      .mockResolvedValueOnce(undefined);
     installBehaviors({ finderProfileRequest: { find } });
 
-    expect(await FinderProfileRequest.find("c-1", options)).toBeInstanceOf(FinderProfileRequestDetailed);
+    expect(await FinderProfileRequest.find("c-1", options)).toBeInstanceOf(
+      FinderProfileRequestDetailed,
+    );
     expect(find).toHaveBeenCalledWith("c-1", options);
-    expect(await FinderProfileRequest.get("c-1")).toBeInstanceOf(FinderProfileRequestDetailed);
-    await expect(FinderProfileRequest.get("missing")).rejects.toBeInstanceOf(ObjectNotFoundError);
+    expect(await FinderProfileRequest.get("c-1")).toBeInstanceOf(
+      FinderProfileRequestDetailed,
+    );
+    await expect(FinderProfileRequest.get("missing")).rejects.toBeInstanceOf(
+      ObjectNotFoundError,
+    );
   });
 
   test("exposes request data through getters", () => {
-    const request = new FinderProfileRequestDetailed(buildFinderProfileRequestData({ resultOn: undefined }));
-    const completed = new FinderProfileRequestDetailed(buildFinderProfileRequestData({ resultOn: "2024-02-01T00:00:00.000Z", domain: "https://example.org" }));
+    const request = new FinderProfileRequestDetailed(
+      buildFinderProfileRequestData({ resultOn: undefined }),
+    );
+    const completed = new FinderProfileRequestDetailed(
+      buildFinderProfileRequestData({
+        resultOn: "2024-02-01T00:00:00.000Z",
+        domain: "https://example.org",
+      }),
+    );
 
     expect(request.profileId).toBe("p-1");
     expect(request.customer.id).toBe("c-1");
@@ -49,15 +66,25 @@ describe("FinderProfileRequest", () => {
     expect(request.resultAt).toBeUndefined();
     expect(request.status).toBe("APPROVED");
     expect(completed.url).toBe("https://example.org");
-    expect(completed.resultAt?.toUTC().toISO()).toBe("2024-02-01T00:00:00.000Z");
+    expect(completed.resultAt?.toUTC().toISO()).toBe(
+      "2024-02-01T00:00:00.000Z",
+    );
   });
 
   test("create derives the domain from the customer owner email", async () => {
-    const customer = buildFinderProfileRequestCustomerData({ owner: {
-      address: { countryCode: "DE", houseNumber: "1", street: "Main", city: "Kiel", zip: "24103" },
-      emailAddress: "info@sub.example.com",
-      salutation: "mr",
-    } });
+    const customer = buildFinderProfileRequestCustomerData({
+      owner: {
+        address: {
+          countryCode: "DE",
+          houseNumber: "1",
+          street: "Main",
+          city: "Kiel",
+          zip: "24103",
+        },
+        emailAddress: "info@sub.example.com",
+        salutation: "mr",
+      },
+    });
     const find = vi.fn().mockResolvedValue(customer);
     const create = vi.fn().mockResolvedValue(undefined);
     installBehaviors({ finderProfileRequest: { create }, customer: { find } });
@@ -68,24 +95,41 @@ describe("FinderProfileRequest", () => {
   });
 
   test("create rejects when the owner email is absent", async () => {
-    const customer = buildFinderProfileRequestCustomerData({ owner: {
-      address: { countryCode: "DE", houseNumber: "1", street: "Main", city: "Kiel", zip: "24103" },
-      salutation: "mr",
-    } });
-    installBehaviors({ customer: { find: vi.fn().mockResolvedValue(customer) } });
+    const customer = buildFinderProfileRequestCustomerData({
+      owner: {
+        address: {
+          countryCode: "DE",
+          houseNumber: "1",
+          street: "Main",
+          city: "Kiel",
+          zip: "24103",
+        },
+        salutation: "mr",
+      },
+    });
+    installBehaviors({
+      customer: { find: vi.fn().mockResolvedValue(customer) },
+    });
 
-    await expect(FinderProfileRequest.create("c-1")).rejects.toThrow("Contract partner email is not defined");
+    await expect(FinderProfileRequest.create("c-1")).rejects.toThrow(
+      "Contract partner email is not defined",
+    );
   });
 
   test("preserves identity and queries the list behavior", async () => {
-    const list = vi.fn().mockResolvedValue({ items: [buildFinderProfileRequestData()], totalCount: 1 });
+    const list = vi.fn().mockResolvedValue({
+      items: [buildFinderProfileRequestData()],
+      totalCount: 1,
+    });
     installBehaviors({ finderProfileRequest: { list } });
 
     const result = await FinderProfileRequest.query().execute();
 
     expect(result).toBeInstanceOf(FinderProfileRequestList);
     expect(result.items[0]).toBeInstanceOf(FinderProfileRequest);
-    expect(new FinderProfileRequestDetailed(buildFinderProfileRequestData())).toBeInstanceOf(FinderProfileRequest);
+    expect(
+      new FinderProfileRequestDetailed(buildFinderProfileRequestData()),
+    ).toBeInstanceOf(FinderProfileRequest);
     expect(list).toHaveBeenCalledWith();
   });
 

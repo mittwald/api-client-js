@@ -1,9 +1,12 @@
-import { afterEach , describe, expect, test, vi } from "vitest";
+import { afterEach, describe, expect, test, vi } from "vitest";
 
 import { buildFeedbackListItemData } from "../../testing/builders/buildFeedbackListItemData.js";
 import { FeedbackListItem, FeedbackCommon, Feedback } from "./Feedback.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 
@@ -18,7 +21,10 @@ describe("Feedback", () => {
   });
 
   test("isSubmitted reflects whether matching feedback exists", async () => {
-    const list = vi.fn().mockResolvedValueOnce([buildFeedbackListItemData()]).mockResolvedValueOnce([]);
+    const list = vi
+      .fn()
+      .mockResolvedValueOnce([buildFeedbackListItemData()])
+      .mockResolvedValueOnce([]);
     installBehaviors({ feedback: { list } });
     expect(await Feedback.isSubmitted("u-1", "nps")).toBe(true);
     expect(await Feedback.isSubmitted("u-1", "other")).toBe(false);

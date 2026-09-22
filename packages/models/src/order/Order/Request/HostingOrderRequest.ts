@@ -57,26 +57,26 @@ export class HostingOrderRequest {
       this.hostingArticle instanceof ServerArticle
         ? this.hostingArticle.isProSpace
           ? {
+              ...baseData,
+              spec: {
+                machineType: this.hostingArticle.machineTypeSpecs.machineType,
+              },
+            }
+          : {
+              ...baseData,
+              machineType: this.hostingArticle.machineTypeSpecs.machineType,
+            }
+        : {
             ...baseData,
             spec: {
-              machineType: this.hostingArticle.machineTypeSpecs.machineType,
+              ram: this.hostingArticle.hardwareSpecs.ram.gib,
+              vcpu: this.hostingArticle.hardwareSpecs.vcpu,
             },
-          }
-          : {
-            ...baseData,
-            machineType: this.hostingArticle.machineTypeSpecs.machineType,
-          }
-        : {
-          ...baseData,
-          spec: {
-            ram: this.hostingArticle.hardwareSpecs.ram.gib,
-            vcpu: this.hostingArticle.hardwareSpecs.vcpu,
-          },
-        };
+          };
 
     const planChangeType =
       this.hostingArticle instanceof ServerArticle &&
-        !this.hostingArticle.isProSpace
+      !this.hostingArticle.isProSpace
         ? "server"
         : "projectHosting";
 
@@ -96,26 +96,26 @@ export class HostingOrderRequest {
       this.hostingArticle instanceof ServerArticle
         ? this.hostingArticle.isProSpace
           ? {
+              ...baseData,
+              spec: {
+                machineType: this.hostingArticle.machineTypeSpecs.machineType,
+              },
+            }
+          : {
+              ...baseData,
+              machineType: this.hostingArticle.machineTypeSpecs.machineType,
+            }
+        : {
             ...baseData,
             spec: {
-              machineType: this.hostingArticle.machineTypeSpecs.machineType,
+              ram: this.hostingArticle.hardwareSpecs.ram.gib,
+              vcpu: this.hostingArticle.hardwareSpecs.vcpu,
             },
-          }
-          : {
-            ...baseData,
-            machineType: this.hostingArticle.machineTypeSpecs.machineType,
-          }
-        : {
-          ...baseData,
-          spec: {
-            ram: this.hostingArticle.hardwareSpecs.ram.gib,
-            vcpu: this.hostingArticle.hardwareSpecs.vcpu,
-          },
-        };
+          };
 
     const orderType =
       this.hostingArticle instanceof ServerArticle &&
-        !this.hostingArticle.isProSpace
+      !this.hostingArticle.isProSpace
         ? "server"
         : "projectHosting";
 
@@ -162,26 +162,26 @@ export class HostingOrderRequest {
       this.hostingArticle instanceof ServerArticle
         ? this.hostingArticle.isProSpace
           ? {
+              ...baseData,
+              spec: {
+                machineType: this.hostingArticle.machineTypeSpecs.machineType,
+              },
+            }
+          : {
+              ...baseData,
+              machineType: this.hostingArticle.machineTypeSpecs.machineType,
+            }
+        : {
             ...baseData,
             spec: {
-              machineType: this.hostingArticle.machineTypeSpecs.machineType,
+              ram: this.hostingArticle.hardwareSpecs.ram.gib,
+              vcpu: this.hostingArticle.hardwareSpecs.vcpu,
             },
-          }
-          : {
-            ...baseData,
-            machineType: this.hostingArticle.machineTypeSpecs.machineType,
-          }
-        : {
-          ...baseData,
-          spec: {
-            ram: this.hostingArticle.hardwareSpecs.ram.gib,
-            vcpu: this.hostingArticle.hardwareSpecs.vcpu,
-          },
-        };
+          };
 
     const orderType =
       this.hostingArticle instanceof ServerArticle &&
-        !this.hostingArticle.isProSpace
+      !this.hostingArticle.isProSpace
         ? "server"
         : "projectHosting";
 

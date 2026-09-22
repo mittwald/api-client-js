@@ -17,10 +17,7 @@ export type ConversationAggregateReference =
 export type ConversationCreateRequest = {
   sharedWith?: ConversationAggregateReference;
   relatedTo?: ConversationAggregateReference;
-} & Omit<
-  ConversationCreateRequestData,
-  "sharedWith" | "relatedTo"
->;
+} & Omit<ConversationCreateRequestData, "sharedWith" | "relatedTo">;
 
 export type ConversationShareableAggregateReference =
   MittwaldAPIV2.Components.Schemas.ConversationShareableAggregateReference;

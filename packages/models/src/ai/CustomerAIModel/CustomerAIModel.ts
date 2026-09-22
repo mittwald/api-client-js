@@ -33,4 +33,6 @@ export type CustomerAIModelListQuery = InstanceType<
 >;
 
 export const CustomerAIModelList = classes.ScopedAIModelList;
-export type CustomerAIModelList = InstanceType<typeof classes.ScopedAIModelList>;
+export type CustomerAIModelList = InstanceType<
+  typeof classes.ScopedAIModelList
+>;

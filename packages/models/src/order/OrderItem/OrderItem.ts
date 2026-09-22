@@ -1,4 +1,7 @@
-import type { OrderAttributeConfigurationData, OrderItemData } from "./types.js";
+import type {
+  OrderAttributeConfigurationData,
+  OrderItemData,
+} from "./types.js";
 
 import { DataModel } from "../../base/index.js";
 

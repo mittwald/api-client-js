@@ -2,7 +2,10 @@ import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
 import type { ProjectBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig,resolveTotalCount } from "../../../base/index.js";
+import {
+  withAxiosRequestConfig,
+  resolveTotalCount,
+} from "../../../base/index.js";
 import { validateResponse } from "../../../base/api/validateResponse.js";
 import { anyStatus404 } from "../../../base/api/typeFixes.js";
 

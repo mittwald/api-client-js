@@ -5,7 +5,10 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { buildAIApiKeyData } from "../../testing/builders/buildAIApiKeyData.js";
 import { buildIngressData } from "../../testing/builders/buildIngressData.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
 import { Project } from "../../project/index.js";
 import {
   AI_HOSTING_DEFAULT_RATE_LIMIT,
@@ -41,13 +44,19 @@ describe("ProjectAIApiKey", () => {
   });
 
   it("returns undefined when an API key is not found", async () => {
-    installBehaviors({ projectAiApiKey: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      projectAiApiKey: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
-    await expect(ProjectAIApiKey.find("p-1", "missing")).resolves.toBeUndefined();
+    await expect(
+      ProjectAIApiKey.find("p-1", "missing"),
+    ).resolves.toBeUndefined();
   });
 
   it("throws when getting a missing API key", async () => {
-    installBehaviors({ projectAiApiKey: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      projectAiApiKey: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(ProjectAIApiKey.get("p-1", "missing")).rejects.toThrow();
   });
@@ -72,16 +81,28 @@ describe("ProjectAIApiKey", () => {
       projectAiApiKey: { delete: deleteBehavior, linkContainer, update },
     });
     const detailed = new ProjectAIApiKeyDetailed(buildAIApiKeyData());
-    const linkData = { containerId: "container-1", ingressId: "ingress-1", stackId: "stack-1" };
+    const linkData = {
+      containerId: "container-1",
+      ingressId: "ingress-1",
+      stackId: "stack-1",
+    };
 
     await detailed.updateName("new");
     await detailed.addContainer();
     await detailed.linkContainer(linkData);
     await detailed.delete();
 
-    expect(update).toHaveBeenCalledWith("project-id", "key-id", { name: "new" });
-    expect(update).toHaveBeenCalledWith("project-id", "key-id", { createWebuiContainer: true });
-    expect(linkContainer).toHaveBeenCalledWith("project-id", "key-id", linkData);
+    expect(update).toHaveBeenCalledWith("project-id", "key-id", {
+      name: "new",
+    });
+    expect(update).toHaveBeenCalledWith("project-id", "key-id", {
+      createWebuiContainer: true,
+    });
+    expect(linkContainer).toHaveBeenCalledWith(
+      "project-id",
+      "key-id",
+      linkData,
+    );
     expect(deleteBehavior).toHaveBeenCalledWith("project-id", "key-id");
   });
 
@@ -94,7 +115,10 @@ describe("ProjectAIApiKey", () => {
       models: [],
     };
 
-    const result = await ProjectAIApiKey.create(Project.ofId("p-1"), requestData);
+    const result = await ProjectAIApiKey.create(
+      Project.ofId("p-1"),
+      requestData,
+    );
 
     expect(create).toHaveBeenCalledWith("p-1", requestData);
     expect(result).toBeInstanceOf(ProjectAIApiKey);
@@ -106,7 +130,9 @@ describe("ProjectAIApiKey", () => {
       buildAIApiKeyData({ containerMeta: undefined }),
     );
 
-    await expect(detailed.getContainerRelatedIngress()).resolves.toBeUndefined();
+    await expect(
+      detailed.getContainerRelatedIngress(),
+    ).resolves.toBeUndefined();
   });
 
   it("preserves the list item inheritance chain", () => {

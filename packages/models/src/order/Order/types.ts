@@ -1,7 +1,11 @@
 import type { RequiredKeysOf, SetOptional } from "type-fest";
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { MachineTypeSpecs, HardwareSpecs, Project } from "../../project/index.js";
+import type {
+  MachineTypeSpecs,
+  HardwareSpecs,
+  Project,
+} from "../../project/index.js";
 import type { Customer } from "../../customer/index.js";
 import type { MailAddress } from "../../mail/index.js";
 

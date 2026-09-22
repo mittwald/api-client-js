@@ -260,7 +260,10 @@ describe("Performance common variant", () => {
 describe("Performance absent-optional edge cases", () => {
   test("PerformanceDetailed defaults metrics and moreDataAvailable to empty arrays when absent", () => {
     const detailed = new PerformanceDetailed(
-      buildPerformanceData({ moreDataAvailable: undefined, metrics: undefined }),
+      buildPerformanceData({
+        moreDataAvailable: undefined,
+        metrics: undefined,
+      }),
       "p-1",
       "i-1",
     );
@@ -354,7 +357,9 @@ describe("Performance lists", () => {
     // The merged query is observable through the list behavior on execute().
     const list = vi.fn().mockResolvedValue({ items: [] });
     installBehaviors({
-      ingress: { list: vi.fn().mockResolvedValue({ totalCount: 0, items: [] }) },
+      ingress: {
+        list: vi.fn().mockResolvedValue({ totalCount: 0, items: [] }),
+      },
       performance: { list },
     });
 

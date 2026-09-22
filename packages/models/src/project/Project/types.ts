@@ -9,10 +9,7 @@ export type ProjectListQueryData =
 export type ProjectListQueryModelData = {
   customer?: Customer | string;
   server?: Server | string;
-} & Omit<
-  ProjectListQueryData,
-  "customerId" | "serverId"
->;
+} & Omit<ProjectListQueryData, "customerId" | "serverId">;
 
 export type ProjectData =
   MittwaldAPIV2.Operations.ProjectGetProject.ResponseData;

@@ -14,7 +14,13 @@ import { CertificateContact } from "../CertificateContact/CertificateContact.js"
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { Project } from "../../project/internal.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CertificateRequest",

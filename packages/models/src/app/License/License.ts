@@ -79,9 +79,9 @@ export class License extends ReferenceModel {
   }
 }
 
-export class LicenseCommon extends WithData<LicenseListItemData | LicenseData>()(
-  License,
-) {
+export class LicenseCommon extends WithData<
+  LicenseListItemData | LicenseData
+>()(License) {
   public readonly aggregateReference: AggregateReference;
   public override readonly data: LicenseListItemData | LicenseData;
   public readonly description: string;

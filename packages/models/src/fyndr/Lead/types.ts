@@ -17,8 +17,8 @@ export type LeadCompanyData = LeadData["company"];
 export type LeadHosterInformationData = LeadData["hoster"];
 
 export type LeadFilterType = {
-  location: { zipCode: string; radius: string; city: string; } | null;
-  employeeCount: { max: string | null; min: string; } | null;
+  location: { zipCode: string; radius: string; city: string } | null;
+  employeeCount: { max: string | null; min: string } | null;
   businessFields: string[];
   technologies: string[];
 } | null;

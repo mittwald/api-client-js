@@ -6,7 +6,8 @@ import type {
   CertificateListQueryModelData,
   CertificateListItemData,
   CertificateData,
-  CertificateType} from "./types.js";
+  CertificateType,
+} from "./types.js";
 
 import { CertificateCheckReplaceResponse } from "../CertificateCheckReplaceResponse/index.js";
 import { CertificateContact } from "../CertificateContact/CertificateContact.js";
@@ -17,11 +18,15 @@ import { Ingress } from "../../ingress/Ingress/Ingress.js";
 import { Project } from "../../project/internal.js";
 import { AggregateMetaData } from "../../common/index.js";
 import { Order } from "../../order/Order/Order.js";
-import {
-  CertificateTypes,
-} from "./types.js";
+import { CertificateTypes } from "./types.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  extractId,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Certificate",
@@ -208,8 +213,8 @@ export class CertificateCommon extends WithData<CertificateData>()(
 
   /**
    * The ingresses in this certificate's project that are compatible with it. A
-   * lazy delegator to the ingress-side query; part of the accepted
-   * `certificate ↔ ingress` module cycle (lazy, deep import).
+   * lazy delegator to the ingress-side query; part of the accepted `certificate
+   * ↔ ingress` module cycle (lazy, deep import).
    */
   public async listCompatibleIngresses() {
     return Ingress.listCompatibleWithCertificate(this);
@@ -242,7 +247,8 @@ export class CertificateListQuery extends ListQueryModel<CertificateListQueryMod
 
   public refine(query: CertificateListQueryModelData = {}) {
     return new CertificateListQuery({ ...this.query, ...query });
-  }}
+  }
+}
 
 export class CertificateListItem extends CertificateCommon {
   public constructor(data: CertificateListItemData) {

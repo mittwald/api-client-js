@@ -27,7 +27,12 @@ import { Contributor } from "../Contributor/index.js";
 import { Customer } from "../../customer/index.js";
 import { Project } from "../../project/index.js";
 import { config } from "../../config/index.js";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
+import {
+  ListQueryModel,
+  ReferenceModel,
+  WithListData,
+  WithData,
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Extension",
@@ -85,9 +90,7 @@ export class Extension extends ReferenceModel {
 
 export class ExtensionCommon extends WithData<
   ExtensionListItemData | ExtensionData
->()(
-  Extension,
-) {
+>()(Extension) {
   public readonly amountOfInstances?: number;
   public readonly assets: ExtensionAsset[];
   public readonly context?: MarketplaceContext;
@@ -106,7 +109,9 @@ export class ExtensionCommon extends WithData<
   public readonly support?: MarketplaceSupportMeta;
 
   public get hasFrontends(): boolean {
-    return this.frontendFragments.length > 0 || this.externalFrontends.length > 0;
+    return (
+      this.frontendFragments.length > 0 || this.externalFrontends.length > 0
+    );
   }
 
   public constructor(data: ExtensionListItemData | ExtensionData) {

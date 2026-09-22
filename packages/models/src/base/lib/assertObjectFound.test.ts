@@ -10,9 +10,7 @@ import { Project } from "../../project/index.js";
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import assertObjectFound from "./assertObjectFound.js";
@@ -39,7 +37,10 @@ test("throws an ObjectNotFoundError containing the type and string reference", (
       refName: "abc",
       type: "Foo",
     });
-    expect(error).toHaveProperty("message", expect.stringMatching(/Foo@abc not found/));
+    expect(error).toHaveProperty(
+      "message",
+      expect.stringMatching(/Foo@abc not found/),
+    );
     return;
   }
 

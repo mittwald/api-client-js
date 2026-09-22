@@ -3,7 +3,10 @@ import type { AxiosRequestConfig } from "axios";
 
 import type { ProjectAIApiKeyBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig , resolveTotalCount } from "../../../base/index.js";
+import {
+  withAxiosRequestConfig,
+  resolveTotalCount,
+} from "../../../base/index.js";
 import { validateResponse } from "../../../base/api/validateResponse.js";
 import { ValidationError } from "../../../errors/index.js";
 

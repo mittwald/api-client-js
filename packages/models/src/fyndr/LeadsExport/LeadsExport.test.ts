@@ -17,16 +17,22 @@ afterEach(resetBehaviors);
 
 describe("LeadsExport", () => {
   test("queries exports with request config and maps list items", async () => {
-    const list = vi.fn().mockResolvedValue({ items: [buildLeadsExportData()], totalCount: 8 });
+    const list = vi
+      .fn()
+      .mockResolvedValue({ items: [buildLeadsExportData()], totalCount: 8 });
     const requestConfig = { retryCache: false };
     installBehaviors({ leadsExport: { list } });
 
-    const result = await LeadsExport.query("c-1", { limit: 3 }).execute(requestConfig);
+    const result = await LeadsExport.query("c-1", { limit: 3 }).execute(
+      requestConfig,
+    );
 
     expect(list).toHaveBeenCalledWith("c-1", { limit: 3 }, requestConfig);
     expect(result).toBeInstanceOf(LeadsExportList);
     expect(result.items[0]).toBeInstanceOf(LeadsExportListItem);
-    expect(result.items[0]?.exportedAt.toUTC().toISO()).toBe("2024-01-01T00:00:00.000Z");
+    expect(result.items[0]?.exportedAt.toUTC().toISO()).toBe(
+      "2024-01-01T00:00:00.000Z",
+    );
     expect(result.items[0]?.exportedBy).toEqual({ userId: "u-1" });
     expect(result.items[0]?.leadCount).toBe(5);
     expect(result.totalCount).toBe(8);

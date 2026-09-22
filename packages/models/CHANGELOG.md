@@ -1,7 +1,7 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [4.474.0](https://github.com/mittwald/api-client-js/compare/4.473.0...4.474.0) (2026-09-28)
 
@@ -75,7 +75,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **deps:** widen @mittwald/react-use-promise peer range to 3.x and 4.x ([#294](https://github.com/mittwald/api-client-js/issues/294)) ([9d15968](https://github.com/mittwald/api-client-js/commit/9d159686b3ef00f5ef88746eb5188c773b71a398)), closes [#293](https://github.com/mittwald/api-client-js/issues/293)
+- **deps:** widen @mittwald/react-use-promise peer range to 3.x and 4.x
+  ([#294](https://github.com/mittwald/api-client-js/issues/294))
+  ([9d15968](https://github.com/mittwald/api-client-js/commit/9d159686b3ef00f5ef88746eb5188c773b71a398)),
+  closes [#293](https://github.com/mittwald/api-client-js/issues/293)
 
 # [4.457.0](https://github.com/mittwald/api-client-js/compare/4.456.0...4.457.0) (2026-09-06)
 
@@ -121,7 +124,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **ci:** pin dev publish job to dev branch and restore version 4.448.0 ([92494a7](https://github.com/mittwald/api-client-js/commit/92494a7ae4c9a317ef5387bb85d66ded75d2ac5e))
+- **ci:** pin dev publish job to dev branch and restore version 4.448.0
+  ([92494a7](https://github.com/mittwald/api-client-js/commit/92494a7ae4c9a317ef5387bb85d66ded75d2ac5e))
 
 # [0.0.0-development-f13d74a-20260826.0](https://github.com/mittwald/api-client-js/compare/0.0.0-development-f13d74a-20260826...0.0.0-development-f13d74a-20260826.0) (2026-08-27)
 
@@ -207,7 +211,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **Project:** use generic patch route for update project description ([89a4912](https://github.com/mittwald/api-client-js/commit/89a49129b66223cb23abdf32d4bf7bf488f72dbf))
+- **Project:** use generic patch route for update project description
+  ([89a4912](https://github.com/mittwald/api-client-js/commit/89a49129b66223cb23abdf32d4bf7bf488f72dbf))
 
 # [4.429.0](https://github.com/mittwald/api-client-js/compare/4.428.0...4.429.0) (2026-07-28)
 
@@ -341,7 +346,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* **Models:** fix compile issue ([88e91bc](https://github.com/mittwald/api-client-js/commit/88e91bccd3f1f7e862ca1e9434b06b99dcfc3c5c))
+- **Models:** fix compile issue
+  ([88e91bc](https://github.com/mittwald/api-client-js/commit/88e91bccd3f1f7e862ca1e9434b06b99dcfc3c5c))
 
 # [4.398.0](https://github.com/mittwald/api-client-js/compare/4.397.0...4.398.0) (2026-06-26)
 
@@ -975,7 +981,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **models:** add contributor model ([ff1d76e](https://github.com/mittwald/api-client-js/commit/ff1d76e0730c9a7b668e75a39b64fcae0378a266))
+- **models:** add contributor model
+  ([ff1d76e](https://github.com/mittwald/api-client-js/commit/ff1d76e0730c9a7b668e75a39b64fcae0378a266))
 
 # [4.246.0](https://github.com/mittwald/api-client-js/compare/4.245.0...4.246.0) (2025-10-28)
 

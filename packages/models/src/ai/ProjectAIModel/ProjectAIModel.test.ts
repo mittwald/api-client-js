@@ -2,8 +2,15 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { buildProjectAIDetailedModelData } from "../../testing/builders/buildProjectAIDetailedModelData.js";
 import { ReferenceModel } from "../../base/index.js";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
-import { ProjectAIModelListItem, ProjectAIModelList, ProjectAIModel } from "./ProjectAIModel.js";
+import {
+  installBehaviors,
+  resetBehaviors,
+} from "../../testing/installBehaviors.js";
+import {
+  ProjectAIModelListItem,
+  ProjectAIModelList,
+  ProjectAIModel,
+} from "./ProjectAIModel.js";
 
 afterEach(resetBehaviors);
 
@@ -28,7 +35,9 @@ describe("ProjectAIModel", () => {
       buildProjectAIDetailedModelData({ replacesModelName: "gpt-old" }),
     );
     const withRemoval = new ProjectAIModelListItem(
-      buildProjectAIDetailedModelData({ removalAt: "2025-01-01T00:00:00.000Z" }),
+      buildProjectAIDetailedModelData({
+        removalAt: "2025-01-01T00:00:00.000Z",
+      }),
     );
 
     expect(withoutRemoval.activeAt.isValid).toBe(true);
@@ -36,7 +45,9 @@ describe("ProjectAIModel", () => {
     expect(withRemoval.removalAt?.isValid).toBe(true);
     expect(withoutRemoval.status).toBe("active");
     expect(withoutRemoval.replacesModelName).toBe("gpt-old");
-    expect(withoutRemoval.documentationLink).toBe("https://docs.example.com/detailed");
+    expect(withoutRemoval.documentationLink).toBe(
+      "https://docs.example.com/detailed",
+    );
   });
 
   it("preserves the model inheritance chain", () => {

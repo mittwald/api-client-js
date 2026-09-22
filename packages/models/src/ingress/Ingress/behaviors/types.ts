@@ -13,7 +13,7 @@ import type {
 export interface IngressBehaviors {
   listCompatibleWithCertificate: (
     certificate:
-      | { certificateContent: string; projectId: string; }
+      | { certificateContent: string; projectId: string }
       | { certificateId: string },
   ) => Promise<IngressListItem[]>;
   list: (

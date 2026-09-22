@@ -10,7 +10,7 @@ afterEach(resetBehaviors);
 test("exposes its input data", () => {
   const input = new UserInput(
     buildAppUserInputData({
-      validationSchema: "{\"type\":\"string\"}",
+      validationSchema: '{"type":"string"}',
       defaultValue: "admin@example.com",
       name: "admin-email",
       dataSource: "users",
@@ -23,7 +23,7 @@ test("exposes its input data", () => {
   expect(input.name).toBe("admin-email");
   expect(input.dataType).toBe("text");
   expect(input.required).toBe(false);
-  expect(input.validationSchema).toBe("{\"type\":\"string\"}");
+  expect(input.validationSchema).toBe('{"type":"string"}');
   expect(input.format).toBe("email");
   expect(input.dataSource).toBe("users");
   expect(input.defaultValue).toBe("admin@example.com");

@@ -4,7 +4,7 @@ import type { ContractItemCommon } from "../ContractItem/index.js";
 import type { PlanChangeData } from "./types.js";
 
 import { ContractArticle } from "../ContractArticle/index.js";
-import { type Money,ZeroMoney } from "../../common/index.js";
+import { type Money, ZeroMoney } from "../../common/index.js";
 import { User } from "../../user/User/User.js";
 import { DataModel } from "../../base/index.js";
 

@@ -15,13 +15,7 @@ import {
   installBehaviors,
   resetBehaviors,
 } from "../../testing/installBehaviors.js";
-import {
-  AppListQuery,
-  AppDetailed,
-  AppListItem,
-  AppList,
-  App,
-} from "./App.js";
+import { AppListQuery, AppDetailed, AppListItem, AppList, App } from "./App.js";
 
 afterEach(resetBehaviors);
 

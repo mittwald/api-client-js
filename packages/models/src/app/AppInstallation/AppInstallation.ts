@@ -20,7 +20,10 @@ import type {
   AppPhase,
 } from "./types.js";
 
-import { SystemSoftwareDetailed, SystemSoftwareId } from "../SystemSoftware/index.js";
+import {
+  SystemSoftwareDetailed,
+  SystemSoftwareId,
+} from "../SystemSoftware/index.js";
 import { InstalledSystemSoftware } from "../InstalledSystemSoftware/index.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { AppLinkedDatabase, AppVersion, AppId, App } from "..//index.js";
@@ -106,9 +109,7 @@ export class AppInstallation extends ReferenceModel {
     await config.behaviors.appInstallation.copy(this.id, data);
   }
 
-  public async createStaging(
-    data: AppInstallationStagingCreateRequestData,
-  ) {
+  public async createStaging(data: AppInstallationStagingCreateRequestData) {
     return config.behaviors.appInstallation.createStaging(this.id, data);
   }
 
@@ -124,9 +125,7 @@ export class AppInstallation extends ReferenceModel {
     });
   }
 
-  public async detachStaging(
-    data: AppInstallationStagingDetachRequestData,
-  ) {
+  public async detachStaging(data: AppInstallationStagingDetachRequestData) {
     return config.behaviors.appInstallation.detachStaging(this.id, data);
   }
 

@@ -11,7 +11,10 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 import { buildContractArticleData } from "../../testing/builders/buildContractArticleData.js";
 import { buildContractItemData } from "../../testing/builders/buildContractItemData.js";
 import { buildContractData } from "../../testing/builders/buildContractData.js";
-import { ContractItemDetailed, ContractItemCommon } from "../ContractItem/index.js";
+import {
+  ContractItemDetailed,
+  ContractItemCommon,
+} from "../ContractItem/index.js";
 import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import { installBehaviors, resetBehaviors } from "../../testing/index.js";
 import { ReferenceModel } from "../../base/index.js";

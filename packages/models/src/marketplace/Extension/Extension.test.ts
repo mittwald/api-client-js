@@ -15,9 +15,7 @@ import {
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import {
@@ -66,7 +64,9 @@ describe("reference and delegation", () => {
 
 describe("get on a missing extension", () => {
   test("throws ObjectNotFoundError", async () => {
-    installBehaviors({ extension: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      extension: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(Extension.get("missing")).rejects.toBeInstanceOf(
       ObjectNotFoundError,
@@ -142,7 +142,9 @@ test("preserves ghostmaker identity chains", async () => {
   expect(item.data).toBeDefined();
 
   installBehaviors({
-    extension: { list: vi.fn().mockResolvedValue({ totalCount: 0, items: [] }) },
+    extension: {
+      list: vi.fn().mockResolvedValue({ totalCount: 0, items: [] }),
+    },
   });
   const result = await Extension.query().execute();
   expect(result).toBeInstanceOf(ExtensionList);
@@ -184,7 +186,9 @@ describe("common variant and idempotency", () => {
   test("getCommon on an already-common model returns itself without re-fetching", async () => {
     const find = vi.fn();
     installBehaviors({ extension: { find } });
-    const item = new ExtensionListItem(buildExtensionListItemData({ id: "e-2" }));
+    const item = new ExtensionListItem(
+      buildExtensionListItemData({ id: "e-2" }),
+    );
 
     const common = await item.getCommon();
 
@@ -223,7 +227,9 @@ describe("absent optional source data", () => {
     expect(extension.frontendFragments).toEqual([]);
     expect(extension.externalFrontends).toEqual([]);
     expect(
-      extension.findFrontendFragment("/projects/project/menu/section/extensions/item"),
+      extension.findFrontendFragment(
+        "/projects/project/menu/section/extensions/item",
+      ),
     ).toBeUndefined();
   });
 });

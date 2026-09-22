@@ -141,7 +141,9 @@ describe("Server detail lookup", () => {
   });
 
   test("get rejects with ObjectNotFoundError when the server is missing", async () => {
-    installBehaviors({ server: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      server: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(Server.get("missing")).rejects.toBeInstanceOf(
       ObjectNotFoundError,
@@ -204,7 +206,9 @@ describe("Server detail lookup", () => {
   });
 
   test("getCommon rejects with ObjectNotFoundError for a missing bare reference", async () => {
-    installBehaviors({ server: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      server: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(Server.ofId("missing").getCommon()).rejects.toBeInstanceOf(
       ObjectNotFoundError,

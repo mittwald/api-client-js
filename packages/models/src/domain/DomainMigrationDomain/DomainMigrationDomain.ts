@@ -1,4 +1,7 @@
-import type { DomainMigrationDomainState, DomainMigrationDomainData } from "./types.js";
+import type {
+  DomainMigrationDomainState,
+  DomainMigrationDomainData,
+} from "./types.js";
 
 import { DomainMigrationDnsRecord } from "../DomainMigrationDnsRecord/index.js";
 import { DataModel } from "../../base/index.js";

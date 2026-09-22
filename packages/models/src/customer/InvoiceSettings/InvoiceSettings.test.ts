@@ -57,7 +57,8 @@ describe("InvoiceSettings common variant", () => {
     const find = vi.fn().mockResolvedValue(buildInvoiceSettingsData());
     installBehaviors({ invoiceSettings: { find } });
 
-    const result = await InvoiceSettings.ofCustomerId("customer-id").findCommon();
+    const result =
+      await InvoiceSettings.ofCustomerId("customer-id").findCommon();
 
     expect(find).toHaveBeenCalledWith("customer-id", undefined);
     expect(result).toBeInstanceOf(InvoiceSettingsDetailed);

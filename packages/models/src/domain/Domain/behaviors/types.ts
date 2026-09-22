@@ -21,7 +21,7 @@ export interface DomainBehaviors {
   updateAuthCode: (
     domainId: string,
     authCode: string,
-  ) => Promise<{ transactionId: string; isAsync: boolean; }>;
+  ) => Promise<{ transactionId: string; isAsync: boolean }>;
 
   createScheduledDeletion: (
     domainId: string,
@@ -45,7 +45,7 @@ export interface DomainBehaviors {
   ) => Promise<void>;
   createAuthCode: (
     domainId: string,
-  ) => Promise<{ expirationDate?: string; authCode: string; }>;
+  ) => Promise<{ expirationDate?: string; authCode: string }>;
   list: (
     query?: DomainListQueryData,
   ) => Promise<QueryResponseData<DomainListItemData>>;

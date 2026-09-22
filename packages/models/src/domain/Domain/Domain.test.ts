@@ -93,7 +93,9 @@ describe("Domain reference and delegation", () => {
   });
 
   test("get throws when the domain is missing", async () => {
-    installBehaviors({ domain: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      domain: { find: vi.fn().mockResolvedValue(undefined) },
+    });
     await expect(Domain.get("missing")).rejects.toThrow();
   });
 

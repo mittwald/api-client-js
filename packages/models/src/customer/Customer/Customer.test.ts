@@ -42,7 +42,9 @@ describe("Customer delegation", () => {
   });
 
   test("find returns undefined for a missing customer", async () => {
-    installBehaviors({ customer: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      customer: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(Customer.find("missing")).resolves.toBeUndefined();
   });
@@ -53,7 +55,9 @@ describe("Customer delegation", () => {
 
     const result = await Customer.create({ name: "Created" });
 
-    expect(create).toHaveBeenCalledWith(expect.objectContaining({ name: "Created" }));
+    expect(create).toHaveBeenCalledWith(
+      expect.objectContaining({ name: "Created" }),
+    );
     expect(result).toBeInstanceOf(Customer);
     expect(result.id).toBe("created-id");
   });
@@ -151,9 +155,13 @@ describe("Customer common variant", () => {
   });
 
   test("findCommon resolves undefined when the reference is not found", async () => {
-    installBehaviors({ customer: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      customer: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
-    await expect(Customer.ofId("missing").findCommon()).resolves.toBeUndefined();
+    await expect(
+      Customer.ofId("missing").findCommon(),
+    ).resolves.toBeUndefined();
   });
 
   test("getCommon on a reference delegates and returns a common variant", async () => {
@@ -166,7 +174,9 @@ describe("Customer common variant", () => {
   });
 
   test("getCommon rejects when the reference is not found", async () => {
-    installBehaviors({ customer: { find: vi.fn().mockResolvedValue(undefined) } });
+    installBehaviors({
+      customer: { find: vi.fn().mockResolvedValue(undefined) },
+    });
 
     await expect(Customer.ofId("missing").getCommon()).rejects.toThrow();
   });
@@ -275,7 +285,9 @@ describe("Customer list query", () => {
     const result = await Customer.query().execute();
 
     expect(result).toBeInstanceOf(CustomerList);
-    expect(result.items.every((item) => item instanceof CustomerListItem)).toBe(true);
+    expect(result.items.every((item) => item instanceof CustomerListItem)).toBe(
+      true,
+    );
     expect(result.items.map((item) => item.name)).toEqual(["Alpha", "Zeta"]);
     expect(list).toHaveBeenCalledWith(
       expect.objectContaining({ limit: config.defaultPaginationLimit }),

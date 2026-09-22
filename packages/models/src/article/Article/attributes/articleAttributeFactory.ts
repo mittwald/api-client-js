@@ -1,7 +1,14 @@
 import type { ArticleAttributeData } from "../types.js";
 
 import { TldAttribute } from "./TldAttribute.js";
-import { RecommendedProjectsArticleAttribute , MachineTypeArticleAttribute , StorageArticleAttribute , CpuArticleAttribute , RamArticleAttribute , ArticleAttribute } from "../internal.js";
+import {
+  RecommendedProjectsArticleAttribute,
+  MachineTypeArticleAttribute,
+  StorageArticleAttribute,
+  CpuArticleAttribute,
+  RamArticleAttribute,
+  ArticleAttribute,
+} from "../internal.js";
 
 export const articleAttributeFactory = (
   articleAttribute: ArticleAttributeData | ArticleAttribute,

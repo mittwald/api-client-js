@@ -186,7 +186,9 @@ export class ArticleListQuery extends ListQueryModel<ArticleListQueryModelData> 
     );
   }
 
-  public readonly find = async (predicate: (item: ArticleListItem) => boolean) => {
+  public readonly find = async (
+    predicate: (item: ArticleListItem) => boolean,
+  ) => {
     const { items } = await this.execute();
     return items.find(predicate);
   };

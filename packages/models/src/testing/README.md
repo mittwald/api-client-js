@@ -16,8 +16,8 @@ tests.
   registry's Proxy target. Pass only the domains and methods a test touches.
   Repeated calls merge onto the domain already installed.
 - `resetBehaviors()` — removes every installed behavior, restoring the
-  registry's fail-fast state (accessing an uninstalled behavior throws the
-  "is not initialized" error again).
+  registry's fail-fast state (accessing an uninstalled behavior throws the "is
+  not initialized" error again).
 - `buildXData(overrides?)` — typed fixture builders per `*Data` type, with
   sensible defaults and shallow overrides. `buildContainerData` is the first
   one; add more lazily as tests need them.
@@ -38,15 +38,19 @@ import { resetBehaviors } from "../testing/index.js";
 afterEach(resetBehaviors);
 ```
 
-Isolation is wired per file (not via a global setup file) until `models`
-becomes its own package with its own vitest config (P0-4).
+Isolation is wired per file (not via a global setup file) until `models` becomes
+its own package with its own vitest config (P0-4).
 
 ## Example
 
 ```ts
 import { afterEach, expect, test, vi } from "vitest";
 import { config } from "../config/config.js";
-import { buildContainerData, installBehaviors, resetBehaviors } from "../testing/index.js";
+import {
+  buildContainerData,
+  installBehaviors,
+  resetBehaviors,
+} from "../testing/index.js";
 
 afterEach(resetBehaviors);
 

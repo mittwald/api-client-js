@@ -38,7 +38,10 @@ describe("ingressTargetFactory", () => {
 
     expect(target).toBeInstanceOf(IngressAppInstallationTarget);
     expect(target?.type).toBe("appInstallation");
-    expect(target).toHaveProperty("appInstallation", expect.any(AppInstallation));
+    expect(target).toHaveProperty(
+      "appInstallation",
+      expect.any(AppInstallation),
+    );
     expect(target).toHaveProperty("appInstallation.id", "inst-1");
   });
 

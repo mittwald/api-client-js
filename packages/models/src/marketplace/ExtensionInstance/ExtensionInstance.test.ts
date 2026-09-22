@@ -17,9 +17,7 @@ import {
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
-    typeof type === "function"
-      ? (type as { name?: string }).name
-      : undefined,
+    typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
 import { ExtensionInstanceContract } from "./ExtensionInstanceContract.js";
@@ -45,9 +43,9 @@ describe("reference and delegation", () => {
   });
 
   test("find delegates and materializes a detailed instance", async () => {
-    const find = vi.fn().mockResolvedValue(
-      buildExtensionInstanceData({ id: "i-1" }),
-    );
+    const find = vi
+      .fn()
+      .mockResolvedValue(buildExtensionInstanceData({ id: "i-1" }));
     installBehaviors({ extensionInstance: { find } });
 
     const instance = await ExtensionInstance.find("i-1");

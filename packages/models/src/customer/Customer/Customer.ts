@@ -36,7 +36,10 @@ import { ExtensionInstance } from "../../marketplace/ExtensionInstance/Extension
 import { CustomerAvatarAccessTokenProvider } from "./CustomerAvatarAccessTokenProvider.js";
 import { CustomerAIModel } from "../../ai/CustomerAIModel/CustomerAIModel.js";
 import { CustomerAIPlan } from "../../ai/CustomerAIPlan/CustomerAIPlan.js";
-import { type FileAccessTokenProvider, type DomFile } from "../../file/index.js";
+import {
+  type FileAccessTokenProvider,
+  type DomFile,
+} from "../../file/index.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { customerPermissions } from "../customerPermissions.js";
 import { Contract } from "../../contract/Contract/Contract.js";

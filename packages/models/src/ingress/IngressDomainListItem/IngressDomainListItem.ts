@@ -1,8 +1,14 @@
 import type { IngressDomainListItemData } from "./types.js";
 import type { Project } from "../../project/index.js";
 
-import { type DomainDetailed, type DomainListItem } from "../../domain/Domain/index.js";
-import { type IngressDetailed, type IngressListItem } from "../Ingress/index.js";
+import {
+  type DomainDetailed,
+  type DomainListItem,
+} from "../../domain/Domain/index.js";
+import {
+  type IngressDetailed,
+  type IngressListItem,
+} from "../Ingress/index.js";
 import { type OrderDetailed, type OrderListItem } from "../../order/index.js";
 import { DataModel } from "../../base/index.js";
 

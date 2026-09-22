@@ -15,7 +15,10 @@ import type {
   ContainerDeclareServiceData,
 } from "./types.js";
 
-import { containerServiceNameMaxLength, containerMaxTextLength } from "./types.js";
+import {
+  containerServiceNameMaxLength,
+  containerMaxTextLength,
+} from "./types.js";
 import { ContainerVolumeRelation } from "./ContainerVolumeRelation.js";
 import { ContainerEnvVariableList } from "./ContainerEnvVariable.js";
 import { shellSplit } from "../lib/shellwords.js";

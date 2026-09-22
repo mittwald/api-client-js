@@ -15,7 +15,9 @@ import {
   DnsRecordSettings,
 } from "../DnsRecordSettings/index.js";
 
-export abstract class DnsRecordMxBase<T extends DnsRecordMxData> extends DataModel<T> {
+export abstract class DnsRecordMxBase<
+  T extends DnsRecordMxData,
+> extends DataModel<T> {
   public readonly dnsZone: DnsZoneCommon;
   public constructor(dnsZone: DnsZoneCommon, data: T) {
     super(data);
