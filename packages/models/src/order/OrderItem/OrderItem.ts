@@ -1,6 +1,6 @@
-import type { OrderAttributeConfigurationData, OrderItemData } from "./types";
+import type { OrderAttributeConfigurationData, OrderItemData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class OrderItem extends DataModel<OrderItemData> {
   public readonly attributeConfiguration?: OrderAttributeConfigurationData[];

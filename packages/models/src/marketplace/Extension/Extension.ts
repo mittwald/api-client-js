@@ -1,8 +1,8 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { MarketplaceContext } from "../ExtensionInstance";
-import type { ExtensionPricePlan } from "./ExtensionPricePlan";
+import type { MarketplaceContext } from "../ExtensionInstance/index.js";
+import type { ExtensionPricePlan } from "./ExtensionPricePlan.js";
 import type {
   MarketplaceDetailedDescriptionsFormat,
   ExtensionListQueryData,
@@ -11,22 +11,22 @@ import type {
   ExtensionListItemData,
   ExternalFrontend,
   ExtensionData,
-} from "./types";
+} from "./types.js";
 
-import { extensionVariantsPricePlanFactory } from "./ExtensionPricePlan";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { AggregateMetaData, LocalizedText } from "../../common";
-import { ContributorExtension } from "../ContributorExtension";
-import { ExtensionInstance } from "../ExtensionInstance";
-import { FrontendFragment } from "./FrontendFragment";
-import { ExtensionAsset } from "./ExtensionAsset";
-import { frontendFragmentAnchors } from "./types";
-import { File } from "../../file/File/internal";
-import { Contributor } from "../Contributor";
-import { Customer } from "../../customer";
-import { Project } from "../../project";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import { extensionVariantsPricePlanFactory } from "./ExtensionPricePlan.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AggregateMetaData, LocalizedText } from "../../common/index.js";
+import { ContributorExtension } from "../ContributorExtension/index.js";
+import { ExtensionInstance } from "../ExtensionInstance/index.js";
+import { FrontendFragment } from "./FrontendFragment.js";
+import { ExtensionAsset } from "./ExtensionAsset.js";
+import { frontendFragmentAnchors } from "./types.js";
+import { File } from "../../file/File/internal.js";
+import { Contributor } from "../Contributor/index.js";
+import { Customer } from "../../customer/index.js";
+import { Project } from "../../project/index.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Extension",

@@ -1,7 +1,7 @@
-import type { ExtensionAssetData } from "./types";
+import type { ExtensionAssetData } from "./types.js";
 
-import { File } from "../../file/File/internal";
-import { DataModel } from "../../base";
+import { File } from "../../file/File/internal.js";
+import { DataModel } from "../../base/index.js";
 
 export class ExtensionAsset extends DataModel<ExtensionAssetData> {
   public readonly file: File;

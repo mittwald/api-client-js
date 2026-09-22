@@ -1,10 +1,10 @@
 import { type MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { PerformanceTtfbAnalysisBehaviors } from "./types";
+import type { PerformanceTtfbAnalysisBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { anyStatus404 } from "../../../base/api/typeFixes";
-import { withAxiosRequestConfig } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { anyStatus404 } from "../../../base/api/typeFixes.js";
+import { withAxiosRequestConfig } from "../../../base/index.js";
 
 export const apiPerformanceTtfbAnalysisBehaviors = (
   client: MittwaldAPIV2Client,

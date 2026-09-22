@@ -5,15 +5,15 @@ import type {
   AIModelListItemData,
   AIModelLabel,
   AIModelData,
-} from "./types";
+} from "./types.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "AIModel",

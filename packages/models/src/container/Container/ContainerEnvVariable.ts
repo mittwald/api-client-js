@@ -1,9 +1,9 @@
 import type {
   ContainerEnvVariableListData,
   ContainerEnvVariableData,
-} from "./types";
+} from "./types.js";
 
-import { ListDataModel, DataModel } from "../../base";
+import { ListDataModel, DataModel } from "../../base/index.js";
 
 export class ContainerEnvVariable extends DataModel<ContainerEnvVariableData> {
   public readonly key: string;

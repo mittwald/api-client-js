@@ -1,4 +1,4 @@
-import type { UserData } from "../../user/User/types";
+import type { UserData } from "../../user/User/types.js";
 
 export function buildUserData(
   overrides: Partial<UserData> = {},

@@ -1,11 +1,11 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   TldPriceListQueryData,
   TldPriceListItemData,
   TldContactSchemas,
   TldListQueryData,
   TldListItemData,
-} from "../types";
+} from "../types.js";
 
 export interface TldBehaviors {
   queryPrices: (

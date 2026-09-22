@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { MySql } from "../MySql";
+import type { MySql } from "../MySql/index.js";
 
 export type MySqlUserData =
   MittwaldAPIV2.Operations.DatabaseGetMysqlUser.ResponseData;

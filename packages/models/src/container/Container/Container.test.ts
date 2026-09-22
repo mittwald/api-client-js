@@ -8,14 +8,14 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { ContainerDetailed, ContainerCommon, Container } from "./Container";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { AggregateMetaData } from "../../common";
+import { ContainerDetailed, ContainerCommon, Container } from "./Container.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { AggregateMetaData } from "../../common/index.js";
 import {
   buildContainerData,
   installBehaviors,
   resetBehaviors,
-} from "../../testing";
+} from "../../testing/index.js";
 
 afterEach(resetBehaviors);
 

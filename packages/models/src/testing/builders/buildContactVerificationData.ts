@@ -1,4 +1,4 @@
-import type { ContactVerificationData } from "../../domain/ContactVerification/types";
+import type { ContactVerificationData } from "../../domain/ContactVerification/types.js";
 
 export function buildContactVerificationData(
   overrides?: Partial<ContactVerificationData>,

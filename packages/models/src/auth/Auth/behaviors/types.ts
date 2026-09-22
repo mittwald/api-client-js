@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { AuthenticateRequestData, AuthenticateData } from "../types";
+import type { AuthenticateRequestData, AuthenticateData } from "../types.js";
 
 export interface AuthBehaviors {
   authenticate: (

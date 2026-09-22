@@ -1,7 +1,7 @@
-import type { MailAddressArchiveData } from "./types";
+import type { MailAddressArchiveData } from "./types.js";
 
-import { DataModel } from "../../base";
-import { Bytes } from "../../common";
+import { DataModel } from "../../base/index.js";
+import { Bytes } from "../../common/index.js";
 
 export class MailAddressArchive extends DataModel<MailAddressArchiveData> {
   public readonly active: boolean;

@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildDomainProcessData } from "../../testing/builders/buildDomainProcessData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { DomainProcess } from "./DomainProcess";
+import { buildDomainProcessData } from "../../testing/builders/buildDomainProcessData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { DomainProcess } from "./DomainProcess.js";
 
 afterEach(resetBehaviors);
 

@@ -1,7 +1,7 @@
 import type {
   CustomerMembershipListItemData,
   CustomerMembershipData,
-} from "../../customer/CustomerMembership/types";
+} from "../../customer/CustomerMembership/types.js";
 
 const defaults = {
   email: "member@example.com",

@@ -1,4 +1,4 @@
-import type { InstalledSystemSoftwareData } from "../../app/InstalledSystemSoftware/types";
+import type { InstalledSystemSoftwareData } from "../../app/InstalledSystemSoftware/types.js";
 
 export function buildInstalledSystemSoftwareData(
   overrides?: Partial<InstalledSystemSoftwareData>,

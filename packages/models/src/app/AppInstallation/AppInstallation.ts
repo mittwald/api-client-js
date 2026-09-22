@@ -3,9 +3,9 @@ import invariant from "tiny-invariant";
 import { DateTime } from "luxon";
 import { omit } from "remeda";
 
-import type { MySqlDetailed, RedisDetailed } from "../../database";
-import type { IngressListItem, IngressPath } from "../../ingress";
-import type { AppUpdatePolicyData } from "../";
+import type { MySqlDetailed, RedisDetailed } from "../../database/index.js";
+import type { IngressListItem, IngressPath } from "../../ingress/index.js";
+import type { AppUpdatePolicyData } from "..//index.js";
 import type {
   AppInstallationStagingCreateRequestData,
   AppInstallationStagingDetachRequestData,
@@ -18,26 +18,26 @@ import type {
   AppInstallationData,
   AppSavedUserInput,
   AppPhase,
-} from "./types";
+} from "./types.js";
 
-import { SystemSoftwareDetailed, SystemSoftwareId } from "../SystemSoftware";
-import { InstalledSystemSoftware } from "../InstalledSystemSoftware";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { AppLinkedDatabase, AppVersion, AppId, App } from "../";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { User } from "../../user/User/User";
-import { Cronjob } from "../../cronjob";
-import { Ingress } from "../../ingress";
-import { MySql } from "../../database";
-import { config } from "../../config";
+import { SystemSoftwareDetailed, SystemSoftwareId } from "../SystemSoftware/index.js";
+import { InstalledSystemSoftware } from "../InstalledSystemSoftware/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AppLinkedDatabase, AppVersion, AppId, App } from "..//index.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { User } from "../../user/User/User.js";
+import { Cronjob } from "../../cronjob/index.js";
+import { Ingress } from "../../ingress/index.js";
+import { MySql } from "../../database/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "AppInstallation",

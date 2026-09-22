@@ -1,5 +1,5 @@
-import type { LeadListQueryData, LeadListItemData, LeadData } from "../types";
-import type { QueryResponseData } from "../../../base";
+import type { LeadListQueryData, LeadListItemData, LeadData } from "../types.js";
+import type { QueryResponseData } from "../../../base/index.js";
 
 export interface LeadBehaviors {
   list: (

@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 
-import type { FileDownloadTokenData } from "./types";
+import type { FileDownloadTokenData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class FileDownloadToken extends DataModel<FileDownloadTokenData> {
   public readonly expiresAt: DateTime;

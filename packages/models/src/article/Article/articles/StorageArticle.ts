@@ -1,8 +1,8 @@
 import invariant from "tiny-invariant";
 
-import type { Bytes } from "../../../common";
+import type { Bytes } from "../../../common/index.js";
 
-import { StorageArticleAttribute, ArticleCommon } from "../internal";
+import { StorageArticleAttribute, ArticleCommon } from "../internal.js";
 
 export class StorageArticle extends ArticleCommon {
   public get bytes(): Bytes {

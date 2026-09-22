@@ -1,6 +1,6 @@
-import type { FileUploadTokenData } from "./types";
+import type { FileUploadTokenData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class FileUploadToken extends DataModel<FileUploadTokenData> {
   public readonly token: string;

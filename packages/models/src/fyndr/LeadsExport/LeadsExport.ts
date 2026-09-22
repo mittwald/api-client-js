@@ -9,11 +9,11 @@ import type {
   LeadsExportRequestData,
   LeadsExportExporter,
   LeadsExportData,
-} from "./types";
+} from "./types.js";
 
-import { Customer } from "../../customer/Customer/Customer";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "LeadsExport",

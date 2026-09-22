@@ -1,2 +1,2 @@
-export * from "./MySqlUser";
-export * from "./types";
+export * from "./MySqlUser.js";
+export * from "./types.js";

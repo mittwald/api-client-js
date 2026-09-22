@@ -7,8 +7,8 @@ export {
   ProjectDetailed,
   ProjectListItem,
   ProjectListQuery,
-} from "./internal";
-export * from "./Project/types";
-export * from "./ProjectInvite";
-export * from "./ProjectMembership";
-export * from "./projectPermissions";
+} from "./internal.js";
+export * from "./Project/types.js";
+export * from "./ProjectInvite/index.js";
+export * from "./ProjectMembership/index.js";
+export * from "./projectPermissions.js";

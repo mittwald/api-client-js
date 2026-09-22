@@ -1,3 +1,3 @@
-export * from "./RelocationRequest";
-export * from "./types";
-export * from "./utils/articles";
+export * from "./RelocationRequest.js";
+export * from "./types.js";
+export * from "./utils/articles.js";

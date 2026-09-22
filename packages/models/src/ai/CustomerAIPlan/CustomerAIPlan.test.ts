@@ -1,22 +1,22 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { ContractDetailed } from "../../contract";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
-import { Customer } from "../../customer";
+import { ContractDetailed } from "../../contract/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
+import { Customer } from "../../customer/index.js";
 import {
   CustomerAIPlanDetailed,
   CustomerAIPlanListItem,
   CustomerAIPlanCommon,
   CustomerAIPlanList,
   CustomerAIPlan,
-} from "./CustomerAIPlan";
+} from "./CustomerAIPlan.js";
 import {
   buildCustomerAIPlanData,
   buildContractData,
   installBehaviors,
   resetBehaviors,
-} from "../../testing";
+} from "../../testing/index.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   // eslint-disable-next-line @typescript-eslint/consistent-type-imports

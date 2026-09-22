@@ -1,9 +1,9 @@
 import type { AxiosRequestConfig } from "axios";
 
-import { ReferenceModel } from "../../base";
-import { config } from "../../config";
-import { File } from "./internal";
-import { DomFile } from "./types";
+import { ReferenceModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
+import { File } from "./internal.js";
+import { DomFile } from "./types.js";
 
 interface Base64InitObject {
   base64: string;

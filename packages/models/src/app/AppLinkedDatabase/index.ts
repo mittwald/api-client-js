@@ -1,2 +1,2 @@
-export * from "./AppLinkedDatabase";
-export * from "./types";
+export * from "./AppLinkedDatabase.js";
+export * from "./types.js";

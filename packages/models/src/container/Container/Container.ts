@@ -5,9 +5,9 @@ import { omit, pick } from "remeda";
 import { DateTime } from "luxon";
 import slugify from "slugify";
 
-import type { ContainerVolumeRelationList } from "./ContainerVolumeRelation";
-import type { ContainerEnvVariableList } from "./ContainerEnvVariable";
-import type { ContainerPortList } from "./ContainerPort";
+import type { ContainerVolumeRelationList } from "./ContainerVolumeRelation.js";
+import type { ContainerEnvVariableList } from "./ContainerEnvVariable.js";
+import type { ContainerPortList } from "./ContainerPort.js";
 import type {
   ContainerStackPatchRequestData,
   ContainerListQueryModelData,
@@ -16,27 +16,27 @@ import type {
   ContainerUpdateData,
   ContainerStatus,
   ContainerData,
-} from "./types";
+} from "./types.js";
 
-import { type DownloadableFile, AggregateMetaData } from "../../common";
-import { ContainerVolumeRelation } from "./ContainerVolumeRelation";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContainerTemplate } from "./ContainerTemplate";
-import { ContainerStack } from "./ContainerStack";
-import { ContainerState } from "./ContainerState";
-import { Project } from "../../project/internal";
-import { shellSplit } from "../lib/shellwords";
-import { Cronjob } from "../../cronjob";
-import { ImageMeta } from "./ImageMeta";
-import { config } from "../../config";
-import { Volume } from "../Volume";
+import { type DownloadableFile, AggregateMetaData } from "../../common/index.js";
+import { ContainerVolumeRelation } from "./ContainerVolumeRelation.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContainerTemplate } from "./ContainerTemplate.js";
+import { ContainerStack } from "./ContainerStack.js";
+import { ContainerState } from "./ContainerState.js";
+import { Project } from "../../project/internal.js";
+import { shellSplit } from "../lib/shellwords.js";
+import { Cronjob } from "../../cronjob/index.js";
+import { ImageMeta } from "./ImageMeta.js";
+import { config } from "../../config/index.js";
+import { Volume } from "../Volume/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Container",

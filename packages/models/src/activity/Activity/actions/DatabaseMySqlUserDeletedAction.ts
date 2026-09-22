@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { DatabaseMySqlUserAction } from "./DatabaseMySqlUserAction";
+import { DatabaseMySqlUserAction } from "./DatabaseMySqlUserAction.js";
 
 type ActivityDatabaseMysqlUserDeleted =
   MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserDeleted;

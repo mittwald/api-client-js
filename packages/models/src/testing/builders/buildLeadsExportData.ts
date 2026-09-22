@@ -1,4 +1,4 @@
-import type { LeadsExportData } from "../../fyndr/LeadsExport/types";
+import type { LeadsExportData } from "../../fyndr/LeadsExport/types.js";
 
 export function buildLeadsExportData(
   overrides?: Partial<LeadsExportData>,

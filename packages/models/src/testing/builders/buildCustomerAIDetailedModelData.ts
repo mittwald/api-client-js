@@ -1,4 +1,4 @@
-import type { CustomerAIModelData } from "../../ai/CustomerAIModel/types";
+import type { CustomerAIModelData } from "../../ai/CustomerAIModel/types.js";
 
 export function buildCustomerAIDetailedModelData(
   overrides?: Partial<CustomerAIModelData>,

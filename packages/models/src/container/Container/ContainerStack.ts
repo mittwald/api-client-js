@@ -12,22 +12,22 @@ import type {
   ContainerStackPatchRequestData,
   ContainerStackListItemData,
   ContainerStackData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContainerTemplate } from "./ContainerTemplate";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { ContainerListItem } from "./Container";
-import { VolumeListItem } from "../Volume";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContainerTemplate } from "./ContainerTemplate.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ContainerListItem } from "./Container.js";
+import { VolumeListItem } from "../Volume/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ContainerStack",

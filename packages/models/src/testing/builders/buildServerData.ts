@@ -1,4 +1,4 @@
-import type { ServerListItemData } from "../../server/Server/types";
+import type { ServerListItemData } from "../../server/Server/types.js";
 
 export function buildServerListItemData(
   overrides?: Partial<ServerListItemData>,

@@ -1,2 +1,2 @@
-export * from "./BackupSchedule";
-export * from "./types";
+export * from "./BackupSchedule.js";
+export * from "./types.js";

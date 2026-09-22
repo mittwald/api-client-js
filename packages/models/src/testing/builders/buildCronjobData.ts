@@ -1,4 +1,4 @@
-import type { CronjobListItemData, CronjobData } from "../../cronjob/Cronjob/types";
+import type { CronjobListItemData, CronjobData } from "../../cronjob/Cronjob/types.js";
 
 export function buildCronjobData(
   overrides?: Partial<CronjobData>,

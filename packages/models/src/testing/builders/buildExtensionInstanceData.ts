@@ -1,4 +1,4 @@
-import type { ExtensionInstanceData } from "../../marketplace/ExtensionInstance/types";
+import type { ExtensionInstanceData } from "../../marketplace/ExtensionInstance/types.js";
 
 export function buildExtensionInstanceData(
   overrides?: Partial<ExtensionInstanceData>,

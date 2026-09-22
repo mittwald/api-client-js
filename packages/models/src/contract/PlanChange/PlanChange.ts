@@ -1,12 +1,12 @@
 import { DateTime } from "luxon";
 
-import type { ContractItemCommon } from "../ContractItem";
-import type { PlanChangeData } from "./types";
+import type { ContractItemCommon } from "../ContractItem/index.js";
+import type { PlanChangeData } from "./types.js";
 
-import { ContractArticle } from "../ContractArticle";
-import { type Money,ZeroMoney } from "../../common";
-import { User } from "../../user/User/User";
-import { DataModel } from "../../base";
+import { ContractArticle } from "../ContractArticle/index.js";
+import { type Money,ZeroMoney } from "../../common/index.js";
+import { User } from "../../user/User/User.js";
+import { DataModel } from "../../base/index.js";
 
 export class PlanChange extends DataModel<PlanChangeData> {
   public readonly articles: ContractArticle[];

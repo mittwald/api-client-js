@@ -1,4 +1,4 @@
-import type { DomainOrderPreviewData } from "../../order/Order/types";
+import type { DomainOrderPreviewData } from "../../order/Order/types.js";
 
 export function buildDomainOrderPreviewData(
   overrides: Partial<DomainOrderPreviewData> = {},

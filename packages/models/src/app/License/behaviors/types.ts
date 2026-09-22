@@ -1,9 +1,9 @@
-import type { ContractData } from "../../../contract";
+import type { ContractData } from "../../../contract/index.js";
 import type {
   LicenseListQueryData,
   LicenseListItemData,
   LicenseData,
-} from "../types";
+} from "../types.js";
 
 export interface LicenseBehaviors {
   list: (

@@ -1,4 +1,4 @@
-import type { AIApiKeyData } from "../../ai/types";
+import type { AIApiKeyData } from "../../ai/types.js";
 
 export function buildAIApiKeyData(
   overrides?: Partial<AIApiKeyData>,

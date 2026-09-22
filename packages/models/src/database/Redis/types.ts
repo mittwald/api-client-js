@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { Project } from "../../project";
-import type { Bytes } from "../../common";
+import type { Project } from "../../project/index.js";
+import type { Bytes } from "../../common/index.js";
 
 export type RedisData =
   MittwaldAPIV2.Operations.DatabaseGetRedisDatabase.ResponseData;

@@ -3,16 +3,16 @@ import { afterEach, describe, expect, test, vi } from "vitest";
 import type {
   ContainerListQueryData,
   ContainerListItemData,
-} from "../../container/Container/types";
+} from "../../container/Container/types.js";
 
-import { ListQueryModel } from "./ListQueryModel";
-import { ListDataModel } from "./ListDataModel";
-import { config } from "../../config/config";
+import { ListQueryModel } from "./ListQueryModel.js";
+import { ListDataModel } from "./ListDataModel.js";
+import { config } from "../../config/config.js";
 import {
   buildContainerData,
   installBehaviors,
   resetBehaviors,
-} from "../../testing";
+} from "../../testing/index.js";
 
 afterEach(resetBehaviors);
 

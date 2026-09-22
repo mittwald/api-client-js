@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-import { ContainerVolumeRelation } from "./ContainerVolumeRelation";
-import { parseRamLimitToGb, parseCpuLimit } from "./resourceLimits";
-import { ContainerPort } from "./ContainerPort";
-import { volumeNameRegExp } from "../Volume";
+import { ContainerVolumeRelation } from "./ContainerVolumeRelation.js";
+import { parseRamLimitToGb, parseCpuLimit } from "./resourceLimits.js";
+import { ContainerPort } from "./ContainerPort.js";
+import { volumeNameRegExp } from "../Volume/index.js";
 import {
   containerServiceNameMaxLength,
   containerServiceNameRegex,
@@ -11,7 +11,7 @@ import {
   containerMaxTextLength,
   containerEnvKeyRegex,
   containerPortRegExp,
-} from "./types";
+} from "./types.js";
 
 export const containerCommandMaxLength = 8000;
 

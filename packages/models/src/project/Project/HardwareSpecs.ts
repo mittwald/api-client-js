@@ -1,12 +1,12 @@
 import { z } from "zod";
 
-import { getRecommendedStorage } from "../../order/Order/lib";
+import { getRecommendedStorage } from "../../order/Order/lib.js";
 import {
   CpuArticleAttribute,
   RamArticleAttribute,
   type ArticleCommon,
-} from "../../article/Article/internal";
-import { Bytes } from "../../common";
+} from "../../article/Article/internal.js";
+import { Bytes } from "../../common/index.js";
 
 export const hardwareSpecsSchema = z.object({
   ramBytes: z.number().int(),

@@ -1,6 +1,6 @@
-import type { HandleData } from "../../domain/DomainHandle/types";
+import type { HandleData } from "../../domain/DomainHandle/types.js";
 
-import { buildDomainHandleFieldData } from "./buildDomainHandleFieldData";
+import { buildDomainHandleFieldData } from "./buildDomainHandleFieldData.js";
 
 export function buildDomainHandleData(
   overrides?: Partial<HandleData>,

@@ -1,3 +1,3 @@
-export * from "./Project/HardwareSpecs";
-export * from "./Project/MachineTypeSpecs";
-export * from "./Project/Project";
+export * from "./Project/HardwareSpecs.js";
+export * from "./Project/MachineTypeSpecs.js";
+export * from "./Project/Project.js";

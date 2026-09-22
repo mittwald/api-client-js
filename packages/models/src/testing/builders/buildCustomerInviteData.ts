@@ -1,7 +1,7 @@
 import type {
   CustomerInviteListItemData,
   CustomerInviteData,
-} from "../../customer/CustomerInvite/types";
+} from "../../customer/CustomerInvite/types.js";
 
 const defaults = {
   information: { invitedBy: "user-inviter" },

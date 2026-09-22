@@ -1,4 +1,4 @@
-import type { DeliveryBoxData } from "../../mail/DeliveryBox/types";
+import type { DeliveryBoxData } from "../../mail/DeliveryBox/types.js";
 
 export function buildDeliveryBoxData(
   overrides?: Partial<DeliveryBoxData>,

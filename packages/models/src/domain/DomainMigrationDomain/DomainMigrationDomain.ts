@@ -1,7 +1,7 @@
-import type { DomainMigrationDomainState, DomainMigrationDomainData } from "./types";
+import type { DomainMigrationDomainState, DomainMigrationDomainData } from "./types.js";
 
-import { DomainMigrationDnsRecord } from "../DomainMigrationDnsRecord";
-import { DataModel } from "../../base";
+import { DomainMigrationDnsRecord } from "../DomainMigrationDnsRecord/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class DomainMigrationDomain extends DataModel<DomainMigrationDomainData> {
   public readonly dnsRecords: DomainMigrationDnsRecord[];

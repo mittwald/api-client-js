@@ -1,13 +1,13 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildSessionTokenData } from "../../testing/builders/buildSessionTokenData";
-import { buildMfaStatusData } from "../../testing/builders/buildMfaStatusData";
-import { buildMfaInitData } from "../../testing/builders/buildMfaInitData";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { RecoveryCodes } from "../RecoveryCodes";
-import { DataModel } from "../../base";
-import { MfaStatus, Mfa } from "./Mfa";
-import { MfaInit } from "./MfaInit";
+import { buildSessionTokenData } from "../../testing/builders/buildSessionTokenData.js";
+import { buildMfaStatusData } from "../../testing/builders/buildMfaStatusData.js";
+import { buildMfaInitData } from "../../testing/builders/buildMfaInitData.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { RecoveryCodes } from "../RecoveryCodes/index.js";
+import { DataModel } from "../../base/index.js";
+import { MfaStatus, Mfa } from "./Mfa.js";
+import { MfaInit } from "./MfaInit.js";
 
 afterEach(resetBehaviors);
 

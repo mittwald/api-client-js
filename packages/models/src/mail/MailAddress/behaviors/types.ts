@@ -1,5 +1,5 @@
-import type { MailAddressBackupData } from "../../MailAddressBackup";
-import type { QueryResponseData } from "../../../base";
+import type { MailAddressBackupData } from "../../MailAddressBackup/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   AutoresponderUpdateRequestData,
   SpamProtectionRequestData,
@@ -9,7 +9,7 @@ import type {
   ForwardRequestData,
   MailAddressData,
   EmailOrigin,
-} from "../types";
+} from "../types.js";
 
 export interface MailAddressBehaviors {
   list: (

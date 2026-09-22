@@ -2,7 +2,7 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import invariant from "tiny-invariant";
 import { omit } from "remeda";
 
-import type { MailAddressBackupListQuery } from "../MailAddressBackup";
+import type { MailAddressBackupListQuery } from "../MailAddressBackup/index.js";
 import type {
   AutoresponderUpdateRequestData,
   MailAddressListQueryModelData,
@@ -11,26 +11,26 @@ import type {
   MailAddressRequestData,
   ForwardRequestData,
   MailAddressData,
-} from "./types";
+} from "./types.js";
 
-import { MailArticleTemplate } from "../../article/Article/templates/MailArticleTemplate";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { MailAddressArchive } from "../MailAddressArchive";
-import { MailAddressBackup } from "../MailAddressBackup";
-import { AggregateMetaData, Bytes } from "../../common";
-import { MailArchiveOrderRequest } from "../../order";
-import { Project } from "../../project/internal";
-import { Autoresponder } from "../Autoresponder";
-import { MailRateLimit } from "../MailRateLimit";
-import { Article } from "../../article";
-import { config } from "../../config";
+import { MailArticleTemplate } from "../../article/Article/templates/MailArticleTemplate.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { MailAddressArchive } from "../MailAddressArchive/index.js";
+import { MailAddressBackup } from "../MailAddressBackup/index.js";
+import { AggregateMetaData, Bytes } from "../../common/index.js";
+import { MailArchiveOrderRequest } from "../../order/index.js";
+import { Project } from "../../project/internal.js";
+import { Autoresponder } from "../Autoresponder/index.js";
+import { MailRateLimit } from "../MailRateLimit/index.js";
+import { Article } from "../../article/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "MailAddress",

@@ -1,13 +1,13 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { ActivityBehaviors } from "./types";
+import type { ActivityBehaviors } from "./types.js";
 
 import {
   withAxiosRequestConfig,
   resolveTotalCount,
   validateResponse,
-} from "../../../base";
+} from "../../../base/index.js";
 
 export const apiActivityBehaviors = (
   client: MittwaldAPIV2Client,

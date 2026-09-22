@@ -1,23 +1,23 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { SystemSoftwareVersionListQuery } from "../SystemSoftwareVersion";
+import type { SystemSoftwareVersionListQuery } from "../SystemSoftwareVersion/index.js";
 import type {
   SystemSoftwareListQueryData,
   SystemSoftwareListItemData,
   SystemSoftwareData,
   SystemSoftwareName,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { SystemSoftwareVersion } from "../SystemSoftwareVersion";
-import { SystemSoftwareFullNames } from "./types";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { SystemSoftwareVersion } from "../SystemSoftwareVersion/index.js";
+import { SystemSoftwareFullNames } from "./types.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "SystemSoftware",

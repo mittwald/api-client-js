@@ -2,11 +2,11 @@ import type { AxiosRequestConfig } from "axios";
 
 import { DateTime } from "luxon";
 
-import type { ContainerLogChunk, ContainerLogData } from "./types";
-import type { Container } from "./Container";
+import type { ContainerLogChunk, ContainerLogData } from "./types.js";
+import type { Container } from "./Container.js";
 
-import { WithData } from "../../base";
-import { config } from "../../config";
+import { WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 export class ContainerLog {
   public static async get(container: Container) {

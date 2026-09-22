@@ -2,7 +2,7 @@ import type {
   SystemSoftwareListQueryData,
   SystemSoftwareListItemData,
   SystemSoftwareData,
-} from "../types";
+} from "../types.js";
 
 export interface SystemSoftwareBehaviors {
   list: (

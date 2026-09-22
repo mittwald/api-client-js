@@ -1,2 +1,2 @@
-export * from "./CustomerAIModel";
-export * from "./types";
+export * from "./CustomerAIModel.js";
+export * from "./types.js";

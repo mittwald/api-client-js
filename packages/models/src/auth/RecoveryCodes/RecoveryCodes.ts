@@ -1,7 +1,7 @@
-import type { DownloadableFile } from "../../common";
-import type { RecoveryCodesData } from "./types";
+import type { DownloadableFile } from "../../common/index.js";
+import type { RecoveryCodesData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class RecoveryCodes extends DataModel<RecoveryCodesData> {
   public readonly codes: string;

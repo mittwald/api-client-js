@@ -3,12 +3,12 @@ import type {
   DomainOrderRequestModelData,
   CompleteOrderRequestData,
   DomainOrderPreviewData,
-} from "../types";
+} from "../types.js";
 
-import { DomainOrderPreview } from "../Preview/DomainOrderPreview";
-import { DataModel, extractId } from "../../../base";
-import { config } from "../../../config";
-import { Order } from "../Order";
+import { DomainOrderPreview } from "../Preview/DomainOrderPreview.js";
+import { DataModel, extractId } from "../../../base/index.js";
+import { config } from "../../../config/index.js";
+import { Order } from "../Order.js";
 
 export class DomainOrderRequest extends DataModel<DomainOrderPreviewRequestModelData> {
   public readonly authCode?: string;

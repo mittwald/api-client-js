@@ -1,4 +1,4 @@
-import type { MySqlUserData } from "../../database/MySqlUser/types";
+import type { MySqlUserData } from "../../database/MySqlUser/types.js";
 
 export function buildMySqlUserData(
   overrides?: Partial<MySqlUserData>,

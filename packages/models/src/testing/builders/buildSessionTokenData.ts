@@ -1,4 +1,4 @@
-import type { SessionTokenData } from "../../auth/SessionToken/types";
+import type { SessionTokenData } from "../../auth/SessionToken/types.js";
 
 export function buildSessionTokenData(
   overrides?: Partial<SessionTokenData>,

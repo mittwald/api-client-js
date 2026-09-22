@@ -1,4 +1,4 @@
-import type { ContributorOnBehalfInvoiceData } from "../../marketplace/Contributor/types";
+import type { ContributorOnBehalfInvoiceData } from "../../marketplace/Contributor/types.js";
 
 export function buildContributorOnBehalfInvoiceData(
   overrides?: Partial<ContributorOnBehalfInvoiceData>,

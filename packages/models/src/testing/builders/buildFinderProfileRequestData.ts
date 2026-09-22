@@ -1,4 +1,4 @@
-import type { FinderProfileRequestData } from "../../fyndr/FinderProfileRequest/types";
+import type { FinderProfileRequestData } from "../../fyndr/FinderProfileRequest/types.js";
 
 export function buildFinderProfileRequestData(
   overrides?: Partial<FinderProfileRequestData>,

@@ -1,2 +1,2 @@
-export * from "./DomainProcess";
-export * from "./types";
+export * from "./DomainProcess.js";
+export * from "./types.js";

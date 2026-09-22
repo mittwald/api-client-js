@@ -1,16 +1,16 @@
 import { beforeEach, afterEach, describe, expect, test, vi } from "vitest";
 
-import type { DnsZoneCommon } from "../DnsZone";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 
 import {
   buildDnsRecordCaaComponentData,
   buildDnsRecordCaaEntry,
-} from "../../testing/builders/buildDnsRecordCaaData";
-import { DnsRecordCaa } from "./DnsRecordCaa";
+} from "../../testing/builders/buildDnsRecordCaaData.js";
+import { DnsRecordCaa } from "./DnsRecordCaa.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 beforeEach(() => installBehaviors({}));
 afterEach(resetBehaviors);

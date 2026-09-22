@@ -9,25 +9,25 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { CronjobExecutionListQuery } from "../CronjobExecution";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { CronjobExecutionListQuery } from "../CronjobExecution/index.js";
 import {
   buildCronjobListItemData,
   buildCronjobData,
-} from "../../testing/builders/buildCronjobData";
-import { AppInstallation } from "../../app";
-import { Container } from "../../container";
+} from "../../testing/builders/buildCronjobData.js";
+import { AppInstallation } from "../../app/index.js";
+import { Container } from "../../container/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   CronjobDetailed,
   CronjobListItem,
   CronjobList,
   Cronjob,
-} from "./Cronjob";
+} from "./Cronjob.js";
 
 afterEach(resetBehaviors);
 

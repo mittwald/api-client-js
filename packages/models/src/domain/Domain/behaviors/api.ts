@@ -1,12 +1,12 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { DomainTransferableReasons } from "../types";
-import type { HandleField } from "../../DomainHandle";
-import type { DomainBehaviors } from "./types";
+import type { DomainTransferableReasons } from "../types.js";
+import type { HandleField } from "../../DomainHandle/index.js";
+import type { DomainBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
-import { ValidationError } from "../../../errors";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
+import { ValidationError } from "../../../errors/index.js";
 
 export const apiDomainBehaviors = (
   client: MittwaldAPIV2Client,

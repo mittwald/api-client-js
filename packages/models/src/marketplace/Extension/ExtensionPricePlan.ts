@@ -1,13 +1,13 @@
-import type { ContributorExtensionDetailed } from "../ContributorExtension";
-import type { ExtensionDetailed } from "./Extension";
+import type { ContributorExtensionDetailed } from "../ContributorExtension/index.js";
+import type { ExtensionDetailed } from "./Extension.js";
 import type {
   ExtensionPricePlanVariantData,
   MarketplacePricePlanDetails,
   ExtensionPricePlanData,
-} from "./types";
+} from "./types.js";
 
-import { ExtensionPricePlanVariantDetailed } from "./ExtensionPricePlanVariant";
-import { Money } from "../../common";
+import { ExtensionPricePlanVariantDetailed } from "./ExtensionPricePlanVariant.js";
+import { Money } from "../../common/index.js";
 
 type ExtensionPricePlanVariants = [
   ExtensionPricePlanVariantDetailed,

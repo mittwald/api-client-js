@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 
-import type { DomainProcessData, ProcessState, ProcessType } from "./types";
+import type { DomainProcessData, ProcessState, ProcessType } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class DomainProcess extends DataModel<DomainProcessData> {
   public readonly error?: string;

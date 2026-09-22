@@ -1,4 +1,4 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   BackupCreatePathRestoreRequestData,
   BackupCreateExportRequestData,
@@ -8,7 +8,7 @@ import type {
   BackupTocData,
   BackupDbData,
   BackupData,
-} from "../types";
+} from "../types.js";
 
 export interface BackupBehaviors {
   createRestoreRequest: (

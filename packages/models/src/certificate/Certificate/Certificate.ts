@@ -6,22 +6,22 @@ import type {
   CertificateListQueryModelData,
   CertificateListItemData,
   CertificateData,
-  CertificateType} from "./types";
+  CertificateType} from "./types.js";
 
-import { CertificateCheckReplaceResponse } from "../CertificateCheckReplaceResponse";
-import { CertificateContact } from "../CertificateContact/CertificateContact";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { CertificateRequest } from "../CertificateRequest";
-import { DnsCertificateSpec } from "../DnsCertificateSpec";
-import { Ingress } from "../../ingress/Ingress/Ingress";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { Order } from "../../order/Order/Order";
+import { CertificateCheckReplaceResponse } from "../CertificateCheckReplaceResponse/index.js";
+import { CertificateContact } from "../CertificateContact/CertificateContact.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { CertificateRequest } from "../CertificateRequest/index.js";
+import { DnsCertificateSpec } from "../DnsCertificateSpec/index.js";
+import { Ingress } from "../../ingress/Ingress/Ingress.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { Order } from "../../order/Order/Order.js";
 import {
   CertificateTypes,
-} from "./types";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base";
+} from "./types.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Certificate",

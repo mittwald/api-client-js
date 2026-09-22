@@ -2,16 +2,16 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { buildAIApiKeyData } from "../../testing/builders/buildAIApiKeyData";
-import { buildIngressData } from "../../testing/builders/buildIngressData";
-import { ReferenceModel } from "../../base";
-import { Customer } from "../../customer";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
+import { buildAIApiKeyData } from "../../testing/builders/buildAIApiKeyData.js";
+import { buildIngressData } from "../../testing/builders/buildIngressData.js";
+import { ReferenceModel } from "../../base/index.js";
+import { Customer } from "../../customer/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
 import {
   CustomerAIApiKeyDetailed,
   CustomerAIApiKeyListItem,
   CustomerAIApiKey,
-} from "./CustomerAIApiKey";
+} from "./CustomerAIApiKey.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

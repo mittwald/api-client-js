@@ -1,8 +1,8 @@
 import invariant from "tiny-invariant";
 
-import type { ArticleAttributeData } from "../types";
+import type { ArticleAttributeData } from "../types.js";
 
-import { ArticleAttribute } from "../internal";
+import { ArticleAttribute } from "../internal.js";
 
 export class CpuArticleAttribute extends ArticleAttribute {
   public readonly cpuCount: number;

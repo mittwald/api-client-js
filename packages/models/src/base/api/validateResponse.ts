@@ -5,7 +5,7 @@ import { assertOneOfStatus, assertStatus } from "@mittwald/api-client";
 import {
   type ResponseValidationOptions,
   withResponseValidation,
-} from "./withResponseValidation";
+} from "./withResponseValidation.js";
 
 export function validateResponse<
   T extends Commons.Response,

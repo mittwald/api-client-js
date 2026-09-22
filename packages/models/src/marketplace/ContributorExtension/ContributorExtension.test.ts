@@ -2,14 +2,14 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildContributorExtensionListItemData } from "../../testing/builders/buildContributorExtensionListItemData";
-import { buildContributorExtensionData } from "../../testing/builders/buildContributorExtensionData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { ReferenceModel } from "../../base";
+import { buildContributorExtensionListItemData } from "../../testing/builders/buildContributorExtensionListItemData.js";
+import { buildContributorExtensionData } from "../../testing/builders/buildContributorExtensionData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
@@ -25,7 +25,7 @@ import {
   ContributorExtensionListItem,
   ContributorExtensionList,
   ContributorExtension,
-} from "./ContributorExtension";
+} from "./ContributorExtension.js";
 
 afterEach(resetBehaviors);
 

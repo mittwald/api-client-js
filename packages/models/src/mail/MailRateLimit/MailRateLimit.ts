@@ -1,15 +1,15 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { MailRateLimitQueryData, MailRateLimitData } from "./types";
+import type { MailRateLimitQueryData, MailRateLimitData } from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "MailRateLimit",

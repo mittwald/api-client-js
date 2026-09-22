@@ -4,9 +4,9 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { getSubdomain } from "tldts";
 import { omit } from "remeda";
 
-import type { CertificateListQuery } from "../../certificate/Certificate";
-import type { TlsStatus, Tls } from "../../certificate/Tls";
-import type { IngressTargetData } from "../IngressTarget";
+import type { CertificateListQuery } from "../../certificate/Certificate/index.js";
+import type { TlsStatus, Tls } from "../../certificate/Tls/index.js";
+import type { IngressTargetData } from "../IngressTarget/index.js";
 import type {
   IngressListQueryModelData,
   CertificateSettings,
@@ -14,22 +14,22 @@ import type {
   IngressPathSettings,
   DnsValidationError,
   IngressData,
-} from "./types";
+} from "./types.js";
 
-import { Certificate } from "../../certificate/Certificate/Certificate";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { tlsFactory } from "../../certificate/Tls";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { IngressPath } from "../IngressPath";
-import { config } from "../../config";
+import { Certificate } from "../../certificate/Certificate/Certificate.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { tlsFactory } from "../../certificate/Tls/index.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { IngressPath } from "../IngressPath/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Ingress",

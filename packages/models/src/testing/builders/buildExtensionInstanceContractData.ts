@@ -1,4 +1,4 @@
-import type { ExtensionInstanceContractData } from "../../marketplace/ExtensionInstance/types";
+import type { ExtensionInstanceContractData } from "../../marketplace/ExtensionInstance/types.js";
 
 export function buildExtensionInstanceContractData(
   overrides?: Partial<ExtensionInstanceContractData>,

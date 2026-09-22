@@ -1,13 +1,13 @@
-import type { ContractItemReferenceData } from "./types";
+import type { ContractItemReferenceData } from "./types.js";
 
-import { CustomerAIPlan } from "../../ai/CustomerAIPlan/CustomerAIPlan";
-import { Certificate } from "../../certificate/Certificate/Certificate";
-import { MailAddress } from "../../mail/MailAddress/MailAddress";
-import { License } from "../../app/License/License";
-import { Domain } from "../../domain/Domain/Domain";
-import { Server } from "../../server/Server/Server";
-import { Project } from "../../project/internal";
-import { DataModel } from "../../base";
+import { CustomerAIPlan } from "../../ai/CustomerAIPlan/CustomerAIPlan.js";
+import { Certificate } from "../../certificate/Certificate/Certificate.js";
+import { MailAddress } from "../../mail/MailAddress/MailAddress.js";
+import { License } from "../../app/License/License.js";
+import { Domain } from "../../domain/Domain/Domain.js";
+import { Server } from "../../server/Server/Server.js";
+import { Project } from "../../project/internal.js";
+import { DataModel } from "../../base/index.js";
 
 export class ContractItemReference extends DataModel<ContractItemReferenceData> {
   public readonly aiPlan?: CustomerAIPlan;

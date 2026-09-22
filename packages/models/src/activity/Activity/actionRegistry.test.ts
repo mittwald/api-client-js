@@ -1,9 +1,9 @@
 import { describe, expect, test } from "vitest";
 
-import type { ActivityActionData } from "./types";
+import type { ActivityActionData } from "./types.js";
 
-import { AppFailedAction, GenericAction } from "./actions";
-import { createActivityAction } from "./actionRegistry";
+import { AppFailedAction, GenericAction } from "./actions/index.js";
+import { createActivityAction } from "./actionRegistry.js";
 
 const actionData = (data: object): ActivityActionData =>
   data as ActivityActionData;

@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { StorageMetricsBehaviors } from "./types";
+import type { StorageMetricsBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
+import { validateResponse } from "../../../base/api/validateResponse.js";
 
 export const apiStorageMetricsBehaviors = (
   client: MittwaldAPIV2Client,

@@ -1,16 +1,16 @@
 import { DateTime } from "luxon";
 
 import type {
-  SystemSoftwareName} from "../SystemSoftware";
-import type { InstalledSystemSoftwareData } from "./types";
+  SystemSoftwareName} from "../SystemSoftware/index.js";
+import type { InstalledSystemSoftwareData } from "./types.js";
 
 import {
   SystemSoftwareFullNames,
   SystemSoftware
-} from "../SystemSoftware";
-import { SystemSoftwareVersion } from "../SystemSoftwareVersion";
-import { User } from "../../user/User/User";
-import { DataModel } from "../../base";
+} from "../SystemSoftware/index.js";
+import { SystemSoftwareVersion } from "../SystemSoftwareVersion/index.js";
+import { User } from "../../user/User/User.js";
+import { DataModel } from "../../base/index.js";
 
 export class InstalledSystemSoftware extends DataModel<InstalledSystemSoftwareData> {
   public readonly fullName: string;

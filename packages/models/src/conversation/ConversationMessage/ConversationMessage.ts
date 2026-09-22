@@ -3,13 +3,13 @@ import { DateTime } from "luxon";
 import type {
   ConversationMessageFileData,
   ConversationMessageData,
-} from "./types";
+} from "./types.js";
 
-import { ConversationUser } from "../ConversationUser";
-import { File } from "../../file/File/internal";
-import { Conversation } from "../Conversation";
-import { DataModel } from "../../base";
-import { config } from "../../config";
+import { ConversationUser } from "../ConversationUser/index.js";
+import { File } from "../../file/File/internal.js";
+import { Conversation } from "../Conversation/index.js";
+import { DataModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 export class ConversationMessage extends DataModel<ConversationMessageData> {
   public readonly content?: string;

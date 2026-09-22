@@ -1,13 +1,13 @@
-import type { CertificateDetailed, CertificateListItem } from "../Certificate";
-import type { IngressListItem } from "../../ingress/Ingress";
+import type { CertificateDetailed, CertificateListItem } from "../Certificate/index.js";
+import type { IngressListItem } from "../../ingress/Ingress/index.js";
 import type {
   CertificateDifferencesResolveResponse,
   CertificateCheckReplaceResponseData,
   CertificateCheckReplaceChanges,
   CertificateErrorData,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class CertificateCheckReplaceResponse extends DataModel<CertificateCheckReplaceResponseData> {
   public readonly changes?: CertificateCheckReplaceChanges;

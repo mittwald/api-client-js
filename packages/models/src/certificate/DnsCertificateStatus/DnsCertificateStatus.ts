@@ -3,9 +3,9 @@ import { DateTime } from "luxon";
 import type {
   DnsCertificateStatusData,
   ProjectCertificateStatus,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class DnsCertificateStatus extends DataModel<DnsCertificateStatusData> {
   public readonly message?: string;

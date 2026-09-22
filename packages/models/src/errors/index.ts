@@ -1,3 +1,3 @@
-export * from "./FileUploadError";
-export * from "./ObjectNotFoundError";
-export * from "./ValidationError";
+export * from "./FileUploadError.js";
+export * from "./ObjectNotFoundError.js";
+export * from "./ValidationError/index.js";

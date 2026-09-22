@@ -3,7 +3,7 @@ import type { AxiosRequestConfig } from "axios";
 import type {
   SchedulePerformanceTtfbAnalysisData,
   PerformanceTtfbAnalysisData,
-} from "../types";
+} from "../types.js";
 
 export interface PerformanceTtfbAnalysisBehaviors {
   find: (

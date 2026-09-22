@@ -3,7 +3,7 @@ import type {
   DnsRecordMxCustomData,
   DnsRecordMxUnsetData,
   DnsRecordMxEntry,
-} from "../../dns/DnsRecordMx/types";
+} from "../../dns/DnsRecordMx/types.js";
 
 export function buildDnsRecordMxCustomData(
   overrides?: Partial<DnsRecordMxCustomData>,

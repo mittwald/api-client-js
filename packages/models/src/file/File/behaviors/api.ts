@@ -1,15 +1,15 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { Writable } from "type-fest";
 
-import type { FileBehaviors } from "./types";
+import type { FileBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { withAxiosRequestConfig } from "../../../base";
-import { ValidationError } from "../../../errors";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { withAxiosRequestConfig } from "../../../base/index.js";
+import { ValidationError } from "../../../errors/index.js";
 import {
   classifyFileUploadError,
   getMaxUploadSizeInMB,
-} from "./classifyFileUploadError";
+} from "./classifyFileUploadError.js";
 
 export const apiFileBehaviors = (
   client: MittwaldAPIV2Client,

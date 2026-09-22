@@ -1,24 +1,24 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { CustomerRole } from "../CustomerMembership";
+import type { CustomerRole } from "../CustomerMembership/index.js";
 import type {
   CustomerInviteCreateRequestData,
   CustomerInviteListQueryData,
   CustomerInviteListItemData,
   CustomerInviteData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { AggregateMetaData } from "../../common";
-import { User } from "../../user/User/User";
-import { Customer } from "../Customer";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { User } from "../../user/User/User.js";
+import { Customer } from "../Customer/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CustomerInvite",

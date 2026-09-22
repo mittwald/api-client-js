@@ -1,4 +1,4 @@
-import type { SftpUserData } from "../../access/SftpUser/types";
+import type { SftpUserData } from "../../access/SftpUser/types.js";
 
 export function buildSftpUserData(
   overrides?: Partial<SftpUserData>,

@@ -8,25 +8,25 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildFileDownloadTokenData } from "../../testing/builders/buildFileDownloadTokenData";
-import { buildFileUploadRulesData } from "../../testing/builders/buildFileUploadRulesData";
-import { buildFileUploadTokenData } from "../../testing/builders/buildFileUploadTokenData";
-import { buildFileMetaData } from "../../testing/builders/buildFileMetaData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { FileDownloadToken } from "../FileAccessToken";
-import { ReferenceModel } from "../../base";
+import { buildFileDownloadTokenData } from "../../testing/builders/buildFileDownloadTokenData.js";
+import { buildFileUploadRulesData } from "../../testing/builders/buildFileUploadRulesData.js";
+import { buildFileUploadTokenData } from "../../testing/builders/buildFileUploadTokenData.js";
+import { buildFileMetaData } from "../../testing/builders/buildFileMetaData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { FileDownloadToken } from "../FileAccessToken/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Bytes } from "../../common";
+} from "../../testing/installBehaviors.js";
+import { Bytes } from "../../common/index.js";
 import {
   FileContentDetailed,
   FileMetaDetailed,
   FileContent,
   FileMeta,
   File,
-} from "./internal";
+} from "./internal.js";
 
 afterEach(resetBehaviors);
 

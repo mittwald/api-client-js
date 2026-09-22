@@ -7,22 +7,22 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import type { MailAddressRequestData } from "./types";
+import type { MailAddressRequestData } from "./types.js";
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import {
   buildMailAddressData,
   buildMailbox,
-} from "../../testing/builders/buildMailAddressData";
-import { AggregateMetaData } from "../../common";
-import { Autoresponder } from "../Autoresponder";
-import { MailRateLimit } from "../MailRateLimit";
-import { config } from "../../config/config";
+} from "../../testing/builders/buildMailAddressData.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { Autoresponder } from "../Autoresponder/index.js";
+import { MailRateLimit } from "../MailRateLimit/index.js";
+import { config } from "../../config/config.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   MailAddressListQuery,
   MailAddressDetailed,
@@ -30,7 +30,7 @@ import {
   MailAddressCommon,
   MailAddressList,
   MailAddress,
-} from "./MailAddress";
+} from "./MailAddress.js";
 
 afterEach(resetBehaviors);
 

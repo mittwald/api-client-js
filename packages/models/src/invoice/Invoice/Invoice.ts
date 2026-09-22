@@ -2,30 +2,30 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 import { omit } from "remeda";
 
-import type { InvoiceItem } from "../InvoiceItem";
+import type { InvoiceItem } from "../InvoiceItem/index.js";
 import type {
   InvoiceListQueryModelData,
   InvoiceListItemData,
   InvoiceStatus,
   InvoiceData,
-} from "./types";
+} from "./types.js";
 
-import { InvoicePdfAccessTokenProvider } from "./InvoicePdfAccessTokenProvider";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { InvoiceCancellation } from "../InvoiceCancellation";
-import { Customer } from "../../customer/Customer/Customer";
-import { AggregateMetaData, Money } from "../../common";
-import { InvoiceItemGroup } from "../InvoiceItemGroup";
-import { InvoiceRecipient } from "../InvoiceRecipient";
-import { File } from "../../file/File/internal";
-import { config } from "../../config";
+import { InvoicePdfAccessTokenProvider } from "./InvoicePdfAccessTokenProvider.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { InvoiceCancellation } from "../InvoiceCancellation/index.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { AggregateMetaData, Money } from "../../common/index.js";
+import { InvoiceItemGroup } from "../InvoiceItemGroup/index.js";
+import { InvoiceRecipient } from "../InvoiceRecipient/index.js";
+import { File } from "../../file/File/internal.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Invoice",

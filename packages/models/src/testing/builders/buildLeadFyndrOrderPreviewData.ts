@@ -1,4 +1,4 @@
-import type { LeadFyndrOrderPreviewData } from "../../order/Order/types";
+import type { LeadFyndrOrderPreviewData } from "../../order/Order/types.js";
 
 export function buildLeadFyndrOrderPreviewData(
   overrides: Partial<LeadFyndrOrderPreviewData> = {},

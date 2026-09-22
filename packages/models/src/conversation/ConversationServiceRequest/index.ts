@@ -1,2 +1,2 @@
-export * from "./ConversationServiceRequest";
-export * from "./types";
+export * from "./ConversationServiceRequest.js";
+export * from "./types.js";

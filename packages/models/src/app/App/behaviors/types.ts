@@ -1,4 +1,4 @@
-import type { AppListQueryData, AppListItemData, AppData } from "../types";
+import type { AppListQueryData, AppListItemData, AppData } from "../types.js";
 
 export interface AppBehaviors {
   list: (

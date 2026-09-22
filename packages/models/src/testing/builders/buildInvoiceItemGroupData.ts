@@ -1,6 +1,6 @@
-import type { InvoiceItemGroupData } from "../../invoice/InvoiceItemGroup/types";
+import type { InvoiceItemGroupData } from "../../invoice/InvoiceItemGroup/types.js";
 
-import { buildInvoiceItemData } from "./buildInvoiceItemData";
+import { buildInvoiceItemData } from "./buildInvoiceItemData.js";
 
 export function buildInvoiceItemGroupData(
   overrides?: Partial<InvoiceItemGroupData>,

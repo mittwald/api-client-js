@@ -8,14 +8,14 @@ import type {
   CustomerMembershipListItemData,
   CustomerMembershipData,
   CustomerRole,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { File } from "../../file/File/internal";
-import { User } from "../../user/User/User";
-import { Customer } from "../Customer";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { File } from "../../file/File/internal.js";
+import { User } from "../../user/User/User.js";
+import { Customer } from "../Customer/index.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CustomerMembership",

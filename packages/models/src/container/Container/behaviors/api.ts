@@ -1,17 +1,17 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { ContainerBehaviors } from "./types";
+import type { ContainerBehaviors } from "./types.js";
 import type {
   ContainerStackUpdateSchedulePatchRequestData,
   ContainerStackPatchRequestData,
-} from "../types";
+} from "../types.js";
 
 import {
   withAxiosRequestConfig,
   resolveTotalCount,
   validateResponse,
-} from "../../../base";
+} from "../../../base/index.js";
 
 const resolveTemplateAssetUrls = <
   T extends {

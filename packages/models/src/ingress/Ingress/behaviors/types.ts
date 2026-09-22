@@ -1,14 +1,14 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { QueryResponseData } from "../../../base";
-import type { IngressListItem } from "../Ingress";
+import type { QueryResponseData } from "../../../base/index.js";
+import type { IngressListItem } from "../Ingress.js";
 import type {
   IngressListQueryData,
   CertificateSettings,
   IngressListItemData,
   IngressPathSettings,
   IngressData,
-} from "../types";
+} from "../types.js";
 
 export interface IngressBehaviors {
   listCompatibleWithCertificate: (

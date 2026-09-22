@@ -8,19 +8,19 @@ import type {
   MySqlUserListItemData,
   MySqlUserAccessLevel,
   MySqlUserData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { AggregateMetaData } from "../../common";
-import { config } from "../../config";
-import { MySql } from "../MySql";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { config } from "../../config/index.js";
+import { MySql } from "../MySql/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "MySqlUser",

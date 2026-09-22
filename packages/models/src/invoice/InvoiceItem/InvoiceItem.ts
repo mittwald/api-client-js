@@ -1,10 +1,10 @@
 import { DateTime } from "luxon";
 
-import type { InvoiceItemData } from "./types";
-import type { Invoice } from "../Invoice";
+import type { InvoiceItemData } from "./types.js";
+import type { Invoice } from "../Invoice/index.js";
 
-import { ServicePeriod } from "./ServicePeriod";
-import { DataModel } from "../../base";
+import { ServicePeriod } from "./ServicePeriod.js";
+import { DataModel } from "../../base/index.js";
 
 export class InvoiceItem extends DataModel<InvoiceItemData> {
   public readonly id: string;

@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildFileDownloadTokenData } from "../../testing/builders/buildFileDownloadTokenData";
-import { buildFileUploadTokenData } from "../../testing/builders/buildFileUploadTokenData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { FileDownloadToken } from "./FileDownloadToken";
-import { FileUploadToken } from "./FileUploadToken";
-import { DataModel } from "../../base";
+import { buildFileDownloadTokenData } from "../../testing/builders/buildFileDownloadTokenData.js";
+import { buildFileUploadTokenData } from "../../testing/builders/buildFileUploadTokenData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { FileDownloadToken } from "./FileDownloadToken.js";
+import { FileUploadToken } from "./FileUploadToken.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

@@ -1,3 +1,3 @@
-export * from "./MySql";
-export * from "./MySqlCharset";
-export * from "./types";
+export * from "./MySql.js";
+export * from "./MySqlCharset.js";
+export * from "./types.js";

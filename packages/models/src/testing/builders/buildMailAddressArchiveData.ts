@@ -1,4 +1,4 @@
-import type { MailAddressArchiveData } from "../../mail/MailAddressArchive/types";
+import type { MailAddressArchiveData } from "../../mail/MailAddressArchive/types.js";
 
 export function buildMailAddressArchiveData(
   overrides?: Partial<MailAddressArchiveData>,

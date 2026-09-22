@@ -3,12 +3,12 @@ import type {
   MailArchiveOrderRequestModelData,
   MailArchiveOrderPreviewData,
   CompleteOrderRequestData,
-} from "../types";
+} from "../types.js";
 
-import { MailArchiveOrderPreview } from "../Preview/MailArchiveOrderPreview";
-import { DataModel, extractId } from "../../../base";
-import { config } from "../../../config";
-import { Order } from "../Order";
+import { MailArchiveOrderPreview } from "../Preview/MailArchiveOrderPreview.js";
+import { DataModel, extractId } from "../../../base/index.js";
+import { config } from "../../../config/index.js";
+import { Order } from "../Order.js";
 
 export class MailArchiveOrderRequest extends DataModel<MailArchiveOrderPreviewRequestModelData> {
   public constructor(data: MailArchiveOrderPreviewRequestModelData) {

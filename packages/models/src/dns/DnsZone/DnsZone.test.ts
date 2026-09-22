@@ -2,26 +2,26 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData";
-import { buildDomainMigrationDomainData } from "../../testing/builders/buildDomainMigrationDomainData";
-import { buildDnsRecordCombinedACustomData } from "../../testing/builders/buildDnsRecordCombinedAData";
-import { buildDomainMigrationData } from "../../testing/builders/buildDomainMigrationData";
-import { buildDnsZoneData } from "../../testing/builders/buildDnsZoneData";
-import { AggregateMetaData } from "../../common";
-import { DomainMigration } from "../../domain";
-import { ReferenceModel } from "../../base";
+import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData.js";
+import { buildDomainMigrationDomainData } from "../../testing/builders/buildDomainMigrationDomainData.js";
+import { buildDnsRecordCombinedACustomData } from "../../testing/builders/buildDnsRecordCombinedAData.js";
+import { buildDomainMigrationData } from "../../testing/builders/buildDomainMigrationData.js";
+import { buildDnsZoneData } from "../../testing/builders/buildDnsZoneData.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { DomainMigration } from "../../domain/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   DnsZoneDetailed,
   DnsZoneListItem,
   DnsZoneCommon,
   DnsZoneList,
   DnsZone,
-} from "./DnsZone";
+} from "./DnsZone.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

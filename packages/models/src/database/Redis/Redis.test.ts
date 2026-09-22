@@ -8,22 +8,22 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildRedisDatabaseData } from "../../testing/builders/buildRedisDatabaseData";
-import { buildRedisVersionData } from "../../testing/builders/buildRedisVersionData";
-import { ListQueryModel, ReferenceModel } from "../../base";
-import { AggregateMetaData, Bytes } from "../../common";
+import { buildRedisDatabaseData } from "../../testing/builders/buildRedisDatabaseData.js";
+import { buildRedisVersionData } from "../../testing/builders/buildRedisVersionData.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
+import { AggregateMetaData, Bytes } from "../../common/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   RedisListQuery,
   RedisDetailed,
   RedisListItem,
   RedisList,
   Redis,
-} from "./Redis";
+} from "./Redis.js";
 
 afterEach(resetBehaviors);
 

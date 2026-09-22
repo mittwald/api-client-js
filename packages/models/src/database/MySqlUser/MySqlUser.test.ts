@@ -8,21 +8,21 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildMySqlUserData } from "../../testing/builders/buildMySqlUserData";
-import { ListQueryModel, ReferenceModel } from "../../base";
-import { AggregateMetaData } from "../../common";
+import { buildMySqlUserData } from "../../testing/builders/buildMySqlUserData.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
+import { AggregateMetaData } from "../../common/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { MySql } from "../MySql";
+} from "../../testing/installBehaviors.js";
+import { MySql } from "../MySql/index.js";
 import {
   MySqlUserListQuery,
   MySqlUserDetailed,
   MySqlUserListItem,
   MySqlUserList,
   MySqlUser,
-} from "./MySqlUser";
+} from "./MySqlUser.js";
 
 afterEach(resetBehaviors);
 

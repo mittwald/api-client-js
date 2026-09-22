@@ -1,13 +1,13 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildDomainListItemData } from "../../testing/builders/buildDomainListItemData";
-import { buildIngressData } from "../../testing/builders/buildIngressData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { IngressDomainListItem } from "./IngressDomainListItem";
-import { DomainListItem } from "../../domain/Domain";
-import { IngressListItem } from "../Ingress";
-import { Project } from "../../project";
-import { DataModel } from "../../base";
+import { buildDomainListItemData } from "../../testing/builders/buildDomainListItemData.js";
+import { buildIngressData } from "../../testing/builders/buildIngressData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { IngressDomainListItem } from "./IngressDomainListItem.js";
+import { DomainListItem } from "../../domain/Domain/index.js";
+import { IngressListItem } from "../Ingress/index.js";
+import { Project } from "../../project/index.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

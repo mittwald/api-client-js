@@ -1,14 +1,14 @@
 import { z } from "zod";
 
-import type { ArticleCommon } from "../../article/Article/internal";
+import type { ArticleCommon } from "../../article/Article/internal.js";
 
-import { hardwareSpecsSchema, HardwareSpecs } from "../internal";
-import { getRecommendedStorage } from "../../order/Order/lib";
+import { hardwareSpecsSchema, HardwareSpecs } from "../internal.js";
+import { getRecommendedStorage } from "../../order/Order/lib.js";
 import {
   MachineTypeArticleAttribute,
   ArticleTagName,
-} from "../../article/Article/internal";
-import { Bytes } from "../../common";
+} from "../../article/Article/internal.js";
+import { Bytes } from "../../common/index.js";
 
 export const machineTypeSpecsSchema = z.object({
   hardwareSpecs: hardwareSpecsSchema,

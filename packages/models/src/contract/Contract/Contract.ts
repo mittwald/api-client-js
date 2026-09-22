@@ -9,23 +9,23 @@ import type {
   ContractListQueryModelData,
   ContractListItemData,
   ContractData,
-} from "./types";
+} from "./types.js";
 
-import { ContractItemReference } from "../ContractItem/ContractItemReference";
-import { ContractItemDetailed, ContractItemCommon } from "../ContractItem";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContractTermination } from "../ContractTermination";
-import { Customer } from "../../customer/Customer/Customer";
-import { PlanChange } from "../PlanChange";
-import { config } from "../../config";
-import { Money } from "../../common";
+import { ContractItemReference } from "../ContractItem/ContractItemReference.js";
+import { ContractItemDetailed, ContractItemCommon } from "../ContractItem/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContractTermination } from "../ContractTermination/index.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { PlanChange } from "../PlanChange/index.js";
+import { config } from "../../config/index.js";
+import { Money } from "../../common/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Contract",

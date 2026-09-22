@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { SystemSoftwareFullNames } from "../../../app";
-import { ActivityAction } from "../ActivityAction";
+import { SystemSoftwareFullNames } from "../../../app/index.js";
+import { ActivityAction } from "../ActivityAction.js";
 
 type ActivityAppInstallationSystemSoftwareDeleted =
   MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDesiredSystemSoftwareDeleted;

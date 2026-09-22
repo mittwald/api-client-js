@@ -5,16 +5,16 @@ import type {
   DomainMigrationListQueryData,
   DomainMigrationListItemData,
   DomainMigrationData,
-} from "./types";
+} from "./types.js";
 
-import { DomainMigrationDomain } from "../DomainMigrationDomain";
-import { config } from "../../config";
+import { DomainMigrationDomain } from "../DomainMigrationDomain/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "DomainMigration",

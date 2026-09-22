@@ -1,5 +1,5 @@
-import type { SystemSoftwareData } from "../../SystemSoftware";
-import type { QueryResponseData } from "../../../base";
+import type { SystemSoftwareData } from "../../SystemSoftware/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   AppInstallationStagingCreateRequestData,
   AppInstallationStagingDetachRequestData,
@@ -10,7 +10,7 @@ import type {
   InstalledSystemSoftwareQuery,
   AppInstallationListItemData,
   AppInstallationData,
-} from "../types";
+} from "../types.js";
 
 export interface AppInstallationBehaviors {
   getInstalledSystemSoftware: (

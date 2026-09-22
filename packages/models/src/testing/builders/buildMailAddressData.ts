@@ -1,4 +1,4 @@
-import type { MailAddressData } from "../../mail/MailAddress/types";
+import type { MailAddressData } from "../../mail/MailAddress/types.js";
 
 type Mailbox = NonNullable<MailAddressData["mailbox"]>;
 

@@ -1,7 +1,7 @@
-import type { ContributorExtension } from "./ContributorExtension";
-import type { FileAccessTokenProvider } from "../../file";
+import type { ContributorExtension } from "./ContributorExtension.js";
+import type { FileAccessTokenProvider } from "../../file/index.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class ContributorExtensionAssetAccessTokenProvider
   implements FileAccessTokenProvider

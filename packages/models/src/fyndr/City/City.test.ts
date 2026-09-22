@@ -1,11 +1,11 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildCityData } from "../../testing/builders/buildCityData";
-import { CityListItem, CityList, City } from "./City";
+import { buildCityData } from "../../testing/builders/buildCityData.js";
+import { CityListItem, CityList, City } from "./City.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

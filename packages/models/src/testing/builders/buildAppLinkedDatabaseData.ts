@@ -1,4 +1,4 @@
-import type { AppLinkedDatabaseData } from "../../app/AppLinkedDatabase/types";
+import type { AppLinkedDatabaseData } from "../../app/AppLinkedDatabase/types.js";
 
 export function buildAppLinkedDatabaseData(
   overrides?: Partial<AppLinkedDatabaseData>,

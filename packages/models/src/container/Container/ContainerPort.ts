@@ -1,7 +1,7 @@
 import invariant from "tiny-invariant";
 
-import { type ContainerPortData, containerMaxPort } from "./types";
-import { ListDataModel, DataModel } from "../../base";
+import { type ContainerPortData, containerMaxPort } from "./types.js";
+import { ListDataModel, DataModel } from "../../base/index.js";
 
 const parsePortOrRange = (portStr: string) => {
   const [start, end] = portStr.split("-");

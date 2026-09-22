@@ -1,10 +1,10 @@
 import { DateTime } from "luxon";
 
-import type { HostingOrderRequest } from "../Request/HostingOrderRequest";
-import type { HostingOrderPreviewData } from "../types";
+import type { HostingOrderRequest } from "../Request/HostingOrderRequest.js";
+import type { HostingOrderPreviewData } from "../types.js";
 
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class HostingOrderPreview extends DataModel<HostingOrderPreviewData> {
   public readonly freeTrialUntil?: DateTime;

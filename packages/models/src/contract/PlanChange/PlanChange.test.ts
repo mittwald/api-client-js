@@ -1,16 +1,16 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildContractArticleData } from "../../testing/builders/buildContractArticleData";
-import { buildContractItemData } from "../../testing/builders/buildContractItemData";
-import { buildPlanChangeData } from "../../testing/builders/buildPlanChangeData";
-import { buildContractData } from "../../testing/builders/buildContractData";
-import { ContractItemDetailed } from "../ContractItem";
-import { ContractArticle } from "../ContractArticle";
-import { resetBehaviors } from "../../testing";
-import { ContractDetailed } from "../Contract";
-import { PlanChange } from "./PlanChange";
-import { User } from "../../user";
+import { buildContractArticleData } from "../../testing/builders/buildContractArticleData.js";
+import { buildContractItemData } from "../../testing/builders/buildContractItemData.js";
+import { buildPlanChangeData } from "../../testing/builders/buildPlanChangeData.js";
+import { buildContractData } from "../../testing/builders/buildContractData.js";
+import { ContractItemDetailed } from "../ContractItem/index.js";
+import { ContractArticle } from "../ContractArticle/index.js";
+import { resetBehaviors } from "../../testing/index.js";
+import { ContractDetailed } from "../Contract/index.js";
+import { PlanChange } from "./PlanChange.js";
+import { User } from "../../user/index.js";
 
 afterEach(resetBehaviors);
 

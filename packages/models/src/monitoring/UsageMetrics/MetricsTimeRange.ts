@@ -3,7 +3,7 @@ import type { DateValue } from "@internationalized/date";
 
 import { DateTime } from "luxon";
 
-import type { MonitoringInterval } from "./types";
+import type { MonitoringInterval } from "./types.js";
 
 export class MetricsTimeRange {
   public readonly from?: DateValue;

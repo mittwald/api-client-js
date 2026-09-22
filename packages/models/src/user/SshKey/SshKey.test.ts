@@ -12,11 +12,11 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 
 import { DateTime } from "luxon";
 
-import { SshKeyDetailed, SshKeyListItem, SshKeyList, SshKey } from "./SshKey";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { buildSshKeyListItemData, buildSshKeyData } from "../../testing/builders/buildSshKeyData";
-import { ReferenceModel } from "../../base";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
+import { SshKeyDetailed, SshKeyListItem, SshKeyList, SshKey } from "./SshKey.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { buildSshKeyListItemData, buildSshKeyData } from "../../testing/builders/buildSshKeyData.js";
+import { ReferenceModel } from "../../base/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

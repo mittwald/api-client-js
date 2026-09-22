@@ -1,9 +1,9 @@
 import { DateTime } from "luxon";
 
-import type { ContributorOnBehalfInvoiceData } from "./types";
+import type { ContributorOnBehalfInvoiceData } from "./types.js";
 
-import { DataModel } from "../../base";
-import { Money } from "../../common";
+import { DataModel } from "../../base/index.js";
+import { Money } from "../../common/index.js";
 
 export class ContributorOutgoingInvoice extends DataModel<ContributorOnBehalfInvoiceData> {
   public readonly date: DateTime;

@@ -6,13 +6,13 @@ import { DateTime } from "luxon";
 import type {
   ExtensionInstanceContractStatus,
   ExtensionInstanceContractData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ExtensionPricePlanVariantBase } from "../Extension";
-import { AggregateMetaData, Money } from "../../common";
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ExtensionPricePlanVariantBase } from "../Extension/index.js";
+import { AggregateMetaData, Money } from "../../common/index.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 @GhostMakerModel({
   name: "ExtensionInstanceContract",

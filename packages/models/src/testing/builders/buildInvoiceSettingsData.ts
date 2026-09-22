@@ -1,4 +1,4 @@
-import type { InvoiceSettingsData } from "../../customer/InvoiceSettings/types";
+import type { InvoiceSettingsData } from "../../customer/InvoiceSettings/types.js";
 
 export function buildInvoiceSettingsData(
   overrides?: Partial<InvoiceSettingsData>,

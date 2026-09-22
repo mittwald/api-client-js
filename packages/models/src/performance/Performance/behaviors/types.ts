@@ -2,7 +2,7 @@ import type {
   PerformanceListQueryData,
   PerformanceListItemData,
   PerformanceData,
-} from "../types";
+} from "../types.js";
 
 export interface PerformanceBehaviors {
   list: (

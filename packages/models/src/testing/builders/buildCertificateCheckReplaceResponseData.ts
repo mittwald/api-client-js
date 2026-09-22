@@ -1,4 +1,4 @@
-import type { CertificateCheckReplaceResponseData } from "../../certificate/CertificateCheckReplaceResponse/types";
+import type { CertificateCheckReplaceResponseData } from "../../certificate/CertificateCheckReplaceResponse/types.js";
 
 export function buildCertificateCheckReplaceResponseData(
   overrides?: Partial<CertificateCheckReplaceResponseData>,

@@ -9,24 +9,24 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildContractPartnerData } from "../../testing/builders/buildContractPartnerData";
-import { customerPermissions } from "../customerPermissions";
-import { ContractPartner } from "../ContractPartner";
+import { buildContractPartnerData } from "../../testing/builders/buildContractPartnerData.js";
+import { customerPermissions } from "../customerPermissions.js";
+import { ContractPartner } from "../ContractPartner/index.js";
 import {
   buildCustomerListItemData,
   buildCustomerData,
-} from "../../testing/builders/buildCustomerData";
-import { config } from "../../config/config";
+} from "../../testing/builders/buildCustomerData.js";
+import { config } from "../../config/config.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   CustomerDetailed,
   CustomerListItem,
   CustomerList,
   Customer,
-} from "./Customer";
+} from "./Customer.js";
 
 afterEach(resetBehaviors);
 

@@ -1,9 +1,9 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ArticleListQueryData,
   ArticleListItemData,
   ArticleData,
-} from "../types";
+} from "../types.js";
 
 export interface ArticleBehaviors {
   list: (

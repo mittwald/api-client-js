@@ -2,7 +2,7 @@ import type {
   SystemSoftwareVersionListQueryData,
   SystemSoftwareVersionListItemData,
   SystemSoftwareVersionData,
-} from "../types";
+} from "../types.js";
 
 export interface SystemSoftwareVersionBehaviors {
   list: (

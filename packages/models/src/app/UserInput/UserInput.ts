@@ -1,6 +1,6 @@
-import type { UserInputData, AppLifecycle } from "./types";
+import type { UserInputData, AppLifecycle } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class UserInput extends DataModel<UserInputData> {
   public readonly dataSource?: string;

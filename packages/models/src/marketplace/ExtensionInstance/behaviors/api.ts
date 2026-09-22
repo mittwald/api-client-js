@@ -1,13 +1,13 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { ExtensionInstanceBehaviors } from "./types";
+import type { ExtensionInstanceBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
+import { validateResponse } from "../../../base/api/validateResponse.js";
 import {
   withAxiosRequestConfig,
   resolveTotalCount,
   anyStatus403,
-} from "../../../base";
+} from "../../../base/index.js";
 
 export const apiExtensionInstanceBehaviors = (
   client: MittwaldAPIV2Client,

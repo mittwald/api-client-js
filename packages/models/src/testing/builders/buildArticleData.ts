@@ -5,7 +5,7 @@ import type {
   ArticleTemplateData,
   ArticleTagData,
   ArticleData,
-} from "../../article/Article/types";
+} from "../../article/Article/types.js";
 
 export function buildArticleTemplateData(
   overrides: Partial<ArticleTemplateData> = {},

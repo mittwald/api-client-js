@@ -3,10 +3,10 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { SupportCodeData } from "./types";
+import type { SupportCodeData } from "./types.js";
 
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 @GhostMakerModel({
   name: "SupportCode",

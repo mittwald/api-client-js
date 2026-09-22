@@ -1,6 +1,6 @@
-import type { Behaviors } from "../config/config";
+import type { Behaviors } from "../config/config.js";
 
-import { config } from "../config/config";
+import { config } from "../config/config.js";
 
 export type FakeBehaviors = {
   [K in keyof Behaviors]?: Partial<Behaviors[K]>;

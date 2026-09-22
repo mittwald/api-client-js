@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildNewsletterSubscriberUserData } from "../../testing/builders/buildNewsletterSubscriberUserData";
-import { buildNewsletterInfoData } from "../../testing/builders/buildNewsletterInfoData";
-import { NewsletterInfo, Newsletter } from "./Newsletter";
+import { buildNewsletterSubscriberUserData } from "../../testing/builders/buildNewsletterSubscriberUserData.js";
+import { buildNewsletterInfoData } from "../../testing/builders/buildNewsletterInfoData.js";
+import { NewsletterInfo, Newsletter } from "./Newsletter.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

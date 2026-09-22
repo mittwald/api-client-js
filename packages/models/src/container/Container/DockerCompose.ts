@@ -3,27 +3,27 @@ import type { z } from "zod";
 
 import { YAMLParseError, stringify, parse } from "yaml";
 
-import type { ContainerStackCommon } from "./ContainerStack";
-import type { ContainerListItem } from "./Container";
-import type { VolumeListItem } from "../Volume";
+import type { ContainerStackCommon } from "./ContainerStack.js";
+import type { ContainerListItem } from "./Container.js";
+import type { VolumeListItem } from "../Volume/index.js";
 import type {
   DockerComposeServiceData,
   DockerComposeData,
-} from "./DockerComposeSchema";
+} from "./DockerComposeSchema.js";
 import type {
   ContainerStackDeclareRequestData,
   ContainerDeclareServiceData,
-} from "./types";
+} from "./types.js";
 
-import { containerServiceNameMaxLength, containerMaxTextLength } from "./types";
-import { ContainerVolumeRelation } from "./ContainerVolumeRelation";
-import { ContainerEnvVariableList } from "./ContainerEnvVariable";
-import { shellSplit } from "../lib/shellwords";
-import { Container } from "./Container";
+import { containerServiceNameMaxLength, containerMaxTextLength } from "./types.js";
+import { ContainerVolumeRelation } from "./ContainerVolumeRelation.js";
+import { ContainerEnvVariableList } from "./ContainerEnvVariable.js";
+import { shellSplit } from "../lib/shellwords.js";
+import { Container } from "./Container.js";
 import {
   containerCommandMaxLength,
   dockerComposeSchema,
-} from "./DockerComposeSchema";
+} from "./DockerComposeSchema.js";
 
 const getServiceVolumes = (container: ContainerListItem): string[] =>
   container.pendingState.volumes.items

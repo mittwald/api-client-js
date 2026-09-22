@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { AppBehaviors } from "./types";
+import type { AppBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiAppBehaviors = (client: MittwaldAPIV2Client): AppBehaviors => ({
   list: async (query) => {

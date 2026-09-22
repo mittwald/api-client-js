@@ -4,7 +4,7 @@ import type {
   SshUserListQueryData,
   SshUserListItemData,
   SshUserData,
-} from "../types";
+} from "../types.js";
 
 export interface SshUserBehaviors {
   list: (

@@ -1,8 +1,8 @@
-import type { ContractArticleData } from "./types";
+import type { ContractArticleData } from "./types.js";
 
-import { StorageArticle, Article } from "../../article";
-import { DataModel } from "../../base";
-import { Money } from "../../common";
+import { StorageArticle, Article } from "../../article/index.js";
+import { DataModel } from "../../base/index.js";
+import { Money } from "../../common/index.js";
 
 export class ContractArticle extends DataModel<ContractArticleData> {
   public readonly amount: number;

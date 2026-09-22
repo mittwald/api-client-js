@@ -3,20 +3,20 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { DownloadableFile } from "../../common";
-import type { Cronjob } from "../Cronjob";
+import type { DownloadableFile } from "../../common/index.js";
+import type { Cronjob } from "../Cronjob/index.js";
 import type {
   CronjobExecutionListQueryData,
   CronjobExecutionListItemData,
   CronjobExecutionStatus,
   CronjobExecutionData,
   StructuredLogLine,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { User } from "../../user/User/User";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { User } from "../../user/User/User.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 const messageExtractionRegex = /"message"\s*:\s*"((?:\\.|[^"\\])*)"/g;
 

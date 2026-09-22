@@ -1,15 +1,15 @@
-import { SpaceServerArticleTemplate } from "../templates/SpaceServerArticleTemplate";
-import { WebhostingArticleTemplate } from "../templates/WebhostingArticleTemplate";
-import { AIHostingArticleTemplate } from "../templates/AIHostingArticleTemplate";
-import { ProSpaceArticleTemplate } from "../templates/ProSpaceArticleTemplate";
-import { StorageArticleTemplate } from "../templates/StorageArticleTemplate";
-import { ServerArticleTemplate } from "../templates/ServerArticleTemplate";
-import { WebhostingArticle , AIHostingArticle , ServerArticle } from "../internal";
+import { SpaceServerArticleTemplate } from "../templates/SpaceServerArticleTemplate.js";
+import { WebhostingArticleTemplate } from "../templates/WebhostingArticleTemplate.js";
+import { AIHostingArticleTemplate } from "../templates/AIHostingArticleTemplate.js";
+import { ProSpaceArticleTemplate } from "../templates/ProSpaceArticleTemplate.js";
+import { StorageArticleTemplate } from "../templates/StorageArticleTemplate.js";
+import { ServerArticleTemplate } from "../templates/ServerArticleTemplate.js";
+import { WebhostingArticle , AIHostingArticle , ServerArticle } from "../internal.js";
 import {
   type ArticleCommon,
   ArticleTagName,
   StorageArticle,
-} from "../internal";
+} from "../internal.js";
 
 export const articleFactory = (article: ArticleCommon) => {
   if (

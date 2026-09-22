@@ -1,7 +1,7 @@
 import { type AxiosResponse, AxiosHeaders } from "axios";
 import { describe, expect, test } from "vitest";
 
-import { resolveTotalCount } from "./resolveTotalCount";
+import { resolveTotalCount } from "./resolveTotalCount.js";
 
 const responseWith = (
   data: unknown[],

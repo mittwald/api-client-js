@@ -1,4 +1,4 @@
-import type { ProjectData } from "../../project/Project/types";
+import type { ProjectData } from "../../project/Project/types.js";
 
 export function buildProjectData(
   overrides?: Partial<ProjectData>,

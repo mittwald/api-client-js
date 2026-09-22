@@ -1,8 +1,8 @@
-import type { InvoiceItemGroupData } from "./types";
-import type { InvoiceDetailed } from "../Invoice";
+import type { InvoiceItemGroupData } from "./types.js";
+import type { InvoiceDetailed } from "../Invoice/index.js";
 
-import { InvoiceItem } from "../InvoiceItem";
-import { DataModel } from "../../base";
+import { InvoiceItem } from "../InvoiceItem/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class InvoiceItemGroup extends DataModel<InvoiceItemGroupData> {
   public readonly description?: string;

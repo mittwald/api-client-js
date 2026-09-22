@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { CertificateBehaviors } from "./types";
+import type { CertificateBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount, anyStatus403 } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount, anyStatus403 } from "../../../base/index.js";
 
 export const apiCertificateBehaviors = (
   client: MittwaldAPIV2Client,

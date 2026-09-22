@@ -1,14 +1,14 @@
 import { describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import type { ContactVerificationEmailDataData } from "./types";
+import type { ContactVerificationEmailDataData } from "./types.js";
 
 import {
   contactVerificationTypeDataFactory,
   ContactVerificationAddressData,
   ContactVerificationEmailData,
   ContactVerificationNameData,
-} from "./ContactVerificationTypeData";
+} from "./ContactVerificationTypeData.js";
 
 describe("contactVerificationTypeDataFactory", () => {
   test("creates address data", () => {

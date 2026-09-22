@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 
-import type { BackupExportData } from "./types";
+import type { BackupExportData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class BackupExport extends DataModel<BackupExportData> {
   public readonly downloadUrl?: string;

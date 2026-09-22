@@ -3,10 +3,10 @@ import type {
   ImageMetaPortData,
   ImageMetaEnvData,
   ImageMetaData,
-} from "./types";
+} from "./types.js";
 
-import { shellJoin } from "../lib/shellwords";
-import { DataModel } from "../../base";
+import { shellJoin } from "../lib/shellwords.js";
+import { DataModel } from "../../base/index.js";
 
 export class ImageMeta extends DataModel<ImageMetaData> {
   public readonly command?: string;

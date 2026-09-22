@@ -1,4 +1,4 @@
-import type { InitMfaResponseData } from "../../auth/Mfa/types";
+import type { InitMfaResponseData } from "../../auth/Mfa/types.js";
 
 export function buildMfaInitData(
   overrides?: Partial<InitMfaResponseData>,

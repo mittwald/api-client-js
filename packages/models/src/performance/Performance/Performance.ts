@@ -7,21 +7,21 @@ import type {
   PerformanceListItemData,
   PerformanceMetricData,
   PerformanceData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Ingress } from "../../ingress/Ingress/Ingress";
-import { Project } from "../../project/internal";
-import { File } from "../../file/File/internal";
-import { config } from "../../config";
-import { Bytes } from "../../common";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Ingress } from "../../ingress/Ingress/Ingress.js";
+import { Project } from "../../project/internal.js";
+import { File } from "../../file/File/internal.js";
+import { config } from "../../config/index.js";
+import { Bytes } from "../../common/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   DataModel,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Performance",

@@ -2,16 +2,16 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import invariant from "tiny-invariant";
 import { DateTime } from "luxon";
 
-import type { ContributorExtensionAssetAccessTokenProvider as ContributorExtensionAssetAccessTokenProviderType } from "./ContributorExtensionAssetAccessTokenProvider";
-import type { ContributorExtensionLogoAccessTokenProvider as ContributorExtensionLogoAccessTokenProviderType } from "./ContributorExtensionLogoAccessTokenProvider";
-import type { PricePlanEditingVariant } from "./PricePlanEditingVariant";
-import type { Money } from "../../common";
+import type { ContributorExtensionAssetAccessTokenProvider as ContributorExtensionAssetAccessTokenProviderType } from "./ContributorExtensionAssetAccessTokenProvider.js";
+import type { ContributorExtensionLogoAccessTokenProvider as ContributorExtensionLogoAccessTokenProviderType } from "./ContributorExtensionLogoAccessTokenProvider.js";
+import type { PricePlanEditingVariant } from "./PricePlanEditingVariant.js";
+import type { Money } from "../../common/index.js";
 import type {
   MarketplaceDetailedDescriptionsFormat,
   FrontendFragmentAnchor,
   ExtensionPricePlan,
   ExternalFrontend,
-} from "../Extension";
+} from "../Extension/index.js";
 import type {
   ContributorExtensionUpdatePricingRequestData,
   ContributorExtensionUpdateRequestData,
@@ -22,29 +22,29 @@ import type {
   ContributorExtensionData,
   MarketplaceWebhookUrls,
   ExtensionSecret,
-} from "./types";
+} from "./types.js";
 
-import { ContributorExtensionAssetAccessTokenProvider } from "./ContributorExtensionAssetAccessTokenProvider";
-import { ContributorExtensionLogoAccessTokenProvider } from "./ContributorExtensionLogoAccessTokenProvider";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Customer } from "../../customer/Customer/Customer";
-import { File } from "../../file/File/internal";
-import { LocalizedText } from "../../common";
-import { Contributor } from "../Contributor";
-import { type DomFile } from "../../file";
-import { Project } from "../../project";
-import { config } from "../../config";
+import { ContributorExtensionAssetAccessTokenProvider } from "./ContributorExtensionAssetAccessTokenProvider.js";
+import { ContributorExtensionLogoAccessTokenProvider } from "./ContributorExtensionLogoAccessTokenProvider.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { File } from "../../file/File/internal.js";
+import { LocalizedText } from "../../common/index.js";
+import { Contributor } from "../Contributor/index.js";
+import { type DomFile } from "../../file/index.js";
+import { Project } from "../../project/index.js";
+import { config } from "../../config/index.js";
 import {
   type MarketplaceContext,
   ExtensionInstance,
-} from "../ExtensionInstance";
+} from "../ExtensionInstance/index.js";
 import {
   extensionVariantsPricePlanFactory,
   FrontendFragment,
   ExtensionAsset,
   Extension,
-} from "../Extension";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base";
+} from "../Extension/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ContributorExtension",

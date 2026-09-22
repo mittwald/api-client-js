@@ -1,10 +1,10 @@
 import { afterEach, expect, test } from "vitest";
 
-import { ContributorOutgoingInvoice } from "./ContributorOutgoingInvoice";
+import { ContributorOutgoingInvoice } from "./ContributorOutgoingInvoice.js";
 import {
   buildContributorOnBehalfInvoiceData,
   resetBehaviors,
-} from "../../testing";
+} from "../../testing/index.js";
 
 afterEach(resetBehaviors);
 

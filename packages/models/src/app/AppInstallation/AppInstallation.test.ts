@@ -8,23 +8,23 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildAppInstallationData } from "../../testing/builders/buildAppInstallationData";
-import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
+import { buildAppInstallationData } from "../../testing/builders/buildAppInstallationData.js";
+import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
-import { App } from "../App";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
+import { App } from "../App/index.js";
 import {
   AppInstallationListQuery,
   AppInstallationDetailed,
   AppInstallationListItem,
   AppInstallationList,
   AppInstallation,
-} from "./AppInstallation";
+} from "./AppInstallation.js";
 
 afterEach(resetBehaviors);
 

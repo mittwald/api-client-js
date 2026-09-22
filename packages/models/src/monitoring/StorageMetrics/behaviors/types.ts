@@ -1,4 +1,4 @@
-import type { StorageMetricsData } from "../types";
+import type { StorageMetricsData } from "../types.js";
 
 export interface StorageMetricsBehaviors {
   findByProject: (projectId: string) => Promise<StorageMetricsData | undefined>;

@@ -1,7 +1,7 @@
 import type {
   PerformanceTtfbAnalysisStraceData,
   PerformanceTtfbAnalysisData,
-} from "../../performance/PerformanceTtfbAnalysis/types";
+} from "../../performance/PerformanceTtfbAnalysis/types.js";
 
 type StraceStatistics = PerformanceTtfbAnalysisStraceData["dbStats"];
 

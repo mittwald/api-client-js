@@ -1,8 +1,8 @@
-export * from "./City";
-export * from "./FinderProfile";
-export * from "./FinderProfileRequest";
-export * from "./Lead";
-export * from "./LeadsExport";
-export type { AnyLeadCommon } from "./types";
-export * from "./UnlockedLead";
-export * from "./util/LeadFyndr";
+export * from "./City/index.js";
+export * from "./FinderProfile/index.js";
+export * from "./FinderProfileRequest/index.js";
+export * from "./Lead/index.js";
+export * from "./LeadsExport/index.js";
+export type { AnyLeadCommon } from "./types.js";
+export * from "./UnlockedLead/index.js";
+export * from "./util/LeadFyndr.js";

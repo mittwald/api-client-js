@@ -1,10 +1,10 @@
-import type { Conversation } from "../Conversation";
-import type { ConversationUserData } from "./types";
-import type { User } from "../../user";
+import type { Conversation } from "../Conversation/index.js";
+import type { ConversationUserData } from "./types.js";
+import type { User } from "../../user/index.js";
 
-import { File } from "../../file/File/internal";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, type Ctor, extractId, WithData } from "../../base";
+import { File } from "../../file/File/internal.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, type Ctor, extractId, WithData } from "../../base/index.js";
 
 export class ConversationUser extends WithData<ConversationUserData>()(
   ReferenceModel as Ctor<ReferenceModel>,

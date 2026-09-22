@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildStorageStatisticsCategoryData } from "../../testing/builders/buildStorageMetricsData";
-import { StorageStatisticsCategory } from "./StorageStatisticsCategory";
-import { resetBehaviors } from "../../testing/installBehaviors";
+import { buildStorageStatisticsCategoryData } from "../../testing/builders/buildStorageMetricsData.js";
+import { StorageStatisticsCategory } from "./StorageStatisticsCategory.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

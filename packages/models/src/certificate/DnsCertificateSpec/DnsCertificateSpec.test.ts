@@ -1,13 +1,13 @@
 import { beforeEach, afterEach, describe, expect, test } from "vitest";
 
-import { buildDnsCertificateStatusData } from "../../testing/builders/buildDnsCertificateStatusData";
-import { buildDnsCertificateSpecData } from "../../testing/builders/buildDnsCertificateSpecData";
-import { DnsCertificateStatus } from "../DnsCertificateStatus";
-import { DnsCertificateSpec } from "./DnsCertificateSpecData";
+import { buildDnsCertificateStatusData } from "../../testing/builders/buildDnsCertificateStatusData.js";
+import { buildDnsCertificateSpecData } from "../../testing/builders/buildDnsCertificateSpecData.js";
+import { DnsCertificateStatus } from "../DnsCertificateStatus/index.js";
+import { DnsCertificateSpec } from "./DnsCertificateSpecData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 beforeEach(() => installBehaviors({}));
 afterEach(resetBehaviors);

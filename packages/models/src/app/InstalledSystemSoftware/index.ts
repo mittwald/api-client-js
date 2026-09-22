@@ -1,2 +1,2 @@
-export * from "./InstalledSystemSoftware";
-export * from "./types";
+export * from "./InstalledSystemSoftware.js";
+export * from "./types.js";

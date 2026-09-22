@@ -1,3 +1,3 @@
-export * from "./StorageMetrics";
-export * from "./StorageStatisticsCategory";
-export * from "./types";
+export * from "./StorageMetrics.js";
+export * from "./StorageStatisticsCategory.js";
+export * from "./types.js";

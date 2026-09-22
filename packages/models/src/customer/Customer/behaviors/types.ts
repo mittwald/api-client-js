@@ -2,7 +2,7 @@ import type {
   FileUploadTokenData,
   AxiosRequestConfig,
   QueryResponseData,
-} from "../../../index";
+} from "../../../index.js";
 import type {
   CustomerExpressInterestToContributeRequestData,
   CustomerCreateRequestData,
@@ -11,7 +11,7 @@ import type {
   CustomerListQueryData,
   CustomerListItemData,
   CustomerData,
-} from "../types";
+} from "../types.js";
 
 export interface CustomerBehaviors {
   expressInterestToContribute: (

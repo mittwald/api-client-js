@@ -1,4 +1,4 @@
-import type { FileMetaData } from "../../file/File/types";
+import type { FileMetaData } from "../../file/File/types.js";
 
 export function buildFileMetaData(
   overrides?: Partial<FileMetaData>,

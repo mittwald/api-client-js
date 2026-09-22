@@ -2,21 +2,21 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildOrderItemData } from "../../testing/builders/buildOrderItemData";
-import { buildOrderData } from "../../testing/builders/buildOrderData";
-import { AggregateMetaData } from "../../common";
-import { Customer } from "../../customer";
+import { buildOrderItemData } from "../../testing/builders/buildOrderItemData.js";
+import { buildOrderData } from "../../testing/builders/buildOrderData.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { Customer } from "../../customer/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   OrderListQuery,
   OrderDetailed,
   OrderListItem,
   OrderList,
   Order,
-} from "./Order";
+} from "./Order.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

@@ -1,11 +1,11 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   LeadsExportListQueryData,
   LeadsExportListItemData,
   LeadsExportRequestData,
-} from "../types";
+} from "../types.js";
 
 export interface LeadsExportBehavior {
   create: (

@@ -1,6 +1,6 @@
-import type { CertificateContactData } from "./types";
+import type { CertificateContactData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class CertificateContact extends DataModel<CertificateContactData> {
   public readonly city?: string;

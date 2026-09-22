@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildAppLinkedDatabaseData } from "../../testing/builders/buildAppLinkedDatabaseData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { AppLinkedDatabase } from "./AppLinkedDatabase";
-import { MySql, Redis } from "../../database";
-import { DataModel } from "../../base";
+import { buildAppLinkedDatabaseData } from "../../testing/builders/buildAppLinkedDatabaseData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { AppLinkedDatabase } from "./AppLinkedDatabase.js";
+import { MySql, Redis } from "../../database/index.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { ActivityAction } from "../ActivityAction";
+import { ActivityAction } from "../ActivityAction.js";
 
 type ActivityAppInstallationDatabaseLinked =
   MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationDatabaseLinked;

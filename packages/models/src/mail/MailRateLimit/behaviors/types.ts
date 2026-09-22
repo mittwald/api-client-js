@@ -1,9 +1,9 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   MailRateLimitListItemData,
   MailRateLimitQueryData,
   MailRateLimitData,
-} from "../types";
+} from "../types.js";
 
 export interface MailRateLimitBehaviors {
   query: (

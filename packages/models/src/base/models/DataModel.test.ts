@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildContainerData, resetBehaviors } from "../../testing";
-import { DataModel } from "./DataModel";
+import { buildContainerData, resetBehaviors } from "../../testing/index.js";
+import { DataModel } from "./DataModel.js";
 
 afterEach(resetBehaviors);
 

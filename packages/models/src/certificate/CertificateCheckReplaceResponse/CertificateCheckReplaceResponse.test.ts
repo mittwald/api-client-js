@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 
-import { buildCertificateCheckReplaceResponseData } from "../../testing/builders/buildCertificateCheckReplaceResponseData";
-import { CertificateCheckReplaceResponse } from "./CertificateCheckReplaceResponse";
+import { buildCertificateCheckReplaceResponseData } from "../../testing/builders/buildCertificateCheckReplaceResponseData.js";
+import { CertificateCheckReplaceResponse } from "./CertificateCheckReplaceResponse.js";
 
 describe("CertificateCheckReplaceResponse", () => {
   test("copies response data and defaults errors", () => {

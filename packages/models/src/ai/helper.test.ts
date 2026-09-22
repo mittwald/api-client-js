@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { formatTokenUsage } from "./helper";
+import { formatTokenUsage } from "./helper.js";
 
 test("formatTokenUsage returns '0' for zero tokens", () => {
   expect(formatTokenUsage(0)).toBe("0");

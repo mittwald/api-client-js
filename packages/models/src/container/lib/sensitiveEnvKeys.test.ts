@@ -5,7 +5,7 @@ import {
   maskSensitiveEnvValue,
   maskUrlCredentials,
   isSensitiveEnvKey,
-} from "./sensitiveEnvKeys";
+} from "./sensitiveEnvKeys.js";
 
 test("isSensitiveEnvKey identifies sensitive environment keys", () => {
   const sensitiveKeys = [

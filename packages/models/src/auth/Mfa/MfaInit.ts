@@ -1,6 +1,6 @@
-import type { InitMfaResponseData } from "./types";
+import type { InitMfaResponseData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class MfaInit extends DataModel<InitMfaResponseData> {
   public readonly barcodeImageSrc: string;

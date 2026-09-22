@@ -1,6 +1,6 @@
-import type { PlanChangeData } from "../../contract/PlanChange/types";
+import type { PlanChangeData } from "../../contract/PlanChange/types.js";
 
-import { buildContractArticleData } from "./buildContractArticleData";
+import { buildContractArticleData } from "./buildContractArticleData.js";
 
 export function buildPlanChangeData(
   overrides?: Partial<PlanChangeData>,

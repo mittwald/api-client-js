@@ -3,7 +3,7 @@ import type {
   ProjectInviteListQueryData,
   ProjectInviteListItemData,
   ProjectInviteData,
-} from "../types";
+} from "../types.js";
 
 export interface ProjectInviteBehaviors {
   list: (

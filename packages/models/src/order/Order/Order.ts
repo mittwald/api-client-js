@@ -7,14 +7,14 @@ import type {
   OrderTypeData,
   OrderStatus,
   OrderData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Customer } from "../../customer/Customer/Customer";
-import { AggregateMetaData, Money } from "../../common";
-import { OrderItem } from "../OrderItem";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { AggregateMetaData, Money } from "../../common/index.js";
+import { OrderItem } from "../OrderItem/index.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Order",

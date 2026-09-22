@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildSessionTokenData } from "../../testing/builders/buildSessionTokenData";
-import { resetBehaviors } from "../../testing";
-import { SessionToken } from "./SessionToken";
-import { DataModel } from "../../base";
+import { buildSessionTokenData } from "../../testing/builders/buildSessionTokenData.js";
+import { resetBehaviors } from "../../testing/index.js";
+import { SessionToken } from "./SessionToken.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

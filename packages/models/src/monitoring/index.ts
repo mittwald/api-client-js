@@ -1,2 +1,2 @@
-export * from "./StorageMetrics";
-export * from "./UsageMetrics";
+export * from "./StorageMetrics/index.js";
+export * from "./UsageMetrics/index.js";

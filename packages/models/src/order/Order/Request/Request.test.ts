@@ -1,38 +1,38 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildExternalCertificateOrderPreviewData } from "../../../testing/builders/buildExternalCertificateOrderPreviewData";
-import { buildMailArchiveOrderPreviewData } from "../../../testing/builders/buildMailArchiveOrderPreviewData";
-import { buildLeadFyndrOrderPreviewData } from "../../../testing/builders/buildLeadFyndrOrderPreviewData";
-import { buildHostingOrderPreviewData } from "../../../testing/builders/buildHostingOrderPreviewData";
-import { buildLicenseOrderPreviewData } from "../../../testing/builders/buildLicenseOrderPreviewData";
-import { buildDomainOrderPreviewData } from "../../../testing/builders/buildDomainOrderPreviewData";
-import { ExternalCertificateOrderPreview } from "../Preview/ExternalCertificateOrderPreview";
-import { ExternalCertificateOrderRequest } from "./ExternalCertificateOrderRequest";
-import { MailArchiveOrderPreview } from "../Preview/MailArchiveOrderPreview";
-import { AIHostingOrderPreview } from "../Preview/AIHostingOrderPreview";
-import { LeadFyndrOrderPreview } from "../Preview/LeadFyndrOrderPreview";
-import { WebhostingArticle } from "../../../article/Article/internal";
-import { HostingOrderPreview } from "../Preview/HostingOrderPreview";
-import { LicenseOrderPreview } from "../Preview/LicenseOrderPreview";
-import { MailArchiveOrderRequest } from "./MailArchiveOrderRequest";
-import { DomainOrderPreview } from "../Preview/DomainOrderPreview";
-import { AIHostingOrderRequest } from "./AIHostingOrderRequest";
-import { LeadFyndrOrderRequest } from "./LeadFyndrOrderRequest";
-import { HostingOrderRequest } from "./HostingOrderRequest";
-import { LicenseOrderRequest } from "./LicenseOrderRequest";
-import { DomainOrderRequest } from "./DomainOrderRequest";
+import { buildExternalCertificateOrderPreviewData } from "../../../testing/builders/buildExternalCertificateOrderPreviewData.js";
+import { buildMailArchiveOrderPreviewData } from "../../../testing/builders/buildMailArchiveOrderPreviewData.js";
+import { buildLeadFyndrOrderPreviewData } from "../../../testing/builders/buildLeadFyndrOrderPreviewData.js";
+import { buildHostingOrderPreviewData } from "../../../testing/builders/buildHostingOrderPreviewData.js";
+import { buildLicenseOrderPreviewData } from "../../../testing/builders/buildLicenseOrderPreviewData.js";
+import { buildDomainOrderPreviewData } from "../../../testing/builders/buildDomainOrderPreviewData.js";
+import { ExternalCertificateOrderPreview } from "../Preview/ExternalCertificateOrderPreview.js";
+import { ExternalCertificateOrderRequest } from "./ExternalCertificateOrderRequest.js";
+import { MailArchiveOrderPreview } from "../Preview/MailArchiveOrderPreview.js";
+import { AIHostingOrderPreview } from "../Preview/AIHostingOrderPreview.js";
+import { LeadFyndrOrderPreview } from "../Preview/LeadFyndrOrderPreview.js";
+import { WebhostingArticle } from "../../../article/Article/internal.js";
+import { HostingOrderPreview } from "../Preview/HostingOrderPreview.js";
+import { LicenseOrderPreview } from "../Preview/LicenseOrderPreview.js";
+import { MailArchiveOrderRequest } from "./MailArchiveOrderRequest.js";
+import { DomainOrderPreview } from "../Preview/DomainOrderPreview.js";
+import { AIHostingOrderRequest } from "./AIHostingOrderRequest.js";
+import { LeadFyndrOrderRequest } from "./LeadFyndrOrderRequest.js";
+import { HostingOrderRequest } from "./HostingOrderRequest.js";
+import { LicenseOrderRequest } from "./LicenseOrderRequest.js";
+import { DomainOrderRequest } from "./DomainOrderRequest.js";
 import {
   buildArticleAttributeData,
   buildArticleTemplateData,
   buildArticleData,
-} from "../../../testing/builders/buildArticleData";
-import { Contract } from "../../../contract";
+} from "../../../testing/builders/buildArticleData.js";
+import { Contract } from "../../../contract/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../../testing/installBehaviors";
-import { Bytes } from "../../../common";
-import { Order } from "../Order";
+} from "../../../testing/installBehaviors.js";
+import { Bytes } from "../../../common/index.js";
+import { Order } from "../Order.js";
 
 afterEach(resetBehaviors);
 

@@ -1,7 +1,7 @@
 import type {
   CustomerAIModelListQueryData,
   CustomerAIModelListItemData,
-} from "../types";
+} from "../types.js";
 
 export interface CustomerAIModelBehaviors {
   list: (

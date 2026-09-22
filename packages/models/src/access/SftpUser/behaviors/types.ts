@@ -1,11 +1,11 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   SftpUserCreateRequestData,
   SftpUserUpdateRequestData,
   SftpUserListQueryData,
   SftpUserListItemData,
   SftpUserData,
-} from "../types";
+} from "../types.js";
 
 export interface SftpUserBehaviors {
   list: (

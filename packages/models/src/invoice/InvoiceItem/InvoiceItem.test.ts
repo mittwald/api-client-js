@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildInvoiceItemData } from "../../testing/builders/buildInvoiceItemData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { ServicePeriod } from "./ServicePeriod";
-import { InvoiceItem } from "./InvoiceItem";
-import { Invoice } from "../Invoice";
+import { buildInvoiceItemData } from "../../testing/builders/buildInvoiceItemData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { ServicePeriod } from "./ServicePeriod.js";
+import { InvoiceItem } from "./InvoiceItem.js";
+import { Invoice } from "../Invoice/index.js";
 
 afterEach(resetBehaviors);
 

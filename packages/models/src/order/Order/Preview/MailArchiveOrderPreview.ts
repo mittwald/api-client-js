@@ -1,8 +1,8 @@
-import type { MailArchiveOrderRequest } from "../Request/MailArchiveOrderRequest";
-import type { MailArchiveOrderPreviewData } from "../types";
+import type { MailArchiveOrderRequest } from "../Request/MailArchiveOrderRequest.js";
+import type { MailArchiveOrderPreviewData } from "../types.js";
 
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class MailArchiveOrderPreview extends DataModel<MailArchiveOrderPreviewData> {
   public readonly feePrice: Money;

@@ -1,7 +1,7 @@
-import type { ActivityActionData } from "../types";
+import type { ActivityActionData } from "../types.js";
 
-import { ActivityAction } from "../ActivityAction";
-import { translatable } from "../types";
+import { ActivityAction } from "../ActivityAction.js";
+import { translatable } from "../types.js";
 
 /**
  * Every `database.mysql-user-*` action names the user through

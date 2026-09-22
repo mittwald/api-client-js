@@ -9,21 +9,21 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError";
-import { buildSystemSoftwareVersionListItemData , buildSystemSoftwareVersionData } from "../../testing/builders/buildSystemSoftwareVersionData";
-import { SystemSoftware } from "../SystemSoftware";
-import { ReferenceModel } from "../../base";
+import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
+import { buildSystemSoftwareVersionListItemData , buildSystemSoftwareVersionData } from "../../testing/builders/buildSystemSoftwareVersionData.js";
+import { SystemSoftware } from "../SystemSoftware/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { FeePeriod } from "./FeePeriod";
+} from "../../testing/installBehaviors.js";
+import { FeePeriod } from "./FeePeriod.js";
 import {
   SystemSoftwareVersionDetailed,
   SystemSoftwareVersionListItem,
   SystemSoftwareVersionList,
   SystemSoftwareVersion,
-} from "./SystemSoftwareVersion";
+} from "./SystemSoftwareVersion.js";
 
 afterEach(resetBehaviors);
 

@@ -5,14 +5,14 @@ import type {
   ServerProjectStatistics,
   StorageMetricsData,
   StorageMetricsKind,
-} from "./types";
+} from "./types.js";
 
-import { StorageStatisticsCategory } from "./StorageStatisticsCategory";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ReferenceModel, WithData } from "../../base";
-import { Project } from "../../project/internal";
-import { config } from "../../config";
-import { Bytes } from "../../common";
+import { StorageStatisticsCategory } from "./StorageStatisticsCategory.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { Project } from "../../project/internal.js";
+import { config } from "../../config/index.js";
+import { Bytes } from "../../common/index.js";
 
 @GhostMakerModel({
   name: "StorageMetrics",

@@ -8,16 +8,16 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildPerformanceIngressListItemData } from "../../testing/builders/buildPerformanceIngressListItemData";
-import { buildPerformanceListItemData } from "../../testing/builders/buildPerformanceListItemData";
-import { buildPerformanceData } from "../../testing/builders/buildPerformanceData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { ListQueryModel, ReferenceModel } from "../../base";
+import { buildPerformanceIngressListItemData } from "../../testing/builders/buildPerformanceIngressListItemData.js";
+import { buildPerformanceListItemData } from "../../testing/builders/buildPerformanceListItemData.js";
+import { buildPerformanceData } from "../../testing/builders/buildPerformanceData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   PerformanceSubpageItem,
   PerformanceListQuery,
@@ -26,7 +26,7 @@ import {
   PerformanceMetric,
   PerformanceList,
   Performance,
-} from "./Performance";
+} from "./Performance.js";
 
 afterEach(resetBehaviors);
 

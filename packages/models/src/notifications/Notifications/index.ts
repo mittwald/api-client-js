@@ -1,2 +1,2 @@
-export * from "./Notifications";
-export * from "./types";
+export * from "./Notifications.js";
+export * from "./types.js";

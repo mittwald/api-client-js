@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { ContractPartnerData } from "../ContractPartner";
+import type { ContractPartnerData } from "../ContractPartner/index.js";
 
 export type CustomerListQueryData =
   MittwaldAPIV2.Paths.V2Customers.Get.Parameters.Query;

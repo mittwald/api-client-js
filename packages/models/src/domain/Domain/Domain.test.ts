@@ -2,21 +2,21 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildDomainListItemData } from "../../testing/builders/buildDomainListItemData";
-import { buildDomainDomainData } from "../../testing/builders/buildDomainDomainData";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
+import { buildDomainListItemData } from "../../testing/builders/buildDomainListItemData.js";
+import { buildDomainDomainData } from "../../testing/builders/buildDomainDomainData.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   DomainDetailed,
   DomainListItem,
   DomainCommon,
   DomainList,
   Domain,
-} from "./Domain";
+} from "./Domain.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

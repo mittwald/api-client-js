@@ -1,4 +1,4 @@
-import type { ProjectMembershipData } from "../../project/ProjectMembership/types";
+import type { ProjectMembershipData } from "../../project/ProjectMembership/types.js";
 
 export function buildProjectMembershipData(
   overrides?: Partial<ProjectMembershipData>,

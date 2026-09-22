@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { DnsRecordAction } from "./DnsRecordAction";
+import { DnsRecordAction } from "./DnsRecordAction.js";
 
 type ActivityDnsMxRecordSetManaged =
   MittwaldAPIV2.Components.Schemas.ActivitylogDnsMxRecordSetManaged;

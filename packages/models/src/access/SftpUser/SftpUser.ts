@@ -2,7 +2,7 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 import { omit } from "remeda";
 
-import type { SshUserSshKey } from "../SshUser";
+import type { SshUserSshKey } from "../SshUser/index.js";
 import type {
   SftpUserListQueryModelData,
   SftpUserCreateRequestData,
@@ -10,19 +10,19 @@ import type {
   SftpUserListItemData,
   SftpUserAccessLevel,
   SftpUserData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { arrayRemoveItem } from "../../lib/arrayRemoveItem";
-import { Project } from "../../project/internal";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { arrayRemoveItem } from "../../lib/arrayRemoveItem.js";
+import { Project } from "../../project/internal.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "SftpUser",

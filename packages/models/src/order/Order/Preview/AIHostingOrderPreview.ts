@@ -1,5 +1,5 @@
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class AIHostingOrderPreview extends DataModel<any> {
   public readonly request: any;

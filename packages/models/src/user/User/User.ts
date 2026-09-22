@@ -3,9 +3,9 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { FileAccessTokenProvider, DomFile } from "../../file";
-import type { Salutation } from "../../customer";
-import type { Project } from "../../project";
+import type { FileAccessTokenProvider, DomFile } from "../../file/index.js";
+import type { Salutation } from "../../customer/index.js";
+import type { Project } from "../../project/index.js";
 import type {
   UserUpdatePersonalInformationRequestData,
   UserConfirmPasswordResetRequestData,
@@ -15,14 +15,14 @@ import type {
   UserDeleteRequestData,
   FeedbackPollStatus,
   UserData,
-} from "./types";
+} from "./types.js";
 
-import { UserAvatarAccessTokenProvider } from "./UserAvatarAccessTokenProvider";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ReferenceModel, WithData } from "../../base";
-import { AggregateMetaData } from "../../common";
-import { File } from "../../file/File/internal";
-import { config } from "../../config";
+import { UserAvatarAccessTokenProvider } from "./UserAvatarAccessTokenProvider.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { File } from "../../file/File/internal.js";
+import { config } from "../../config/index.js";
 
 @GhostMakerModel({
   name: "User",

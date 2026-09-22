@@ -1,10 +1,10 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { NewsletterBehaviors } from "./types";
+import type { NewsletterBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { withAxiosRequestConfig } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { withAxiosRequestConfig } from "../../../base/index.js";
 
 export const apiNewsletterBehaviors = (
   client: MittwaldAPIV2Client,

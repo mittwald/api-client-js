@@ -1,23 +1,23 @@
 import { beforeEach, afterEach, describe, expect, test, vi } from "vitest";
 
-import type { DnsZoneCommon } from "../DnsZone";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 
 import {
   buildDnsRecordMxManagedData,
   buildDnsRecordMxCustomData,
   buildDnsRecordMxUnsetData,
   buildDnsRecordMxEntry,
-} from "../../testing/builders/buildDnsRecordMxData";
+} from "../../testing/builders/buildDnsRecordMxData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   dnsRecordMxFactory,
   DnsRecordMxManaged,
   DnsRecordMxCustom,
   DnsRecordMxUnset,
-} from "./DnsRecordMx";
+} from "./DnsRecordMx.js";
 
 beforeEach(() => installBehaviors({}));
 afterEach(resetBehaviors);

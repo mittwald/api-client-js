@@ -1,7 +1,7 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { LeadTechnologyData } from "../Lead";
+import type { LeadTechnologyData } from "../Lead/index.js";
 import type {
   UnlockedLeadHosterInformationData,
   UnlockedLeadSocialMediaData,
@@ -11,18 +11,18 @@ import type {
   UnlockedLeadContactData,
   UnlockedLeadMetricsData,
   UnlockedLeadData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { getFormattedSalesVolume } from "../util/helper";
-import { AggregateMetaData } from "../../common";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { getFormattedSalesVolume } from "../util/helper.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "UnlockedLead",

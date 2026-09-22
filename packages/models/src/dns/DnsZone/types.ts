@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { DnsRecordCaaEntry } from "../DnsRecordCaa";
-import type { DnsRecordSrvEntry } from "../DnsRecordSrv";
-import type { DnsRecordMxEntry } from "../DnsRecordMx";
-import type { Project } from "../../project";
+import type { DnsRecordCaaEntry } from "../DnsRecordCaa/index.js";
+import type { DnsRecordSrvEntry } from "../DnsRecordSrv/index.js";
+import type { DnsRecordMxEntry } from "../DnsRecordMx/index.js";
+import type { Project } from "../../project/index.js";
 
 export type DnsZoneListQueryData =
   MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query & {

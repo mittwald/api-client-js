@@ -1,1 +1,1 @@
-export * from "./RelocationRequest";
+export * from "./RelocationRequest/index.js";

@@ -1,12 +1,12 @@
-import type { ApiClientResponse } from "../../base";
+import type { ApiClientResponse } from "../../base/index.js";
 
-import { performMappings } from "./mapping/performMappings";
+import { performMappings } from "./mapping/performMappings.js";
 import {
   type ValidationErrorFromApiResponseOptions,
   type ValidationErrorObjectApiData,
   type ValidationErrorObject,
   isValidationErrorsApiData,
-} from "./types";
+} from "./types.js";
 
 export class ValidationError {
   public readonly errors: ValidationErrorObject[] = [];

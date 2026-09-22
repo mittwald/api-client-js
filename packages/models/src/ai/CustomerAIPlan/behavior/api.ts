@@ -1,12 +1,12 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { CustomerAIPlanBehavior } from "./types";
+import type { CustomerAIPlanBehavior } from "./types.js";
 
 import {
   withAxiosRequestConfig,
   resolveTotalCount,
   validateResponse,
-} from "../../../base";
+} from "../../../base/index.js";
 
 export const apiCustomerAIPlanBehaviors = (
   client: MittwaldAPIV2Client,

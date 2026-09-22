@@ -1,14 +1,14 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { DnsZoneBehaviors } from "./types";
+import type { DnsZoneBehaviors } from "./types.js";
 import type {
   DnsRecordCAARecord,
   DnsRecordSRVRecord,
   DnsRecordMXRecord,
-} from "../../../domain/Domain";
+} from "../../../domain/Domain/index.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiDnsZoneBehaviors = (
   client: MittwaldAPIV2Client,

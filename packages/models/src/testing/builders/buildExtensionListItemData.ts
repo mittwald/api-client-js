@@ -1,4 +1,4 @@
-import type { ExtensionListItemData } from "../../marketplace/Extension/types";
+import type { ExtensionListItemData } from "../../marketplace/Extension/types.js";
 
 export function buildExtensionListItemData(
   overrides?: Partial<ExtensionListItemData>,

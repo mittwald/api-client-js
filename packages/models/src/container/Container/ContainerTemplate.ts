@@ -2,8 +2,8 @@ import type { AlertProps } from "@mittwald/flow-react-components";
 
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { ContainerListItem } from "./Container";
-import type { Project } from "../../project";
+import type { ContainerListItem } from "./Container.js";
+import type { Project } from "../../project/index.js";
 import type {
   ContainerTemplateTechnicalDetailData,
   ContainerTemplateUserInputValues,
@@ -15,20 +15,20 @@ import type {
   ContainerTemplateCategory,
   ContainerTemplateApiData,
   ContainerTemplateType,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { maskSensitiveEnvValue } from "../lib/sensitiveEnvKeys";
-import { ContainerStack } from "./ContainerStack";
-import { AggregateMetaData } from "../../common";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { maskSensitiveEnvValue } from "../lib/sensitiveEnvKeys.js";
+import { ContainerStack } from "./ContainerStack.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { config } from "../../config/index.js";
 import {
   sortByPositionMeta,
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 export function localizeTemplateText(
   value: Record<"de" | "en", string>,

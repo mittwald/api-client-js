@@ -1,10 +1,10 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { Schema as SchemaObject } from "jsonschema";
 
-import type { TldBehaviors } from "./types";
+import type { TldBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiTldBehaviors = (client: MittwaldAPIV2Client): TldBehaviors => ({
   getContactSchemas: async (tld) => {

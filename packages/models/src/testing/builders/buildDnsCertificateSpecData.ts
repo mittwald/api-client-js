@@ -1,4 +1,4 @@
-import type { DnsCertificateSpecData } from "../../certificate/DnsCertificateSpec/types";
+import type { DnsCertificateSpecData } from "../../certificate/DnsCertificateSpec/types.js";
 
 export function buildDnsCertificateSpecData(
   overrides?: Partial<DnsCertificateSpecData>,

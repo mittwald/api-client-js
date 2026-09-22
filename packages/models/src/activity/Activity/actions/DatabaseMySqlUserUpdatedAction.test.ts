@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
 
-import type { ActivityActionData } from "../types";
+import type { ActivityActionData } from "../types.js";
 
-import { createActivityAction } from "../actionRegistry";
+import { createActivityAction } from "../actionRegistry.js";
 
 const permissions = {
   permissionsWrite: true,

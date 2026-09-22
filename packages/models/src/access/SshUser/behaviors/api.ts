@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { SshUserBehaviors } from "./types";
+import type { SshUserBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiSshUserBehaviors = (
   client: MittwaldAPIV2Client,

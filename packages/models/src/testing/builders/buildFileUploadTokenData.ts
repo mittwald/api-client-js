@@ -1,4 +1,4 @@
-import type { FileUploadTokenData } from "../../file/FileAccessToken/types";
+import type { FileUploadTokenData } from "../../file/FileAccessToken/types.js";
 
 export function buildFileUploadTokenData(
   overrides?: Partial<FileUploadTokenData>,

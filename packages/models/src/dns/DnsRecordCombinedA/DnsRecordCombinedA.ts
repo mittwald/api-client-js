@@ -1,4 +1,4 @@
-import type { DnsZoneCommon } from "../DnsZone";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 import type {
   DnsRecordCombinedAManagedData,
   DnsRecordCombinedACustomData,
@@ -6,14 +6,14 @@ import type {
   DnsRecordCombinedAData,
   ARecordCustomListItem,
   ARecordListItem,
-} from "./types";
+} from "./types.js";
 
-import { Ingress } from "../../ingress/Ingress";
-import { DataModel } from "../../base";
+import { Ingress } from "../../ingress/Ingress/index.js";
+import { DataModel } from "../../base/index.js";
 import {
   type DnsRecordSettingsData,
   DnsRecordSettings,
-} from "../DnsRecordSettings";
+} from "../DnsRecordSettings/index.js";
 
 export abstract class DnsRecordCombinedABase<
   T extends DnsRecordCombinedAData,

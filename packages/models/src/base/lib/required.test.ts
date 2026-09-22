@@ -1,7 +1,7 @@
 import { afterEach, expect, test } from "vitest";
 
-import { resetBehaviors } from "../../testing";
-import { required } from "./required";
+import { resetBehaviors } from "../../testing/index.js";
+import { required } from "./required.js";
 
 afterEach(resetBehaviors);
 

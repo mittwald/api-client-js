@@ -7,12 +7,12 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildMailRateLimitData } from "../../testing/builders/buildMailRateLimitData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
+import { buildMailRateLimitData } from "../../testing/builders/buildMailRateLimitData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   MailRateLimitListQuery,
   MailRateLimitDetailed,
@@ -20,7 +20,7 @@ import {
   MailRateLimitCommon,
   MailRateLimitList,
   MailRateLimit,
-} from "./MailRateLimit";
+} from "./MailRateLimit.js";
 
 afterEach(resetBehaviors);
 

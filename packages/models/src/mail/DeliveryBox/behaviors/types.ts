@@ -1,9 +1,9 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   DeliveryBoxListQueryData,
   DeliveryBoxListItemData,
   DeliveryBoxData,
-} from "../types";
+} from "../types.js";
 
 export interface DeliveryBoxBehaviors {
   query: (

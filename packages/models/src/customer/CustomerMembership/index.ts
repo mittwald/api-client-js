@@ -1,2 +1,2 @@
-export * from "./CustomerMembership";
-export * from "./types";
+export * from "./CustomerMembership.js";
+export * from "./types.js";

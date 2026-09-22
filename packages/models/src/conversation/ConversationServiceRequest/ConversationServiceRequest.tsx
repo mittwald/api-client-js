@@ -3,10 +3,10 @@ import { DateTime } from "luxon";
 import type {
   ConversationServiceRequestRelocationPayloadData,
   ConversationServiceRequestData,
-} from "./types";
+} from "./types.js";
 
-import { Conversation } from "../Conversation";
-import { DataModel } from "../../base";
+import { Conversation } from "../Conversation/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class ConversationServiceRequest extends DataModel<ConversationServiceRequestData> {
   public readonly conversation: Conversation;

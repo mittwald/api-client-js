@@ -1,12 +1,12 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { CustomerCreateRequestData } from "../types";
-import type { CustomerBehaviors } from "./types";
+import type { CustomerCreateRequestData } from "../types.js";
+import type { CustomerBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig,resolveTotalCount } from "../../../base";
-import { validateResponse } from "../../../base/api/validateResponse";
-import { anyStatus403 } from "../../../base/api/typeFixes";
+import { withAxiosRequestConfig,resolveTotalCount } from "../../../base/index.js";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { anyStatus403 } from "../../../base/api/typeFixes.js";
 
 export const apiCustomerBehaviors = (
   client: MittwaldAPIV2Client,

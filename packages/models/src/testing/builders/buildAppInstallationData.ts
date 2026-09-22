@@ -1,4 +1,4 @@
-import type { AppInstallationData } from "../../app/AppInstallation/types";
+import type { AppInstallationData } from "../../app/AppInstallation/types.js";
 
 export function buildAppInstallationData(
   overrides?: Partial<AppInstallationData>,

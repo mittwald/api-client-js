@@ -1,5 +1,5 @@
-import type { DomainMigrationListItemData } from "../types";
-import type { QueryResponseData } from "../../../base";
+import type { DomainMigrationListItemData } from "../types.js";
+import type { QueryResponseData } from "../../../base/index.js";
 
 export interface DomainMigrationBehaviors {
   queryByProjectId: (

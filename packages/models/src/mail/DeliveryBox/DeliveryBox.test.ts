@@ -7,14 +7,14 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildDeliveryBoxData } from "../../testing/builders/buildDeliveryBoxData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { config } from "../../config/config";
+import { buildDeliveryBoxData } from "../../testing/builders/buildDeliveryBoxData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { config } from "../../config/config.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   DeliveryBoxListQuery,
   DeliveryBoxDetailed,
@@ -22,7 +22,7 @@ import {
   DeliveryBoxCommon,
   DeliveryBoxList,
   DeliveryBox,
-} from "./DeliveryBox";
+} from "./DeliveryBox.js";
 
 afterEach(resetBehaviors);
 

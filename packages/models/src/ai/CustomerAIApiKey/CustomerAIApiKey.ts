@@ -6,26 +6,26 @@ import type {
   AIApiKeyTokenUsageData,
   AIApiKeyRateLimitData,
   AIApiKeyData,
-} from "../types";
+} from "../types.js";
 import type {
   CustomerAIApiKeyListQueryData,
   CustomerAIApiKeyListItemData,
   CustomerAIApiKeyRequestData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Customer } from "../../customer/Customer/Customer";
-import { Project } from "../../project/internal";
-import { formatTokenUsage } from "../helper";
-import { Ingress } from "../../ingress";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { Project } from "../../project/internal.js";
+import { formatTokenUsage } from "../helper.js";
+import { Ingress } from "../../ingress/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CustomerAIApiKey",

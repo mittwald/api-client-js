@@ -1,4 +1,4 @@
-import type { ConversationData } from "../../conversation/Conversation/types";
+import type { ConversationData } from "../../conversation/Conversation/types.js";
 
 export function buildConversationData(
   overrides: Partial<ConversationData> = {},

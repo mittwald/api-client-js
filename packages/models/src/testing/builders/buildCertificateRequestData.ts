@@ -1,4 +1,4 @@
-import type { CertificateRequestData } from "../../certificate/CertificateRequest/types";
+import type { CertificateRequestData } from "../../certificate/CertificateRequest/types.js";
 
 export function buildCertificateRequestData(
   overrides?: Partial<CertificateRequestData>,

@@ -1,12 +1,12 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileUploadTokenData } from "../../../file";
-import type { QueryResponseData } from "../../../base";
+import type { FileUploadTokenData } from "../../../file/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ServerListQueryData,
   ServerListItemData,
   ServerData,
-} from "../types";
+} from "../types.js";
 
 export interface ServerBehaviors {
   updateStorageNotificationThreshold: (

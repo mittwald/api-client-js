@@ -1,4 +1,4 @@
-import type { HostingOrderPreviewData } from "../../order/Order/types";
+import type { HostingOrderPreviewData } from "../../order/Order/types.js";
 
 export function buildHostingOrderPreviewData(
   overrides: Partial<HostingOrderPreviewData> = {},

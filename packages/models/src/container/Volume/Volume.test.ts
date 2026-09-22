@@ -8,20 +8,20 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildVolumeData } from "../../testing/builders/buildVolumeData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { volumeNameRegExp } from "./types";
-import { Container } from "../Container";
-import { Project } from "../../project";
-import { Bytes } from "../../common";
+import { buildVolumeData } from "../../testing/builders/buildVolumeData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { volumeNameRegExp } from "./types.js";
+import { Container } from "../Container/index.js";
+import { Project } from "../../project/index.js";
+import { Bytes } from "../../common/index.js";
 import {
   VolumeListQuery,
   VolumeDetailed,
   VolumeListItem,
   VolumeList,
   Volume,
-} from "./Volume";
+} from "./Volume.js";
 
 afterEach(resetBehaviors);
 

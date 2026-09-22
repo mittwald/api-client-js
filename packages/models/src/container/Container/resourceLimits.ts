@@ -1,4 +1,4 @@
-import { Bytes } from "../../common";
+import { Bytes } from "../../common/index.js";
 
 export const toPositiveLimit = (value?: number): number | undefined => {
   return typeof value === "number" && Number.isFinite(value) && value > 0

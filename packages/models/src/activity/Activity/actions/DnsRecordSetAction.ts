@@ -1,6 +1,6 @@
-import type { ActivityActionData, ActivityType } from "../types";
+import type { ActivityActionData, ActivityType } from "../types.js";
 
-import { DnsRecordAction } from "./DnsRecordAction";
+import { DnsRecordAction } from "./DnsRecordAction.js";
 
 /**
  * Created, changed or deleted – the API tells them apart only by which side of

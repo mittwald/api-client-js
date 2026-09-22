@@ -1,10 +1,10 @@
-import type { ActivityAction } from "./ActivityAction";
+import type { ActivityAction } from "./ActivityAction.js";
 import type {
   ActivityGenericActionData,
   ActivityActionData,
   ActionDataByName,
   KnownActionName,
-} from "./types";
+} from "./types.js";
 
 import {
   DatabaseMySqlUserPasswordSetAction,
@@ -40,7 +40,7 @@ import {
   AppDeletedAction,
   AppFailedAction,
   GenericAction,
-} from "./actions";
+} from "./actions/index.js";
 
 type ActionConstructor<TName extends KnownActionName> = new (
   data: ActionDataByName<TName>,

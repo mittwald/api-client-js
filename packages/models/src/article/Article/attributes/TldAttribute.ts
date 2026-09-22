@@ -1,8 +1,8 @@
 import invariant from "tiny-invariant";
 
-import type { ArticleAttributeData } from "../types";
+import type { ArticleAttributeData } from "../types.js";
 
-import { ArticleAttribute } from "../internal";
+import { ArticleAttribute } from "../internal.js";
 
 export class TldAttribute extends ArticleAttribute {
   public readonly tld: string;

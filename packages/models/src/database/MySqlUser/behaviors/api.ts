@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { MySqlUserBehaviors } from "./types";
+import type { MySqlUserBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiMySqlUserBehaviors = (
   client: MittwaldAPIV2Client,

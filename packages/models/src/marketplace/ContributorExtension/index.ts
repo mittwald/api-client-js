@@ -1,3 +1,3 @@
-export * from "./ContributorExtension";
-export * from "./PricePlanEditingVariant";
-export * from "./types";
+export * from "./ContributorExtension.js";
+export * from "./PricePlanEditingVariant.js";
+export * from "./types.js";

@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { DatabaseMySqlUserAction } from "./DatabaseMySqlUserAction";
-import { translatable } from "../types";
+import { DatabaseMySqlUserAction } from "./DatabaseMySqlUserAction.js";
+import { translatable } from "../types.js";
 
 type ActivityDatabaseMysqlUserUpdated =
   MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseMysqlUserUpdated;

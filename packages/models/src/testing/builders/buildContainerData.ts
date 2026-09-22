@@ -1,4 +1,4 @@
-import type { ContainerData } from "../../container/Container/types";
+import type { ContainerData } from "../../container/Container/types.js";
 
 export function buildContainerData(
   overrides?: Partial<ContainerData>,

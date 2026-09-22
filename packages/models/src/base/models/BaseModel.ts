@@ -1,6 +1,6 @@
 import type { AbstractClass, Class } from "type-fest";
 
-import { assertInstanceOf } from "../lib/assertInstanceOf";
+import { assertInstanceOf } from "../lib/assertInstanceOf.js";
 
 export abstract class BaseModel {
   public assertType<T extends AbstractClass<any> | Class<any>>(

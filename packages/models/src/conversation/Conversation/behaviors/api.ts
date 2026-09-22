@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { ConversationBehaviors } from "./types";
+import type { ConversationBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig,resolveTotalCount } from "../../../base";
-import { validateResponse } from "../../../base/api/validateResponse";
+import { withAxiosRequestConfig,resolveTotalCount } from "../../../base/index.js";
+import { validateResponse } from "../../../base/api/validateResponse.js";
 
 export const apiConversationBehaviors = (
   client: MittwaldAPIV2Client,

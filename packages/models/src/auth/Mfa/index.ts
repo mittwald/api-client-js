@@ -1,3 +1,3 @@
-export * from "./Mfa";
-export * from "./MfaInit";
-export * from "./types";
+export * from "./Mfa.js";
+export * from "./MfaInit.js";
+export * from "./types.js";

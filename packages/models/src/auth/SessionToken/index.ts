@@ -1,1 +1,1 @@
-export * from "./SessionToken";
+export * from "./SessionToken.js";

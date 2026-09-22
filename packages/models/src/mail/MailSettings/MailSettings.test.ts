@@ -7,13 +7,13 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildMailSettingsData } from "../../testing/builders/buildMailSettingsData";
-import { MailSettingsDetailed, MailSettings } from "./MailSettings";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
+import { buildMailSettingsData } from "../../testing/builders/buildMailSettingsData.js";
+import { MailSettingsDetailed, MailSettings } from "./MailSettings.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

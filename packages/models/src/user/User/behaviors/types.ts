@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileUploadTokenData } from "../../../file";
+import type { FileUploadTokenData } from "../../../file/index.js";
 import type {
   UserUpdatePersonalInformationRequestData,
   UserConfirmPasswordResetRequestData,
@@ -12,7 +12,7 @@ import type {
   FeedbackPollStatus,
   RefreshSessionData,
   UserData,
-} from "../types";
+} from "../types.js";
 
 export interface UserBehaviors {
   updatePersonalInformation: (

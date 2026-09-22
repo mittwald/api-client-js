@@ -1,9 +1,9 @@
 import { describe, expect, test } from "vitest";
 
-import type { DnsRecordSetActionData } from "./DnsRecordSetAction";
+import type { DnsRecordSetActionData } from "./DnsRecordSetAction.js";
 
-import { DnsMxRecordSetAction } from "./DnsMxRecordSetAction";
-import { getDnsRecordChangeType } from "./DnsRecordSetAction";
+import { DnsMxRecordSetAction } from "./DnsMxRecordSetAction.js";
+import { getDnsRecordChangeType } from "./DnsRecordSetAction.js";
 
 const changesOf = (changes: object): DnsRecordSetActionData["changes"] =>
   changes as DnsRecordSetActionData["changes"];

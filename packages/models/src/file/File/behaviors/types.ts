@@ -5,7 +5,7 @@ import type {
   FileUploadRules,
   FileUploadType,
   FileMetaData,
-} from "../types";
+} from "../types.js";
 
 export interface FileBehaviors {
   findMetaData(

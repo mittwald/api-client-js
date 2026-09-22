@@ -1,2 +1,2 @@
-export * from "./SshUser";
-export * from "./types";
+export * from "./SshUser.js";
+export * from "./types.js";

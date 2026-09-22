@@ -1,7 +1,7 @@
-import type { HandleReadableData } from "./types";
+import type { HandleReadableData } from "./types.js";
 
-import { DomainHandle } from "../DomainHandle";
-import { DataModel } from "../../base";
+import { DomainHandle } from "../DomainHandle/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class DomainHandleReadable extends DataModel<HandleReadableData> {
   public readonly current: DomainHandle;

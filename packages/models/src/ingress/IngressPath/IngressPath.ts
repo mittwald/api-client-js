@@ -1,10 +1,10 @@
-import type { IngressCommon, Ingress } from "../Ingress";
-import type { IngressTarget } from "../IngressTarget";
-import type { IngressPathData } from "./types";
+import type { IngressCommon, Ingress } from "../Ingress/index.js";
+import type { IngressTarget } from "../IngressTarget/index.js";
+import type { IngressPathData } from "./types.js";
 
-import { ingressTargetFactory } from "../IngressTarget";
-import { Project } from "../../project/internal";
-import { DataModel } from "../../base";
+import { ingressTargetFactory } from "../IngressTarget/index.js";
+import { Project } from "../../project/internal.js";
+import { DataModel } from "../../base/index.js";
 
 export class IngressPath extends DataModel<IngressPathData> {
   public readonly ingress: Ingress;

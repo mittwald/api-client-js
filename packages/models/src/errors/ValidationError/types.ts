@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { ValidationErrorMapping } from "./mapping/types";
+import type { ValidationErrorMapping } from "./mapping/types.js";
 
 export type ErrorApiData = MittwaldAPIV2.Components.Schemas.CommonsError;
 

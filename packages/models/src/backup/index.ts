@@ -1,2 +1,2 @@
-export * from "./Backup";
-export * from "./BackupSchedule";
+export * from "./Backup/index.js";
+export * from "./BackupSchedule/index.js";

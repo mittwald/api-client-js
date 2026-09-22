@@ -1,4 +1,4 @@
-import type { DomainMigrationDnsRecordData } from "../../domain/DomainMigrationDnsRecord/types";
+import type { DomainMigrationDnsRecordData } from "../../domain/DomainMigrationDnsRecord/types.js";
 
 export function buildDomainMigrationDnsRecordData(
   overrides?: Partial<DomainMigrationDnsRecordData>,

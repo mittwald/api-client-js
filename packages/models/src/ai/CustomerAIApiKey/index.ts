@@ -1,2 +1,2 @@
-export * from "./CustomerAIApiKey";
-export * from "./types";
+export * from "./CustomerAIApiKey.js";
+export * from "./types.js";

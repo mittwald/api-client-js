@@ -1,4 +1,4 @@
-import type { TlsAcmeData } from "../../certificate/Tls/types";
+import type { TlsAcmeData } from "../../certificate/Tls/types.js";
 
 export function buildTlsAcmeData(
   overrides?: Partial<TlsAcmeData>,

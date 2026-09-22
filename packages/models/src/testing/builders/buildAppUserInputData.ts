@@ -1,4 +1,4 @@
-import type { UserInputData } from "../../app/UserInput/types";
+import type { UserInputData } from "../../app/UserInput/types.js";
 
 export function buildAppUserInputData(
   overrides: Partial<UserInputData> = {},

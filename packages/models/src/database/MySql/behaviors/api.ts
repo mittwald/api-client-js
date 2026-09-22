@@ -1,10 +1,10 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { MySqlBehaviors } from "./types";
+import type { MySqlBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { anyStatus403 } from "../../../base/api/typeFixes";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { anyStatus403 } from "../../../base/api/typeFixes.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiMySqlBehaviors = (
   client: MittwaldAPIV2Client,

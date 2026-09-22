@@ -1,5 +1,5 @@
-import { type ArticleTemplateData } from "./types";
-import { DataModel } from "../../base";
+import { type ArticleTemplateData } from "./types.js";
+import { DataModel } from "../../base/index.js";
 
 export class ArticleTemplate extends DataModel<ArticleTemplateData> {
   public static readonly templateName: string = "unknown";

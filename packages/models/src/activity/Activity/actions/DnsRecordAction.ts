@@ -1,6 +1,6 @@
-import type { ActivityActionData } from "../types";
+import type { ActivityActionData } from "../types.js";
 
-import { ActivityAction } from "../ActivityAction";
+import { ActivityAction } from "../ActivityAction.js";
 
 /**
  * Both the custom (`dns.<type>-record-set`) and the mittwald managed

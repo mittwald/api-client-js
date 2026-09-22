@@ -8,21 +8,21 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildContractArticleData } from "../../testing/builders/buildContractArticleData";
-import { buildContractItemData } from "../../testing/builders/buildContractItemData";
-import { buildPlanChangeData } from "../../testing/builders/buildPlanChangeData";
-import { buildContractData } from "../../testing/builders/buildContractData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { ContractArticle } from "../ContractArticle";
-import { ContractDetailed } from "../Contract";
-import { ReferenceModel } from "../../base";
-import { PlanChange } from "../PlanChange";
+import { buildContractArticleData } from "../../testing/builders/buildContractArticleData.js";
+import { buildContractItemData } from "../../testing/builders/buildContractItemData.js";
+import { buildPlanChangeData } from "../../testing/builders/buildPlanChangeData.js";
+import { buildContractData } from "../../testing/builders/buildContractData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { ContractArticle } from "../ContractArticle/index.js";
+import { ContractDetailed } from "../Contract/index.js";
+import { ReferenceModel } from "../../base/index.js";
+import { PlanChange } from "../PlanChange/index.js";
 import {
   ContractItemDetailed,
   ContractItemCommon,
   ContractItem,
-} from "./ContractItem";
+} from "./ContractItem.js";
 
 afterEach(resetBehaviors);
 

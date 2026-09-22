@@ -1,7 +1,7 @@
 import type {
   ProjectAIModelListQueryData,
   ProjectAIModelListItemData,
-} from "../types";
+} from "../types.js";
 
 export interface ProjectAIModelBehaviors {
   list: (

@@ -1,4 +1,4 @@
-import type { BackupData } from "../../backup/Backup/types";
+import type { BackupData } from "../../backup/Backup/types.js";
 
 export function buildBackupData(
   overrides: Partial<BackupData> = {},

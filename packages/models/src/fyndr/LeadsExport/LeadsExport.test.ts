@@ -1,17 +1,17 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import type { LeadsExportRequestData } from "./types";
+import type { LeadsExportRequestData } from "./types.js";
 
-import { buildLeadsExportData } from "../../testing/builders/buildLeadsExportData";
+import { buildLeadsExportData } from "../../testing/builders/buildLeadsExportData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   LeadsExportListItem,
   LeadsExportList,
   LeadsExport,
-} from "./LeadsExport";
+} from "./LeadsExport.js";
 
 afterEach(resetBehaviors);
 

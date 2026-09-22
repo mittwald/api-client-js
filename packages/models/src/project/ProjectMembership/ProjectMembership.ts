@@ -8,14 +8,14 @@ import type {
   ProjectMembershipListItemData,
   ProjectMembershipData,
   ProjectRole,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { File } from "../../file/File/internal";
-import { User } from "../../user/User/User";
-import { config } from "../../config";
-import { Project } from "../Project";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { File } from "../../file/File/internal.js";
+import { User } from "../../user/User/User.js";
+import { config } from "../../config/index.js";
+import { Project } from "../Project/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ProjectMembership",

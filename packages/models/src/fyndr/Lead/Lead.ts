@@ -10,19 +10,19 @@ import type {
   LeadMetricsData,
   LeadFilterType,
   LeadData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { getFormattedSalesVolume } from "../util/helper";
-import { AggregateMetaData } from "../../common";
-import { LOCATION_DACH_ZIP_CODE } from "../City";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { getFormattedSalesVolume } from "../util/helper.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { LOCATION_DACH_ZIP_CODE } from "../City/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Lead",

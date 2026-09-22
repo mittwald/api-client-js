@@ -1,4 +1,4 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   CreateOrderPreviewRequestData,
   PlanChangePreviewRequestData,
@@ -9,7 +9,7 @@ import type {
   OrderListItemData,
   OrderPreviewData,
   OrderData,
-} from "../types";
+} from "../types.js";
 
 export interface OrderBehaviors {
   previewTariffChange: (

@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ContainerStackUpdateSchedulePatchRequestData,
   ContainerAddTemplateComponentData,
@@ -18,7 +18,7 @@ import type {
   ContainerLogChunk,
   ContainerData,
   ImageMetaData,
-} from "../types";
+} from "../types.js";
 
 export interface ContainerBehaviors {
   updateStackUpdateSchedule: (

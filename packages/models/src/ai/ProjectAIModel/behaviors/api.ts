@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { ProjectAIModelBehaviors } from "./types";
+import type { ProjectAIModelBehaviors } from "./types.js";
 
-import { resolveTotalCount, validateResponse } from "../../../base";
+import { resolveTotalCount, validateResponse } from "../../../base/index.js";
 
 export const apiProjectAIModelBehaviors = (
   client: MittwaldAPIV2Client,

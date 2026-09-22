@@ -1,4 +1,4 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   MySqlCharsetUpdateRequestData,
   MySqlCharsetListQueryData,
@@ -9,7 +9,7 @@ import type {
   MySqlListItemData,
   MySqlVersionData,
   MySqlData,
-} from "../types";
+} from "../types.js";
 
 export interface MySqlBehaviors {
   listCharsets: (query?: MySqlCharsetListQueryData) => Promise<{

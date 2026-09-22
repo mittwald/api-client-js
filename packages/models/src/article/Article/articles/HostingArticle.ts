@@ -1,16 +1,16 @@
 import invariant from "tiny-invariant";
 
-import type { ArticleType } from "../types";
+import type { ArticleType } from "../types.js";
 
-import { HardwareSpecs } from "../../../project/internal";
-import { Bytes } from "../../../common";
+import { HardwareSpecs } from "../../../project/internal.js";
+import { Bytes } from "../../../common/index.js";
 import {
   StorageArticleAttribute,
   StorageArticleModifier,
   ArticleCommon,
   ServerArticle,
   type Article,
-} from "../internal";
+} from "../internal.js";
 
 export abstract class HostingArticle extends ArticleCommon {
   public get baseStorageAttribute(): StorageArticleAttribute {

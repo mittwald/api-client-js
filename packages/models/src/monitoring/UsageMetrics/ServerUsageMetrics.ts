@@ -1,11 +1,11 @@
-import type { MetricsRequestOptions } from "./Metrics";
-import type { ServerDetailed } from "../../server";
+import type { MetricsRequestOptions } from "./Metrics.js";
+import type { ServerDetailed } from "../../server/index.js";
 import type {
   ServerMetricsDataObject,
   MetricsQueryRequest,
-} from "../lib/metrics";
+} from "../lib/metrics/index.js";
 
-import { Metrics } from "./Metrics";
+import { Metrics } from "./Metrics.js";
 
 export class ServerUsageMetrics {
   public readonly server: ServerDetailed;

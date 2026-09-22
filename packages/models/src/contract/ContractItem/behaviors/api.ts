@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { ContractItemBehaviors } from "./types";
+import type { ContractItemBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
+import { validateResponse } from "../../../base/api/validateResponse.js";
 
 export const apiContractItemBehaviors = (
   client: MittwaldAPIV2Client,

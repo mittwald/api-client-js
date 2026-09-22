@@ -1,2 +1,2 @@
-export * from "./DomainMigration";
-export * from "./types";
+export * from "./DomainMigration.js";
+export * from "./types.js";

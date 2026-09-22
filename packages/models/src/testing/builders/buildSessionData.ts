@@ -1,7 +1,7 @@
 import type {
   SessionListItemData,
   SessionData,
-} from "../../user/Session/types";
+} from "../../user/Session/types.js";
 
 export function buildSessionData(
   overrides: Partial<SessionData> = {},

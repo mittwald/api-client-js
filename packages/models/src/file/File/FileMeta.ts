@@ -1,11 +1,11 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileMetaData } from "./types";
-import type { File } from "./internal";
+import type { FileMetaData } from "./types.js";
+import type { File } from "./internal.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 export class FileMeta extends ReferenceModel {
   public readonly file: File;

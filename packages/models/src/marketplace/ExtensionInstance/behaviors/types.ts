@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ExtensionInstanceConsentToScopesRequestData,
   ExtensionInstanceCreateRequestData,
@@ -12,7 +12,7 @@ import type {
   OpenProjectExtensionOrderData,
   ExtensionSessionTokenData,
   ExtensionInstanceData,
-} from "../types";
+} from "../types.js";
 
 export interface ExtensionInstanceBehaviors {
   list: (

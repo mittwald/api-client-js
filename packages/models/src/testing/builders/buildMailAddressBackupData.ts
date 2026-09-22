@@ -1,4 +1,4 @@
-import type { MailAddressBackupData } from "../../mail/MailAddressBackup/types";
+import type { MailAddressBackupData } from "../../mail/MailAddressBackup/types.js";
 
 export function buildMailAddressBackupData(
   overrides?: Partial<MailAddressBackupData>,

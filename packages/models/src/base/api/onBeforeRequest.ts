@@ -1,4 +1,4 @@
-import type { ApiClientRequest } from "./types";
+import type { ApiClientRequest } from "./types.js";
 
 export type OnBeforeRequestHandler = (request: ApiClientRequest) => void;
 

@@ -8,21 +8,21 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildMySqlCharsetListItemData } from "../../testing/builders/buildMySqlCharsetListItemData";
-import { buildMySqlDatabaseData } from "../../testing/builders/buildMySqlDatabaseData";
-import { buildMySqlVersionData } from "../../testing/builders/buildMySqlVersionData";
-import { ListQueryModel, ReferenceModel } from "../../base";
-import { AggregateMetaData } from "../../common";
+import { buildMySqlCharsetListItemData } from "../../testing/builders/buildMySqlCharsetListItemData.js";
+import { buildMySqlDatabaseData } from "../../testing/builders/buildMySqlDatabaseData.js";
+import { buildMySqlVersionData } from "../../testing/builders/buildMySqlVersionData.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
+import { AggregateMetaData } from "../../common/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   MySqlCharsetListItem,
   MySqlCharsetList,
   MySqlCharset,
-} from "./MySqlCharset";
+} from "./MySqlCharset.js";
 import {
   MySqlListQuery,
   MySqlDetailed,
@@ -30,7 +30,7 @@ import {
   MySqlCommon,
   MySqlList,
   MySql,
-} from "./MySql";
+} from "./MySql.js";
 
 afterEach(resetBehaviors);
 

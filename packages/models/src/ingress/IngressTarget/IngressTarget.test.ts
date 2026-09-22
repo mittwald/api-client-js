@@ -1,19 +1,19 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildIngressPathData } from "../../testing/builders/buildIngressPathData";
-import { buildIngressData } from "../../testing/builders/buildIngressData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { IngressListItem } from "../Ingress";
-import { IngressPath } from "../IngressPath";
-import { AppInstallation } from "../../app";
-import { Container } from "../../container";
+import { buildIngressPathData } from "../../testing/builders/buildIngressPathData.js";
+import { buildIngressData } from "../../testing/builders/buildIngressData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { IngressListItem } from "../Ingress/index.js";
+import { IngressPath } from "../IngressPath/index.js";
+import { AppInstallation } from "../../app/index.js";
+import { Container } from "../../container/index.js";
 import {
   IngressAppInstallationTarget,
   IngressContainerTarget,
   IngressUndefinedTarget,
   IngressRedirectTarget,
   ingressTargetFactory,
-} from "./IngressTarget";
+} from "./IngressTarget.js";
 
 afterEach(resetBehaviors);
 

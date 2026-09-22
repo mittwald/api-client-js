@@ -1,15 +1,15 @@
-import type { Contract } from "../../../contract";
+import type { Contract } from "../../../contract/index.js";
 import type {
   LicenseOrderPreviewRequestData,
   CompleteOrderRequestData,
   LicenseOrderPreviewData,
   LicenseOrderRequestData,
-} from "../types";
+} from "../types.js";
 
-import { LicenseOrderPreview } from "../Preview/LicenseOrderPreview";
-import { DataModel } from "../../../base";
-import { config } from "../../../config";
-import { Order } from "../Order";
+import { LicenseOrderPreview } from "../Preview/LicenseOrderPreview.js";
+import { DataModel } from "../../../base/index.js";
+import { config } from "../../../config/index.js";
+import { Order } from "../Order.js";
 
 export class LicenseOrderRequest extends DataModel<LicenseOrderPreviewRequestData> {
   public readonly contract?: Contract;

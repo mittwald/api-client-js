@@ -1,6 +1,6 @@
-import type { ContractPartnerData, Salutation, Address } from "./types";
+import type { ContractPartnerData, Salutation, Address } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class ContractPartner extends DataModel<ContractPartnerData> {
   public readonly address: Address;

@@ -2,9 +2,9 @@ import type {
   ContainerVolumeRelationFormValues,
   ContainerVolumeRelationData,
   ImageMetaVolumeData,
-} from "./types";
+} from "./types.js";
 
-import { ListDataModel, DataModel } from "../../base";
+import { ListDataModel, DataModel } from "../../base/index.js";
 
 export class ContainerVolumeRelation extends DataModel<ContainerVolumeRelationData> {
   public readonly combinedName?: string;

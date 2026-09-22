@@ -1,4 +1,4 @@
-import type { DomainProcessData } from "../../domain/DomainProcess/types";
+import type { DomainProcessData } from "../../domain/DomainProcess/types.js";
 
 export function buildDomainProcessData(
   overrides?: Partial<DomainProcessData>,

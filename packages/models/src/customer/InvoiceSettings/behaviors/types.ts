@@ -3,7 +3,7 @@ import type { AxiosRequestConfig } from "axios";
 import type {
   InvoiceSettingsUpdateRequestData,
   InvoiceSettingsData,
-} from "../types";
+} from "../types.js";
 
 export interface InvoiceSettingsBehaviors {
   update: (

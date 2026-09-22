@@ -1,7 +1,7 @@
 import { afterEach, expect, test } from "vitest";
 
-import { buildRecoveryCodesData, resetBehaviors } from "../../testing";
-import { RecoveryCodes } from "./RecoveryCodes";
+import { buildRecoveryCodesData, resetBehaviors } from "../../testing/index.js";
+import { RecoveryCodes } from "./RecoveryCodes.js";
 
 afterEach(resetBehaviors);
 

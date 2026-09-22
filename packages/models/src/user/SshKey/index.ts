@@ -1,2 +1,2 @@
-export * from "./SshKey";
-export * from "./types";
+export * from "./SshKey.js";
+export * from "./types.js";

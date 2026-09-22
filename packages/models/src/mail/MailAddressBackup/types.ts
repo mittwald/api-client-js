@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { MailAddress } from "../MailAddress";
+import type { MailAddress } from "../MailAddress/index.js";
 
 export type MailAddressBackupData =
   MittwaldAPIV2.Operations.MailListBackupsForMailAddress.ResponseData[number];

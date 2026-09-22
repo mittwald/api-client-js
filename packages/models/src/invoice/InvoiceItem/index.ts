@@ -1,1 +1,1 @@
-export * from "./InvoiceItem";
+export * from "./InvoiceItem.js";

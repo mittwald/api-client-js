@@ -1,1 +1,1 @@
-export * from "./ConversationStatusUpdate";
+export * from "./ConversationStatusUpdate.js";

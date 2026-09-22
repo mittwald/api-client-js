@@ -1,10 +1,10 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ApiTokenCreateRequestData,
   ApiTokenUpdateRequestData,
   ApiTokenListItemData,
   ApiTokenData,
-} from "../types";
+} from "../types.js";
 
 export interface ApiTokenBehaviors {
   update: (

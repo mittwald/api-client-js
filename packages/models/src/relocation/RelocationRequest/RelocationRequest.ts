@@ -1,14 +1,14 @@
-import type { RelocationRequestApiData, RelocationRequestData } from "./types";
+import type { RelocationRequestApiData, RelocationRequestData } from "./types.js";
 
-import { Project } from "../../project";
-import { config } from "../../config";
-import { Server } from "../../server";
+import { Project } from "../../project/index.js";
+import { config } from "../../config/index.js";
+import { Server } from "../../server/index.js";
 import {
   emailInboxTransferPricePerInbox,
   domainTransferPricePerDomain,
   additionalDataComparePrice,
   getArticleByName,
-} from "./utils/articles";
+} from "./utils/articles.js";
 
 export interface RelocationPricePosition {
   unitPrice?: number;

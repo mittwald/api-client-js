@@ -4,7 +4,7 @@ import {
   type ValidationErrorFromApiResponseOptions,
   type ValidationErrorObject,
   ValidationError,
-} from "../../errors";
+} from "../../errors/index.js";
 
 type AnyFn = (...args: unknown[]) => unknown;
 

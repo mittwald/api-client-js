@@ -1,2 +1,2 @@
-export * from "./Autoresponder";
-export * from "./types";
+export * from "./Autoresponder.js";
+export * from "./types.js";

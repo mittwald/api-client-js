@@ -1,18 +1,18 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildSftpUserData } from "../../testing/builders/buildSftpUserData";
+import { buildSftpUserData } from "../../testing/builders/buildSftpUserData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   SftpUserDetailed,
   SftpUserListItem,
   SftpUserList,
   SftpUser,
-} from "./SftpUser";
+} from "./SftpUser.js";
 
 afterEach(resetBehaviors);
 

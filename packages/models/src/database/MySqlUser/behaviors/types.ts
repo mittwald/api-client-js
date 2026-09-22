@@ -4,7 +4,7 @@ import type {
   MySqlUserListQueryData,
   MySqlUserListItemData,
   MySqlUserData,
-} from "../types";
+} from "../types.js";
 
 export interface MySqlUserBehaviors {
   list: (

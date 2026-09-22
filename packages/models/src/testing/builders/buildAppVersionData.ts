@@ -1,4 +1,4 @@
-import type { AppVersionData } from "../../app/AppVersion/types";
+import type { AppVersionData } from "../../app/AppVersion/types.js";
 
 export function buildAppVersionData(
   overrides?: Partial<AppVersionData>,

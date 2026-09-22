@@ -1,4 +1,4 @@
-import type { SupportCodeData } from "../../user/SupportCode/types";
+import type { SupportCodeData } from "../../user/SupportCode/types.js";
 
 export function buildSupportCodeData(
   overrides: Partial<SupportCodeData> = {},

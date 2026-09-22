@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { MailSettingsBehaviors } from "./types";
+import type { MailSettingsBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
+import { validateResponse } from "../../../base/api/validateResponse.js";
 
 export const apiMailSettingsBehaviors = (
   client: MittwaldAPIV2Client,

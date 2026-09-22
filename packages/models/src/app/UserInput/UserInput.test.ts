@@ -1,9 +1,9 @@
 import { afterEach, expect, test } from "vitest";
 
-import { buildAppUserInputData } from "../../testing/builders/buildAppUserInputData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { UserInput } from "./UserInput";
-import { DataModel } from "../../base";
+import { buildAppUserInputData } from "../../testing/builders/buildAppUserInputData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { UserInput } from "./UserInput.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

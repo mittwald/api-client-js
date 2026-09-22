@@ -9,19 +9,19 @@ import type {
   RegistryListItemData,
   RegistryLoginType,
   RegistryData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Registry",

@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileDownloadTokenData, FileUploadTokenData } from "./types";
+import type { FileDownloadTokenData, FileUploadTokenData } from "./types.js";
 
 export interface FileAccessTokenProvider {
   getDownloadToken?: (

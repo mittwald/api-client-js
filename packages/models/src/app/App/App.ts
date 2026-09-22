@@ -1,22 +1,22 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { AppVersionListQuery } from "../";
+import type { AppVersionListQuery } from "..//index.js";
 import type {
   AppListQueryData,
   AppListItemData,
   AppData,
   AppName,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { config } from "../../config";
-import { AppVersion } from "../";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { config } from "../../config/index.js";
+import { AppVersion } from "..//index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "App",

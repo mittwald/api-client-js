@@ -1,4 +1,4 @@
-import type { PerformanceListItemData } from "../../performance/Performance/types";
+import type { PerformanceListItemData } from "../../performance/Performance/types.js";
 
 export function buildPerformanceListItemData(
   overrides?: Partial<PerformanceListItemData>,

@@ -1,8 +1,8 @@
-import { SpaceServerArticleTemplate } from "../templates/SpaceServerArticleTemplate";
-import { ProSpaceArticleTemplate } from "../templates/ProSpaceArticleTemplate";
-import { ServerArticleTemplate } from "../templates/ServerArticleTemplate";
-import { MachineTypeSpecs } from "../../../project/internal";
-import { RecommendedProjectsArticleAttribute, ArticleTagName, HostingArticle , Article } from "../internal";
+import { SpaceServerArticleTemplate } from "../templates/SpaceServerArticleTemplate.js";
+import { ProSpaceArticleTemplate } from "../templates/ProSpaceArticleTemplate.js";
+import { ServerArticleTemplate } from "../templates/ServerArticleTemplate.js";
+import { MachineTypeSpecs } from "../../../project/internal.js";
+import { RecommendedProjectsArticleAttribute, ArticleTagName, HostingArticle , Article } from "../internal.js";
 
 export class ServerArticle extends HostingArticle {
   public get isProSpace(): boolean {

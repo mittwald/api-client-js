@@ -1,6 +1,6 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import { BaseModel } from "./BaseModel";
+import { BaseModel } from "./BaseModel.js";
 
 @GhostMakerModel({
   getId: (model) => model.id,

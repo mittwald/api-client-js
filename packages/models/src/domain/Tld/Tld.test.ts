@@ -2,19 +2,19 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildTldData } from "../../testing/builders/buildTldData";
-import { ReferenceModel } from "../../base";
+import { buildTldData } from "../../testing/builders/buildTldData.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   TldDetailed,
   TldListItem,
   TldCommon,
   TldList,
   Tld,
-} from "./Tld";
+} from "./Tld.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

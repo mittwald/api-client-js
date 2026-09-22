@@ -1,16 +1,16 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { SessionListItemData, SessionData } from "./types";
+import type { SessionListItemData, SessionData } from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   ListDataModel,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Session",

@@ -2,19 +2,19 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import semverCompare from "semver-compare";
 import { omit } from "remeda";
 
-import type { SystemSoftware } from "../SystemSoftware";
+import type { SystemSoftware } from "../SystemSoftware/index.js";
 import type {
   AppVersionListQueryModelData,
   SystemSoftwareDependency,
   AppVersionListItemData,
   AppDefaultCronjobData,
   AppVersionData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { UserInput } from "../UserInput";
-import { config } from "../../config";
-import { App } from "../";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { UserInput } from "../UserInput/index.js";
+import { config } from "../../config/index.js";
+import { App } from "..//index.js";
 import {
   sortByPositionMeta,
   ListQueryModel,
@@ -22,7 +22,7 @@ import {
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "AppVersion",

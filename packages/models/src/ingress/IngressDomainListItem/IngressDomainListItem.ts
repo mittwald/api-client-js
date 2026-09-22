@@ -1,10 +1,10 @@
-import type { IngressDomainListItemData } from "./types";
-import type { Project } from "../../project";
+import type { IngressDomainListItemData } from "./types.js";
+import type { Project } from "../../project/index.js";
 
-import { type DomainDetailed, type DomainListItem } from "../../domain/Domain";
-import { type IngressDetailed, type IngressListItem } from "../Ingress";
-import { type OrderDetailed, type OrderListItem } from "../../order";
-import { DataModel } from "../../base";
+import { type DomainDetailed, type DomainListItem } from "../../domain/Domain/index.js";
+import { type IngressDetailed, type IngressListItem } from "../Ingress/index.js";
+import { type OrderDetailed, type OrderListItem } from "../../order/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class IngressDomainListItem extends DataModel<IngressDomainListItemData> {
   public readonly domain?: DomainListItem | DomainDetailed;

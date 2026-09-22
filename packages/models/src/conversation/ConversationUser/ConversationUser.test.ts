@@ -1,15 +1,15 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildConversationUserData } from "../../testing/builders/buildConversationUserData";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { Conversation } from "../Conversation";
-import { ReferenceModel } from "../../base";
-import { File } from "../../file";
+import { buildConversationUserData } from "../../testing/builders/buildConversationUserData.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { Conversation } from "../Conversation/index.js";
+import { ReferenceModel } from "../../base/index.js";
+import { File } from "../../file/index.js";
 import {
   ConversationUserListQuery,
   ConversationUserList,
   ConversationUser,
-} from "./ConversationUser";
+} from "./ConversationUser.js";
 
 afterEach(resetBehaviors);
 

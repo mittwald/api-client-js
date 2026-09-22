@@ -1,9 +1,9 @@
 import invariant from "tiny-invariant";
 
-import type { ArticleAttributeData } from "../types";
+import type { ArticleAttributeData } from "../types.js";
 
-import { ArticleAttribute } from "../internal";
-import { Bytes } from "../../../common";
+import { ArticleAttribute } from "../internal.js";
+import { Bytes } from "../../../common/index.js";
 
 export class StorageArticleAttribute extends ArticleAttribute {
   public readonly bytes: Bytes;

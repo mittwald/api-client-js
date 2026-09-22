@@ -1,4 +1,4 @@
-import type { DomFile } from "../file";
+import type { DomFile } from "../file/index.js";
 
 export interface FileUploadFailure {
   error: unknown;

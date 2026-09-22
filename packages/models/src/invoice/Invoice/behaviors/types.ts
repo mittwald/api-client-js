@@ -1,12 +1,12 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileDownloadTokenData } from "../../../file";
-import type { QueryResponseData } from "../../../base";
+import type { FileDownloadTokenData } from "../../../file/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   InvoiceListQueryData,
   InvoiceListItemData,
   InvoiceData,
-} from "../types";
+} from "../types.js";
 
 export interface InvoiceBehaviors {
   getFileAccessToken: (

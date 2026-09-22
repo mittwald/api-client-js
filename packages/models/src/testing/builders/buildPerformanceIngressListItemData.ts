@@ -1,4 +1,4 @@
-import type { IngressListItemData } from "../../ingress/Ingress/types";
+import type { IngressListItemData } from "../../ingress/Ingress/types.js";
 
 export function buildPerformanceIngressListItemData(
   overrides?: Partial<IngressListItemData>,

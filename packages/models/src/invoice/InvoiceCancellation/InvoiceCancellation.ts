@@ -1,11 +1,11 @@
 import { DateTime } from "luxon";
 
-import type { InvoiceCancellationData } from "./types";
-import type { InvoiceDetailed } from "../Invoice";
-import type { Ctor} from "../../base";
+import type { InvoiceCancellationData } from "./types.js";
+import type { InvoiceDetailed } from "../Invoice/index.js";
+import type { Ctor} from "../../base/index.js";
 
-import { ReferenceModel, WithData } from "../../base";
-import { Invoice } from "../Invoice";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { Invoice } from "../Invoice/index.js";
 
 export class InvoiceCancellation extends WithData<InvoiceCancellationData>()(
   // `ReferenceModel` is abstract; the mixin's `Ctor` parameter is a concrete

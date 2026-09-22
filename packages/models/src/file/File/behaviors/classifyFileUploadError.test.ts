@@ -3,7 +3,7 @@ import { expect, test } from "vitest";
 import {
   classifyFileUploadError,
   getMaxUploadSizeInMB,
-} from "./classifyFileUploadError";
+} from "./classifyFileUploadError.js";
 
 test.each([
   [

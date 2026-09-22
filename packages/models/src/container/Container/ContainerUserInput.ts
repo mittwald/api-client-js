@@ -1,8 +1,8 @@
 import type { Schema } from "jsonschema";
 
-import type { ContainerUserInputData } from "./types";
+import type { ContainerUserInputData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class ContainerUserInput extends DataModel<ContainerUserInputData> {
   public readonly dataSource?: string;

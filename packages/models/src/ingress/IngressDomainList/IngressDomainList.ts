@@ -1,12 +1,12 @@
-import type { DomainListItem } from "../../domain/Domain";
-import type { IngressDomainListQueryData } from "./types";
-import type { IngressListItem } from "../Ingress";
-import type { OrderListItem } from "../../order";
+import type { DomainListItem } from "../../domain/Domain/index.js";
+import type { IngressDomainListQueryData } from "./types.js";
+import type { IngressListItem } from "../Ingress/index.js";
+import type { OrderListItem } from "../../order/index.js";
 
-import { IngressDomainListItem } from "../IngressDomainListItem";
-import { ListQueryModel, extractId } from "../../base";
-import { DomainArticleTemplate } from "../../article";
-import { Project } from "../../project/internal";
+import { IngressDomainListItem } from "../IngressDomainListItem/index.js";
+import { ListQueryModel, extractId } from "../../base/index.js";
+import { DomainArticleTemplate } from "../../article/index.js";
+import { Project } from "../../project/internal.js";
 
 export class IngressDomainList {
   public readonly items: IngressDomainListItem[];

@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildInvoiceItemGroupData } from "../../testing/builders/buildInvoiceItemGroupData";
-import { buildInvoiceItemData } from "../../testing/builders/buildInvoiceItemData";
-import { buildInvoiceData } from "../../testing/builders/buildInvoiceData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { InvoiceItemGroup } from "./InvoiceItemGroup";
-import { InvoiceDetailed } from "../Invoice";
-import { InvoiceItem } from "../InvoiceItem";
+import { buildInvoiceItemGroupData } from "../../testing/builders/buildInvoiceItemGroupData.js";
+import { buildInvoiceItemData } from "../../testing/builders/buildInvoiceItemData.js";
+import { buildInvoiceData } from "../../testing/builders/buildInvoiceData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { InvoiceItemGroup } from "./InvoiceItemGroup.js";
+import { InvoiceDetailed } from "../Invoice/index.js";
+import { InvoiceItem } from "../InvoiceItem/index.js";
 
 afterEach(resetBehaviors);
 

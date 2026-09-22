@@ -9,21 +9,21 @@ import type {
   BackupCreateRequestData,
   BackupListItemData,
   BackupData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { BackupSchedule } from "../BackupSchedule";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { BackupExport } from "./BackupExport";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { BackupSchedule } from "../BackupSchedule/index.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { BackupExport } from "./BackupExport.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Backup",

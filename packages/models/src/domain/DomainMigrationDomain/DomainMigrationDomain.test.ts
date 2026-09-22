@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData";
-import { buildDomainMigrationDomainData } from "../../testing/builders/buildDomainMigrationDomainData";
-import { DomainMigrationDnsRecord } from "../DomainMigrationDnsRecord";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { DomainMigrationDomain } from "./DomainMigrationDomain";
+import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData.js";
+import { buildDomainMigrationDomainData } from "../../testing/builders/buildDomainMigrationDomainData.js";
+import { DomainMigrationDnsRecord } from "../DomainMigrationDnsRecord/index.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { DomainMigrationDomain } from "./DomainMigrationDomain.js";
 
 afterEach(resetBehaviors);
 

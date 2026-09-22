@@ -3,8 +3,8 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { hash } from "object-code";
 
-import { ReferenceModel } from "./ReferenceModel";
-import { joinedId } from "../../lib/joinedId";
+import { ReferenceModel } from "./ReferenceModel.js";
+import { joinedId } from "../../lib/joinedId.js";
 
 interface Options {
   dependencies?: string[];

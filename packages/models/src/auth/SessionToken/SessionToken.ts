@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 
-import type { SessionTokenData } from "./types";
+import type { SessionTokenData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class SessionToken extends DataModel<SessionTokenData> {
   public readonly expirationDate: DateTime;

@@ -1,2 +1,2 @@
-export * from "./MailSettings";
-export * from "./types";
+export * from "./MailSettings.js";
+export * from "./types.js";

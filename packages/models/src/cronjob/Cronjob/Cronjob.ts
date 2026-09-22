@@ -2,7 +2,7 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import invariant from "tiny-invariant";
 import { omit } from "remeda";
 
-import type { CronjobExecutionListQuery } from "../CronjobExecution";
+import type { CronjobExecutionListQuery } from "../CronjobExecution/index.js";
 import type {
   CronjobContainerTargetResponse,
   CronjobAppInstallationTarget,
@@ -12,25 +12,25 @@ import type {
   CronjobUpdateRequestData,
   CronjobListItemData,
   CronjobData,
-} from "./types";
+} from "./types.js";
 
-import { additionalCronInterpreters, defaultCronInterpreters } from "./types";
-import { AppInstallation } from "../../app/AppInstallation/AppInstallation";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Container } from "../../container/Container/Container";
-import { Project } from "../../project/internal";
-import { config } from "../../config";
+import { additionalCronInterpreters, defaultCronInterpreters } from "./types.js";
+import { AppInstallation } from "../../app/AppInstallation/AppInstallation.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Container } from "../../container/Container/Container.js";
+import { Project } from "../../project/internal.js";
+import { config } from "../../config/index.js";
 import {
   CronjobExecutionDetailed,
   CronjobExecution,
-} from "../CronjobExecution";
+} from "../CronjobExecution/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Cronjob",

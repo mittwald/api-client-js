@@ -10,21 +10,21 @@ import type {
   CustomerAIPlanLimit,
   CustomerAIPlanData,
   CustomerAIPlanKeys,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContractDetailed } from "../../contract";
-import { AggregateMetaData } from "../../common";
-import { formatTokenUsage } from "../helper";
-import { Customer } from "../../customer";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContractDetailed } from "../../contract/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { formatTokenUsage } from "../helper.js";
+import { Customer } from "../../customer/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CustomerAIPlan",

@@ -1,6 +1,6 @@
-import type { ActivityActionData } from "../types";
+import type { ActivityActionData } from "../types.js";
 
-import { ActivityAction } from "../ActivityAction";
+import { ActivityAction } from "../ActivityAction.js";
 
 type ActivityDatabaseVersionSet = Extract<
   ActivityActionData,

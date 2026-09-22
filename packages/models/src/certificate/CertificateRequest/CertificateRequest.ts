@@ -2,19 +2,19 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 import { omit } from "remeda";
 
-import type { CertificateType } from "../Certificate";
+import type { CertificateType } from "../Certificate/index.js";
 import type {
   CertificateRequestListQueryModelData,
   CertificateRequestCertificateData,
   CertificateRequestListItemData,
   CertificateRequestData,
-} from "./types";
+} from "./types.js";
 
-import { CertificateContact } from "../CertificateContact/CertificateContact";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Project } from "../../project/internal";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base";
+import { CertificateContact } from "../CertificateContact/CertificateContact.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Project } from "../../project/internal.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "CertificateRequest",

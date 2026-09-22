@@ -1,10 +1,10 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { AppInstallation } from "../../app/AppInstallation/AppInstallation";
-import type { Certificate } from "../../certificate/Certificate/Certificate";
-import type { Container } from "../../container/Container/Container";
-import type { IngressTargetData } from "../IngressTarget";
-import type { Project } from "../../project";
+import type { AppInstallation } from "../../app/AppInstallation/AppInstallation.js";
+import type { Certificate } from "../../certificate/Certificate/Certificate.js";
+import type { Container } from "../../container/Container/Container.js";
+import type { IngressTargetData } from "../IngressTarget/index.js";
+import type { Project } from "../../project/index.js";
 
 export type IngressListQueryData =
   MittwaldAPIV2.Paths.V2Ingresses.Get.Parameters.Query;

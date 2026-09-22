@@ -1,4 +1,4 @@
-import type { IngressPathData } from "../../ingress/IngressPath/types";
+import type { IngressPathData } from "../../ingress/IngressPath/types.js";
 
 export function buildIngressPathData(
   overrides?: Partial<IngressPathData>,

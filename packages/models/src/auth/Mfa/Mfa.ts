@@ -1,11 +1,11 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { AuthenticateMfaRequestData, MfaStatusData } from "./types";
+import type { AuthenticateMfaRequestData, MfaStatusData } from "./types.js";
 
-import { RecoveryCodes } from "../RecoveryCodes";
-import { DataModel } from "../../base";
-import { config } from "../../config";
-import { MfaInit } from "./MfaInit";
+import { RecoveryCodes } from "../RecoveryCodes/index.js";
+import { DataModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
+import { MfaInit } from "./MfaInit.js";
 
 export class Mfa {
   public static async authenticate(data: AuthenticateMfaRequestData) {

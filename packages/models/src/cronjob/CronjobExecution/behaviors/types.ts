@@ -1,13 +1,13 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { CronjobLogData } from "../../Cronjob/types";
-import type { QueryResponseData } from "../../../base";
+import type { CronjobLogData } from "../../Cronjob/types.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   CronjobExecutionListQueryData,
   CronjobExecutionAnalysisData,
   CronjobExecutionListItemData,
   CronjobExecutionData,
-} from "../types";
+} from "../types.js";
 
 export interface CronjobExecutionBehaviors {
   getExecutionAnalysis: (

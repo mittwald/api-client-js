@@ -1,5 +1,5 @@
-import { AIHostingArticleTemplate } from "../templates/AIHostingArticleTemplate";
-import { ArticleCommon, Article } from "../internal";
+import { AIHostingArticleTemplate } from "../templates/AIHostingArticleTemplate.js";
+import { ArticleCommon, Article } from "../internal.js";
 
 export class AIHostingArticle extends ArticleCommon {
   public static async getArticleWithLowestPrice() {

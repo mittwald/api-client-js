@@ -1,9 +1,9 @@
 import { DateTime } from "luxon";
 
-import type { TlsCertificateData, TlsAcmeData, TlsStatus, TlsData, } from "./types";
+import type { TlsCertificateData, TlsAcmeData, TlsStatus, TlsData, } from "./types.js";
 
-import { Certificate } from "../Certificate";
-import { DataModel } from "../../base";
+import { Certificate } from "../Certificate/index.js";
+import { DataModel } from "../../base/index.js";
 
 export abstract class TlsBase<T extends TlsData> extends DataModel<T> {
   public constructor(data: T) {

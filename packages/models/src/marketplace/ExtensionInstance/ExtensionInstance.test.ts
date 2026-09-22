@@ -2,17 +2,17 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import type { ExtensionInstanceCreateRequestData } from "./types";
+import type { ExtensionInstanceCreateRequestData } from "./types.js";
 
-import { buildExtensionInstanceListItemData } from "../../testing/builders/buildExtensionInstanceListItemData";
-import { buildExtensionInstanceData } from "../../testing/builders/buildExtensionInstanceData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
+import { buildExtensionInstanceListItemData } from "../../testing/builders/buildExtensionInstanceListItemData.js";
+import { buildExtensionInstanceData } from "../../testing/builders/buildExtensionInstanceData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
@@ -22,8 +22,8 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
       : undefined,
 }));
 
-import { ExtensionInstanceContract } from "./ExtensionInstanceContract";
-import { ExtensionInstanceContext } from "./ExtensionInstanceContext";
+import { ExtensionInstanceContract } from "./ExtensionInstanceContract.js";
+import { ExtensionInstanceContext } from "./ExtensionInstanceContext.js";
 import {
   ExtensionInstanceListQuery,
   ExtensionInstanceDetailed,
@@ -31,7 +31,7 @@ import {
   ExtensionInstanceCommon,
   ExtensionInstanceList,
   ExtensionInstance,
-} from "./ExtensionInstance";
+} from "./ExtensionInstance.js";
 
 afterEach(resetBehaviors);
 

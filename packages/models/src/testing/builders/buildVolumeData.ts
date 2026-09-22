@@ -1,4 +1,4 @@
-import type { VolumeData } from "../../container/Volume/types";
+import type { VolumeData } from "../../container/Volume/types.js";
 
 export function buildVolumeData(overrides?: Partial<VolumeData>): VolumeData {
   return {

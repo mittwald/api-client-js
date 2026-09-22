@@ -4,17 +4,17 @@ import type {
   RelocationRequestData,
   RelocationMailInbox,
   RelocationDomain,
-} from "./types";
+} from "./types.js";
 
-import { buildProjectData } from "../../testing/builders/buildProjectData";
+import { buildProjectData } from "../../testing/builders/buildProjectData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   calculateRelocationPrices,
   RelocationRequest,
-} from "./RelocationRequest";
+} from "./RelocationRequest.js";
 
 afterEach(resetBehaviors);
 

@@ -1,2 +1,2 @@
-export * from "./MailAddressBackup";
-export * from "./types";
+export * from "./MailAddressBackup.js";
+export * from "./types.js";

@@ -1,4 +1,4 @@
-import type { ContractArticleData } from "../../contract/ContractArticle/types";
+import type { ContractArticleData } from "../../contract/ContractArticle/types.js";
 
 export function buildContractArticleData(
   overrides?: Partial<ContractArticleData>,

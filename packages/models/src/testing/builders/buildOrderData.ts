@@ -1,4 +1,4 @@
-import type { OrderData } from "../../order/Order/types";
+import type { OrderData } from "../../order/Order/types.js";
 
 export function buildOrderData(overrides: Partial<OrderData> = {}): OrderData {
   return {

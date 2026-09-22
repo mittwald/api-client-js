@@ -1,2 +1,2 @@
-export * from "./CustomerInvite";
-export * from "./types";
+export * from "./CustomerInvite.js";
+export * from "./types.js";

@@ -2,23 +2,23 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildTlsCertificateData } from "../../testing/builders/buildTlsCertificateData";
-import { buildIngressData } from "../../testing/builders/buildIngressData";
-import { buildTlsAcmeData } from "../../testing/builders/buildTlsAcmeData";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
+import { buildTlsCertificateData } from "../../testing/builders/buildTlsCertificateData.js";
+import { buildIngressData } from "../../testing/builders/buildIngressData.js";
+import { buildTlsAcmeData } from "../../testing/builders/buildTlsAcmeData.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   IngressDetailed,
   IngressListItem,
   IngressCommon,
   IngressList,
   Ingress,
-} from "./Ingress";
+} from "./Ingress.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

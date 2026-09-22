@@ -5,20 +5,20 @@ import type {
   VolumeListQueryModelData,
   VolumeListItemData,
   VolumeData,
-} from "./types";
+} from "./types.js";
 
-import { generateRandomAlphanumericString } from "../../lib/generateRandomAlphanumericString";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContainerStack, Container } from "../Container";
-import { config } from "../../config";
-import { Bytes } from "../../common";
+import { generateRandomAlphanumericString } from "../../lib/generateRandomAlphanumericString.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContainerStack, Container } from "../Container/index.js";
+import { config } from "../../config/index.js";
+import { Bytes } from "../../common/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Volume",

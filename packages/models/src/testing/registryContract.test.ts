@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildContainerData, installBehaviors, resetBehaviors } from "./index";
-import { config } from "../config/config";
+import { buildContainerData, installBehaviors, resetBehaviors } from "./index.js";
+import { config } from "../config/config.js";
 
 afterEach(resetBehaviors);
 

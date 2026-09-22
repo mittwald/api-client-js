@@ -1,1 +1,1 @@
-export * from "./InvoiceItemGroup";
+export * from "./InvoiceItemGroup.js";

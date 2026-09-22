@@ -1,13 +1,13 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { SessionTokenData } from "../../SessionToken/types";
+import type { SessionTokenData } from "../../SessionToken/types.js";
 import type {
   ResetMfaRecoveryResponseData,
   AuthenticateMfaRequestData,
   ConfirmMfaResponseData,
   InitMfaResponseData,
   MfaStatusData,
-} from "../types";
+} from "../types.js";
 
 export interface MfaBehaviors {
   resetRecoveryCodes: (

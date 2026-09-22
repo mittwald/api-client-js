@@ -12,11 +12,11 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 
 import { DateTime } from "luxon";
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { buildApiTokenListItemData, buildApiTokenData } from "../../testing/builders/buildApiTokenData";
-import { ReferenceModel } from "../../base";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
-import { ApiTokenDetailed, ApiTokenListItem, ApiTokenList, ApiToken } from "./ApiToken";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { buildApiTokenListItemData, buildApiTokenData } from "../../testing/builders/buildApiTokenData.js";
+import { ReferenceModel } from "../../base/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import { ApiTokenDetailed, ApiTokenListItem, ApiTokenList, ApiToken } from "./ApiToken.js";
 
 afterEach(resetBehaviors);
 

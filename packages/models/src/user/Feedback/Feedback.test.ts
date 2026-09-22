@@ -1,9 +1,9 @@
 import { afterEach , describe, expect, test, vi } from "vitest";
 
-import { buildFeedbackListItemData } from "../../testing/builders/buildFeedbackListItemData";
-import { FeedbackListItem, FeedbackCommon, Feedback } from "./Feedback";
-import { ReferenceModel } from "../../base";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
+import { buildFeedbackListItemData } from "../../testing/builders/buildFeedbackListItemData.js";
+import { FeedbackListItem, FeedbackCommon, Feedback } from "./Feedback.js";
+import { ReferenceModel } from "../../base/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

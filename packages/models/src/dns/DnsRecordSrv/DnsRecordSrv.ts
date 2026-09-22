@@ -1,15 +1,15 @@
-import type { DnsZoneCommon } from "../DnsZone";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 import type {
   DnsRecordSrvEntry,
   SrvRecordListItem,
   DnsRecordSrvData,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 import {
   type DnsRecordSettingsData,
   DnsRecordSettings,
-} from "../DnsRecordSettings";
+} from "../DnsRecordSettings/index.js";
 
 export class DnsRecordSrv extends DataModel<DnsRecordSrvData> {
   public readonly dnsZone: DnsZoneCommon;

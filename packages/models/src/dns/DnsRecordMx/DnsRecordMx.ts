@@ -1,4 +1,4 @@
-import type { DnsZoneCommon } from "../DnsZone";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 import type {
   DnsRecordMxManagedData,
   DnsRecordMxCustomData,
@@ -6,14 +6,14 @@ import type {
   DnsRecordMxEntry,
   MxRecordListItem,
   DnsRecordMxData,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
-import { DnsZone } from "../DnsZone";
+import { DataModel } from "../../base/index.js";
+import { DnsZone } from "../DnsZone/index.js";
 import {
   type DnsRecordSettingsData,
   DnsRecordSettings,
-} from "../DnsRecordSettings";
+} from "../DnsRecordSettings/index.js";
 
 export abstract class DnsRecordMxBase<T extends DnsRecordMxData> extends DataModel<T> {
   public readonly dnsZone: DnsZoneCommon;

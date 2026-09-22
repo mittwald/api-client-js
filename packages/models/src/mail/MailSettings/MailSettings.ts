@@ -1,10 +1,10 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { MailSettingsData } from "./types";
+import type { MailSettingsData } from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 @GhostMakerModel({
   name: "MailSettings",

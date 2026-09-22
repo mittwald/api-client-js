@@ -3,7 +3,7 @@ import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import invariant from "tiny-invariant";
 import { DateTime } from "luxon";
 
-import type { UsageMetricsBehaviors } from "./types";
+import type { UsageMetricsBehaviors } from "./types.js";
 
 export const apiUsageMetricsBehaviors = (
   client: MittwaldAPIV2Client,

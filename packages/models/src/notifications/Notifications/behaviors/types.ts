@@ -1,9 +1,9 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   NotificationReadAllQueryData,
   NotificationListQueryData,
   NotificationListItemData,
-} from "../types";
+} from "../types.js";
 
 export interface NotificationBehaviors {
   list: (

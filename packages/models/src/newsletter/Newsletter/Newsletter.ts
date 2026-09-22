@@ -2,11 +2,11 @@ import type { AxiosRequestConfig } from "axios";
 
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { NewsletterInfoData } from "./types";
+import type { NewsletterInfoData } from "./types.js";
 
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
-import { User } from "../../user";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
+import { User } from "../../user/index.js";
 
 @GhostMakerModel({
   name: "Newsletter",

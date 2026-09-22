@@ -1,7 +1,7 @@
-import type { FileAccessTokenProvider } from "../../file";
-import type { User } from "./User";
+import type { FileAccessTokenProvider } from "../../file/index.js";
+import type { User } from "./User.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class UserAvatarAccessTokenProvider implements FileAccessTokenProvider {
   public readonly user: User;

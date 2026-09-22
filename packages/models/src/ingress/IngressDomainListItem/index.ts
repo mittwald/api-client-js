@@ -1,2 +1,2 @@
-export * from "./IngressDomainListItem";
-export * from "./types";
+export * from "./IngressDomainListItem.js";
+export * from "./types.js";

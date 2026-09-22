@@ -1,4 +1,4 @@
-import type { IngressData } from "../../ingress/Ingress/types";
+import type { IngressData } from "../../ingress/Ingress/types.js";
 
 // IngressData === IngressListItemData (both resolve to IngressIngress).
 export function buildIngressData(overrides?: Partial<IngressData>): IngressData {

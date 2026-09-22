@@ -1,2 +1,2 @@
-export * from "./ProjectMembership";
-export * from "./types";
+export * from "./ProjectMembership.js";
+export * from "./types.js";

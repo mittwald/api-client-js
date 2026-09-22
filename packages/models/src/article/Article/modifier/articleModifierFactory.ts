@@ -1,6 +1,6 @@
-import type { ArticleModifierData } from "../types";
+import type { ArticleModifierData } from "../types.js";
 
-import { StorageArticleModifier , ArticleModifier } from "../internal";
+import { StorageArticleModifier , ArticleModifier } from "../internal.js";
 
 export const articleModifierFactory = (data: ArticleModifierData) => {
   if (data.articleId.toLowerCase().endsWith("-storage")) {

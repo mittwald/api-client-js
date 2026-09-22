@@ -3,25 +3,25 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { CustomerDetailed } from "../../customer";
+import type { CustomerDetailed } from "../../customer/index.js";
 import type {
   FinderProfileRequestListModelQueryData,
   FinderProfileRequestListItemData,
   FinderProfileRequestStatus,
   FinderProfileRequestData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Customer } from "../../customer/Customer/Customer";
-import { AggregateMetaData } from "../../common";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "FinderProfileRequest",

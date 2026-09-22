@@ -1,2 +1,2 @@
-export * from "./IngressTarget";
-export * from "./types";
+export * from "./IngressTarget.js";
+export * from "./types.js";

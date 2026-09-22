@@ -2,7 +2,7 @@ import type {
   AppVersionListQueryData,
   AppVersionListItemData,
   AppVersionData,
-} from "../types";
+} from "../types.js";
 
 export interface AppVersionBehaviors {
   list: (

@@ -12,20 +12,20 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 import {
   buildCustomerMembershipListItemData,
   buildCustomerMembershipData,
-} from "../../testing/builders/buildCustomerMembershipData";
+} from "../../testing/builders/buildCustomerMembershipData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Customer } from "../Customer";
-import { User } from "../../user";
+} from "../../testing/installBehaviors.js";
+import { Customer } from "../Customer/index.js";
+import { User } from "../../user/index.js";
 import {
   CustomerMembershipListQuery,
   CustomerMembershipDetailed,
   CustomerMembershipListItem,
   CustomerMembershipList,
   CustomerMembership,
-} from "./CustomerMembership";
+} from "./CustomerMembership.js";
 
 afterEach(resetBehaviors);
 

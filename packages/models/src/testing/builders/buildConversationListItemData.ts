@@ -1,4 +1,4 @@
-import type { ConversationListItemData } from "../../conversation/Conversation/types";
+import type { ConversationListItemData } from "../../conversation/Conversation/types.js";
 
 export function buildConversationListItemData(
   overrides: Partial<ConversationListItemData> = {},

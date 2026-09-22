@@ -1,4 +1,4 @@
-import type { MailArchiveOrderPreviewData } from "../../order/Order/types";
+import type { MailArchiveOrderPreviewData } from "../../order/Order/types.js";
 
 export function buildMailArchiveOrderPreviewData(
   overrides: Partial<MailArchiveOrderPreviewData> = {},

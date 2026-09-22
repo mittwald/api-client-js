@@ -1,23 +1,23 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { ActivityListQueryData, ActivityListItemData } from "./types";
-import type { AggregateReference } from "../../common";
-import type { ActivityAction } from "./ActivityAction";
-import type { Project } from "../../project";
+import type { ActivityListQueryData, ActivityListItemData } from "./types.js";
+import type { AggregateReference } from "../../common/index.js";
+import type { ActivityAction } from "./ActivityAction.js";
+import type { Project } from "../../project/index.js";
 
-import { tryResolveAggregateReference } from "../../common";
-import { createActivityAction } from "./actionRegistry";
-import { Extension } from "../../marketplace";
-import { config } from "../../config";
-import { User } from "../../user";
+import { tryResolveAggregateReference } from "../../common/index.js";
+import { createActivityAction } from "./actionRegistry.js";
+import { Extension } from "../../marketplace/index.js";
+import { config } from "../../config/index.js";
+import { User } from "../../user/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Activity",

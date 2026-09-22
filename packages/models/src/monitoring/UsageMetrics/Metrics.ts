@@ -1,6 +1,6 @@
 import type { DateValue } from "@internationalized/date";
 
-import { MetricsQueryRequest } from "../lib/metrics";
+import { MetricsQueryRequest } from "../lib/metrics/index.js";
 
 export interface MetricsRequestOptions {
   from?: DateValue;

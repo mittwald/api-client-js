@@ -1,9 +1,9 @@
 import type {
   DomainMigrationDnsRecordData,
   DomainMigrationDnsRecordType,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class DomainMigrationDnsRecord extends DataModel<DomainMigrationDnsRecordData> {
   public readonly ttl: number;

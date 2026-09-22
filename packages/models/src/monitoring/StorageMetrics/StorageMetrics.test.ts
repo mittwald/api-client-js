@@ -3,17 +3,17 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
-import { StorageMetricsDetailed, StorageMetrics } from "./StorageMetrics";
+import { StorageMetricsDetailed, StorageMetrics } from "./StorageMetrics.js";
 import {
   buildStorageStatisticsCategoryData,
   buildStorageMetricsData,
-} from "../../testing/builders/buildStorageMetricsData";
-import { ReferenceModel } from "../../base";
+} from "../../testing/builders/buildStorageMetricsData.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

@@ -1,9 +1,9 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { ConversationCategoryListItemData } from "../../ConversationCategory/types";
-import type { FileDownloadTokenData, FileUploadTokenData } from "../../../file";
-import type { ConversationMemberData } from "../../ConversationUser/types";
-import type { QueryResponseData } from "../../../base";
+import type { ConversationCategoryListItemData } from "../../ConversationCategory/types.js";
+import type { FileDownloadTokenData, FileUploadTokenData } from "../../../file/index.js";
+import type { ConversationMemberData } from "../../ConversationUser/types.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ConversationCreateMessageRequestData,
   ConversationMessageResponseData,
@@ -13,7 +13,7 @@ import type {
   ConversationListQueryData,
   ConversationListItemData,
   ConversationData,
-} from "../types";
+} from "../types.js";
 
 export interface ConversationBehaviors {
   getFileDownloadToken: (

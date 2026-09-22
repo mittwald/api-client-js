@@ -1,6 +1,6 @@
-import type { ArticleTagData } from "./types";
+import type { ArticleTagData } from "./types.js";
 
-import { DataModel } from "../../base/index";
+import { DataModel } from "../../base/index.js";
 
 export enum ArticleTagName {
   balancedOptimized = "balance-optimized",

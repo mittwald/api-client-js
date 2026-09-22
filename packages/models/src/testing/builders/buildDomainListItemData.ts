@@ -1,4 +1,4 @@
-import type { DomainListItemData } from "../../domain/Domain/types";
+import type { DomainListItemData } from "../../domain/Domain/types.js";
 
 export function buildDomainListItemData(
   overrides?: Partial<DomainListItemData>,

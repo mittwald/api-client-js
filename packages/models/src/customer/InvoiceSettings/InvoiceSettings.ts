@@ -3,19 +3,19 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { InvoiceRecipientData } from "../../invoice";
+import type { InvoiceRecipientData } from "../../invoice/index.js";
 import type {
   InvoiceSettingsUpdateRequestData,
   InvoiceBankingInformation,
   InvoicePaymentSettings,
   InvoiceSettingsStatus,
   InvoiceSettingsData,
-} from "./types";
+} from "./types.js";
 
-import { InvoiceRecipient } from "../../invoice/InvoiceRecipient/InvoiceRecipient";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
+import { InvoiceRecipient } from "../../invoice/InvoiceRecipient/InvoiceRecipient.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 @GhostMakerModel({
   name: "InvoiceSettings",

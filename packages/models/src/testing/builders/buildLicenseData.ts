@@ -1,4 +1,4 @@
-import type { LicenseData } from "../../app/License/types";
+import type { LicenseData } from "../../app/License/types.js";
 
 export function buildLicenseData(
   overrides?: Partial<LicenseData>,

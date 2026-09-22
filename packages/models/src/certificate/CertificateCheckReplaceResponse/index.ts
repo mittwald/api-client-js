@@ -1,2 +1,2 @@
-export * from "./CertificateCheckReplaceResponse";
-export * from "./types";
+export * from "./CertificateCheckReplaceResponse.js";
+export * from "./types.js";

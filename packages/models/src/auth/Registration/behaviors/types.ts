@@ -2,7 +2,7 @@ import type {
   ResendVerificationEmailRequestData,
   VerifyRegistrationRequestData,
   RegisterRequestData,
-} from "../types";
+} from "../types.js";
 
 export interface RegistrationBehaviors {
   resendVerificationEmail: (

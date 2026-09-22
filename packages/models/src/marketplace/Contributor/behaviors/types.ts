@@ -1,7 +1,7 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileDownloadTokenData, FileUploadTokenData } from "../../../file";
-import type { QueryResponseData } from "../../../base";
+import type { FileDownloadTokenData, FileUploadTokenData } from "../../../file/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ContributorListIncomingInvoiceQueryData,
   ContributorBillingInformationData,
@@ -12,7 +12,7 @@ import type {
   ContributorListItemData,
   OwnContributorData,
   ContributorData,
-} from "../types";
+} from "../types.js";
 
 export interface ContributorBehaviors {
   listIncomingInvoices: (

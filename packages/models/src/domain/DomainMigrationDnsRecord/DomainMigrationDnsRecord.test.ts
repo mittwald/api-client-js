@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData";
-import { DomainMigrationDnsRecord } from "./DomainMigrationDnsRecord";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { DataModel } from "../../base";
+import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData.js";
+import { DomainMigrationDnsRecord } from "./DomainMigrationDnsRecord.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

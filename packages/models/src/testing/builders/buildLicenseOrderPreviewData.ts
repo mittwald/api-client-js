@@ -1,4 +1,4 @@
-import type { LicenseOrderPreviewData } from "../../order/Order/types";
+import type { LicenseOrderPreviewData } from "../../order/Order/types.js";
 
 export function buildLicenseOrderPreviewData(
   overrides: Partial<LicenseOrderPreviewData> = {},

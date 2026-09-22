@@ -1,11 +1,11 @@
-import type { TxtRecordListItem, DnsRecordTxtData } from "./types";
-import type { DnsZoneCommon } from "../DnsZone";
+import type { TxtRecordListItem, DnsRecordTxtData } from "./types.js";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 import {
   type DnsRecordSettingsData,
   DnsRecordSettings,
-} from "../DnsRecordSettings";
+} from "../DnsRecordSettings/index.js";
 
 export class DnsRecordTxt extends DataModel<DnsRecordTxtData> {
   public readonly dnsZone: DnsZoneCommon;

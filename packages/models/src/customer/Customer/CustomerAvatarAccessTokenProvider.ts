@@ -1,7 +1,7 @@
-import type { FileAccessTokenProvider } from "../../file";
-import type { Customer } from "./Customer";
+import type { FileAccessTokenProvider } from "../../file/index.js";
+import type { Customer } from "./Customer.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class CustomerAvatarAccessTokenProvider
   implements FileAccessTokenProvider

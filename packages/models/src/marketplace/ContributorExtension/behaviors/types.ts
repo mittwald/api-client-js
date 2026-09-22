@@ -1,6 +1,6 @@
-import type { MarketplaceContext } from "../../ExtensionInstance/types";
-import type { FileUploadTokenData } from "../../../file/index";
-import type { QueryResponseData } from "../../../base";
+import type { MarketplaceContext } from "../../ExtensionInstance/types.js";
+import type { FileUploadTokenData } from "../../../file/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ContributorExtensionUpdatePricingRequestData,
   ContributorExtensionUpdateRequestData,
@@ -9,7 +9,7 @@ import type {
   ContributorExtensionListItemData,
   UpdatePricingResponseData,
   ContributorExtensionData,
-} from "../types";
+} from "../types.js";
 
 export interface ContributorExtensionBehaviors {
   updatePricing: (

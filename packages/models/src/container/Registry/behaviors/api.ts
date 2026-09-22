@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { RegistryBehaviors } from "./types";
+import type { RegistryBehaviors } from "./types.js";
 
-import { resolveTotalCount,validateResponse } from "../../../base";
+import { resolveTotalCount,validateResponse } from "../../../base/index.js";
 
 export const apiRegistryBehaviors = (
   client: MittwaldAPIV2Client,

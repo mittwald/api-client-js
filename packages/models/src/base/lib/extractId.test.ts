@@ -1,8 +1,8 @@
 import { afterEach, expect, test } from "vitest";
 
-import { resetBehaviors } from "../../testing";
-import { Project } from "../../project";
-import { extractId } from "./extractId";
+import { resetBehaviors } from "../../testing/index.js";
+import { Project } from "../../project/index.js";
+import { extractId } from "./extractId.js";
 
 afterEach(resetBehaviors);
 

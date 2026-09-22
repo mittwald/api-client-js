@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { ActivityAction } from "../ActivityAction";
+import { ActivityAction } from "../ActivityAction.js";
 
 type ActivityAppInstallationAppVersionSet =
   MittwaldAPIV2.Components.Schemas.ActivitylogAppInstallationAppVersionSet;

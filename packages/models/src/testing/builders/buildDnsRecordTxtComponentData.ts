@@ -1,4 +1,4 @@
-import type { DnsRecordTxtData } from "../../dns/DnsRecordTxt/types";
+import type { DnsRecordTxtData } from "../../dns/DnsRecordTxt/types.js";
 
 export function buildDnsRecordTxtComponentData(
   overrides: Partial<DnsRecordTxtData> = {},

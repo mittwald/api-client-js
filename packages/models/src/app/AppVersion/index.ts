@@ -1,2 +1,2 @@
-export * from "./AppVersion";
-export * from "./types";
+export * from "./AppVersion.js";
+export * from "./types.js";

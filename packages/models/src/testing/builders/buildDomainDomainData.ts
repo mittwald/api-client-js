@@ -1,4 +1,4 @@
-import type { DomainData } from "../../domain/Domain/types";
+import type { DomainData } from "../../domain/Domain/types.js";
 
 export function buildDomainDomainData(
   overrides: Partial<DomainData> = {},

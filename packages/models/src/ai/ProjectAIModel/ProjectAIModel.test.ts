@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { buildProjectAIDetailedModelData } from "../../testing/builders/buildProjectAIDetailedModelData";
-import { ReferenceModel } from "../../base";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
-import { ProjectAIModelListItem, ProjectAIModelList, ProjectAIModel } from "./ProjectAIModel";
+import { buildProjectAIDetailedModelData } from "../../testing/builders/buildProjectAIDetailedModelData.js";
+import { ReferenceModel } from "../../base/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import { ProjectAIModelListItem, ProjectAIModelList, ProjectAIModel } from "./ProjectAIModel.js";
 
 afterEach(resetBehaviors);
 

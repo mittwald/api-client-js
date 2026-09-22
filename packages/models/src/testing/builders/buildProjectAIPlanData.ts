@@ -1,4 +1,4 @@
-import type { ProjectAIPlanData } from "../../ai/ProjectAIPlan/types";
+import type { ProjectAIPlanData } from "../../ai/ProjectAIPlan/types.js";
 
 export function buildProjectAIPlanData(
   overrides?: Partial<ProjectAIPlanData>,

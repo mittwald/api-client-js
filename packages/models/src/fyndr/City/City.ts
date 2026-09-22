@@ -1,7 +1,7 @@
-import type { CitiesListQueryData, CitiesListItemData } from "./types";
+import type { CitiesListQueryData, CitiesListItemData } from "./types.js";
 
-import { ListQueryModel, WithListData, DataModel } from "../../base";
-import { config } from "../../config/config";
+import { ListQueryModel, WithListData, DataModel } from "../../base/index.js";
+import { config } from "../../config/config.js";
 
 export const LOCATION_DACH_ZIP_CODE = "DACH-RAUM";
 

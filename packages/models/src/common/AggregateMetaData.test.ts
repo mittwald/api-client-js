@@ -1,9 +1,9 @@
 import { afterEach, expect, test } from "vitest";
 
-import { AggregateMetaData } from "./AggregateMetaData";
-import { resetBehaviors } from "../testing";
-import { Container } from "../container";
-import { Project } from "../project";
+import { AggregateMetaData } from "./AggregateMetaData.js";
+import { resetBehaviors } from "../testing/index.js";
+import { Container } from "../container/index.js";
+import { Project } from "../project/index.js";
 
 afterEach(resetBehaviors);
 

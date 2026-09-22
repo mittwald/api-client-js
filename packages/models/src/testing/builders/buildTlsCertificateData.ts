@@ -1,4 +1,4 @@
-import type { TlsCertificateData } from "../../certificate/Tls/types";
+import type { TlsCertificateData } from "../../certificate/Tls/types.js";
 
 export function buildTlsCertificateData(
   overrides?: Partial<TlsCertificateData>,

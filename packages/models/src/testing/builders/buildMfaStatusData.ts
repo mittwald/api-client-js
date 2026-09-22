@@ -1,4 +1,4 @@
-import type { MfaStatusData } from "../../auth/Mfa/types";
+import type { MfaStatusData } from "../../auth/Mfa/types.js";
 
 export function buildMfaStatusData(
   overrides?: Partial<MfaStatusData>,

@@ -1,10 +1,10 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { FinderProfileListItemData } from "../types";
-import type { FinderProfileBehaviors } from "./types";
+import type { FinderProfileListItemData } from "../types.js";
+import type { FinderProfileBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig } from "../../../base/api/withModelRequestOptions";
-import { Customer } from "../../../customer/Customer";
+import { withAxiosRequestConfig } from "../../../base/api/withModelRequestOptions.js";
+import { Customer } from "../../../customer/Customer/index.js";
 
 export const apiFinderProfileBehaviors = (
   client: MittwaldAPIV2Client,

@@ -1,11 +1,11 @@
-import type { FrontendFragmentAnchor, FrontendFragmentData } from "./types";
-import type { ContributorExtension } from "../ContributorExtension";
-import type { ExtensionInstanceCommon } from "../ExtensionInstance";
-import type { UserCommon } from "../../user";
+import type { FrontendFragmentAnchor, FrontendFragmentData } from "./types.js";
+import type { ContributorExtension } from "../ContributorExtension/index.js";
+import type { ExtensionInstanceCommon } from "../ExtensionInstance/index.js";
+import type { UserCommon } from "../../user/index.js";
 
-import { replaceUrlTemplateValues } from "../../lib/replaceUrlTemplateValues";
-import { LocalizedText } from "../../common";
-import { DataModel } from "../../base";
+import { replaceUrlTemplateValues } from "../../lib/replaceUrlTemplateValues.js";
+import { LocalizedText } from "../../common/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class FrontendFragment extends DataModel<FrontendFragmentData> {
   public readonly anchor: FrontendFragmentAnchor;

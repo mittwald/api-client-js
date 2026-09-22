@@ -7,20 +7,20 @@ import type {
   BackupCreatePathRestoreRequestData,
   BackupCreateExportRequestData,
   BackupCreateRequestData,
-} from "./types";
+} from "./types.js";
 
-import { buildBackupExportData } from "../../testing/builders/buildBackupExportData";
-import { BackupDetailed, BackupListItem, BackupList, Backup } from "./Backup";
-import { buildBackupData } from "../../testing/builders/buildBackupData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { BackupSchedule } from "../BackupSchedule";
-import { AggregateMetaData } from "../../common";
-import { BackupExport } from "./BackupExport";
+import { buildBackupExportData } from "../../testing/builders/buildBackupExportData.js";
+import { BackupDetailed, BackupListItem, BackupList, Backup } from "./Backup.js";
+import { buildBackupData } from "../../testing/builders/buildBackupData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { BackupSchedule } from "../BackupSchedule/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { BackupExport } from "./BackupExport.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

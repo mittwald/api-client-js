@@ -1,6 +1,6 @@
 import { minimatch } from "minimatch";
 
-import type { ValidationErrorMapping, MappingReturn } from "./types";
+import type { ValidationErrorMapping, MappingReturn } from "./types.js";
 
 interface Options<T> {
   mappings: ValidationErrorMapping<T>;

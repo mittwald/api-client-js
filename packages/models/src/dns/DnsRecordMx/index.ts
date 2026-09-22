@@ -1,2 +1,2 @@
-export * from "./DnsRecordMx";
-export * from "./types";
+export * from "./DnsRecordMx.js";
+export * from "./types.js";

@@ -1,15 +1,15 @@
-import type { CaaRecordListItem, DnsRecordCaaData } from "../DnsRecordCaa";
-import type { SrvRecordListItem, DnsRecordSrvData } from "../DnsRecordSrv";
-import type { TxtRecordListItem, DnsRecordTxtData } from "../DnsRecordTxt";
-import type { MxRecordListItem, DnsRecordMxData } from "../DnsRecordMx";
+import type { CaaRecordListItem, DnsRecordCaaData } from "../DnsRecordCaa/index.js";
+import type { SrvRecordListItem, DnsRecordSrvData } from "../DnsRecordSrv/index.js";
+import type { TxtRecordListItem, DnsRecordTxtData } from "../DnsRecordTxt/index.js";
+import type { MxRecordListItem, DnsRecordMxData } from "../DnsRecordMx/index.js";
 import type {
   DnsRecordCombinedAData,
   ARecordListItem,
-} from "../DnsRecordCombinedA";
+} from "../DnsRecordCombinedA/index.js";
 import type {
   CnameRecordListItem,
   DnsRecordCnameData,
-} from "../DnsRecordCname";
+} from "../DnsRecordCname/index.js";
 
 export interface DnsRecordSetData {
   combinedARecords: DnsRecordCombinedAData;

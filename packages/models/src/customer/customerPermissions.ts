@@ -1,4 +1,4 @@
-import type { CustomerRole } from "./CustomerMembership";
+import type { CustomerRole } from "./CustomerMembership/index.js";
 
 export type CustomerPermission =
   | "accessContributorEditing"

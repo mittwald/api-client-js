@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { ContainerStack } from "../Container/ContainerStack";
-import type { Project } from "../../project";
+import type { ContainerStack } from "../Container/ContainerStack.js";
+import type { Project } from "../../project/index.js";
 
 export type VolumeData =
   MittwaldAPIV2.Components.Schemas.ContainerVolumeResponse;

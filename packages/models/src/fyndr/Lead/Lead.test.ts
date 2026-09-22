@@ -2,15 +2,15 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildLeadData } from "../../testing/builders/buildLeadData";
-import { LeadDetailed, LeadListItem, LeadList, Lead } from "./Lead";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { getFormattedSalesVolume } from "../util/helper";
-import { AggregateMetaData } from "../../common";
+import { buildLeadData } from "../../testing/builders/buildLeadData.js";
+import { LeadDetailed, LeadListItem, LeadList, Lead } from "./Lead.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { getFormattedSalesVolume } from "../util/helper.js";
+import { AggregateMetaData } from "../../common/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

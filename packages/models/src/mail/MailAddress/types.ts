@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { MailArchiveOrderPreview } from "../../order/Order/Preview/MailArchiveOrderPreview";
-import type { MailAddressListItem } from "./MailAddress";
-import type { Project } from "../../project";
+import type { MailArchiveOrderPreview } from "../../order/Order/Preview/MailArchiveOrderPreview.js";
+import type { MailAddressListItem } from "./MailAddress.js";
+import type { Project } from "../../project/index.js";
 
 export type MailAddressListQueryData =
   MittwaldAPIV2.Paths.V2ProjectsProjectIdMailAddresses.Get.Parameters.Query;

@@ -1,4 +1,4 @@
-import type { NewsletterInfoData } from "../../newsletter/Newsletter/types";
+import type { NewsletterInfoData } from "../../newsletter/Newsletter/types.js";
 
 export function buildNewsletterInfoData(
   overrides?: Partial<NewsletterInfoData>,

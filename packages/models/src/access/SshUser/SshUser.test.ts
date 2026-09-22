@@ -1,20 +1,20 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildProjectData } from "../../testing/builders/buildProjectData";
-import { buildSshUserData } from "../../testing/builders/buildSshUserData";
-import { buildUserData } from "../../testing/builders/buildUserData";
+import { buildProjectData } from "../../testing/builders/buildProjectData.js";
+import { buildSshUserData } from "../../testing/builders/buildSshUserData.js";
+import { buildUserData } from "../../testing/builders/buildUserData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   SshUserDetailed,
   SshUserListItem,
   SshUserList,
   SshUser,
-} from "./SshUser";
+} from "./SshUser.js";
 
 afterEach(resetBehaviors);
 

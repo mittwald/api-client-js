@@ -3,12 +3,12 @@ import type {
   ExternalCertificateOrderRequestModelData,
   ExternalCertificateOrderPreviewData,
   CompleteOrderRequestData,
-} from "../types";
+} from "../types.js";
 
-import { ExternalCertificateOrderPreview } from "../Preview/ExternalCertificateOrderPreview";
-import { DataModel, extractId } from "../../../base";
-import { config } from "../../../config";
-import { Order } from "../Order";
+import { ExternalCertificateOrderPreview } from "../Preview/ExternalCertificateOrderPreview.js";
+import { DataModel, extractId } from "../../../base/index.js";
+import { config } from "../../../config/index.js";
+import { Order } from "../Order.js";
 
 export class ExternalCertificateOrderRequest extends DataModel<ExternalCertificateOrderPreviewRequestModelData> {
   public constructor(data: ExternalCertificateOrderPreviewRequestModelData) {

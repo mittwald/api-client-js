@@ -1,4 +1,4 @@
-import type { AIModelData } from "../../ai/AIModel/types";
+import type { AIModelData } from "../../ai/AIModel/types.js";
 
 export function buildAIModelData(overrides?: Partial<AIModelData>): AIModelData {
   return {

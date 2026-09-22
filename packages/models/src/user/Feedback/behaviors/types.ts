@@ -2,7 +2,7 @@ import type {
   FeedbackListItemData,
   FeedbackCreateData,
   FeedbackListQuery,
-} from "../types";
+} from "../types.js";
 
 export interface FeedbackBehaviors {
   list: (

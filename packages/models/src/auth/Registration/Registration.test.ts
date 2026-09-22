@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildRegisterRequestData } from "../../testing/builders/buildRegisterRequestData";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { Registration } from "./Registration";
-import { DataModel } from "../../base";
+import { buildRegisterRequestData } from "../../testing/builders/buildRegisterRequestData.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { Registration } from "./Registration.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

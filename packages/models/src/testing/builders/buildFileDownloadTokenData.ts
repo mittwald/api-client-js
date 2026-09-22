@@ -1,4 +1,4 @@
-import type { FileDownloadTokenData } from "../../file/FileAccessToken/types";
+import type { FileDownloadTokenData } from "../../file/FileAccessToken/types.js";
 
 export function buildFileDownloadTokenData(
   overrides?: Partial<FileDownloadTokenData>,

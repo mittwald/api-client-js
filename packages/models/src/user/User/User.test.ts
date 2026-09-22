@@ -12,14 +12,14 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 
 import { DateTime } from "luxon";
 
-import { buildUserData } from "../../testing/builders/buildUserData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { UserDetailed, UserCommon, User } from "./User";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
-import { Project } from "../../project";
-import { File } from "../../file";
+import { buildUserData } from "../../testing/builders/buildUserData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { UserDetailed, UserCommon, User } from "./User.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
+import { File } from "../../file/index.js";
 
 afterEach(resetBehaviors);
 

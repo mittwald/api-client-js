@@ -1,4 +1,4 @@
-import type { ProjectInviteData } from "../../project/ProjectInvite/types";
+import type { ProjectInviteData } from "../../project/ProjectInvite/types.js";
 
 export function buildProjectInviteData(
   overrides?: Partial<ProjectInviteData>,

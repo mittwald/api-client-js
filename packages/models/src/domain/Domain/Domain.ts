@@ -2,32 +2,32 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 import { omit } from "remeda";
 
-import type { ProcessState, ProcessType } from "../DomainProcess";
-import type { HandleField } from "../DomainHandle";
+import type { ProcessState, ProcessType } from "../DomainProcess/index.js";
+import type { HandleField } from "../DomainHandle/index.js";
 import type {
   DomainListQueryModelData,
   DomainOrderPreviewItem,
   VerifyAddressRequest,
   DomainListItemData,
   DomainData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { DomainHandleReadable } from "../DomainHandleReadable";
-import { ContactVerification } from "../ContactVerification";
-import { ContractDetailed } from "../../contract";
-import { DomainProcess } from "../DomainProcess";
-import { Project } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { DomainOrderRequest } from "../../order";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { DomainHandleReadable } from "../DomainHandleReadable/index.js";
+import { ContactVerification } from "../ContactVerification/index.js";
+import { ContractDetailed } from "../../contract/index.js";
+import { DomainProcess } from "../DomainProcess/index.js";
+import { Project } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { DomainOrderRequest } from "../../order/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Domain",

@@ -1,2 +1,2 @@
-export * from "./MailRateLimit";
-export * from "./types";
+export * from "./MailRateLimit.js";
+export * from "./types.js";

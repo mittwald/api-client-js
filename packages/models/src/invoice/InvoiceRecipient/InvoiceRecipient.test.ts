@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildInvoiceRecipientData } from "../../testing/builders/buildInvoiceRecipientData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { InvoiceRecipient } from "./InvoiceRecipient";
+import { buildInvoiceRecipientData } from "../../testing/builders/buildInvoiceRecipientData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { InvoiceRecipient } from "./InvoiceRecipient.js";
 
 afterEach(resetBehaviors);
 

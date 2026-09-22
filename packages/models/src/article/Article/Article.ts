@@ -7,29 +7,29 @@ import type {
   ArticleListQueryModelData,
   ArticleListItemData,
   ArticleData,
-} from "./types";
+} from "./types.js";
 
-import { articleAttributeFactory } from "./attributes/articleAttributeFactory";
-import { articleTemplateFactory } from "./templates/articleTemplateFactory";
-import { articleModifierFactory } from "./modifier/articleModifierFactory";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ArticleTemplate } from "./ArticleTemplate";
-import { articleFactory } from "./internal";
-import { config } from "../../config";
-import { Money } from "../../common";
+import { articleAttributeFactory } from "./attributes/articleAttributeFactory.js";
+import { articleTemplateFactory } from "./templates/articleTemplateFactory.js";
+import { articleModifierFactory } from "./modifier/articleModifierFactory.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ArticleTemplate } from "./ArticleTemplate.js";
+import { articleFactory } from "./internal.js";
+import { config } from "../../config/index.js";
+import { Money } from "../../common/index.js";
 import {
   type ArticleAttribute,
   type ArticleModifier,
   type ArticleTagName,
   ArticleTag,
-} from "./internal";
+} from "./internal.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Article",

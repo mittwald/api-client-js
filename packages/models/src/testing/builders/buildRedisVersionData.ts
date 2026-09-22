@@ -1,4 +1,4 @@
-import type { RedisVersionData } from "../../database/Redis/types";
+import type { RedisVersionData } from "../../database/Redis/types.js";
 
 export function buildRedisVersionData(
   overrides?: Partial<RedisVersionData[number]>,

@@ -1,4 +1,4 @@
-import type { ReferenceModel } from "../models/ReferenceModel";
+import type { ReferenceModel } from "../models/ReferenceModel.js";
 
 export function extractId(from: ReferenceModel | string): string;
 

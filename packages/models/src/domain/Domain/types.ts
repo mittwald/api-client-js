@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { Project } from "../../project";
+import type { Project } from "../../project/index.js";
 
 export type DomainListQueryData =
   MittwaldAPIV2.Paths.V2Domains.Get.Parameters.Query;

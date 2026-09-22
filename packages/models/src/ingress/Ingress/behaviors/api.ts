@@ -1,15 +1,15 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { IngressBehaviors } from "./types";
+import type { IngressBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { ValidationError } from "../../../errors";
-import { IngressListItem } from "../Ingress";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { ValidationError } from "../../../errors/index.js";
+import { IngressListItem } from "../Ingress.js";
 import {
   withAxiosRequestConfig,
   resolveTotalCount,
   anyStatus403,
-} from "../../../base";
+} from "../../../base/index.js";
 
 export const apiIngressBehaviors = (
   client: MittwaldAPIV2Client,

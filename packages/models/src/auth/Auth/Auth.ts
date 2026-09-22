@@ -1,9 +1,9 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { AuthenticateRequestData } from "./types";
+import type { AuthenticateRequestData } from "./types.js";
 
-import { SessionToken } from "../SessionToken";
-import { config } from "../../config";
+import { SessionToken } from "../SessionToken/index.js";
+import { config } from "../../config/index.js";
 
 export class Auth {
   public static async checkIsAuthenticated(requestConfig?: AxiosRequestConfig) {

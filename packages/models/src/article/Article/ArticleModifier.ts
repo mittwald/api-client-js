@@ -1,7 +1,7 @@
-import type { ArticleModifierData } from "./types";
+import type { ArticleModifierData } from "./types.js";
 
-import { DataModel } from "../../base/index";
-import { Article } from "./internal";
+import { DataModel } from "../../base/index.js";
+import { Article } from "./internal.js";
 
 export class ArticleModifier extends DataModel<ArticleModifierData> {
   public readonly article: Article;

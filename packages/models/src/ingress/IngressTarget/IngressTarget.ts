@@ -1,15 +1,15 @@
-import type { IngressPath } from "../IngressPath";
+import type { IngressPath } from "../IngressPath/index.js";
 import type {
   IngressAppInstallationTargetData,
   IngressContainerTargetData,
   IngressUndefinedTargetData,
   IngressRedirectTargetData,
   IngressTargetData,
-} from "./types";
+} from "./types.js";
 
-import { AppInstallation } from "../../app/AppInstallation/AppInstallation";
-import { Container } from "../../container/Container/Container";
-import { DataModel } from "../../base";
+import { AppInstallation } from "../../app/AppInstallation/AppInstallation.js";
+import { Container } from "../../container/Container/Container.js";
+import { DataModel } from "../../base/index.js";
 
 export abstract class IngressTargetBase<
   T extends IngressTargetData,

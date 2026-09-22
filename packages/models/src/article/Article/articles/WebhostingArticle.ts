@@ -1,5 +1,5 @@
-import { WebhostingArticleTemplate } from "../templates/WebhostingArticleTemplate";
-import { HostingArticle, Article } from "../internal";
+import { WebhostingArticleTemplate } from "../templates/WebhostingArticleTemplate.js";
+import { HostingArticle, Article } from "../internal.js";
 
 export class WebhostingArticle extends HostingArticle {
   public static async getArticleWithLowestPrice() {

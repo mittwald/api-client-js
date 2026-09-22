@@ -2,10 +2,10 @@ import type {
   MySqlCharsetListQueryData,
   MySqlCharsetListItemData,
   MySqlListQueryData,
-} from "./types";
+} from "./types.js";
 
-import { ListQueryModel, WithListData, DataModel } from "../../base";
-import { config } from "../../config";
+import { ListQueryModel, WithListData, DataModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 export class MySqlCharset {
   public static query(query: MySqlCharsetListQueryData = {}) {

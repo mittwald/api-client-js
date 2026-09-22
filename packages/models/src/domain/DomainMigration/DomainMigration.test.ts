@@ -1,21 +1,21 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData";
-import { buildDomainMigrationDomainData } from "../../testing/builders/buildDomainMigrationDomainData";
-import { buildDomainMigrationData } from "../../testing/builders/buildDomainMigrationData";
-import { DomainMigrationDomain } from "../DomainMigrationDomain";
-import { ListQueryModel } from "../../base";
+import { buildDomainMigrationDnsRecordData } from "../../testing/builders/buildDomainMigrationDnsRecordData.js";
+import { buildDomainMigrationDomainData } from "../../testing/builders/buildDomainMigrationDomainData.js";
+import { buildDomainMigrationData } from "../../testing/builders/buildDomainMigrationData.js";
+import { DomainMigrationDomain } from "../DomainMigrationDomain/index.js";
+import { ListQueryModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   DomainMigrationListQuery,
   DomainMigrationListItem,
   DomainMigrationList,
   DomainMigration,
-} from "./DomainMigration";
+} from "./DomainMigration.js";
 
 afterEach(resetBehaviors);
 

@@ -1,11 +1,11 @@
 import { describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildInstalledSystemSoftwareData } from "../../testing/builders/buildInstalledSystemSoftwareData";
-import { InstalledSystemSoftware } from "./InstalledSystemSoftware";
-import { SystemSoftwareVersion } from "../SystemSoftwareVersion";
-import { SystemSoftware } from "../SystemSoftware";
-import { DataModel } from "../../base";
+import { buildInstalledSystemSoftwareData } from "../../testing/builders/buildInstalledSystemSoftwareData.js";
+import { InstalledSystemSoftware } from "./InstalledSystemSoftware.js";
+import { SystemSoftwareVersion } from "../SystemSoftwareVersion/index.js";
+import { SystemSoftware } from "../SystemSoftware/index.js";
+import { DataModel } from "../../base/index.js";
 
 describe("InstalledSystemSoftware", () => {
   test("maps stable installed software", () => {

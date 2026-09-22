@@ -1,6 +1,6 @@
-import type { HandleField, HandleData } from "./types";
+import type { HandleField, HandleData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class DomainHandle extends DataModel<HandleData> {
   public readonly city?: string;

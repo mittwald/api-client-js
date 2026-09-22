@@ -1,28 +1,28 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { DomainMigrationList } from "../../domain/DomainMigration";
-import type { DnsRecordSettingsData } from "../DnsRecordSettings";
-import type { DnsRecordCaaEntry } from "../DnsRecordCaa";
-import type { DnsRecordMxEntry } from "../DnsRecordMx";
+import type { DomainMigrationList } from "../../domain/DomainMigration/index.js";
+import type { DnsRecordSettingsData } from "../DnsRecordSettings/index.js";
+import type { DnsRecordCaaEntry } from "../DnsRecordCaa/index.js";
+import type { DnsRecordMxEntry } from "../DnsRecordMx/index.js";
 import type {
   DnsUpdateMultipleRecordsRequest,
   DnsZoneListQueryModelData,
   DnsZoneListItemData,
   DnsSrvRecord,
   DnsZoneData,
-} from "./types";
+} from "./types.js";
 
-import { type DownloadableFile, AggregateMetaData } from "../../common";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { DnsRecordSet } from "../DnsRecordSet";
-import { config } from "../../config";
+import { type DownloadableFile, AggregateMetaData } from "../../common/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { DnsRecordSet } from "../DnsRecordSet/index.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "DnsZone",

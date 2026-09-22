@@ -2,11 +2,11 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import semverCompare from "semver-compare";
 import { omit } from "remeda";
 
-import type { DatabaseType } from "../types";
+import type { DatabaseType } from "../types.js";
 import type {
   MySqlUserCreateRequestData,
   MySqlUserListQuery,
-} from "../MySqlUser";
+} from "../MySqlUser/index.js";
 import type {
   MySqlCharsetUpdateRequestData,
   MySqlListQueryModelData,
@@ -15,22 +15,22 @@ import type {
   MySqlCreateRequest,
   MySqlListItemData,
   MySqlData,
-} from "./types";
+} from "./types.js";
 
-import { AppInstallation } from "../../app/AppInstallation/AppInstallation";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { MySqlUserDetailed, MySqlUser } from "../MySqlUser";
-import { AggregateMetaData, Bytes } from "../../common";
-import { Project } from "../../project/internal";
-import { isNewerVersion } from "../lib";
-import { config } from "../../config";
+import { AppInstallation } from "../../app/AppInstallation/AppInstallation.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { MySqlUserDetailed, MySqlUser } from "../MySqlUser/index.js";
+import { AggregateMetaData, Bytes } from "../../common/index.js";
+import { Project } from "../../project/internal.js";
+import { isNewerVersion } from "../lib.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "MySql",

@@ -1,7 +1,7 @@
-import type { FileAccessTokenProvider } from "../../file";
-import type { Project } from "../internal";
+import type { FileAccessTokenProvider } from "../../file/index.js";
+import type { Project } from "../internal.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class ProjectAvatarAccessTokenProvider
   implements FileAccessTokenProvider

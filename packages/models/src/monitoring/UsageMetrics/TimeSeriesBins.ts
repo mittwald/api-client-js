@@ -1,9 +1,9 @@
 import * as d3 from "d3-array";
 
-import type { MetricsDataPoint } from "../lib/metrics";
-import type MetricsTimeRange from "./MetricsTimeRange";
+import type { MetricsDataPoint } from "../lib/metrics/index.js";
+import type MetricsTimeRange from "./MetricsTimeRange.js";
 
-import { TimeSeriesBin } from "./TimeSeriesBin";
+import { TimeSeriesBin } from "./TimeSeriesBin.js";
 
 /**
  * Groups time series values into "time bins"

@@ -1,15 +1,15 @@
-import type { DnsRecordCombinedA } from "../DnsRecordCombinedA";
-import type { DnsRecordSetData, RecordListItem } from "./types";
-import type { DnsZoneCommon, DnsZone } from "../DnsZone";
-import type { DnsRecordMx } from "../DnsRecordMx";
+import type { DnsRecordCombinedA } from "../DnsRecordCombinedA/index.js";
+import type { DnsRecordSetData, RecordListItem } from "./types.js";
+import type { DnsZoneCommon, DnsZone } from "../DnsZone/index.js";
+import type { DnsRecordMx } from "../DnsRecordMx/index.js";
 
-import { dnsRecordCombinedAFactory } from "../DnsRecordCombinedA";
-import { dnsRecordMxFactory } from "../DnsRecordMx";
-import { DnsRecordCname } from "../DnsRecordCname";
-import { DnsRecordCaa } from "../DnsRecordCaa";
-import { DnsRecordSrv } from "../DnsRecordSrv";
-import { DnsRecordTxt } from "../DnsRecordTxt";
-import { DataModel } from "../../base";
+import { dnsRecordCombinedAFactory } from "../DnsRecordCombinedA/index.js";
+import { dnsRecordMxFactory } from "../DnsRecordMx/index.js";
+import { DnsRecordCname } from "../DnsRecordCname/index.js";
+import { DnsRecordCaa } from "../DnsRecordCaa/index.js";
+import { DnsRecordSrv } from "../DnsRecordSrv/index.js";
+import { DnsRecordTxt } from "../DnsRecordTxt/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class DnsRecordSet extends DataModel<DnsRecordSetData> {
   public readonly caa: DnsRecordCaa;

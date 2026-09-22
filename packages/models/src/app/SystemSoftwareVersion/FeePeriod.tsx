@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 
-import type { FeePeriodData } from "./types";
+import type { FeePeriodData } from "./types.js";
 
-import { Money } from "../../common";
+import { Money } from "../../common/index.js";
 
 export class FeePeriod {
   public readonly feeValidFrom?: DateTime;

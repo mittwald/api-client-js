@@ -1,4 +1,4 @@
-import type { MySqlVersionData } from "../../database/MySql/types";
+import type { MySqlVersionData } from "../../database/MySql/types.js";
 
 export function buildMySqlVersionData(
   overrides?: Partial<MySqlVersionData[number]>,

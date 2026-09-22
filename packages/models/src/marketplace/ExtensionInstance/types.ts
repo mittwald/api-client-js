@@ -1,8 +1,8 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { FrontendFragmentAnchor, Extension } from "../Extension";
-import type { Customer } from "../../customer";
-import type { Project } from "../../project";
+import type { FrontendFragmentAnchor, Extension } from "../Extension/index.js";
+import type { Customer } from "../../customer/index.js";
+import type { Project } from "../../project/index.js";
 
 export type ExtensionInstanceData =
   MittwaldAPIV2.Operations.ExtensionGetExtensionInstance.ResponseData;

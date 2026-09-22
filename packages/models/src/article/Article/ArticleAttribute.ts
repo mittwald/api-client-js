@@ -1,6 +1,6 @@
-import type { ArticleAttributeData } from "./types";
+import type { ArticleAttributeData } from "./types.js";
 
-import { DataModel } from "../../base/index";
+import { DataModel } from "../../base/index.js";
 
 export class ArticleAttribute extends DataModel<ArticleAttributeData> {
   public readonly key: string;

@@ -1,10 +1,10 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   CreateCertificateRequestSuccessResponse,
   CertificateRequestListQueryData,
   CertificateRequestListItemData,
   CertificateRequestData,
-} from "../types";
+} from "../types.js";
 
 export interface CertificateRequestBehaviors {
   create: (

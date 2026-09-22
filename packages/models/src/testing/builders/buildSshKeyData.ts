@@ -1,7 +1,7 @@
 import type {
   SshKeyListItemData,
   SshKeyData,
-} from "../../user/SshKey/types";
+} from "../../user/SshKey/types.js";
 
 export function buildSshKeyData(
   overrides: Partial<SshKeyData> = {},

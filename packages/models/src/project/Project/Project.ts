@@ -3,20 +3,20 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { CronjobCreateRequestData, CronjobListQuery } from "../../cronjob";
-import type { ProjectMembershipListQuery } from "../ProjectMembership";
-import type { ExtensionInstanceListQuery } from "../../marketplace";
-import type { ProjectPermission } from "../projectPermissions";
-import type { CertificateListQuery } from "../../certificate";
-import type { PerformanceListQuery } from "../../performance";
-import type { IngressListQuery } from "../../ingress";
-import type { DomainListQuery } from "../../domain";
-import type { DnsZoneListQuery } from "../../dns";
-import type { OrderListQuery } from "../../order";
+import type { CronjobCreateRequestData, CronjobListQuery } from "../../cronjob/index.js";
+import type { ProjectMembershipListQuery } from "../ProjectMembership/index.js";
+import type { ExtensionInstanceListQuery } from "../../marketplace/index.js";
+import type { ProjectPermission } from "../projectPermissions.js";
+import type { CertificateListQuery } from "../../certificate/index.js";
+import type { PerformanceListQuery } from "../../performance/index.js";
+import type { IngressListQuery } from "../../ingress/index.js";
+import type { DomainListQuery } from "../../domain/index.js";
+import type { DnsZoneListQuery } from "../../dns/index.js";
+import type { OrderListQuery } from "../../order/index.js";
 import type {
   ProjectInviteCreateRequestData,
   ProjectInviteListQuery,
-} from "../ProjectInvite";
+} from "../ProjectInvite/index.js";
 import type {
   ContainerStackPatchRequestData,
   RegistryCreateRequestData,
@@ -25,40 +25,40 @@ import type {
   RegistryListQuery,
   RegistryLoginType,
   VolumeListQuery,
-} from "../../container";
+} from "../../container/index.js";
 import type {
   RedisCreateRequestData,
   MySqlCreateRequest,
   MySqlListQuery,
   RedisListQuery,
-} from "../../database";
+} from "../../database/index.js";
 import type {
   SftpUserCreateRequestData,
   SshUserCreateRequestData,
   SftpUserListQuery,
   SshUserListQuery,
-} from "../../access";
+} from "../../access/index.js";
 import type {
   BackupScheduleCreateRequestData,
   BackupCreateRequestData,
   BackupScheduleListQuery,
   BackupListQuery,
-} from "../../backup";
+} from "../../backup/index.js";
 import type {
   MailAddressRequestData,
   DeliveryBoxListQuery,
   MailAddressListQuery,
   ForwardRequestData,
-} from "../../mail";
+} from "../../mail/index.js";
 import type {
   AppInstallationCreateRequestData,
   AppInstallationListQuery,
   LicenseListQuery,
-} from "../../app";
+} from "../../app/index.js";
 import type {
   ProjectAIModelListQuery,
   ProjectAIPlanListQuery,
-} from "../../ai";
+} from "../../ai/index.js";
 import type {
   ProjectListQueryModelData,
   ProjectDisableReason,
@@ -66,59 +66,59 @@ import type {
   ProjectFeature,
   ProjectStatus,
   ProjectData,
-} from "./types";
+} from "./types.js";
 
-import { ExtensionInstance } from "../../marketplace/ExtensionInstance/ExtensionInstance";
-import { ProjectAvatarAccessTokenProvider } from "./ProjectAvatarAccessTokenProvider";
-import { AppInstallation } from "../../app/AppInstallation/AppInstallation";
-import { BackupSchedule } from "../../backup/BackupSchedule/BackupSchedule";
-import { ContainerStack } from "../../container/Container/ContainerStack";
-import { ProjectAIModel } from "../../ai/ProjectAIModel/ProjectAIModel";
-import { Certificate } from "../../certificate/Certificate/Certificate";
-import { type FileAccessTokenProvider, type DomFile } from "../../file";
-import { Performance } from "../../performance/Performance/Performance";
-import { ProjectUsageMetrics, StorageMetrics } from "../../monitoring";
-import { ProjectAIPlan } from "../../ai/ProjectAIPlan/ProjectAIPlan";
-import { MailSettings } from "../../mail/MailSettings/MailSettings";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { DeliveryBox } from "../../mail/DeliveryBox/DeliveryBox";
-import { MailAddress } from "../../mail/MailAddress/MailAddress";
-import { Container } from "../../container/Container/Container";
-import { HostingContractItem, Contract } from "../../contract";
-import { Registry } from "../../container/Registry/Registry";
-import { Customer } from "../../customer/Customer/Customer";
-import { projectPermissions } from "../projectPermissions";
-import { SftpUser } from "../../access/SftpUser/SftpUser";
-import { ProjectMembership } from "../ProjectMembership";
-import { Cronjob } from "../../cronjob/Cronjob/Cronjob";
-import { Ingress } from "../../ingress/Ingress/Ingress";
-import { SshUser } from "../../access/SshUser/SshUser";
-import { CertificateRequest } from "../../certificate";
-import { Volume } from "../../container/Volume/Volume";
-import { License } from "../../app/License/License";
-import { Backup } from "../../backup/Backup/Backup";
-import { DnsZone } from "../../dns/DnsZone/DnsZone";
-import { Domain } from "../../domain/Domain/Domain";
-import { Server } from "../../server/Server/Server";
-import { MySql } from "../../database/MySql/MySql";
-import { Redis } from "../../database/Redis/Redis";
-import { AggregateMetaData } from "../../common";
-import { ProjectInvite } from "../ProjectInvite";
-import { Order } from "../../order/Order/Order";
-import { File } from "../../file/File/internal";
-import { HardwareSpecs } from "../internal";
+import { ExtensionInstance } from "../../marketplace/ExtensionInstance/ExtensionInstance.js";
+import { ProjectAvatarAccessTokenProvider } from "./ProjectAvatarAccessTokenProvider.js";
+import { AppInstallation } from "../../app/AppInstallation/AppInstallation.js";
+import { BackupSchedule } from "../../backup/BackupSchedule/BackupSchedule.js";
+import { ContainerStack } from "../../container/Container/ContainerStack.js";
+import { ProjectAIModel } from "../../ai/ProjectAIModel/ProjectAIModel.js";
+import { Certificate } from "../../certificate/Certificate/Certificate.js";
+import { type FileAccessTokenProvider, type DomFile } from "../../file/index.js";
+import { Performance } from "../../performance/Performance/Performance.js";
+import { ProjectUsageMetrics, StorageMetrics } from "../../monitoring/index.js";
+import { ProjectAIPlan } from "../../ai/ProjectAIPlan/ProjectAIPlan.js";
+import { MailSettings } from "../../mail/MailSettings/MailSettings.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { DeliveryBox } from "../../mail/DeliveryBox/DeliveryBox.js";
+import { MailAddress } from "../../mail/MailAddress/MailAddress.js";
+import { Container } from "../../container/Container/Container.js";
+import { HostingContractItem, Contract } from "../../contract/index.js";
+import { Registry } from "../../container/Registry/Registry.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { projectPermissions } from "../projectPermissions.js";
+import { SftpUser } from "../../access/SftpUser/SftpUser.js";
+import { ProjectMembership } from "../ProjectMembership/index.js";
+import { Cronjob } from "../../cronjob/Cronjob/Cronjob.js";
+import { Ingress } from "../../ingress/Ingress/Ingress.js";
+import { SshUser } from "../../access/SshUser/SshUser.js";
+import { CertificateRequest } from "../../certificate/index.js";
+import { Volume } from "../../container/Volume/Volume.js";
+import { License } from "../../app/License/License.js";
+import { Backup } from "../../backup/Backup/Backup.js";
+import { DnsZone } from "../../dns/DnsZone/DnsZone.js";
+import { Domain } from "../../domain/Domain/Domain.js";
+import { Server } from "../../server/Server/Server.js";
+import { MySql } from "../../database/MySql/MySql.js";
+import { Redis } from "../../database/Redis/Redis.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ProjectInvite } from "../ProjectInvite/index.js";
+import { Order } from "../../order/Order/Order.js";
+import { File } from "../../file/File/internal.js";
+import { HardwareSpecs } from "../internal.js";
 import {
   CpuArticleAttribute,
   RamArticleAttribute,
-} from "../../article/Article/internal";
-import { config } from "../../config";
+} from "../../article/Article/internal.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Project",

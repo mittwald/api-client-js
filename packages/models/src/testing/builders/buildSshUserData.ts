@@ -1,4 +1,4 @@
-import type { SshUserData } from "../../access/SshUser/types";
+import type { SshUserData } from "../../access/SshUser/types.js";
 
 export function buildSshUserData(
   overrides?: Partial<SshUserData>,

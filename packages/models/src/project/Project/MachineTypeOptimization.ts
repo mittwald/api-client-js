@@ -1,6 +1,6 @@
-import type { ArticleDetailed } from "../../article";
+import type { ArticleDetailed } from "../../article/index.js";
 
-import { ArticleTagName } from "../../article/Article/internal";
+import { ArticleTagName } from "../../article/Article/internal.js";
 
 export const machineTypeOptimizationType = [
   ArticleTagName.ramOptimized,

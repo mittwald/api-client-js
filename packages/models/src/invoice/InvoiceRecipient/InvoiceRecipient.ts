@@ -1,7 +1,7 @@
-import type { Salutation, Address } from "../../customer";
-import type { InvoiceRecipientData } from "./types";
+import type { Salutation, Address } from "../../customer/index.js";
+import type { InvoiceRecipientData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class InvoiceRecipient extends DataModel<InvoiceRecipientData> {
   public readonly address: Address;

@@ -2,18 +2,18 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildProjectAIPlanData } from "../../testing/builders/buildProjectAIPlanData";
+import { buildProjectAIPlanData } from "../../testing/builders/buildProjectAIPlanData.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   ProjectAIPlanDetailed,
   ProjectAIPlanListItem,
   ProjectAIPlanCommon,
   ProjectAIPlanList,
   ProjectAIPlan,
-} from "./ProjectAIPlan";
+} from "./ProjectAIPlan.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

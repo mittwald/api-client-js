@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import { ActivityAction } from "../ActivityAction";
+import { ActivityAction } from "../ActivityAction.js";
 
 type ActivityDatabaseDeleted =
   MittwaldAPIV2.Components.Schemas.ActivitylogDatabaseDeleted;

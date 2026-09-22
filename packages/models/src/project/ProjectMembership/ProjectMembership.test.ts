@@ -9,17 +9,17 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildProjectMembershipData } from "../../testing/builders/buildProjectMembershipData";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { Project } from "../Project";
-import { File } from "../../file";
-import { User } from "../../user";
+import { buildProjectMembershipData } from "../../testing/builders/buildProjectMembershipData.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { Project } from "../Project/index.js";
+import { File } from "../../file/index.js";
+import { User } from "../../user/index.js";
 import {
   ProjectMembershipDetailed,
   ProjectMembershipListItem,
   ProjectMembershipList,
   ProjectMembership,
-} from "./ProjectMembership";
+} from "./ProjectMembership.js";
 
 afterEach(resetBehaviors);
 

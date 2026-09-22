@@ -2,11 +2,11 @@ import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
 import { DateTime } from "luxon";
 
-import type { OrderBehaviors } from "./types";
+import type { OrderBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { anyStatus404 } from "../../../base/api/typeFixes";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { anyStatus404 } from "../../../base/api/typeFixes.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiOrderBehaviors = (
   client: MittwaldAPIV2Client,

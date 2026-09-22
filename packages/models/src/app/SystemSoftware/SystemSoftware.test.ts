@@ -8,20 +8,20 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError";
-import { buildSystemSoftwareListItemData , buildSystemSoftwareData } from "../../testing/builders/buildSystemSoftwareData";
-import { ReferenceModel } from "../../base";
+import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
+import { buildSystemSoftwareListItemData , buildSystemSoftwareData } from "../../testing/builders/buildSystemSoftwareData.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   SystemSoftwareListQuery,
   SystemSoftwareDetailed,
   SystemSoftwareListItem,
   SystemSoftwareList,
   SystemSoftware,
-} from "./SystemSoftware";
+} from "./SystemSoftware.js";
 
 afterEach(resetBehaviors);
 

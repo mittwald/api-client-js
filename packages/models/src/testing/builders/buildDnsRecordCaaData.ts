@@ -1,7 +1,7 @@
 import type {
   DnsRecordCaaEntry,
   DnsRecordCaaData,
-} from "../../dns/DnsRecordCaa/types";
+} from "../../dns/DnsRecordCaa/types.js";
 
 type DnsRecordCaaComponentData = Extract<
   DnsRecordCaaData,

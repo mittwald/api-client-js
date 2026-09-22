@@ -1,4 +1,4 @@
-import type { NotificationListItemData } from "../../notifications/Notifications/types";
+import type { NotificationListItemData } from "../../notifications/Notifications/types.js";
 
 export function buildNotificationListItemData(
   overrides?: Partial<NotificationListItemData>,

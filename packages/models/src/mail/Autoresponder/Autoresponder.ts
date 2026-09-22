@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 
-import type { AutoresponderData } from "./types";
+import type { AutoresponderData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class Autoresponder extends DataModel<AutoresponderData> {
   public readonly expiresAt?: DateTime;

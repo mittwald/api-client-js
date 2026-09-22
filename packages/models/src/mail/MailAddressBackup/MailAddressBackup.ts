@@ -3,11 +3,11 @@ import { DateTime } from "luxon";
 import type {
   MailAddressBackupListQueryModelData,
   MailAddressBackupData,
-} from "./types";
+} from "./types.js";
 
-import { ListQueryModel, WithListData, DataModel, extractId } from "../../base";
-import { MailAddress } from "../MailAddress";
-import { config } from "../../config";
+import { ListQueryModel, WithListData, DataModel, extractId } from "../../base/index.js";
+import { MailAddress } from "../MailAddress/index.js";
+import { config } from "../../config/index.js";
 
 export class MailAddressBackup extends DataModel<MailAddressBackupData> {
   public readonly date?: DateTime;

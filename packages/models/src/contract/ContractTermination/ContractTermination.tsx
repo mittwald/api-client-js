@@ -1,9 +1,9 @@
 import { DateTime } from "luxon";
 
-import type { ContractTerminationData } from "./types";
+import type { ContractTerminationData } from "./types.js";
 
-import { DataModel } from "../../base";
-import { User } from "../../user";
+import { DataModel } from "../../base/index.js";
+import { User } from "../../user/index.js";
 
 export class ContractTermination extends DataModel<ContractTerminationData> {
   public readonly cancellationForbidden?: boolean;

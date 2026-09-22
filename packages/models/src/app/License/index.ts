@@ -1,2 +1,2 @@
-export * from "./License";
-export * from "./types";
+export * from "./License.js";
+export * from "./types.js";

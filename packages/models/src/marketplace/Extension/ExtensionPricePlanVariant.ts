@@ -1,17 +1,17 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { ContributorExtension } from "../ContributorExtension";
-import type { ExtensionPricePlan } from "./ExtensionPricePlan";
+import type { ContributorExtension } from "../ContributorExtension/index.js";
+import type { ExtensionPricePlan } from "./ExtensionPricePlan.js";
 import type {
   ExtensionPricePlanVariantBaseData,
   ExtensionPricePlanVariantData,
-} from "./types";
+} from "./types.js";
 
-import { ReferenceModel, DataModel, WithData } from "../../base/index";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Extension } from "./Extension";
-import { Money } from "../../common";
+import { ReferenceModel, DataModel, WithData } from "../../base/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Extension } from "./Extension.js";
+import { Money } from "../../common/index.js";
 
 export class ExtensionPricePlanVariantBase extends DataModel<ExtensionPricePlanVariantBaseData> {
   public readonly deletionDeadline?: DateTime;

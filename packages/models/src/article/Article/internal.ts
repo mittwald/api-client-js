@@ -8,19 +8,19 @@
 // subclasses `extends ArticleCommon`/`HostingArticle`, so they come after
 // `Article` (and `HostingArticle` before the articles that extend it), with
 // `articleFactory` (imports every article) last.
-export * from "./ArticleAttribute";
-export * from "./attributes/CpuArticleAttribute";
-export * from "./attributes/MachineTypeArticleAttribute";
-export * from "./attributes/RamArticleAttribute";
-export * from "./attributes/RecommendedProjectsArticleAttribute";
-export * from "./attributes/StorageArticleAttribute";
-export * from "./ArticleModifier";
-export * from "./modifier/StorageArticleModifier";
-export * from "./ArticleTag";
-export * from "./Article";
-export * from "./articles/AIHostingArticle";
-export * from "./articles/HostingArticle";
-export * from "./articles/ServerArticle";
-export * from "./articles/StorageArticle";
-export * from "./articles/WebhostingArticle";
-export * from "./articles/articleFactory";
+export * from "./ArticleAttribute.js";
+export * from "./attributes/CpuArticleAttribute.js";
+export * from "./attributes/MachineTypeArticleAttribute.js";
+export * from "./attributes/RamArticleAttribute.js";
+export * from "./attributes/RecommendedProjectsArticleAttribute.js";
+export * from "./attributes/StorageArticleAttribute.js";
+export * from "./ArticleModifier.js";
+export * from "./modifier/StorageArticleModifier.js";
+export * from "./ArticleTag.js";
+export * from "./Article.js";
+export * from "./articles/AIHostingArticle.js";
+export * from "./articles/HostingArticle.js";
+export * from "./articles/ServerArticle.js";
+export * from "./articles/StorageArticle.js";
+export * from "./articles/WebhostingArticle.js";
+export * from "./articles/articleFactory.js";

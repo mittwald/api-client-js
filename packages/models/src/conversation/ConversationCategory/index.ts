@@ -1,2 +1,2 @@
-export * from "./ConversationCategory";
-export * from "./types";
+export * from "./ConversationCategory.js";
+export * from "./types.js";

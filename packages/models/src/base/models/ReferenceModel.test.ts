@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { ReferenceModel } from "./ReferenceModel";
-import { resetBehaviors } from "../../testing";
+import { ReferenceModel } from "./ReferenceModel.js";
+import { resetBehaviors } from "../../testing/index.js";
 
 afterEach(resetBehaviors);
 

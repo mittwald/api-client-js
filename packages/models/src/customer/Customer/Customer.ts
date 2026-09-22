@@ -3,25 +3,25 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { ProjectListQuery as ProjectListQueryType } from "../../project";
-import type { ExtensionInstanceListQuery } from "../../marketplace";
-import type { CustomerPermission } from "../customerPermissions";
-import type { ContractListQuery } from "../../contract";
-import type { InvoiceListQuery } from "../../invoice";
-import type { ServerListQuery } from "../../server";
-import type { OrderListQuery } from "../../order";
+import type { ProjectListQuery as ProjectListQueryType } from "../../project/index.js";
+import type { ExtensionInstanceListQuery } from "../../marketplace/index.js";
+import type { CustomerPermission } from "../customerPermissions.js";
+import type { ContractListQuery } from "../../contract/index.js";
+import type { InvoiceListQuery } from "../../invoice/index.js";
+import type { ServerListQuery } from "../../server/index.js";
+import type { OrderListQuery } from "../../order/index.js";
 import type {
   CustomerMembershipListQuery,
   CustomerRole,
-} from "../CustomerMembership";
+} from "../CustomerMembership/index.js";
 import type {
   CustomerInviteCreateRequestData,
   CustomerInviteListQuery,
-} from "../CustomerInvite";
+} from "../CustomerInvite/index.js";
 import type {
   CustomerAIModelListQuery,
   CustomerAIPlanListQuery,
-} from "../../ai";
+} from "../../ai/index.js";
 import type {
   CustomerExpressInterestToContributeRequestData,
   CustomerVatIdValidationState,
@@ -30,35 +30,35 @@ import type {
   CustomerListQueryData,
   CustomerListItemData,
   CustomerData,
-} from "./types";
+} from "./types.js";
 
-import { ExtensionInstance } from "../../marketplace/ExtensionInstance/ExtensionInstance";
-import { CustomerAvatarAccessTokenProvider } from "./CustomerAvatarAccessTokenProvider";
-import { CustomerAIModel } from "../../ai/CustomerAIModel/CustomerAIModel";
-import { CustomerAIPlan } from "../../ai/CustomerAIPlan/CustomerAIPlan";
-import { type FileAccessTokenProvider, type DomFile } from "../../file";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { customerPermissions } from "../customerPermissions";
-import { Contract } from "../../contract/Contract/Contract";
-import { CustomerMembership } from "../CustomerMembership";
-import { ProjectListQuery } from "../../project/internal";
-import { Invoice } from "../../invoice/Invoice/Invoice";
-import { ContractPartner } from "../ContractPartner";
-import { InvoiceSettings } from "../InvoiceSettings";
-import { Server } from "../../server/Server/Server";
-import { CustomerInvite } from "../CustomerInvite";
-import { AggregateMetaData } from "../../common";
-import { Contributor } from "../../marketplace";
-import { Order } from "../../order/Order/Order";
-import { File } from "../../file/File/internal";
-import { config } from "../../config";
-import { User } from "../../user";
+import { ExtensionInstance } from "../../marketplace/ExtensionInstance/ExtensionInstance.js";
+import { CustomerAvatarAccessTokenProvider } from "./CustomerAvatarAccessTokenProvider.js";
+import { CustomerAIModel } from "../../ai/CustomerAIModel/CustomerAIModel.js";
+import { CustomerAIPlan } from "../../ai/CustomerAIPlan/CustomerAIPlan.js";
+import { type FileAccessTokenProvider, type DomFile } from "../../file/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { customerPermissions } from "../customerPermissions.js";
+import { Contract } from "../../contract/Contract/Contract.js";
+import { CustomerMembership } from "../CustomerMembership/index.js";
+import { ProjectListQuery } from "../../project/internal.js";
+import { Invoice } from "../../invoice/Invoice/Invoice.js";
+import { ContractPartner } from "../ContractPartner/index.js";
+import { InvoiceSettings } from "../InvoiceSettings/index.js";
+import { Server } from "../../server/Server/Server.js";
+import { CustomerInvite } from "../CustomerInvite/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { Contributor } from "../../marketplace/index.js";
+import { Order } from "../../order/Order/Order.js";
+import { File } from "../../file/File/internal.js";
+import { config } from "../../config/index.js";
+import { User } from "../../user/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Customer",

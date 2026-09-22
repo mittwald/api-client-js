@@ -2,14 +2,14 @@ import type { AxiosRequestConfig } from "axios";
 
 import invariant from "tiny-invariant";
 
-import type { FileAccessTokenProvider } from "../FileAccessToken";
-import type { FileUploadType, DomFile } from "./types";
+import type { FileAccessTokenProvider } from "../FileAccessToken/index.js";
+import type { FileUploadType, DomFile } from "./types.js";
 
-import { FileMetaDetailed, FileContent, FileMeta } from "./internal";
-import { FileDownloadToken } from "../FileAccessToken";
-import { ReferenceModel } from "../../base";
-import { config } from "../../config";
-import { Bytes } from "../../common";
+import { FileMetaDetailed, FileContent, FileMeta } from "./internal.js";
+import { FileDownloadToken } from "../FileAccessToken/index.js";
+import { ReferenceModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
+import { Bytes } from "../../common/index.js";
 
 export class File extends ReferenceModel {
   public static inMemoryFile = new File("inmem");

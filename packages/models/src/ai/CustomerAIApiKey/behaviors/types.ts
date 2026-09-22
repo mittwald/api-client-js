@@ -1,10 +1,10 @@
-import type { QueryResponseData } from "../../../base";
-import type { AIApiKeyData } from "../../types";
+import type { QueryResponseData } from "../../../base/index.js";
+import type { AIApiKeyData } from "../../types.js";
 import type {
   CustomerAIApiKeyUpdateRequestData,
   CustomerAIApiKeyListQueryData,
   CustomerAIApiKeyRequestData,
-} from "../types";
+} from "../types.js";
 
 export interface CustomerAIApiKeyBehaviors {
   update: (

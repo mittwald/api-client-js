@@ -1,6 +1,6 @@
-import type { ActivityActionData, ActivityType } from "./types";
+import type { ActivityActionData, ActivityType } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 type ChangesOf<T> = T extends { changes: infer C } ? C : undefined;
 

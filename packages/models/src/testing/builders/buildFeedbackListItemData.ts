@@ -1,4 +1,4 @@
-import type { FeedbackListItemData } from "../../user/Feedback/types";
+import type { FeedbackListItemData } from "../../user/Feedback/types.js";
 
 export function buildFeedbackListItemData(
   overrides: Partial<FeedbackListItemData> = {},

@@ -1,9 +1,9 @@
-import type { ContainerStateData } from "./types";
+import type { ContainerStateData } from "./types.js";
 
-import { ContainerVolumeRelationList, ContainerEnvVariableList } from ".";
-import { ContainerPortList } from "./ContainerPort";
-import { shellJoin } from "../lib/shellwords";
-import { DataModel } from "../../base";
+import { ContainerVolumeRelationList, ContainerEnvVariableList } from "./index.js";
+import { ContainerPortList } from "./ContainerPort.js";
+import { shellJoin } from "../lib/shellwords.js";
+import { DataModel } from "../../base/index.js";
 
 export class ContainerState extends DataModel<ContainerStateData> {
   public readonly command?: string;

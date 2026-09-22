@@ -1,2 +1,2 @@
-export * from "./DnsCertificateStatus";
-export * from "./types";
+export * from "./DnsCertificateStatus.js";
+export * from "./types.js";

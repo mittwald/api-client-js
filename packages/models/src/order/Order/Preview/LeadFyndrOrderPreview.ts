@@ -1,8 +1,8 @@
-import type { LeadFyndrOrderRequest } from "../Request/LeadFyndrOrderRequest";
-import type { LeadFyndrOrderPreviewData } from "../types";
+import type { LeadFyndrOrderRequest } from "../Request/LeadFyndrOrderRequest.js";
+import type { LeadFyndrOrderPreviewData } from "../types.js";
 
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class LeadFyndrOrderPreview extends DataModel<LeadFyndrOrderPreviewData> {
   public readonly request: LeadFyndrOrderRequest;

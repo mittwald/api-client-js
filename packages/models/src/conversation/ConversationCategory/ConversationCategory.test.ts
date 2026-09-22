@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildConversationCategoryData } from "../../testing/builders/buildConversationCategoryData";
-import { ConversationCategory } from "./ConversationCategory";
-import { resetBehaviors } from "../../testing";
-import { DataModel } from "../../base";
+import { buildConversationCategoryData } from "../../testing/builders/buildConversationCategoryData.js";
+import { ConversationCategory } from "./ConversationCategory.js";
+import { resetBehaviors } from "../../testing/index.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

@@ -2,15 +2,15 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildExtensionListItemData } from "../../testing/builders/buildExtensionListItemData";
-import { buildExtensionData } from "../../testing/builders/buildExtensionData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { AggregateMetaData, LocalizedText } from "../../common";
-import { ListQueryModel, ReferenceModel } from "../../base";
+import { buildExtensionListItemData } from "../../testing/builders/buildExtensionListItemData.js";
+import { buildExtensionData } from "../../testing/builders/buildExtensionData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { AggregateMetaData, LocalizedText } from "../../common/index.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
@@ -27,7 +27,7 @@ import {
   ExtensionCommon,
   ExtensionList,
   Extension,
-} from "./Extension";
+} from "./Extension.js";
 
 afterEach(resetBehaviors);
 

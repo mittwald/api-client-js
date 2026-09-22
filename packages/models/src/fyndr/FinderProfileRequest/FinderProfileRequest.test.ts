@@ -2,20 +2,20 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildFinderProfileRequestCustomerData } from "../../testing/builders/buildFinderProfileRequestCustomerData";
-import { buildFinderProfileRequestData } from "../../testing/builders/buildFinderProfileRequestData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { AggregateMetaData } from "../../common";
+import { buildFinderProfileRequestCustomerData } from "../../testing/builders/buildFinderProfileRequestCustomerData.js";
+import { buildFinderProfileRequestData } from "../../testing/builders/buildFinderProfileRequestData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { AggregateMetaData } from "../../common/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   FinderProfileRequestDetailed,
   FinderProfileRequestCommon,
   FinderProfileRequestList,
   FinderProfileRequest,
-} from "./FinderProfileRequest";
+} from "./FinderProfileRequest.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

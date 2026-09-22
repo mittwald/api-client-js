@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { Customer } from "../../customer";
-import type { Server } from "../../server";
+import type { Customer } from "../../customer/index.js";
+import type { Server } from "../../server/index.js";
 
 export type ProjectListQueryData =
   MittwaldAPIV2.Paths.V2Projects.Get.Parameters.Query;

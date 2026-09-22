@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { SupportCodeBehaviors } from "./types";
+import type { SupportCodeBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { withAxiosRequestConfig } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { withAxiosRequestConfig } from "../../../base/index.js";
 
 export const apiSupportCodeBehaviors = (
   client: MittwaldAPIV2Client,

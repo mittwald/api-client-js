@@ -1,27 +1,27 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import type { HostingOrderRequest } from "../Request/HostingOrderRequest";
+import type { HostingOrderRequest } from "../Request/HostingOrderRequest.js";
 
-import { buildExternalCertificateOrderPreviewData } from "../../../testing/builders/buildExternalCertificateOrderPreviewData";
-import { buildMailArchiveOrderPreviewData } from "../../../testing/builders/buildMailArchiveOrderPreviewData";
-import { buildLeadFyndrOrderPreviewData } from "../../../testing/builders/buildLeadFyndrOrderPreviewData";
-import { buildHostingOrderPreviewData } from "../../../testing/builders/buildHostingOrderPreviewData";
-import { buildLicenseOrderPreviewData } from "../../../testing/builders/buildLicenseOrderPreviewData";
-import { buildDomainOrderPreviewData } from "../../../testing/builders/buildDomainOrderPreviewData";
-import { ExternalCertificateOrderRequest } from "../Request/ExternalCertificateOrderRequest";
-import { ExternalCertificateOrderPreview } from "./ExternalCertificateOrderPreview";
-import { MailArchiveOrderRequest } from "../Request/MailArchiveOrderRequest";
-import { LeadFyndrOrderRequest } from "../Request/LeadFyndrOrderRequest";
-import { LicenseOrderRequest } from "../Request/LicenseOrderRequest";
-import { MailArchiveOrderPreview } from "./MailArchiveOrderPreview";
-import { resetBehaviors } from "../../../testing/installBehaviors";
-import { DomainOrderRequest } from "../Request/DomainOrderRequest";
-import { AIHostingOrderPreview } from "./AIHostingOrderPreview";
-import { LeadFyndrOrderPreview } from "./LeadFyndrOrderPreview";
-import { HostingOrderPreview } from "./HostingOrderPreview";
-import { LicenseOrderPreview } from "./LicenseOrderPreview";
-import { DomainOrderPreview } from "./DomainOrderPreview";
+import { buildExternalCertificateOrderPreviewData } from "../../../testing/builders/buildExternalCertificateOrderPreviewData.js";
+import { buildMailArchiveOrderPreviewData } from "../../../testing/builders/buildMailArchiveOrderPreviewData.js";
+import { buildLeadFyndrOrderPreviewData } from "../../../testing/builders/buildLeadFyndrOrderPreviewData.js";
+import { buildHostingOrderPreviewData } from "../../../testing/builders/buildHostingOrderPreviewData.js";
+import { buildLicenseOrderPreviewData } from "../../../testing/builders/buildLicenseOrderPreviewData.js";
+import { buildDomainOrderPreviewData } from "../../../testing/builders/buildDomainOrderPreviewData.js";
+import { ExternalCertificateOrderRequest } from "../Request/ExternalCertificateOrderRequest.js";
+import { ExternalCertificateOrderPreview } from "./ExternalCertificateOrderPreview.js";
+import { MailArchiveOrderRequest } from "../Request/MailArchiveOrderRequest.js";
+import { LeadFyndrOrderRequest } from "../Request/LeadFyndrOrderRequest.js";
+import { LicenseOrderRequest } from "../Request/LicenseOrderRequest.js";
+import { MailArchiveOrderPreview } from "./MailArchiveOrderPreview.js";
+import { resetBehaviors } from "../../../testing/installBehaviors.js";
+import { DomainOrderRequest } from "../Request/DomainOrderRequest.js";
+import { AIHostingOrderPreview } from "./AIHostingOrderPreview.js";
+import { LeadFyndrOrderPreview } from "./LeadFyndrOrderPreview.js";
+import { HostingOrderPreview } from "./HostingOrderPreview.js";
+import { LicenseOrderPreview } from "./LicenseOrderPreview.js";
+import { DomainOrderPreview } from "./DomainOrderPreview.js";
 
 afterEach(resetBehaviors);
 

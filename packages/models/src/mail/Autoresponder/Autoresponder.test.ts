@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { Autoresponder } from "./Autoresponder";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { Autoresponder } from "./Autoresponder.js";
 
 afterEach(resetBehaviors);
 

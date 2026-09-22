@@ -1,9 +1,9 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { RedisBehaviors } from "./types";
+import type { RedisBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount, anyStatus403 } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount, anyStatus403 } from "../../../base/index.js";
 
 export const apiRedisBehaviors = (
   client: MittwaldAPIV2Client,

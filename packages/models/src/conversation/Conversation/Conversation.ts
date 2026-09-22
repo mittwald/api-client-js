@@ -1,9 +1,9 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { ConversationUserListQuery as ConversationUserListQueryType } from "../ConversationUser";
-import type { ConversationCategoryReferenceType } from "../ConversationCategory";
-import type { FileAccessTokenProvider, DomFile } from "../../file";
+import type { ConversationUserListQuery as ConversationUserListQueryType } from "../ConversationUser/index.js";
+import type { ConversationCategoryReferenceType } from "../ConversationCategory/index.js";
+import type { FileAccessTokenProvider, DomFile } from "../../file/index.js";
 import type {
   ConversationCreateMessageRequestModelData,
   ConversationShareableAggregateReference,
@@ -13,33 +13,33 @@ import type {
   ConversationListQueryData,
   ConversationListItemData,
   ConversationData,
-} from "./types";
+} from "./types.js";
 
-import { ConversationMessageFileAttachmentAccessTokenProvider } from "../ConversationMessage/ConversationMessageFileAttachmentAccessTokenProvider";
-import { ConversationServiceRequest } from "../ConversationServiceRequest";
-import { ConversationStatusUpdate } from "../ConversationStatusUpdate";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ConversationCategory } from "../ConversationCategory";
-import { ConversationMessage } from "../ConversationMessage";
-import { FileUploadError } from "../../errors";
-import { config } from "../../config";
-import { File } from "../../file";
-import { User } from "../../user";
+import { ConversationMessageFileAttachmentAccessTokenProvider } from "../ConversationMessage/ConversationMessageFileAttachmentAccessTokenProvider.js";
+import { ConversationServiceRequest } from "../ConversationServiceRequest/index.js";
+import { ConversationStatusUpdate } from "../ConversationStatusUpdate/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ConversationCategory } from "../ConversationCategory/index.js";
+import { ConversationMessage } from "../ConversationMessage/index.js";
+import { FileUploadError } from "../../errors/index.js";
+import { config } from "../../config/index.js";
+import { File } from "../../file/index.js";
+import { User } from "../../user/index.js";
 import {
   ConversationUserListQuery,
   ConversationUser,
-} from "../ConversationUser";
+} from "../ConversationUser/index.js";
 import {
   tryResolveAggregateReference,
   type AggregateReference,
   AggregateMetaData,
-} from "../../common";
+} from "../../common/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Conversation",

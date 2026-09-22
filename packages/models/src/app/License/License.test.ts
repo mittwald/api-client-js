@@ -8,25 +8,25 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import type { ContractData } from "../../contract/Contract/types";
+import type { ContractData } from "../../contract/Contract/types.js";
 
-import { buildLicenseData } from "../../testing/builders/buildLicenseData";
-import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError";
-import { ContractDetailed } from "../../contract";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
+import { buildLicenseData } from "../../testing/builders/buildLicenseData.js";
+import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
+import { ContractDetailed } from "../../contract/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   LicenseListQuery,
   LicenseDetailed,
   LicenseListItem,
   LicenseList,
   License,
-} from "./License";
+} from "./License.js";
 
 afterEach(resetBehaviors);
 

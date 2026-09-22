@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { replaceUrlTemplateValues } from "./replaceUrlTemplateValues";
+import { replaceUrlTemplateValues } from "./replaceUrlTemplateValues.js";
 
 test("Does not replace values with keys with same starting substring", () => {
   expect(

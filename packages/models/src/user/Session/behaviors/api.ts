@@ -2,10 +2,10 @@ import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
 import { ApiClientError } from "@mittwald/api-client-commons";
 
-import type { SessionBehaviors } from "./types";
+import type { SessionBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { resolveTotalCount } from "../../../base";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { resolveTotalCount } from "../../../base/index.js";
 
 export const apiSessionBehaviors = (
   client: MittwaldAPIV2Client,

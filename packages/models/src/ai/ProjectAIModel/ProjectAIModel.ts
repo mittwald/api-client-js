@@ -1,10 +1,10 @@
 import type {
   ProjectAIModelListQueryData,
   ProjectAIModelData,
-} from "./types";
+} from "./types.js";
 
-import { makeScopedAIModelClasses } from "../lib/makeScopedAIModelClasses";
-import { config } from "../../config";
+import { makeScopedAIModelClasses } from "../lib/makeScopedAIModelClasses.js";
+import { config } from "../../config/index.js";
 
 const classes = makeScopedAIModelClasses<
   ProjectAIModelData,

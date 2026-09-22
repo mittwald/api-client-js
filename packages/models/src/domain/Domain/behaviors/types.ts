@@ -1,8 +1,8 @@
 import type { DateTime } from "luxon";
 
-import type { QueryResponseData } from "../../../base";
-import type { ContractData } from "../../../contract";
-import type { HandleField } from "../../DomainHandle";
+import type { QueryResponseData } from "../../../base/index.js";
+import type { ContractData } from "../../../contract/index.js";
+import type { HandleField } from "../../DomainHandle/index.js";
 import type {
   DomainTransferableResponse,
   DomainRegistrableResponse,
@@ -10,7 +10,7 @@ import type {
   DomainListQueryData,
   DomainListItemData,
   DomainData,
-} from "../types";
+} from "../types.js";
 
 export interface DomainBehaviors {
   updateOwnerContact: (

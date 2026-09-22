@@ -1,4 +1,4 @@
-import type { CustomerData } from "../../customer/Customer/types";
+import type { CustomerData } from "../../customer/Customer/types.js";
 
 export function buildFinderProfileRequestCustomerData(
   overrides?: Partial<CustomerData>,

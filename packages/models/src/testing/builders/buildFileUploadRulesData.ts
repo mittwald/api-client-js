@@ -1,4 +1,4 @@
-import type { FileUploadRules } from "../../file/File/types";
+import type { FileUploadRules } from "../../file/File/types.js";
 
 export function buildFileUploadRulesData(
   overrides?: Partial<FileUploadRules>,

@@ -1,3 +1,3 @@
-export * from "./Tld";
-export * from "./TldPrice";
-export * from "./types";
+export * from "./Tld.js";
+export * from "./TldPrice.js";
+export * from "./types.js";

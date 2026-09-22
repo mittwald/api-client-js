@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildDnsRecordSettingsData } from "../../testing/builders/buildDnsRecordSettingsData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { DnsRecordSettings } from "./DnsRecordSettings";
+import { buildDnsRecordSettingsData } from "../../testing/builders/buildDnsRecordSettingsData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { DnsRecordSettings } from "./DnsRecordSettings.js";
 
 afterEach(resetBehaviors);
 

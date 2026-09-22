@@ -1,5 +1,5 @@
-import type { StorageStatisticsCategoryApiData } from "../../monitoring/StorageMetrics/StorageStatisticsCategory";
-import type { StorageMetricsData } from "../../monitoring/StorageMetrics/types";
+import type { StorageStatisticsCategoryApiData } from "../../monitoring/StorageMetrics/StorageStatisticsCategory.js";
+import type { StorageMetricsData } from "../../monitoring/StorageMetrics/types.js";
 
 export function buildStorageMetricsData(
   overrides?: Partial<StorageMetricsData>,

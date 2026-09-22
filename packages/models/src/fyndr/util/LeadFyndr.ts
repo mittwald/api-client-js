@@ -1,5 +1,5 @@
-import { FinderProfileRequest } from "../FinderProfileRequest";
-import { FinderProfile } from "../FinderProfile";
+import { FinderProfileRequest } from "../FinderProfileRequest/index.js";
+import { FinderProfile } from "../FinderProfile/index.js";
 
 export class LeadFyndr {
   public static async customerIdHasAccess(customerId: string) {

@@ -4,9 +4,9 @@ import type {
   MetricsFrameDataPointObject,
   MetricsQueryResponseApiData,
   MetricsDataPoint,
-} from "./types";
+} from "./types.js";
 
-import MetricsQueryRequest from "./MetricsQueryRequest";
+import MetricsQueryRequest from "./MetricsQueryRequest.js";
 
 export class MetricsQueryResponse {
   public readonly data: MetricsQueryResponseApiData;

@@ -1,2 +1,2 @@
-export * from "./AppInstallation";
-export * from "./types";
+export * from "./AppInstallation.js";
+export * from "./types.js";

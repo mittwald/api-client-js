@@ -1,14 +1,14 @@
 import { afterEach, expect, test } from "vitest";
 
-import { resetBehaviors } from "../testing";
-import { Container } from "../container";
-import { Customer } from "../customer";
-import { Project } from "../project";
-import { Server } from "../server";
+import { resetBehaviors } from "../testing/index.js";
+import { Container } from "../container/index.js";
+import { Customer } from "../customer/index.js";
+import { Project } from "../project/index.js";
+import { Server } from "../server/index.js";
 import {
   tryResolveAggregateReference,
   resolveAggregateReference,
-} from "./AggregateReference";
+} from "./AggregateReference.js";
 
 afterEach(resetBehaviors);
 

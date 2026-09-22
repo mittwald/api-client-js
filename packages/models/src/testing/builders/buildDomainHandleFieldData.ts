@@ -1,4 +1,4 @@
-import type { HandleField } from "../../domain/DomainHandle/types";
+import type { HandleField } from "../../domain/DomainHandle/types.js";
 
 export function buildDomainHandleFieldData(
   overrides?: Partial<HandleField>,

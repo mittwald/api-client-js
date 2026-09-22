@@ -1,17 +1,17 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { buildAIModelData } from "../../testing/builders/buildAIModelData";
-import { ListQueryModel, ReferenceModel } from "../../base";
+import { buildAIModelData } from "../../testing/builders/buildAIModelData.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   AIModelListQuery,
   AIModelListItem,
   AIModelList,
   AIModel,
-} from "./AIModel";
+} from "./AIModel.js";
 
 afterEach(resetBehaviors);
 

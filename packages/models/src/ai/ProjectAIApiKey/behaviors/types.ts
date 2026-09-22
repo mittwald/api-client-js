@@ -1,11 +1,11 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { QueryResponseData } from "../../../base";
-import type { AIApiKeyData } from "../../types";
+import type { QueryResponseData } from "../../../base/index.js";
+import type { AIApiKeyData } from "../../types.js";
 import type {
   ProjectAIApiKeyUpdateRequestData,
   ProjectAIApiKeyRequestData,
-} from "../types";
+} from "../types.js";
 
 export interface ProjectAIApiKeyLinkContainerData {
   containerId: string;

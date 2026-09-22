@@ -1,4 +1,4 @@
-import type { IngressTarget } from "./IngressTarget";
+import type { IngressTarget } from "./IngressTarget.js";
 
 const target = {} as IngressTarget;
 

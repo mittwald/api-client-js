@@ -1,8 +1,8 @@
-import type { ExternalCertificateOrderRequest } from "../Request/ExternalCertificateOrderRequest";
+import type { ExternalCertificateOrderRequest } from "../Request/ExternalCertificateOrderRequest.js";
 
-import { type ExternalCertificateOrderPreviewData } from "../types";
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { type ExternalCertificateOrderPreviewData } from "../types.js";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class ExternalCertificateOrderPreview extends DataModel<ExternalCertificateOrderPreviewData> {
   public readonly feePrice: Money;

@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { Customer } from "../../customer";
+import type { Customer } from "../../customer/index.js";
 
 export type InvoiceData = MittwaldAPIV2.Operations.InvoiceDetail.ResponseData;
 

@@ -1,15 +1,15 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { TldPriceListQueryData, TldPriceData } from "./types";
+import type { TldPriceListQueryData, TldPriceData } from "./types.js";
 
-import { config } from "../../config";
-import { Money } from "../../common";
+import { config } from "../../config/index.js";
+import { Money } from "../../common/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "TldPrice",

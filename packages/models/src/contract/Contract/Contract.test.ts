@@ -8,14 +8,14 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildContractArticleData } from "../../testing/builders/buildContractArticleData";
-import { buildContractItemData } from "../../testing/builders/buildContractItemData";
-import { buildContractData } from "../../testing/builders/buildContractData";
-import { ContractItemDetailed, ContractItemCommon } from "../ContractItem";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { ReferenceModel } from "../../base";
-import { Customer } from "../../customer";
+import { buildContractArticleData } from "../../testing/builders/buildContractArticleData.js";
+import { buildContractItemData } from "../../testing/builders/buildContractItemData.js";
+import { buildContractData } from "../../testing/builders/buildContractData.js";
+import { ContractItemDetailed, ContractItemCommon } from "../ContractItem/index.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { ReferenceModel } from "../../base/index.js";
+import { Customer } from "../../customer/index.js";
 import {
   ContractListQuery,
   ContractDetailed,
@@ -23,7 +23,7 @@ import {
   ContractCommon,
   ContractList,
   Contract,
-} from "./Contract";
+} from "./Contract.js";
 
 afterEach(resetBehaviors);
 

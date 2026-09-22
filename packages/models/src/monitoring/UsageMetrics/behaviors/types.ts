@@ -1,7 +1,7 @@
 import type {
   MetricsQueryResponseApiData,
   MetricsQueryRequestApiData,
-} from "../../lib/metrics";
+} from "../../lib/metrics/index.js";
 
 export interface UsageMetricsBehaviors {
   getData: (

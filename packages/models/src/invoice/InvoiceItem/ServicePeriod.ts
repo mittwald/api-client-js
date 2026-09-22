@@ -1,6 +1,6 @@
 import { type DateTime, Interval } from "luxon";
 
-import { required } from "../../base/lib/required";
+import { required } from "../../base/lib/required.js";
 
 export class ServicePeriod {
   public readonly end: DateTime;

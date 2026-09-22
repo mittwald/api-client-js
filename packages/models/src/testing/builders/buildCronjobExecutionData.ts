@@ -1,7 +1,7 @@
 import type {
   CronjobExecutionListItemData,
   CronjobExecutionData,
-} from "../../cronjob/CronjobExecution/types";
+} from "../../cronjob/CronjobExecution/types.js";
 
 export function buildCronjobExecutionData(
   overrides?: Partial<CronjobExecutionData>,

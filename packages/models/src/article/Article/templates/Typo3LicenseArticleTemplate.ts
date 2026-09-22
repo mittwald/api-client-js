@@ -1,4 +1,4 @@
-import { ArticleTemplate } from "../ArticleTemplate";
+import { ArticleTemplate } from "../ArticleTemplate.js";
 
 export class Typo3LicenseArticleTemplate extends ArticleTemplate {
   public static readonly templateId = "249e32a6-d56b-4547-8966-0c6f240e6371";

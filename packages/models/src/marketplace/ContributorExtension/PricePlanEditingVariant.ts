@@ -1,10 +1,10 @@
 import { DateTime } from "luxon";
 
-import type { ExtensionPricePlanVariantDetailed } from "../Extension";
-import type { PricePlanEditingVariantData } from "./types";
+import type { ExtensionPricePlanVariantDetailed } from "../Extension/index.js";
+import type { PricePlanEditingVariantData } from "./types.js";
 
-import { DataModel } from "../../base";
-import { Money } from "../../common";
+import { DataModel } from "../../base/index.js";
+import { Money } from "../../common/index.js";
 
 export class PricePlanEditingVariant extends DataModel<PricePlanEditingVariantData> {
   public readonly deletionDeadline?: DateTime;

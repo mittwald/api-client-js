@@ -1,7 +1,7 @@
 import type {
   CustomerListItemData,
   CustomerData,
-} from "../../customer/Customer/types";
+} from "../../customer/Customer/types.js";
 
 const defaults = {
   creationDate: "2024-01-01T00:00:00.000Z",

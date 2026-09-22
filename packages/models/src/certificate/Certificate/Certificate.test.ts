@@ -8,23 +8,23 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildCertificateCheckReplaceResponseData } from "../../testing/builders/buildCertificateCheckReplaceResponseData";
-import { CertificateCheckReplaceResponse } from "../CertificateCheckReplaceResponse";
-import { buildCertificateData } from "../../testing/builders/buildCertificateData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { AggregateMetaData } from "../../common";
-import { ReferenceModel } from "../../base";
+import { buildCertificateCheckReplaceResponseData } from "../../testing/builders/buildCertificateCheckReplaceResponseData.js";
+import { CertificateCheckReplaceResponse } from "../CertificateCheckReplaceResponse/index.js";
+import { buildCertificateData } from "../../testing/builders/buildCertificateData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   CertificateDetailed,
   CertificateListItem,
   CertificateCommon,
   CertificateList,
   Certificate,
-} from "./Certificate";
+} from "./Certificate.js";
 
 afterEach(resetBehaviors);
 

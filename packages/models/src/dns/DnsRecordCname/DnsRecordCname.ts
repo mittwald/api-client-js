@@ -1,8 +1,8 @@
-import type { CnameRecordListItem, DnsRecordCnameData } from "./types";
-import type { DnsZoneCommon } from "../DnsZone";
+import type { CnameRecordListItem, DnsRecordCnameData } from "./types.js";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 
-import { DnsRecordSettings } from "../DnsRecordSettings";
-import { DataModel } from "../../base";
+import { DnsRecordSettings } from "../DnsRecordSettings/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class DnsRecordCname extends DataModel<DnsRecordCnameData> {
   public readonly dnsZone: DnsZoneCommon;

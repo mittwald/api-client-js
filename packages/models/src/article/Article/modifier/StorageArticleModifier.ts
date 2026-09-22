@@ -1,6 +1,6 @@
-import type { Bytes } from "../../../common";
+import type { Bytes } from "../../../common/index.js";
 
-import { ArticleModifier , StorageArticle } from "../internal";
+import { ArticleModifier , StorageArticle } from "../internal.js";
 
 export class StorageArticleModifier extends ArticleModifier {
   public async getBytes() {

@@ -3,8 +3,8 @@ import type { AxiosRequestConfig } from "axios";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { FrontendFragmentAnchor } from "../Extension";
-import type { UserCommon } from "../../user";
+import type { FrontendFragmentAnchor } from "../Extension/index.js";
+import type { UserCommon } from "../../user/index.js";
 import type {
   ExtensionInstanceListQueryModelData,
   ExtensionInstanceCreateRequestData,
@@ -12,23 +12,23 @@ import type {
   ExtensionInstanceListItemData,
   AccessTokenRetrievalKey,
   ExtensionInstanceData,
-} from "./types";
+} from "./types.js";
 
-import { ExtensionInstanceContract } from "./ExtensionInstanceContract";
-import { ExtensionInstanceContext } from "./ExtensionInstanceContext";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { AggregateMetaData, LocalizedText } from "../../common";
-import { ContributorExtension } from "../ContributorExtension";
-import { Customer } from "../../customer/Customer/Customer";
-import { Project } from "../../project/internal";
-import { Contributor } from "../Contributor";
-import { config } from "../../config";
+import { ExtensionInstanceContract } from "./ExtensionInstanceContract.js";
+import { ExtensionInstanceContext } from "./ExtensionInstanceContext.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AggregateMetaData, LocalizedText } from "../../common/index.js";
+import { ContributorExtension } from "../ContributorExtension/index.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { Project } from "../../project/internal.js";
+import { Contributor } from "../Contributor/index.js";
+import { config } from "../../config/index.js";
 import {
   ExtensionPricePlanVariant,
   FrontendFragment,
   Extension,
-} from "../Extension";
-import { type QueryResponseData, ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base";
+} from "../Extension/index.js";
+import { type QueryResponseData, ListQueryModel, ReferenceModel, WithListData, extractId, WithData } from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ExtensionInstance",

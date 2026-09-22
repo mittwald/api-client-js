@@ -1,11 +1,11 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { CustomerInviteBehaviors } from "./types";
+import type { CustomerInviteBehaviors } from "./types.js";
 
-import { validateResponse } from "../../../base/api/validateResponse";
-import { anyStatus403 } from "../../../base/api/typeFixes";
-import { resolveTotalCount } from "../../../base";
-import { ValidationError } from "../../../errors";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { anyStatus403 } from "../../../base/api/typeFixes.js";
+import { resolveTotalCount } from "../../../base/index.js";
+import { ValidationError } from "../../../errors/index.js";
 
 export const apiCustomerInviteBehaviors = (
   client: MittwaldAPIV2Client,

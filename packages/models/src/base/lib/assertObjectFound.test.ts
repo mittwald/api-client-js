@@ -2,9 +2,9 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, expect, test, vi } from "vitest";
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { resetBehaviors } from "../../testing";
-import { Project } from "../../project";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { resetBehaviors } from "../../testing/index.js";
+import { Project } from "../../project/index.js";
 
 // ObjectNotFoundError's react-coupled model-name import is unsuitable for the node test environment.
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
@@ -15,7 +15,7 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
       : undefined,
 }));
 
-import assertObjectFound from "./assertObjectFound";
+import assertObjectFound from "./assertObjectFound.js";
 
 afterEach(resetBehaviors);
 

@@ -8,14 +8,14 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { ListQueryModel, ReferenceModel } from "../../base";
-import { config } from "../../config/config";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
+import { config } from "../../config/config.js";
 import {
   buildServerListItemData,
   installBehaviors,
   resetBehaviors,
-} from "../../testing";
+} from "../../testing/index.js";
 import {
   ServerListQuery,
   ServerDetailed,
@@ -23,7 +23,7 @@ import {
   ServerCommon,
   ServerList,
   Server,
-} from "./Server";
+} from "./Server.js";
 
 afterEach(resetBehaviors);
 

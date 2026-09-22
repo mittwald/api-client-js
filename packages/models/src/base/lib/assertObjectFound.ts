@@ -1,8 +1,8 @@
 import type { Class } from "type-fest";
 
-import type { ReferenceModel } from "../models/ReferenceModel";
+import type { ReferenceModel } from "../models/ReferenceModel.js";
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 
 export default function assertObjectFound<T>(
   obj: T | undefined,

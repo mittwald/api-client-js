@@ -1,7 +1,7 @@
-import type { FileAccessTokenProvider } from "../../file";
-import type { Server } from "./Server";
+import type { FileAccessTokenProvider } from "../../file/index.js";
+import type { Server } from "./Server.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class ServerAvatarAccessTokenProvider
   implements FileAccessTokenProvider

@@ -1,6 +1,6 @@
-import type { DnsRecordSettingsData } from "./types";
+import type { DnsRecordSettingsData } from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class DnsRecordSettings extends DataModel<DnsRecordSettingsData> {
   public readonly ttl: number | "auto";

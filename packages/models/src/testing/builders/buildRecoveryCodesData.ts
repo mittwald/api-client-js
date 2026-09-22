@@ -1,4 +1,4 @@
-import type { RecoveryCodesData } from "../../auth/RecoveryCodes/types";
+import type { RecoveryCodesData } from "../../auth/RecoveryCodes/types.js";
 
 export function buildRecoveryCodesData(
   overrides?: Partial<RecoveryCodesData>,

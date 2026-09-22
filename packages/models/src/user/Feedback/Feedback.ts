@@ -4,10 +4,10 @@ import type {
   FeedbackListItemData,
   FeedbackCreateData,
   FeedbackListQuery,
-} from "./types";
+} from "./types.js";
 
-import { ReferenceModel, WithData } from "../../base";
-import { config } from "../../config";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 @GhostMakerModel({
   name: "Feedback",

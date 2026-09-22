@@ -1,8 +1,8 @@
-import type { MarketplaceContext } from "./types";
-import type { Customer } from "../../customer";
+import type { MarketplaceContext } from "./types.js";
+import type { Customer } from "../../customer/index.js";
 
-import { Project } from "../../project";
-import { required } from "../../base";
+import { Project } from "../../project/index.js";
+import { required } from "../../base/index.js";
 
 export class ExtensionInstanceContext {
   public readonly customer?: Customer;

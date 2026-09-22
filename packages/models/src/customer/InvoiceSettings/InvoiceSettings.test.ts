@@ -9,12 +9,12 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildInvoiceSettingsData } from "../../testing/builders/buildInvoiceSettingsData";
-import { InvoiceSettingsDetailed, InvoiceSettings } from "./InvoiceSettings";
+import { buildInvoiceSettingsData } from "../../testing/builders/buildInvoiceSettingsData.js";
+import { InvoiceSettingsDetailed, InvoiceSettings } from "./InvoiceSettings.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

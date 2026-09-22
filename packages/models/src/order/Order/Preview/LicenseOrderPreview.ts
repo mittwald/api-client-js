@@ -1,8 +1,8 @@
-import type { LicenseOrderRequest } from "../Request/LicenseOrderRequest";
-import type { LicenseOrderPreviewData } from "../types";
+import type { LicenseOrderRequest } from "../Request/LicenseOrderRequest.js";
+import type { LicenseOrderPreviewData } from "../types.js";
 
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class LicenseOrderPreview extends DataModel<LicenseOrderPreviewData> {
   public readonly request: LicenseOrderRequest;

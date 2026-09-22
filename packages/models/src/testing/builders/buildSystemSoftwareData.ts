@@ -1,7 +1,7 @@
 import type {
   SystemSoftwareListItemData,
   SystemSoftwareData,
-} from "../../app/SystemSoftware/types";
+} from "../../app/SystemSoftware/types.js";
 
 export function buildSystemSoftwareData(
   overrides: Partial<SystemSoftwareData> = {},

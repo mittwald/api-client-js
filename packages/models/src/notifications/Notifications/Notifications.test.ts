@@ -1,15 +1,15 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildNotificationListItemData } from "../../testing/builders/buildNotificationListItemData";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { ProjectInvite, Project } from "../../project";
-import { CustomerInvite } from "../../customer";
-import { config } from "../../config/config";
+import { buildNotificationListItemData } from "../../testing/builders/buildNotificationListItemData.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { ProjectInvite, Project } from "../../project/index.js";
+import { CustomerInvite } from "../../customer/index.js";
+import { config } from "../../config/config.js";
 import {
   NotificationListItem,
   NotificationList,
   Notifications,
-} from "./Notifications";
+} from "./Notifications.js";
 
 afterEach(resetBehaviors);
 

@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { Project } from "../../project";
+import type { Project } from "../../project/index.js";
 
 export type SshUserData =
   MittwaldAPIV2.Operations.SshUserGetSshUser.ResponseData;

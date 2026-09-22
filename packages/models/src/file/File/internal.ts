@@ -6,6 +6,6 @@
 // be fully evaluated *before* `File`, so they are exported first. Cluster
 // members import each other via this barrel (never via a direct sibling path)
 // so this order — not import-statement order — decides evaluation.
-export * from "./FileMeta";
-export * from "./FileContent";
-export * from "./File";
+export * from "./FileMeta.js";
+export * from "./FileContent.js";
+export * from "./File.js";

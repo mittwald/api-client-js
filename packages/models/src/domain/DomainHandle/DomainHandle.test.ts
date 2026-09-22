@@ -1,10 +1,10 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildDomainHandleFieldData } from "../../testing/builders/buildDomainHandleFieldData";
-import { buildDomainHandleData } from "../../testing/builders/buildDomainHandleData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { DomainHandle } from "./DomainHandle";
-import { DataModel } from "../../base";
+import { buildDomainHandleFieldData } from "../../testing/builders/buildDomainHandleFieldData.js";
+import { buildDomainHandleData } from "../../testing/builders/buildDomainHandleData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { DomainHandle } from "./DomainHandle.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

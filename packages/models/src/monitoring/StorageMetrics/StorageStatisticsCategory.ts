@@ -2,7 +2,7 @@ import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
 import { DateTime } from "luxon";
 
-import { Bytes } from "../../common";
+import { Bytes } from "../../common/index.js";
 
 export type StorageStatisticsCategoryApiData =
   MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory;

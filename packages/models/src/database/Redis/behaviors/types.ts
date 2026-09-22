@@ -1,4 +1,4 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   RedisConfigurationUpdateRequestData,
   RedisCreateRequestData,
@@ -6,7 +6,7 @@ import type {
   RedisListItemData,
   RedisVersionData,
   RedisData,
-} from "../types";
+} from "../types.js";
 
 export interface RedisBehaviors {
   updateConfiguration: (

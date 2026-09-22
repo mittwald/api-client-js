@@ -1,3 +1,3 @@
-export * from "./FeePeriod";
-export * from "./SystemSoftwareVersion";
-export * from "./types";
+export * from "./FeePeriod.js";
+export * from "./SystemSoftwareVersion.js";
+export * from "./types.js";

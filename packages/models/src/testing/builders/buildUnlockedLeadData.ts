@@ -1,4 +1,4 @@
-import type { UnlockedLeadData } from "../../fyndr/UnlockedLead/types";
+import type { UnlockedLeadData } from "../../fyndr/UnlockedLead/types.js";
 
 export function buildUnlockedLeadData(
   overrides?: Partial<UnlockedLeadData>,

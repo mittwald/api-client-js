@@ -1,4 +1,4 @@
-import type { ConversationCategoryData } from "../../conversation/ConversationCategory/types";
+import type { ConversationCategoryData } from "../../conversation/ConversationCategory/types.js";
 
 export function buildConversationCategoryData(
   overrides: Partial<ConversationCategoryData> = {},

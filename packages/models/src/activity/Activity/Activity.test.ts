@@ -1,9 +1,9 @@
 import { expect, test } from "vitest";
 
-import type { ActivityListItemData } from "./types";
+import type { ActivityListItemData } from "./types.js";
 
-import { ActivityListItem } from "./Activity";
-import { Project } from "../../project";
+import { ActivityListItem } from "./Activity.js";
+import { Project } from "../../project/index.js";
 
 const listItemData = (aggregate: {
   aggregate: string;

@@ -3,7 +3,7 @@ import type {
   CustomerInviteListQueryData,
   CustomerInviteListItemData,
   CustomerInviteData,
-} from "../types";
+} from "../types.js";
 
 export interface CustomerInviteBehaviors {
   list: (

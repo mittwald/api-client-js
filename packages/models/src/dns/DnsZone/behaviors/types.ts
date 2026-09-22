@@ -1,8 +1,8 @@
-import type { DnsZoneListItemData, DnsSrvRecord, DnsZoneData } from "../types";
-import type { DnsRecordSettingsData } from "../../DnsRecordSettings";
-import type { DnsRecordCaaEntry } from "../../DnsRecordCaa";
-import type { DnsRecordMxEntry } from "../../DnsRecordMx";
-import type { QueryResponseData } from "../../../base";
+import type { DnsZoneListItemData, DnsSrvRecord, DnsZoneData } from "../types.js";
+import type { DnsRecordSettingsData } from "../../DnsRecordSettings/index.js";
+import type { DnsRecordCaaEntry } from "../../DnsRecordCaa/index.js";
+import type { DnsRecordMxEntry } from "../../DnsRecordMx/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 
 export interface DnsZoneBehaviors {
   setARecord: (

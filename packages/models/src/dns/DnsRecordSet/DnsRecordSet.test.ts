@@ -1,14 +1,14 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildDnsRecordSrvComponentData } from "../../testing/builders/buildDnsRecordSrvComponentData";
-import { buildDnsRecordTxtComponentData } from "../../testing/builders/buildDnsRecordTxtComponentData";
-import { buildDnsRecordCnameComponentData } from "../../testing/builders/buildDnsRecordCnameData";
-import { buildDnsZoneData } from "../../testing/builders/buildDnsZoneData";
-import { DnsZoneCommon } from "../DnsZone";
+import { buildDnsRecordSrvComponentData } from "../../testing/builders/buildDnsRecordSrvComponentData.js";
+import { buildDnsRecordTxtComponentData } from "../../testing/builders/buildDnsRecordTxtComponentData.js";
+import { buildDnsRecordCnameComponentData } from "../../testing/builders/buildDnsRecordCnameData.js";
+import { buildDnsZoneData } from "../../testing/builders/buildDnsZoneData.js";
+import { DnsZoneCommon } from "../DnsZone/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 
 afterEach(resetBehaviors);
 

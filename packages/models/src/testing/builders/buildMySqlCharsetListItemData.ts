@@ -1,4 +1,4 @@
-import type { MySqlCharsetListItemData } from "../../database/MySql/types";
+import type { MySqlCharsetListItemData } from "../../database/MySql/types.js";
 
 export function buildMySqlCharsetListItemData(
   overrides?: Partial<MySqlCharsetListItemData>,

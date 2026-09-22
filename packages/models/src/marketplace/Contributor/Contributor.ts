@@ -2,9 +2,9 @@ import type { AxiosRequestConfig } from "axios";
 
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { ContributorAvatarAccessTokenProvider as ContributorAvatarAccessTokenProviderType } from "./ContributorAvatarAccessTokenProvider";
-import type { ContributorIncomingInvoiceListQuery as ContributorIncomingInvoiceListQueryType } from "./ContributorIncomingInvoice";
-import type { ContributorExtensionListQuery } from "../ContributorExtension";
+import type { ContributorAvatarAccessTokenProvider as ContributorAvatarAccessTokenProviderType } from "./ContributorAvatarAccessTokenProvider.js";
+import type { ContributorIncomingInvoiceListQuery as ContributorIncomingInvoiceListQueryType } from "./ContributorIncomingInvoice.js";
+import type { ContributorExtensionListQuery } from "../ContributorExtension/index.js";
 import type {
   ContributorUpdateRequestData,
   ContributorListQueryData,
@@ -13,19 +13,19 @@ import type {
   OwnContributorData,
   ContributorState,
   ContributorData,
-} from "./types";
+} from "./types.js";
 
-import { ContributorAvatarAccessTokenProvider } from "./ContributorAvatarAccessTokenProvider";
-import { ContributorIncomingInvoiceListQuery } from "./ContributorIncomingInvoice";
-import { ContributorOutgoingInvoice } from "./ContributorOutgoingInvoice";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContributorExtension } from "../ContributorExtension";
-import { Customer } from "../../customer/Customer/Customer";
-import { File } from "../../file/File/internal";
-import { LocalizedText } from "../../common";
-import { type DomFile } from "../../file";
-import { config } from "../../config";
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import { ContributorAvatarAccessTokenProvider } from "./ContributorAvatarAccessTokenProvider.js";
+import { ContributorIncomingInvoiceListQuery } from "./ContributorIncomingInvoice.js";
+import { ContributorOutgoingInvoice } from "./ContributorOutgoingInvoice.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContributorExtension } from "../ContributorExtension/index.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { File } from "../../file/File/internal.js";
+import { LocalizedText } from "../../common/index.js";
+import { type DomFile } from "../../file/index.js";
+import { config } from "../../config/index.js";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 const mittwaldContributorId = "322ba411-aafc-493a-b8ad-a42a01939f42";
 

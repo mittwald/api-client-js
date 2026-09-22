@@ -8,18 +8,18 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildRegistryData } from "../../testing/builders/buildRegistryData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { AggregateMetaData } from "../../common";
-import { Project } from "../../project";
+import { buildRegistryData } from "../../testing/builders/buildRegistryData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { Project } from "../../project/index.js";
 import {
   RegistryListQuery,
   RegistryDetailed,
   RegistryListItem,
   RegistryList,
   Registry,
-} from "./Registry";
+} from "./Registry.js";
 
 afterEach(resetBehaviors);
 

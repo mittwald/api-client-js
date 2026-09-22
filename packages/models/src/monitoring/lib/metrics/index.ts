@@ -1,3 +1,3 @@
-export * from "./MetricsQueryRequest";
-export * from "./MetricsQueryResponse";
-export * from "./types";
+export * from "./MetricsQueryRequest.js";
+export * from "./MetricsQueryResponse.js";
+export * from "./types.js";

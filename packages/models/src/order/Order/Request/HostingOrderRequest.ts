@@ -1,14 +1,14 @@
 import invariant from "tiny-invariant";
 
-import type { HostingArticle } from "../../../article/Article/internal";
-import type { Contract } from "../../../contract";
-import type { Bytes } from "../../../common";
+import type { HostingArticle } from "../../../article/Article/internal.js";
+import type { Contract } from "../../../contract/index.js";
+import type { Bytes } from "../../../common/index.js";
 
-import { HostingOrderPreview } from "../Preview/HostingOrderPreview";
-import { ServerArticle } from "../../../article/Article/internal";
-import { HostingContractItem } from "../../../contract";
-import { config } from "../../../config";
-import { Order } from "../Order";
+import { HostingOrderPreview } from "../Preview/HostingOrderPreview.js";
+import { ServerArticle } from "../../../article/Article/internal.js";
+import { HostingContractItem } from "../../../contract/index.js";
+import { config } from "../../../config/index.js";
+import { Order } from "../Order.js";
 
 export class HostingOrderRequest {
   public readonly contract?: Contract;

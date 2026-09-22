@@ -1,4 +1,4 @@
-import type { ProjectAIModelData } from "../../ai/ProjectAIModel/types";
+import type { ProjectAIModelData } from "../../ai/ProjectAIModel/types.js";
 
 export function buildProjectAIDetailedModelData(
   overrides?: Partial<ProjectAIModelData>,

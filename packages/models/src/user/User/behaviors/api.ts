@@ -1,15 +1,15 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 
-import type { UserBehaviors } from "./types";
+import type { UserBehaviors } from "./types.js";
 
-import { ValidationError } from "../../../errors";
+import { ValidationError } from "../../../errors/index.js";
 import {
   withAxiosRequestConfig,
   validateResponse,
   anyStatus400,
   anyStatus404,
   anyStatus409,
-} from "../../../base";
+} from "../../../base/index.js";
 
 export const apiUserBehaviors = (
   client: MittwaldAPIV2Client,

@@ -1,2 +1,2 @@
-export * from "./DnsZone";
-export * from "./types";
+export * from "./DnsZone.js";
+export * from "./types.js";

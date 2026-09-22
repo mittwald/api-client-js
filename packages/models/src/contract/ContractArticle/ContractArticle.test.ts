@@ -1,9 +1,9 @@
 import { afterEach, describe, expect, test } from "vitest";
 
-import { buildContractArticleData } from "../../testing/builders/buildContractArticleData";
-import { ContractArticle } from "./ContractArticle";
-import { resetBehaviors } from "../../testing";
-import { Article } from "../../article";
+import { buildContractArticleData } from "../../testing/builders/buildContractArticleData.js";
+import { ContractArticle } from "./ContractArticle.js";
+import { resetBehaviors } from "../../testing/index.js";
+import { Article } from "../../article/index.js";
 
 afterEach(resetBehaviors);
 

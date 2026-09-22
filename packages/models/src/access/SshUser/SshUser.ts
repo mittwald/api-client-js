@@ -10,20 +10,20 @@ import type {
   SshUserListItemData,
   SshUserSshKey,
   SshUserData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { arrayRemoveItem } from "../../lib/arrayRemoveItem";
-import { Project } from "../../project/internal";
-import { config } from "../../config";
-import { User } from "../../user";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { arrayRemoveItem } from "../../lib/arrayRemoveItem.js";
+import { Project } from "../../project/internal.js";
+import { config } from "../../config/index.js";
+import { User } from "../../user/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "SshUser",

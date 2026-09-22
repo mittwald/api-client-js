@@ -1,4 +1,4 @@
-import type { AIModelListQueryData, AIModelListItemData } from "../types";
+import type { AIModelListQueryData, AIModelListItemData } from "../types.js";
 
 export interface AIModelBehaviors {
   list: (

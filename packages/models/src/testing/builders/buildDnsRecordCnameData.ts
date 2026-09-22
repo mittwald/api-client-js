@@ -1,4 +1,4 @@
-import type { DnsRecordCnameData } from "../../dns/DnsRecordCname/types";
+import type { DnsRecordCnameData } from "../../dns/DnsRecordCname/types.js";
 
 type DnsRecordCnameComponentData = Extract<
   DnsRecordCnameData,

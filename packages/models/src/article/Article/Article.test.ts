@@ -7,8 +7,8 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError";
-import { installBehaviors, resetBehaviors } from "../../testing";
+import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
 import {
   buildArticleAttributeData,
   buildArticleListItemData,
@@ -16,9 +16,9 @@ import {
   buildArticleTemplateData,
   buildArticleTagData,
   buildArticleData,
-} from "../../testing/builders/buildArticleData";
-import { config } from "../../config/config";
-import { ReferenceModel } from "../../base";
+} from "../../testing/builders/buildArticleData.js";
+import { config } from "../../config/config.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   StorageArticleModifier,
   CpuArticleAttribute,
@@ -31,7 +31,7 @@ import {
   ArticleCommon,
   ArticleList,
   Article,
-} from "./internal";
+} from "./internal.js";
 
 afterEach(resetBehaviors);
 

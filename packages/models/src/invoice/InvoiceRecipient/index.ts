@@ -1,2 +1,2 @@
-export * from "./InvoiceRecipient";
-export * from "./types";
+export * from "./InvoiceRecipient.js";
+export * from "./types.js";

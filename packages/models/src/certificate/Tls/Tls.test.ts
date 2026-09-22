@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, test } from "vitest";
 import { DateTime } from "luxon";
 
-import { buildTlsCertificateData } from "../../testing/builders/buildTlsCertificateData";
-import { buildTlsAcmeData } from "../../testing/builders/buildTlsAcmeData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { TlsCertificate, tlsFactory, TlsAcme } from "./Tls";
-import { Certificate } from "../Certificate";
-import { DataModel } from "../../base";
+import { buildTlsCertificateData } from "../../testing/builders/buildTlsCertificateData.js";
+import { buildTlsAcmeData } from "../../testing/builders/buildTlsAcmeData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { TlsCertificate, tlsFactory, TlsAcme } from "./Tls.js";
+import { Certificate } from "../Certificate/index.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

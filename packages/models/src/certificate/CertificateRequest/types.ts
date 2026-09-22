@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { Ingress } from "../../ingress/Ingress/Ingress";
-import type { Project } from "../../project";
+import type { Ingress } from "../../ingress/Ingress/Ingress.js";
+import type { Project } from "../../project/index.js";
 
 export type CertificateRequestData =
   MittwaldAPIV2.Operations.SslGetCertificateRequest.ResponseData;

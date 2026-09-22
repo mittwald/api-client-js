@@ -1,13 +1,13 @@
-import type { DnsRecordSettingsData } from "../DnsRecordSettings";
-import type { DnsZoneCommon } from "../DnsZone";
+import type { DnsRecordSettingsData } from "../DnsRecordSettings/index.js";
+import type { DnsZoneCommon } from "../DnsZone/index.js";
 import type {
   CaaRecordListItem,
   DnsRecordCaaEntry,
   DnsRecordCaaData,
-} from "./types";
+} from "./types.js";
 
-import { DnsRecordSettings } from "../DnsRecordSettings";
-import { DataModel } from "../../base";
+import { DnsRecordSettings } from "../DnsRecordSettings/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class DnsRecordCaa extends DataModel<DnsRecordCaaData> {
   public readonly dnsZone: DnsZoneCommon;

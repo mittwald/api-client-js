@@ -1,1 +1,1 @@
-export * from "./RecoveryCodes";
+export * from "./RecoveryCodes.js";

@@ -8,21 +8,21 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildAppVersionData } from "../../testing/builders/buildAppVersionData";
-import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError";
-import { ReferenceModel } from "../../base";
+import { buildAppVersionData } from "../../testing/builders/buildAppVersionData.js";
+import { ObjectNotFoundError } from "../../errors/ObjectNotFoundError.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { App } from "../";
+} from "../../testing/installBehaviors.js";
+import { App } from "..//index.js";
 import {
   AppVersionListQuery,
   AppVersionDetailed,
   AppVersionListItem,
   AppVersionList,
   AppVersion,
-} from "./AppVersion";
+} from "./AppVersion.js";
 
 afterEach(resetBehaviors);
 

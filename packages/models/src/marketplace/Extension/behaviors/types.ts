@@ -1,10 +1,10 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ExtensionOrderRequestData,
   ExtensionListQueryData,
   ExtensionListItemData,
   ExtensionData,
-} from "../types";
+} from "../types.js";
 
 export interface ExtensionBehaviors {
   list: (

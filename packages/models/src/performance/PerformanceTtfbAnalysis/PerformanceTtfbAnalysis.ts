@@ -10,10 +10,10 @@ import type {
   EnrichedNetworkingOps,
   EnrichedDbQueries,
   EnrichedFileOps,
-} from "./types";
+} from "./types.js";
 
-import { ReferenceModel, DataModel } from "../../base";
-import { config } from "../../config";
+import { ReferenceModel, DataModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 export class PerformanceTtfbAnalysisDetailed extends DataModel<PerformanceTtfbAnalysisData> {
   public readonly actualUrl: string;

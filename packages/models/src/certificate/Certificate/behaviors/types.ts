@@ -1,10 +1,10 @@
-import type { CertificateCheckReplaceResponseData } from "../../CertificateCheckReplaceResponse";
-import type { QueryResponseData } from "../../../base";
+import type { CertificateCheckReplaceResponseData } from "../../CertificateCheckReplaceResponse/index.js";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   CertificateListQueryData,
   CertificateListItemData,
   CertificateData,
-} from "../types";
+} from "../types.js";
 
 export interface CertificateBehaviors {
   checkReplace: (

@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 
-import { buildCertificateContactData } from "../../testing/builders/buildCertificateContactData";
-import { CertificateContact } from "./CertificateContact";
+import { buildCertificateContactData } from "../../testing/builders/buildCertificateContactData.js";
+import { CertificateContact } from "./CertificateContact.js";
 
 test("copies certificate contact fields", () => {
   const data = buildCertificateContactData();

@@ -2,19 +2,19 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildInvoiceItemData } from "../../testing/builders/buildInvoiceItemData";
-import { buildInvoiceData } from "../../testing/builders/buildInvoiceData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { InvoiceCancellation } from "../InvoiceCancellation";
-import { InvoiceItemGroup } from "../InvoiceItemGroup";
-import { InvoiceRecipient } from "../InvoiceRecipient";
-import { AggregateMetaData } from "../../common";
-import { Customer } from "../../customer";
+import { buildInvoiceItemData } from "../../testing/builders/buildInvoiceItemData.js";
+import { buildInvoiceData } from "../../testing/builders/buildInvoiceData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { InvoiceCancellation } from "../InvoiceCancellation/index.js";
+import { InvoiceItemGroup } from "../InvoiceItemGroup/index.js";
+import { InvoiceRecipient } from "../InvoiceRecipient/index.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { Customer } from "../../customer/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { File } from "../../file";
+} from "../../testing/installBehaviors.js";
+import { File } from "../../file/index.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
@@ -28,7 +28,7 @@ import {
   InvoiceListItem,
   InvoiceList,
   Invoice,
-} from "./Invoice";
+} from "./Invoice.js";
 
 afterEach(resetBehaviors);
 

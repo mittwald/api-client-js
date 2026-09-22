@@ -1,11 +1,11 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { ProjectAIApiKeyBehaviors } from "./types";
+import type { ProjectAIApiKeyBehaviors } from "./types.js";
 
-import { withAxiosRequestConfig , resolveTotalCount } from "../../../base";
-import { validateResponse } from "../../../base/api/validateResponse";
-import { ValidationError } from "../../../errors";
+import { withAxiosRequestConfig , resolveTotalCount } from "../../../base/index.js";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { ValidationError } from "../../../errors/index.js";
 
 export const apiProjectAIApiKeyBehaviors = (
   client: MittwaldAPIV2Client,

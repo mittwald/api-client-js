@@ -1,11 +1,11 @@
 import type { MittwaldAPIV2Client } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import type { ProjectAIPlanBehavior } from "./types";
+import type { ProjectAIPlanBehavior } from "./types.js";
 
-import { withAxiosRequestConfig } from "../../../base/api/withModelRequestOptions";
-import { resolveTotalCount } from "../../../base/api/resolveTotalCount";
-import { validateResponse } from "../../../base/api/validateResponse";
+import { withAxiosRequestConfig } from "../../../base/api/withModelRequestOptions.js";
+import { resolveTotalCount } from "../../../base/api/resolveTotalCount.js";
+import { validateResponse } from "../../../base/api/validateResponse.js";
 
 export const apiProjectAIPlanBehaviors = (
   client: MittwaldAPIV2Client,

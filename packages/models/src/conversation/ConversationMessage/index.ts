@@ -1,2 +1,2 @@
-export * from "./ConversationMessage";
-export * from "./types";
+export * from "./ConversationMessage.js";
+export * from "./types.js";

@@ -1,3 +1,3 @@
-import type { MailAddressData } from "../MailAddress";
+import type { MailAddressData } from "../MailAddress/index.js";
 
 export type AutoresponderData = MailAddressData["autoResponder"];

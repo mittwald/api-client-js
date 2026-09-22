@@ -1,2 +1,2 @@
-export * from "./SftpUser";
-export * from "./types";
+export * from "./SftpUser.js";
+export * from "./types.js";

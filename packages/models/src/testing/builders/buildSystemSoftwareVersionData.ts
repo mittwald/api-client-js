@@ -1,7 +1,7 @@
 import type {
   SystemSoftwareVersionListItemData,
   SystemSoftwareVersionData,
-} from "../../app/SystemSoftwareVersion/types";
+} from "../../app/SystemSoftwareVersion/types.js";
 
 export function buildSystemSoftwareVersionData(
   overrides: Partial<SystemSoftwareVersionData> = {},

@@ -1,16 +1,16 @@
 import { DateTime } from "luxon";
 
-import type { Contributor } from "./Contributor";
+import type { Contributor } from "./Contributor.js";
 import type {
   ContributorListIncomingInvoiceQueryData,
   ContributorIncomingInvoiceData,
-} from "./types";
+} from "./types.js";
 
-import { ContributorIncomingInvoicePdfAccessTokenProvider } from "./ContributorIncomingInvoicePdfAccessTokenProvider";
-import { ListQueryModel, WithListData, DataModel } from "../../base";
-import { File } from "../../file/File/internal";
-import { config } from "../../config";
-import { Money } from "../../common";
+import { ContributorIncomingInvoicePdfAccessTokenProvider } from "./ContributorIncomingInvoicePdfAccessTokenProvider.js";
+import { ListQueryModel, WithListData, DataModel } from "../../base/index.js";
+import { File } from "../../file/File/internal.js";
+import { config } from "../../config/index.js";
+import { Money } from "../../common/index.js";
 
 export class ContributorIncomingInvoice extends DataModel<ContributorIncomingInvoiceData> {
   public readonly contributor: Contributor;

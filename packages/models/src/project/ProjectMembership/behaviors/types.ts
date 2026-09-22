@@ -1,12 +1,12 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ProjectMembershipUpdateRequestData,
   ProjectMembershipListQueryData,
   ProjectMembershipListItemData,
   ProjectMembershipData,
-} from "../types";
+} from "../types.js";
 
 export interface ProjectMembershipBehaviors {
   list: (

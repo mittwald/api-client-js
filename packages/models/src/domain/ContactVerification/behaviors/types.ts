@@ -1,9 +1,9 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   ContactVerificationListQueryData,
   ContactVerificationListItemData,
   ContactVerificationData,
-} from "../types";
+} from "../types.js";
 
 export interface ContactVerificationBehaviors {
   query: (

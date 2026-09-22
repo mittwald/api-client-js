@@ -1,7 +1,7 @@
-import type { MetricsQueryRequestApiData } from "./types";
+import type { MetricsQueryRequestApiData } from "./types.js";
 
-import { MetricsQueryResponse } from "./MetricsQueryResponse";
-import { config } from "../../../config";
+import { MetricsQueryResponse } from "./MetricsQueryResponse.js";
+import { config } from "../../../config/index.js";
 
 export class MetricsQueryRequest {
   public static defaultRefId = "Result";

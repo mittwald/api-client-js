@@ -2,7 +2,7 @@ import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { AggregateMetaData } from "../../common";
+import { AggregateMetaData } from "../../common/index.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
@@ -10,22 +10,22 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));
 
-import { buildConversationCategoryData } from "../../testing/builders/buildConversationCategoryData";
-import { buildConversationListItemData } from "../../testing/builders/buildConversationListItemData";
-import { buildConversationUserData } from "../../testing/builders/buildConversationUserData";
-import { buildConversationData } from "../../testing/builders/buildConversationData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { ConversationCategory } from "../ConversationCategory";
-import { ListQueryModel, ReferenceModel } from "../../base";
-import { ConversationUser } from "../ConversationUser";
+import { buildConversationCategoryData } from "../../testing/builders/buildConversationCategoryData.js";
+import { buildConversationListItemData } from "../../testing/builders/buildConversationListItemData.js";
+import { buildConversationUserData } from "../../testing/builders/buildConversationUserData.js";
+import { buildConversationData } from "../../testing/builders/buildConversationData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { ConversationCategory } from "../ConversationCategory/index.js";
+import { ListQueryModel, ReferenceModel } from "../../base/index.js";
+import { ConversationUser } from "../ConversationUser/index.js";
 import {
   ConversationListQuery,
   ConversationDetailed,
   ConversationListItem,
   ConversationList,
   Conversation,
-} from "./Conversation";
+} from "./Conversation.js";
 
 afterEach(resetBehaviors);
 

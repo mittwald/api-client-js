@@ -1,4 +1,4 @@
-import type { AppData } from "../../app/App/types";
+import type { AppData } from "../../app/App/types.js";
 
 export function buildAppData(overrides?: Partial<AppData>): AppData {
   return {

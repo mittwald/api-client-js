@@ -1,9 +1,9 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { ContributorIncomingInvoice } from "./ContributorIncomingInvoice";
-import type { FileAccessTokenProvider } from "../../file";
+import type { ContributorIncomingInvoice } from "./ContributorIncomingInvoice.js";
+import type { FileAccessTokenProvider } from "../../file/index.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class ContributorIncomingInvoicePdfAccessTokenProvider implements FileAccessTokenProvider {
   public readonly invoice: ContributorIncomingInvoice;

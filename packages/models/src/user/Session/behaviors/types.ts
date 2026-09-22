@@ -1,9 +1,9 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   SessionListItemData,
   SessionTokenData,
   SessionData,
-} from "../types";
+} from "../types.js";
 
 export interface SessionBehaviors {
   find: (tokenId: string) => Promise<SessionData | undefined>;

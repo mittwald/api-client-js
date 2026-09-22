@@ -1,9 +1,9 @@
 import type {
   ConversationCategoryReferenceType,
   ConversationCategoryData,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export class ConversationCategory extends DataModel<ConversationCategoryData> {
   public static readonly aiHostingCategoryId =

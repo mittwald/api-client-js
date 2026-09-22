@@ -3,8 +3,8 @@ import { afterEach, expect, test } from "vitest";
 import {
   buildMailAddressArchiveData,
   resetBehaviors,
-} from "../../testing";
-import { MailAddressArchive } from "./MailAddressArchive";
+} from "../../testing/index.js";
+import { MailAddressArchive } from "./MailAddressArchive.js";
 
 afterEach(resetBehaviors);
 

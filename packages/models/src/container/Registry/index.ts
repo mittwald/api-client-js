@@ -1,2 +1,2 @@
-export * from "./Registry";
-export * from "./types";
+export * from "./Registry.js";
+export * from "./types.js";

@@ -5,21 +5,21 @@ import { afterEach, describe, expect, test, vi } from "vitest";
 import type {
   BackupScheduleCreateRequestData,
   BackupScheduleUpdateRequestData,
-} from "./types";
+} from "./types.js";
 
-import { buildBackupScheduleData } from "../../testing/builders/buildBackupScheduleData";
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
+import { buildBackupScheduleData } from "../../testing/builders/buildBackupScheduleData.js";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
-import { Project } from "../../project";
+} from "../../testing/installBehaviors.js";
+import { Project } from "../../project/index.js";
 import {
   BackupScheduleDetailed,
   BackupScheduleListItem,
   BackupScheduleList,
   BackupSchedule,
-} from "./BackupSchedule";
+} from "./BackupSchedule.js";
 
 vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),

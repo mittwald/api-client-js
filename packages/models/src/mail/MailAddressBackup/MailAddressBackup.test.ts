@@ -1,16 +1,16 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildMailAddressBackupData } from "../../testing/builders/buildMailAddressBackupData";
-import { MailAddress } from "../MailAddress";
+import { buildMailAddressBackupData } from "../../testing/builders/buildMailAddressBackupData.js";
+import { MailAddress } from "../MailAddress/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   MailAddressBackupListQuery,
   MailAddressBackupList,
   MailAddressBackup,
-} from "./MailAddressBackup";
+} from "./MailAddressBackup.js";
 
 afterEach(resetBehaviors);
 

@@ -3,9 +3,9 @@ import type { MittwaldAPIV2 } from "@mittwald/api-client";
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { AIModelLabel } from "../AIModel";
+import type { AIModelLabel } from "../AIModel/index.js";
 
-import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base";
+import { ListQueryModel, ReferenceModel, WithListData, WithData } from "../../base/index.js";
 
 type AIDetailedModelStatus =
   MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;

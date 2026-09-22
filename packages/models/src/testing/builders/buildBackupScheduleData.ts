@@ -1,4 +1,4 @@
-import type { BackupScheduleData } from "../../backup/BackupSchedule/types";
+import type { BackupScheduleData } from "../../backup/BackupSchedule/types.js";
 
 export function buildBackupScheduleData(
   overrides: Partial<BackupScheduleData> = {},

@@ -1,8 +1,8 @@
-import type { DomainOrderRequest } from "../Request/DomainOrderRequest";
+import type { DomainOrderRequest } from "../Request/DomainOrderRequest.js";
 
-import { type DomainOrderPreviewData } from "../types";
-import { DataModel } from "../../../base";
-import { Money } from "../../../common";
+import { type DomainOrderPreviewData } from "../types.js";
+import { DataModel } from "../../../base/index.js";
+import { Money } from "../../../common/index.js";
 
 export class DomainOrderPreview extends DataModel<DomainOrderPreviewData> {
   public readonly authCode?: string;

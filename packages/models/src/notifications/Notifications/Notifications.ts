@@ -5,21 +5,21 @@ import type {
   NotificationReadAllQueryData,
   NotificationListQueryData,
   NotificationListItemData,
-} from "./types";
+} from "./types.js";
 
-import { CustomerInvite } from "../../customer";
-import { ProjectInvite } from "../../project";
-import { config } from "../../config";
+import { CustomerInvite } from "../../customer/index.js";
+import { ProjectInvite } from "../../project/index.js";
+import { config } from "../../config/index.js";
 import {
   tryResolveAggregateReference,
   type AggregateReference,
-} from "../../common";
+} from "../../common/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Notifications",

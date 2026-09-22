@@ -12,11 +12,11 @@ vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
 
 import { DateTime } from "luxon";
 
-import ObjectNotFoundError from "../../errors/ObjectNotFoundError";
-import { buildSessionListItemData, buildSessionData } from "../../testing/builders/buildSessionData";
-import { ReferenceModel } from "../../base";
-import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors";
-import { SessionDetailed, SessionListItem, SessionList, Session } from "./Session";
+import ObjectNotFoundError from "../../errors/ObjectNotFoundError.js";
+import { buildSessionListItemData, buildSessionData } from "../../testing/builders/buildSessionData.js";
+import { ReferenceModel } from "../../base/index.js";
+import { installBehaviors, resetBehaviors } from "../../testing/installBehaviors.js";
+import { SessionDetailed, SessionListItem, SessionList, Session } from "./Session.js";
 
 afterEach(resetBehaviors);
 

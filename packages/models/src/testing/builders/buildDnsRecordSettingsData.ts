@@ -1,4 +1,4 @@
-import type { DnsRecordSettingsData } from "../../dns/DnsRecordSettings/types";
+import type { DnsRecordSettingsData } from "../../dns/DnsRecordSettings/types.js";
 
 export function buildDnsRecordSettingsData(
   overrides: Partial<DnsRecordSettingsData> = {},

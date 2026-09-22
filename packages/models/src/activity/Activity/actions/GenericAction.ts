@@ -1,6 +1,6 @@
-import type { ActivityGenericActionData } from "../types";
+import type { ActivityGenericActionData } from "../types.js";
 
-import { ActivityAction } from "../ActivityAction";
+import { ActivityAction } from "../ActivityAction.js";
 
 /**
  * Fallback for names the registry does not know. Renders without a display name

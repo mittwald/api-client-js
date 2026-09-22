@@ -1,4 +1,4 @@
-import type { MailRateLimitData } from "../../mail/MailRateLimit/types";
+import type { MailRateLimitData } from "../../mail/MailRateLimit/types.js";
 
 export function buildMailRateLimitData(
   overrides?: Partial<MailRateLimitData>,

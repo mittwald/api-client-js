@@ -1,4 +1,4 @@
-import type { ProjectRole } from "./ProjectMembership";
+import type { ProjectRole } from "./ProjectMembership/index.js";
 
 export type ProjectPermission =
   | "accessConversations"

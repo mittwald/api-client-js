@@ -1,5 +1,5 @@
-import type { ActivityListQueryData, ActivityListItemData } from "../types";
-import type { QueryResponseData } from "../../../base";
+import type { ActivityListQueryData, ActivityListItemData } from "../types.js";
+import type { QueryResponseData } from "../../../base/index.js";
 
 export interface ActivityBehaviors {
   list: (

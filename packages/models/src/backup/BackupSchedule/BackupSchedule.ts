@@ -6,17 +6,17 @@ import type {
   BackupScheduleListQueryData,
   BackupScheduleListItemData,
   BackupScheduleData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Project } from "../../project/internal";
-import { config } from "../../config";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Project } from "../../project/internal.js";
+import { config } from "../../config/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "BackupSchedule",

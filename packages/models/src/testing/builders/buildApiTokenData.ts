@@ -1,7 +1,7 @@
 import type {
   ApiTokenListItemData,
   ApiTokenData,
-} from "../../user/ApiToken/types";
+} from "../../user/ApiToken/types.js";
 
 export function buildApiTokenData(
   overrides: Partial<ApiTokenData> = {},

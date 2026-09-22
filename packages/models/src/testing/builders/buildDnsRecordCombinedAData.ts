@@ -2,7 +2,7 @@ import type {
   DnsRecordCombinedAManagedData,
   DnsRecordCombinedACustomData,
   DnsRecordCombinedAUnsetData,
-} from "../../dns/DnsRecordCombinedA/types";
+} from "../../dns/DnsRecordCombinedA/types.js";
 
 export function buildDnsRecordCombinedACustomData(
   overrides?: Partial<DnsRecordCombinedACustomData>,

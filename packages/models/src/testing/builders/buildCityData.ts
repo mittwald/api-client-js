@@ -1,4 +1,4 @@
-import type { CitiesListItemData } from "../../fyndr/City/types";
+import type { CitiesListItemData } from "../../fyndr/City/types.js";
 
 export function buildCityData(
   overrides?: Partial<CitiesListItemData>,

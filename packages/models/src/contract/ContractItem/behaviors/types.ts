@@ -1,7 +1,7 @@
 import type {
   ContractItemTerminationCreateRequestData,
   ContractItemData,
-} from "../types";
+} from "../types.js";
 
 export interface ContractItemBehaviors {
   terminate: (

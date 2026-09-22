@@ -1,9 +1,9 @@
 import type { AxiosRequestConfig } from "axios";
 
-import type { FileAccessTokenProvider } from "../../file";
-import type { Conversation } from "../Conversation";
+import type { FileAccessTokenProvider } from "../../file/index.js";
+import type { Conversation } from "../Conversation/index.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class ConversationMessageFileAttachmentAccessTokenProvider implements FileAccessTokenProvider {
   public readonly conversation: Conversation;

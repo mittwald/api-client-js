@@ -1,4 +1,4 @@
-import type { DnsZoneData } from "../../dns/DnsZone/types";
+import type { DnsZoneData } from "../../dns/DnsZone/types.js";
 
 export function buildDnsZoneData(
   overrides: {

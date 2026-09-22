@@ -1,8 +1,8 @@
-import type { MetricsQueryRequest } from "../lib/metrics";
-import type { MetricsRequestOptions } from "./Metrics";
-import type { ProjectDetailed } from "../../project";
+import type { MetricsQueryRequest } from "../lib/metrics/index.js";
+import type { MetricsRequestOptions } from "./Metrics.js";
+import type { ProjectDetailed } from "../../project/index.js";
 
-import { Metrics } from "./Metrics";
+import { Metrics } from "./Metrics.js";
 
 export class ProjectUsageMetrics {
   public readonly project: ProjectDetailed;

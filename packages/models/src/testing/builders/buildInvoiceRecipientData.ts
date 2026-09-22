@@ -1,4 +1,4 @@
-import type { InvoiceRecipientData } from "../../invoice/InvoiceRecipient/types";
+import type { InvoiceRecipientData } from "../../invoice/InvoiceRecipient/types.js";
 
 export function buildInvoiceRecipientData(
   overrides?: Partial<InvoiceRecipientData>,

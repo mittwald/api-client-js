@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildConversationMessageData } from "../../testing/builders/buildConversationMessageData";
-import { buildConversationUserData } from "../../testing/builders/buildConversationUserData";
-import { installBehaviors, resetBehaviors } from "../../testing";
-import { ConversationMessage } from "./ConversationMessage";
-import { ConversationUser } from "../ConversationUser";
-import { File } from "../../file/File/internal";
-import { DataModel } from "../../base";
+import { buildConversationMessageData } from "../../testing/builders/buildConversationMessageData.js";
+import { buildConversationUserData } from "../../testing/builders/buildConversationUserData.js";
+import { installBehaviors, resetBehaviors } from "../../testing/index.js";
+import { ConversationMessage } from "./ConversationMessage.js";
+import { ConversationUser } from "../ConversationUser/index.js";
+import { File } from "../../file/File/internal.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

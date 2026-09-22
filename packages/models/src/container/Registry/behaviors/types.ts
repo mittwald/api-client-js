@@ -1,11 +1,11 @@
-import type { QueryResponseData } from "../../../base";
+import type { QueryResponseData } from "../../../base/index.js";
 import type {
   RegistryCreateRequestData,
   RegistryUpdateRequestData,
   RegistryListQueryData,
   RegistryListItemData,
   RegistryData,
-} from "../types";
+} from "../types.js";
 
 export interface RegistryBehaviors {
   list: (

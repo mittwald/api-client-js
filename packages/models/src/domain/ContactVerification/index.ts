@@ -1,2 +1,2 @@
-export * from "./ContactVerification";
-export * from "./types";
+export * from "./ContactVerification.js";
+export * from "./types.js";

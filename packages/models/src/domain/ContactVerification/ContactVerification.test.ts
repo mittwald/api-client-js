@@ -1,18 +1,18 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import { buildContactVerificationData } from "../../testing/builders/buildContactVerificationData";
-import { ReferenceModel } from "../../base";
+import { buildContactVerificationData } from "../../testing/builders/buildContactVerificationData.js";
+import { ReferenceModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   ContactVerificationDetailed,
   ContactVerificationListItem,
   ContactVerificationCommon,
   ContactVerificationList,
   ContactVerification,
-} from "./ContactVerification";
+} from "./ContactVerification.js";
 
 afterEach(resetBehaviors);
 

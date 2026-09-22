@@ -1,2 +1,2 @@
-export * from "./FinderProfile";
-export * from "./types";
+export * from "./FinderProfile.js";
+export * from "./types.js";

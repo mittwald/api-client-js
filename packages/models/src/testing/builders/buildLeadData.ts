@@ -1,4 +1,4 @@
-import type { LeadData } from "../../fyndr/Lead/types";
+import type { LeadData } from "../../fyndr/Lead/types.js";
 
 export function buildLeadData(overrides?: Partial<LeadData>): LeadData {
   return {

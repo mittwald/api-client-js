@@ -1,15 +1,15 @@
-import type { Contract } from "../../../contract";
+import type { Contract } from "../../../contract/index.js";
 import type {
   LeadFyndrOrderPreviewRequestData,
   LeadFyndrOrderPreviewData,
   LeadFyndrOrderRequestData,
   CompleteOrderRequestData,
-} from "../types";
+} from "../types.js";
 
-import { LeadFyndrOrderPreview } from "../Preview/LeadFyndrOrderPreview";
-import { DataModel } from "../../../base";
-import { config } from "../../../config";
-import { Order } from "../Order";
+import { LeadFyndrOrderPreview } from "../Preview/LeadFyndrOrderPreview.js";
+import { DataModel } from "../../../base/index.js";
+import { config } from "../../../config/index.js";
+import { Order } from "../Order.js";
 
 export class LeadFyndrOrderRequest extends DataModel<LeadFyndrOrderPreviewRequestData> {
   public readonly contract?: Contract;

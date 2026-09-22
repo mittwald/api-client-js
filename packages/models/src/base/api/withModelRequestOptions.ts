@@ -1,7 +1,7 @@
 import type { Commons } from "@mittwald/api-client";
 import type { AxiosRequestConfig } from "axios";
 
-import { executeDefaultOnBeforeRequestHandlers } from "../../base/api/onBeforeRequest";
+import { executeDefaultOnBeforeRequestHandlers } from "../../base/api/onBeforeRequest.js";
 
 export const withAxiosRequestConfig = (
   requestOptions: AxiosRequestConfig = {},

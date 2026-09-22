@@ -5,9 +5,9 @@ import invariant from "tiny-invariant";
 import { DateTime } from "luxon";
 import * as d3 from "d3-array";
 
-import type { MetricsDataPoint } from "../lib/metrics";
-import type MetricsTimeRange from "./MetricsTimeRange";
-import type { MonitoringInterval } from "./types";
+import type { MetricsDataPoint } from "../lib/metrics/index.js";
+import type MetricsTimeRange from "./MetricsTimeRange.js";
+import type { MonitoringInterval } from "./types.js";
 
 export class TimeSeriesBin {
   public readonly data: Bin<MetricsDataPoint, number>;

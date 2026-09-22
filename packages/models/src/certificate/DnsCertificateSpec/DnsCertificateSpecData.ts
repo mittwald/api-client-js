@@ -1,7 +1,7 @@
-import type { DnsCertificateSpecData } from "./types";
+import type { DnsCertificateSpecData } from "./types.js";
 
-import { DnsCertificateStatus } from "../DnsCertificateStatus";
-import { DataModel } from "../../base";
+import { DnsCertificateStatus } from "../DnsCertificateStatus/index.js";
+import { DataModel } from "../../base/index.js";
 
 export class DnsCertificateSpec extends DataModel<DnsCertificateSpecData> {
   public readonly cnameTarget?: string;

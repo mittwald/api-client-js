@@ -1,2 +1,2 @@
-export * from "./Redis";
-export * from "./types";
+export * from "./Redis.js";
+export * from "./types.js";

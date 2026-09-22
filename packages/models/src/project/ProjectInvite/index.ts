@@ -1,2 +1,2 @@
-export * from "./ProjectInvite";
-export * from "./types";
+export * from "./ProjectInvite.js";
+export * from "./types.js";

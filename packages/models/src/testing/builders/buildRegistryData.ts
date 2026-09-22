@@ -1,4 +1,4 @@
-import type { RegistryData } from "../../container/Registry/types";
+import type { RegistryData } from "../../container/Registry/types.js";
 
 export function buildRegistryData(
   overrides?: Partial<RegistryData>,

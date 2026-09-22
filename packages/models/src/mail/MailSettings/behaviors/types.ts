@@ -1,4 +1,4 @@
-import type { MailSettingsData } from "../types";
+import type { MailSettingsData } from "../types.js";
 
 export interface MailSettingsBehaviors {
   updateAllowlist: (projectId: string, allowList: string[]) => Promise<void>;

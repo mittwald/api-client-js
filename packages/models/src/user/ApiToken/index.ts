@@ -1,2 +1,2 @@
-export * from "./ApiToken";
-export * from "./types";
+export * from "./ApiToken.js";
+export * from "./types.js";

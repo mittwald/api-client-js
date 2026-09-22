@@ -4,33 +4,33 @@ import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import invariant from "tiny-invariant";
 import { DateTime } from "luxon";
 
-import type { ProjectListQuery as ProjectListQueryType } from "../../project";
+import type { ProjectListQuery as ProjectListQueryType } from "../../project/index.js";
 import type {
   ServerListQueryModelData,
   ServerDisableReason,
   ServerListItemData,
   ServerStatus,
   ServerData,
-} from "./types";
+} from "./types.js";
 
-import { ServerAvatarAccessTokenProvider } from "./ServerAvatarAccessTokenProvider";
-import { type FileAccessTokenProvider, type DomFile } from "../../file";
-import { ServerUsageMetrics, StorageMetrics } from "../../monitoring";
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { Customer } from "../../customer/Customer/Customer";
-import { ProjectListQuery } from "../../project/internal";
-import { AggregateMetaData } from "../../common";
-import { File } from "../../file/File/internal";
-import { Contract } from "../../contract";
-import { config } from "../../config";
-import { Order } from "../../order";
+import { ServerAvatarAccessTokenProvider } from "./ServerAvatarAccessTokenProvider.js";
+import { type FileAccessTokenProvider, type DomFile } from "../../file/index.js";
+import { ServerUsageMetrics, StorageMetrics } from "../../monitoring/index.js";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { Customer } from "../../customer/Customer/Customer.js";
+import { ProjectListQuery } from "../../project/internal.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { File } from "../../file/File/internal.js";
+import { Contract } from "../../contract/index.js";
+import { config } from "../../config/index.js";
+import { Order } from "../../order/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   extractId,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "Server",

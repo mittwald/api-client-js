@@ -1,7 +1,7 @@
-import type { FileAccessTokenProvider } from "../../file";
-import type { Contributor } from "./Contributor";
+import type { FileAccessTokenProvider } from "../../file/index.js";
+import type { Contributor } from "./Contributor.js";
 
-import { config } from "../../config";
+import { config } from "../../config/index.js";
 
 export class ContributorAvatarAccessTokenProvider
   implements FileAccessTokenProvider

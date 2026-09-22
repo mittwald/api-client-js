@@ -1,23 +1,23 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 import { DateTime } from "luxon";
 
-import type { PlanChangeRequestData } from "../../order";
-import type { ContractCommon } from "../Contract";
+import type { PlanChangeRequestData } from "../../order/index.js";
+import type { ContractCommon } from "../Contract/index.js";
 import type {
   ContractItemTerminationCreateRequestData,
   ContractItemData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { ContractItemReference } from "./ContractItemReference";
-import { ContractTermination } from "../ContractTermination";
-import { ReferenceModel, WithData } from "../../base";
-import { ContractArticle } from "../ContractArticle";
-import { Project } from "../../project/internal";
-import { PlanChange } from "../PlanChange";
-import { config } from "../../config";
-import { Money } from "../../common";
-import { Order } from "../../order";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { ContractItemReference } from "./ContractItemReference.js";
+import { ContractTermination } from "../ContractTermination/index.js";
+import { ReferenceModel, WithData } from "../../base/index.js";
+import { ContractArticle } from "../ContractArticle/index.js";
+import { Project } from "../../project/internal.js";
+import { PlanChange } from "../PlanChange/index.js";
+import { config } from "../../config/index.js";
+import { Money } from "../../common/index.js";
+import { Order } from "../../order/index.js";
 
 @GhostMakerModel({
   name: "ContractItem",

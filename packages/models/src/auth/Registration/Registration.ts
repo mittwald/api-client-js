@@ -1,7 +1,7 @@
-import type { VerifyRegistrationModelData, RegisterRequestData } from "./types";
+import type { VerifyRegistrationModelData, RegisterRequestData } from "./types.js";
 
-import { DataModel } from "../../base";
-import { config } from "../../config";
+import { DataModel } from "../../base/index.js";
+import { config } from "../../config/index.js";
 
 interface Data extends RegisterRequestData {
   userId: string;

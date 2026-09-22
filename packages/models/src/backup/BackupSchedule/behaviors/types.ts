@@ -4,7 +4,7 @@ import type {
   BackupScheduleListQueryData,
   BackupScheduleListItemData,
   BackupScheduleData,
-} from "../types";
+} from "../types.js";
 
 export interface BackupScheduleBehaviors {
   list: (

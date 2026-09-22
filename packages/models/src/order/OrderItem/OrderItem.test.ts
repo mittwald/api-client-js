@@ -1,9 +1,9 @@
 import { afterEach, expect, test } from "vitest";
 
-import { buildOrderItemData } from "../../testing/builders/buildOrderItemData";
-import { resetBehaviors } from "../../testing/installBehaviors";
-import { OrderItem } from "./OrderItem";
-import { DataModel } from "../../base";
+import { buildOrderItemData } from "../../testing/builders/buildOrderItemData.js";
+import { resetBehaviors } from "../../testing/installBehaviors.js";
+import { OrderItem } from "./OrderItem.js";
+import { DataModel } from "../../base/index.js";
 
 afterEach(resetBehaviors);
 

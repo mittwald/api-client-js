@@ -1,2 +1,2 @@
-export * from "./PerformanceTtfbAnalysis";
-export * from "./types";
+export * from "./PerformanceTtfbAnalysis.js";
+export * from "./types.js";

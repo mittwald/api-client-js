@@ -1,18 +1,18 @@
 import { afterEach, describe, expect, test, vi } from "vitest";
 
-import type { PerformanceTtfbAnalysisStraceData } from "./types";
+import type { PerformanceTtfbAnalysisStraceData } from "./types.js";
 
-import { buildPerformanceTtfbAnalysisData } from "../../testing/builders/buildPerformanceTtfbAnalysisData";
-import { ReferenceModel, DataModel } from "../../base";
+import { buildPerformanceTtfbAnalysisData } from "../../testing/builders/buildPerformanceTtfbAnalysisData.js";
+import { ReferenceModel, DataModel } from "../../base/index.js";
 import {
   installBehaviors,
   resetBehaviors,
-} from "../../testing/installBehaviors";
+} from "../../testing/installBehaviors.js";
 import {
   PerformanceTtfbAnalysisDetailed,
   PerformanceTtfbSummaryMetric,
   PerformanceTtfbAnalysis,
-} from "./PerformanceTtfbAnalysis";
+} from "./PerformanceTtfbAnalysis.js";
 
 afterEach(resetBehaviors);
 

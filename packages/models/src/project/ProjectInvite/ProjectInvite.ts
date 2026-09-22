@@ -1,24 +1,24 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { ProjectRole } from "../ProjectMembership";
+import type { ProjectRole } from "../ProjectMembership/index.js";
 import type {
   ProjectInviteCreateRequestData,
   ProjectInviteListQueryData,
   ProjectInviteListItemData,
   ProjectInviteData,
-} from "./types";
+} from "./types.js";
 
-import assertObjectFound from "../../base/lib/assertObjectFound";
-import { AggregateMetaData } from "../../common";
-import { User } from "../../user/User/User";
-import { config } from "../../config";
-import { Project } from "../Project";
+import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AggregateMetaData } from "../../common/index.js";
+import { User } from "../../user/User/User.js";
+import { config } from "../../config/index.js";
+import { Project } from "../Project/index.js";
 import {
   ListQueryModel,
   ReferenceModel,
   WithListData,
   WithData,
-} from "../../base";
+} from "../../base/index.js";
 
 @GhostMakerModel({
   name: "ProjectInvite",

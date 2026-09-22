@@ -7,9 +7,9 @@ import type {
   ContactVerificationEmailDataData,
   ContactVerificationNameDataData,
   ContactVerificationTypeDataData,
-} from "./types";
+} from "./types.js";
 
-import { DataModel } from "../../base";
+import { DataModel } from "../../base/index.js";
 
 export abstract class ContactVerificationDataBase<
   T extends ContactVerificationTypeDataData,

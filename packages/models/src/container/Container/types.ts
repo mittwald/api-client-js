@@ -1,7 +1,7 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { ContainerStack } from "./ContainerStack";
-import type { Project } from "../../project";
+import type { ContainerStack } from "./ContainerStack.js";
+import type { Project } from "../../project/index.js";
 
 export type ContainerData =
   MittwaldAPIV2.Components.Schemas.ContainerServiceResponse;

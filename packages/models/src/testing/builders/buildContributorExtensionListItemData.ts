@@ -1,4 +1,4 @@
-import type { ContributorExtensionListItemData } from "../../marketplace/ContributorExtension/types";
+import type { ContributorExtensionListItemData } from "../../marketplace/ContributorExtension/types.js";
 
 export function buildContributorExtensionListItemData(
   overrides?: Partial<ContributorExtensionListItemData>,
