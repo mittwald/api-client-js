@@ -98,8 +98,13 @@ export const makeScopedAIModelClasses = <
     }
   }
 
+  // The classes below are local to this factory, so declaration emit has to
+  // describe them as anonymous class types — which cannot carry private or
+  // protected members (TS4094). Both `query` (protected in `ListQueryModel`)
+  // and `scopeId` are therefore widened to public here.
   class ScopedAIModelListQuery extends ListQueryModel<TQuery> {
-    private readonly scopeId: string;
+    public declare readonly query: TQuery;
+    public readonly scopeId: string;
     public constructor(scopeId: string, query: TQuery = {} as TQuery) {
       super(query);
       this.scopeId = scopeId;
