@@ -1,6 +1,7 @@
+import type { AxiosRequestConfig } from "axios";
+
 import type {
   FileUploadTokenData,
-  AxiosRequestConfig,
   QueryResponseData,
 } from "../../../index.js";
 import type {
