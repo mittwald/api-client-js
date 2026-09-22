@@ -8,8 +8,7 @@ import { ApiCallAsyncResourceFactory } from "./ApiCallAsyncResourceFactory.js";
 
 type GetStuffRequest = RequestType<{ requestString: string }>;
 type GetStuffResponse =
-  | Response<{ responseData: number }, 200>
-  | Response<{ error: string }, 500>;
+  Response<{ responseData: number }, 200> | Response<{ error: string }, 500>;
 
 type GetStuffOperation = OpenAPIOperation<GetStuffRequest, GetStuffResponse>;
 

@@ -4914,9 +4914,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type AihostingDetailedModelStatus =
-        | "active"
-        | "needApproval"
-        | "deprecated";
+        "active" | "needApproval" | "deprecated";
 
       export interface AihostingKey {
         containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
@@ -5223,9 +5221,7 @@ export declare module MittwaldAPIV2 {
        * The AppInstallationLifecycle can be used to express a specific point in the AppInstallation Lifecycle, e.g. while installing a new AppInstallation.
        */
       export type AppAppInstallationLifecycle =
-        | "installation"
-        | "update"
-        | "reconfigure";
+        "installation" | "update" | "reconfigure";
 
       /**
        * An AppVersion is an officially supported version of an App, containing the necessary and recommended configuration und dependencies.
@@ -5364,10 +5360,7 @@ export declare module MittwaldAPIV2 {
        * SystemSoftwareUpdatePolicy describes which updates should be applied automatically by our systems.
        */
       export type AppSystemSoftwareUpdatePolicy =
-        | "none"
-        | "inheritedFromApp"
-        | "patchLevel"
-        | "all";
+        "none" | "inheritedFromApp" | "patchLevel" | "all";
 
       /**
        * A SystemSoftware is a software that can be installed for an AppInstallation but mostly is not itself externally reachable and/or deliverable.
@@ -5421,10 +5414,7 @@ export declare module MittwaldAPIV2 {
        * UserInputDataType is an enum, describing the possible data types of a UserInput.
        */
       export type AppUserInputDataType =
-        | "text"
-        | "number"
-        | "boolean"
-        | "select";
+        "text" | "number" | "boolean" | "select";
 
       /**
        * UserInputFormat is an enum, describing the possible data formats of a UserInput, the given values can be validated against.
@@ -5669,8 +5659,7 @@ export declare module MittwaldAPIV2 {
          *
          */
         descriptionChangeType?:
-          | "FEATURE_SET_MODIFIED"
-          | "FEATURE_SET_UNCHANGED";
+          "FEATURE_SET_MODIFIED" | "FEATURE_SET_UNCHANGED";
         /**
          * stop extension variant from being booked
          */
@@ -6103,12 +6092,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type ContainerServiceStatus =
-        | "running"
-        | "stopped"
-        | "error"
-        | "creating"
-        | "starting"
-        | "stopping";
+        "running" | "stopped" | "error" | "creating" | "starting" | "stopping";
 
       export interface ContainerSetRegistryCredentials {
         /**
@@ -6122,8 +6106,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type ContainerServiceSortOrder =
-        | "descriptionAsc"
-        | "descriptionDesc";
+        "descriptionAsc" | "descriptionDesc";
 
       export interface ContainerStackResponse {
         description: string;
@@ -6535,8 +6518,7 @@ export declare module MittwaldAPIV2 {
         createdAt: string;
         internal?: boolean;
         messageContent:
-          | "RESUBMISSION_CREATED"
-          | "RESUBMISSION_RESUBMIT_AT_CHANGED";
+          "RESUBMISSION_CREATED" | "RESUBMISSION_RESUBMIT_AT_CHANGED";
         meta?: {
           groupAcronym: string;
           groupId: string;
@@ -6639,11 +6621,7 @@ export declare module MittwaldAPIV2 {
           };
 
       export type ConversationStatus =
-        | "open"
-        | "closed"
-        | "answered"
-        | "inProgress"
-        | "waiting";
+        "open" | "closed" | "answered" | "inProgress" | "waiting";
 
       export type ConversationStatusUpdate =
         | MittwaldAPIV2.Components.Schemas.ConversationResubmissionStatusUpdate
@@ -6831,10 +6809,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type CronjobCronjobExecutionSortOrder =
-        | "oldestFirst"
-        | "newestFirst"
-        | "slowestFirst"
-        | "fastestFirst";
+        "oldestFirst" | "newestFirst" | "slowestFirst" | "fastestFirst";
 
       export interface CronjobAppInstallationPatchTarget {
         appInstallationId?: string;
@@ -6968,11 +6943,7 @@ export declare module MittwaldAPIV2 {
         projectCount: number;
         vatId?: string;
         vatIdValidationState?:
-          | "valid"
-          | "invalid"
-          | "pending"
-          | "unsupported"
-          | "unspecified";
+          "valid" | "invalid" | "pending" | "unsupported" | "unspecified";
       }
 
       export interface DatabaseCreateMySqlDatabase {
@@ -7036,18 +7007,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export type DatabaseDatabaseStatus =
-        | "pending"
-        | "ready"
-        | "migrating"
-        | "importing"
-        | "error";
+        "pending" | "ready" | "migrating" | "importing" | "error";
 
       export type DatabaseDatabaseUserStatus =
-        | "pending"
-        | "ready"
-        | "error"
-        | "terminating"
-        | "disabled";
+        "pending" | "ready" | "error" | "terminating" | "disabled";
 
       export interface DatabaseMySqlCharacterSettings {
         collations: string[];
@@ -7479,14 +7442,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type DomainmigrationDNSRecordType =
-        | "A"
-        | "AAAA"
-        | "TXT"
-        | "MX"
-        | "CNAME"
-        | "SRV"
-        | "CAA"
-        | "NS";
+        "A" | "AAAA" | "TXT" | "MX" | "CNAME" | "SRV" | "CAA" | "NS";
 
       /**
        * A non-blocking finding on an otherwise migratable domain: the domain migrates, but the named subject is skipped.
@@ -7651,16 +7607,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export type DomainTransferAuthentication =
-        | "unspecified"
-        | "code"
-        | "email"
-        | "push";
+        "unspecified" | "code" | "email" | "push";
 
       export type DomainContactVerificationStatus =
-        | "created"
-        | "pending"
-        | "completed"
-        | "failed";
+        "created" | "pending" | "completed" | "failed";
 
       export type DomainContactVerificationType = "name" | "address" | "email";
 
@@ -7955,11 +7905,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type MarketplaceExtensionInstanceWebhookExecutionState =
-        | "running"
-        | "queued"
-        | "halted"
-        | "failed"
-        | "successful";
+        "running" | "queued" | "halted" | "failed" | "successful";
 
       export interface MarketplaceExtensionSecret {
         secretId: string;
@@ -8089,8 +8035,7 @@ export declare module MittwaldAPIV2 {
           purgeWebhookUrls?: boolean;
           scopes?: string[];
           webhookUrls?:
-            | MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls
-            | {};
+            MittwaldAPIV2.Components.Schemas.MarketplaceWebhookUrls | {};
         };
         scopes?: string[];
         secrets: MittwaldAPIV2.Components.Schemas.MarketplaceExtensionSecret[];
@@ -8791,10 +8736,7 @@ export declare module MittwaldAPIV2 {
         requestedBy: MittwaldAPIV2.Components.Schemas.LeadfyndrUser;
         resultOn?: string;
         status:
-          | "AUTOTEST_INIT"
-          | "MANUAL_VERIFICATION"
-          | "REJECTED"
-          | "APPROVED";
+          "AUTOTEST_INIT" | "MANUAL_VERIFICATION" | "REJECTED" | "APPROVED";
       }
 
       export interface LeadfyndrProfile {
@@ -9186,10 +9128,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type MembershipCustomerInheritedRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
+        "notset" | "owner" | "member" | "accountant";
 
       export interface MembershipCustomerInvite {
         /**
@@ -9273,10 +9212,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type MembershipCustomerRoles =
-        | "notset"
-        | "owner"
-        | "member"
-        | "accountant";
+        "notset" | "owner" | "member" | "accountant";
 
       export interface MembershipInviteInformation {
         /**
@@ -9375,10 +9311,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type MembershipProjectRoles =
-        | "notset"
-        | "owner"
-        | "emailadmin"
-        | "external";
+        "notset" | "owner" | "emailadmin" | "external";
 
       export interface MessagingAggregateReference {
         aggregate: string;
@@ -9608,11 +9541,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type OrderOrderStatus =
-        | "NEW"
-        | "CONFIRMED"
-        | "REJECTED"
-        | "ABORTED"
-        | "EXECUTED";
+        "NEW" | "CONFIRMED" | "REJECTED" | "ABORTED" | "EXECUTED";
 
       export interface OrderOrderSummary {
         nonRecurring: number;
@@ -9821,11 +9750,7 @@ export declare module MittwaldAPIV2 {
         modifierArticles?: MittwaldAPIV2.Components.Schemas.ArticleReadableModifierArticleOptions[];
         name: string;
         type:
-          | "miscellaneous"
-          | "base"
-          | "additional"
-          | "modifier"
-          | "setup_fee";
+          "miscellaneous" | "base" | "additional" | "modifier" | "setup_fee";
       }
 
       export interface ArticleReadableArticle {
@@ -9867,11 +9792,7 @@ export declare module MittwaldAPIV2 {
          * Only Articles with the value 'full' can be ordered by everyone. Forbidden Articles are not allowed to be ordered. Internal Articles have to be ordered by a mittwald employee. Beta testing Articles can be ordered but maybe feature incomplete. Deprecated Articles are not orderable anymore.
          */
         orderable:
-          | "full"
-          | "forbidden"
-          | "internal"
-          | "beta_testing"
-          | "deprecated";
+          "full" | "forbidden" | "internal" | "beta_testing" | "deprecated";
         possibleArticleChanges?: MittwaldAPIV2.Components.Schemas.ArticleReadableChangeArticleOptions[];
         /**
          * Monthly price in Eurocent
@@ -10068,8 +9989,7 @@ export declare module MittwaldAPIV2 {
           };
         };
         name:
-          | "database.mysql-description-set"
-          | "database.redis-description-set";
+          "database.mysql-description-set" | "database.redis-description-set";
         parameters: {
           description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
           name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -10384,17 +10304,13 @@ export declare module MittwaldAPIV2 {
        * deprecated by property status
        */
       export type ProjectDeprecatedProjectReadinessStatus =
-        | "creating"
-        | "ready"
-        | "unready";
+        "creating" | "ready" | "unready";
 
       /**
        * deprecated by property status
        */
       export type ProjectDeprecatedServerReadinessStatus =
-        | "creating"
-        | "ready"
-        | "unready";
+        "creating" | "ready" | "unready";
 
       export interface ProjectFilesystemDirectoryListing {
         absolutePath: string;
@@ -10492,16 +10408,10 @@ export declare module MittwaldAPIV2 {
       }
 
       export type ProjectDisableReason =
-        | "maliciousCode"
-        | "illegalContent"
-        | "maliciousConduct"
-        | "suspended";
+        "maliciousCode" | "illegalContent" | "maliciousConduct" | "suspended";
 
       export type ProjectProjectFeature =
-        | "redis"
-        | "node"
-        | "runtimeApps"
-        | "container";
+        "redis" | "node" | "runtimeApps" | "container";
 
       export interface ProjectProjectListItem {
         backupStorageUsageInBytes: number;
@@ -10601,11 +10511,7 @@ export declare module MittwaldAPIV2 {
       export type ProjectServerDisableReason = "suspended";
 
       export type ProjectServerStatus =
-        | "pending"
-        | "ready"
-        | "unready"
-        | "suspended"
-        | "migrating";
+        "pending" | "ready" | "unready" | "suspended" | "migrating";
 
       export interface ProjectServer {
         clusterName: string;
@@ -10899,11 +10805,7 @@ export declare module MittwaldAPIV2 {
       }
 
       export type SslProjectCertificateStatus =
-        | "issuing"
-        | "ready"
-        | "cnameError"
-        | "error"
-        | "unspecified";
+        "issuing" | "ready" | "cnameError" | "error" | "unspecified";
 
       export type StoragespaceStatisticsCategoryKind =
         | "webspace"
@@ -11207,20 +11109,13 @@ export declare module MittwaldAPIV2 {
       }
 
       export type VerificationEmailOrigin =
-        | "IS_MITTWALD"
-        | "IS_NOT_MITTWALD"
-        | "COULD_BE_MITTWALD";
+        "IS_MITTWALD" | "IS_NOT_MITTWALD" | "COULD_BE_MITTWALD";
 
       export type ContainerVolumeSortOrder =
-        | "nameAsc"
-        | "nameDesc"
-        | "storageAsc"
-        | "storageDesc";
+        "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
 
       export type UserUserFeedbackSpotlightDecision =
-        | "keep"
-        | "kill"
-        | "ignore";
+        "keep" | "kill" | "ignore";
 
       export interface CommonsAddress {
         street: string;
@@ -14294,11 +14189,7 @@ export declare module MittwaldAPIV2 {
             templateNames?: string[];
             articleIds?: string[];
             orderable?: (
-              | "forbidden"
-              | "internal"
-              | "beta_testing"
-              | "full"
-              | "deprecated"
+              "forbidden" | "internal" | "beta_testing" | "full" | "deprecated"
             )[];
             name?: string;
             limit?: number;
@@ -19448,10 +19339,7 @@ export declare module MittwaldAPIV2 {
                 id: string;
                 invoiceNumber: string;
                 invoiceType?:
-                  | "REGULAR"
-                  | "CORRECTION"
-                  | "REISSUE"
-                  | "CANCELLATION";
+                  "REGULAR" | "CORRECTION" | "REISSUE" | "CANCELLATION";
                 pdfId: string;
                 recipient: MittwaldAPIV2.Components.Schemas.InvoiceRecipient;
                 totalGross: number;
@@ -29046,9 +28934,7 @@ export declare module MittwaldAPIV2 {
                    *
                    */
                   globalCustomerConsequence:
-                    | "NONE"
-                    | "INFO"
-                    | "CONFIRM_REQUIRED";
+                    "NONE" | "INFO" | "CONFIRM_REQUIRED";
                   variantConsequences: {
                     /**
                      * The individual consequence for customers of a specific variant of the Extension. Values: * "NONE": No consequence. * "INFO": Customers will be informed about the upcoming changes to their contracts. * "CONFIRM_REQUIRED": Customers will have to confirm or select the accepted changes to their contracts within 30 days or their contracts will be automatically cancelled.
@@ -30243,10 +30129,7 @@ export declare module MittwaldAPIV2 {
 
           export type Query = {
             invoiceTypes?: (
-              | "REGULAR"
-              | "REISSUE"
-              | "CORRECTION"
-              | "CANCELLATION"
+              "REGULAR" | "REISSUE" | "CORRECTION" | "CANCELLATION"
             )[];
             status?: ("CONFIRMED" | "PAID" | "PARTIALLY_PAID" | "OVERPAID")[];
             search?: string;
@@ -33753,10 +33636,7 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange
               | MittwaldAPIV2.Components.Schemas.OrderAIHostingTariffChange;
             tariffChangeType?:
-              | "projectHosting"
-              | "server"
-              | "leadFyndr"
-              | "aiHosting";
+              "projectHosting" | "server" | "leadFyndr" | "aiHosting";
           }
 
           export type Header =
@@ -34022,10 +33902,7 @@ export declare module MittwaldAPIV2 {
               | MittwaldAPIV2.Components.Schemas.OrderLeadFyndrTariffChange
               | MittwaldAPIV2.Components.Schemas.OrderAIHostingTariffChange;
             tariffChangeType?:
-              | "projectHosting"
-              | "server"
-              | "leadFyndr"
-              | "aiHosting";
+              "projectHosting" | "server" | "leadFyndr" | "aiHosting";
           }
 
           export type Header =
