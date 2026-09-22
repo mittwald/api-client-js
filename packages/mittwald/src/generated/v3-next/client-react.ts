@@ -12,6 +12,11 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingCustomerGetKeys,
     baseClient.aiHosting.customerGetKeys,
   ).getApiResource,
+  /** Get all ai hosting plans of a customer. */
+  customerGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlans,
+    baseClient.aiHosting.customerGetPlans,
+  ).getApiResource,
   /** Get a key of a customer. */
   customerGetKey: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingCustomerGetKey,
@@ -22,10 +27,25 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingCustomerGetDetailedModels,
     baseClient.aiHosting.customerGetDetailedModels,
   ).getApiResource,
+  /** Get ai hosting plan and usages of a customer by planId. */
+  customerGetPlan: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetPlan,
+    baseClient.aiHosting.customerGetPlan,
+  ).getApiResource,
   /** Get a list of currently active models. */
   getModels: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingGetModels,
     baseClient.aiHosting.getModels,
+  ).getApiResource,
+  /** List the contract months of an ai hosting plan. */
+  planGetBillingPeriods: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetBillingPeriods,
+    baseClient.aiHosting.planGetBillingPeriods,
+  ).getApiResource,
+  /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+  planGetUsageStats: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingPlanGetUsageStats,
+    baseClient.aiHosting.planGetUsageStats,
   ).getApiResource,
   /** Get a list of keys of a project. */
   projectGetKeys: new ApiCallAsyncResourceFactory(
@@ -41,16 +61,6 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
   projectGetDetailedModels: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingProjectGetDetailedModels,
     baseClient.aiHosting.projectGetDetailedModels,
-  ).getApiResource,
-  /** Get ai hosting plan and usages of a customer by planId. */
-  customerGetPlan: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlan,
-    baseClient.aiHosting.customerGetPlan,
-  ).getApiResource,
-  /** Get all ai hosting plans of a customer. */
-  customerGetPlans: new ApiCallAsyncResourceFactory(
-    descriptors.aiHostingCustomerGetPlans,
-    baseClient.aiHosting.customerGetPlans,
   ).getApiResource,
   /** Get ai hosting plan and usages of a project by planId. */
   projectGetPlan: new ApiCallAsyncResourceFactory(
@@ -74,6 +84,11 @@ const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
   getApp: new ApiCallAsyncResourceFactory(
     descriptors.appGetApp,
     baseClient.app.getApp,
+  ).getApiResource,
+  /** Get an analysis of the error of an AppInstallation. */
+  getAppinstallationErrorAnalysis: new ApiCallAsyncResourceFactory(
+    descriptors.appGetAppinstallationErrorAnalysis,
+    baseClient.app.getAppinstallationErrorAnalysis,
   ).getApiResource,
   /** Get an AppInstallation. */
   getAppinstallation: new ApiCallAsyncResourceFactory(
@@ -139,11 +154,6 @@ const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
   retrieveStatus: new ApiCallAsyncResourceFactory(
     descriptors.appRetrieveStatus,
     baseClient.app.retrieveStatus,
-  ).getApiResource,
-  /** Get an analysis of the error of an AppInstallation. */
-  getAppinstallationErrorAnalysis: new ApiCallAsyncResourceFactory(
-    descriptors.appGetAppinstallationErrorAnalysis,
-    baseClient.app.getAppinstallationErrorAnalysis,
   ).getApiResource,
 });
 
@@ -229,6 +239,11 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.containerGetContainerImageConfig,
     baseClient.container.getContainerImageConfig,
   ).getApiResource,
+  /** Get an analysis of the logs belonging to a Service. */
+  getServiceLogsAnalysis: new ApiCallAsyncResourceFactory(
+    descriptors.containerGetServiceLogsAnalysis,
+    baseClient.container.getServiceLogsAnalysis,
+  ).getApiResource,
   /** Get logs belonging to a Service. */
   getServiceLogs: new ApiCallAsyncResourceFactory(
     descriptors.containerGetServiceLogs,
@@ -278,11 +293,6 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
-  ).getApiResource,
-  /** Get an analysis of the logs belonging to a Service. */
-  getServiceLogsAnalysis: new ApiCallAsyncResourceFactory(
-    descriptors.containerGetServiceLogsAnalysis,
-    baseClient.container.getServiceLogsAnalysis,
   ).getApiResource,
 });
 
@@ -1034,6 +1044,11 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
   getSession: new ApiCallAsyncResourceFactory(
     descriptors.userGetSession,
     baseClient.user.getSession,
+  ).getApiResource,
+  /** Submitted feedback of the given user. */
+  getSpotlightInfo: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSpotlightInfo,
+    baseClient.user.getSpotlightInfo,
   ).getApiResource,
   /** Get profile information for a user. */
   getUser: new ApiCallAsyncResourceFactory(
