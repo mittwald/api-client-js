@@ -1,5 +1,3 @@
-import type { AlertProps } from "@mittwald/flow-react-components";
-
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
 import type { ContainerListItem } from "./Container.js";
@@ -10,6 +8,7 @@ import type {
   ContainerTemplateUserInputsData,
   ContainerTemplateListQueryData,
   ContainerTemplateListItemData,
+  ContainerTemplateAlertStatus,
   ContainerTemplateLicenseData,
   ContainerTemplateDomainData,
   ContainerTemplateCategory,
@@ -143,7 +142,7 @@ export class ContainerTemplateCommon extends WithData<
         ? localizeTemplateText(alert.linkText)
         : undefined,
       link: alert.link ? localizeTemplateText(alert.link) : undefined,
-      status: alert.status as AlertProps["status"],
+      status: alert.status as ContainerTemplateAlertStatus,
       heading: localizeTemplateText(alert.heading),
       content: localizeTemplateText(alert.content),
     }));
