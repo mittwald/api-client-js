@@ -16,6 +16,7 @@ import type { RelocationBehaviors } from "../relocation/RelocationRequest/behavi
 import type { ConversationBehaviors } from "../conversation/Conversation/behaviors/index.js";
 import type { CustomerInviteBehaviors } from "../customer/CustomerInvite/behaviors/index.js";
 import type { DomainMigrationBehaviors } from "../domain/DomainMigration/behaviors/index.js";
+import type { AITokenStatisticsBehaviors } from "../ai/AITokenStatistics/behaviors/index.js";
 import type { CustomerAIApiKeyBehaviors } from "../ai/CustomerAIApiKey/behaviors/index.js";
 import type { BackupScheduleBehaviors } from "../backup/BackupSchedule/behaviors/index.js";
 import type { CustomerAIPlanBehavior } from "../ai/CustomerAIPlan/behavior/types.js";
@@ -49,6 +50,7 @@ import type { CustomerBehaviors } from "../customer/Customer/behaviors/index.js"
 import type { ActivityBehaviors } from "../activity/Activity/behaviors/index.js";
 import type { AppVersionBehaviors } from "../app/AppVersion/behaviors/index.js";
 import type { SftpUserBehaviors } from "../access/SftpUser/behaviors/index.js";
+import type { SpotlightBehaviors } from "../user/Spotlight/behaviors/index.js";
 import type { ArticleBehaviors } from "../article/Article/behaviors/index.js";
 import type { VolumeBehaviors } from "../container/Volume/behaviors/index.js";
 import type { CronjobBehaviors } from "../cronjob/Cronjob/behaviors/index.js";
@@ -89,6 +91,7 @@ export interface Behaviors {
   customerMembership: CustomerMembershipBehaviors;
   extensionInstance: ExtensionInstanceBehaviors;
   projectMembership: ProjectMembershipBehaviors;
+  aiTokenStatistics: AITokenStatisticsBehaviors;
   cronjobExecution: CronjobExecutionBehaviors;
   customerAiApiKey: CustomerAIApiKeyBehaviors;
   appInstallation: AppInstallationBehaviors;
@@ -123,6 +126,7 @@ export interface Behaviors {
   appVersion: AppVersionBehaviors;
   newsletter: NewsletterBehaviors;
   relocation: RelocationBehaviors;
+  spotlight: SpotlightBehaviors;
   container: ContainerBehaviors;
   extension: ExtensionBehaviors;
   mySqlUser: MySqlUserBehaviors;

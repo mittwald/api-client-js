@@ -122,6 +122,7 @@ export * from "./builders/buildServerData.js";
 export * from "./builders/buildSessionData.js";
 export * from "./builders/buildSessionTokenData.js";
 export * from "./builders/buildSftpUserData.js";
+export * from "./builders/buildSpotlightStateData.js";
 export * from "./builders/buildSshKeyData.js";
 export * from "./builders/buildSshUserData.js";
 export * from "./builders/buildStorageMetricsData.js";

@@ -17,6 +17,7 @@ import { apiStorageMetricsBehaviors } from "../monitoring/StorageMetrics/behavio
 import { apiUsageMetricsBehaviors } from "../monitoring/UsageMetrics/behaviors/api.js";
 import { apiNotificationBehaviors } from "../notifications/Notifications/behaviors/index.js";
 import { apiRelocationBehaviors } from "../relocation/RelocationRequest/behaviors/index.js";
+import { apiAITokenStatisticsBehaviors } from "../ai/AITokenStatistics/behaviors/index.js";
 import { apiConversationBehaviors } from "../conversation/Conversation/behaviors/index.js";
 import { apiCustomerInviteBehaviors } from "../customer/CustomerInvite/behaviors/index.js";
 import { apiDomainMigrationBehavior } from "../domain/DomainMigration/behaviors/index.js";
@@ -52,6 +53,7 @@ import { apiContractBehaviors } from "../contract/Contract/behaviors/index.js";
 import { apiCustomerBehaviors } from "../customer/Customer/behaviors/index.js";
 import { apiActivityBehaviors } from "../activity/Activity/behaviors/index.js";
 import { apiAppVersionBehaviors } from "../app/AppVersion/behaviors/index.js";
+import { apiSpotlightBehaviors } from "../user/Spotlight/behaviors/index.js";
 import { apiSftpUserBehaviors } from "../access/SftpUser/behaviors/index.js";
 import { apiArticleBehaviors } from "../article/Article/behaviors/index.js";
 import { apiVolumeBehaviors } from "../container/Volume/behaviors/index.js";
@@ -152,6 +154,7 @@ export function initApiModels(options: InitApiModelsOptions): void {
   config.behaviors.server = apiServerBehaviors(apiClient);
   config.behaviors.session = apiSessionBehaviors(apiClient);
   config.behaviors.sftpUser = apiSftpUserBehaviors(apiClient);
+  config.behaviors.spotlight = apiSpotlightBehaviors(apiClient);
   config.behaviors.sshKey = apiSshKeyBehaviors(apiClient);
   config.behaviors.sshUser = apiSshUserBehaviors(apiClient);
   config.behaviors.storageMetrics = apiStorageMetricsBehaviors(apiClient);
@@ -176,6 +179,7 @@ export function initApiModels(options: InitApiModelsOptions): void {
   config.behaviors.customerAiApiKey = apiCustomerAIApiKeyBehaviors(apiClient);
   config.behaviors.projectAiPlan = apiProjectAIPlanBehaviors(apiClient);
   config.behaviors.customerAiPlan = apiCustomerAIPlanBehaviors(apiClient);
+  config.behaviors.aiTokenStatistics = apiAITokenStatisticsBehaviors(apiClient);
   config.behaviors.license = apiLicenseBehaviors(apiClient);
   config.behaviors.usageMetrics = apiUsageMetricsBehaviors(
     apiClient,

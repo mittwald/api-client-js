@@ -13,6 +13,7 @@ import type {
 } from "./types.js";
 
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
+import { AITokenStatistics } from "../AITokenStatistics/index.js";
 import { ContractDetailed } from "../../contract/index.js";
 import { AggregateMetaData } from "../../common/index.js";
 import { formatTokenUsage } from "../helper.js";
@@ -36,10 +37,12 @@ export class CustomerAIPlan extends ReferenceModel {
   );
 
   public readonly customerId: string;
+  public readonly tokenStatistics: AITokenStatistics;
 
   public constructor(planId: string, customerId: string) {
     super(planId);
     this.customerId = customerId;
+    this.tokenStatistics = AITokenStatistics.ofPlan(customerId, planId);
   }
 
   public static async acceptModelTermsForCustomer(customerId: string) {

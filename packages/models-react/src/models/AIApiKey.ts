@@ -12,3 +12,6 @@ export type CustomerAIApiKeyGhost = MaybeReactGhost<Models.CustomerAIApiKey>;
 
 export const CustomerAIPlanGhost = makeGhost(Models.CustomerAIPlan);
 export type CustomerAIPlanGhost = MaybeReactGhost<Models.CustomerAIPlan>;
+
+export const AITokenStatisticsGhost = makeGhost(Models.AITokenStatistics);
+export type AITokenStatisticsGhost = MaybeReactGhost<Models.AITokenStatistics>;

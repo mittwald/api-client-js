@@ -74,6 +74,7 @@ export * from "./Registry.js";
 export * from "./Server.js";
 export * from "./Session.js";
 export * from "./SftpUser.js";
+export * from "./Spotlight.js";
 export * from "./SshKey.js";
 export * from "./SshUser.js";
 export * from "./SupportCode.js";

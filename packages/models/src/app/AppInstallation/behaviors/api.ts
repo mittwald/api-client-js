@@ -9,6 +9,15 @@ import { resolveTotalCount } from "../../../base/index.js";
 export const apiAppInstallationBehaviors = (
   client: MittwaldAPIV2Client,
 ): AppInstallationBehaviors => ({
+  find: async (appInstallationId) => {
+    const response = await client.app.getAppinstallation({ appInstallationId });
+    if (response.status === 200) {
+      return response.data;
+    }
+    // API-DRIFT: getAppinstallation omits 403 in its generated response type, so anyStatus403 (403 as any) is passed (resolve: use the literal 403 once the client type declares it)
+    validateResponse(response, [404, anyStatus403]);
+  },
+
   list: async (projectId, query) => {
     const response = await client.app.listAppinstallations({
       queryParameters: query,
@@ -41,14 +50,6 @@ export const apiAppInstallationBehaviors = (
     validateResponse(response, 200);
 
     return response.data;
-  },
-
-  find: async (appInstallationId) => {
-    const response = await client.app.getAppinstallation({ appInstallationId });
-    if (response.status === 200) {
-      return response.data;
-    }
-    validateResponse(response, [404, anyStatus403]);
   },
 
   createStaging: async (appInstallationId, data) => {
