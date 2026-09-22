@@ -27,8 +27,12 @@ export class RequestBodies {
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {
     const t = {
       ns: RequestBodies.ns,
+      // request bodies are request-only, so they can be widened in place
       types: await asyncStringJoin(this.schemas, (schema) =>
-        schema.compile(opts),
+        schema.compileAsRequestInput(
+          opts,
+          this.components.model.dateTimeInputSchemaNames,
+        ),
       ),
     };
 
