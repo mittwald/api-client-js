@@ -12,10 +12,18 @@ const getComponentRef = (something: object): string | undefined => {
   }
 };
 
+/**
+ * Resolves a `#/components/…` ref to the TypeScript type it should be compiled
+ * to. Used to redirect refs to the widened request variant of a component
+ * schema.
+ */
+export type RefTSNameResolver = (rootNamespace: string, $ref: string) => string;
+
 export const componentRefsToCustomTypes = (
   rootNamespace: string,
   something: unknown,
   clone = true,
+  resolveTSName: RefTSNameResolver = refNameToTSName,
 ): unknown => {
   if (clone) {
     something = cloneDeep(something);
@@ -27,7 +35,7 @@ export const componentRefsToCustomTypes = (
 
   if (is.array(something)) {
     return something.map((item) =>
-      componentRefsToCustomTypes(rootNamespace, item, false),
+      componentRefsToCustomTypes(rootNamespace, item, false, resolveTSName),
     );
   }
 
@@ -36,7 +44,7 @@ export const componentRefsToCustomTypes = (
   if (componentRef !== undefined) {
     // see https://github.com/bcherny/json-schema-to-typescript#custom-schema-properties
     return {
-      tsType: refNameToTSName(rootNamespace, componentRef),
+      tsType: resolveTSName(rootNamespace, componentRef),
       type: "object",
     };
   }
@@ -44,7 +52,7 @@ export const componentRefsToCustomTypes = (
   return Object.fromEntries(
     Object.entries(something).map(([key, value]) => [
       key,
-      componentRefsToCustomTypes(rootNamespace, value, false),
+      componentRefsToCustomTypes(rootNamespace, value, false, resolveTSName),
     ]),
   );
 };

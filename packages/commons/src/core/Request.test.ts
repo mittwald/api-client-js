@@ -69,4 +69,90 @@ describe("query parameters", () => {
 
     expect(query).toBe("foo=1&bar=true&baz=%7B%22some%22%3A%22value%22%7D");
   });
+
+  test("Date parameter", () => {
+    const query = executeRequest({
+      since: new Date("2024-10-12T09:08:07.006Z"),
+    });
+
+    expect(query).toBe("since=2024-10-12T09%3A08%3A07.006Z");
+  });
+
+  test("Array of Dates", () => {
+    const query = executeRequest({
+      at: [new Date("2024-10-12T09:08:07.006Z")],
+    });
+
+    expect(query).toBe("at=2024-10-12T09%3A08%3A07.006Z");
+  });
+});
+
+describe("dates in requests", () => {
+  const date = new Date("2024-10-12T09:08:07.006Z");
+  const iso = "2024-10-12T09:08:07.006Z";
+
+  const op = {
+    path: "/things/{at}",
+    operationId: "test",
+    method: "POST",
+  } as const;
+
+  const executeRequest = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    requestObject: any,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ): any => {
+    const request = new Request(op, requestObject);
+    request.execute(mockedAxios);
+    return requestFn.mock.calls[0][0];
+  };
+
+  test("Dates in the request body are serialized to ISO 8601", () => {
+    const config = executeRequest({
+      at: "now",
+      data: {
+        terminationTargetDate: date,
+        nested: { at: date, list: [{ at: date }] },
+        untouched: "10/12/2024",
+        nothing: null,
+      },
+    });
+
+    expect(config.data).toEqual({
+      terminationTargetDate: iso,
+      nested: { at: iso, list: [{ at: iso }] },
+      untouched: "10/12/2024",
+      nothing: null,
+    });
+  });
+
+  test("Dates in path parameters are serialized to ISO 8601", () => {
+    const config = executeRequest({ at: date, data: {} });
+
+    expect(config.url).toBe(`things/${encodeURIComponent(iso)}`);
+  });
+
+  test("Dates in headers are serialized to ISO 8601", () => {
+    const config = executeRequest({
+      at: "now",
+      data: {},
+      headers: { "x-since": date },
+    });
+
+    expect(config.headers).toEqual({ "x-since": iso });
+  });
+
+  test("The request object passed in is not mutated", () => {
+    const requestObject = { at: "now", data: { at: date } };
+    executeRequest(requestObject);
+
+    expect(requestObject.data.at).toBe(date);
+  });
+
+  test("Non-plain payloads are passed through by reference", () => {
+    const data = new URLSearchParams({ a: "b" });
+    const config = executeRequest({ at: "now", data });
+
+    expect(config.data).toBe(data);
+  });
 });

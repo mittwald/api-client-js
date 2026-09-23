@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.467.0](https://github.com/mittwald/api-client-js/compare/4.466.0...4.467.0) (2026-09-22)
+
+### Features
+
+* accept JS Date for date-time request values ([#299](https://github.com/mittwald/api-client-js/issues/299)) ([cd1c20a](https://github.com/mittwald/api-client-js/commit/cd1c20adb198314de4cc0f041e37c9d4079386e0)), closes [#209](https://github.com/mittwald/api-client-js/issues/209)
+
+# [4.466.0](https://github.com/mittwald/api-client-js/compare/4.465.0...4.466.0) (2026-09-21)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.465.0](https://github.com/mittwald/api-client-js/compare/4.464.0...4.465.0) (2026-09-17)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.464.0](https://github.com/mittwald/api-client-js/compare/4.463.0...4.464.0) (2026-09-16)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.463.0](https://github.com/mittwald/api-client-js/compare/4.462.0...4.463.0) (2026-09-15)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.462.0](https://github.com/mittwald/api-client-js/compare/4.461.0...4.462.0) (2026-09-15)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.461.0](https://github.com/mittwald/api-client-js/compare/4.460.0...4.461.0) (2026-09-11)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.460.0](https://github.com/mittwald/api-client-js/compare/4.459.0...4.460.0) (2026-09-09)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.459.0](https://github.com/mittwald/api-client-js/compare/4.458.0...4.459.0) (2026-09-09)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.458.0](https://github.com/mittwald/api-client-js/compare/4.457.1...4.458.0) (2026-09-08)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+## [4.457.1](https://github.com/mittwald/api-client-js/compare/4.457.0...4.457.1) (2026-09-08)
+
+### Bug Fixes
+
+* **deps:** widen @mittwald/react-use-promise peer range to 3.x and 4.x ([#294](https://github.com/mittwald/api-client-js/issues/294)) ([9d15968](https://github.com/mittwald/api-client-js/commit/9d159686b3ef00f5ef88746eb5188c773b71a398)), closes [#293](https://github.com/mittwald/api-client-js/issues/293)
+
+# [4.457.0](https://github.com/mittwald/api-client-js/compare/4.456.0...4.457.0) (2026-09-06)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
+# [4.456.0](https://github.com/mittwald/api-client-js/compare/4.455.0...4.456.0) (2026-09-04)
+
+**Note:** Version bump only for package @mittwald/api-client-commons
+
 # [4.455.0](https://github.com/mittwald/api-client-js/compare/4.454.0...4.455.0) (2026-09-04)
 
 **Note:** Version bump only for package @mittwald/api-client-commons
