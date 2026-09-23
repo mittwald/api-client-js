@@ -43,11 +43,16 @@ const formDataEntries = (data: unknown): Array<[string, unknown]> => {
 };
 
 describe("JSON request bodies", () => {
-  test("data is handed to axios untouched", () => {
+  /**
+   * Structural, not referential: `serializeDates` rebuilds plain objects on the
+   * way to axios so that a `Date` in the body becomes an ISO string. What
+   * matters here is that the body is not re-encoded into something else.
+   */
+  test("data is handed to axios unencoded", () => {
     const data = { foo: "bar" };
     const config = buildConfig(undefined, data);
 
-    expect(config.data).toBe(data);
+    expect(config.data).toEqual(data);
     expect(config.headers).toBeUndefined();
   });
 
@@ -55,7 +60,7 @@ describe("JSON request bodies", () => {
     const data = { foo: "bar" };
     const config = buildConfig("application/json", data);
 
-    expect(config.data).toBe(data);
+    expect(config.data).toEqual(data);
     expect(config.headers).toBeUndefined();
   });
 });
@@ -118,6 +123,20 @@ describe("multipart/form-data request bodies", () => {
     ]);
   });
 
+  /**
+   * Dates are serialized before the body is encoded, so a `Date` field becomes
+   * a bare ISO string part instead of a JSON-quoted one.
+   */
+  test("date fields are appended as ISO strings", () => {
+    const config = buildConfig("multipart/form-data", {
+      createdAt: new Date("2026-01-02T03:04:05.000Z"),
+    });
+
+    expect(formDataEntries(config.data)).toEqual([
+      ["createdAt", "2026-01-02T03:04:05.000Z"],
+    ]);
+  });
+
   test("other objects are JSON encoded", () => {
     const config = buildConfig("multipart/form-data", {
       meta: { some: "value" },
@@ -159,7 +178,7 @@ describe("other request body media types", () => {
     const data = { grant_type: "authorization_code" };
     const config = buildConfig("application/x-www-form-urlencoded", data);
 
-    expect(config.data).toBe(data);
+    expect(config.data).toEqual(data);
     expect(config.headers).toEqual({
       "Content-Type": "application/x-www-form-urlencoded",
     });
