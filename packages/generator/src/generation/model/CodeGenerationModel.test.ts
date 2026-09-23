@@ -172,3 +172,15 @@ test("a deprecated referenced request parameter is emitted with an @deprecated t
 
   expect(types).toMatch(deprecatedBefore("legacySort?"));
 });
+
+/**
+ * Component parameters are request-only, so they are compiled through
+ * `compileAsRequestInput` rather than `compile`. Both paths have to apply the
+ * type alias workaround, otherwise the standalone alias ends up with an empty
+ * JSDoc block.
+ */
+test("a deprecated component parameter alias gets an @deprecated tag", async () => {
+  const types = await compileTypes();
+
+  expect(types).toMatch(deprecatedBefore("export type LegacySort"));
+});

@@ -8,6 +8,8 @@ import {
   ensureDeprecatedTypeAliasComment,
   isDeprecated,
 } from "../../deprecation.js";
+import { widenDateTimeInputs } from "../../dateTime/dateTimeInput.js";
+import { dateTimeInputRefTSNameResolver } from "../../dateTime/dateTimeInputRefs.js";
 
 export class JSONSchema {
   public readonly schemaObject: JSONSchemaObject;
@@ -22,6 +24,40 @@ export class JSONSchema {
     const withCustomRefTypes = componentRefsToCustomTypes(
       opts.rootNamespace,
       this.schemaObject,
+    ) as JSONSchemaObject;
+
+    const compiled = await compileJsonSchema(
+      withCustomRefTypes,
+      this.name.tsType,
+    );
+
+    return isDeprecated(this.schemaObject)
+      ? ensureDeprecatedTypeAliasComment(compiled, this.name.tsType)
+      : compiled;
+  }
+
+  /**
+   * Compiles the schema for usage in _request_ position.
+   *
+   * In contrast to {@link compile}, `format: date-time` strings are widened to
+   * `string | Date`, so that a JS `Date` may be passed instead of a
+   * hand-formatted ISO 8601 string. Refs to component schemas that have a
+   * widened request variant are redirected to that variant.
+   *
+   * This must never be used for response types: widening them would be a
+   * breaking change for consumers.
+   */
+  public async compileAsRequestInput(
+    opts: TypeCompilationOptions,
+    dateTimeInputSchemaNames: ReadonlySet<string>,
+  ): Promise<string> {
+    const widened = widenDateTimeInputs(this.schemaObject);
+
+    const withCustomRefTypes = componentRefsToCustomTypes(
+      opts.rootNamespace,
+      widened,
+      false,
+      dateTimeInputRefTSNameResolver(dateTimeInputSchemaNames),
     ) as JSONSchemaObject;
 
     const compiled = await compileJsonSchema(
