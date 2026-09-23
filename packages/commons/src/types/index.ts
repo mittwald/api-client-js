@@ -1,3 +1,4 @@
+export * from "./BinaryData.js";
 export * from "./RequestType.js";
 export * from "./RequestFunction.js";
 export * from "./Response.js";
