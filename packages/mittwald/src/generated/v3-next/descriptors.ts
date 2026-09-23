@@ -19651,3 +19651,32 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** Get a specific OAuth2 client. */
+export const contributorGetOauthClient: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/oauth2/clients/{oauthClientId}",
+  method: "GET",
+  operationId: "contributor-get-oauth-client",
+};

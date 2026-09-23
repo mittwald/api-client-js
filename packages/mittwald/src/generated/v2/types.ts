@@ -4985,6 +4985,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace ContributorGetOauthClient {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorGetOauthClient
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorGetOauthClient,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -42317,6 +42328,52 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Oauth2ClientsOauthClientId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            oauthClientId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                allowedGrantTypes?: string[];
+                allowedRedirectUris?: string[];
+                allowedScopes?: string[];
+                description?: string;
+                humanReadableName: string;
+                id: string;
+                type?: "public" | "confidential";
+              }
             }
           }
 
