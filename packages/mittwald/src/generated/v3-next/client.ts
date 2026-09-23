@@ -764,10 +764,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
     ),
-    /** Get a specific OAuth2 client. */
-    contributorGetOauthClient: this.requestFunctionFactory(
-      descriptors.contributorGetOauthClient,
-    ),
   };
 
   /** The conversation API allows you to manage your support conversations. */
