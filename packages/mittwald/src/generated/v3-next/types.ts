@@ -4850,6 +4850,17 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace ContributorGetOauthClient {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorGetOauthClient
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorGetOauthClient,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -11092,6 +11103,11 @@ export declare module MittwaldAPIV3Next {
         vote: number;
       }
 
+      export type DeMittwaldUserUserFeedbackSpotlightDecision =
+        | "keep"
+        | "kill"
+        | "ignore";
+
       export interface DeMittwaldUserProjectMembership {
         expiresAt?: string;
         id?: string;
@@ -11250,11 +11266,6 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export type DeMittwaldUserUserFeedbackSpotlightDecision =
-        | "keep"
-        | "kill"
-        | "ignore";
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -12429,8 +12440,8 @@ export declare module MittwaldAPIV3Next {
           export type Header = {};
 
           export type Query = {
-            startDate: string;
-            endDate: string;
+            startDate: string | Date;
+            endDate: string | Date;
             keyId?: string;
           };
         }
@@ -13284,8 +13295,9 @@ export declare module MittwaldAPIV3Next {
             appInstallationId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+          export type Header = {
+            "Accept-Language"?: "de" | "en";
+          } & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {};
         }
@@ -40924,6 +40936,52 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextOauth2ClientsOauthClientId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            oauthClientId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                allowedGrantTypes?: string[];
+                allowedRedirectUris?: string[];
+                allowedScopes?: string[];
+                description?: string;
+                humanReadableName: string;
+                id: string;
+                type?: "public" | "confidential";
+              }
             }
           }
 
