@@ -39674,6 +39674,7 @@ export declare module MittwaldAPIV3Next {
           export interface RequestBody {
             acknowledged?: boolean;
             /**
+             * @deprecated
              * The Owner of the Feature the spotlight is highlighting.
              */
             owner?: string;
@@ -40535,9 +40536,10 @@ export declare module MittwaldAPIV3Next {
              */
             message?: string;
             /**
-             * The Owner of the Feature the spotlight is highlighting.
+             * @deprecated
+             * The Owner of the spotlight is no longer writable.
              */
-            owner: string;
+            owner?: string;
           }
 
           export type Header =
