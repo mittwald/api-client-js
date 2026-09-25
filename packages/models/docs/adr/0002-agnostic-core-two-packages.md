@@ -22,9 +22,9 @@ versioned in lockstep; the dependency runs one-way, react → core.
 - The `@mittwald.de` heuristic `isEmployee` is not hardcoded in the package:
   primarily `data.isEmployee`, with a fallback injected via `initApiModels` when
   needed.
-- An ESLint guard (`no-restricted-imports` for `react`/`@tabler`/`@/…`/
-  `shared/…`, `no-restricted-globals` for `document`/`window`) on
-  `src/packages/models` prevents regressions.
+- An ESLint guard in `packages/models/.eslintrc.yml` (`no-restricted-imports`
+  for `react`/`react-dom`/`@tabler/*`/`@mittwald/flow-react-components`,
+  `no-restricted-globals` for `document`/`window`) prevents regressions.
 - Agnostic consumers (Node/CLI) get a react-free dependency tree.
   `@mittwald/react-ghostmaker` (a core dep for the `@GhostMakerModel` decorator)
   must declare `react`/`react-query` as _optional_ peers, or be split react-free

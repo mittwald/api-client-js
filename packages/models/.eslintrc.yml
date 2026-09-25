@@ -17,6 +17,40 @@ rules:
   # concrete type is impossible. Relaxed package-wide rather than contorting
   # the existing types; tighten later if desired.
   "@typescript-eslint/no-explicit-any": off
+  # The core stays free of React, UI and the DOM (docs/adr/0002). React code
+  # belongs in @mittwald/api-models-react; downloads return data instead of
+  # touching `document`/`window`.
+  no-restricted-imports:
+    - error
+    - paths:
+        - name: react
+          message:
+            "The core is React-free (ADR-0002); React code belongs in
+            @mittwald/api-models-react."
+        - name: react-dom
+          message:
+            "The core is React-free (ADR-0002); React code belongs in
+            @mittwald/api-models-react."
+        - name: "@mittwald/flow-react-components"
+          message:
+            "The core carries no UI (ADR-0002); UI belongs in the consumer."
+      patterns:
+        - group:
+            - "react/*"
+            - "react-dom/*"
+            - "@mittwald/flow-react-components/*"
+            - "@tabler/*"
+          message: "The core carries no React or UI (ADR-0002)."
+  no-restricted-globals:
+    - error
+    - name: document
+      message:
+        "The core is DOM-free (ADR-0002); return data and let the consumer touch
+        the DOM."
+    - name: window
+      message:
+        "The core is DOM-free (ADR-0002); return data and let the consumer touch
+        the DOM."
 overrides:
   # The local ESLint plugin is CommonJS — ESLint 8's eslintrc loader requires()
   # its plugins, so these files cannot be ESM like the rest of the package.
