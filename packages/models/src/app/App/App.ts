@@ -1,6 +1,6 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
 
-import type { AppVersionListQuery } from "..//index.js";
+import type { AppVersionListQuery } from "../index.js";
 import type {
   AppListQueryData,
   AppListItemData,
@@ -10,7 +10,7 @@ import type {
 
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { config } from "../../config/index.js";
-import { AppVersion } from "..//index.js";
+import { AppVersion } from "../index.js";
 import {
   ListQueryModel,
   ReferenceModel,

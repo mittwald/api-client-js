@@ -15,7 +15,7 @@ import {
   installBehaviors,
   resetBehaviors,
 } from "../../testing/installBehaviors.js";
-import { App } from "..//index.js";
+import { App } from "../index.js";
 import {
   AppVersionListQuery,
   AppVersionDetailed,

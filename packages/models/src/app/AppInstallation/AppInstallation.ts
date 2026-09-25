@@ -5,7 +5,7 @@ import { omit } from "remeda";
 
 import type { MySqlDetailed, RedisDetailed } from "../../database/index.js";
 import type { IngressListItem, IngressPath } from "../../ingress/index.js";
-import type { AppUpdatePolicyData } from "..//index.js";
+import type { AppUpdatePolicyData } from "../index.js";
 import type {
   AppInstallationStagingCreateRequestData,
   AppInstallationStagingDetachRequestData,
@@ -26,7 +26,7 @@ import {
 } from "../SystemSoftware/index.js";
 import { InstalledSystemSoftware } from "../InstalledSystemSoftware/index.js";
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
-import { AppLinkedDatabase, AppVersion, AppId, App } from "..//index.js";
+import { AppLinkedDatabase, AppVersion, AppId, App } from "../index.js";
 import { Project } from "../../project/internal.js";
 import { AggregateMetaData } from "../../common/index.js";
 import { User } from "../../user/User/User.js";

@@ -1,6 +1,6 @@
 import type { MittwaldAPIV2 } from "@mittwald/api-client";
 
-import type { App } from "../..//index.js";
+import type { App } from "../../index.js";
 
 export type AppVersionData =
   MittwaldAPIV2.Operations.AppGetAppversion.ResponseData;

@@ -14,7 +14,7 @@ import type {
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { UserInput } from "../UserInput/index.js";
 import { config } from "../../config/index.js";
-import { App } from "..//index.js";
+import { App } from "../index.js";
 import {
   sortByPositionMeta,
   ListQueryModel,
