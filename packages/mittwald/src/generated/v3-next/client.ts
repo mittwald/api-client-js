@@ -1536,7 +1536,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     oauthGetAuthorization: this.requestFunctionFactory(
       descriptors.userOauthGetAuthorization,
     ),
-    /** Retrieve Access Token from Authorization Code. */
+    /** Retrieve an OAuth access token. */
     oauthRetrieveAccessToken: this.requestFunctionFactory(
       descriptors.userOauthRetrieveAccessToken,
     ),
@@ -1573,10 +1573,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
-    ),
-    /** Check if a password is leaked. */
-    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
-      descriptors.userSearchedLeakedPasswordsByRange,
     ),
   };
 

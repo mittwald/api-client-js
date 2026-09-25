@@ -1110,11 +1110,6 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
   ).getApiResource,
-  /** Check if a password is leaked. */
-  searchedLeakedPasswordsByRange: new ApiCallAsyncResourceFactory(
-    descriptors.userSearchedLeakedPasswordsByRange,
-    baseClient.user.searchedLeakedPasswordsByRange,
-  ).getApiResource,
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({

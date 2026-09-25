@@ -19200,7 +19200,7 @@ export const userOauthGetAuthorization: OpenAPIOperation<
   operationId: "user-oauth-get-authorization",
 };
 
-/** Retrieve Access Token from Authorization Code. */
+/** Retrieve an OAuth access token. */
 export const userOauthRetrieveAccessToken: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2Token.Post.Parameters.RequestBody>,
@@ -19684,67 +19684,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get a specific OAuth2 client. */
-export const contributorGetOauthClient: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/oauth2/clients/{oauthClientId}",
-  method: "GET",
-  operationId: "contributor-get-oauth-client",
-};
-
-/** Check if a password is leaked. */
-export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/leaked-passwords/{passwordHashPrefix}",
-  method: "GET",
-  operationId: "user-searched-leaked-passwords-by-range",
 };

@@ -5002,28 +5002,6 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
-
-    namespace ContributorGetOauthClient {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorGetOauthClient
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorGetOauthClient,
-          TStatus
-        >;
-    }
-
-    namespace UserSearchedLeakedPasswordsByRange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userSearchedLeakedPasswordsByRange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userSearchedLeakedPasswordsByRange,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -42454,97 +42432,6 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextOauth2ClientsOauthClientId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            oauthClientId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                allowedGrantTypes?: string[];
-                allowedRedirectUris?: string[];
-                allowedScopes?: string[];
-                description?: string;
-                humanReadableName: string;
-                id: string;
-                type?: "public" | "confidential";
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextLeakedPasswordsPasswordHashPrefix {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            passwordHashPrefix: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = string[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
