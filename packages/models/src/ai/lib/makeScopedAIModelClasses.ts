@@ -43,8 +43,8 @@ export interface ScopedAIModelListBehavior<TData, TQuery> {
  * Builds the identical `ReferenceModel → Common → ListItem` + `ListQuery →
  * List` class family for a scoped AI-model context. `CustomerAIModel` and
  * `ProjectAIModel` are 100 % identical apart from the ghost name and which
- * scoped `list` behavior they call, so both are produced from this one factory
- * (DDD-review finding #5). The generic keeps each scope's public data type.
+ * scoped `list` behavior they call, so both are produced from this one factory.
+ * The generic keeps each scope's public data type.
  */
 export const makeScopedAIModelClasses = <
   TData extends ScopedAIDetailedModelData,

@@ -60,10 +60,8 @@ databases, etc. _Avoid_: Workspace, Site
 > each other **by identity** (`X.ofId(id)` → `ReferenceModel`) or **by query**
 > (`X.query(...)` → `ListQueryModel`), never by embedding loaded `data`. This
 > produces module-level import cycles that carry no domain coupling and are
-> **accepted** — see the DDD review
-> ([issue #3754](https://gitlab.mittwald.it/coab-0x7e7/frontend/apps/mstudio/-/issues/3754),
-> finding #3); the reference/`queryId` conventions and the import-cycle trap are
-> in [docs/implementation-patterns.md](docs/implementation-patterns.md).
+> **accepted**; the reference/`queryId` conventions and the import-cycle trap
+> are in [docs/implementation-patterns.md](docs/implementation-patterns.md).
 
 **Server**: A managed hosting server (machine type, storage) owned by a
 Customer. _Avoid_: Host, Machine, VM, Instance
@@ -74,13 +72,11 @@ Subscription, Plan
 **App / AppInstallation**: An installable application and its concrete
 installation within a Project. _Avoid_: Software, Package
 
-**Domain**: An internet domain. In the DDD review
-([issue #3754](https://gitlab.mittwald.it/coab-0x7e7/frontend/apps/mstudio/-/issues/3754))
-the surrounding concern was split into four sibling contexts — `domain`
-(registration, handles, migration), `dns` (`DnsZone`, records), `certificate`
-(TLS, ACME), and `ingress` (routing). `dns`/`domain` stay directed;
-`certificate` and `ingress` reference each other (an accepted lazy module cycle
-— see the import-cycle trap in
+**Domain**: An internet domain. The surrounding concern is split into four
+sibling contexts — `domain` (registration, handles, migration), `dns`
+(`DnsZone`, records), `certificate` (TLS, ACME), and `ingress` (routing).
+`dns`/`domain` stay directed; `certificate` and `ingress` reference each other
+(an accepted lazy module cycle — see the import-cycle trap in
 [docs/implementation-patterns.md](docs/implementation-patterns.md)). _Avoid_:
 Hostname, URL
 
@@ -104,16 +100,15 @@ subdomains — do not merge. `monitoring` = resource **usage/consumption**
 (`UsageMetrics` CPU/memory time-series, `StorageMetrics`); its Prometheus-style
 query primitive lives internally at `monitoring/lib/metrics` (not a public
 context). `performance` = **web-performance** analysis (Lighthouse/TTFB,
-screenshots). `status` (service status) left the package in the DDD review (now
-`src/shared/status`). See the DDD review
-([issue #3754](https://gitlab.mittwald.it/coab-0x7e7/frontend/apps/mstudio/-/issues/3754)).
-_Avoid_: "metrics" as a standalone context; lumping web-performance with usage.
+screenshots). `status` (service status) is not part of this package; it belongs
+to the consumer. _Avoid_: "metrics" as a standalone context; lumping
+web-performance with usage.
 
 **Access / Credentials**: Credential-like models live with their **owning
 aggregate**, by design, not in a single "credentials" context: `user/SshKey` +
 `user/ApiToken` (personal, on the User), `access/SftpUser` + `access/SshUser`
-(project access), `database/MySqlUser` (within a database). See the DDD review
-(issue #3754). _Avoid_: a cross-aggregate `credentials`/`access` bucket.
+(project access), `database/MySqlUser` (within a database). _Avoid_: a
+cross-aggregate `credentials`/`access` bucket.
 
 **AI Hosting (scoped)**: The AI-hosting product, modelled per **scope** —
 `Customer*` (billing/contract scope) and `Project*` (container/licence scope)
@@ -121,7 +116,5 @@ variants of `AIModel`, `AIApiKey`, `AIPlanOptions`. The scope split mirrors the
 api-client's own `customer*`/`project*` endpoints and the app's scoped route
 trees; it is deliberate, not duplication to abstract away. The identical
 `*AIModel` family is deduped behind one factory; the diverging families stay
-scope-specific — see the DDD review
-([issue #3754](https://gitlab.mittwald.it/coab-0x7e7/frontend/apps/mstudio/-/issues/3754),
-finding #5). _Avoid_: forcing a single generic scope abstraction over the
+scope-specific. _Avoid_: forcing a single generic scope abstraction over the
 diverging families.

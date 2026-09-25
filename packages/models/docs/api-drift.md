@@ -1,6 +1,6 @@
 # API drift: `@mittwald/api-models` ↔ `@mittwald/api-client`
 
-**As of:** api-client `4.465.0` · maintained by the `/update-api-client` job.
+**As of:** api-client `4.465.0`.
 
 Places where this package deviates from the generated OpenAPI spec. **Every row
 is two-sided** — not automatically "the backend must fix it": either the spec

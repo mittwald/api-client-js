@@ -566,7 +566,7 @@ Because every `*Data` type is derived from `@mittwald/api-client`, the models
 drift out of sync whenever that dependency is **bumped** and the generated
 `MittwaldAPIV2.*` types change shape. Where we deliberately keep a workaround
 for such drift, tag it in-code with a flat, greppable marker so it is
-self-documenting and discoverable — `grep -rn "API-DRIFT" src/packages/models`
+self-documenting and discoverable — `grep -rn "API-DRIFT" packages/models/src`
 lists every open deviation:
 
 ```ts
@@ -589,22 +589,12 @@ generated response type omits the status and the resolve condition (drop the
 cast for the literal status once the client type declares it). The cast tokens
 stay greppable on their own, but the marker records _why_ each one is needed.
 
-> **Gotcha when adding markers in `behaviors/api.ts`:**
-> `perfectionist/sort-objects` orders the behavior methods by **line length**
-> (`type: "line-length"`). A marker comment is usually the longest line in its
-> method, so inserting one inflates that method's measured length and ESLint
-> will reorder the object. Run `eslint --fix` after adding markers and let it
-> re-sort — the reordering is expected, not a mistake.
-
-The `/update-api-client` project command
-(`.claude/commands/update-api-client.md`) is the versioned job that keeps the
-package current: it **bumps `@mittwald/api-client` to the latest version, fixes
-the breaking changes that bump introduces**, then resolves the `API-DRIFT`
-markers whose resolve condition now holds (removing the resolved markers) and
-opens a GitLab MR. Doing the bump first is deliberate — it is what surfaces the
-drift in the first place. A weekly scheduled routine runs that command;
-triggering it straight from the dependency-update pipeline would be even more
-timely.
+Every update of the generated `@mittwald/api-client` types is also the moment to
+revisit the markers: **first fix the breaking changes the new types introduce**,
+then resolve the `API-DRIFT` markers whose resolve condition now holds (removing
+the resolved markers) and update [docs/api-drift.md](api-drift.md). Fixing the
+breaking changes first is deliberate — it is what surfaces the drift in the
+first place.
 
 ## Small `lib/` helpers
 
@@ -701,13 +691,13 @@ Two rules make it work — both easy to break silently:
    from `./internal`, not from their own files, precisely so it cannot pull a
    base class in ahead of the barrel.
 
-Because the order is deliberate and non-alphabetical, **import/export sorting is
-turned off for
-`**/internal.ts`** in `eslint.config.ts`(otherwise`simple-import-sort`re-sorts the`export
-\*` lines alphabetically and reintroduces bug 1). Keep the blank-line groups as
-documentation of the tiers (bases → subclasses → factory → attribute subclasses
-→ modifier subclass) and hand-maintain them; do not let a formatter reorder the
-file.
+Because the order is deliberate and non-alphabetical, **no import/export sorting
+may touch an `internal.ts` barrel**. No such rule is active in this package
+today; if one is ever added, exclude every `internal.ts` from it (otherwise it
+re-sorts the `export *` lines alphabetically and reintroduces bug 1). Keep the
+blank-line groups as documentation of the tiers (bases → subclasses → factory →
+attribute subclasses → modifier subclass) and hand-maintain them; do not let a
+formatter reorder the file.
 
 ### When a cluster actually needs an `internal.ts`
 
@@ -1020,8 +1010,8 @@ Used across every `*Common` constructor, e.g.
 Fixed vocabularies are declared **once** as an `as const` tuple and the literal
 union is derived from it with `(typeof x)[number]`. The array is the runtime
 allowlist and the type in one place, so they cannot drift apart. (The package
-uses this rather than `satisfies` — there are no `satisfies` expressions under
-`src/packages/models`.)
+uses this rather than `satisfies` — outside of tests there are no `satisfies`
+expressions under `packages/models/src`.)
 
 ```ts
 // invoice/Invoice/types.ts
@@ -1046,30 +1036,19 @@ Used in: `common/LocalizedText.ts`, `invoice/Invoice/types.ts`,
 
 ## Class member ordering: static → fields → constructor → methods
 
-Within a class, members follow `perfectionist`'s default group order: static
-members first, then instance fields, then accessors, the constructor, and
-finally instance methods — with **public before protected before private**
-inside each of those. The shape of the object is declared before the behavior
-that operates on it.
+Within a class, members follow a fixed group order: static members first, then
+instance fields, then accessors, the constructor, and finally instance methods —
+with **public before protected before private** inside each of those. The shape
+of the object is declared before the behavior that operates on it.
 
-This is wired up as a lint **error**, not just a convention, because the models
-package opts into ESLint (`eslint.config.ts` › `src/packages/models/**`):
+Within a group, members are sorted in **natural order** by name, so they read
+`find*` before `get*`, `create` before `update`, etc. This means the
+meaning-based pairing (`findDetailed` sitting next to `getDetailed`) is **not**
+preserved — natural sort groups all `find*` together, then all `get*`. That is a
+deliberate trade of "pairs read together" for a single deterministic order.
 
-```jsonc
-"perfectionist/sort-classes": ["error", {
-  // order by group, then NATURALLY within each group
-  "type": "natural",
-  "newlinesBetweenOverloadSignatures": "ignore",
-}]
-```
-
-Within a group, members are sorted in **natural order** (`type: "natural"`), so
-they read `find*` before `get*`, `create` before `update`, etc. by name. This
-means the old meaning-based pairing (`findDetailed` sitting next to
-`getDetailed`) is **not** preserved — natural sort groups all `find*` together,
-then all `get*`. That is a deliberate trade of "pairs read together" for a
-single deterministic order the fixer can enforce. (Note: top-level declaration
-order between classes is a separate concern owned by
-`perfectionist/sort-modules`, which stays **off** — see the `internal.ts`
-section — so the aggregate family's load-bearing declaration order is not
-touched by this rule.)
+No lint rule enforces this order in this package (`.eslintrc.yml` carries no
+class-member sorting rule); it is a convention, kept by hand. Top-level
+declaration order between classes is a separate concern: in the aggregate
+families and the `internal.ts` clusters it is load-bearing, so no tool may sort
+it — see the `internal.ts` section.

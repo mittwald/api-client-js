@@ -16,8 +16,9 @@ Two layers:
 
 - **Base classes** (`base/`): `BaseModel` → `ReferenceModel` (identity via
   `id`), plus `DataModel<T>` / `ListDataModel` / `ListQueryModel`. Concrete
-  models are composed from these via `polytype` multiple inheritance today; the
-  decision is to move to plain mixin functions
+  models get their data through the capability mixins `WithData<T>()` /
+  `WithListData<TItem>()`, so identity stays a single-inheritance chain and
+  native `instanceof` holds across it
   ([ADR-0004](docs/adr/0004-mixin-functions-instead-of-polytype.md)).
 - **Naming convention** per entity `X`: `X` (reference) · `XCommon` ·
   `XDetailed` · `XListItem` · `XListQuery` · `XList`. Data types in `types.ts`
