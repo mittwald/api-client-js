@@ -31,7 +31,10 @@ import { Project } from "../../project/internal.js";
 import { AggregateMetaData } from "../../common/index.js";
 import { User } from "../../user/User/User.js";
 import { Cronjob } from "../../cronjob/index.js";
-import { Ingress } from "../../ingress/index.js";
+// Not the ingress barrel: IngressTarget imports this module, so the barrel would
+// be evaluated mid-cycle, and vitest's `export *` then drops the names of the
+// modules still loading.
+import { Ingress } from "../../ingress/Ingress/index.js";
 import { MySql } from "../../database/index.js";
 import { config } from "../../config/index.js";
 import {

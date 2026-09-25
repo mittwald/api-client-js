@@ -1,3 +1,5 @@
+const { ghostNameLiteral } = require("./ghostDecorator.js");
+
 /**
  * Enforces that a `@GhostMakerModel({ name: "..." })` decorator's static `name`
  * exactly matches the name of the class it decorates.
@@ -14,13 +16,6 @@
  * - A `name` whose value is not a string literal, e.g. the scoped-AI factory's
  *   `name: cfg.ghostName` — resolved at runtime, verified at its call sites.
  */
-
-const propertyName = (key) => {
-  if (!key) return undefined;
-  if (key.type === "Identifier") return key.name;
-  if (key.type === "Literal" && typeof key.value === "string") return key.value;
-  return undefined;
-};
 
 /** @type {import("eslint").Rule.RuleModule} */
 const rule = {
@@ -43,46 +38,17 @@ const rule = {
       const className = node.id?.name;
       if (!className) return;
 
-      for (const decorator of node.decorators ?? []) {
-        const expr = decorator.expression;
-        if (
-          !expr ||
-          expr.type !== "CallExpression" ||
-          expr.callee?.type !== "Identifier" ||
-          expr.callee.name !== "GhostMakerModel"
-        ) {
-          continue;
-        }
+      const value = ghostNameLiteral(node);
+      if (!value || value.value === className) return;
 
-        const arg = (expr.arguments ?? [])[0];
-        if (!arg || arg.type !== "ObjectExpression") continue;
-
-        for (const prop of arg.properties ?? []) {
-          if (prop.type !== "Property") continue;
-          if (propertyName(prop.key) !== "name") continue;
-
-          const value = prop.value;
-          // Only a static string literal is comparable; skip dynamic names.
-          if (
-            !value ||
-            value.type !== "Literal" ||
-            typeof value.value !== "string"
-          ) {
-            return;
-          }
-          if (value.value === className) return;
-
-          context.report({
-            node: value,
-            messageId: "nameMismatch",
-            data: { name: value.value, className },
-            fix: value.range
-              ? (fixer) => fixer.replaceTextRange(value.range, `"${className}"`)
-              : undefined,
-          });
-          return;
-        }
-      }
+      context.report({
+        node: value,
+        messageId: "nameMismatch",
+        data: { name: value.value, className },
+        fix: value.range
+          ? (fixer) => fixer.replaceTextRange(value.range, `"${className}"`)
+          : undefined,
+      });
     };
 
     return {

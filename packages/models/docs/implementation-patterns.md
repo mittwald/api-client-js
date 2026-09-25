@@ -692,7 +692,12 @@ Two rules make it work — both easy to break silently:
    order and tripping the same `Class extends value undefined`. This applies to
    tests too: `Article.test.ts` imports `ArticleAttribute`/`ArticleModifier`
    from `./internal`, not from their own files, precisely so it cannot pull a
-   base class in ahead of the barrel.
+   base class in ahead of the barrel. A re-export is a way in as well: a
+   sub-barrel with `export * from "./Project"` hands the member out past the
+   cluster barrel just like a direct import, so it re-exports from `../internal`
+   by name instead (`project/Project/index.ts`).
+   `api-models/no-deep-cluster-imports` flags both — imports and
+   `export … from`.
 
 Because the order is deliberate and non-alphabetical, **no import/export sorting
 may touch an `internal.ts` barrel**. No such rule is active in this package

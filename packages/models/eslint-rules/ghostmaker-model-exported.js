@@ -1,10 +1,8 @@
-const { readFileSync } = require("node:fs");
+const { existsSync, readFileSync, statSync } = require("node:fs");
 const { dirname, join, relative, resolve } = require("node:path");
-const {
-  findPackageRoot,
-  mtimeOf,
-  resolveModule,
-} = require("./resolveModule.js");
+const { ghostNameLiteral } = require("./ghostDecorator.js");
+const { readReExports } = require("./reExports.js");
+const { resolveModule } = require("./resolveModule.js");
 
 /**
  * Enforces that every `@GhostMakerModel({ name })` class is reachable through
@@ -32,49 +30,24 @@ const {
  *   exported binding of its own, and the abstract bases are not models.
  */
 
-const GHOST_DECORATOR = "GhostMakerModel";
-
-const propertyName = (key) => {
-  if (!key) return undefined;
-  if (key.type === "Identifier") return key.name;
-  if (key.type === "Literal" && typeof key.value === "string") return key.value;
-  return undefined;
-};
-
-/** The static `name` of a `@GhostMakerModel({...})` decorator, if it has one. */
-const ghostName = (node) => {
-  for (const decorator of node.decorators ?? []) {
-    const expr = decorator.expression;
-    if (
-      !expr ||
-      expr.type !== "CallExpression" ||
-      expr.callee?.type !== "Identifier" ||
-      expr.callee.name !== GHOST_DECORATOR
-    ) {
-      continue;
-    }
-    const arg = (expr.arguments ?? [])[0];
-    if (!arg || arg.type !== "ObjectExpression") continue;
-    for (const prop of arg.properties ?? []) {
-      if (prop.type !== "Property") continue;
-      if (propertyName(prop.key) !== "name") continue;
-      const value = prop.value;
-      if (value?.type === "Literal" && typeof value.value === "string") {
-        return value.value;
-      }
-      return undefined;
-    }
+/** Walks up from `startDir` to the directory holding the package manifest. */
+const findPackageRoot = (startDir) => {
+  let dir = startDir;
+  for (;;) {
+    if (existsSync(join(dir, "package.json"))) return dir;
+    const parent = dirname(dir);
+    if (parent === dir) return null;
+    dir = parent;
   }
-  return undefined;
 };
 
-// A commented-out re-export must not count as an export — that is exactly the
-// edit this rule has to catch.
-const stripComments = (src) =>
-  src.replace(/\/\*[\s\S]*?\*\//g, "").replace(/(^|[^:])\/\/[^\n]*/g, "$1");
-
-const reExportRe =
-  /\bexport\s+(?:type\s+)?(\*|\{[\s\S]*?\})\s+from\s+"([^"]+)"/g;
+const mtimeOf = (file) => {
+  try {
+    return statSync(file).mtimeMs;
+  } catch {
+    return null;
+  }
+};
 
 const ALL = true;
 
@@ -137,28 +110,13 @@ const readSurface = (entry) => {
     if (!src.includes("from")) continue;
 
     let sawReExport = false;
-    for (const [, clause, spec] of stripComments(src).matchAll(reExportRe)) {
+    for (const { spec, names } of readReExports(src)) {
       if (!spec.startsWith(".")) continue;
       const target = resolveModule(resolve(dirname(file), spec));
       if (!target) continue;
       sawReExport = true;
 
-      const carried =
-        clause === "*"
-          ? inherited
-          : new Set(
-              clause
-                .slice(1, -1)
-                .split(",")
-                .map((name) =>
-                  name
-                    .trim()
-                    .split(/\s+as\s+/)[0]
-                    .trim(),
-                )
-                .filter(Boolean)
-                .map((name) => name.replace(/^type\s+/, "")),
-            );
+      const carried = names === "*" ? inherited : new Set(names);
 
       if (merge(target, carried)) queue.push(target);
     }
@@ -210,8 +168,7 @@ const rule = {
     if (!packageRoot) return {};
 
     const check = (node) => {
-      const name = ghostName(node);
-      if (!name) return;
+      if (!ghostNameLiteral(node)) return;
 
       if (node.type !== "ClassDeclaration" || !node.id) return;
       if (node.parent?.type !== "ExportNamedDeclaration") {

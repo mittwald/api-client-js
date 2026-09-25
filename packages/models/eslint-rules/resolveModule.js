@@ -1,5 +1,5 @@
-const { existsSync, statSync } = require("node:fs");
-const { dirname, join } = require("node:path");
+const { existsSync } = require("node:fs");
+const { join } = require("node:path");
 
 const SOURCE_EXTS = [".ts", ".tsx"];
 const JS_EXT_RE = /\.(js|jsx|mjs|cjs)$/;
@@ -34,29 +34,8 @@ const resolveModule = (base) => {
   return null;
 };
 
-/** Walks up from `startDir` to the directory holding the package manifest. */
-const findPackageRoot = (startDir) => {
-  let dir = startDir;
-  for (;;) {
-    if (existsSync(join(dir, "package.json"))) return dir;
-    const parent = dirname(dir);
-    if (parent === dir) return null;
-    dir = parent;
-  }
-};
-
-const mtimeOf = (file) => {
-  try {
-    return statSync(file).mtimeMs;
-  } catch {
-    return null;
-  }
-};
-
 module.exports = {
   JS_EXT_RE,
   SOURCE_EXTS,
-  findPackageRoot,
-  mtimeOf,
   resolveModule,
 };

@@ -1,15 +1,16 @@
 const { readFileSync, existsSync, statSync } = require("node:fs");
 const { dirname, join, relative, resolve } = require("node:path");
 const { JS_EXT_RE, SOURCE_EXTS, resolveModule } = require("./resolveModule.js");
+const { readReExports } = require("./reExports.js");
 
 /**
  * Enforces the internal-module pattern in packages that use `internal.ts`
- * barrels: an import of a cluster member (a module re-exported by some
- * `internal.ts`) must go THROUGH that `internal.ts`, never via a deep
- * sibling/member path. Keeping a single hand-ordered barrel as the only entry
- * point is what makes the cluster robust against import reordering — a stray
- * deep import can otherwise trigger "Class extends value undefined" /
- * undefined-at-load crashes.
+ * barrels: an import or re-export (`export … from`) of a cluster member (a
+ * module re-exported by some `internal.ts`) must go THROUGH that `internal.ts`,
+ * never via a deep sibling/member path. Keeping a single hand-ordered barrel as
+ * the only entry point is what makes the cluster robust against import
+ * reordering — a stray deep import can otherwise trigger "Class extends value
+ * undefined" / undefined-at-load crashes.
  *
  * See docs/implementation-patterns.md › "internal.ts — the internal-module
  * pattern".
@@ -17,8 +18,6 @@ const { JS_EXT_RE, SOURCE_EXTS, resolveModule } = require("./resolveModule.js");
 
 // Cache each internal.ts's member set, keyed by file path + mtime.
 const clusterCache = new Map();
-
-const exportFromRe = /\bexport\s+(?:\*|\{[^}]*\})\s+from\s+"([^"]+)"/g;
 
 const readCluster = (internalFile) => {
   const mtimeMs = statSync(internalFile).mtimeMs;
@@ -28,8 +27,7 @@ const readCluster = (internalFile) => {
   const dir = dirname(internalFile);
   const src = readFileSync(internalFile, "utf8");
   const members = new Set();
-  for (const match of src.matchAll(exportFromRe)) {
-    const spec = match[1];
+  for (const { spec } of readReExports(src)) {
     if (!spec.startsWith(".")) continue;
     const resolved = resolveModule(resolve(dir, spec));
     if (resolved) members.add(resolved);
@@ -63,6 +61,26 @@ const toImportPath = (fromFile, targetInternal, originalSpec) => {
   return rel;
 };
 
+/**
+ * Whether swapping the specifier for the barrel keeps the statement's meaning,
+ * so it can be auto-fixed. Not for a `default` import or re-export: internal.ts
+ * forwards its members by name via `export *`, which drops default exports, so
+ * those have to become named by hand. Not for `export * from` either: pointed
+ * at the barrel it would re-export the whole cluster instead of the one
+ * module.
+ */
+const isPathSwapSafe = (node) => {
+  if (node.type === "ExportAllDeclaration") return false;
+  return !(node.specifiers ?? []).some(
+    (specifier) =>
+      specifier.type === "ImportDefaultSpecifier" ||
+      (specifier.type === "ImportSpecifier" &&
+        specifier.imported?.name === "default") ||
+      (specifier.type === "ExportSpecifier" &&
+        specifier.local?.name === "default"),
+  );
+};
+
 /** @type {import("eslint").Rule.RuleModule} */
 const rule = {
   meta: {
@@ -70,12 +88,12 @@ const rule = {
     fixable: "code",
     docs: {
       description:
-        "Import cluster members through their internal.ts barrel, not via a deep sibling/member path.",
+        "Import and re-export cluster members through their internal.ts barrel, not via a deep sibling/member path.",
     },
     schema: [],
     messages: {
       useInternal:
-        'Import "{{name}}" through the cluster barrel "{{internal}}" instead of the deep path "{{spec}}" (internal-module pattern — keeps load order robust).',
+        '{{kind}} "{{name}}" through the cluster barrel "{{internal}}" instead of the deep path "{{spec}}" (internal-module pattern — keeps load order robust).',
     },
   },
 
@@ -83,6 +101,7 @@ const rule = {
     const filename = context.filename ?? context.getFilename();
 
     const check = (node) => {
+      if (!node.source) return;
       const spec = node.source.value;
       if (typeof spec !== "string" || !spec.startsWith(".")) return;
 
@@ -97,28 +116,21 @@ const rule = {
         // Already importing via this internal.ts? (target would be the barrel)
         if (target === internalFile) return;
 
-        const hasDefault = (node.specifiers ?? []).some(
-          (specifier) => specifier.type === "ImportDefaultSpecifier",
-        );
+        const internal = toImportPath(filename, internalFile, spec);
         context.report({
           node,
           messageId: "useInternal",
           data: {
+            kind: node.type === "ImportDeclaration" ? "Import" : "Re-export",
             name: spec.split("/").pop() ?? spec,
-            internal: "./internal",
+            internal,
             spec,
           },
-          // Only auto-fix a pure named import (safe path swap). A default
-          // import must become a named one by hand (internal.ts re-exports by
-          // name via `export *`, which does not forward default exports).
           fix:
-            hasDefault || !node.source.range
-              ? undefined
-              : (fixer) =>
-                  fixer.replaceTextRange(
-                    node.source.range,
-                    `"${toImportPath(filename, internalFile, spec)}"`,
-                  ),
+            isPathSwapSafe(node) && node.source.range
+              ? (fixer) =>
+                  fixer.replaceTextRange(node.source.range, `"${internal}"`)
+              : undefined,
         });
         return;
       }
@@ -126,6 +138,8 @@ const rule = {
 
     return {
       ImportDeclaration: check,
+      ExportNamedDeclaration: check,
+      ExportAllDeclaration: check,
     };
   },
 };
