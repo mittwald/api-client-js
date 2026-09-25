@@ -175,10 +175,10 @@ export class Conversation extends ReferenceModel {
   }
 
   public async uploadFiles(
-    files: DomFile[] | FileList | null,
+    files: ArrayLike<DomFile> | null,
     onProgress?: (file: DomFile, percent: number) => void,
   ) {
-    const entries = [...(files ?? [])];
+    const entries = Array.from(files ?? []);
     const results = await Promise.allSettled(
       entries.map((f) =>
         File.upload(f, this.fileAccessTokenProvider, undefined, (percent) =>

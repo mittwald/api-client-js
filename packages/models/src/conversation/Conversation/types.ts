@@ -35,7 +35,7 @@ export type ConversationCreateMessageRequestModelData = Omit<
   ConversationCreateMessageRequestData,
   "fileIds"
 > & {
-  files?: DomFile[] | FileList | null;
+  files?: ArrayLike<DomFile> | null;
 };
 
 export type ConversationListQueryData =
