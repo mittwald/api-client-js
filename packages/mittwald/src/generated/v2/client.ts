@@ -533,10 +533,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     contributorGetLoginLink: this.requestFunctionFactory(
       descriptors.contributorGetLoginLink,
     ),
-    /** Get a specific OAuth2 client. */
-    contributorGetOauthClient: this.requestFunctionFactory(
-      descriptors.contributorGetOauthClient,
-    ),
     /** List ContractPartners of the contributor. */
     contributorListContractPartnersOfContributor: this.requestFunctionFactory(
       descriptors.contributorListContractPartnersOfContributor,
@@ -763,6 +759,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
+    ),
+    /** Get a specific OAuth2 client. */
+    contributorGetOauthClient: this.requestFunctionFactory(
+      descriptors.contributorGetOauthClient,
     ),
   };
 
@@ -1569,6 +1569,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
+    ),
+    /** Check if a password is leaked. */
+    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
+      descriptors.userSearchedLeakedPasswordsByRange,
     ),
   };
 

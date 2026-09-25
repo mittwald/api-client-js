@@ -420,11 +420,6 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.contributorGetLoginLink,
     baseClient.marketplace.contributorGetLoginLink,
   ).getApiResource,
-  /** Get a specific OAuth2 client. */
-  contributorGetOauthClient: new ApiCallAsyncResourceFactory(
-    descriptors.contributorGetOauthClient,
-    baseClient.marketplace.contributorGetOauthClient,
-  ).getApiResource,
   /** List ContractPartners of the contributor. */
   contributorListContractPartnersOfContributor: new ApiCallAsyncResourceFactory(
     descriptors.contributorListContractPartnersOfContributor,
@@ -530,6 +525,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   customerGetPaymentMethod: new ApiCallAsyncResourceFactory(
     descriptors.marketplaceCustomerGetPaymentMethod,
     baseClient.marketplace.customerGetPaymentMethod,
+  ).getApiResource,
+  /** Get a specific OAuth2 client. */
+  contributorGetOauthClient: new ApiCallAsyncResourceFactory(
+    descriptors.contributorGetOauthClient,
+    baseClient.marketplace.contributorGetOauthClient,
   ).getApiResource,
 });
 
@@ -1109,6 +1109,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
+  ).getApiResource,
+  /** Check if a password is leaked. */
+  searchedLeakedPasswordsByRange: new ApiCallAsyncResourceFactory(
+    descriptors.userSearchedLeakedPasswordsByRange,
+    baseClient.user.searchedLeakedPasswordsByRange,
   ).getApiResource,
 });
 
