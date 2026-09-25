@@ -4861,6 +4861,17 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace UserSearchedLeakedPasswordsByRange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userSearchedLeakedPasswordsByRange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userSearchedLeakedPasswordsByRange,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -11422,6 +11433,10 @@ export declare module MittwaldAPIV2 {
           reasons: {
             domainAgeTooSmall: boolean;
             domainDoesNotExist: boolean;
+            /**
+             * An enabled ingress for this domain already exists in a project other than the given projectId. Delete that ingress or transfer the domain into that project.
+             */
+            enabledIngressInOtherProject: boolean;
             inRedemptionPeriod: boolean;
             transferLock: boolean;
             wrongAuthCode: boolean;
@@ -25626,6 +25641,10 @@ export declare module MittwaldAPIV2 {
           export interface RequestBody {
             authCode?: string;
             domain: string;
+            /**
+             * Target project of the transfer. If given, the domain is reported as not transferable (reason enabledIngressInOtherProject) when an enabled ingress for it already exists in another project.
+             */
+            projectId?: string;
           }
 
           export type Header = {};
@@ -41110,6 +41129,51 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2LeakedPasswordsPasswordHashPrefix {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            passwordHashPrefix: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = string[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

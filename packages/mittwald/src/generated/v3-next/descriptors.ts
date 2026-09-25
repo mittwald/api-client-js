@@ -19227,3 +19227,37 @@ export const contributorGetOauthClient: OpenAPIOperation<
   method: "GET",
   operationId: "contributor-get-oauth-client",
 };
+
+/** Check if a password is leaked. */
+export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/leaked-passwords/{passwordHashPrefix}",
+  method: "GET",
+  operationId: "user-searched-leaked-passwords-by-range",
+};

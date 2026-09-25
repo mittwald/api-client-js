@@ -1520,6 +1520,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Check if a password is leaked. */
+    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
+      descriptors.userSearchedLeakedPasswordsByRange,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
