@@ -54,6 +54,12 @@ path for pure-type drift.
 | `GET /v2/servers/{serverId}/contract`   | handles `403`         | `400`, `404`, `429` | add `403` to spec — or drop in package |
 | `GET /v2/contracts/{contractId}`        | handles `403`         | `400`, `404`, `429` | add `403` to spec — or drop in package |
 
+## container
+
+| Source                                                                 | Frontend (api-models)                                                             | API spec (4.465.0)         | Resolution                                                                                  |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------- |
+| `Components.Schemas.ContainerTemplate.help.alerts[].status` — **type** | narrows to `containerTemplateAlertStatuses`, unknown values fall back to `"info"` | `status: string` (no enum) | spec declares the enum — then derive `ContainerTemplateAlertStatus` from the generated type |
+
 ## cronjob
 
 | Source                         | Frontend (api-models) | API spec (4.465.0) | Resolution                             |
@@ -134,8 +140,9 @@ path for pure-type drift.
 
 - **26 missing status codes** across 13 areas (bridged via `anyStatus*`), each
   confirmed with the literal-status `tsc` probe against `4.465.0`.
-- **3 behavioral/field deviations**: `auth` (checkToken endpoint), `domain`
-  (findByHostname / route invalidation), `user` (registeredAt).
+- **4 behavioral/field deviations**: `auth` (checkToken endpoint), `container`
+  (alert status without enum), `domain` (findByHostname / route invalidation),
+  `user` (registeredAt).
 - **`user · spotlight`**: an omitted `owner` (required in the generated feedback
   type) and a `403` where the spec declares `200`.
 - Notable: almost all missing codes are **`403` on protected `GET` detail

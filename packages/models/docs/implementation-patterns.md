@@ -582,6 +582,9 @@ makes the workaround unnecessary. Standalone markers:
   `/user/self` omits the field (wrongly making accounts look `isNew`).
 - `domain/Domain/Domain.ts` — `findByHostname` via `find(hostname)` is disabled
   because route invalidation does not work for shortId lookups.
+- `container/Container/ContainerTemplate.ts` — `help.alerts[].status` is a plain
+  `string` in the spec; `toAlertStatus` narrows it to
+  `containerTemplateAlertStatuses` and falls back to `"info"`.
 
 Every `anyStatus*` cast (`base/api/typeFixes.ts`, see that section) is likewise
 tagged with an `API-DRIFT` marker at its usage site, naming the operation whose
@@ -1031,8 +1034,19 @@ const supportedLanguages = ["de", "en"] as const;
 export type LocalizedTextLanguage = (typeof supportedLanguages)[number];
 ```
 
-Used in: `common/LocalizedText.ts`, `invoice/Invoice/types.ts`,
-`marketplace/Extension/types.ts`.
+When the generated field is a plain `string`, the tuple is also the narrowing
+step: look the incoming value up in it at the mapping site instead of casting
+with `as`, choose an explicit fallback for unknown values, and tag the spot with
+an `API-DRIFT` marker (see that section):
+
+```ts
+// container/Container/ContainerTemplate.ts
+const toAlertStatus = (status: string): ContainerTemplateAlertStatus =>
+  containerTemplateAlertStatuses.find((known) => known === status) ?? "info";
+```
+
+Used in: `common/LocalizedText.ts`, `container/Container/types.ts`,
+`invoice/Invoice/types.ts`, `marketplace/Extension/types.ts`.
 
 ## Class member ordering: static → fields → constructor → methods
 

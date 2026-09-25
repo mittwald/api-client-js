@@ -292,6 +292,7 @@ type ContainerStateData
 type ContainerStatus
 ContainerTemplate
 type ContainerTemplateAlertStatus
+containerTemplateAlertStatuses
 type ContainerTemplateApiData
 containerTemplateCategories
 type ContainerTemplateCategory

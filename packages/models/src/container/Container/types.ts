@@ -96,12 +96,16 @@ export type ContainerTemplateTechnicalDetailData = NonNullable<
   ContainerTemplateApiData["help"]
 >["technicalDetails"];
 
+export const containerTemplateAlertStatuses = [
+  "info",
+  "success",
+  "warning",
+  "danger",
+  "unavailable",
+] as const;
+
 export type ContainerTemplateAlertStatus =
-  | "info"
-  | "success"
-  | "warning"
-  | "danger"
-  | "unavailable";
+  (typeof containerTemplateAlertStatuses)[number];
 
 export type ContainerStatus =
   MittwaldAPIV2.Components.Schemas.ContainerServiceStatus;

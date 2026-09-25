@@ -18,6 +18,7 @@ import type {
 
 import assertObjectFound from "../../base/lib/assertObjectFound.js";
 import { maskSensitiveEnvValue } from "../lib/sensitiveEnvKeys.js";
+import { containerTemplateAlertStatuses } from "./types.js";
 import { ContainerStack } from "./ContainerStack.js";
 import { AggregateMetaData } from "../../common/index.js";
 import { config } from "../../config/index.js";
@@ -34,6 +35,10 @@ export function localizeTemplateText(
 ): string {
   return value[config.locale()] ?? value.de;
 }
+
+// API-DRIFT: help.alerts[].status is a plain string in the spec, although templates only use a closed set of statuses; values outside containerTemplateAlertStatuses fall back to "info" (resolve: derive ContainerTemplateAlertStatus from the generated type once the spec declares the enum)
+const toAlertStatus = (status: string): ContainerTemplateAlertStatus =>
+  containerTemplateAlertStatuses.find((known) => known === status) ?? "info";
 
 const hostnamePattern = /\$\{([^.]+)\.hostname\}/g;
 const envPattern = /\$\{([^.]+)\.env\.(\w+)\}/g;
@@ -142,7 +147,7 @@ export class ContainerTemplateCommon extends WithData<
         ? localizeTemplateText(alert.linkText)
         : undefined,
       link: alert.link ? localizeTemplateText(alert.link) : undefined,
-      status: alert.status as ContainerTemplateAlertStatus,
+      status: toAlertStatus(alert.status),
       heading: localizeTemplateText(alert.heading),
       content: localizeTemplateText(alert.content),
     }));
