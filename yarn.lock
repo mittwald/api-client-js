@@ -1782,8 +1782,10 @@ __metadata:
     typescript: "npm:^5.7.2"
     vitest: "npm:^4.1.8"
   peerDependencies:
+    "@mittwald/api-client": "workspace:^"
+    "@mittwald/api-client-commons": "workspace:^"
     "@tanstack/react-query": ^5
-    react: ^18 || ^19
+    react: ">=19.2"
   languageName: unknown
   linkType: soft
 

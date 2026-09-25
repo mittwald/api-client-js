@@ -32,4 +32,8 @@ setup.
 
 ## Peer dependencies
 
-`react` and `@tanstack/react-query` are peers — the consumer provides them.
+`react` (`>=19.2`, as required by `@mittwald/react-ghostmaker`),
+`@tanstack/react-query`, `@mittwald/api-client` and
+`@mittwald/api-client-commons` are peers — the consumer provides them. The last
+two are passed through from `@mittwald/api-models`, which declares them as peers
+itself.

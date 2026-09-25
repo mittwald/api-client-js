@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-models-react",
-  "version": "0.0.0",
+  "version": "4.468.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "React bindings for the mittwald API domain models",
@@ -60,7 +60,9 @@
     "vitest": "^4.1.8"
   },
   "peerDependencies": {
+    "@mittwald/api-client": "workspace:^",
+    "@mittwald/api-client-commons": "workspace:^",
     "@tanstack/react-query": "^5",
-    "react": "^18 || ^19"
+    "react": ">=19.2"
   }
 }
