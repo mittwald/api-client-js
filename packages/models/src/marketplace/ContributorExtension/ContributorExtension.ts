@@ -1,5 +1,4 @@
 import { GhostMakerModel } from "@mittwald/react-ghostmaker";
-import invariant from "tiny-invariant";
 import { DateTime } from "luxon";
 
 import type { ContributorExtensionAssetAccessTokenProvider as ContributorExtensionAssetAccessTokenProviderType } from "./ContributorExtensionAssetAccessTokenProvider.js";
@@ -49,6 +48,7 @@ import {
   ReferenceModel,
   WithListData,
   extractId,
+  required,
   WithData,
 } from "../../base/index.js";
 
@@ -393,12 +393,12 @@ export class ContributorExtensionCommon extends WithData<
   }
 
   public async install(contextId: string, variantKey?: string) {
-    invariant(this.context, "no context available");
+    const context = required(this.context, "context");
 
     const { id } = await config.behaviors.extensionInstance.create({
       consentedScopes: this.scopes ?? [],
       variantKey: variantKey,
-      context: this.context,
+      context,
       extensionId: this.id,
       contextId: contextId,
     });
