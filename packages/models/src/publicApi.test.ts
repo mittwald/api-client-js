@@ -67,11 +67,11 @@ const readDeclaredExports = (): { values: string[]; types: string[] } => {
 
 const declaredExports = readDeclaredExports();
 
-it("exportiert zur Laufzeit genau die deklarierten Werte", () => {
+it("exports exactly the declared values at runtime", () => {
   expect(Object.keys(api).sort()).toEqual(declaredExports.values);
 });
 
-it("exportiert genau die dokumentierte Fläche", async () => {
+it("exports exactly the documented surface", async () => {
   const { values, types } = declaredExports;
   const surface = [
     ...values.map((name) => ({ name, line: name })),
