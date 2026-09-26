@@ -53,11 +53,13 @@ export class UniversalContentLoader {
   private static async tryParseUnknown(content: string): Promise<unknown> {
     try {
       return await UniversalContentLoader.parseJson(content);
-    } catch (error) {
+    } catch {
       try {
         return await UniversalContentLoader.parseYaml(content);
       } catch (error) {
-        throw new Error("Content is not of supported format JSON/YAML.");
+        throw new Error("Content is not of supported format JSON/YAML.", {
+          cause: error,
+        });
       }
     }
   }
