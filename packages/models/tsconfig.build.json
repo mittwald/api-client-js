@@ -1,0 +1,5 @@
+{
+  "$comment": "Build-only config: keeps unit tests and type-level tests -- and the devDependencies they import -- out of the published output. Type checking of those files happens via the `test:compile` target, which uses ./tsconfig.json.",
+  "exclude": ["**/*.test.ts", "**/*.test-types.ts"],
+  "extends": "./tsconfig.json"
+}
