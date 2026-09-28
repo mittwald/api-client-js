@@ -5288,6 +5288,35 @@ export const contributorGetLoginLink: OpenAPIOperation<
   operationId: "contributor-get-login-link",
 };
 
+/** Get a specific OAuth2 client. */
+export const contributorGetOauthClient: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/oauth2/clients/{oauthClientId}",
+  method: "GET",
+  operationId: "contributor-get-oauth-client",
+};
+
 /** List ContractPartners of the contributor. */
 export const contributorListContractPartnersOfContributor: OpenAPIOperation<
   RequestType<
@@ -8848,106 +8877,82 @@ export const userUpdateAccount: OpenAPIOperation<
   operationId: "user-update-account",
 };
 
-/** Get a DNSZone. */
-export const dnsGetDnsZone: OpenAPIOperation<
+/** List DNS zone-file import jobs belonging to a Project. */
+export const dnsListDnsZoneFileImports: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/dns-zones/{dnsZoneId}",
+  path: "/v2/projects/{projectId}/dns-zone-imports",
   method: "GET",
-  operationId: "dns-get-dns-zone",
+  operationId: "dns-list-dns-zone-file-imports",
 };
 
-/** Delete a DNSZone. */
-export const dnsDeleteDnsZone: OpenAPIOperation<
+/** Import a DNS zone file into a Project, or preview it with dry-run. */
+export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zones/{dnsZoneId}",
-  method: "DELETE",
-  operationId: "dns-delete-dns-zone",
-};
-
-/** Get a zone file for a DNSZone. */
-export const dnsGetZoneFile: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$200.Content.TextPlain>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$200.Content.ApplicationJson>,
       200,
-      "text/plain"
+      "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/dns-zones/{dnsZoneId}/zone-file",
-  method: "GET",
-  operationId: "dns-get-zone-file",
+  path: "/v2/projects/{projectId}/dns-zone-imports",
+  method: "POST",
+  operationId: "dns-create-dns-zone-file-import",
 };
 
 /** List DNSZones belonging to a Project. */
@@ -9031,6 +9036,147 @@ export const dnsCreateProjectDnsZone: OpenAPIOperation<
   path: "/v2/projects/{projectId}/dns-zones",
   method: "POST",
   operationId: "dns-create-project-dns-zone",
+};
+
+/** Get a DNSZone. */
+export const dnsGetDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}",
+  method: "GET",
+  operationId: "dns-get-dns-zone",
+};
+
+/** Delete a DNSZone. */
+export const dnsDeleteDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}",
+  method: "DELETE",
+  operationId: "dns-delete-dns-zone",
+};
+
+/** Get the status of a DNS zone-file import job. */
+export const dnsGetDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zone-imports/{zoneFileImportId}",
+  method: "GET",
+  operationId: "dns-get-dns-zone-file-import",
+};
+
+/** Get a zone file for a DNSZone. */
+export const dnsGetZoneFile: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$200.Content.TextPlain>,
+      200,
+      "text/plain"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdZoneFile.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones/{dnsZoneId}/zone-file",
+  method: "GET",
+  operationId: "dns-get-zone-file",
 };
 
 /** Set a record set on a DNSZone to managed. */
@@ -18932,6 +19078,40 @@ export const userResendVerificationEmail: OpenAPIOperation<
   operationId: "user-resend-verification-email",
 };
 
+/** Check if a password is leaked. */
+export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/leaked-passwords/{passwordHashPrefix}",
+  method: "GET",
+  operationId: "user-searched-leaked-passwords-by-range",
+};
+
 /** Submit your spotlight usage. */
 export const userSpotlightFeedback: OpenAPIOperation<
   RequestType<
@@ -19207,184 +19387,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get a specific OAuth2 client. */
-export const contributorGetOauthClient: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/oauth2/clients/{oauthClientId}",
-  method: "GET",
-  operationId: "contributor-get-oauth-client",
-};
-
-/** Check if a password is leaked. */
-export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/leaked-passwords/{passwordHashPrefix}",
-  method: "GET",
-  operationId: "user-searched-leaked-passwords-by-range",
-};
-
-/** List DNS zone-file import jobs belonging to a Project. */
-export const dnsListDnsZoneFileImports: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/dns-zone-imports",
-  method: "GET",
-  operationId: "dns-list-dns-zone-file-imports",
-};
-
-/** Import a DNS zone file into a Project, or preview it with dry-run. */
-export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/dns-zone-imports",
-  method: "POST",
-  operationId: "dns-create-dns-zone-file-import",
-};
-
-/** Get the status of a DNS zone-file import job. */
-export const dnsGetDnsZoneFileImport: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/dns-zone-imports/{zoneFileImportId}",
-  method: "GET",
-  operationId: "dns-get-dns-zone-file-import",
 };

@@ -1289,6 +1289,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace ContributorGetOauthClient {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorGetOauthClient
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorGetOauthClient,
+          TStatus
+        >;
+    }
+
     namespace ContributorListContractPartnersOfContributor {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListContractPartnersOfContributor
@@ -2234,24 +2245,26 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
     }
 
-    namespace DnsGetDnsZone {
-      type RequestData = InferredRequestData<typeof descriptors.dnsGetDnsZone>;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsGetDnsZone, TStatus>;
-    }
-
-    namespace DnsDeleteDnsZone {
+    namespace DnsListDnsZoneFileImports {
       type RequestData = InferredRequestData<
-        typeof descriptors.dnsDeleteDnsZone
+        typeof descriptors.dnsListDnsZoneFileImports
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>;
+        InferredResponseData<
+          typeof descriptors.dnsListDnsZoneFileImports,
+          TStatus
+        >;
     }
 
-    namespace DnsGetZoneFile {
-      type RequestData = InferredRequestData<typeof descriptors.dnsGetZoneFile>;
+    namespace DnsCreateDnsZoneFileImport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsCreateDnsZoneFileImport
+      >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsGetZoneFile, TStatus>;
+        InferredResponseData<
+          typeof descriptors.dnsCreateDnsZoneFileImport,
+          TStatus
+        >;
     }
 
     namespace DnsListDnsZones {
@@ -2271,6 +2284,37 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.dnsCreateProjectDnsZone,
           TStatus
         >;
+    }
+
+    namespace DnsGetDnsZone {
+      type RequestData = InferredRequestData<typeof descriptors.dnsGetDnsZone>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsGetDnsZone, TStatus>;
+    }
+
+    namespace DnsDeleteDnsZone {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsDeleteDnsZone
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>;
+    }
+
+    namespace DnsGetDnsZoneFileImport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsGetDnsZoneFileImport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsGetDnsZoneFileImport,
+          TStatus
+        >;
+    }
+
+    namespace DnsGetZoneFile {
+      type RequestData = InferredRequestData<typeof descriptors.dnsGetZoneFile>;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsGetZoneFile, TStatus>;
     }
 
     namespace DnsSetRecordSetManaged {
@@ -4775,6 +4819,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace UserSearchedLeakedPasswordsByRange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userSearchedLeakedPasswordsByRange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userSearchedLeakedPasswordsByRange,
+          TStatus
+        >;
+    }
+
     namespace UserSpotlightFeedback {
       type RequestData = InferredRequestData<
         typeof descriptors.userSpotlightFeedback
@@ -4850,61 +4905,6 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace ContributorGetOauthClient {
-      type RequestData = InferredRequestData<
-        typeof descriptors.contributorGetOauthClient
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.contributorGetOauthClient,
-          TStatus
-        >;
-    }
-
-    namespace UserSearchedLeakedPasswordsByRange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userSearchedLeakedPasswordsByRange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userSearchedLeakedPasswordsByRange,
-          TStatus
-        >;
-    }
-
-    namespace DnsListDnsZoneFileImports {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsListDnsZoneFileImports
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsListDnsZoneFileImports,
-          TStatus
-        >;
-    }
-
-    namespace DnsCreateDnsZoneFileImport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsCreateDnsZoneFileImport
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsCreateDnsZoneFileImport,
-          TStatus
-        >;
-    }
-
-    namespace DnsGetDnsZoneFileImport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsGetDnsZoneFileImport
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.dnsGetDnsZoneFileImport,
           TStatus
         >;
     }
@@ -7270,6 +7270,101 @@ export declare module MittwaldAPIV2 {
         number: string;
       }
 
+      export interface DnsCreateZoneFileImportResponse {
+        /**
+         * Everything that will not be imported (invalid records, unsupported record types, CNAME conflicts, placement problems, parse errors). Empty on a real import, since any conflict rejects the whole import with 412 (all-or-nothing).
+         */
+        conflicts: MittwaldAPIV2.Components.Schemas.DnsImportConflict[];
+        /**
+         * ID of the started import job. Absent on a dry-run (dryRun=true), which creates no job.
+         */
+        id?: string;
+        /**
+         * The importable target zones (one per distinct owner name), each with the record sets that would be set. On a dry-run this is the preview; on a real import it is the plan that was applied.
+         */
+        zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
+      }
+
+      export interface DnsImportConflict {
+        /**
+         * Machine-readable conflict kind: parseError (a zone-file line could not be parsed), invalidRecord (a record failed the same schema validation the write commands apply), invalidZoneName (the owner name is not a valid zone name, e.g. a wildcard *.example.com), unsupportedRecordType (an RR type dns-service does not import), cnameConflict (a CNAME shares a name with other record types), foreignCustomerIngress (the zone's enabled ingress belongs to another organization), rootZoneUnavailable (a subzone whose root zone is neither importable nor already existing).
+         */
+        code:
+          | "parseError"
+          | "invalidRecord"
+          | "invalidZoneName"
+          | "unsupportedRecordType"
+          | "cnameConflict"
+          | "foreignCustomerIngress"
+          | "rootZoneUnavailable";
+        /**
+         * Human-readable explanation of the conflict, suitable for surfacing to the user.
+         */
+        message: string;
+        /**
+         * Offending record/owner name. Empty for a file-level parse error, where sourceLine locates the bad line.
+         */
+        name?: string;
+        /**
+         * Only on an invalidRecord conflict: the offending record's rendered value (e.g. "10 ." for an MX).
+         */
+        record?: string;
+        /**
+         * Only on an invalidRecord conflict: the offending record's set type.
+         */
+        recordSetType?: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+        /**
+         * 1-based line number in the uploaded zone file, set for a file-level parse error (code parseError); 0 otherwise.
+         */
+        sourceLine?: number;
+      }
+
+      export interface DnsImportRecord {
+        /**
+         * CAA flags. Only set for CAA records.
+         */
+        flags?: number;
+        /**
+         * SRV port. Only set for SRV records.
+         */
+        port?: number;
+        /**
+         * MX preference / SRV priority. Only set for MX and SRV records.
+         */
+        priority?: number;
+        /**
+         * CAA tag (e.g. issue, issuewild, iodef). Only set for CAA records.
+         */
+        tag?: string;
+        /**
+         * The record's value: an IP address for A/AAAA, the target FQDN for MX/CNAME/SRV, the text for TXT, the value for CAA.
+         */
+        value: string;
+        /**
+         * SRV weight. Only set for SRV records.
+         */
+        weight?: number;
+      }
+
+      export interface DnsImportRecordSet {
+        /**
+         * The individual records in the set.
+         */
+        records: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
+        /**
+         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell below the 60s minimum. Informational; the import still uses ttlSeconds.
+         */
+        ttlNormalized: boolean;
+        /**
+         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, floored to the 60s minimum.
+         */
+        ttlSeconds: number;
+        /**
+         * Record-set type.
+         */
+        type: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+      }
+
       export type DnsRecordCAA =
         | MittwaldAPIV2.Components.Schemas.DnsRecordUnset
         | MittwaldAPIV2.Components.Schemas.DnsRecordCAAComponent;
@@ -7417,6 +7512,40 @@ export declare module MittwaldAPIV2 {
           srv: MittwaldAPIV2.Components.Schemas.DnsRecordSRV;
           txt: MittwaldAPIV2.Components.Schemas.DnsRecordTXT;
         };
+      }
+
+      export interface DnsZoneFileImport {
+        /**
+         * When the import job was created (publish time of the created event).
+         */
+        createdAt: string;
+        id: string;
+        importedZones: string[];
+        projectId: string;
+        skippedZones: {
+          name: string;
+          reason: string;
+        }[];
+        status: "running" | "succeeded" | "completedWithErrors";
+      }
+
+      export interface DnsZoneImportPreview {
+        /**
+         * Whether a zone with this name already exists. On import its record sets are overwritten rather than the import failing.
+         */
+        alreadyExists: boolean;
+        /**
+         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
+         */
+        name: string;
+        /**
+         * The record sets that would be set on the zone — one per record type present for this owner name.
+         */
+        recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
+        /**
+         * Project the zone would be created in. Always set, since only importable zones are listed.
+         */
+        targetProjectId: string;
       }
 
       export interface DomainAuthCode {
@@ -11279,135 +11408,6 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface DnsCreateZoneFileImportResponse {
-        /**
-         * Everything that will not be imported (invalid records, unsupported record types, CNAME conflicts, placement problems, parse errors). Empty on a real import, since any conflict rejects the whole import with 412 (all-or-nothing).
-         */
-        conflicts: MittwaldAPIV2.Components.Schemas.DnsImportConflict[];
-        /**
-         * ID of the started import job. Absent on a dry-run (dryRun=true), which creates no job.
-         */
-        id?: string;
-        /**
-         * The importable target zones (one per distinct owner name), each with the record sets that would be set. On a dry-run this is the preview; on a real import it is the plan that was applied.
-         */
-        zones: MittwaldAPIV2.Components.Schemas.DnsZoneImportPreview[];
-      }
-
-      export interface DnsZoneImportPreview {
-        /**
-         * Whether a zone with this name already exists. On import its record sets are overwritten rather than the import failing.
-         */
-        alreadyExists: boolean;
-        /**
-         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
-         */
-        name: string;
-        /**
-         * The record sets that would be set on the zone — one per record type present for this owner name.
-         */
-        recordSets: MittwaldAPIV2.Components.Schemas.DnsImportRecordSet[];
-        /**
-         * Project the zone would be created in. Always set, since only importable zones are listed.
-         */
-        targetProjectId: string;
-      }
-
-      export interface DnsImportRecordSet {
-        /**
-         * The individual records in the set.
-         */
-        records: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
-        /**
-         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell below the 60s minimum. Informational; the import still uses ttlSeconds.
-         */
-        ttlNormalized: boolean;
-        /**
-         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, floored to the 60s minimum.
-         */
-        ttlSeconds: number;
-        /**
-         * Record-set type.
-         */
-        type: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
-      }
-
-      export interface DnsImportRecord {
-        /**
-         * CAA flags. Only set for CAA records.
-         */
-        flags?: number;
-        /**
-         * SRV port. Only set for SRV records.
-         */
-        port?: number;
-        /**
-         * MX preference / SRV priority. Only set for MX and SRV records.
-         */
-        priority?: number;
-        /**
-         * CAA tag (e.g. issue, issuewild, iodef). Only set for CAA records.
-         */
-        tag?: string;
-        /**
-         * The record's value: an IP address for A/AAAA, the target FQDN for MX/CNAME/SRV, the text for TXT, the value for CAA.
-         */
-        value: string;
-        /**
-         * SRV weight. Only set for SRV records.
-         */
-        weight?: number;
-      }
-
-      export interface DnsImportConflict {
-        /**
-         * Machine-readable conflict kind: parseError (a zone-file line could not be parsed), invalidRecord (a record failed the same schema validation the write commands apply), invalidZoneName (the owner name is not a valid zone name, e.g. a wildcard *.example.com), unsupportedRecordType (an RR type dns-service does not import), cnameConflict (a CNAME shares a name with other record types), foreignCustomerIngress (the zone's enabled ingress belongs to another organization), rootZoneUnavailable (a subzone whose root zone is neither importable nor already existing).
-         */
-        code:
-          | "parseError"
-          | "invalidRecord"
-          | "invalidZoneName"
-          | "unsupportedRecordType"
-          | "cnameConflict"
-          | "foreignCustomerIngress"
-          | "rootZoneUnavailable";
-        /**
-         * Human-readable explanation of the conflict, suitable for surfacing to the user.
-         */
-        message: string;
-        /**
-         * Offending record/owner name. Empty for a file-level parse error, where sourceLine locates the bad line.
-         */
-        name?: string;
-        /**
-         * Only on an invalidRecord conflict: the offending record's rendered value (e.g. "10 ." for an MX).
-         */
-        record?: string;
-        /**
-         * Only on an invalidRecord conflict: the offending record's set type.
-         */
-        recordSetType?: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
-        /**
-         * 1-based line number in the uploaded zone file, set for a file-level parse error (code parseError); 0 otherwise.
-         */
-        sourceLine?: number;
-      }
-
-      export interface DnsZoneFileImport {
-        /**
-         * When the import job was created (publish time of the created event).
-         */
-        createdAt: string;
-        id: string;
-        importedZones: string[];
-        projectId: string;
-        skippedZones: {
-          name: string;
-          reason: string;
-        }[];
-        status: "running" | "succeeded" | "completedWithErrors";
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -19635,6 +19635,52 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2Oauth2ClientsOauthClientId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            oauthClientId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                allowedGrantTypes?: string[];
+                allowedRedirectUris?: string[];
+                allowedScopes?: string[];
+                description?: string;
+                humanReadableName: string;
+                id: string;
+                type?: "public" | "confidential";
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ContributorsContributorIdContractPartners {
       namespace Get {
         namespace Parameters {
@@ -25176,29 +25222,29 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmailVerify {}
 
-    namespace V2DnsZones {}
-
-    namespace V2DnsZones {}
-
-    namespace V2DnsZonesDnsZoneId {}
-
-    namespace V2DnsZonesDnsZoneId {
+    namespace V2ProjectsProjectIdDnsZoneImports {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            dnsZoneId: string;
+            projectId: string;
           };
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "createdAt";
+            order?: "asc" | "desc";
+          };
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZone;
+                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport[];
             }
           }
 
@@ -25228,71 +25274,51 @@ export declare module MittwaldAPIV2 {
         }
       }
 
-      namespace Delete {
+      namespace Post {
         namespace Parameters {
           export type Path = {
-            dnsZoneId: string;
+            projectId: string;
           };
+
+          export interface RequestBody {
+            /**
+             * Raw RFC-1035 zone file content to import.
+             */
+            zoneFile: string;
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
 
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZonesDnsZoneIdZoneFile {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            dnsZoneId: string;
+          export type Query = {
+            dryRun?: boolean;
           };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type TextPlain = string;
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsCreateZoneFileImportResponse;
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -25319,7 +25345,9 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdDnsZones {}
+    namespace V2DnsZones {}
+
+    namespace V2DnsZones {}
 
     namespace V2ProjectsProjectIdDnsZones {
       namespace Get {
@@ -25444,6 +25472,202 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2DnsZonesDnsZoneId {}
+
+    namespace V2DnsZonesDnsZoneId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsZone;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DnsZoneImportsZoneFileImportId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            zoneFileImportId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2DnsZonesDnsZoneIdZoneFile {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            dnsZoneId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type TextPlain = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdDnsZones {}
 
     namespace V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged {
       namespace Post {
@@ -40844,6 +41068,51 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupMfaResetRecoverycodes {}
 
+    namespace V2LeakedPasswordsPasswordHashPrefix {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            passwordHashPrefix: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = string[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2UsersSelfSpotlightsSpotlightIdFeedback {
       namespace Post {
         namespace Parameters {
@@ -41268,275 +41537,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Oauth2ClientsOauthClientId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            oauthClientId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                allowedGrantTypes?: string[];
-                allowedRedirectUris?: string[];
-                allowedScopes?: string[];
-                description?: string;
-                humanReadableName: string;
-                id: string;
-                type?: "public" | "confidential";
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LeakedPasswordsPasswordHashPrefix {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            passwordHashPrefix: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = string[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdDnsZoneImports {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: "createdAt";
-            order?: "asc" | "desc";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Raw RFC-1035 zone file content to import.
-             */
-            zoneFile: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            dryRun?: boolean;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsCreateZoneFileImportResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZoneImportsZoneFileImportId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            zoneFileImportId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
