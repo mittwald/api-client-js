@@ -1,4 +1,4 @@
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 
 import type { ContainerListItem } from "./Container.js";
 import type { Project } from "../../project/index.js";

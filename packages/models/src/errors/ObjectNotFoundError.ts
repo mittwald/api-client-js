@@ -1,6 +1,6 @@
 import type { Class } from "type-fest";
 
-import { getModelName } from "@mittwald/react-ghostmaker";
+import { getModelName } from "@mittwald/react-ghostmaker/model";
 
 export class ObjectNotFoundError extends Error {
   public readonly refName: string;

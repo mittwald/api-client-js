@@ -1,4 +1,4 @@
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 import { DateTime } from "luxon";
 
 import type { ContributorExtensionAssetAccessTokenProvider as ContributorExtensionAssetAccessTokenProviderType } from "./ContributorExtensionAssetAccessTokenProvider.js";

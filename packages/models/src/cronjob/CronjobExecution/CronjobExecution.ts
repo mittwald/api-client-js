@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 import { DateTime } from "luxon";
 
 import type { DownloadableFile } from "../../common/index.js";

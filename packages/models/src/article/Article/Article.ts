@@ -1,6 +1,6 @@
 import type { Constructor } from "type-fest";
 
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 import invariant from "tiny-invariant";
 
 import type {

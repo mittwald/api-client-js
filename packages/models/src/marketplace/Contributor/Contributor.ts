@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 
 import type { ContributorAvatarAccessTokenProvider as ContributorAvatarAccessTokenProviderType } from "./ContributorAvatarAccessTokenProvider.js";
 import type { ContributorIncomingInvoiceListQuery as ContributorIncomingInvoiceListQueryType } from "./ContributorIncomingInvoice.js";

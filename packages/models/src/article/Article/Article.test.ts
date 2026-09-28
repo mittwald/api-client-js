@@ -1,5 +1,5 @@
-import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
-vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
+import type * as ReactGhostmaker from "@mittwald/react-ghostmaker/model";
+vi.mock("@mittwald/react-ghostmaker/model", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
     typeof type === "function" ? (type as { name?: string }).name : undefined,

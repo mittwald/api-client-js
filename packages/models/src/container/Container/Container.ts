@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig } from "axios";
 
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 import { omit, pick } from "remeda";
 import { DateTime } from "luxon";
 import slugify from "slugify";

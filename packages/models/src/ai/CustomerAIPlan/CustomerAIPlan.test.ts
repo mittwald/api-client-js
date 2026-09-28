@@ -1,3 +1,5 @@
+import type * as ReactGhostmaker from "@mittwald/react-ghostmaker/model";
+
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { ContractDetailed } from "../../contract/index.js";
@@ -18,9 +20,8 @@ import {
   resetBehaviors,
 } from "../../testing/index.js";
 
-vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
-  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
-  ...(await importOriginal<typeof import("@mittwald/react-ghostmaker")>()),
+vi.mock("@mittwald/react-ghostmaker/model", async (importOriginal) => ({
+  ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
     typeof type === "function" ? (type as { name?: string }).name : undefined,
 }));

@@ -1,4 +1,4 @@
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 import { isArray } from "remeda";
 
 import type { ContactVerificationTypeData } from "../ContactVerificationTypeData/index.js";

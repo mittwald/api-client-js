@@ -34,6 +34,10 @@ rules:
         - name: "@mittwald/flow-react-components"
           message:
             "The core carries no UI (ADR-0002); UI belongs in the consumer."
+        - name: "@mittwald/react-ghostmaker"
+          message:
+            "The ghostmaker main entry loads React (ADR-0002); import from
+            @mittwald/react-ghostmaker/model instead."
       patterns:
         - group:
             - "react/*"

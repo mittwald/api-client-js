@@ -1,4 +1,4 @@
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 import { assertString } from "@sindresorhus/is";
 import { DateTime } from "luxon";
 import { omit } from "remeda";

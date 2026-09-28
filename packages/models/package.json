@@ -38,7 +38,7 @@
   "dependencies": {
     "@internationalized/date": "^3.12.2",
     "@mittwald/axios-cache-with-retry": "^1.0.0",
-    "@mittwald/react-ghostmaker": "^1.5.4",
+    "@mittwald/react-ghostmaker": "^1.6.0",
     "@sindresorhus/is": "^8.1.0",
     "axios": "^1.15.2",
     "convert": "^7.0.0",
@@ -62,7 +62,6 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@tanstack/react-query": "^5.102.8",
     "@types/d3-array": "^3.2.2",
     "@types/dinero.js": "^1.9.4",
     "@types/filesize-parser": "^1.5.3",
@@ -76,7 +75,6 @@
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^5.5.4",
     "prettier": "^3.6.2",
-    "react": "^19.2.7",
     "rimraf": "^5.0.10",
     "typescript": "^5.7.2",
     "vitest": "^4.1.8"

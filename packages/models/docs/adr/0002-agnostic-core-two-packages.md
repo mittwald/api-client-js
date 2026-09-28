@@ -25,7 +25,9 @@ versioned in lockstep; the dependency runs one-way, react → core.
 - An ESLint guard in `packages/models/.eslintrc.yml` (`no-restricted-imports`
   for `react`/`react-dom`/`@tabler/*`/`@mittwald/flow-react-components`,
   `no-restricted-globals` for `document`/`window`) prevents regressions.
-- Agnostic consumers (Node/CLI) get a react-free dependency tree.
-  `@mittwald/react-ghostmaker` (a core dep for the `@GhostMakerModel` decorator)
-  must declare `react`/`react-query` as _optional_ peers, or be split react-free
-  upstream.
+- Agnostic consumers (Node/CLI) get a react-free dependency tree. The core loads
+  `@mittwald/react-ghostmaker` (for the `@GhostMakerModel` decorator and
+  `getModelName`) only through its React-free entry
+  `@mittwald/react-ghostmaker/model`, where `react`/`@tanstack/react-query` are
+  optional peers. The ESLint guard forbids the ghostmaker main entry in the
+  core, since that one loads React.

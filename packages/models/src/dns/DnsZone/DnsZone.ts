@@ -1,4 +1,4 @@
-import { GhostMakerModel } from "@mittwald/react-ghostmaker";
+import { GhostMakerModel } from "@mittwald/react-ghostmaker/model";
 
 import type { DomainMigrationList } from "../../domain/DomainMigration/index.js";
 import type { DnsRecordSettingsData } from "../DnsRecordSettings/index.js";

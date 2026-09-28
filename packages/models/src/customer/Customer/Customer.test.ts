@@ -1,9 +1,9 @@
-import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
+import type * as ReactGhostmaker from "@mittwald/react-ghostmaker/model";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { DateTime } from "luxon";
 
-vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
+vi.mock("@mittwald/react-ghostmaker/model", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (type: unknown) =>
     typeof type === "function" ? (type as { name?: string }).name : undefined,

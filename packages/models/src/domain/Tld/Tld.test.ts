@@ -1,4 +1,4 @@
-import type * as ReactGhostmaker from "@mittwald/react-ghostmaker";
+import type * as ReactGhostmaker from "@mittwald/react-ghostmaker/model";
 
 import { afterEach, describe, expect, test, vi } from "vitest";
 
@@ -10,7 +10,7 @@ import {
 } from "../../testing/installBehaviors.js";
 import { TldDetailed, TldListItem, TldCommon, TldList, Tld } from "./Tld.js";
 
-vi.mock("@mittwald/react-ghostmaker", async (importOriginal) => ({
+vi.mock("@mittwald/react-ghostmaker/model", async (importOriginal) => ({
   ...(await importOriginal<typeof ReactGhostmaker>()),
   getModelName: (t: unknown) =>
     typeof t === "function" ? (t as { name?: string }).name : undefined,

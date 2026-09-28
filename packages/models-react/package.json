@@ -38,7 +38,7 @@
   "dependencies": {
     "@mittwald/api-models": "workspace:^",
     "@mittwald/react-async-proxy": "^0.0.12",
-    "@mittwald/react-ghostmaker": "^1.5.4",
+    "@mittwald/react-ghostmaker": "^1.6.0",
     "@sindresorhus/is": "^8.1.0",
     "minimatch": "^10.2.5"
   },
