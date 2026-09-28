@@ -50,8 +50,8 @@ export class DnsZone extends ReferenceModel {
 
   public static spf = "v=spf1 include:agenturserver.de ~all";
 
-  public static async create(name: string, parentZoneId: string) {
-    const result = await config.behaviors.dnsZone.create(name, parentZoneId);
+  public static async create(projectId: string, name: string) {
+    const result = await config.behaviors.dnsZone.create(projectId, name);
 
     return DnsZone.ofId(result.id);
   }
@@ -81,12 +81,6 @@ export class DnsZone extends ReferenceModel {
 
   public static query(query: DnsZoneListQueryModelData) {
     return new DnsZoneListQuery(query);
-  }
-
-  public async createSubZone(name: string): Promise<DnsZone> {
-    const result = await config.behaviors.dnsZone.create(name, this.id);
-
-    return DnsZone.ofId(result.id);
   }
 
   public async delete() {

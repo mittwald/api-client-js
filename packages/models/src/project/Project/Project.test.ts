@@ -13,6 +13,7 @@ import { buildProjectListItemData } from "../../testing/builders/buildProjectLis
 import { buildProjectData } from "../../testing/builders/buildProjectData.js";
 import { installBehaviors, resetBehaviors } from "../../testing/index.js";
 import { AggregateMetaData } from "../../common/index.js";
+import { DnsZone } from "../../dns/index.js";
 import {
   ProjectDetailed,
   ProjectListItem,
@@ -71,6 +72,17 @@ describe("Project references and delegation", () => {
     expect(create).toHaveBeenCalledWith("s-1", "created project");
     expect(result).toBeInstanceOf(Project);
     expect(result.id).toBe("p-created");
+  });
+
+  test("createDnsZone delegates with the project id and returns a zone reference", async () => {
+    const create = vi.fn().mockResolvedValue({ id: "z-created" });
+    installBehaviors({ dnsZone: { create } });
+
+    const result = await Project.ofId("p-1").createDnsZone("example.com");
+
+    expect(create).toHaveBeenCalledWith("p-1", "example.com");
+    expect(result).toBeInstanceOf(DnsZone);
+    expect(result.id).toBe("z-created");
   });
 
   test("updateDescription and delete delegate with the project id", async () => {

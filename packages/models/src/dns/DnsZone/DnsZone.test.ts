@@ -267,9 +267,10 @@ describe("DnsZone reference and delegation", () => {
     const create = vi.fn().mockResolvedValue({ id: "new-zone" });
     installBehaviors({ dnsZone: { create } });
 
-    const result = await DnsZone.create("sub", "parent");
+    const result = await DnsZone.create("p-1", "_autoconfig.example.com");
+    expect(result).toBeInstanceOf(DnsZone);
     expect(result.id).toBe("new-zone");
-    expect(create).toHaveBeenCalledWith("sub", "parent");
+    expect(create).toHaveBeenCalledWith("p-1", "_autoconfig.example.com");
   });
 
   test("returns a downloadable zone file", async () => {

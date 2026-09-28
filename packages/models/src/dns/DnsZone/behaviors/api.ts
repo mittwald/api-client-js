@@ -136,9 +136,10 @@ export const apiDnsZoneBehaviors = (
     };
   },
 
-  create: async (name, parentZoneId) => {
-    const response = await client.domain.dnsCreateDnsZone({
-      data: { parentZoneId, name },
+  create: async (projectId, name) => {
+    const response = await client.domain.dnsCreateProjectDnsZone({
+      data: { name },
+      projectId,
     });
 
     validateResponse(response, 201);

@@ -279,6 +279,10 @@ export class Project extends ReferenceModel {
     return CertificateRequest.createDnsCertificate(this, commonName);
   }
 
+  public async createDnsZone(name: string) {
+    return DnsZone.create(this.id, name);
+  }
+
   public async createForward(data: ForwardRequestData) {
     return MailAddress.createForward(this, data);
   }

@@ -43,7 +43,7 @@ export interface DnsZoneBehaviors {
   ) => Promise<void>;
   query: (projectId: string) => Promise<QueryResponseData<DnsZoneListItemData>>;
   setRecordManaged: (dnsZoneId: string, recordSet: "mx" | "a") => Promise<void>;
-  create: (name: string, parentZoneId: string) => Promise<{ id: string }>;
+  create: (projectId: string, name: string) => Promise<{ id: string }>;
   find: (dnsZoneId: string) => Promise<DnsZoneData | undefined>;
   getZoneFile: (zoneId: string) => Promise<string>;
   removeCname: (zoneId: string) => Promise<void>;

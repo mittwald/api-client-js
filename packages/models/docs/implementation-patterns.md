@@ -128,12 +128,12 @@ these genuine "only available now" cases; otherwise return a reference.
 
 A model's **primary** creator is the bare `create()`; a second, differently
 shaped way to create the same entity gets a descriptive name alongside it
-(`MailAddress.create` for a mailbox + `MailAddress.createForward` for a forward;
-`DnsZone.create` + the instance `createSubZone`). `createXy` names are otherwise
-reserved for **relational** creators that build a _different_ entity from a
-parent context (`Project.createMySql`, `Project.createContainer`, …) and for
-sub-resource/action creators (`Backup.createExport`, `Domain.createAuthCode`,
-`*.createUploadToken`) — those never collapse to `create()`.
+(`MailAddress.create` for a mailbox + `MailAddress.createForward` for a
+forward). `createXy` names are otherwise reserved for **relational** creators
+that build a _different_ entity from a parent context (`Project.createMySql`,
+`Project.createContainer`, …) and for sub-resource/action creators
+(`Backup.createExport`, `Domain.createAuthCode`, `*.createUploadToken`) — those
+never collapse to `create()`.
 
 Used in: `access/SshUser/SshUser.ts`, `database/Redis/Redis.ts`,
 `app/AppInstallation/AppInstallation.ts`,
