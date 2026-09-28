@@ -55,6 +55,7 @@ are compile-time-only OpenAPI derivations with no runtime examples to import.
 - **The ghostmaker identity path is a regression net** for the planned polytype
   → mixin migration (ADR-0004).
 - **Known friction:** `assertObjectFound` constructs `ObjectNotFoundError`,
-  which imports `getModelName` from the react-coupled `react-ghostmaker` main
-  entry (the P0-2 residual). Its error path may need a targeted mock under the
-  node test environment; the found path tests freely.
+  which names the missing type via `getModelName` from the React-free
+  `@mittwald/react-ghostmaker/model` entry. That lookup only knows registered
+  ghost models, so tests of the error path mock it to name any class by its JS
+  name; the found path tests freely.
