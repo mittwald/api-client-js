@@ -7378,15 +7378,24 @@ export declare module MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldDnsCreateZoneFileImportResponse {
+        /**
+         * Everything that will not be imported (invalid records, unsupported record types, CNAME conflicts, placement problems, parse errors). Empty on a real import, since any conflict rejects the whole import with 412 (all-or-nothing).
+         */
         conflicts: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportConflict[];
         /**
          * ID of the started import job. Absent on a dry-run (dryRun=true), which creates no job.
          */
         id?: string;
+        /**
+         * The importable target zones (one per distinct owner name), each with the record sets that would be set. On a dry-run this is the preview; on a real import it is the plan that was applied.
+         */
         zones: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZoneImportPreview[];
       }
 
       export interface DeMittwaldDnsImportConflict {
+        /**
+         * Machine-readable conflict kind: parseError (a zone-file line could not be parsed), invalidRecord (a record failed the same schema validation the write commands apply), invalidZoneName (the owner name is not a valid zone name, e.g. a wildcard *.example.com), unsupportedRecordType (an RR type dns-service does not import), cnameConflict (a CNAME shares a name with other record types), foreignCustomerIngress (the zone's enabled ingress belongs to another organization), rootZoneUnavailable (a subzone whose root zone is neither importable nor already existing).
+         */
         code:
           | "parseError"
           | "invalidRecord"
@@ -7395,6 +7404,9 @@ export declare module MittwaldAPIV3Next {
           | "cnameConflict"
           | "foreignCustomerIngress"
           | "rootZoneUnavailable";
+        /**
+         * Human-readable explanation of the conflict, suitable for surfacing to the user.
+         */
         message: string;
         /**
          * Offending record/owner name. Empty for a file-level parse error, where sourceLine locates the bad line.
@@ -7408,22 +7420,55 @@ export declare module MittwaldAPIV3Next {
          * Only on an invalidRecord conflict: the offending record's set type.
          */
         recordSetType?: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+        /**
+         * 1-based line number in the uploaded zone file, set for a file-level parse error (code parseError); 0 otherwise.
+         */
         sourceLine?: number;
       }
 
       export interface DeMittwaldDnsImportRecord {
+        /**
+         * CAA flags. Only set for CAA records.
+         */
         flags?: number;
+        /**
+         * SRV port. Only set for SRV records.
+         */
         port?: number;
+        /**
+         * MX preference / SRV priority. Only set for MX and SRV records.
+         */
         priority?: number;
+        /**
+         * CAA tag (e.g. issue, issuewild, iodef). Only set for CAA records.
+         */
         tag?: string;
+        /**
+         * The record's value: an IP address for A/AAAA, the target FQDN for MX/CNAME/SRV, the text for TXT, the value for CAA.
+         */
         value: string;
+        /**
+         * SRV weight. Only set for SRV records.
+         */
         weight?: number;
       }
 
       export interface DeMittwaldDnsImportRecordSet {
+        /**
+         * The individual records in the set.
+         */
         records: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecord[];
+        /**
+         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell below the 60s minimum. Informational; the import still uses ttlSeconds.
+         */
         ttlNormalized: boolean;
+        /**
+         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, floored to the 60s minimum.
+         */
         ttlSeconds: number;
+        /**
+         * Record-set type.
+         */
         type: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
       }
 
@@ -7592,16 +7637,22 @@ export declare module MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldDnsZoneImportPreview {
+        /**
+         * Whether a zone with this name already exists. On import its record sets are overwritten rather than the import failing.
+         */
         alreadyExists: boolean;
         /**
          * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
          */
         name: string;
+        /**
+         * The record sets that would be set on the zone — one per record type present for this owner name.
+         */
         recordSets: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecordSet[];
         /**
          * Project the zone would be created in. Always set, since only importable zones are listed.
          */
-        targetProjectId?: string;
+        targetProjectId: string;
       }
 
       export interface DeMittwaldDomainAuthCode {

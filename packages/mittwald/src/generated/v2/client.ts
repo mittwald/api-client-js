@@ -1076,7 +1076,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
-    /** Create a DNSZone for a domain in a Project. */
+    /** Create a DNSZone for a verified Ingress in a Project. */
     dnsCreateProjectDnsZone: this.requestFunctionFactory(
       descriptors.dnsCreateProjectDnsZone,
     ),

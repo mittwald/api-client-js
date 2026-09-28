@@ -8989,7 +8989,7 @@ export const dnsListDnsZones: OpenAPIOperation<
   operationId: "dns-list-dns-zones",
 };
 
-/** Create a DNSZone for a domain in a Project. */
+/** Create a DNSZone for a verified Ingress in a Project. */
 export const dnsCreateProjectDnsZone: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.RequestBody>,

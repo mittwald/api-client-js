@@ -746,10 +746,10 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.dnsGetZoneFile,
     baseClient.domain.dnsGetZoneFile,
   ).getApiResource,
-  /** Get a domain. */
-  serviceNextGetDomain: new ApiCallAsyncResourceFactory(
-    descriptors.domainServiceNextGetDomain,
-    baseClient.domain.serviceNextGetDomain,
+  /** Get a Domain. */
+  getDomain: new ApiCallAsyncResourceFactory(
+    descriptors.domainGetDomain,
+    baseClient.domain.getDomain,
   ).getApiResource,
   /** Get a Contact-Verification. */
   getContactVerification: new ApiCallAsyncResourceFactory(
