@@ -2,9 +2,12 @@
   "compilerOptions": {
     "declarationDir": "./dist/types",
     "outDir": "./dist/esm",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "lib": ["ES2022", "DOM"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
-  "exclude": ["test-d/**/*", "*.test.ts"],
+  "exclude": ["**/*.test.ts"],
   "extends": "../../tsconfig.json",
   "include": ["src/**/*.ts"]
 }

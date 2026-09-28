@@ -1,2 +1,66 @@
 extends:
   - "../../config/.eslintrc.yml"
+plugins:
+  - api-models
+rules:
+  # Load-bearing guards for invariants tsc cannot see. Do not disable: the
+  # hand-ordered internal.ts barrels crash at runtime when bypassed, and a
+  # mismatching ghost name resolves silently to the wrong model.
+  # See docs/implementation-patterns.md.
+  api-models/no-deep-cluster-imports: error
+  api-models/ghostmaker-name-matches-class: error
+  # package.json#exports opens only ".", so a model missing from the root
+  # barrel is unreachable for consumers and nothing else notices.
+  api-models/ghostmaker-model-exported: error
+  # The base model machinery is intentionally generic and uses `any` in type
+  # positions (`Class<any>`, the type-level API fixes in base/api) where a
+  # concrete type is impossible. Relaxed package-wide rather than contorting
+  # the existing types; tighten later if desired.
+  "@typescript-eslint/no-explicit-any": off
+  # The core stays free of React, UI and the DOM (docs/adr/0002). React code
+  # belongs in @mittwald/api-models-react; downloads return data instead of
+  # touching `document`/`window`.
+  no-restricted-imports:
+    - error
+    - paths:
+        - name: react
+          message:
+            "The core is React-free (ADR-0002); React code belongs in
+            @mittwald/api-models-react."
+        - name: react-dom
+          message:
+            "The core is React-free (ADR-0002); React code belongs in
+            @mittwald/api-models-react."
+        - name: "@mittwald/flow-react-components"
+          message:
+            "The core carries no UI (ADR-0002); UI belongs in the consumer."
+        - name: "@mittwald/react-ghostmaker"
+          message:
+            "The ghostmaker main entry loads React (ADR-0002); import from
+            @mittwald/react-ghostmaker/model instead."
+      patterns:
+        - group:
+            - "react/*"
+            - "react-dom/*"
+            - "@mittwald/flow-react-components/*"
+            - "@tabler/*"
+          message: "The core carries no React or UI (ADR-0002)."
+  no-restricted-globals:
+    - error
+    - name: document
+      message:
+        "The core is DOM-free (ADR-0002); return data and let the consumer touch
+        the DOM."
+    - name: window
+      message:
+        "The core is DOM-free (ADR-0002); return data and let the consumer touch
+        the DOM."
+overrides:
+  # The local ESLint plugin is CommonJS — ESLint 8's eslintrc loader requires()
+  # its plugins, so these files cannot be ESM like the rest of the package.
+  - files:
+      - "eslint-rules/**/*.js"
+    parserOptions:
+      sourceType: script
+    rules:
+      "@typescript-eslint/no-var-requires": off

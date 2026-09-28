@@ -1,0 +1,68 @@
+{
+  "name": "@mittwald/api-models-react",
+  "version": "4.474.0",
+  "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
+  "type": "module",
+  "description": "React bindings for the mittwald API domain models",
+  "keywords": [
+    "api",
+    "client",
+    "mittwald",
+    "models",
+    "react"
+  ],
+  "homepage": "https://developer.mittwald.de",
+  "repository": "github:mittwald/api-client-js",
+  "bugs": {
+    "url": "https://github.com/mittwald/api-client-js/issues"
+  },
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run build:clean && run tsc",
+    "build:clean": "rimraf dist",
+    "format": "run prettier --write '**/*.{ts,tsx,yaml,yml,json,md,mdx,js}'",
+    "lint": "run eslint .",
+    "test": "",
+    "test:compile": "run tsc --noEmit",
+    "test:unit": "run vitest run"
+  },
+  "dependencies": {
+    "@mittwald/api-models": "workspace:^",
+    "@mittwald/react-async-proxy": "^0.0.12",
+    "@mittwald/react-ghostmaker": "^1.6.0",
+    "@sindresorhus/is": "^8.1.0",
+    "minimatch": "^10.2.5"
+  },
+  "devDependencies": {
+    "@mittwald/api-client": "workspace:^",
+    "@mittwald/api-client-commons": "workspace:^",
+    "@tanstack/react-query": "^5.102.8",
+    "@types/react": "^19.2.17",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "react": "^19.2.7",
+    "rimraf": "^5.0.10",
+    "typescript": "^5.7.2",
+    "vitest": "^4.1.8"
+  },
+  "peerDependencies": {
+    "@mittwald/api-client": "workspace:^",
+    "@mittwald/api-client-commons": "workspace:^",
+    "@tanstack/react-query": "^5",
+    "react": ">=19.2"
+  }
+}
