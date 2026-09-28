@@ -25892,139 +25892,6 @@ export declare module MittwaldAPIV2 {
 
     namespace V2DnsZones {}
 
-    namespace V2DnsZones {}
-
-    namespace V2ProjectsProjectIdDnsZones {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZone[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Fully-qualified name of the DNSZone to create (e.g. example.com or _autoconfig.example.com). The backend resolves root vs subzone via the public suffix list.
-             */
-            name: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: "createdAt";
-            order?: "asc" | "desc";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2DnsZones {}
-
     namespace V2ProjectsProjectIdDnsZones {
       namespace Get {
         namespace Parameters {
@@ -26299,7 +26166,7 @@ export declare module MittwaldAPIV2 {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            zoneFileImportId: string;
+            dnsZoneId: string;
           };
 
           export type Header =
@@ -26310,20 +26177,11 @@ export declare module MittwaldAPIV2 {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.DnsZoneFileImport;
+              export type TextPlain = string;
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -26349,8 +26207,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ProjectsProjectIdDnsZones {}
 
     namespace V2DnsZonesDnsZoneIdRecordSetsRecordSetActionsSetManaged {
       namespace Post {
@@ -42095,51 +41951,6 @@ export declare module MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2LeakedPasswordsPasswordHashPrefix {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            passwordHashPrefix: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = string[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
