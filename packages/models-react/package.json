@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-models-react",
-  "version": "4.468.0",
+  "version": "4.474.0",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "React bindings for the mittwald API domain models",
