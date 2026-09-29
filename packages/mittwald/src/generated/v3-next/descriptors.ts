@@ -17440,226 +17440,6 @@ export const sslListCertificates: OpenAPIOperation<
   operationId: "ssl-list-certificates",
 };
 
-/** Update the certificate of a CertificateRequest. */
-export const sslSetCertificateRequestCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/certificate-requests/{certificateRequestId}/certificate",
-  method: "PATCH",
-  operationId: "ssl-set-certificate-request-certificate",
-};
-
-/** Get storage space Statistics belonging to a Project. */
-export const storagespaceGetProjectStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/storage-space-statistics",
-  method: "GET",
-  operationId: "storagespace-get-project-statistics",
-};
-
-/** Update a Project's storage space statistics. */
-export const storagespaceUpdateProjectStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/storage-space-statistics",
-  method: "PATCH",
-  operationId: "storagespace-update-project-statistics",
-};
-
-/** Get storage space Statistics belonging to a Server. */
-export const storagespaceGetServerStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/servers/{serverId}/storage-space-statistics",
-  method: "GET",
-  operationId: "storagespace-get-server-statistics",
-};
-
-/** Update a Server's storage space statistics. */
-export const storagespaceUpdateServerStatistics: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/servers/{serverId}/storage-space-statistics",
-  method: "PATCH",
-  operationId: "storagespace-update-server-statistics",
-};
-
 /** Add phone number and start verification process. */
 export const userAddPhoneNumber: OpenAPIOperation<
   RequestType<
@@ -19684,4 +19464,180 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Get storage space Statistics belonging to a Server. */
+export const storagespaceGetServerStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/storage-space-statistics",
+  method: "GET",
+  operationId: "storagespace-get-server-statistics",
+};
+
+/** Update a Server's storage space statistics. */
+export const storagespaceUpdateServerStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceStatistics.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/storage-space-statistics",
+  method: "PATCH",
+  operationId: "storagespace-update-server-statistics",
+};
+
+/** Get storage space Statistics belonging to a Project. */
+export const storagespaceGetProjectStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/storage-space-statistics",
+  method: "GET",
+  operationId: "storagespace-get-project-statistics",
+};
+
+/** Update a Project's storage space statistics. */
+export const storagespaceUpdateProjectStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceStatistics.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/storage-space-statistics",
+  method: "PATCH",
+  operationId: "storagespace-update-project-statistics",
 };
