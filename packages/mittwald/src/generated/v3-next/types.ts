@@ -5270,6 +5270,7 @@ export declare module MittwaldAPIV3Next {
        */
       export interface DeMittwaldAppApp {
         actionCapabilities?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppActionCapabilities;
+        description?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppTranslatedString;
         id: string;
         name: string;
         tags: string[];
@@ -10601,6 +10602,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.activated" | "cronjob.deactivated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10617,6 +10620,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.alert-threshold-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10633,6 +10638,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.command-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10641,14 +10648,16 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogCronjobConcurrencyPolicyUpdated {
         changes: {
           after?: {
-            concurrencyPolicy: number;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
           };
           before?: {
-            concurrencyPolicy: number | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
           };
         };
         name: "cronjob.concurrency-policy-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10658,31 +10667,43 @@ export declare module MittwaldAPIV3Next {
         changes: {
           after?: {
             active: boolean;
-            concurrencyPolicy: number;
+            command?: string | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+            container?: string | null;
             description: string;
             failedExecutionAlertThreshold: number | null;
+            interpreter?: string | null;
             interval: string;
             notificationEmailConfigured: boolean;
+            parameters?: string | null;
+            path?: string | null;
             shortId: string;
-            target: {} | null;
             timeZone: string;
             timeout: number;
+            url?: string | null;
           };
           before?: {
             active: boolean | null;
-            concurrencyPolicy: number | null;
+            command?: string | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+            container?: string | null;
             description: string | null;
             failedExecutionAlertThreshold: number | null;
+            interpreter?: string | null;
             interval: string | null;
             notificationEmailConfigured: boolean | null;
+            parameters?: string | null;
+            path?: string | null;
             shortId: string | null;
-            target: {} | null;
             timeZone: string | null;
             timeout: number | null;
+            url?: string | null;
           };
         };
         name: "cronjob.created";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10692,6 +10713,8 @@ export declare module MittwaldAPIV3Next {
         changes: {};
         name: "cronjob.deleted";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10708,6 +10731,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.description-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10717,6 +10742,8 @@ export declare module MittwaldAPIV3Next {
         changes: {};
         name: "cronjob.execution-triggered" | "cronjob.execution-aborted";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10733,6 +10760,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.interval-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10751,6 +10780,8 @@ export declare module MittwaldAPIV3Next {
           | "cronjob.notification-email-updated"
           | "cronjob.notification-email-removed";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10759,14 +10790,16 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogCronjobServiceReferenceUpdated {
         changes: {
           after?: {
-            serviceReference: {} | null;
+            container: string | null;
           };
           before?: {
-            serviceReference: {} | null;
+            container: string | null;
           };
         };
         name: "cronjob.service-reference-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10775,14 +10808,22 @@ export declare module MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogCronjobTargetUpdated {
         changes: {
           after?: {
-            destination: {} | null;
+            interpreter?: string | null;
+            parameters?: string | null;
+            path?: string | null;
+            url?: string | null;
           };
           before?: {
-            destination: {} | null;
+            interpreter?: string | null;
+            parameters?: string | null;
+            path?: string | null;
+            url?: string | null;
           };
         };
         name: "cronjob.target-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10799,6 +10840,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.time-zone-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -10815,6 +10858,8 @@ export declare module MittwaldAPIV3Next {
         };
         name: "cronjob.timeout-updated";
         parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
@@ -12034,6 +12079,14 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      /**
+       * A text with a german and an english translation.
+       */
+      export interface DeMittwaldAppTranslatedString {
+        de: string;
+        en: string;
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
