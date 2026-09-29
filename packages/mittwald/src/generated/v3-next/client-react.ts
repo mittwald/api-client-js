@@ -1168,15 +1168,15 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.projectListServers,
     baseClient.project.listServers,
   ).getApiResource,
-  /** Get storage space Statistics belonging to a Project. */
-  storagespaceGetProjectStatistics: new ApiCallAsyncResourceFactory(
-    descriptors.storagespaceGetProjectStatistics,
-    baseClient.project.storagespaceGetProjectStatistics,
-  ).getApiResource,
   /** Get storage space Statistics belonging to a Server. */
   storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
+  ).getApiResource,
+  /** Get storage space Statistics belonging to a Project. */
+  storagespaceGetProjectStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.storagespaceGetProjectStatistics,
+    baseClient.project.storagespaceGetProjectStatistics,
   ).getApiResource,
 });
 

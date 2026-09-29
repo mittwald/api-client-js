@@ -4356,50 +4356,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
     }
 
-    namespace StoragespaceGetProjectStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceGetProjectStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceGetProjectStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceUpdateProjectStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceUpdateProjectStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceUpdateProjectStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceGetServerStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceGetServerStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceGetServerStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceUpdateServerStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceUpdateServerStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceUpdateServerStatistics,
-          TStatus
-        >;
-    }
-
     namespace UserAddPhoneNumber {
       type RequestData = InferredRequestData<
         typeof descriptors.userAddPhoneNumber
@@ -4908,6 +4864,50 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace StoragespaceGetServerStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceGetServerStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceGetServerStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceUpdateServerStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceUpdateServerStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceUpdateServerStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceGetProjectStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceGetProjectStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceGetProjectStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceUpdateProjectStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceUpdateProjectStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceUpdateProjectStatistics,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -5176,6 +5176,7 @@ export declare module MittwaldAPIV2 {
        */
       export interface AppApp {
         actionCapabilities?: MittwaldAPIV2.Components.Schemas.AppActionCapabilities;
+        description?: MittwaldAPIV2.Components.Schemas.AppTranslatedString;
         id: string;
         name: string;
         tags: string[];
@@ -11092,74 +11093,6 @@ export declare module MittwaldAPIV2 {
         | "error"
         | "unspecified";
 
-      export type StoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      export interface StoragespaceStatisticsCategory {
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
-
-      export type StoragespaceStatisticsKind = "server" | "project";
-
-      export interface StoragespaceStatisticsMeta {
-        isExceeding?: boolean;
-        /**
-         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastExceedanceLimitInBytes?: number;
-        /**
-         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastTotalExceedanceInBytes?: number;
-        /**
-         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastTotalExceedanceInBytesSetAt?: string;
-        limitInBytes?: number;
-        /**
-         * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
-         */
-        notificationThresholdUsedAsLimit?: boolean;
-        /**
-         * The current total exceedance in bytes.
-         */
-        totalExceedanceInBytes?: number;
-        /**
-         * The current total exceedance date.
-         */
-        totalExceedanceInBytesSetAt?: string;
-        totalFreeInBytes?: number;
-        totalFreeInPercentage?: number;
-        totalUsageInBytes: number;
-        totalUsageInPercentage?: number;
-      }
-
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
-      }
-
-      export interface StoragespaceStatistics {
-        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
-        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
-      }
-
       export interface SignupAccount {
         email?: string;
         /**
@@ -11408,6 +11341,82 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export type StoragespaceStatisticsKind = "server" | "project";
+
+      export interface StoragespaceStatistics {
+        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
+        description?: string;
+        id: string;
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
+        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
+        name: string;
+        notificationThresholdInBytes?: number;
+        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      }
+
+      export type StoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
+      }
+
+      export interface StoragespaceStatisticsCategory {
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
+      }
+
+      export interface StoragespaceStatisticsMeta {
+        isExceeding?: boolean;
+        /**
+         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastExceedanceLimitInBytes?: number;
+        /**
+         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastTotalExceedanceInBytes?: number;
+        /**
+         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastTotalExceedanceInBytesSetAt?: string;
+        limitInBytes?: number;
+        /**
+         * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
+         */
+        notificationThresholdUsedAsLimit?: boolean;
+        /**
+         * The current total exceedance in bytes.
+         */
+        totalExceedanceInBytes?: number;
+        /**
+         * The current total exceedance date.
+         */
+        totalExceedanceInBytesSetAt?: string;
+        totalFreeInBytes?: number;
+        totalFreeInPercentage?: number;
+        totalUsageInBytes: number;
+        totalUsageInPercentage?: number;
+      }
+
+      /**
+       * A text with a german and an english translation.
+       */
+      export interface AppTranslatedString {
+        de: string;
+        en: string;
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -25125,10 +25134,6 @@ export declare module MittwaldAPIV2 {
 
     namespace V2ServersServerIdDescription {}
 
-    namespace V2ProjectsProjectIdStorageSpaceNotificationThreshold {}
-
-    namespace V2ServersServerIdStorageSpaceNotificationThreshold {}
-
     namespace V2SignupEmail {}
 
     namespace V2SignupTokenCheck {}
@@ -38094,260 +38099,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ProjectsProjectIdStorageSpaceStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            notificationThresholdInBytes?: number;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ServersServerIdStorageSpaceStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export interface RequestBody {
-            notificationThresholdInBytes?: number;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2UsersUserIdPhone {
       namespace Post {
         namespace Parameters {
@@ -41558,5 +41309,263 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectsProjectIdStorageSpaceNotificationThreshold {}
+
+    namespace V2ServersServerIdStorageSpaceStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdStorageSpaceStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ServersServerIdStorageSpaceNotificationThreshold {}
   }
 }
