@@ -11376,8 +11376,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
-
       export interface DeMittwaldStoragespaceStatistics {
         childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
         description?: string;
@@ -11387,6 +11385,12 @@ export declare module MittwaldAPIV3Next {
         name: string;
         notificationThresholdInBytes?: number;
         statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
+      }
+
+      export interface DeMittwaldStoragespaceStatisticsCategory {
+        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
       }
 
       export interface DeMittwaldStoragespaceStatisticsResource {
@@ -11430,6 +11434,8 @@ export declare module MittwaldAPIV3Next {
         totalUsageInPercentage?: number;
       }
 
+      export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
+
       export type DeMittwaldStoragespaceStatisticsCategoryKind =
         | "webspace"
         | "projectBackup"
@@ -11437,12 +11443,6 @@ export declare module MittwaldAPIV3Next {
         | "mysqlDatabase"
         | "redisDatabase"
         | "containerVolume";
-
-      export interface DeMittwaldStoragespaceStatisticsCategory {
-        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
 
       /**
        * A text with a german and an english translation.

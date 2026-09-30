@@ -11344,6 +11344,14 @@ export declare module MittwaldAPIV2 {
 
       export type StoragespaceStatisticsKind = "server" | "project";
 
+      export type StoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
       export interface StoragespaceStatistics {
         childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
         description?: string;
@@ -11353,28 +11361,6 @@ export declare module MittwaldAPIV2 {
         name: string;
         notificationThresholdInBytes?: number;
         statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
-      }
-
-      export type StoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
-      }
-
-      export interface StoragespaceStatisticsCategory {
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
       }
 
       export interface StoragespaceStatisticsMeta {
@@ -11408,6 +11394,20 @@ export declare module MittwaldAPIV2 {
         totalFreeInPercentage?: number;
         totalUsageInBytes: number;
         totalUsageInPercentage?: number;
+      }
+
+      export interface StoragespaceStatisticsCategory {
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
+      }
+
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
       }
 
       /**
