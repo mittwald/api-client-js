@@ -4450,6 +4450,50 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace StoragespaceGetProjectStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceGetProjectStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceGetProjectStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceUpdateProjectStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceUpdateProjectStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceUpdateProjectStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceGetServerStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceGetServerStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceGetServerStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceUpdateServerStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceUpdateServerStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceUpdateServerStatistics,
+          TStatus
+        >;
+    }
+
     namespace UserAddPhoneNumber {
       type RequestData = InferredRequestData<
         typeof descriptors.userAddPhoneNumber
@@ -4955,50 +4999,6 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceGetProjectStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceGetProjectStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceGetProjectStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceUpdateProjectStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceUpdateProjectStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceUpdateProjectStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceGetServerStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceGetServerStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceGetServerStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceUpdateServerStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceUpdateServerStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceUpdateServerStatistics,
           TStatus
         >;
     }
@@ -5548,6 +5548,14 @@ export declare module MittwaldAPIV3Next {
         recommended?: boolean;
         systemSoftwareDependencies?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftwareDependency[];
         userInputs?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppUserInput[];
+      }
+
+      /**
+       * A text with a german and an english translation.
+       */
+      export interface DeMittwaldAppTranslatedString {
+        de: string;
+        en: string;
       }
 
       /**
@@ -11759,6 +11767,74 @@ export declare module MittwaldAPIV3Next {
         | "error"
         | "unspecified";
 
+      export type DeMittwaldStoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
+      export interface DeMittwaldStoragespaceStatisticsCategory {
+        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
+      }
+
+      export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
+
+      export interface DeMittwaldStoragespaceStatisticsMeta {
+        isExceeding?: boolean;
+        /**
+         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastExceedanceLimitInBytes?: number;
+        /**
+         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastTotalExceedanceInBytes?: number;
+        /**
+         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastTotalExceedanceInBytesSetAt?: string;
+        limitInBytes?: number;
+        /**
+         * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
+         */
+        notificationThresholdUsedAsLimit?: boolean;
+        /**
+         * The current total exceedance in bytes.
+         */
+        totalExceedanceInBytes?: number;
+        /**
+         * The current total exceedance date.
+         */
+        totalExceedanceInBytesSetAt?: string;
+        totalFreeInBytes?: number;
+        totalFreeInPercentage?: number;
+        totalUsageInBytes: number;
+        totalUsageInPercentage?: number;
+      }
+
+      export interface DeMittwaldStoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
+      }
+
+      export interface DeMittwaldStoragespaceStatistics {
+        childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
+        description?: string;
+        id: string;
+        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsKind;
+        meta: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsMeta;
+        name: string;
+        notificationThresholdInBytes?: number;
+        statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
+      }
+
       export interface DeMittwaldSignupAccount {
         email?: string;
         /**
@@ -12011,356 +12087,6 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
-
-      export interface DeMittwaldStoragespaceStatistics {
-        childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsKind;
-        meta: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
-      }
-
-      export interface DeMittwaldStoragespaceStatisticsCategory {
-        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
-
-      export interface DeMittwaldStoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
-      }
-
-      export interface DeMittwaldStoragespaceStatisticsMeta {
-        isExceeding?: boolean;
-        /**
-         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastExceedanceLimitInBytes?: number;
-        /**
-         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastTotalExceedanceInBytes?: number;
-        /**
-         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastTotalExceedanceInBytesSetAt?: string;
-        limitInBytes?: number;
-        /**
-         * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
-         */
-        notificationThresholdUsedAsLimit?: boolean;
-        /**
-         * The current total exceedance in bytes.
-         */
-        totalExceedanceInBytes?: number;
-        /**
-         * The current total exceedance date.
-         */
-        totalExceedanceInBytesSetAt?: string;
-        totalFreeInBytes?: number;
-        totalFreeInPercentage?: number;
-        totalUsageInBytes: number;
-        totalUsageInPercentage?: number;
-      }
-
-      export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
-
-      export type DeMittwaldStoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      /**
-       * A text with a german and an english translation.
-       */
-      export interface DeMittwaldAppTranslatedString {
-        de: string;
-        en: string;
-      }
-
-      export interface DeMittwaldActivitylogCronjobActiveUpdated {
-        changes: {
-          after?: {
-            active: boolean;
-          };
-          before?: {
-            active: boolean | null;
-          };
-        };
-        name: "cronjob.activated" | "cronjob.deactivated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobAlertThresholdUpdated {
-        changes: {
-          after?: {
-            failedExecutionAlertThreshold: number | null;
-          };
-          before?: {
-            failedExecutionAlertThreshold: number | null;
-          };
-        };
-        name: "cronjob.alert-threshold-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobCommandUpdated {
-        changes: {
-          after?: {
-            command: string;
-          };
-          before?: {
-            command: string | null;
-          };
-        };
-        name: "cronjob.command-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobConcurrencyPolicyUpdated {
-        changes: {
-          after?: {
-            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
-          };
-          before?: {
-            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
-          };
-        };
-        name: "cronjob.concurrency-policy-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobCreated {
-        changes: {
-          after?: {
-            active: boolean;
-            command?: string | null;
-            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
-            container?: string | null;
-            description: string;
-            failedExecutionAlertThreshold: number | null;
-            interpreter?: string | null;
-            interval: string;
-            notificationEmailConfigured: boolean;
-            parameters?: string | null;
-            path?: string | null;
-            shortId: string;
-            timeZone: string;
-            timeout: number;
-            url?: string | null;
-          };
-          before?: {
-            active: boolean | null;
-            command?: string | null;
-            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
-            container?: string | null;
-            description: string | null;
-            failedExecutionAlertThreshold: number | null;
-            interpreter?: string | null;
-            interval: string | null;
-            notificationEmailConfigured: boolean | null;
-            parameters?: string | null;
-            path?: string | null;
-            shortId: string | null;
-            timeZone: string | null;
-            timeout: number | null;
-            url?: string | null;
-          };
-        };
-        name: "cronjob.created";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobDeleted {
-        changes: {};
-        name: "cronjob.deleted";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobDescriptionUpdated {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name: "cronjob.description-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobExecution {
-        changes: {};
-        name: "cronjob.execution-triggered" | "cronjob.execution-aborted";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobIntervalUpdated {
-        changes: {
-          after?: {
-            interval: string;
-          };
-          before?: {
-            interval: string | null;
-          };
-        };
-        name: "cronjob.interval-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobNotificationEmailUpdated {
-        changes: {
-          after?: {
-            notificationEmailConfigured: boolean;
-          };
-          before?: {
-            notificationEmailConfigured: boolean | null;
-          };
-        };
-        name:
-          | "cronjob.notification-email-updated"
-          | "cronjob.notification-email-removed";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobServiceReferenceUpdated {
-        changes: {
-          after?: {
-            container: string | null;
-          };
-          before?: {
-            container: string | null;
-          };
-        };
-        name: "cronjob.service-reference-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobTargetUpdated {
-        changes: {
-          after?: {
-            interpreter?: string | null;
-            parameters?: string | null;
-            path?: string | null;
-            url?: string | null;
-          };
-          before?: {
-            interpreter?: string | null;
-            parameters?: string | null;
-            path?: string | null;
-            url?: string | null;
-          };
-        };
-        name: "cronjob.target-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobTimeZoneUpdated {
-        changes: {
-          after?: {
-            timeZone: string;
-          };
-          before?: {
-            timeZone: string | null;
-          };
-        };
-        name: "cronjob.time-zone-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogCronjobTimeoutUpdated {
-        changes: {
-          after?: {
-            timeout: number;
-          };
-          before?: {
-            timeout: number | null;
-          };
-        };
-        name: "cronjob.timeout-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -26048,6 +25774,10 @@ export declare module MittwaldAPIV3Next {
 
     namespace V3NextServersServerIdDescription {}
 
+    namespace V3NextProjectsProjectIdStorageSpaceNotificationThreshold {}
+
+    namespace V3NextServersServerIdStorageSpaceNotificationThreshold {}
+
     namespace V3NextSignupEmail {}
 
     namespace V3NextUsersSelfCredentialsToken {}
@@ -39387,6 +39117,260 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextProjectsProjectIdStorageSpaceStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextServersServerIdStorageSpaceStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextUsersUserIdPhone {
       namespace Post {
         namespace Parameters {
@@ -42556,264 +42540,6 @@ export declare module MittwaldAPIV3Next {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextProjectsProjectIdStorageSpaceStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            notificationThresholdInBytes?: number;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextProjectsProjectIdStorageSpaceNotificationThreshold {}
-
-    namespace V3NextServersServerIdStorageSpaceNotificationThreshold {}
-
-    namespace V3NextServersServerIdStorageSpaceStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export interface RequestBody {
-            notificationThresholdInBytes?: number;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
