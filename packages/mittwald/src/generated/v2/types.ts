@@ -11356,21 +11356,26 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface StoragespaceStatisticsCategory {
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
-
       export type StoragespaceStatisticsKind = "server" | "project";
 
-      export type StoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
+      export interface StoragespaceStatistics {
+        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
+        description?: string;
+        id: string;
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
+        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
+        name: string;
+        notificationThresholdInBytes?: number;
+        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      }
+
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
+      }
 
       export interface StoragespaceStatisticsMeta {
         isExceeding?: boolean;
@@ -11405,23 +11410,18 @@ export declare module MittwaldAPIV2 {
         totalUsageInPercentage?: number;
       }
 
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
-      }
+      export type StoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
 
-      export interface StoragespaceStatistics {
-        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
-        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      export interface StoragespaceStatisticsCategory {
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
       }
 
       /**
@@ -11504,17 +11504,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogCronjobDeleted {
-        changes: {};
-        name: "cronjob.deleted";
-        parameters: {
-          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogCronjobCreated {
         changes: {
           after?: {
@@ -11553,6 +11542,17 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "cronjob.created";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobDeleted {
+        changes: {};
+        name: "cronjob.deleted";
         parameters: {
           appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
