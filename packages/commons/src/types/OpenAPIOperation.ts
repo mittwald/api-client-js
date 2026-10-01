@@ -1,6 +1,6 @@
 import { AnyResponse, Response } from "./Response.js";
 import { AnyRequest, RequestType } from "./RequestType.js";
-import { HttpMethod, HttpStatus } from "./http.js";
+import { HttpMediaType, HttpMethod, HttpStatus } from "./http.js";
 
 export interface OpenAPIOperation<
   TIgnoredRequest extends AnyRequest = RequestType,
@@ -9,6 +9,11 @@ export interface OpenAPIOperation<
   operationId: string;
   path: string;
   method: HttpMethod;
+  /**
+   * Media type the request body has to be sent as. Only set when the operation
+   * does not use `application/json`; `undefined` means JSON.
+   */
+  requestContentType?: HttpMediaType;
 }
 
 export type InferredRequestType<TOp> =
