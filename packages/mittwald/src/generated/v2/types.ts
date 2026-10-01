@@ -11980,20 +11980,12 @@ export declare module MittwaldAPIV2 {
         en: string;
       }
 
-      export type StoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      export type StoragespaceStatisticsKind = "server" | "project";
-
-      export interface StoragespaceStatisticsCategory {
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
       }
 
       export interface StoragespaceStatisticsMeta {
@@ -12029,23 +12021,300 @@ export declare module MittwaldAPIV2 {
         totalUsageInPercentage?: number;
       }
 
-      export interface StoragespaceStatistics {
-        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
-        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      export type StoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
+      export interface StoragespaceStatisticsCategory {
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
       }
 
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
+      /**
+       * A text with a german and an english translation.
+       */
+      export interface AppTranslatedString {
+        de: string;
+        en: string;
+      }
+
+      export interface ActivitylogCronjobActiveUpdated {
+        changes: {
+          after?: {
+            active: boolean;
+          };
+          before?: {
+            active: boolean | null;
+          };
+        };
+        name: "cronjob.activated" | "cronjob.deactivated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobAlertThresholdUpdated {
+        changes: {
+          after?: {
+            failedExecutionAlertThreshold: number | null;
+          };
+          before?: {
+            failedExecutionAlertThreshold: number | null;
+          };
+        };
+        name: "cronjob.alert-threshold-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobCommandUpdated {
+        changes: {
+          after?: {
+            command: string;
+          };
+          before?: {
+            command: string | null;
+          };
+        };
+        name: "cronjob.command-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobConcurrencyPolicyUpdated {
+        changes: {
+          after?: {
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+          };
+          before?: {
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+          };
+        };
+        name: "cronjob.concurrency-policy-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobCreated {
+        changes: {
+          after?: {
+            active: boolean;
+            command?: string | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+            container?: string | null;
+            description: string;
+            failedExecutionAlertThreshold: number | null;
+            interpreter?: string | null;
+            interval: string;
+            notificationEmailConfigured: boolean;
+            parameters?: string | null;
+            path?: string | null;
+            shortId: string;
+            timeZone: string;
+            timeout: number;
+            url?: string | null;
+          };
+          before?: {
+            active: boolean | null;
+            command?: string | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+            container?: string | null;
+            description: string | null;
+            failedExecutionAlertThreshold: number | null;
+            interpreter?: string | null;
+            interval: string | null;
+            notificationEmailConfigured: boolean | null;
+            parameters?: string | null;
+            path?: string | null;
+            shortId: string | null;
+            timeZone: string | null;
+            timeout: number | null;
+            url?: string | null;
+          };
+        };
+        name: "cronjob.created";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobDeleted {
+        changes: {};
+        name: "cronjob.deleted";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "cronjob.description-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobExecution {
+        changes: {};
+        name: "cronjob.execution-triggered" | "cronjob.execution-aborted";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobIntervalUpdated {
+        changes: {
+          after?: {
+            interval: string;
+          };
+          before?: {
+            interval: string | null;
+          };
+        };
+        name: "cronjob.interval-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobNotificationEmailUpdated {
+        changes: {
+          after?: {
+            notificationEmailConfigured: boolean;
+          };
+          before?: {
+            notificationEmailConfigured: boolean | null;
+          };
+        };
+        name:
+          | "cronjob.notification-email-updated"
+          | "cronjob.notification-email-removed";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobServiceReferenceUpdated {
+        changes: {
+          after?: {
+            container: string | null;
+          };
+          before?: {
+            container: string | null;
+          };
+        };
+        name: "cronjob.service-reference-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobTargetUpdated {
+        changes: {
+          after?: {
+            interpreter?: string | null;
+            parameters?: string | null;
+            path?: string | null;
+            url?: string | null;
+          };
+          before?: {
+            interpreter?: string | null;
+            parameters?: string | null;
+            path?: string | null;
+            url?: string | null;
+          };
+        };
+        name: "cronjob.target-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobTimeZoneUpdated {
+        changes: {
+          after?: {
+            timeZone: string;
+          };
+          before?: {
+            timeZone: string | null;
+          };
+        };
+        name: "cronjob.time-zone-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobTimeoutUpdated {
+        changes: {
+          after?: {
+            timeout: number;
+          };
+          before?: {
+            timeout: number | null;
+          };
+        };
+        name: "cronjob.timeout-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
       }
 
       export interface CommonsAddress {
