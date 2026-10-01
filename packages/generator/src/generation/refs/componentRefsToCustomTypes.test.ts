@@ -39,6 +39,20 @@ test.each([
       },
     },
   ],
+  [
+    {
+      inArray: [{ $ref: "#/components/foo/bar" }, { noRef: "No fun" }],
+    },
+    {
+      inArray: [
+        {
+          type: "object",
+          tsType: "Test.Components.Foo.Bar",
+        },
+        { noRef: "No fun" },
+      ],
+    },
+  ],
 ])("componentRefsToCustomTypes works for test %#", (input, expected) => {
   const result = componentRefsToCustomTypes("test", input);
   expect(result).toMatchObject(expected);
