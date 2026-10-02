@@ -11358,6 +11358,22 @@ export declare module MittwaldAPIV2 {
 
       export type StoragespaceStatisticsKind = "server" | "project";
 
+      export type StoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
+      }
+
       export interface StoragespaceStatistics {
         childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
         description?: string;
@@ -11369,12 +11385,10 @@ export declare module MittwaldAPIV2 {
         statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
       }
 
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
+      export interface StoragespaceStatisticsCategory {
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
       }
 
       export interface StoragespaceStatisticsMeta {
@@ -11410,44 +11424,12 @@ export declare module MittwaldAPIV2 {
         totalUsageInPercentage?: number;
       }
 
-      export type StoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      export interface StoragespaceStatisticsCategory {
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
-
       /**
        * A text with a german and an english translation.
        */
       export interface AppTranslatedString {
         de: string;
         en: string;
-      }
-
-      export interface ActivitylogCronjobActiveUpdated {
-        changes: {
-          after?: {
-            active: boolean;
-          };
-          before?: {
-            active: boolean | null;
-          };
-        };
-        name: "cronjob.activated" | "cronjob.deactivated";
-        parameters: {
-          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
       }
 
       export interface ActivitylogCronjobAlertThresholdUpdated {
@@ -11460,6 +11442,24 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "cronjob.alert-threshold-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobActiveUpdated {
+        changes: {
+          after?: {
+            active: boolean;
+          };
+          before?: {
+            active: boolean | null;
+          };
+        };
+        name: "cronjob.activated" | "cronjob.deactivated";
         parameters: {
           appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
