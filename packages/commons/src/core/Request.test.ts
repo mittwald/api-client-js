@@ -1,9 +1,15 @@
 import Request from "./Request.js";
-import { AxiosInstance } from "axios";
+import {
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+} from "axios";
 import { jest } from "@jest/globals";
 import { QueryParameters } from "../types/index.js";
 
-const requestFn = jest.fn();
+const requestFn =
+  jest.fn<(config: AxiosRequestConfig) => Promise<AxiosResponse>>();
 
 const mockedAxios = {
   request: requestFn,
@@ -154,5 +160,42 @@ describe("dates in requests", () => {
     const config = executeRequest({ at: "now", data });
 
     expect(config.data).toBe(data);
+  });
+});
+
+describe("error handling", () => {
+  const op = {
+    path: "/",
+    operationId: "test",
+    method: "GET",
+  } as const;
+
+  const execute = (): Promise<unknown> =>
+    new Request(op).execute(mockedAxios) as Promise<unknown>;
+
+  test("returns an axios error's response instead of throwing", async () => {
+    const response = {
+      status: 404,
+      data: { message: "Not found" },
+    } as AxiosResponse;
+    requestFn.mockRejectedValue(
+      new AxiosError("Not Found", undefined, undefined, undefined, response),
+    );
+
+    await expect(execute()).resolves.toBe(response);
+  });
+
+  test("rethrows an axios error without a response", async () => {
+    const error = new AxiosError("Network Error", AxiosError.ERR_NETWORK);
+    requestFn.mockRejectedValue(error);
+
+    await expect(execute()).rejects.toBe(error);
+  });
+
+  test("rethrows a non-axios error", async () => {
+    const error = new Error("boom");
+    requestFn.mockRejectedValue(error);
+
+    await expect(execute()).rejects.toBe(error);
   });
 });
