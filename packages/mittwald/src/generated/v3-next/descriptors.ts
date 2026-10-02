@@ -19200,7 +19200,7 @@ export const userOauthGetAuthorization: OpenAPIOperation<
   operationId: "user-oauth-get-authorization",
 };
 
-/** Retrieve an OAuth access token. */
+/** Retrieve Access Token from Authorization Code. */
 export const userOauthRetrieveAccessToken: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2Token.Post.Parameters.RequestBody>,

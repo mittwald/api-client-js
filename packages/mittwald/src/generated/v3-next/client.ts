@@ -1536,7 +1536,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     oauthGetAuthorization: this.requestFunctionFactory(
       descriptors.userOauthGetAuthorization,
     ),
-    /** Retrieve an OAuth access token. */
+    /** Retrieve Access Token from Authorization Code. */
     oauthRetrieveAccessToken: this.requestFunctionFactory(
       descriptors.userOauthRetrieveAccessToken,
     ),
