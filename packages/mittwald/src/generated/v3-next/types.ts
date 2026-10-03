@@ -11390,8 +11390,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
-
       export interface DeMittwaldStoragespaceStatistics {
         childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
         description?: string;
@@ -11403,13 +11401,11 @@ export declare module MittwaldAPIV3Next {
         statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
       }
 
-      export type DeMittwaldStoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
+      export interface DeMittwaldStoragespaceStatisticsCategory {
+        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
+      }
 
       export interface DeMittwaldStoragespaceStatisticsResource {
         description?: string;
@@ -11417,12 +11413,6 @@ export declare module MittwaldAPIV3Next {
         name: string;
         usageInBytes: number;
         usageInBytesSetAt: string;
-      }
-
-      export interface DeMittwaldStoragespaceStatisticsCategory {
-        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
       }
 
       export interface DeMittwaldStoragespaceStatisticsMeta {
@@ -11457,6 +11447,16 @@ export declare module MittwaldAPIV3Next {
         totalUsageInBytes: number;
         totalUsageInPercentage?: number;
       }
+
+      export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
+
+      export type DeMittwaldStoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
 
       /**
        * A text with a german and an english translation.
