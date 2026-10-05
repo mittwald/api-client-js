@@ -455,7 +455,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     invoiceUpdateInvoiceSettings: this.requestFunctionFactory(
       descriptors.invoiceUpdateInvoiceSettings,
     ),
-    /** Request an Access Token for the Invoice file. */
+    /** Request an Access Token for a file of the Invoice. */
     invoiceGetFileAccessToken: this.requestFunctionFactory(
       descriptors.invoiceGetFileAccessToken,
     ),

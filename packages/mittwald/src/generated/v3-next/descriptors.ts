@@ -8940,6 +8940,11 @@ export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$412.Content.ApplicationJson>,
       412,
       "application/json"
@@ -12531,7 +12536,7 @@ export const invoiceUpdateInvoiceSettings: OpenAPIOperation<
   operationId: "invoice-update-invoice-settings",
 };
 
-/** Request an Access Token for the Invoice file. */
+/** Request an Access Token for a file of the Invoice. */
 export const invoiceGetFileAccessToken: OpenAPIOperation<
   RequestType<
     Simplify<null>,
