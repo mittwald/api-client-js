@@ -8715,6 +8715,10 @@ export declare module MittwaldAPIV3Next {
         correctionNumber: string;
         pdfId: string;
         reason?: string;
+        /**
+         * The ID of the XRechnung XML file. Only set when the recipient has a Leitweg-ID; the PDF is then only a visual copy.
+         */
+        xRechnungId?: string;
       }
 
       export interface DeMittwaldInvoiceContractInvoiceDefinition {
@@ -8799,6 +8803,10 @@ export declare module MittwaldAPIV3Next {
         totalGross: number;
         totalNet: number;
         vatId?: string;
+        /**
+         * The ID of the XRechnung XML file. Only set when the recipient has a Leitweg-ID; the PDF is then only a visual copy.
+         */
+        xRechnungId?: string;
       }
 
       export interface DeMittwaldInvoiceInvoiceSettings {
@@ -11392,14 +11400,6 @@ export declare module MittwaldAPIV3Next {
 
       export type DeMittwaldStoragespaceStatisticsKind = "server" | "project";
 
-      export type DeMittwaldStoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
       export interface DeMittwaldStoragespaceStatistics {
         childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
         description?: string;
@@ -11409,6 +11409,14 @@ export declare module MittwaldAPIV3Next {
         name: string;
         notificationThresholdInBytes?: number;
         statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
+      }
+
+      export interface DeMittwaldStoragespaceStatisticsResource {
+        description?: string;
+        id: string;
+        name: string;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
       }
 
       export interface DeMittwaldStoragespaceStatisticsMeta {
@@ -11444,18 +11452,18 @@ export declare module MittwaldAPIV3Next {
         totalUsageInPercentage?: number;
       }
 
+      export type DeMittwaldStoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
       export interface DeMittwaldStoragespaceStatisticsCategory {
         kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
         resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
         totalUsageInBytes: number;
-      }
-
-      export interface DeMittwaldStoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
       }
 
       /**
@@ -11680,24 +11688,6 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
-      export interface DeMittwaldActivitylogCronjobTimeZoneUpdated {
-        changes: {
-          after?: {
-            timeZone: string;
-          };
-          before?: {
-            timeZone: string | null;
-          };
-        };
-        name: "cronjob.time-zone-updated";
-        parameters: {
-          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
       export interface DeMittwaldActivitylogCronjobTargetUpdated {
         changes: {
           after?: {
@@ -11714,6 +11704,24 @@ export declare module MittwaldAPIV3Next {
           };
         };
         name: "cronjob.target-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobTimeZoneUpdated {
+        changes: {
+          after?: {
+            timeZone: string;
+          };
+          before?: {
+            timeZone: string | null;
+          };
+        };
+        name: "cronjob.time-zone-updated";
         parameters: {
           appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
@@ -25599,6 +25607,14 @@ export declare module MittwaldAPIV3Next {
             }
           }
 
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $412 {
             namespace Content {
               export interface ApplicationJson {
@@ -30967,7 +30983,9 @@ export declare module MittwaldAPIV3Next {
           export type Header =
             {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            fileType?: "PDF" | "XRECHNUNG";
+          };
         }
         namespace Responses {
           namespace $200 {
