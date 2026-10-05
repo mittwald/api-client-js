@@ -1,7 +1,7 @@
 /** @jest-environment jsdom */
 
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { ReferenceModel } from "../base/index.js";
 import { provideReact } from "./provideReact.js";
 import React, { act, FC, PropsWithChildren, Suspense } from "react";
@@ -111,4 +111,38 @@ test("Model cache can be refreshed", async () => {
   // Tag exist
   act(() => refreshProvideReactCache("test/**/*"));
   await runTest(42, 3);
+});
+
+test("Model cache refreshes all resources matching the tag", async () => {
+  render(
+    <>
+      <TestComponent id={42} />
+      <TestComponent id={43} />
+    </>,
+    { wrapper: TestWrapper },
+  );
+  expect(await screen.findByText(42)).toBeInTheDocument();
+  expect(await screen.findByText(43)).toBeInTheDocument();
+  expect(simulatedDataLoad).toHaveBeenCalledTimes(2);
+
+  act(() => refreshProvideReactCache("test/**/*"));
+  await waitFor(() => expect(simulatedDataLoad).toHaveBeenCalledTimes(4));
+});
+
+test("Model cache can be refreshed after its resource was recreated", async () => {
+  await runTest(42, 1);
+  asyncResourceStore.clear();
+  act(() => refreshProvideReactCache("test/get/42"));
+  await runTest(42, 2);
+  act(() => refreshProvideReactCache("test/get/42"));
+  await runTest(42, 3);
+});
+
+test("Model cache can be refreshed with react-use-promise before 4.1", async () => {
+  await runTest(42, 1);
+  asyncResourceStore.getAll().forEach((resource) => {
+    Object.assign(resource, { meta: undefined });
+  });
+  act(() => refreshProvideReactCache("test/get/42"));
+  await runTest(42, 2);
 });
