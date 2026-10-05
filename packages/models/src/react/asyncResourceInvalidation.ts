@@ -14,9 +14,11 @@ export const refreshProvideReactCache = (tag: string) => {
   }
 
   const resources = asyncResourceStore.getAll();
+  const [firstResource] = resources;
 
-  // AsyncResource.meta only exists since @mittwald/react-use-promise 4.1
-  if (resources.some((resource) => !resource.meta)) {
+  // AsyncResource.meta only exists since @mittwald/react-use-promise 4.1. All
+  // resources come from the same version, so checking one of them is enough.
+  if (firstResource && !firstResource.meta) {
     ids.forEach((id) => refresh({ tag: id }));
     return;
   }
