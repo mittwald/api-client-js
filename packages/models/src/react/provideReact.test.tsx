@@ -12,6 +12,7 @@ import {
   refreshProvideReactCache,
 } from "./asyncResourceInvalidation.js";
 import { asyncResourceStore } from "@mittwald/react-use-promise";
+import { Store } from "@mittwald/react-use-promise/store";
 
 const simulatedDataLoad = jest.fn();
 let rerender: ReturnType<typeof render>["rerender"] | undefined;
@@ -136,6 +137,24 @@ test("Model cache can be refreshed after its resource was recreated", async () =
   await runTest(42, 2);
   act(() => refreshProvideReactCache("test/get/42"));
   await runTest(42, 3);
+});
+
+test("Model cache releases tags without any existing resource", async () => {
+  const releaseBy = jest.spyOn(Store.prototype, "releaseBy");
+
+  await runTest(42, 1);
+  act(() => refreshProvideReactCache("test/get/42"));
+  expect(releaseBy).not.toHaveBeenCalled();
+
+  asyncResourceStore.clear();
+  act(() => refreshProvideReactCache("test/get/42"));
+  expect(releaseBy).toHaveBeenCalledTimes(1);
+
+  const isReleased = releaseBy.mock.calls[0]![0];
+  expect(isReleased(new Set())).toBe(true);
+  expect(isReleased(new Set(["id"]))).toBe(false);
+
+  releaseBy.mockRestore();
 });
 
 test("Model cache can be refreshed with react-use-promise before 4.1", async () => {

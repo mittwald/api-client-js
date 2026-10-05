@@ -42,6 +42,11 @@ export const refreshProvideReactCache = (tag: string) => {
       }
     });
   });
+
+  // Store.releaseBy only exists since @mittwald/react-use-promise 4.3
+  if (idSets.some((idSet) => idSet.size === 0)) {
+    cacheTagStore.releaseBy?.((idSet) => idSet.size === 0);
+  }
 };
 
 export const addTagToProvideReactCache = (tag: string) => {
