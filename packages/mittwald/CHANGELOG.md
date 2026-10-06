@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.483.1](https://github.com/mittwald/api-client-js/compare/4.483.0...4.483.1) (2026-10-06)
+
+### Performance Improvements
+
+* **models:** refresh all resources of an invalidated URL in one pass ([#312](https://github.com/mittwald/api-client-js/issues/312)) ([b9ad8b4](https://github.com/mittwald/api-client-js/commit/b9ad8b4077eb6e463629d9d9a8f6b114892e70ee))
+
 # [4.483.0](https://github.com/mittwald/api-client-js/compare/4.482.0...4.483.0) (2026-10-05)
 
 ### Features

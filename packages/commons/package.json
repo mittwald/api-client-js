@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-client-commons",
-  "version": "0.0.0-development-33e5319-20261005",
+  "version": "4.483.1",
   "author": "Mittwald CM Service GmbH & Co. KG <opensource@mittwald.de>",
   "type": "module",
   "description": "Common types and utilities for mittwald API clients",
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@mittwald/react-use-promise": "^4.2.3",
+    "@mittwald/react-use-promise": "^4.3.0",
     "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",

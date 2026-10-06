@@ -1664,7 +1664,7 @@ __metadata:
   resolution: "@mittwald/api-client-commons@workspace:packages/commons"
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@mittwald/react-use-promise": "npm:^4.2.3"
+    "@mittwald/react-use-promise": "npm:^4.3.0"
     "@types/jest": "npm:^29.5.14"
     "@types/parse-path": "npm:^7.0.3"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
@@ -1704,7 +1704,7 @@ __metadata:
   dependencies:
     "@mittwald/api-client-commons": "workspace:^"
     "@mittwald/api-code-generator": "workspace:^"
-    "@mittwald/react-use-promise": "npm:^4.2.3"
+    "@mittwald/react-use-promise": "npm:^4.3.0"
     "@types/node": "npm:^22.18.11"
     "@types/react": "npm:^18.3.26"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
@@ -1792,7 +1792,7 @@ __metadata:
   dependencies:
     "@jest/globals": "npm:^29.7.0"
     "@mittwald/api-client": "workspace:^"
-    "@mittwald/react-use-promise": "npm:^4.2.3"
+    "@mittwald/react-use-promise": "npm:^4.3.0"
     "@testing-library/dom": "npm:^10.4.1"
     "@testing-library/jest-dom": "npm:^6.9.1"
     "@testing-library/react": "npm:^16.3.0"
@@ -1833,15 +1833,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@mittwald/react-use-promise@npm:^4.2.3":
-  version: 4.2.3
-  resolution: "@mittwald/react-use-promise@npm:4.2.3"
+"@mittwald/react-use-promise@npm:^4.3.0":
+  version: 4.3.0
+  resolution: "@mittwald/react-use-promise@npm:4.3.0"
   dependencies:
     "@types/luxon": "npm:3.7.1"
     browser-or-node: "npm:^3.0.0"
-    context: "npm:^3.0.33"
+    context: "npm:^3.1.0"
     luxon: "npm:~3.7.2"
-    minimatch: "npm:^10.0.3"
+    minimatch: "npm:^10.2.6"
     object-code: "npm:^1.3.4"
   peerDependencies:
     axios: ^1.6.7
@@ -1849,7 +1849,7 @@ __metadata:
   peerDependenciesMeta:
     axios:
       optional: true
-  checksum: 10/e76157a664e8de44ff69c0c47a780110962ac0ae65d4d7572dcf53db5a6e3c15ecf83214efe08e979fe611176f806b106bb50a7f648790cec8f21183f96610f1
+  checksum: 10/2be5e084b401f88cbebeee5939e9316520d214cb0024cac8960e588146a9fd47803af5005fe0d72a9d577a484c275094cdec541840ab0cb8b592999b8c562858
   languageName: node
   linkType: hard
 
@@ -4227,6 +4227,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"balanced-match@npm:^4.0.2":
+  version: 4.0.4
+  resolution: "balanced-match@npm:4.0.4"
+  checksum: 10/fb07bb66a0959c2843fc055838047e2a95ccebb837c519614afb067ebfdf2fa967ca8d712c35ced07f2cd26fc6f07964230b094891315ad74f11eba3d53178a0
+  languageName: node
+  linkType: hard
+
 "base64-js@npm:^1.3.1":
   version: 1.5.1
   resolution: "base64-js@npm:1.5.1"
@@ -4307,6 +4314,15 @@ __metadata:
   dependencies:
     balanced-match: "npm:^1.0.0"
   checksum: 10/a61e7cd2e8a8505e9f0036b3b6108ba5e926b4b55089eeb5550cd04a471fe216c96d4fe7e4c7f995c728c554ae20ddfc4244cad10aef255e72b62930afd233d1
+  languageName: node
+  linkType: hard
+
+"brace-expansion@npm:^5.0.8":
+  version: 5.0.12
+  resolution: "brace-expansion@npm:5.0.12"
+  dependencies:
+    balanced-match: "npm:^4.0.2"
+  checksum: 10/65b550f1836e3b43f512f12afbc3be96616eee5c353e16d70181b7dffec8c08beabffb51d69a3bbdb27d675840725cbab025fda9d10716b5cda7dd864dc7bc4a
   languageName: node
   linkType: hard
 
@@ -4963,6 +4979,15 @@ __metadata:
   dependencies:
     vest-utils: "npm:^1.3.3"
   checksum: 10/e84269675faea70ec0b7a8ce908282e3d530b48a806d9d88ba7a31ee09775d9aa501aae3f1b612d71cd6a2db4ebfc88ef31564d14e9bab5c81af53f69403d2ea
+  languageName: node
+  linkType: hard
+
+"context@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "context@npm:3.1.0"
+  dependencies:
+    vest-utils: "npm:^1.5.0"
+  checksum: 10/06608ff4e5c4928f9459763495689f87b64a79d90f86534babd22388278beb385653268fe4ebfc0c93177ecb9a72a6220af0f9e5e7d42d8225660c7dd2a07e99
   languageName: node
   linkType: hard
 
@@ -8981,6 +9006,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^10.2.6":
+  version: 10.2.6
+  resolution: "minimatch@npm:10.2.6"
+  dependencies:
+    brace-expansion: "npm:^5.0.8"
+  checksum: 10/a5e43f7c57d6061a77da320b42aa35ffff826030cf67c83c0eee47a26ede4d66486935881492b968c609bf27a7d48cc4b9f54b2806643cd8fb792fcf9240cc1b
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^3.0.4, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
@@ -12482,6 +12516,13 @@ __metadata:
   version: 1.3.3
   resolution: "vest-utils@npm:1.3.3"
   checksum: 10/b0f6204f56e04755d6adc85effd8d3a483261a066a5aa71e354b87c79d61bbfc803c7957c7737e456c6062c090f44e7a80782b79b5176122037a9f8b254c3234
+  languageName: node
+  linkType: hard
+
+"vest-utils@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "vest-utils@npm:1.5.0"
+  checksum: 10/3f3f14575e5a3825e0703166c1f7cd16eb8b6a93d80cc91a5b9059db816d13586ad724927f350a3768e3193d57649d38881d7176b4d20f636e399bae6b981273
   languageName: node
   linkType: hard
 
