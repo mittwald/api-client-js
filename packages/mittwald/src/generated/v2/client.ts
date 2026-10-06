@@ -1786,14 +1786,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendProjectInviteMail: this.requestFunctionFactory(
       descriptors.projectResendProjectInviteMail,
     ),
-    /** Get storage space Statistics belonging to a Server. */
-    storagespaceGetServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceGetServerStatistics,
-    ),
-    /** Update a Server's storage space statistics. */
-    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceUpdateServerStatistics,
-    ),
     /** Get storage space Statistics belonging to a Project. */
     storagespaceGetProjectStatistics: this.requestFunctionFactory(
       descriptors.storagespaceGetProjectStatistics,
@@ -1801,6 +1793,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Project's storage space statistics. */
     storagespaceUpdateProjectStatistics: this.requestFunctionFactory(
       descriptors.storagespaceUpdateProjectStatistics,
+    ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Server's storage space statistics. */
+    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceUpdateServerStatistics,
     ),
   };
 
