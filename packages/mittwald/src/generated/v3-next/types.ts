@@ -11351,6 +11351,7 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobExecution
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogProjectCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogProjectDescriptionUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogGenericAction;
         aggregate: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
         dateTime: string;
@@ -12127,6 +12128,23 @@ export declare module MittwaldAPIV3Next {
           };
         };
         name: "project.created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          server?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogProjectDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "project.description-updated";
         parameters: {
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
