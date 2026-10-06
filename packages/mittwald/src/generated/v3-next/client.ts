@@ -1254,6 +1254,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
     ),
+    /** Check if a Domain is eligible for AuthInfo2. */
+    checkAuthinfo2: this.requestFunctionFactory(
+      descriptors.domainCheckAuthinfo2,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */

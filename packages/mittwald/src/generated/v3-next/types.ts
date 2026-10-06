@@ -5002,6 +5002,14 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace DomainCheckAuthinfo2 {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckAuthinfo2
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
+    }
   }
 
   namespace Components {
@@ -11334,6 +11342,7 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobActiveUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobExecution
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogProjectCreated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogGenericAction;
         aggregate: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
         dateTime: string;
@@ -12095,6 +12104,27 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface DeMittwaldActivitylogProjectCreated {
+        changes: {
+          after?: {
+            description: string;
+            server: string | null;
+            shortId: string;
+          };
+          before?: {
+            description: string | null;
+            server: string | null;
+            shortId: string | null;
+          };
+        };
+        name: "project.created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          server?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -42554,6 +42584,55 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAuthinfo2CheckDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                eligible: boolean;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

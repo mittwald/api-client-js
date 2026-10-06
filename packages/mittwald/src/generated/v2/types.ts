@@ -4996,6 +4996,14 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace DomainCheckAuthinfo2 {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckAuthinfo2
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
+    }
   }
 
   namespace Components {
@@ -11301,6 +11309,7 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobActiveUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobExecution
+          | MittwaldAPIV2.Components.Schemas.ActivitylogProjectCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         dateTime: string;
@@ -12055,6 +12064,27 @@ export declare module MittwaldAPIV2 {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      export interface ActivitylogProjectCreated {
+        changes: {
+          after?: {
+            description: string;
+            server: string | null;
+            shortId: string;
+          };
+          before?: {
+            description: string | null;
+            server: string | null;
+            shortId: string | null;
+          };
+        };
+        name: "project.created";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          server?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -42505,6 +42535,55 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Authinfo2CheckDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                eligible: boolean;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
