@@ -17440,50 +17440,6 @@ export const sslListCertificates: OpenAPIOperation<
   operationId: "ssl-list-certificates",
 };
 
-/** Update the certificate of a CertificateRequest. */
-export const sslSetCertificateRequestCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate-requests/{certificateRequestId}/certificate",
-  method: "PATCH",
-  operationId: "ssl-set-certificate-request-certificate",
-};
-
 /** Get storage space Statistics belonging to a Project. */
 export const storagespaceGetProjectStatistics: OpenAPIOperation<
   RequestType<
@@ -19684,38 +19640,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Check if a Domain is eligible for AuthInfo2. */
-export const domainCheckAuthinfo2: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/authinfo2/check-domain",
-  method: "POST",
-  operationId: "domain-check-authinfo2",
 };

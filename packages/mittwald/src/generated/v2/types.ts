@@ -4433,17 +4433,6 @@ export declare module MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
     }
 
-    namespace SslSetCertificateRequestCertificate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslSetCertificateRequestCertificate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslSetCertificateRequestCertificate,
-          TStatus
-        >;
-    }
-
     namespace StoragespaceGetProjectStatistics {
       type RequestData = InferredRequestData<
         typeof descriptors.storagespaceGetProjectStatistics
@@ -4995,14 +4984,6 @@ export declare module MittwaldAPIV2 {
           typeof descriptors.verificationVerifyCompany,
           TStatus
         >;
-    }
-
-    namespace DomainCheckAuthinfo2 {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckAuthinfo2
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
     }
   }
 
@@ -25799,6 +25780,10 @@ export declare module MittwaldAPIV2 {
 
     namespace V2SignupEmail {}
 
+    namespace V2ServersServerIdStorageSpaceNotificationThreshold {}
+
+    namespace V2SignupEmail {}
+
     namespace V2UsersSelfCredentialsToken {}
 
     namespace V2SignupPasswordResetConfirm {}
@@ -39080,72 +39065,6 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2CertificateRequestsCertificateRequestIdCertificate {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            certificateRequestId: string;
-          };
-
-          export interface RequestBody {
-            certificate: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ProjectsProjectIdStorageSpaceStatistics {
       namespace Get {
         namespace Parameters {
@@ -42565,55 +42484,6 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Authinfo2CheckDomain {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                eligible: boolean;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
