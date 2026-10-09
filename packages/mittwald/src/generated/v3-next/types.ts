@@ -5024,28 +5024,6 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
-
-    namespace AiHostingCustomerRotateKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingCustomerRotateKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingCustomerRotateKey,
-          TStatus
-        >;
-    }
-
-    namespace AiHostingProjectRotateKey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingProjectRotateKey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.aiHostingProjectRotateKey,
-          TStatus
-        >;
-    }
   }
 
   namespace Components {
@@ -5447,6 +5425,10 @@ export declare module MittwaldAPIV3Next {
         recommended?: boolean;
         requestHandler?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppRequestHandlerRequirement;
         systemSoftwareDependencies?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftwareDependency[];
+        /**
+         * SemVer constraint that newer AppVersions must satisfy to be eligible as automatic update targets for this AppVersion.
+         */
+        updateConstraint?: string;
         userInputs?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppUserInput[];
       }
 
@@ -11677,6 +11659,96 @@ export declare module MittwaldAPIV3Next {
           [
             k: string
           ]: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipInviteCreated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.invite-created";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipInviteStatusChanged {
+        changes: {};
+        name:
+          | "membership.invite-resent"
+          | "membership.invite-accepted"
+          | "membership.invite-declined"
+          | "membership.invite-revoked"
+          | "membership.invite-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberAdded {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            inherited: boolean;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            inherited: boolean | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-added" | "membership.member-inherited";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name: "membership.member-expiry-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRemoved {
+        changes: {};
+        name:
+          | "membership.member-removed"
+          | "membership.member-left"
+          | "membership.member-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRoleUpdated {
+        changes: {
+          after?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-role-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
         };
       }
 
@@ -43267,146 +43339,6 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-            keyId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
-             */
-            gracePeriod?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingKey;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-            keyId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
-             */
-            gracePeriod?: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingKey;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
