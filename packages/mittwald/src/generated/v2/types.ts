@@ -11933,21 +11933,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogContainerLifecycle {
-        changes: {};
-        name:
-          | "container.started"
-          | "container.stopped"
-          | "container.restarted"
-          | "container.recreated";
-        parameters: {
-          container: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          serviceName: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          shortId: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
       export interface ActivitylogContainerPortsUpdated {
         changes: {
           after?: {
@@ -11986,6 +11971,21 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogContainerLifecycle {
+        changes: {};
+        name:
+          | "container.started"
+          | "container.stopped"
+          | "container.restarted"
+          | "container.recreated";
+        parameters: {
+          container: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          shortId: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
       export interface ActivitylogContainerRegistryCredentialsUpdated {
         changes: {
           after?: {
@@ -12011,22 +12011,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogContainerRegistryUriUpdated {
-        changes: {
-          after?: {
-            uri: string;
-          };
-          before?: {
-            uri: string | null;
-          };
-        };
-        name: "container.registry-uri-updated";
-        parameters: {
-          registry: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          uri: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       export interface ActivitylogContainerRegistryDescriptionUpdated {
         changes: {
           after?: {
@@ -12037,6 +12021,22 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "container.registry-description-updated";
+        parameters: {
+          registry: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          uri: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogContainerRegistryUriUpdated {
+        changes: {
+          after?: {
+            uri: string;
+          };
+          before?: {
+            uri: string | null;
+          };
+        };
+        name: "container.registry-uri-updated";
         parameters: {
           registry: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           uri: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
@@ -12063,46 +12063,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogContainerStackDescriptionUpdated {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name: "container.stack-description-updated";
-        parameters: {
-          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogContainerStackCreated {
-        changes: {
-          after?: {
-            description: string;
-            storage: string;
-          };
-          before?: {
-            description: string | null;
-            storage: string | null;
-          };
-        };
-        name: "container.stack-created";
-        parameters: {
-          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogContainerStackDeleted {
-        changes: {};
-        name: "container.stack-deleted";
-        parameters: {
-          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
       export interface ActivitylogContainerRestartPolicyUpdated {
         changes: {
           after?: {
@@ -12125,6 +12085,38 @@ export declare module MittwaldAPIV2 {
         };
       }
 
+      export interface ActivitylogContainerStackCreated {
+        changes: {
+          after?: {
+            description: string;
+            storage: string;
+          };
+          before?: {
+            description: string | null;
+            storage: string | null;
+          };
+        };
+        name: "container.stack-created";
+        parameters: {
+          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogContainerStackDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "container.stack-description-updated";
+        parameters: {
+          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
       export interface ActivitylogContainerStackStorageUpdated {
         changes: {
           after?: {
@@ -12135,6 +12127,30 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "container.stack-storage-updated";
+        parameters: {
+          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogContainerVolumeCreated {
+        changes: {
+          after?: {
+            name: string;
+          };
+          before?: {
+            name: string | null;
+          };
+        };
+        name: "container.volume-created";
+        parameters: {
+          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          volume: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogContainerStackDeleted {
+        changes: {};
+        name: "container.stack-deleted";
         parameters: {
           stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
@@ -12154,22 +12170,6 @@ export declare module MittwaldAPIV2 {
         name: "container.stack-update-schedule-updated";
         parameters: {
           stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogContainerVolumeCreated {
-        changes: {
-          after?: {
-            name: string;
-          };
-          before?: {
-            name: string | null;
-          };
-        };
-        name: "container.volume-created";
-        parameters: {
-          stack: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          volume: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
       }
 

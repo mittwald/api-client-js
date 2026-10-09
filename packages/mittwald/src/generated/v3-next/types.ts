@@ -11882,6 +11882,17 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldActivitylogContainerDeleted {
+        changes: {};
+        name: "container.deleted";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogContainerDescriptionUpdated {
         changes: {
           after?: {
@@ -11892,17 +11903,6 @@ export declare module MittwaldAPIV3Next {
           };
         };
         name: "container.description-updated";
-        parameters: {
-          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogContainerDeleted {
-        changes: {};
-        name: "container.deleted";
         parameters: {
           container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
@@ -11967,21 +11967,6 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
-      export interface DeMittwaldActivitylogContainerLifecycle {
-        changes: {};
-        name:
-          | "container.started"
-          | "container.stopped"
-          | "container.restarted"
-          | "container.recreated";
-        parameters: {
-          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
       export interface DeMittwaldActivitylogContainerPortsUpdated {
         changes: {
           after?: {
@@ -12017,6 +12002,21 @@ export declare module MittwaldAPIV3Next {
         parameters: {
           registry: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           uri: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerLifecycle {
+        changes: {};
+        name:
+          | "container.started"
+          | "container.stopped"
+          | "container.restarted"
+          | "container.recreated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
         };
       }
 
@@ -12136,14 +12136,6 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
-      export interface DeMittwaldActivitylogContainerStackDeleted {
-        changes: {};
-        name: "container.stack-deleted";
-        parameters: {
-          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
       export interface DeMittwaldActivitylogContainerStackDescriptionUpdated {
         changes: {
           after?: {
@@ -12174,6 +12166,30 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldActivitylogContainerVolumeCreated {
+        changes: {
+          after?: {
+            name: string;
+          };
+          before?: {
+            name: string | null;
+          };
+        };
+        name: "container.volume-created";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          volume: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerStackDeleted {
+        changes: {};
+        name: "container.stack-deleted";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogContainerStackUpdateScheduleUpdated {
         changes: {
           after?: {
@@ -12188,22 +12204,6 @@ export declare module MittwaldAPIV3Next {
         name: "container.stack-update-schedule-updated";
         parameters: {
           stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogContainerVolumeCreated {
-        changes: {
-          after?: {
-            name: string;
-          };
-          before?: {
-            name: string | null;
-          };
-        };
-        name: "container.volume-created";
-        parameters: {
-          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-          volume: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
         };
       }
 
