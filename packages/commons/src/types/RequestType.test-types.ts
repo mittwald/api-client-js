@@ -1,5 +1,13 @@
-import { expectAssignable } from "tsd";
 import { RequestType } from "./index.js";
+
+/*
+ * Type-level tests. They are checked by `tsc --noEmit` (the `test:compile`
+ * target), not by a test runner. Assignability is asserted with `satisfies`
+ * rather than a type-level `extends`, so that excess-property and weak-type
+ * checks apply -- those are what a real call site passing an object literal
+ * gets, and they are what most of the assertions below are about. Expected
+ * rejections are marked with `@ts-expect-error`.
+ */
 
 type Data = { foo: string };
 type Path = { bar: string };
@@ -7,96 +15,96 @@ type Header = { baz: string };
 type Query = { whut: string };
 
 function ignoredTestEmptyRequestTypes() {
-  expectAssignable<RequestType>({});
+  void ({} satisfies RequestType);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType>({ extra: true });
+  void ({ extra: true } satisfies RequestType);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType>({ data: {} });
+  void ({ data: {} } satisfies RequestType);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType>({ data: null });
+  void ({ data: null } satisfies RequestType);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType>({ pathParameters: {} });
+  void ({ pathParameters: {} } satisfies RequestType);
 }
 
 function ignoredTestRequestTypesWithDataType() {
-  expectAssignable<RequestType<Data>>({ data: { foo: "" } });
+  void ({ data: { foo: "" } } satisfies RequestType<Data>);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType<Data>>({});
-  expectAssignable<RequestType<Data>>({
+  void ({} satisfies RequestType<Data>);
+  void ({
     // @ts-expect-error Not assignable
     data: { foo: "", extra: "" },
-  });
+  } satisfies RequestType<Data>);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType<Data>>({ data: { noFoo: "" } });
+  void ({ data: { noFoo: "" } } satisfies RequestType<Data>);
 }
 
 function ignoredTestRequestTypesWithPathParameters() {
-  expectAssignable<RequestType<Data, Path>>({
+  void ({
     data: { foo: "" },
     pathParameters: { bar: "" },
-  });
-  expectAssignable<RequestType<null, Path>>({
+  } satisfies RequestType<Data, Path>);
+  void ({
     pathParameters: { bar: "" },
-  });
+  } satisfies RequestType<null, Path>);
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType<null, Path>>({});
-  expectAssignable<RequestType<null, Path>>({
+  void ({} satisfies RequestType<null, Path>);
+  void ({
     // @ts-expect-error Not assignable
     pathParameters: {},
-  });
-  expectAssignable<RequestType<null, Path>>({
+  } satisfies RequestType<null, Path>);
+  void ({
     // @ts-expect-error Not assignable
     pathParameters: { foo: "", extra: "" },
-  });
+  } satisfies RequestType<null, Path>);
 }
 
 function ignoredTestRequestTypesWithHeader() {
-  expectAssignable<RequestType<Data, Path, null, Header>>({
+  void ({
     data: {
       foo: "",
     },
     pathParameters: { bar: "" },
     headers: { baz: "" },
-  });
-  expectAssignable<RequestType<null, Path, null, Header>>({
+  } satisfies RequestType<Data, Path, null, Header>);
+  void ({
     pathParameters: { bar: "" },
     headers: { baz: "" },
-  });
-  expectAssignable<RequestType<null, null, null, Header>>({
+  } satisfies RequestType<null, Path, null, Header>);
+  void ({
     headers: { baz: "" },
-  });
+  } satisfies RequestType<null, null, null, Header>);
 
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType<null, null, null, Header>>({});
-  expectAssignable<RequestType<null, null, null, Header>>({
+  void ({} satisfies RequestType<null, null, null, Header>);
+  void ({
     headers: {
       // @ts-expect-error Not assignable
       baz: 42,
     },
-  });
+  } satisfies RequestType<null, null, null, Header>);
 
-  expectAssignable<RequestType<null, null, null, Header>>({
+  void ({
     // @ts-expect-error Not assignable
     headers: {},
-  });
-  expectAssignable<RequestType<null, null, null, Header>>({
+  } satisfies RequestType<null, null, null, Header>);
+  void ({
     // @ts-expect-error Not assignable
     data: {},
     headers: {
       baz: "",
     },
-  });
-  expectAssignable<RequestType<null, null, null, Header>>({
+  } satisfies RequestType<null, null, null, Header>);
+  void ({
     // @ts-expect-error Not assignable
     pathParameters: {},
     headers: {
       baz: "",
     },
-  });
+  } satisfies RequestType<null, null, null, Header>);
 }
 
 function ignoredTestRequestTypesWithQuery() {
-  expectAssignable<RequestType<Data, Path, Query, Header>>({
+  void ({
     data: {
       foo: "",
     },
@@ -105,58 +113,58 @@ function ignoredTestRequestTypesWithQuery() {
     queryParameters: {
       whut: "",
     },
-  });
-  expectAssignable<RequestType<null, Path, Query, Header>>({
+  } satisfies RequestType<Data, Path, Query, Header>);
+  void ({
     pathParameters: { bar: "" },
     headers: { baz: "" },
     queryParameters: {
       whut: "",
     },
-  });
-  expectAssignable<RequestType<null, null, Query, null>>({
+  } satisfies RequestType<null, Path, Query, Header>);
+  void ({
     queryParameters: {
       whut: "",
     },
-  });
+  } satisfies RequestType<null, null, Query, null>);
 
   // @ts-expect-error Not assignable
-  expectAssignable<RequestType<null, null, Query, null>>({});
-  expectAssignable<RequestType<null, null, Query, null>>({
+  void ({} satisfies RequestType<null, null, Query, null>);
+  void ({
     queryParameters: {
       // @ts-expect-error Not assignable
       whut: 42,
     },
-  });
+  } satisfies RequestType<null, null, Query, null>);
 
-  expectAssignable<RequestType<null, null, Query, null>>({
+  void ({
     // @ts-expect-error Not assignable
     queryParameters: {},
-  });
+  } satisfies RequestType<null, null, Query, null>);
 }
 
 function ignoredTestAdditionalHeadersCanAlwaysBeSet() {
-  expectAssignable<RequestType<null>>({
+  void ({
     headers: { extra: true },
-  });
-  expectAssignable<RequestType<null, null>>({
+  } satisfies RequestType<null>);
+  void ({
     headers: { extra: true },
-  });
-  expectAssignable<RequestType<null, null, null>>({
+  } satisfies RequestType<null, null>);
+  void ({
     headers: { extra: true },
-  });
-  expectAssignable<RequestType<Data>>({
+  } satisfies RequestType<null, null, null>);
+  void ({
     data: {
       foo: "",
     },
     headers: { extra: true },
-  });
-  expectAssignable<RequestType<null, Path>>({
+  } satisfies RequestType<Data>);
+  void ({
     pathParameters: {
       bar: "",
     },
     headers: { extra: true },
-  });
-  expectAssignable<RequestType<null, null, null, Header>>({
+  } satisfies RequestType<null, Path>);
+  void ({
     headers: { extra: true, baz: "" },
-  });
+  } satisfies RequestType<null, null, null, Header>);
 }
