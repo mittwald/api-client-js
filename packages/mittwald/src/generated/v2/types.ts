@@ -5018,6 +5018,28 @@ export declare module MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AiHostingCustomerRotateKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerRotateKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerRotateKey,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingProjectRotateKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectRotateKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectRotateKey,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -11622,96 +11644,6 @@ export declare module MittwaldAPIV2 {
           [
             k: string
           ]: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipInviteCreated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            expiresAt: string | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.invite-created";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipInviteStatusChanged {
-        changes: {};
-        name:
-          | "membership.invite-resent"
-          | "membership.invite-accepted"
-          | "membership.invite-declined"
-          | "membership.invite-revoked"
-          | "membership.invite-expired";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberAdded {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-            inherited: boolean;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            expiresAt: string | null;
-            inherited: boolean | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.member-added" | "membership.member-inherited";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberExpiryUpdated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-          };
-          before?: {
-            expiresAt: string | null;
-          };
-        };
-        name: "membership.member-expiry-updated";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberRemoved {
-        changes: {};
-        name:
-          | "membership.member-removed"
-          | "membership.member-left"
-          | "membership.member-expired";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberRoleUpdated {
-        changes: {
-          after?: {
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.member-role-updated";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
       }
 
@@ -43286,6 +43218,146 @@ export declare module MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            keyId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             */
+            gracePeriod?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingKey;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+            keyId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             */
+            gracePeriod?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingKey;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

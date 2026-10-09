@@ -101,6 +101,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
     ),
+    /** Rotates a customer's key. */
+    customerRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerRotateKey,
+    ),
     /** Rotates a project's key. */
     projectRotateKey: this.requestFunctionFactory(
       descriptors.aiHostingProjectRotateKey,
