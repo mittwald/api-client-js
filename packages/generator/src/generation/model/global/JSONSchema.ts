@@ -4,6 +4,10 @@ import { Name } from "./Name.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import cloneDeep from "clone-deep";
 import { componentRefsToCustomTypes } from "../../refs/componentRefsToCustomTypes.js";
+import {
+  ensureDeprecatedTypeAliasComment,
+  isDeprecated,
+} from "../../deprecation.js";
 import { widenDateTimeInputs } from "../../dateTime/dateTimeInput.js";
 import { dateTimeInputRefTSNameResolver } from "../../dateTime/dateTimeInputRefs.js";
 
@@ -22,7 +26,14 @@ export class JSONSchema {
       this.schemaObject,
     ) as JSONSchemaObject;
 
-    return compileJsonSchema(withCustomRefTypes, this.name.tsType);
+    const compiled = await compileJsonSchema(
+      withCustomRefTypes,
+      this.name.tsType,
+    );
+
+    return isDeprecated(this.schemaObject)
+      ? ensureDeprecatedTypeAliasComment(compiled, this.name.tsType)
+      : compiled;
   }
 
   /**
@@ -49,7 +60,14 @@ export class JSONSchema {
       dateTimeInputRefTSNameResolver(dateTimeInputSchemaNames),
     ) as JSONSchemaObject;
 
-    return compileJsonSchema(withCustomRefTypes, this.name.tsType);
+    const compiled = await compileJsonSchema(
+      withCustomRefTypes,
+      this.name.tsType,
+    );
+
+    return isDeprecated(this.schemaObject)
+      ? ensureDeprecatedTypeAliasComment(compiled, this.name.tsType)
+      : compiled;
   }
 
   public clone(): JSONSchema {
