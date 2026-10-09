@@ -1,6 +1,5 @@
 import { OpenAPIV3 } from "openapi-types";
 import { OpenApiSpec } from "./OpenApiSpec.js";
-import { jest } from "@jest/globals";
 import { OpenAPISchemaValidationError } from "./OpenAPISchemaValidationError.js";
 import { makePetstoreDoc } from "../generation/model/__fixtures__/petstore.js";
 
@@ -65,8 +64,6 @@ test("unknown schema keywords are still rejected", async () => {
     ),
   ).rejects.toThrow(/Failed parsing OpenAPISpec/);
 });
-
-jest.setTimeout(30_000);
 
 describe("parsing a valid v3 document", () => {
   test("keeps the document as-is", async () => {

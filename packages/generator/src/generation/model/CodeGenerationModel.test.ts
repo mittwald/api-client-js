@@ -1,7 +1,6 @@
 import { OpenApiSpec } from "../../openapi/OpenApiSpec.js";
 import { CodeGenerationModel } from "./CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import { jest } from "@jest/globals";
 import { makePetstoreDoc } from "./__fixtures__/petstore.js";
 
 const normalize = (typeScript: string): string =>
@@ -89,8 +88,6 @@ const compile = (doc: OpenAPIV3.Document = makePetstoreDoc()) =>
 
 /** Collapses whitespace so assertions do not depend on generated indentation. */
 const flat = (s: string) => s.replace(/\s+/g, " ");
-
-jest.setTimeout(60_000);
 
 describe("model structure", () => {
   test("names the root namespace", () => {

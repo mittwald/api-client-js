@@ -1,6 +1,5 @@
 import { JSONSchema } from "json-schema-to-typescript";
 import { compileJsonSchema } from "./compileJsonSchema.js";
-import { jest } from "@jest/globals";
 
 const normalize = (typeScript: string): string =>
   typeScript.replace(/\s+/g, " ").trim();
@@ -88,8 +87,6 @@ test("const-tagged members compile to a discriminated union", async () => {
     `),
   );
 });
-
-jest.setTimeout(30_000);
 
 test("compiles an object schema into an interface", async () => {
   const output = await compileJsonSchema(
