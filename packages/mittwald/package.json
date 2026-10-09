@@ -69,7 +69,8 @@
     "lint": "run eslint .",
     "test": "",
     "test:client-generation-clean": "git diff --exit-code",
-    "test:compile": "run tsc --noEmit"
+    "test:compile": "run tsc --noEmit",
+    "version": "run build:write-version-file"
   },
   "dependencies": {
     "@mittwald/api-client-commons": "workspace:^",
