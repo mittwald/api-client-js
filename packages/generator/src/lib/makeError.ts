@@ -6,7 +6,7 @@ export const makeError = (error: unknown): Error =>
     ? error
     : new VError(
         {
-          name: getProperty(error, "name", "Error"),
+          name: String(getProperty(error, "name") ?? "Error"),
         },
-        getProperty(error, "message", ""),
+        String(getProperty(error, "message") ?? ""),
       );
