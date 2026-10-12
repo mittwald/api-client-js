@@ -1868,10 +1868,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The relocation API allows you to manage your relocations. */
   public readonly relocation = {
-    /** Register a tariff change for a legacy tariff. */
-    createLegacyTariffChange: this.requestFunctionFactory(
-      descriptors.relocationCreateLegacyTariffChange,
-    ),
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,

@@ -16769,35 +16769,6 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
   operationId: "project-resend-project-invite-mail",
 };
 
-/** Register a tariff change for a legacy tariff. */
-export const relocationCreateLegacyTariffChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/legacy-tariff-change",
-  method: "POST",
-  operationId: "relocation-create-legacy-tariff-change",
-};
-
 /** Relocate an external Project to mittwald. */
 export const relocationCreateRelocation: OpenAPIOperation<
   RequestType<
