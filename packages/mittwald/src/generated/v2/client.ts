@@ -51,6 +51,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
+    /** Rotates a customer's key. */
+    customerRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerRotateKey,
+    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
     /** List the contract months of an ai hosting plan. */
@@ -96,10 +100,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Rotates a customer's key. */
-    customerRotateKey: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerRotateKey,
     ),
     /** Rotates a project's key. */
     projectRotateKey: this.requestFunctionFactory(
@@ -1836,10 +1836,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The relocation API allows you to manage your relocations. */
   public readonly relocation = {
-    /** Register a tariff change for a legacy tariff. */
-    createLegacyTariffChange: this.requestFunctionFactory(
-      descriptors.relocationCreateLegacyTariffChange,
-    ),
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,
