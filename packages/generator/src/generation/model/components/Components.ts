@@ -4,6 +4,7 @@ import {
 } from "../CodeGenerationModel.js";
 import { Name } from "../global/Name.js";
 import { Schemas } from "./Schemas.js";
+import { RequestSchemas } from "./RequestSchemas.js";
 import { Parameters } from "./Parameters.js";
 import { RequestBodies } from "./RequestBodies.js";
 import { Responses } from "./Responses.js";
@@ -28,6 +29,7 @@ export class Components {
 
   public name: Name;
   public schemas: Schemas;
+  public requestSchemas: RequestSchemas;
   public securitySchemes: SecuritySchemes;
   public parameters: Parameters;
   public requestBodies: RequestBodies;
@@ -39,6 +41,11 @@ export class Components {
     this.name = new Name(Components.ns, model.rootNamespace);
 
     this.schemas = new Schemas(this, model.doc.components?.schemas ?? {});
+    this.requestSchemas = new RequestSchemas(
+      this,
+      model.doc.components?.schemas ?? {},
+      model.dateTimeInputSchemaNames,
+    );
     this.securitySchemes = new SecuritySchemes(
       this,
       model.doc.components?.securitySchemes ?? {},
@@ -61,6 +68,7 @@ export class Components {
     const t = {
       ns: Components.ns,
       schemas: await this.schemas.compileTypes(opts),
+      requestSchemas: await this.requestSchemas.compileTypes(opts),
       parameters: await this.parameters.compileTypes(opts),
       requestBodies: await this.requestBodies.compileTypes(opts),
       responses: await this.responses.compileTypes(opts),
@@ -70,6 +78,7 @@ export class Components {
     return `\
       namespace ${t.ns} {
         ${t.schemas}
+        ${t.requestSchemas}
         ${t.parameters}
         ${t.requestBodies}
         ${t.responses}

@@ -367,7 +367,7 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.invoiceGetDetailOfInvoiceSettings,
     baseClient.contract.invoiceGetDetailOfInvoiceSettings,
   ).getApiResource,
-  /** Request an Access Token for the Invoice file. */
+  /** Request an Access Token for a file of the Invoice. */
   invoiceGetFileAccessToken: new ApiCallAsyncResourceFactory(
     descriptors.invoiceGetFileAccessToken,
     baseClient.contract.invoiceGetFileAccessToken,
@@ -419,6 +419,11 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   contributorGetLoginLink: new ApiCallAsyncResourceFactory(
     descriptors.contributorGetLoginLink,
     baseClient.marketplace.contributorGetLoginLink,
+  ).getApiResource,
+  /** Get a specific OAuth2 client. */
+  contributorGetOauthClient: new ApiCallAsyncResourceFactory(
+    descriptors.contributorGetOauthClient,
+    baseClient.marketplace.contributorGetOauthClient,
   ).getApiResource,
   /** List ContractPartners of the contributor. */
   contributorListContractPartnersOfContributor: new ApiCallAsyncResourceFactory(
@@ -716,20 +721,30 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListDomains,
     baseClient.domain.listDomains,
   ).getApiResource,
-  /** Get a DNSZone. */
-  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetDnsZone,
-    baseClient.domain.dnsGetDnsZone,
-  ).getApiResource,
-  /** Get a zone file for a DNSZone. */
-  dnsGetZoneFile: new ApiCallAsyncResourceFactory(
-    descriptors.dnsGetZoneFile,
-    baseClient.domain.dnsGetZoneFile,
+  /** List DNS zone-file import jobs belonging to a Project. */
+  dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
+    descriptors.dnsListDnsZoneFileImports,
+    baseClient.domain.dnsListDnsZoneFileImports,
   ).getApiResource,
   /** List DNSZones belonging to a Project. */
   dnsListDnsZones: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZones,
     baseClient.domain.dnsListDnsZones,
+  ).getApiResource,
+  /** Get a DNSZone. */
+  dnsGetDnsZone: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZone,
+    baseClient.domain.dnsGetDnsZone,
+  ).getApiResource,
+  /** Get the status of a DNS zone-file import job. */
+  dnsGetDnsZoneFileImport: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetDnsZoneFileImport,
+    baseClient.domain.dnsGetDnsZoneFileImport,
+  ).getApiResource,
+  /** Get a zone file for a DNSZone. */
+  dnsGetZoneFile: new ApiCallAsyncResourceFactory(
+    descriptors.dnsGetZoneFile,
+    baseClient.domain.dnsGetZoneFile,
   ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
@@ -1069,6 +1084,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   oauthGetAuthorization: new ApiCallAsyncResourceFactory(
     descriptors.userOauthGetAuthorization,
     baseClient.user.oauthGetAuthorization,
+  ).getApiResource,
+  /** Check if a password is leaked. */
+  searchedLeakedPasswordsByRange: new ApiCallAsyncResourceFactory(
+    descriptors.userSearchedLeakedPasswordsByRange,
+    baseClient.user.searchedLeakedPasswordsByRange,
   ).getApiResource,
   /** Request a support code. */
   supportCodeRequest: new ApiCallAsyncResourceFactory(
