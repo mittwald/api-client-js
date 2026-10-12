@@ -1,6 +1,6 @@
 {
   "name": "@mittwald/api-code-generator",
-  "version": "4.455.0",
+  "version": "4.493.1",
   "type": "module",
   "repository": "https://github.com/mittwald/api-client-js.git",
   "license": "MIT",
@@ -24,7 +24,8 @@
     "lint": "run eslint .",
     "test": "",
     "test:compile": "run tsc --noEmit",
-    "test:unit": "node --experimental-vm-modules $(yarn bin jest)"
+    "test:unit": "node --experimental-vm-modules $(yarn bin jest)",
+    "test:unit:coverage": "run test:unit --coverage"
   },
   "dependencies": {
     "@oclif/core": "^3.27.0",
