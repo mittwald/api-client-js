@@ -18,6 +18,7 @@ see the [LICENSE](../../LICENSE) file for details.
   - [Setting request parameters](#setting-request-parameters)
     - [Path parameters](#path-parameters)
     - [Headers, query parameters and request body](#headers-query-parameters-and-request-body)
+    - [Date and time values](#date-and-time-values)
 - [Example](#example)
 - [Usage in React](#usage-in-react)
   - [Installation](#installation)
@@ -150,6 +151,28 @@ const response = await mittwaldApi.category.operation({
   },
 });
 ```
+
+#### Date and time values
+
+Wherever the API expects a date and time (an ISO 8601 string in the API
+documentation), you can either pass that string yourself or simply pass a
+JavaScript `Date`. `Date` values are converted to ISO 8601 before the request is
+sent – in the request body (at any nesting depth), in query parameters, path
+parameters and headers.
+
+```typescript
+await mittwaldApi.contract.terminateContractItem({
+  contractId: "contract-id",
+  contractItemId: "contract-item-id",
+  data: {
+    terminationTargetDate: new Date("2024-12-10"),
+  },
+});
+```
+
+Note that this applies to `date-time` values only. Date-only values
+(`YYYY-MM-DD`) still have to be passed as a string, and responses always contain
+strings, never `Date` objects.
 
 ## Example
 
