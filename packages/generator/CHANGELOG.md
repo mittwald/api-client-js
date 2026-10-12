@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.493.1](https://github.com/mittwald/api-client-js/compare/4.493.0...4.493.1) (2026-10-12)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.493.0](https://github.com/mittwald/api-client-js/compare/4.492.0...4.493.0) (2026-10-11)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.492.0](https://github.com/mittwald/api-client-js/compare/4.491.0...4.492.0) (2026-10-10)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.491.0](https://github.com/mittwald/api-client-js/compare/4.490.0...4.491.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.490.0](https://github.com/mittwald/api-client-js/compare/4.489.0...4.490.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.489.0](https://github.com/mittwald/api-client-js/compare/4.488.0...4.489.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.488.0](https://github.com/mittwald/api-client-js/compare/4.487.0...4.488.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.487.0](https://github.com/mittwald/api-client-js/compare/4.486.0...4.487.0) (2026-10-08)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.486.0](https://github.com/mittwald/api-client-js/compare/4.485.0...4.486.0) (2026-10-07)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.485.0](https://github.com/mittwald/api-client-js/compare/4.484.0...4.485.0) (2026-10-07)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.484.0](https://github.com/mittwald/api-client-js/compare/4.483.1...4.484.0) (2026-10-06)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+## [4.483.1](https://github.com/mittwald/api-client-js/compare/4.483.0...4.483.1) (2026-10-06)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.483.0](https://github.com/mittwald/api-client-js/compare/4.482.0...4.483.0) (2026-10-05)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.482.0](https://github.com/mittwald/api-client-js/compare/4.481.0...4.482.0) (2026-10-04)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.481.0](https://github.com/mittwald/api-client-js/compare/4.480.0...4.481.0) (2026-10-03)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.480.0](https://github.com/mittwald/api-client-js/compare/4.479.0...4.480.0) (2026-10-02)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.479.0](https://github.com/mittwald/api-client-js/compare/4.478.0...4.479.0) (2026-10-01)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.478.0](https://github.com/mittwald/api-client-js/compare/4.477.0...4.478.0) (2026-09-30)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.477.0](https://github.com/mittwald/api-client-js/compare/4.476.0...4.477.0) (2026-09-30)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.476.0](https://github.com/mittwald/api-client-js/compare/4.475.0...4.476.0) (2026-09-29)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
+# [4.475.0](https://github.com/mittwald/api-client-js/compare/4.474.0...4.475.0) (2026-09-28)
+
+**Note:** Version bump only for package @mittwald/api-code-generator
+
 # [4.474.0](https://github.com/mittwald/api-client-js/compare/4.473.0...4.474.0) (2026-09-28)
 
 **Note:** Version bump only for package @mittwald/api-code-generator
