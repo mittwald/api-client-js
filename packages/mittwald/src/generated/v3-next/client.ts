@@ -19,6 +19,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerCreateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerCreateKey,
     ),
+    /** Get all ai hosting plans of a customer. */
+    customerGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlans,
+    ),
+    /** Creates an AI hosting profile and accepts the current model terms. */
+    customerDeclareProfile: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerDeclareProfile,
+    ),
     /** Get a key of a customer. */
     customerGetKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetKey,
@@ -35,8 +43,24 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetDetailedModels,
     ),
+    /** Get ai hosting plan and usages of a customer by planId. */
+    customerGetPlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetPlan,
+    ),
+    /** Renames an AI hosting plan. */
+    customerUpdatePlan: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerUpdatePlan,
+    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
+    /** List the contract months of an ai hosting plan. */
+    planGetBillingPeriods: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetBillingPeriods,
+    ),
+    /** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+    planGetUsageStats: this.requestFunctionFactory(
+      descriptors.aiHostingPlanGetUsageStats,
+    ),
     /** Get a list of keys of a project. */
     projectGetKeys: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetKeys,
@@ -61,26 +85,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     projectGetDetailedModels: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetDetailedModels,
     ),
-    /** Links a container with a project licence. */
-    projectLinkContainer: this.requestFunctionFactory(
-      descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Get ai hosting plan and usages of a customer by planId. */
-    customerGetPlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlan,
-    ),
-    /** Renames an AI hosting plan. */
-    customerUpdatePlan: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerUpdatePlan,
-    ),
-    /** Get all ai hosting plans of a customer. */
-    customerGetPlans: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerGetPlans,
-    ),
-    /** Creates an AI hosting profile and accepts the current model terms. */
-    customerDeclareProfile: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerDeclareProfile,
-    ),
     /** Get ai hosting plan and usages of a project by planId. */
     projectGetPlan: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlan,
@@ -88,6 +92,18 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get all ai hosting plans and usages of a project. */
     projectGetPlans: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlans,
+    ),
+    /** Links a container with a project licence. */
+    projectLinkContainer: this.requestFunctionFactory(
+      descriptors.aiHostingProjectLinkContainer,
+    ),
+    /** Rotates a customer's key. */
+    customerRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerRotateKey,
+    ),
+    /** Rotates a project's key. */
+    projectRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectRotateKey,
     ),
   };
 
@@ -103,6 +119,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get an App. */
     getApp: this.requestFunctionFactory(descriptors.appGetApp),
+    /** Get an analysis of the error of an AppInstallation. */
+    getAppinstallationErrorAnalysis: this.requestFunctionFactory(
+      descriptors.appGetAppinstallationErrorAnalysis,
+    ),
     /** Get an AppInstallation. */
     getAppinstallation: this.requestFunctionFactory(
       descriptors.appGetAppinstallation,
@@ -175,10 +195,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
-    /** Get an analysis of the error of an AppInstallation. */
-    getAppinstallationErrorAnalysis: this.requestFunctionFactory(
-      descriptors.appGetAppinstallationErrorAnalysis,
-    ),
   };
 
   /** The article API allows you to read article information. */
@@ -305,6 +321,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getContainerImageConfig: this.requestFunctionFactory(
       descriptors.containerGetContainerImageConfig,
     ),
+    /** Get an analysis of the logs belonging to a Service. */
+    getServiceLogsAnalysis: this.requestFunctionFactory(
+      descriptors.containerGetServiceLogsAnalysis,
+    ),
     /** Get logs belonging to a Service. */
     getServiceLogs: this.requestFunctionFactory(
       descriptors.containerGetServiceLogs,
@@ -361,10 +381,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
-    /** Get an analysis of the logs belonging to a Service. */
-    getServiceLogsAnalysis: this.requestFunctionFactory(
-      descriptors.containerGetServiceLogsAnalysis,
-    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -447,7 +463,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     invoiceUpdateInvoiceSettings: this.requestFunctionFactory(
       descriptors.invoiceUpdateInvoiceSettings,
     ),
-    /** Request an Access Token for the Invoice file. */
+    /** Request an Access Token for a file of the Invoice. */
     invoiceGetFileAccessToken: this.requestFunctionFactory(
       descriptors.invoiceGetFileAccessToken,
     ),
@@ -524,6 +540,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get the Stripe Dashboard Link for a Contributor. */
     contributorGetLoginLink: this.requestFunctionFactory(
       descriptors.contributorGetLoginLink,
+    ),
+    /** Get a specific OAuth2 client. */
+    contributorGetOauthClient: this.requestFunctionFactory(
+      descriptors.contributorGetOauthClient,
     ),
     /** List ContractPartners of the contributor. */
     contributorListContractPartnersOfContributor: this.requestFunctionFactory(
@@ -731,6 +751,11 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     extensionRequestExtensionVerification: this.requestFunctionFactory(
       descriptors.extensionRequestExtensionVerification,
     ),
+    /** Resume the webhook execution of an ExtensionInstance. */
+    extensionResumeWebhookExecutionForExtensionInstance:
+      this.requestFunctionFactory(
+        descriptors.extensionResumeWebhookExecutionForExtensionInstance,
+      ),
     /** Publish or withdraw an Extension. */
     extensionSetExtensionPublishedState: this.requestFunctionFactory(
       descriptors.extensionSetExtensionPublishedState,
@@ -1049,16 +1074,30 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Create a DNSZone. */
-    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
+    /** List DNS zone-file import jobs belonging to a Project. */
+    dnsListDnsZoneFileImports: this.requestFunctionFactory(
+      descriptors.dnsListDnsZoneFileImports,
+    ),
+    /** Import a DNS zone file into a Project, or preview it with dry-run. */
+    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsCreateDnsZoneFileImport,
+    ),
+    /** List DNSZones belonging to a Project. */
+    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
+    /** Create a DNSZone for a verified Ingress in a Project. */
+    dnsCreateProjectDnsZone: this.requestFunctionFactory(
+      descriptors.dnsCreateProjectDnsZone,
+    ),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
     dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** Get the status of a DNS zone-file import job. */
+    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsGetDnsZoneFileImport,
+    ),
     /** Get a zone file for a DNSZone. */
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
-    /** List DNSZones belonging to a Project. */
-    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
@@ -1435,6 +1474,12 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     terminateSession: this.requestFunctionFactory(
       descriptors.userTerminateSession,
     ),
+    /** Submitted feedback of the given user. */
+    getSpotlightInfo: this.requestFunctionFactory(
+      descriptors.userGetSpotlightInfo,
+    ),
+    /** Submit your usage of the spotlight. */
+    spotlightUsage: this.requestFunctionFactory(descriptors.userSpotlightUsage),
     /** Get profile information for a user. */
     getUser: this.requestFunctionFactory(descriptors.userGetUser),
     /** Change personal information. */
@@ -1478,6 +1523,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Resend the Email-Address verification email. */
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail,
+    ),
+    /** Check if a password is leaked. */
+    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
+      descriptors.userSearchedLeakedPasswordsByRange,
+    ),
+    /** Submit your spotlight usage. */
+    spotlightFeedback: this.requestFunctionFactory(
+      descriptors.userSpotlightFeedback,
     ),
     /** Request a support code. */
     supportCodeRequest: this.requestFunctionFactory(
