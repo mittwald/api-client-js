@@ -477,7 +477,7 @@ export const aiHostingCustomerGetPlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-get-plan",
 };
 
-/** Renames an AI hosting plan. */
+/** Updates an AI hosting plan. */
 export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.RequestBody>,
@@ -19748,4 +19748,38 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Check if a Domain is eligible for AuthInfo2. */
+export const domainCheckAuthinfo2: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/authinfo2/check-domain",
+  method: "POST",
+  operationId: "domain-check-authinfo2",
 };

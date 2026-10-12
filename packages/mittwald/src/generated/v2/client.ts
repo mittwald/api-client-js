@@ -47,7 +47,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerGetPlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetPlan,
     ),
-    /** Renames an AI hosting plan. */
+    /** Updates an AI hosting plan. */
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
@@ -1257,6 +1257,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
+    ),
+    /** Check if a Domain is eligible for AuthInfo2. */
+    checkAuthinfo2: this.requestFunctionFactory(
+      descriptors.domainCheckAuthinfo2,
     ),
   };
 

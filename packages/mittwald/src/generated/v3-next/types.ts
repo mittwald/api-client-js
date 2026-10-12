@@ -5013,6 +5013,14 @@ export declare module MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace DomainCheckAuthinfo2 {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckAuthinfo2
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
+    }
   }
 
   namespace Components {
@@ -5061,6 +5069,10 @@ export declare module MittwaldAPIV3Next {
         modelTermsApprovalRequired: boolean;
         nextTokenReset: string;
         planId: string;
+        /**
+         * When true, project members cannot create keys on this plan themselves; only the customer can. Keys that already exist keep working.
+         */
+        projectKeyCreationBlocked?: boolean;
         rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
         tokens: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsageBig;
         topUsages?: {
@@ -5229,6 +5241,10 @@ export declare module MittwaldAPIV3Next {
         nextTokenReset?: string;
         planId: string;
         projectId: string;
+        /**
+         * When true, project members cannot create keys on this plan themselves; only the customer can. Keys that already exist keep working.
+         */
+        projectKeyCreationBlocked?: boolean;
       }
 
       export interface DeMittwaldAihostingProjectPlans {
@@ -5245,6 +5261,14 @@ export declare module MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldAihostingTokenUsage {
+        /**
+         * What is left of the key's own limit. Only present together with keyLimit.
+         */
+        keyAvailable?: number;
+        /**
+         * The key's own token limit for the billing period. Absent when the key has no limit of its own and is bounded only by the plan's limit.
+         */
+        keyLimit?: number;
         planLimit: number;
         used: number;
       }
@@ -7221,6 +7245,7 @@ export declare module MittwaldAPIV3Next {
          *
          */
         accessLevel: "full";
+        description?: string;
         /**
          * Describes if users should be able to connection to this database from external
          * sources. Defaults to `false` when not set.
@@ -7241,7 +7266,8 @@ export declare module MittwaldAPIV3Next {
         | "ready"
         | "migrating"
         | "importing"
-        | "error";
+        | "error"
+        | "terminating";
 
       export type DeMittwaldDatabaseDatabaseUserStatus =
         | "pending"
@@ -12718,27 +12744,6 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export interface DeMittwaldSignupScopedToken {
-        createdAt: string;
-        /**
-         * ID of the User who created the ScopedToken.
-         */
-        createdBy: string;
-        description: string;
-        expiresAt?: string;
-        id: string;
-        /**
-         * ID of the Project the ScopedToken is bound to.
-         */
-        projectId?: string;
-        /**
-         * Scopes the ScopedToken is restricted to, as scope roles (e.g. `scope:project:read`). `scope:nothing` grants nothing; a ScopedToken whose only scope is `scope:nothing` has no permissions.
-         *
-         * @minItems 1
-         */
-        scopes: [string, ...string[]];
-      }
-
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
@@ -13168,6 +13173,10 @@ export declare module MittwaldAPIV3Next {
             name: string;
             planId: string;
             projectId?: string;
+            /**
+             * Optional token limit for this key alone, for the plan's billing period. Without it the key shares the plan's limit with every other key. The sum of all key limits may exceed the plan's limit; the plan's limit always applies on top.
+             */
+            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -13440,6 +13449,10 @@ export declare module MittwaldAPIV3Next {
             createWebuiContainer?: boolean;
             name?: string;
             projectId?: string;
+            /**
+             * The key's own token limit for the plan's billing period. 0 removes an existing limit, so the key shares the plan's limit again. Settable on the customer route only.
+             */
+            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -13724,6 +13737,10 @@ export declare module MittwaldAPIV3Next {
 
           export interface RequestBody {
             description?: string;
+            /**
+             * When true, project members can no longer create keys on this plan themselves; only the customer can. Keys that already exist keep working. Set this when you hand out per-key token limits -- a key created from a project carries no limit, and a new key starts at zero usage, so without it a project member can sidestep the limit.
+             */
+            projectKeyCreationBlocked?: boolean;
           }
 
           export type Header = {};
@@ -43307,6 +43324,55 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAuthinfo2CheckDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                eligible: boolean;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
