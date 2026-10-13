@@ -1362,9 +1362,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     newsletterUnsubscribeUser: this.requestFunctionFactory(
       descriptors.newsletterUnsubscribeUser,
     ),
+    /** Adjust notification settings for message type. */
+    sadjustNotificationMessageTypeSettings: this.requestFunctionFactory(
+      descriptors.notificationsAdjustNotificationMessageTypeSettings,
+    ),
     /** Get the counts for unread notifications of the user. */
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** Get notification settings for a user. */
+    sgetNotificationSettings: this.requestFunctionFactory(
+      descriptors.notificationsGetNotificationSettings,
     ),
     /** List all unread notifications. */
     slistNotifications: this.requestFunctionFactory(
@@ -1374,9 +1382,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sreadAllNotifications: this.requestFunctionFactory(
       descriptors.notificationsReadAllNotifications,
     ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification,
+    /** Update a notification's read status. */
+    supdateNotificationStatus: this.requestFunctionFactory(
+      descriptors.notificationsUpdateNotificationStatus,
     ),
   };
 

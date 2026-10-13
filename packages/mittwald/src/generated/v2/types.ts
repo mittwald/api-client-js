@@ -3657,6 +3657,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace NotificationsAdjustNotificationMessageTypeSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsAdjustNotificationMessageTypeSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsAdjustNotificationMessageTypeSettings,
+          TStatus
+        >;
+    }
+
     namespace NotificationsCountUnreadNotifications {
       type RequestData = InferredRequestData<
         typeof descriptors.notificationsCountUnreadNotifications
@@ -3664,6 +3675,17 @@ export declare module MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.notificationsCountUnreadNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsGetNotificationSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsGetNotificationSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsGetNotificationSettings,
           TStatus
         >;
     }
@@ -3690,13 +3712,13 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
-    namespace NotificationsReadNotification {
+    namespace NotificationsUpdateNotificationStatus {
       type RequestData = InferredRequestData<
-        typeof descriptors.notificationsReadNotification
+        typeof descriptors.notificationsUpdateNotificationStatus
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.notificationsReadNotification,
+          typeof descriptors.notificationsUpdateNotificationStatus,
           TStatus
         >;
     }
@@ -5256,6 +5278,10 @@ export declare module MittwaldAPIV2 {
         id: string;
         installationPath: string;
         /**
+         * When the last automatic update failed. Automatic updates are deactivated after a failure. The value is kept when automatic updates are activated again, so it does not indicate the current state on its own; combine it with `autoUpdatesActivated` (e.g. only warn while that is false).
+         */
+        lastAutoUpdateFailedAt?: string;
+        /**
          * The last error that occurred during an update. Resets on success.
          */
         lastError?: string;
@@ -5314,6 +5340,10 @@ export declare module MittwaldAPIV2 {
         recommended?: boolean;
         requestHandler?: MittwaldAPIV2.Components.Schemas.AppRequestHandlerRequirement;
         systemSoftwareDependencies?: MittwaldAPIV2.Components.Schemas.AppSystemSoftwareDependency[];
+        /**
+         * SemVer constraint that newer AppVersions must satisfy to be eligible as automatic update targets for this AppVersion.
+         */
+        updateConstraint?: string;
         userInputs?: MittwaldAPIV2.Components.Schemas.AppUserInput[];
       }
 
@@ -5970,8 +6000,10 @@ export declare module MittwaldAPIV2 {
          */
         image: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
+         *
+         * @maxItems 200
          */
         ports?: string[];
         /**
@@ -6057,8 +6089,10 @@ export declare module MittwaldAPIV2 {
          */
         image?: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
+         *
+         * @maxItems 200
          */
         ports?: string[];
         /**
@@ -7935,6 +7969,7 @@ export declare module MittwaldAPIV2 {
           };
 
       /**
+       * @deprecated
        */
       export type MarketplaceContributorState = "enabled" | "disabled";
 
@@ -9614,6 +9649,15 @@ export declare module MittwaldAPIV2 {
         }[];
       }
 
+      export interface MessagingChannels {
+        email?: {
+          active: boolean;
+        };
+        frontendNotification?: {
+          active: boolean;
+        };
+      }
+
       export interface MessagingNotification {
         createdAt: string;
         id: string;
@@ -9624,6 +9668,23 @@ export declare module MittwaldAPIV2 {
       }
 
       export type MessagingNotificationStatus = "read" | "unread";
+
+      export interface MessagingUserSettings {
+        messageTypes: {
+          [k: string]: {
+            channels: {
+              email: {
+                active: boolean;
+                editable: boolean;
+              };
+              frontendNotification: {
+                active: boolean;
+                editable: boolean;
+              };
+            };
+          };
+        };
+      }
 
       export interface OrderAddons {
         hidden?: boolean;
@@ -11330,6 +11391,7 @@ export declare module MittwaldAPIV2 {
       }
 
       /**
+       * @deprecated
        * deprecated by property status
        */
       export type ProjectDeprecatedProjectReadinessStatus =
@@ -11338,6 +11400,7 @@ export declare module MittwaldAPIV2 {
         | "unready";
 
       /**
+       * @deprecated
        * deprecated by property status
        */
       export type ProjectDeprecatedServerReadinessStatus =
@@ -11456,6 +11519,12 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogContainerRegistryDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogProjectCreated
           | MittwaldAPIV2.Components.Schemas.ActivitylogProjectDescriptionUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipInviteCreated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipInviteStatusChanged
+          | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberAdded
+          | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberRoleUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberExpiryUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberRemoved
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         dateTime: string;
@@ -12036,6 +12105,27 @@ export declare module MittwaldAPIV2 {
         userId?: string;
       }
 
+      export interface SignupScopedToken {
+        createdAt: string;
+        /**
+         * ID of the User who created the ScopedToken.
+         */
+        createdBy: string;
+        description: string;
+        expiresAt?: string;
+        id: string;
+        /**
+         * ID of the Project the ScopedToken is bound to.
+         */
+        projectId?: string;
+        /**
+         * Scopes the ScopedToken is restricted to, as scope roles (e.g. `scope:project:read`). `scope:nothing` grants nothing; a ScopedToken whose only scope is `scope:nothing` has no permissions.
+         *
+         * @minItems 1
+         */
+        scopes: [string, ...string[]];
+      }
+
       export interface UserCustomerMembership {
         expiresAt?: string;
         id: string;
@@ -12211,25 +12301,94 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface SignupScopedToken {
-        createdAt: string;
-        /**
-         * ID of the User who created the ScopedToken.
-         */
-        createdBy: string;
-        description: string;
-        expiresAt?: string;
-        id: string;
-        /**
-         * ID of the Project the ScopedToken is bound to.
-         */
-        projectId?: string;
-        /**
-         * Scopes the ScopedToken is restricted to, as scope roles (e.g. `scope:project:read`). `scope:nothing` grants nothing; a ScopedToken whose only scope is `scope:nothing` has no permissions.
-         *
-         * @minItems 1
-         */
-        scopes: [string, ...string[]];
+      export interface ActivitylogMembershipInviteCreated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.invite-created";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogMembershipInviteStatusChanged {
+        changes: {};
+        name:
+          | "membership.invite-resent"
+          | "membership.invite-accepted"
+          | "membership.invite-declined"
+          | "membership.invite-revoked"
+          | "membership.invite-expired";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogMembershipMemberAdded {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            inherited: boolean;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            inherited: boolean | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-added" | "membership.member-inherited";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogMembershipMemberRemoved {
+        changes: {};
+        name:
+          | "membership.member-removed"
+          | "membership.member-left"
+          | "membership.member-expired";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogMembershipMemberExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name: "membership.member-expiry-updated";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogMembershipMemberRoleUpdated {
+        changes: {
+          after?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-role-updated";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
       }
 
       export interface CommonsAddress {
@@ -14846,6 +15005,8 @@ export declare module MittwaldAPIV2 {
             appIds?: string[];
             searchTerm?: string;
             sortOrder?: MittwaldAPIV2.Components.Schemas.AppAppInstallationSortOrder;
+            autoUpdatesActivated?: boolean;
+            autoUpdatesSupported?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -14894,6 +15055,8 @@ export declare module MittwaldAPIV2 {
             appIds?: string[];
             searchTerm?: string;
             sortOrder?: MittwaldAPIV2.Components.Schemas.AppAppInstallationSortOrder;
+            autoUpdatesActivated?: boolean;
+            autoUpdatesSupported?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -15476,6 +15639,9 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
+            /**
+             * @deprecated
+             */
             customerId?: string;
           };
         }
@@ -15522,6 +15688,9 @@ export declare module MittwaldAPIV2 {
           export type Header = {};
 
           export type Query = {
+            /**
+             * @deprecated
+             */
             customerId?: string;
             tags?: string[];
             templateNames?: string[];
@@ -34915,6 +35084,63 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2NotificationSettingsMessageType {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            messageType: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.MessagingChannels;
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2NotificationsUnreadCounts {}
 
     namespace V2NotificationUnreadCounts {
@@ -34959,6 +35185,51 @@ export declare module MittwaldAPIV2 {
       }
     }
 
+    namespace V2NotificationSettings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MessagingUserSettings;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2Notifications {
       namespace Get {
         namespace Parameters {
@@ -34978,6 +35249,8 @@ export declare module MittwaldAPIV2 {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "createdAt" | "severity";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -35006,8 +35279,6 @@ export declare module MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2NotificationsStatus {}
 
     namespace V2NotificationsActionsReadAll {
       namespace Post {
