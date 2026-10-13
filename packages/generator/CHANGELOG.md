@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.495.0](https://github.com/mittwald/api-client-js/compare/4.494.0...4.495.0) (2026-10-13)
+
+### Features
+
+* **generator:** emit [@deprecated](https://github.com/deprecated) JSDoc for type aliases and parameters ([#297](https://github.com/mittwald/api-client-js/issues/297)) ([b8d7f17](https://github.com/mittwald/api-client-js/commit/b8d7f17e640f3e8c1f62ecf7c071f99d227596a1)), closes [#166](https://github.com/mittwald/api-client-js/issues/166)
+
 # [4.494.0](https://github.com/mittwald/api-client-js/compare/4.493.1...4.494.0) (2026-10-12)
 
 **Note:** Version bump only for package @mittwald/api-code-generator
