@@ -6109,8 +6109,10 @@ export declare module MittwaldAPIV3Next {
          */
         image: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
+         *
+         * @maxItems 200
          */
         ports?: string[];
         /**
@@ -6196,8 +6198,10 @@ export declare module MittwaldAPIV3Next {
          */
         image?: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
+         *
+         * @maxItems 200
          */
         ports?: string[];
         /**
@@ -12777,22 +12781,94 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      /**
-       * Status of the verification of the domain owner's e-mail address. If the owner does not confirm the address in time, the domain gets suspended. A domain without ownerVerification has no known state, which does not mean that the owner is verified.
-       */
-      export interface DeMittwaldDomainOwnerVerification {
-        /**
-         * The date by which the owner has to confirm the e-mail address. pending: After the deadline the domain is suspended or, for some domains, the status changes to failed first. failed: The date on which the domain gets suspended unless the owner has confirmed the address by then. suspended: The date on which the suspension was due. Not set once the owner has verified the address.
-         */
-        deadline?: string;
-        /**
-         * When the verification e-mail was sent last.
-         */
-        lastEmailSentAt?: string;
-        /**
-         * pending: The owner has to confirm the e-mail address until the deadline. verified: The owner has confirmed the e-mail address. failed: The owner did not confirm the e-mail address until the deadline, but the domain is not suspended yet. The owner can still prevent the suspension by confirming the address until the new deadline. Only some domains pass through this status; the others change from pending directly to suspended. suspended: The domain is suspended because the owner did not confirm the e-mail address in time. It is reactivated after the owner has confirmed the address.
-         */
-        status: "pending" | "verified" | "failed" | "suspended";
+      export interface DeMittwaldActivitylogMembershipInviteCreated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.invite-created";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipInviteStatusChanged {
+        changes: {};
+        name:
+          | "membership.invite-resent"
+          | "membership.invite-accepted"
+          | "membership.invite-declined"
+          | "membership.invite-revoked"
+          | "membership.invite-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberAdded {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            inherited: boolean;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            inherited: boolean | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-added" | "membership.member-inherited";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name: "membership.member-expiry-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRemoved {
+        changes: {};
+        name:
+          | "membership.member-removed"
+          | "membership.member-left"
+          | "membership.member-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRoleUpdated {
+        changes: {
+          after?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-role-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
       }
 
       export interface DeMittwaldCommonsAddress {
