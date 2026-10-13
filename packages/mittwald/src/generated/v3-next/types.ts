@@ -2540,17 +2540,6 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
-    namespace DomainResendContactVerificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainResendContactVerificationEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainResendContactVerificationEmail,
-          TStatus
-        >;
-    }
-
     namespace DomainResendDomainEmail {
       type RequestData = InferredRequestData<
         typeof descriptors.domainResendDomainEmail
@@ -3740,6 +3729,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace NotificationsAdjustNotificationMessageTypeSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsAdjustNotificationMessageTypeSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsAdjustNotificationMessageTypeSettings,
+          TStatus
+        >;
+    }
+
     namespace NotificationsCountUnreadNotifications {
       type RequestData = InferredRequestData<
         typeof descriptors.notificationsCountUnreadNotifications
@@ -3747,6 +3747,17 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.notificationsCountUnreadNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsGetNotificationSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsGetNotificationSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsGetNotificationSettings,
           TStatus
         >;
     }
@@ -3773,13 +3784,13 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
-    namespace NotificationsReadNotification {
+    namespace NotificationsUpdateNotificationStatus {
       type RequestData = InferredRequestData<
-        typeof descriptors.notificationsReadNotification
+        typeof descriptors.notificationsUpdateNotificationStatus
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.notificationsReadNotification,
+          typeof descriptors.notificationsUpdateNotificationStatus,
           TStatus
         >;
     }
@@ -5012,14 +5023,6 @@ export declare module MittwaldAPIV3Next {
           typeof descriptors.verificationVerifyCompany,
           TStatus
         >;
-    }
-
-    namespace DomainCheckAuthinfo2 {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckAuthinfo2
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
     }
   }
 
@@ -7770,6 +7773,7 @@ export declare module MittwaldAPIV3Next {
           ownerC: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainHandleReadable;
         };
         nameservers: string[];
+        ownerVerification?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainOwnerVerification;
         processes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainProcess[];
         projectId: string;
         scheduledDeletionDate?: string;
@@ -8336,6 +8340,7 @@ export declare module MittwaldAPIV3Next {
           };
 
       /**
+       * @deprecated
        */
       export type DeMittwaldMarketplaceContributorState =
         | "enabled"
@@ -10023,6 +10028,15 @@ export declare module MittwaldAPIV3Next {
         }[];
       }
 
+      export interface DeMittwaldMessagingChannels {
+        email?: {
+          active: boolean;
+        };
+        frontendNotification?: {
+          active: boolean;
+        };
+      }
+
       export interface DeMittwaldMessagingNotification {
         createdAt: string;
         id: string;
@@ -10033,6 +10047,23 @@ export declare module MittwaldAPIV3Next {
       }
 
       export type DeMittwaldMessagingNotificationStatus = "read" | "unread";
+
+      export interface DeMittwaldMessagingUserSettings {
+        messageTypes: {
+          [k: string]: {
+            channels: {
+              email: {
+                active: boolean;
+                editable: boolean;
+              };
+              frontendNotification: {
+                active: boolean;
+                editable: boolean;
+              };
+            };
+          };
+        };
+      }
 
       export interface DeMittwaldOrderAddons {
         hidden?: boolean;
@@ -11829,6 +11860,7 @@ export declare module MittwaldAPIV3Next {
       }
 
       /**
+       * @deprecated
        * deprecated by property status
        */
       export type DeMittwaldProjectDeprecatedProjectReadinessStatus =
@@ -11837,6 +11869,7 @@ export declare module MittwaldAPIV3Next {
         | "unready";
 
       /**
+       * @deprecated
        * deprecated by property status
        */
       export type DeMittwaldProjectDeprecatedServerReadinessStatus =
@@ -12743,6 +12776,24 @@ export declare module MittwaldAPIV3Next {
         | "nameDesc"
         | "storageAsc"
         | "storageDesc";
+
+      /**
+       * Status of the verification of the domain owner's e-mail address. If the owner does not confirm the address in time, the domain gets suspended. A domain without ownerVerification has no known state, which does not mean that the owner is verified.
+       */
+      export interface DeMittwaldDomainOwnerVerification {
+        /**
+         * The date by which the owner has to confirm the e-mail address. pending: After the deadline the domain is suspended or, for some domains, the status changes to failed first. failed: The date on which the domain gets suspended unless the owner has confirmed the address by then. suspended: The date on which the suspension was due. Not set once the owner has verified the address.
+         */
+        deadline?: string;
+        /**
+         * When the verification e-mail was sent last.
+         */
+        lastEmailSentAt?: string;
+        /**
+         * pending: The owner has to confirm the e-mail address until the deadline. verified: The owner has confirmed the e-mail address. failed: The owner did not confirm the e-mail address until the deadline, but the domain is not suspended yet. The owner can still prevent the suspension by confirming the address until the new deadline. Only some domains pass through this status; the others change from pending directly to suspended. suspended: The domain is suspended because the owner did not confirm the e-mail address in time. It is reactivated after the owner has confirmed the address.
+         */
+        status: "pending" | "verified" | "failed" | "suspended";
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -15364,6 +15415,8 @@ export declare module MittwaldAPIV3Next {
             appIds?: string[];
             searchTerm?: string;
             sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAppInstallationSortOrder;
+            autoUpdatesActivated?: boolean;
+            autoUpdatesSupported?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -15410,6 +15463,8 @@ export declare module MittwaldAPIV3Next {
             appIds?: string[];
             searchTerm?: string;
             sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAppInstallationSortOrder;
+            autoUpdatesActivated?: boolean;
+            autoUpdatesSupported?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -15980,6 +16035,9 @@ export declare module MittwaldAPIV3Next {
           export type Header = {};
 
           export type Query = {
+            /**
+             * @deprecated
+             */
             customerId?: string;
           };
         }
@@ -16026,6 +16084,9 @@ export declare module MittwaldAPIV3Next {
           export type Header = {};
 
           export type Query = {
+            /**
+             * @deprecated
+             */
             customerId?: string;
             tags?: string[];
             templateNames?: string[];
@@ -28171,59 +28232,7 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contactVerificationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {}
 
     namespace V3NextDomainsDomainIdActionsResendEmail {
       namespace Post {
@@ -35737,6 +35746,63 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextNotificationSettingsMessageType {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            messageType: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV3Next.Components.Schemas.DeMittwaldMessagingChannels;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextNotificationUnreadCounts {
       namespace Get {
         namespace Parameters {
@@ -35779,6 +35845,51 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextNotificationSettings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMessagingUserSettings;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextNotifications {
       namespace Get {
         namespace Parameters {
@@ -35798,6 +35909,8 @@ export declare module MittwaldAPIV3Next {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "createdAt" | "severity";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -35826,8 +35939,6 @@ export declare module MittwaldAPIV3Next {
         }
       }
     }
-
-    namespace V3NextNotificationsStatus {}
 
     namespace V3NextNotificationsActionsReadAll {
       namespace Post {
@@ -43324,55 +43435,6 @@ export declare module MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAuthinfo2CheckDomain {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                eligible: boolean;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

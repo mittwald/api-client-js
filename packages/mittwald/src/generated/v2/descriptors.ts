@@ -9963,45 +9963,6 @@ export const domainMigrationOrderDomainMigration: OpenAPIOperation<
   operationId: "domain-migration-order-domain-migration",
 };
 
-/** Resends a Contact-Verification email. */
-export const domainResendContactVerificationEmail: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/contact-verifications/{contactVerificationId}/actions/resend-contact-verification-email",
-  method: "POST",
-  operationId: "domain-resend-contact-verification-email",
-};
-
 /** Resend a Domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
   RequestType<
@@ -14845,6 +14806,45 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   operationId: "newsletter-unsubscribe-user",
 };
 
+/** Adjust notification settings for message type. */
+export const notificationsAdjustNotificationMessageTypeSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings/{messageType}",
+  method: "PATCH",
+  operationId: "notifications-adjust-notification-message-type-settings",
+};
+
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
@@ -14872,6 +14872,40 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
   path: "/v2/notification-unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
+};
+
+/** Get notification settings for a user. */
+export const notificationsGetNotificationSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings",
+  method: "GET",
+  operationId: "notifications-get-notification-settings",
 };
 
 /** List all unread notifications. */
@@ -14937,8 +14971,8 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
   operationId: "notifications-read-all-notifications",
 };
 
-/** Mark notification as read. */
-export const notificationsReadNotification: OpenAPIOperation<
+/** Update a notification's read status. */
+export const notificationsUpdateNotificationStatus: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.Path>,
@@ -14973,7 +15007,7 @@ export const notificationsReadNotification: OpenAPIOperation<
 > = {
   path: "/v2/notifications/{notificationId}/status",
   method: "PUT",
-  operationId: "notifications-read-notification",
+  operationId: "notifications-update-notification-status",
 };
 
 /** Get list of Orders. */
@@ -19748,38 +19782,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Check if a Domain is eligible for AuthInfo2. */
-export const domainCheckAuthinfo2: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2Authinfo2CheckDomain.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/authinfo2/check-domain",
-  method: "POST",
-  operationId: "domain-check-authinfo2",
 };

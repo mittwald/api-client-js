@@ -1172,10 +1172,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     migrationOrderDomainMigration: this.requestFunctionFactory(
       descriptors.domainMigrationOrderDomainMigration,
     ),
-    /** Resends a Contact-Verification email. */
-    resendContactVerificationEmail: this.requestFunctionFactory(
-      descriptors.domainResendContactVerificationEmail,
-    ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail,
@@ -1261,10 +1257,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Update the certificate of a CertificateRequest. */
     sslSetCertificateRequestCertificate: this.requestFunctionFactory(
       descriptors.sslSetCertificateRequestCertificate,
-    ),
-    /** Check if a Domain is eligible for AuthInfo2. */
-    checkAuthinfo2: this.requestFunctionFactory(
-      descriptors.domainCheckAuthinfo2,
     ),
   };
 
@@ -1402,9 +1394,17 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     newsletterUnsubscribeUser: this.requestFunctionFactory(
       descriptors.newsletterUnsubscribeUser,
     ),
+    /** Adjust notification settings for message type. */
+    sadjustNotificationMessageTypeSettings: this.requestFunctionFactory(
+      descriptors.notificationsAdjustNotificationMessageTypeSettings,
+    ),
     /** Get the counts for unread notifications of the user. */
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** Get notification settings for a user. */
+    sgetNotificationSettings: this.requestFunctionFactory(
+      descriptors.notificationsGetNotificationSettings,
     ),
     /** List all unread notifications. */
     slistNotifications: this.requestFunctionFactory(
@@ -1414,9 +1414,9 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     sreadAllNotifications: this.requestFunctionFactory(
       descriptors.notificationsReadAllNotifications,
     ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification,
+    /** Update a notification's read status. */
+    supdateNotificationStatus: this.requestFunctionFactory(
+      descriptors.notificationsUpdateNotificationStatus,
     ),
   };
 
