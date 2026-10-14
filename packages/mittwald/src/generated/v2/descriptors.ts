@@ -149,6 +149,94 @@ export const aiHostingCustomerCreateKey: OpenAPIOperation<
   operationId: "ai-hosting-customer-create-key",
 };
 
+/** Get all ai hosting plans of a customer. */
+export const aiHostingCustomerGetPlans: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-plans",
+};
+
+/** Creates an AI hosting profile and accepts the current model terms. */
+export const aiHostingCustomerDeclareProfile: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings",
+  method: "POST",
+  operationId: "ai-hosting-customer-declare-profile",
+};
+
 /** Get a key of a customer. */
 export const aiHostingCustomerGetKey: OpenAPIOperation<
   RequestType<
@@ -345,6 +433,138 @@ export const aiHostingCustomerGetDetailedModels: OpenAPIOperation<
   operationId: "ai-hosting-customer-get-detailed-models",
 };
 
+/** Get ai hosting plan and usages of a customer by planId. */
+export const aiHostingCustomerGetPlan: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-plan",
+};
+
+/** Renames an AI hosting plan. */
+export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}",
+  method: "PUT",
+  operationId: "ai-hosting-customer-update-plan",
+};
+
+/** Rotates a customer's key. */
+export const aiHostingCustomerRotateKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hosting-keys/{keyId}/actions/rotate",
+  method: "POST",
+  operationId: "ai-hosting-customer-rotate-key",
+};
+
 /** Get a list of currently active models. */
 export const aiHostingGetModels: OpenAPIOperation<
   RequestType<
@@ -387,6 +607,94 @@ export const aiHostingGetModels: OpenAPIOperation<
   path: "/v2/ai-hosting-models",
   method: "GET",
   operationId: "ai-hosting-get-models",
+};
+
+/** List the contract months of an ai hosting plan. */
+export const aiHostingPlanGetBillingPeriods: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdBillingPeriods.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}/billing-periods",
+  method: "GET",
+  operationId: "ai-hosting-plan-get-billing-periods",
+};
+
+/** Get aggregated token usage statistics for an ai hosting plan of a customer. */
+export const aiHostingPlanGetUsageStats: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanIdUsage.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hostings/{planId}/usage",
+  method: "GET",
+  operationId: "ai-hosting-plan-get-usage-stats",
 };
 
 /** Get a list of keys of a project. */
@@ -683,6 +991,94 @@ export const aiHostingProjectGetDetailedModels: OpenAPIOperation<
   operationId: "ai-hosting-project-get-detailed-models",
 };
 
+/** Get ai hosting plan and usages of a project by planId. */
+export const aiHostingProjectGetPlan: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hostings/{planId}",
+  method: "GET",
+  operationId: "ai-hosting-project-get-plan",
+};
+
+/** Get all ai hosting plans and usages of a project. */
+export const aiHostingProjectGetPlans: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hostings",
+  method: "GET",
+  operationId: "ai-hosting-project-get-plans",
+};
+
 /** Links a container with a project licence. */
 export const aiHostingProjectLinkContainer: OpenAPIOperation<
   RequestType<
@@ -730,6 +1126,50 @@ export const aiHostingProjectLinkContainer: OpenAPIOperation<
   path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/link-container",
   method: "POST",
   operationId: "ai-hosting-project-link-container",
+};
+
+/** Rotates a project's key. */
+export const aiHostingProjectRotateKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/rotate",
+  method: "POST",
+  operationId: "ai-hosting-project-rotate-key",
 };
 
 /** Detach a staging AppInstallation from its source. */
@@ -837,6 +1277,45 @@ export const appGetApp: OpenAPIOperation<
   path: "/v2/apps/{appId}",
   method: "GET",
   operationId: "app-get-app",
+};
+
+/** Get an analysis of the error of an AppInstallation. */
+export const appGetAppinstallationErrorAnalysis: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/error-analysis",
+  method: "GET",
+  operationId: "app-get-appinstallation-error-analysis",
 };
 
 /** Get an AppInstallation. */
@@ -2986,6 +3465,55 @@ export const containerGetContainerImageConfig: OpenAPIOperation<
   operationId: "container-get-container-image-config",
 };
 
+/** Get an analysis of the logs belonging to a Service. */
+export const containerGetServiceLogsAnalysis: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/stacks/{stackId}/services/{serviceId}/log-analysis",
+  method: "GET",
+  operationId: "container-get-service-logs-analysis",
+};
+
 /** Get logs belonging to a Service. */
 export const containerGetServiceLogs: OpenAPIOperation<
   RequestType<
@@ -4846,6 +5374,35 @@ export const contributorGetLoginLink: OpenAPIOperation<
   path: "/v2/contributors/{contributorId}/dashboard",
   method: "GET",
   operationId: "contributor-get-login-link",
+};
+
+/** Get a specific OAuth2 client. */
+export const contributorGetOauthClient: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Oauth2ClientsOauthClientId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/oauth2/clients/{oauthClientId}",
+  method: "GET",
+  operationId: "contributor-get-oauth-client",
 };
 
 /** List ContractPartners of the contributor. */
@@ -6933,6 +7490,50 @@ export const customerResendCustomerInviteMail: OpenAPIOperation<
   operationId: "customer-resend-customer-invite-mail",
 };
 
+/** Set how the customer became aware of mittwald. */
+export const customerSetCustomerReferralSource: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/referral-source",
+  method: "PUT",
+  operationId: "customer-set-customer-referral-source",
+};
+
 /** Copy a MySQLDatabase with a MySQLUser. */
 export const databaseCopyMysqlDatabase: OpenAPIOperation<
   RequestType<
@@ -8364,43 +8965,170 @@ export const userUpdateAccount: OpenAPIOperation<
   operationId: "user-update-account",
 };
 
-/** Create a DNSZone. */
-export const dnsCreateDnsZone: OpenAPIOperation<
+/** List DNS zone-file import jobs belonging to a Project. */
+export const dnsListDnsZoneFileImports: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$201.Content.ApplicationJson>,
-      201,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$200.Content.ApplicationJson>,
+      200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/dns-zones",
+  path: "/v2/projects/{projectId}/dns-zone-imports",
+  method: "GET",
+  operationId: "dns-list-dns-zone-file-imports",
+};
+
+/** Import a DNS zone file into a Project, or preview it with dry-run. */
+export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZoneImports.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zone-imports",
   method: "POST",
-  operationId: "dns-create-dns-zone",
+  operationId: "dns-create-dns-zone-file-import",
+};
+
+/** List DNSZones belonging to a Project. */
+export const dnsListDnsZones: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zones",
+  method: "GET",
+  operationId: "dns-list-dns-zones",
+};
+
+/** Create a DNSZone for a verified Ingress in a Project. */
+export const dnsCreateProjectDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/dns-zones",
+  method: "POST",
+  operationId: "dns-create-project-dns-zone",
 };
 
 /** Get a DNSZone. */
@@ -8471,6 +9199,45 @@ export const dnsDeleteDnsZone: OpenAPIOperation<
   operationId: "dns-delete-dns-zone",
 };
 
+/** Get the status of a DNS zone-file import job. */
+export const dnsGetDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZoneImportsZoneFileImportId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zone-imports/{zoneFileImportId}",
+  method: "GET",
+  operationId: "dns-get-dns-zone-file-import",
+};
+
 /** Get a zone file for a DNSZone. */
 export const dnsGetZoneFile: OpenAPIOperation<
   RequestType<
@@ -8503,40 +9270,6 @@ export const dnsGetZoneFile: OpenAPIOperation<
   path: "/v2/dns-zones/{dnsZoneId}/zone-file",
   method: "GET",
   operationId: "dns-get-zone-file",
-};
-
-/** List DNSZones belonging to a Project. */
-export const dnsListDnsZones: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/dns-zones",
-  method: "GET",
-  operationId: "dns-list-dns-zones",
 };
 
 /** Set a record set on a DNSZone to managed. */
@@ -10953,6 +11686,40 @@ export const extensionRequestExtensionVerification: OpenAPIOperation<
   operationId: "extension-request-extension-verification",
 };
 
+/** Resume the webhook execution of an ExtensionInstance. */
+export const extensionResumeWebhookExecutionForExtensionInstance: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsResumeWebhookExecution.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contributors/{contributorId}/extensions/{extensionId}/extension-instances/{extensionInstanceId}/actions/resume-webhook-execution",
+  method: "POST",
+  operationId: "extension-resume-webhook-execution-for-extension-instance",
+};
+
 /** Publish or withdraw an Extension. */
 export const extensionSetExtensionPublishedState: OpenAPIOperation<
   RequestType<
@@ -11745,7 +12512,7 @@ export const invoiceUpdateInvoiceSettings: OpenAPIOperation<
   operationId: "invoice-update-invoice-settings",
 };
 
-/** Request an Access Token for the Invoice file. */
+/** Request an Access Token for a file of the Invoice. */
 export const invoiceGetFileAccessToken: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -13830,6 +14597,45 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   operationId: "newsletter-unsubscribe-user",
 };
 
+/** Adjust notification settings for message type. */
+export const notificationsAdjustNotificationMessageTypeSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings/{messageType}",
+  method: "PATCH",
+  operationId: "notifications-adjust-notification-message-type-settings",
+};
+
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
@@ -13857,6 +14663,40 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
   path: "/v2/notification-unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
+};
+
+/** Get notification settings for a user. */
+export const notificationsGetNotificationSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings",
+  method: "GET",
+  operationId: "notifications-get-notification-settings",
 };
 
 /** List all unread notifications. */
@@ -13922,8 +14762,8 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
   operationId: "notifications-read-all-notifications",
 };
 
-/** Mark notification as read. */
-export const notificationsReadNotification: OpenAPIOperation<
+/** Update a notification's read status. */
+export const notificationsUpdateNotificationStatus: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.Path>,
@@ -13933,6 +14773,11 @@ export const notificationsReadNotification: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -13953,7 +14798,7 @@ export const notificationsReadNotification: OpenAPIOperation<
 > = {
   path: "/v2/notifications/{notificationId}/status",
   method: "PUT",
-  operationId: "notifications-read-notification",
+  operationId: "notifications-update-notification-status",
 };
 
 /** Get list of Orders. */
@@ -15742,35 +16587,6 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
   path: "/v2/project-invites/{projectInviteId}/actions/resend",
   method: "POST",
   operationId: "project-resend-project-invite-mail",
-};
-
-/** Register a tariff change for a legacy tariff. */
-export const relocationCreateLegacyTariffChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/legacy-tariff-change",
-  method: "POST",
-  operationId: "relocation-create-legacy-tariff-change",
 };
 
 /** Relocate an external Project to mittwald. */
@@ -17841,6 +18657,64 @@ export const userTerminateSession: OpenAPIOperation<
   operationId: "user-terminate-session",
 };
 
+/** Submitted feedback of the given user. */
+export const userGetSpotlightInfo: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/spotlights/{spotlightId}",
+  method: "GET",
+  operationId: "user-get-spotlight-info",
+};
+
+/** Submit your usage of the spotlight. */
+export const userSpotlightUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/spotlights/{spotlightId}",
+  method: "POST",
+  operationId: "user-spotlight-usage",
+};
+
 /** Get profile information for a user. */
 export const userGetUser: OpenAPIOperation<
   RequestType<
@@ -18346,6 +19220,69 @@ export const userResendVerificationEmail: OpenAPIOperation<
   operationId: "user-resend-verification-email",
 };
 
+/** Check if a password is leaked. */
+export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2LeakedPasswordsPasswordHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/leaked-passwords/{passwordHashPrefix}",
+  method: "GET",
+  operationId: "user-searched-leaked-passwords-by-range",
+};
+
+/** Submit your spotlight usage. */
+export const userSpotlightFeedback: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfSpotlightsSpotlightIdFeedback.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/spotlights/{spotlightId}/feedback",
+  method: "POST",
+  operationId: "user-spotlight-feedback",
+};
+
 /** Request a support code. */
 export const userSupportCodeRequest: OpenAPIOperation<
   RequestType<
@@ -18592,400 +19529,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get ai hosting plan and usages of a customer by planId. */
-export const aiHostingCustomerGetPlan: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/ai-hostings/{planId}",
-  method: "GET",
-  operationId: "ai-hosting-customer-get-plan",
-};
-
-/** Renames an AI hosting plan. */
-export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/ai-hostings/{planId}",
-  method: "PUT",
-  operationId: "ai-hosting-customer-update-plan",
-};
-
-/** Get all ai hosting plans of a customer. */
-export const aiHostingCustomerGetPlans: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/ai-hostings",
-  method: "GET",
-  operationId: "ai-hosting-customer-get-plans",
-};
-
-/** Creates an AI hosting profile and accepts the current model terms. */
-export const aiHostingCustomerDeclareProfile: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostings.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/ai-hostings",
-  method: "POST",
-  operationId: "ai-hosting-customer-declare-profile",
-};
-
-/** Get ai hosting plan and usages of a project by planId. */
-export const aiHostingProjectGetPlan: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingsPlanId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/ai-hostings/{planId}",
-  method: "GET",
-  operationId: "ai-hosting-project-get-plan",
-};
-
-/** Get all ai hosting plans and usages of a project. */
-export const aiHostingProjectGetPlans: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostings.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/ai-hostings",
-  method: "GET",
-  operationId: "ai-hosting-project-get-plans",
-};
-
-/** Get an analysis of the logs belonging to a Service. */
-export const containerGetServiceLogsAnalysis: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdServicesServiceIdLogAnalysis.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/stacks/{stackId}/services/{serviceId}/log-analysis",
-  method: "GET",
-  operationId: "container-get-service-logs-analysis",
-};
-
-/** Get an analysis of the error of an AppInstallation. */
-export const appGetAppinstallationErrorAnalysis: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdErrorAnalysis.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/app-installations/{appInstallationId}/error-analysis",
-  method: "GET",
-  operationId: "app-get-appinstallation-error-analysis",
-};
-
-/** Set how the customer became aware of mittwald. */
-export const customerSetCustomerReferralSource: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdReferralSource.Put.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/referral-source",
-  method: "PUT",
-  operationId: "customer-set-customer-referral-source",
 };

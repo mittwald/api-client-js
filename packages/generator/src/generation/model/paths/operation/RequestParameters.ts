@@ -7,6 +7,7 @@ import { OpenAPIV3 } from "openapi-types";
 import { SecurityScheme } from "../../components/SecurityScheme.js";
 import { Components, ComponentType } from "../../components/Components.js";
 import { isRef } from "../../../refs/isRef.js";
+import { withDeprecation } from "../../../deprecation.js";
 import invariant from "invariant";
 
 type ParameterDocType = ComponentType<"parameters">;
@@ -57,7 +58,12 @@ export class RequestParameters {
           `Could not find schema for request parameter ${name.raw}`,
         );
 
-        properties[resolvedParameter.name] = jsonSchemaObject;
+        // `deprecated` lives on the Parameter Object, not on its schema, so it
+        // has to be carried over explicitly to end up in the generated JSDoc.
+        properties[resolvedParameter.name] = withDeprecation(
+          jsonSchemaObject,
+          resolvedParameter,
+        );
 
         if (resolvedParameter.required) {
           required.push(resolvedParameter.name);
@@ -136,12 +142,18 @@ export class RequestParameters {
       opts.optionalHeaders ?? [],
     );
 
+    const dateTimeInputs =
+      this.operation.path.paths.model.dateTimeInputSchemaNames;
+
     const t = {
       ns: RequestParameters.ns,
-      path: (await this.path?.compile(opts)) ?? "",
-      body: (await this.body?.compile(opts)) ?? "",
-      header: (await header?.compile(opts)) ?? "",
-      query: (await this.query?.compile(opts)) ?? "",
+      path:
+        (await this.path?.compileAsRequestInput(opts, dateTimeInputs)) ?? "",
+      body:
+        (await this.body?.compileAsRequestInput(opts, dateTimeInputs)) ?? "",
+      header: (await header?.compileAsRequestInput(opts, dateTimeInputs)) ?? "",
+      query:
+        (await this.query?.compileAsRequestInput(opts, dateTimeInputs)) ?? "",
     };
 
     return `\

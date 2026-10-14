@@ -3,6 +3,194 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.497.0](https://github.com/mittwald/api-client-js/compare/4.496.0...4.497.0) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.496.0](https://github.com/mittwald/api-client-js/compare/4.495.1...4.496.0) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.495.1](https://github.com/mittwald/api-client-js/compare/4.495.0...4.495.1) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.495.0](https://github.com/mittwald/api-client-js/compare/4.494.0...4.495.0) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.494.0](https://github.com/mittwald/api-client-js/compare/4.493.1...4.494.0) (2026-10-12)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.493.1](https://github.com/mittwald/api-client-js/compare/4.493.0...4.493.1) (2026-10-12)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.493.0](https://github.com/mittwald/api-client-js/compare/4.492.0...4.493.0) (2026-10-11)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.492.0](https://github.com/mittwald/api-client-js/compare/4.491.0...4.492.0) (2026-10-10)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.491.0](https://github.com/mittwald/api-client-js/compare/4.490.0...4.491.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.490.0](https://github.com/mittwald/api-client-js/compare/4.489.0...4.490.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.489.0](https://github.com/mittwald/api-client-js/compare/4.488.0...4.489.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.488.0](https://github.com/mittwald/api-client-js/compare/4.487.0...4.488.0) (2026-10-09)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.487.0](https://github.com/mittwald/api-client-js/compare/4.486.0...4.487.0) (2026-10-08)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.486.0](https://github.com/mittwald/api-client-js/compare/4.485.0...4.486.0) (2026-10-07)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.485.0](https://github.com/mittwald/api-client-js/compare/4.484.0...4.485.0) (2026-10-07)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.484.0](https://github.com/mittwald/api-client-js/compare/4.483.1...4.484.0) (2026-10-06)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.483.1](https://github.com/mittwald/api-client-js/compare/4.483.0...4.483.1) (2026-10-06)
+
+### Performance Improvements
+
+* **models:** refresh all resources of an invalidated URL in one pass ([#312](https://github.com/mittwald/api-client-js/issues/312)) ([b9ad8b4](https://github.com/mittwald/api-client-js/commit/b9ad8b4077eb6e463629d9d9a8f6b114892e70ee))
+
+# [4.483.0](https://github.com/mittwald/api-client-js/compare/4.482.0...4.483.0) (2026-10-05)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.482.0](https://github.com/mittwald/api-client-js/compare/4.481.0...4.482.0) (2026-10-04)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.481.0](https://github.com/mittwald/api-client-js/compare/4.480.0...4.481.0) (2026-10-03)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.480.0](https://github.com/mittwald/api-client-js/compare/4.479.0...4.480.0) (2026-10-02)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.479.0](https://github.com/mittwald/api-client-js/compare/4.478.0...4.479.0) (2026-10-01)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.478.0](https://github.com/mittwald/api-client-js/compare/4.477.0...4.478.0) (2026-09-30)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.477.0](https://github.com/mittwald/api-client-js/compare/4.476.0...4.477.0) (2026-09-30)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.476.0](https://github.com/mittwald/api-client-js/compare/4.475.0...4.476.0) (2026-09-29)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.475.0](https://github.com/mittwald/api-client-js/compare/4.474.0...4.475.0) (2026-09-28)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.474.0](https://github.com/mittwald/api-client-js/compare/4.473.0...4.474.0) (2026-09-28)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.473.0](https://github.com/mittwald/api-client-js/compare/4.472.0...4.473.0) (2026-09-27)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.472.0](https://github.com/mittwald/api-client-js/compare/4.471.0...4.472.0) (2026-09-26)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.471.0](https://github.com/mittwald/api-client-js/compare/4.470.0...4.471.0) (2026-09-25)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.470.0](https://github.com/mittwald/api-client-js/compare/4.469.0...4.470.0) (2026-09-25)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.469.0](https://github.com/mittwald/api-client-js/compare/4.468.0...4.469.0) (2026-09-24)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.468.0](https://github.com/mittwald/api-client-js/compare/4.467.0...4.468.0) (2026-09-23)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.467.0](https://github.com/mittwald/api-client-js/compare/4.466.0...4.467.0) (2026-09-22)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.466.0](https://github.com/mittwald/api-client-js/compare/4.465.0...4.466.0) (2026-09-21)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.465.0](https://github.com/mittwald/api-client-js/compare/4.464.0...4.465.0) (2026-09-17)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.464.0](https://github.com/mittwald/api-client-js/compare/4.463.0...4.464.0) (2026-09-16)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.463.0](https://github.com/mittwald/api-client-js/compare/4.462.0...4.463.0) (2026-09-15)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.462.0](https://github.com/mittwald/api-client-js/compare/4.461.0...4.462.0) (2026-09-15)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.461.0](https://github.com/mittwald/api-client-js/compare/4.460.0...4.461.0) (2026-09-11)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.460.0](https://github.com/mittwald/api-client-js/compare/4.459.0...4.460.0) (2026-09-09)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.459.0](https://github.com/mittwald/api-client-js/compare/4.458.0...4.459.0) (2026-09-09)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.458.0](https://github.com/mittwald/api-client-js/compare/4.457.1...4.458.0) (2026-09-08)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.457.1](https://github.com/mittwald/api-client-js/compare/4.457.0...4.457.1) (2026-09-08)
+
+### Bug Fixes
+
+* **deps:** widen @mittwald/react-use-promise peer range to 3.x and 4.x ([#294](https://github.com/mittwald/api-client-js/issues/294)) ([9d15968](https://github.com/mittwald/api-client-js/commit/9d159686b3ef00f5ef88746eb5188c773b71a398)), closes [#293](https://github.com/mittwald/api-client-js/issues/293)
+
+# [4.457.0](https://github.com/mittwald/api-client-js/compare/4.456.0...4.457.0) (2026-09-06)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.456.0](https://github.com/mittwald/api-client-js/compare/4.455.0...4.456.0) (2026-09-04)
+
+**Note:** Version bump only for package @mittwald/api-models
+
 # [4.455.0](https://github.com/mittwald/api-client-js/compare/4.454.0...4.455.0) (2026-09-04)
 
 **Note:** Version bump only for package @mittwald/api-models

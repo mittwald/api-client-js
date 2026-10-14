@@ -12,4 +12,13 @@ export default {
       },
     ],
   },
+  // Report on every source file, not just the ones a test happens to import,
+  // so untested modules show up as gaps instead of being left out.
+  collectCoverageFrom: [
+    "src/**/*.{ts,tsx}",
+    "!src/**/*.test.{ts,tsx}",
+    "!src/**/*.test-types.ts",
+    "!src/**/__fixtures__/**",
+    "!src/**/index.ts",
+  ],
 };
