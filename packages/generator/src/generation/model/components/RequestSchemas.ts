@@ -4,7 +4,6 @@ import { Components } from "./Components.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import { populateNullableTypes } from "../../populateNullableTypes.js";
 import { requestSchemasNs } from "../../dateTime/dateTimeInputRefs.js";
 import { tsTypeName } from "../../tsTypeName.js";
 import cloneDeep from "clone-deep";
@@ -39,10 +38,7 @@ export class RequestSchemas {
       .filter(([schemaName]) => variantNames.has(schemaName))
       .map(
         ([schemaName, schema]) =>
-          new JSONSchema(
-            new Name(schemaName, this.name),
-            populateNullableTypes(cloneDeep(schema)),
-          ),
+          new JSONSchema(new Name(schemaName, this.name), cloneDeep(schema)),
       );
   }
 

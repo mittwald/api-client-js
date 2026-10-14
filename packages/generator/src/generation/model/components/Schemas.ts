@@ -4,7 +4,6 @@ import { Components } from "./Components.js";
 import { asyncStringJoin } from "../../asyncStringJoin.js";
 import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
-import { populateNullableTypes } from "../../populateNullableTypes.js";
 
 export class Schemas {
   public static readonly ns = "Schemas";
@@ -20,10 +19,7 @@ export class Schemas {
     this.components = components;
     this.name = new Name(Schemas.ns, components.name);
     this.schemas = Object.entries(schemas ?? {}).map(([schemaName, schema]) => {
-      return new JSONSchema(
-        new Name(schemaName, this.name),
-        populateNullableTypes(schema),
-      );
+      return new JSONSchema(new Name(schemaName, this.name), schema);
     });
   }
 
