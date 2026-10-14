@@ -28,11 +28,13 @@ const reactProvided = provideReact(
 );
 
 function ignoredTestReturnTypesOfProvideReact() {
-  const usedValue = reactProvided.use("foo");
-  const resourceValue = reactProvided.asResource("foo").use();
-  type ignoredUsedValueIsString = ExpectExact<Equals<typeof usedValue, string>>;
+  const ignoredUsedValue = reactProvided.use("foo");
+  const ignoredResourceValue = reactProvided.asResource("foo").use();
+  type ignoredUsedValueIsString = ExpectExact<
+    Equals<typeof ignoredUsedValue, string>
+  >;
   type ignoredResourceValueIsString = ExpectExact<
-    Equals<typeof resourceValue, string>
+    Equals<typeof ignoredResourceValue, string>
   >;
 }
 
