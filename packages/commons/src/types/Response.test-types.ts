@@ -1,4 +1,5 @@
 import { InternalAxiosRequestConfig } from "axios";
+import type { IsEqual } from "type-fest";
 import { Response } from "./Response.js";
 
 /*
@@ -6,27 +7,11 @@ import { Response } from "./Response.js";
  *
  * `satisfies` asserts assignability the way a real call site sees it, i.e.
  * including the excess-property checks that only apply to object literals
- * passed into a typed position. `ExpectExact<Equals<...>>` asserts exact type
- * identity, which `satisfies` cannot express -- it would also accept a type
- * that is merely assignable. Expected rejections are marked
- * with `@ts-expect-error`.
+ * passed into a typed position. `true satisfies IsEqual<...>` asserts exact
+ * type identity, which `satisfies` alone cannot express -- it would also accept
+ * a type that is merely assignable. Expected rejections are marked with
+ * `@ts-expect-error`.
  */
-
-/**
- * Resolves to `true` only if both types are identical, not merely mutually
- * assignable. The two deferred signatures are only related to each other when
- * `TActual` and `TExpected` resolve identically, which is the one way plain
- * TypeScript can express exactness.
- */
-type Equals<TActual, TExpected> =
-  (<T>() => T extends TActual ? 1 : 2) extends <T>() => T extends TExpected
-    ? 1
-    : 2
-    ? true
-    : false;
-
-/** Fails to compile unless the `Equals<...>` handed to it resolved to `true`. */
-type ExpectExact<TIgnoredMatch extends true> = void;
 
 type Response200 = Response<{ a: string }, 200, "application/json">;
 type Response200Text = Response<{ text: string }, 200, "text/plain">;
@@ -92,9 +77,7 @@ function ignoredTestRequestTypesWithDataPathParameters() {
   type SomeResponse = Response200 | Response200Text | Response201 | Response400;
   const someResponse = {} as SomeResponse;
 
-  type ignoredStatusIsExactlyTheDeclaredOnes = ExpectExact<
-    Equals<typeof someResponse.status, 200 | 201 | 400>
-  >;
+  void (true satisfies IsEqual<typeof someResponse.status, 200 | 201 | 400>);
 
   if (someResponse.status === 200) {
     // @ts-expect-error > a is not in data
@@ -105,20 +88,14 @@ function ignoredTestRequestTypesWithDataPathParameters() {
     if (someResponse.mediaType === "text/plain") {
       // @ts-expect-error > a is not in data
       someResponse.data.a;
-      type ignoredTextIsString = ExpectExact<
-        Equals<typeof someResponse.data.text, string>
-      >;
+      void (true satisfies IsEqual<typeof someResponse.data.text, string>);
     } else {
       // @ts-expect-error > text is not in data
       someResponse.data.text;
-      type ignoredAIsString = ExpectExact<
-        Equals<typeof someResponse.data.a, string>
-      >;
+      void (true satisfies IsEqual<typeof someResponse.data.a, string>);
     }
   } else if (someResponse.status === 201) {
-    type ignoredBIsString = ExpectExact<
-      Equals<typeof someResponse.data.b, string>
-    >;
+    void (true satisfies IsEqual<typeof someResponse.data.b, string>);
     // @ts-expect-error > a is not in data
     someResponse.data.a;
   }
