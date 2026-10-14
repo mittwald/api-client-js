@@ -51,6 +51,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
+    /** Rotates a customer's key. */
+    customerRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerRotateKey,
+    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
     /** List the contract months of an ai hosting plan. */
@@ -96,10 +100,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
-    ),
-    /** Rotates a customer's key. */
-    customerRotateKey: this.requestFunctionFactory(
-      descriptors.aiHostingCustomerRotateKey,
     ),
     /** Rotates a project's key. */
     projectRotateKey: this.requestFunctionFactory(
@@ -1362,9 +1362,17 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     newsletterUnsubscribeUser: this.requestFunctionFactory(
       descriptors.newsletterUnsubscribeUser,
     ),
+    /** Adjust notification settings for message type. */
+    sadjustNotificationMessageTypeSettings: this.requestFunctionFactory(
+      descriptors.notificationsAdjustNotificationMessageTypeSettings,
+    ),
     /** Get the counts for unread notifications of the user. */
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** Get notification settings for a user. */
+    sgetNotificationSettings: this.requestFunctionFactory(
+      descriptors.notificationsGetNotificationSettings,
     ),
     /** List all unread notifications. */
     slistNotifications: this.requestFunctionFactory(
@@ -1374,9 +1382,9 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     sreadAllNotifications: this.requestFunctionFactory(
       descriptors.notificationsReadAllNotifications,
     ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification,
+    /** Update a notification's read status. */
+    supdateNotificationStatus: this.requestFunctionFactory(
+      descriptors.notificationsUpdateNotificationStatus,
     ),
   };
 
@@ -1836,10 +1844,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
 
   /** The relocation API allows you to manage your relocations. */
   public readonly relocation = {
-    /** Register a tariff change for a legacy tariff. */
-    createLegacyTariffChange: this.requestFunctionFactory(
-      descriptors.relocationCreateLegacyTariffChange,
-    ),
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,

@@ -521,6 +521,50 @@ export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-update-plan",
 };
 
+/** Rotates a customer's key. */
+export const aiHostingCustomerRotateKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hosting-keys/{keyId}/actions/rotate",
+  method: "POST",
+  operationId: "ai-hosting-customer-rotate-key",
+};
+
 /** Get a list of currently active models. */
 export const aiHostingGetModels: OpenAPIOperation<
   RequestType<
@@ -1082,6 +1126,50 @@ export const aiHostingProjectLinkContainer: OpenAPIOperation<
   path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/link-container",
   method: "POST",
   operationId: "ai-hosting-project-link-container",
+};
+
+/** Rotates a project's key. */
+export const aiHostingProjectRotateKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/rotate",
+  method: "POST",
+  operationId: "ai-hosting-project-rotate-key",
 };
 
 /** Detach a staging AppInstallation from its source. */
@@ -14509,6 +14597,45 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   operationId: "newsletter-unsubscribe-user",
 };
 
+/** Adjust notification settings for message type. */
+export const notificationsAdjustNotificationMessageTypeSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings/{messageType}",
+  method: "PATCH",
+  operationId: "notifications-adjust-notification-message-type-settings",
+};
+
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
@@ -14536,6 +14663,40 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
   path: "/v2/notification-unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
+};
+
+/** Get notification settings for a user. */
+export const notificationsGetNotificationSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings",
+  method: "GET",
+  operationId: "notifications-get-notification-settings",
 };
 
 /** List all unread notifications. */
@@ -14601,8 +14762,8 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
   operationId: "notifications-read-all-notifications",
 };
 
-/** Mark notification as read. */
-export const notificationsReadNotification: OpenAPIOperation<
+/** Update a notification's read status. */
+export const notificationsUpdateNotificationStatus: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV2.Paths.V2NotificationsNotificationIdStatus.Put.Parameters.Path>,
@@ -14637,7 +14798,7 @@ export const notificationsReadNotification: OpenAPIOperation<
 > = {
   path: "/v2/notifications/{notificationId}/status",
   method: "PUT",
-  operationId: "notifications-read-notification",
+  operationId: "notifications-update-notification-status",
 };
 
 /** Get list of Orders. */
@@ -16426,35 +16587,6 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
   path: "/v2/project-invites/{projectInviteId}/actions/resend",
   method: "POST",
   operationId: "project-resend-project-invite-mail",
-};
-
-/** Register a tariff change for a legacy tariff. */
-export const relocationCreateLegacyTariffChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2LegacyTariffChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/legacy-tariff-change",
-  method: "POST",
-  operationId: "relocation-create-legacy-tariff-change",
 };
 
 /** Relocate an external Project to mittwald. */
@@ -19397,92 +19529,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Rotates a customer's key. */
-export const aiHostingCustomerRotateKey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/ai-hosting-keys/{keyId}/actions/rotate",
-  method: "POST",
-  operationId: "ai-hosting-customer-rotate-key",
-};
-
-/** Rotates a project's key. */
-export const aiHostingProjectRotateKey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/rotate",
-  method: "POST",
-  operationId: "ai-hosting-project-rotate-key",
 };
