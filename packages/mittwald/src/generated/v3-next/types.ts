@@ -132,6 +132,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace AiHostingCustomerRotateKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerRotateKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerRotateKey,
+          TStatus
+        >;
+    }
+
     namespace AiHostingGetModels {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingGetModels
@@ -257,6 +268,17 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.aiHostingProjectLinkContainer,
+          TStatus
+        >;
+    }
+
+    namespace AiHostingProjectRotateKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectRotateKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectRotateKey,
           TStatus
         >;
     }
@@ -1290,6 +1312,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace ContributorGetOauthClient {
+      type RequestData = InferredRequestData<
+        typeof descriptors.contributorGetOauthClient
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.contributorGetOauthClient,
+          TStatus
+        >;
+    }
+
     namespace ContributorListContractPartnersOfContributor {
       type RequestData = InferredRequestData<
         typeof descriptors.contributorListContractPartnersOfContributor
@@ -2235,12 +2268,45 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
     }
 
-    namespace DnsCreateDnsZone {
+    namespace DnsListDnsZoneFileImports {
       type RequestData = InferredRequestData<
-        typeof descriptors.dnsCreateDnsZone
+        typeof descriptors.dnsListDnsZoneFileImports
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsCreateDnsZone, TStatus>;
+        InferredResponseData<
+          typeof descriptors.dnsListDnsZoneFileImports,
+          TStatus
+        >;
+    }
+
+    namespace DnsCreateDnsZoneFileImport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsCreateDnsZoneFileImport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsCreateDnsZoneFileImport,
+          TStatus
+        >;
+    }
+
+    namespace DnsListDnsZones {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsListDnsZones
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsListDnsZones, TStatus>;
+    }
+
+    namespace DnsCreateProjectDnsZone {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsCreateProjectDnsZone
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsCreateProjectDnsZone,
+          TStatus
+        >;
     }
 
     namespace DnsGetDnsZone {
@@ -2257,18 +2323,21 @@ export declare module MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.dnsDeleteDnsZone, TStatus>;
     }
 
+    namespace DnsGetDnsZoneFileImport {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsGetDnsZoneFileImport
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.dnsGetDnsZoneFileImport,
+          TStatus
+        >;
+    }
+
     namespace DnsGetZoneFile {
       type RequestData = InferredRequestData<typeof descriptors.dnsGetZoneFile>;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.dnsGetZoneFile, TStatus>;
-    }
-
-    namespace DnsListDnsZones {
-      type RequestData = InferredRequestData<
-        typeof descriptors.dnsListDnsZones
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.dnsListDnsZones, TStatus>;
     }
 
     namespace DnsSetRecordSetManaged {
@@ -3589,6 +3658,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace NotificationsAdjustNotificationMessageTypeSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsAdjustNotificationMessageTypeSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsAdjustNotificationMessageTypeSettings,
+          TStatus
+        >;
+    }
+
     namespace NotificationsCountUnreadNotifications {
       type RequestData = InferredRequestData<
         typeof descriptors.notificationsCountUnreadNotifications
@@ -3596,6 +3676,17 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.notificationsCountUnreadNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsGetNotificationSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsGetNotificationSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsGetNotificationSettings,
           TStatus
         >;
     }
@@ -3622,13 +3713,13 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
-    namespace NotificationsReadNotification {
+    namespace NotificationsUpdateNotificationStatus {
       type RequestData = InferredRequestData<
-        typeof descriptors.notificationsReadNotification
+        typeof descriptors.notificationsUpdateNotificationStatus
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.notificationsReadNotification,
+          typeof descriptors.notificationsUpdateNotificationStatus,
           TStatus
         >;
     }
@@ -4108,17 +4199,6 @@ export declare module MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.projectResendProjectInviteMail,
-          TStatus
-        >;
-    }
-
-    namespace RelocationCreateLegacyTariffChange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.relocationCreateLegacyTariffChange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.relocationCreateLegacyTariffChange,
           TStatus
         >;
     }
@@ -4773,6 +4853,17 @@ export declare module MittwaldAPIV3Next {
         >;
     }
 
+    namespace UserSearchedLeakedPasswordsByRange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userSearchedLeakedPasswordsByRange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userSearchedLeakedPasswordsByRange,
+          TStatus
+        >;
+    }
+
     namespace UserSpotlightFeedback {
       type RequestData = InferredRequestData<
         typeof descriptors.userSpotlightFeedback
@@ -5119,6 +5210,7 @@ export declare module MittwaldAPIV3Next {
        */
       export interface DeMittwaldAppApp {
         actionCapabilities?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppActionCapabilities;
+        description?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppTranslatedString;
         id: string;
         name: string;
         tags: string[];
@@ -5187,6 +5279,10 @@ export declare module MittwaldAPIV3Next {
         id: string;
         installationPath: string;
         /**
+         * When the last automatic update failed. Automatic updates are deactivated after a failure. The value is kept when automatic updates are activated again, so it does not indicate the current state on its own; combine it with `autoUpdatesActivated` (e.g. only warn while that is false).
+         */
+        lastAutoUpdateFailedAt?: string;
+        /**
          * The last error that occurred during an update. Resets on success.
          */
         lastError?: string;
@@ -5247,6 +5343,10 @@ export declare module MittwaldAPIV3Next {
         recommended?: boolean;
         requestHandler?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppRequestHandlerRequirement;
         systemSoftwareDependencies?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftwareDependency[];
+        /**
+         * SemVer constraint that newer AppVersions must satisfy to be eligible as automatic update targets for this AppVersion.
+         */
+        updateConstraint?: string;
         userInputs?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppUserInput[];
       }
 
@@ -5396,6 +5496,14 @@ export declare module MittwaldAPIV3Next {
         recommended?: boolean;
         systemSoftwareDependencies?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftwareDependency[];
         userInputs?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppUserInput[];
+      }
+
+      /**
+       * A text with a german and an english translation.
+       */
+      export interface DeMittwaldAppTranslatedString {
+        de: string;
+        en: string;
       }
 
       /**
@@ -5903,8 +6011,10 @@ export declare module MittwaldAPIV3Next {
          */
         image: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
+         *
+         * @maxItems 200
          */
         ports?: string[];
         /**
@@ -5990,8 +6100,10 @@ export declare module MittwaldAPIV3Next {
          */
         image?: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
+         *
+         * @maxItems 200
          */
         ports?: string[];
         /**
@@ -7023,6 +7135,10 @@ export declare module MittwaldAPIV3Next {
          *
          */
         externalAccess?: boolean;
+        /**
+         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+         *
+         */
         password: string;
       }
 
@@ -7046,6 +7162,10 @@ export declare module MittwaldAPIV3Next {
          *
          */
         externalAccess?: boolean;
+        /**
+         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+         *
+         */
         password: string;
       }
 
@@ -7226,6 +7346,101 @@ export declare module MittwaldAPIV3Next {
         number: string;
       }
 
+      export interface DeMittwaldDnsCreateZoneFileImportResponse {
+        /**
+         * Everything that will not be imported (invalid records, unsupported record types, CNAME conflicts, placement problems, parse errors). Empty on a real import, since any conflict rejects the whole import with 412 (all-or-nothing).
+         */
+        conflicts: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportConflict[];
+        /**
+         * ID of the started import job. Absent on a dry-run (dryRun=true), which creates no job.
+         */
+        id?: string;
+        /**
+         * The importable target zones (one per distinct owner name), each with the record sets that would be set. On a dry-run this is the preview; on a real import it is the plan that was applied.
+         */
+        zones: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZoneImportPreview[];
+      }
+
+      export interface DeMittwaldDnsImportConflict {
+        /**
+         * Machine-readable conflict kind: parseError (a zone-file line could not be parsed), invalidRecord (a record failed the same schema validation the write commands apply), invalidZoneName (the owner name is not a valid zone name, e.g. a wildcard *.example.com), unsupportedRecordType (an RR type dns-service does not import), cnameConflict (a CNAME shares a name with other record types), foreignCustomerIngress (the zone's enabled ingress belongs to another organization), rootZoneUnavailable (a subzone whose root zone is neither importable nor already existing).
+         */
+        code:
+          | "parseError"
+          | "invalidRecord"
+          | "invalidZoneName"
+          | "unsupportedRecordType"
+          | "cnameConflict"
+          | "foreignCustomerIngress"
+          | "rootZoneUnavailable";
+        /**
+         * Human-readable explanation of the conflict, suitable for surfacing to the user.
+         */
+        message: string;
+        /**
+         * Offending record/owner name. Empty for a file-level parse error, where sourceLine locates the bad line.
+         */
+        name?: string;
+        /**
+         * Only on an invalidRecord conflict: the offending record's rendered value (e.g. "10 ." for an MX).
+         */
+        record?: string;
+        /**
+         * Only on an invalidRecord conflict: the offending record's set type.
+         */
+        recordSetType?: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+        /**
+         * 1-based line number in the uploaded zone file, set for a file-level parse error (code parseError); 0 otherwise.
+         */
+        sourceLine?: number;
+      }
+
+      export interface DeMittwaldDnsImportRecord {
+        /**
+         * CAA flags. Only set for CAA records.
+         */
+        flags?: number;
+        /**
+         * SRV port. Only set for SRV records.
+         */
+        port?: number;
+        /**
+         * MX preference / SRV priority. Only set for MX and SRV records.
+         */
+        priority?: number;
+        /**
+         * CAA tag (e.g. issue, issuewild, iodef). Only set for CAA records.
+         */
+        tag?: string;
+        /**
+         * The record's value: an IP address for A/AAAA, the target FQDN for MX/CNAME/SRV, the text for TXT, the value for CAA.
+         */
+        value: string;
+        /**
+         * SRV weight. Only set for SRV records.
+         */
+        weight?: number;
+      }
+
+      export interface DeMittwaldDnsImportRecordSet {
+        /**
+         * The individual records in the set.
+         */
+        records: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecord[];
+        /**
+         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell below the 60s minimum. Informational; the import still uses ttlSeconds.
+         */
+        ttlNormalized: boolean;
+        /**
+         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, floored to the 60s minimum.
+         */
+        ttlSeconds: number;
+        /**
+         * Record-set type.
+         */
+        type: "a" | "mx" | "txt" | "cname" | "srv" | "caa";
+      }
+
       export type DeMittwaldDnsRecordCAA =
         | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordUnset
         | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordCAAComponent;
@@ -7373,6 +7588,40 @@ export declare module MittwaldAPIV3Next {
           srv: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordSRV;
           txt: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordTXT;
         };
+      }
+
+      export interface DeMittwaldDnsZoneFileImport {
+        /**
+         * When the import job was created (publish time of the created event).
+         */
+        createdAt: string;
+        id: string;
+        importedZones: string[];
+        projectId: string;
+        skippedZones: {
+          name: string;
+          reason: string;
+        }[];
+        status: "running" | "succeeded" | "completedWithErrors";
+      }
+
+      export interface DeMittwaldDnsZoneImportPreview {
+        /**
+         * Whether a zone with this name already exists. On import its record sets are overwritten rather than the import failing.
+         */
+        alreadyExists: boolean;
+        /**
+         * Fully-qualified name of the target zone. Every distinct owner name becomes its own zone. Only importable zones are listed; a zone named by a conflict is omitted.
+         */
+        name: string;
+        /**
+         * The record sets that would be set on the zone — one per record type present for this owner name.
+         */
+        recordSets: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecordSet[];
+        /**
+         * Project the zone would be created in. Always set, since only importable zones are listed.
+         */
+        targetProjectId: string;
       }
 
       export interface DeMittwaldDomainAuthCode {
@@ -7740,6 +7989,7 @@ export declare module MittwaldAPIV3Next {
           };
 
       /**
+       * @deprecated
        */
       export type DeMittwaldMarketplaceContributorState =
         | "enabled"
@@ -8528,6 +8778,10 @@ export declare module MittwaldAPIV3Next {
         correctionNumber: string;
         pdfId: string;
         reason?: string;
+        /**
+         * The ID of the XRechnung XML file. Only set when the recipient has a Leitweg-ID; the PDF is then only a visual copy.
+         */
+        xRechnungId?: string;
       }
 
       export interface DeMittwaldInvoiceContractInvoiceDefinition {
@@ -8612,6 +8866,10 @@ export declare module MittwaldAPIV3Next {
         totalGross: number;
         totalNet: number;
         vatId?: string;
+        /**
+         * The ID of the XRechnung XML file. Only set when the recipient has a Leitweg-ID; the PDF is then only a visual copy.
+         */
+        xRechnungId?: string;
       }
 
       export interface DeMittwaldInvoiceInvoiceSettings {
@@ -9419,6 +9677,15 @@ export declare module MittwaldAPIV3Next {
         }[];
       }
 
+      export interface DeMittwaldMessagingChannels {
+        email?: {
+          active: boolean;
+        };
+        frontendNotification?: {
+          active: boolean;
+        };
+      }
+
       export interface DeMittwaldMessagingNotification {
         createdAt: string;
         id: string;
@@ -9429,6 +9696,23 @@ export declare module MittwaldAPIV3Next {
       }
 
       export type DeMittwaldMessagingNotificationStatus = "read" | "unread";
+
+      export interface DeMittwaldMessagingUserSettings {
+        messageTypes: {
+          [k: string]: {
+            channels: {
+              email: {
+                active: boolean;
+                editable: boolean;
+              };
+              frontendNotification: {
+                active: boolean;
+                editable: boolean;
+              };
+            };
+          };
+        };
+      }
 
       export interface DeMittwaldOrderAddons {
         hidden?: boolean;
@@ -10056,6 +10340,694 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldActivitylogContainerCommandUpdated {
+        changes: {
+          after?: {
+            command: string[];
+          };
+          before?: {
+            command: string[] | null;
+          };
+        };
+        name: "container.command-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerCreated {
+        changes: {
+          after?: {
+            command: string[];
+            cpus: string | null;
+            description: string;
+            entrypoint: string[];
+            envs: string[];
+            image: string;
+            imageDigest: string;
+            memory: string | null;
+            ports: string[];
+            restartPolicy:
+              | ("no" | "always" | "on-failure" | "unless-stopped")
+              | null;
+            serviceName: string;
+            volumes: string[];
+          };
+          before?: {
+            command: string[] | null;
+            cpus: string | null;
+            description: string | null;
+            entrypoint: string[] | null;
+            envs: string[] | null;
+            image: string | null;
+            imageDigest: string | null;
+            memory: string | null;
+            ports: string[] | null;
+            restartPolicy:
+              | ("no" | "always" | "on-failure" | "unless-stopped")
+              | null;
+            serviceName: string | null;
+            volumes: string[] | null;
+          };
+        };
+        name: "container.created";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerDeleted {
+        changes: {};
+        name: "container.deleted";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "container.description-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerEntrypointUpdated {
+        changes: {
+          after?: {
+            entrypoint: string[];
+          };
+          before?: {
+            entrypoint: string[] | null;
+          };
+        };
+        name: "container.entrypoint-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerEnvsUpdated {
+        changes: {
+          after?: {
+            envs: string[];
+          };
+          before?: {
+            envs: string[] | null;
+          };
+        };
+        name: "container.envs-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerImageUpdated {
+        changes: {
+          after?: {
+            image?: string;
+            imageDigest?: string;
+          };
+          before?: {
+            image?: string | null;
+            imageDigest?: string | null;
+          };
+        };
+        name: "container.image-updated" | "container.image-pulled";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerLifecycle {
+        changes: {};
+        name:
+          | "container.started"
+          | "container.stopped"
+          | "container.restarted"
+          | "container.recreated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerPortsUpdated {
+        changes: {
+          after?: {
+            ports: string[];
+          };
+          before?: {
+            ports: string[] | null;
+          };
+        };
+        name: "container.ports-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerRegistryCreated {
+        changes: {
+          after?: {
+            credentialsConfigured: boolean;
+            description: string;
+            uri: string;
+          };
+          before?: {
+            credentialsConfigured: boolean | null;
+            description: string | null;
+            uri: string | null;
+          };
+        };
+        name: "container.registry-created";
+        parameters: {
+          registry: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          uri: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerRegistryCredentialsUpdated {
+        changes: {
+          after?: {
+            credentialsConfigured: boolean;
+          };
+          before?: {
+            credentialsConfigured: boolean | null;
+          };
+        };
+        name: "container.registry-credentials-updated";
+        parameters: {
+          registry: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          uri: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerRegistryDeleted {
+        changes: {};
+        name: "container.registry-deleted";
+        parameters: {
+          registry: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          uri: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerRegistryDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "container.registry-description-updated";
+        parameters: {
+          registry: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          uri: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerRegistryUriUpdated {
+        changes: {
+          after?: {
+            uri: string;
+          };
+          before?: {
+            uri: string | null;
+          };
+        };
+        name: "container.registry-uri-updated";
+        parameters: {
+          registry: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          uri: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerResourcesUpdated {
+        changes: {
+          after?: {
+            cpus?: string | null;
+            memory?: string | null;
+          };
+          before?: {
+            cpus?: string | null;
+            memory?: string | null;
+          };
+        };
+        name: "container.resources-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerRestartPolicyUpdated {
+        changes: {
+          after?: {
+            restartPolicy:
+              | ("no" | "always" | "on-failure" | "unless-stopped")
+              | null;
+          };
+          before?: {
+            restartPolicy:
+              | ("no" | "always" | "on-failure" | "unless-stopped")
+              | null;
+          };
+        };
+        name: "container.restart-policy-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerStackCreated {
+        changes: {
+          after?: {
+            description: string;
+            storage: string;
+          };
+          before?: {
+            description: string | null;
+            storage: string | null;
+          };
+        };
+        name: "container.stack-created";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerStackDeleted {
+        changes: {};
+        name: "container.stack-deleted";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerStackDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "container.stack-description-updated";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerStackStorageUpdated {
+        changes: {
+          after?: {
+            storage: string;
+          };
+          before?: {
+            storage: string | null;
+          };
+        };
+        name: "container.stack-storage-updated";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerStackUpdateScheduleUpdated {
+        changes: {
+          after?: {
+            updateSchedule: string | null;
+            updateScheduleTimeZone: string | null;
+          };
+          before?: {
+            updateSchedule: string | null;
+            updateScheduleTimeZone: string | null;
+          };
+        };
+        name: "container.stack-update-schedule-updated";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerVolumeCreated {
+        changes: {
+          after?: {
+            name: string;
+          };
+          before?: {
+            name: string | null;
+          };
+        };
+        name: "container.volume-created";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          volume: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerVolumeDeleted {
+        changes: {};
+        name: "container.volume-deleted";
+        parameters: {
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          volume: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogContainerVolumesUpdated {
+        changes: {
+          after?: {
+            volumes: string[];
+          };
+          before?: {
+            volumes: string[] | null;
+          };
+        };
+        name: "container.volumes-updated";
+        parameters: {
+          container: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          serviceName: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          shortId: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          stack: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobActiveUpdated {
+        changes: {
+          after?: {
+            active: boolean;
+          };
+          before?: {
+            active: boolean | null;
+          };
+        };
+        name: "cronjob.activated" | "cronjob.deactivated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobAlertThresholdUpdated {
+        changes: {
+          after?: {
+            failedExecutionAlertThreshold: number | null;
+          };
+          before?: {
+            failedExecutionAlertThreshold: number | null;
+          };
+        };
+        name: "cronjob.alert-threshold-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobCommandUpdated {
+        changes: {
+          after?: {
+            command: string;
+          };
+          before?: {
+            command: string | null;
+          };
+        };
+        name: "cronjob.command-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobConcurrencyPolicyUpdated {
+        changes: {
+          after?: {
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+          };
+          before?: {
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+          };
+        };
+        name: "cronjob.concurrency-policy-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobCreated {
+        changes: {
+          after?: {
+            active: boolean;
+            command?: string | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+            container?: string | null;
+            description: string;
+            failedExecutionAlertThreshold: number | null;
+            interpreter?: string | null;
+            interval: string;
+            notificationEmailConfigured: boolean;
+            parameters?: string | null;
+            path?: string | null;
+            shortId: string;
+            timeZone: string;
+            timeout: number;
+            url?: string | null;
+          };
+          before?: {
+            active: boolean | null;
+            command?: string | null;
+            concurrencyPolicy: ("allow" | "forbid" | "replace") | null;
+            container?: string | null;
+            description: string | null;
+            failedExecutionAlertThreshold: number | null;
+            interpreter?: string | null;
+            interval: string | null;
+            notificationEmailConfigured: boolean | null;
+            parameters?: string | null;
+            path?: string | null;
+            shortId: string | null;
+            timeZone: string | null;
+            timeout: number | null;
+            url?: string | null;
+          };
+        };
+        name: "cronjob.created";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobDeleted {
+        changes: {};
+        name: "cronjob.deleted";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "cronjob.description-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobExecution {
+        changes: {};
+        name: "cronjob.execution-triggered" | "cronjob.execution-aborted";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobIntervalUpdated {
+        changes: {
+          after?: {
+            interval: string;
+          };
+          before?: {
+            interval: string | null;
+          };
+        };
+        name: "cronjob.interval-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobNotificationEmailUpdated {
+        changes: {
+          after?: {
+            notificationEmailConfigured: boolean;
+          };
+          before?: {
+            notificationEmailConfigured: boolean | null;
+          };
+        };
+        name:
+          | "cronjob.notification-email-updated"
+          | "cronjob.notification-email-removed";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobServiceReferenceUpdated {
+        changes: {
+          after?: {
+            container: string | null;
+          };
+          before?: {
+            container: string | null;
+          };
+        };
+        name: "cronjob.service-reference-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobTargetUpdated {
+        changes: {
+          after?: {
+            interpreter?: string | null;
+            parameters?: string | null;
+            path?: string | null;
+            url?: string | null;
+          };
+          before?: {
+            interpreter?: string | null;
+            parameters?: string | null;
+            path?: string | null;
+            url?: string | null;
+          };
+        };
+        name: "cronjob.target-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobTimeZoneUpdated {
+        changes: {
+          after?: {
+            timeZone: string;
+          };
+          before?: {
+            timeZone: string | null;
+          };
+        };
+        name: "cronjob.time-zone-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobTimeoutUpdated {
+        changes: {
+          after?: {
+            timeout: number;
+          };
+          before?: {
+            timeout: number | null;
+          };
+        };
+        name: "cronjob.timeout-updated";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogDatabaseCreated {
         changes: {
           after?: {
@@ -10385,6 +11357,44 @@ export declare module MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldActivitylogProjectCreated {
+        changes: {
+          after?: {
+            description: string;
+            server: string | null;
+            shortId: string;
+          };
+          before?: {
+            description: string | null;
+            server: string | null;
+            shortId: string | null;
+          };
+        };
+        name: "project.created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          server?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogProjectDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name: "project.description-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          server?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogAggregateReference {
         aggregate: string;
         domain: string;
@@ -10409,6 +11419,7 @@ export declare module MittwaldAPIV3Next {
       }
 
       /**
+       * @deprecated
        * deprecated by property status
        */
       export type DeMittwaldProjectDeprecatedProjectReadinessStatus =
@@ -10417,6 +11428,7 @@ export declare module MittwaldAPIV3Next {
         | "unready";
 
       /**
+       * @deprecated
        * deprecated by property status
        */
       export type DeMittwaldProjectDeprecatedServerReadinessStatus =
@@ -10495,6 +11507,52 @@ export declare module MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationAppVersionSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDesiredSystemSoftwareSet
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAppInstallationDesiredSystemSoftwareDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobDescriptionUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobIntervalUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobTimeZoneUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobTargetUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobCommandUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobServiceReferenceUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobTimeoutUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobConcurrencyPolicyUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobAlertThresholdUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobNotificationEmailUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobActiveUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobExecution
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerStackCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerStackDescriptionUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerStackStorageUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerStackUpdateScheduleUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerStackDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerDescriptionUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerImageUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerEntrypointUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerCommandUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerPortsUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerVolumesUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerEnvsUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerResourcesUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerRestartPolicyUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerLifecycle
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerVolumeCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerVolumeDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerRegistryCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerRegistryDescriptionUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerRegistryUriUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerRegistryCredentialsUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogContainerRegistryDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogProjectCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogProjectDescriptionUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogMembershipInviteCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogMembershipInviteStatusChanged
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogMembershipMemberAdded
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogMembershipMemberRoleUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogMembershipMemberExpiryUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogMembershipMemberRemoved
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogGenericAction;
         aggregate: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
         dateTime: string;
@@ -11078,6 +12136,27 @@ export declare module MittwaldAPIV3Next {
         userId?: string;
       }
 
+      export interface DeMittwaldSignupScopedToken {
+        createdAt: string;
+        /**
+         * ID of the User who created the ScopedToken.
+         */
+        createdBy: string;
+        description: string;
+        expiresAt?: string;
+        id: string;
+        /**
+         * ID of the Project the ScopedToken is bound to.
+         */
+        projectId?: string;
+        /**
+         * Scopes the ScopedToken is restricted to, as scope roles (e.g. `scope:project:read`). `scope:nothing` grants nothing; a ScopedToken whose only scope is `scope:nothing` has no permissions.
+         *
+         * @minItems 1
+         */
+        scopes: [string, ...string[]];
+      }
+
       export interface DeMittwaldUserCustomerMembership {
         expiresAt?: string;
         id: string;
@@ -11092,6 +12171,11 @@ export declare module MittwaldAPIV3Next {
         subject: string;
         vote: number;
       }
+
+      export type DeMittwaldUserUserFeedbackSpotlightDecision =
+        | "keep"
+        | "kill"
+        | "ignore";
 
       export interface DeMittwaldUserProjectMembership {
         expiresAt?: string;
@@ -11252,10 +12336,95 @@ export declare module MittwaldAPIV3Next {
         | "storageAsc"
         | "storageDesc";
 
-      export type DeMittwaldUserUserFeedbackSpotlightDecision =
-        | "keep"
-        | "kill"
-        | "ignore";
+      export interface DeMittwaldActivitylogMembershipInviteCreated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.invite-created";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipInviteStatusChanged {
+        changes: {};
+        name:
+          | "membership.invite-resent"
+          | "membership.invite-accepted"
+          | "membership.invite-declined"
+          | "membership.invite-revoked"
+          | "membership.invite-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberAdded {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            inherited: boolean;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            inherited: boolean | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-added" | "membership.member-inherited";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name: "membership.member-expiry-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRemoved {
+        changes: {};
+        name:
+          | "membership.member-removed"
+          | "membership.member-left"
+          | "membership.member-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRoleUpdated {
+        changes: {
+          after?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-role-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -11446,6 +12615,10 @@ export declare module MittwaldAPIV3Next {
           reasons: {
             domainAgeTooSmall: boolean;
             domainDoesNotExist: boolean;
+            /**
+             * An enabled ingress for this domain already exists in a project other than the given projectId. Delete that ingress or transfer the domain into that project.
+             */
+            enabledIngressInOtherProject: boolean;
             inRedemptionPeriod: boolean;
             transferLock: boolean;
             wrongAuthCode: boolean;
@@ -12296,6 +13469,76 @@ export declare module MittwaldAPIV3Next {
 
     namespace V3NextCustomersCustomerIdAiHosting {}
 
+    namespace V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            keyId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             */
+            gracePeriod?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingKey;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextAiHostingModels {
       namespace Get {
         namespace Parameters {
@@ -12430,8 +13673,8 @@ export declare module MittwaldAPIV3Next {
           export type Header = {};
 
           export type Query = {
-            startDate: string;
-            endDate: string;
+            startDate: string | Date;
+            endDate: string | Date;
             keyId?: string;
           };
         }
@@ -13125,6 +14368,76 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+            keyId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             */
+            gracePeriod?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingKey;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextAppInstallationsAppInstallationIdActionsDetachStaging {
       namespace Post {
         namespace Parameters {
@@ -13285,8 +14598,9 @@ export declare module MittwaldAPIV3Next {
             appInstallationId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+          export type Header = {
+            "Accept-Language"?: "de" | "en";
+          } & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
           export type Query = {};
         }
@@ -13716,6 +15030,8 @@ export declare module MittwaldAPIV3Next {
             appIds?: string[];
             searchTerm?: string;
             sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAppInstallationSortOrder;
+            autoUpdatesActivated?: boolean;
+            autoUpdatesSupported?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -13762,6 +15078,8 @@ export declare module MittwaldAPIV3Next {
             appIds?: string[];
             searchTerm?: string;
             sortOrder?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAppInstallationSortOrder;
+            autoUpdatesActivated?: boolean;
+            autoUpdatesSupported?: boolean;
             limit?: number;
             skip?: number;
             page?: number;
@@ -14332,6 +15650,9 @@ export declare module MittwaldAPIV3Next {
           export type Header = {};
 
           export type Query = {
+            /**
+             * @deprecated
+             */
             customerId?: string;
           };
         }
@@ -14378,6 +15699,9 @@ export declare module MittwaldAPIV3Next {
           export type Header = {};
 
           export type Query = {
+            /**
+             * @deprecated
+             */
             customerId?: string;
             tags?: string[];
             templateNames?: string[];
@@ -19454,6 +20778,52 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextOauth2ClientsOauthClientId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            oauthClientId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                allowedGrantTypes?: string[];
+                allowedRedirectUris?: string[];
+                allowedScopes?: string[];
+                description?: string;
+                humanReadableName: string;
+                id: string;
+                type?: "public" | "confidential";
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextContributorsContributorIdContractPartners {
       namespace Get {
         namespace Parameters {
@@ -23417,6 +24787,10 @@ export declare module MittwaldAPIV3Next {
             accessLevel?: "full" | "readonly";
             description?: string;
             externalAccess?: boolean;
+            /**
+             * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+             *
+             */
             password?: string;
           }
 
@@ -24973,14 +26347,196 @@ export declare module MittwaldAPIV3Next {
 
     namespace V3NextSignupEmailVerify {}
 
-    namespace V3NextDnsZones {
+    namespace V3NextProjectsProjectIdDnsZoneImports {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            limit?: number;
+            skip?: number;
+            page?: number;
+            sort?: "createdAt";
+            order?: "asc" | "desc";
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZoneFileImport[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Post {
         namespace Parameters {
-          export type Path = {};
+          export type Path = {
+            projectId: string;
+          };
 
           export interface RequestBody {
+            /**
+             * Raw RFC-1035 zone file content to import.
+             */
+            zoneFile: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            dryRun?: boolean;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsCreateZoneFileImportResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZones {}
+
+    namespace V3NextProjectsProjectIdDnsZones {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZone[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Fully-qualified name of the DNSZone to create (e.g. example.com or _autoconfig.example.com). The backend resolves root vs subzone via the public suffix list.
+             */
             name: string;
-            parentZoneId: string;
           }
 
           export type Header =
@@ -25005,7 +26561,23 @@ export declare module MittwaldAPIV3Next {
             }
           }
 
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -25123,11 +26695,11 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextDnsZonesDnsZoneIdZoneFile {
+    namespace V3NextDnsZoneImportsZoneFileImportId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            dnsZoneId: string;
+            zoneFileImportId: string;
           };
 
           export type Header =
@@ -25138,11 +26710,20 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type TextPlain = string;
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZoneFileImport;
             }
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -25169,11 +26750,11 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextProjectsProjectIdDnsZones {
+    namespace V3NextDnsZonesDnsZoneIdZoneFile {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            projectId: string;
+            dnsZoneId: string;
           };
 
           export type Header =
@@ -25184,8 +26765,7 @@ export declare module MittwaldAPIV3Next {
         namespace Responses {
           namespace $200 {
             namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsZone[];
+              export type TextPlain = string;
             }
           }
 
@@ -25549,6 +27129,10 @@ export declare module MittwaldAPIV3Next {
           export interface RequestBody {
             authCode?: string;
             domain: string;
+            /**
+             * Target project of the transfer. If given, the domain is reported as not transferable (reason enabledIngressInOtherProject) when an enabled ingress for it already exists in another project.
+             */
+            projectId?: string;
           }
 
           export type Header = {};
@@ -30235,7 +31819,9 @@ export declare module MittwaldAPIV3Next {
           export type Header =
             {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-          export type Query = {};
+          export type Query = {
+            fileType?: "PDF" | "XRECHNUNG";
+          };
         }
         namespace Responses {
           namespace $200 {
@@ -33417,6 +35003,63 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextNotificationSettingsMessageType {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            messageType: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV3Next.Components.Schemas.DeMittwaldMessagingChannels;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextNotificationUnreadCounts {
       namespace Get {
         namespace Parameters {
@@ -33459,6 +35102,51 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextNotificationSettings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldMessagingUserSettings;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextNotifications {
       namespace Get {
         namespace Parameters {
@@ -33478,6 +35166,8 @@ export declare module MittwaldAPIV3Next {
             limit?: number;
             skip?: number;
             page?: number;
+            sort?: "createdAt" | "severity";
+            order?: "asc" | "desc";
           };
         }
         namespace Responses {
@@ -33506,8 +35196,6 @@ export declare module MittwaldAPIV3Next {
         }
       }
     }
-
-    namespace V3NextNotificationsStatus {}
 
     namespace V3NextNotificationsActionsReadAll {
       namespace Post {
@@ -33587,6 +35275,14 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export interface ApplicationJson {
                 status: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMessagingNotificationStatus;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -36323,48 +38019,6 @@ export declare module MittwaldAPIV3Next {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextLegacyTariffChange {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            pAccount: string;
-            targetTariff: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                messageId: string;
               }
             }
           }
@@ -39663,6 +41317,7 @@ export declare module MittwaldAPIV3Next {
           export interface RequestBody {
             acknowledged?: boolean;
             /**
+             * @deprecated
              * The Owner of the Feature the spotlight is highlighting.
              */
             owner?: string;
@@ -40533,6 +42188,51 @@ export declare module MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextLeakedPasswordsPasswordHashPrefix {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            passwordHashPrefix: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = string[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextUsersSelfSpotlightsSpotlightIdFeedback {
       namespace Post {
         namespace Parameters {
@@ -40547,9 +42247,10 @@ export declare module MittwaldAPIV3Next {
              */
             message?: string;
             /**
-             * The Owner of the Feature the spotlight is highlighting.
+             * @deprecated
+             * The Owner of the spotlight is no longer writable.
              */
-            owner: string;
+            owner?: string;
           }
 
           export type Header =

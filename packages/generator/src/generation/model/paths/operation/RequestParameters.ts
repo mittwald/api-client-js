@@ -8,6 +8,7 @@ import { SecurityScheme } from "../../components/SecurityScheme.js";
 import { Components, ComponentType } from "../../components/Components.js";
 import { isRef } from "../../../refs/isRef.js";
 import { binarySchemasToCustomTypes } from "../../../binarySchemasToCustomTypes.js";
+import { withDeprecation } from "../../../deprecation.js";
 import invariant from "invariant";
 
 type ParameterDocType = ComponentType<"parameters">;
@@ -68,7 +69,12 @@ export class RequestParameters {
           `Could not find schema for request parameter ${name.raw}`,
         );
 
-        properties[resolvedParameter.name] = jsonSchemaObject;
+        // `deprecated` lives on the Parameter Object, not on its schema, so it
+        // has to be carried over explicitly to end up in the generated JSDoc.
+        properties[resolvedParameter.name] = withDeprecation(
+          jsonSchemaObject,
+          resolvedParameter,
+        );
 
         if (resolvedParameter.required) {
           required.push(resolvedParameter.name);

@@ -521,6 +521,50 @@ export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-update-plan",
 };
 
+/** Rotates a customer's key. */
+export const aiHostingCustomerRotateKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/ai-hosting-keys/{keyId}/actions/rotate",
+  method: "POST",
+  operationId: "ai-hosting-customer-rotate-key",
+};
+
 /** Get a list of currently active models. */
 export const aiHostingGetModels: OpenAPIOperation<
   RequestType<
@@ -1082,6 +1126,50 @@ export const aiHostingProjectLinkContainer: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/ai-hosting-keys/{keyId}/actions/link-container",
   method: "POST",
   operationId: "ai-hosting-project-link-container",
+};
+
+/** Rotates a project's key. */
+export const aiHostingProjectRotateKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHostingKeysKeyIdActionsRotate.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/ai-hosting-keys/{keyId}/actions/rotate",
+  method: "POST",
+  operationId: "ai-hosting-project-rotate-key",
 };
 
 /** Detach a staging AppInstallation from its source. */
@@ -5288,6 +5376,35 @@ export const contributorGetLoginLink: OpenAPIOperation<
   operationId: "contributor-get-login-link",
 };
 
+/** Get a specific OAuth2 client. */
+export const contributorGetOauthClient: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2ClientsOauthClientId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/oauth2/clients/{oauthClientId}",
+  method: "GET",
+  operationId: "contributor-get-oauth-client",
+};
+
 /** List ContractPartners of the contributor. */
 export const contributorListContractPartnersOfContributor: OpenAPIOperation<
   RequestType<
@@ -8848,43 +8965,170 @@ export const userUpdateAccount: OpenAPIOperation<
   operationId: "user-update-account",
 };
 
-/** Create a DNSZone. */
-export const dnsCreateDnsZone: OpenAPIOperation<
+/** List DNS zone-file import jobs belonging to a Project. */
+export const dnsListDnsZoneFileImports: OpenAPIOperation<
   RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.Header>
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$201.Content.ApplicationJson>,
-      201,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Responses.$200.Content.ApplicationJson>,
+      200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$409.Content.ApplicationJson>,
-      409,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v3-next/dns-zones",
+  path: "/v3-next/projects/{projectId}/dns-zone-imports",
+  method: "GET",
+  operationId: "dns-list-dns-zone-file-imports",
+};
+
+/** Import a DNS zone file into a Project, or preview it with dry-run. */
+export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZoneImports.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/dns-zone-imports",
   method: "POST",
-  operationId: "dns-create-dns-zone",
+  operationId: "dns-create-dns-zone-file-import",
+};
+
+/** List DNSZones belonging to a Project. */
+export const dnsListDnsZones: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/dns-zones",
+  method: "GET",
+  operationId: "dns-list-dns-zones",
+};
+
+/** Create a DNSZone for a verified Ingress in a Project. */
+export const dnsCreateProjectDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/dns-zones",
+  method: "POST",
+  operationId: "dns-create-project-dns-zone",
 };
 
 /** Get a DNSZone. */
@@ -8955,6 +9199,45 @@ export const dnsDeleteDnsZone: OpenAPIOperation<
   operationId: "dns-delete-dns-zone",
 };
 
+/** Get the status of a DNS zone-file import job. */
+export const dnsGetDnsZoneFileImport: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZoneImportsZoneFileImportId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns-zone-imports/{zoneFileImportId}",
+  method: "GET",
+  operationId: "dns-get-dns-zone-file-import",
+};
+
 /** Get a zone file for a DNSZone. */
 export const dnsGetZoneFile: OpenAPIOperation<
   RequestType<
@@ -8987,40 +9270,6 @@ export const dnsGetZoneFile: OpenAPIOperation<
   path: "/v3-next/dns-zones/{dnsZoneId}/zone-file",
   method: "GET",
   operationId: "dns-get-zone-file",
-};
-
-/** List DNSZones belonging to a Project. */
-export const dnsListDnsZones: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/projects/{projectId}/dns-zones",
-  method: "GET",
-  operationId: "dns-list-dns-zones",
 };
 
 /** Set a record set on a DNSZone to managed. */
@@ -12264,7 +12513,7 @@ export const invoiceUpdateInvoiceSettings: OpenAPIOperation<
   operationId: "invoice-update-invoice-settings",
 };
 
-/** Request an Access Token for the Invoice file. */
+/** Request an Access Token for a file of the Invoice. */
 export const invoiceGetFileAccessToken: OpenAPIOperation<
   RequestType<
     Simplify<null>,
@@ -14349,6 +14598,45 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   operationId: "newsletter-unsubscribe-user",
 };
 
+/** Adjust notification settings for message type. */
+export const notificationsAdjustNotificationMessageTypeSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettingsMessageType.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/notification-settings/{messageType}",
+  method: "PATCH",
+  operationId: "notifications-adjust-notification-message-type-settings",
+};
+
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
@@ -14376,6 +14664,40 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
   path: "/v3-next/notification-unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
+};
+
+/** Get notification settings for a user. */
+export const notificationsGetNotificationSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationSettings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/notification-settings",
+  method: "GET",
+  operationId: "notifications-get-notification-settings",
 };
 
 /** List all unread notifications. */
@@ -14441,8 +14763,8 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
   operationId: "notifications-read-all-notifications",
 };
 
-/** Mark notification as read. */
-export const notificationsReadNotification: OpenAPIOperation<
+/** Update a notification's read status. */
+export const notificationsUpdateNotificationStatus: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationsNotificationIdStatus.Put.Parameters.RequestBody>,
     Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationsNotificationIdStatus.Put.Parameters.Path>,
@@ -14452,6 +14774,11 @@ export const notificationsReadNotification: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationsNotificationIdStatus.Put.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextNotificationsNotificationIdStatus.Put.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -14472,7 +14799,7 @@ export const notificationsReadNotification: OpenAPIOperation<
 > = {
   path: "/v3-next/notifications/{notificationId}/status",
   method: "PUT",
-  operationId: "notifications-read-notification",
+  operationId: "notifications-update-notification-status",
 };
 
 /** Get list of Orders. */
@@ -16261,35 +16588,6 @@ export const projectResendProjectInviteMail: OpenAPIOperation<
   path: "/v3-next/project-invites/{projectInviteId}/actions/resend",
   method: "POST",
   operationId: "project-resend-project-invite-mail",
-};
-
-/** Register a tariff change for a legacy tariff. */
-export const relocationCreateLegacyTariffChange: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextLegacyTariffChange.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/legacy-tariff-change",
-  method: "POST",
-  operationId: "relocation-create-legacy-tariff-change",
 };
 
 /** Relocate an external Project to mittwald. */
@@ -18922,6 +19220,40 @@ export const userResendVerificationEmail: OpenAPIOperation<
   path: "/v3-next/users/self/credentials/email/actions/resend-email",
   method: "POST",
   operationId: "user-resend-verification-email",
+};
+
+/** Check if a password is leaked. */
+export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLeakedPasswordsPasswordHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/leaked-passwords/{passwordHashPrefix}",
+  method: "GET",
+  operationId: "user-searched-leaked-passwords-by-range",
 };
 
 /** Submit your spotlight usage. */

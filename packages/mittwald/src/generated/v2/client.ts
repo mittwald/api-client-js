@@ -51,6 +51,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
+    /** Rotates a customer's key. */
+    customerRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerRotateKey,
+    ),
     /** Get a list of currently active models. */
     getModels: this.requestFunctionFactory(descriptors.aiHostingGetModels),
     /** List the contract months of an ai hosting plan. */
@@ -96,6 +100,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
+    ),
+    /** Rotates a project's key. */
+    projectRotateKey: this.requestFunctionFactory(
+      descriptors.aiHostingProjectRotateKey,
     ),
   };
 
@@ -455,7 +463,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     invoiceUpdateInvoiceSettings: this.requestFunctionFactory(
       descriptors.invoiceUpdateInvoiceSettings,
     ),
-    /** Request an Access Token for the Invoice file. */
+    /** Request an Access Token for a file of the Invoice. */
     invoiceGetFileAccessToken: this.requestFunctionFactory(
       descriptors.invoiceGetFileAccessToken,
     ),
@@ -532,6 +540,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the Stripe Dashboard Link for a Contributor. */
     contributorGetLoginLink: this.requestFunctionFactory(
       descriptors.contributorGetLoginLink,
+    ),
+    /** Get a specific OAuth2 client. */
+    contributorGetOauthClient: this.requestFunctionFactory(
+      descriptors.contributorGetOauthClient,
     ),
     /** List ContractPartners of the contributor. */
     contributorListContractPartnersOfContributor: this.requestFunctionFactory(
@@ -1062,16 +1074,30 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ingressUpdateIngressTls: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressTls,
     ),
-    /** Create a DNSZone. */
-    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
+    /** List DNS zone-file import jobs belonging to a Project. */
+    dnsListDnsZoneFileImports: this.requestFunctionFactory(
+      descriptors.dnsListDnsZoneFileImports,
+    ),
+    /** Import a DNS zone file into a Project, or preview it with dry-run. */
+    dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsCreateDnsZoneFileImport,
+    ),
+    /** List DNSZones belonging to a Project. */
+    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
+    /** Create a DNSZone for a verified Ingress in a Project. */
+    dnsCreateProjectDnsZone: this.requestFunctionFactory(
+      descriptors.dnsCreateProjectDnsZone,
+    ),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
     /** Delete a DNSZone. */
     dnsDeleteDnsZone: this.requestFunctionFactory(descriptors.dnsDeleteDnsZone),
+    /** Get the status of a DNS zone-file import job. */
+    dnsGetDnsZoneFileImport: this.requestFunctionFactory(
+      descriptors.dnsGetDnsZoneFileImport,
+    ),
     /** Get a zone file for a DNSZone. */
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
-    /** List DNSZones belonging to a Project. */
-    dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
@@ -1336,9 +1362,17 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     newsletterUnsubscribeUser: this.requestFunctionFactory(
       descriptors.newsletterUnsubscribeUser,
     ),
+    /** Adjust notification settings for message type. */
+    sadjustNotificationMessageTypeSettings: this.requestFunctionFactory(
+      descriptors.notificationsAdjustNotificationMessageTypeSettings,
+    ),
     /** Get the counts for unread notifications of the user. */
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** Get notification settings for a user. */
+    sgetNotificationSettings: this.requestFunctionFactory(
+      descriptors.notificationsGetNotificationSettings,
     ),
     /** List all unread notifications. */
     slistNotifications: this.requestFunctionFactory(
@@ -1348,9 +1382,9 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sreadAllNotifications: this.requestFunctionFactory(
       descriptors.notificationsReadAllNotifications,
     ),
-    /** Mark notification as read. */
-    sreadNotification: this.requestFunctionFactory(
-      descriptors.notificationsReadNotification,
+    /** Update a notification's read status. */
+    supdateNotificationStatus: this.requestFunctionFactory(
+      descriptors.notificationsUpdateNotificationStatus,
     ),
   };
 
@@ -1497,6 +1531,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Resend the Email-Address verification email. */
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail,
+    ),
+    /** Check if a password is leaked. */
+    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
+      descriptors.userSearchedLeakedPasswordsByRange,
     ),
     /** Submit your spotlight usage. */
     spotlightFeedback: this.requestFunctionFactory(
@@ -1806,10 +1844,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
 
   /** The relocation API allows you to manage your relocations. */
   public readonly relocation = {
-    /** Register a tariff change for a legacy tariff. */
-    createLegacyTariffChange: this.requestFunctionFactory(
-      descriptors.relocationCreateLegacyTariffChange,
-    ),
     /** Relocate an external Project to mittwald. */
     createRelocation: this.requestFunctionFactory(
       descriptors.relocationCreateRelocation,
