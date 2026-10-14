@@ -12241,17 +12241,6 @@ export declare module MittwaldAPIV2 {
         };
       }
 
-      export interface ActivitylogMembershipMemberRemoved {
-        changes: {};
-        name:
-          | "membership.member-removed"
-          | "membership.member-left"
-          | "membership.member-expired";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
       export interface ActivitylogMembershipMemberExpiryUpdated {
         changes: {
           after?: {
@@ -12262,6 +12251,17 @@ export declare module MittwaldAPIV2 {
           };
         };
         name: "membership.member-expiry-updated";
+        parameters: {
+          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface ActivitylogMembershipMemberRemoved {
+        changes: {};
+        name:
+          | "membership.member-removed"
+          | "membership.member-left"
+          | "membership.member-expired";
         parameters: {
           member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
