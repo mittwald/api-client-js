@@ -42,12 +42,14 @@ export const widenDateTimeInputs = (
     something = cloneDeep(something);
   }
 
-  if (!is.nonEmptyObject(something)) {
-    return something;
-  }
-
+  // Note: as of @sindresorhus/is v8, `is.nonEmptyObject()` no longer reports
+  // `true` for arrays, so arrays have to be handled before that check.
   if (is.array(something)) {
     return something.map((item) => widenDateTimeInputs(item, false));
+  }
+
+  if (!is.nonEmptyObject(something)) {
+    return something;
   }
 
   if (isDateTimeStringSchema(something)) {
@@ -67,12 +69,13 @@ export const widenDateTimeInputs = (
  * i.e. without following `$ref`s.
  */
 export const containsDateTimeInput = (something: unknown): boolean => {
-  if (!is.nonEmptyObject(something)) {
-    return false;
-  }
-
+  // see the note in `widenDateTimeInputs()` on why arrays come first
   if (is.array(something)) {
     return something.some((item) => containsDateTimeInput(item));
+  }
+
+  if (!is.nonEmptyObject(something)) {
+    return false;
   }
 
   if (isDateTimeStringSchema(something)) {

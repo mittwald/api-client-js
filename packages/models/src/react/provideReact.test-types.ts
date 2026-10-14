@@ -1,15 +1,22 @@
+import type { IsEqual } from "type-fest";
 import { provideReact } from "./provideReact.js";
-import { expectType } from "tsd";
+
+/*
+ * Type-level tests, checked by `tsc --noEmit` (the `test:compile` target).
+ * `true satisfies IsEqual<...>` asserts exact type identity; a plain
+ * assignability check would also accept a wider or narrower type. Expected
+ * rejections are marked with `@ts-expect-error`.
+ */
 
 const reactProvided = provideReact(
   async (ignoredP1: string, ignoredP2?: boolean) => Promise.resolve("foo"),
 );
 
 function ignoredTestReturnTypesOfProvideReact() {
-  const usedValue = reactProvided.use("foo");
-  const asAsyncResource = reactProvided.asResource("foo");
-  expectType<string>(usedValue);
-  expectType<string>(asAsyncResource.use());
+  const ignoredUsedValue = reactProvided.use("foo");
+  const ignoredResourceValue = reactProvided.asResource("foo").use();
+  void (true satisfies IsEqual<typeof ignoredUsedValue, string>);
+  void (true satisfies IsEqual<typeof ignoredResourceValue, string>);
 }
 
 function ignoredTestParameterTypesOfProvideReact() {
