@@ -2534,6 +2534,17 @@ export declare module MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainResendContactVerificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainResendContactVerificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainResendContactVerificationEmail,
+          TStatus
+        >;
+    }
+
     namespace DomainResendDomainEmail {
       type RequestData = InferredRequestData<
         typeof descriptors.domainResendDomainEmail
@@ -7758,7 +7769,6 @@ export declare module MittwaldAPIV2 {
           ownerC: MittwaldAPIV2.Components.Schemas.DomainHandleReadable;
         };
         nameservers: string[];
-        ownerVerification?: MittwaldAPIV2.Components.Schemas.DomainOwnerVerification;
         processes?: MittwaldAPIV2.Components.Schemas.DomainProcess[];
         projectId: string;
         scheduledDeletionDate?: string;
@@ -7951,24 +7961,6 @@ export declare module MittwaldAPIV2 {
         dnsRecords: MittwaldAPIV2.Components.Schemas.DomainmigrationDNSRecord[];
         hostname: string;
         target?: string;
-      }
-
-      /**
-       * Status of the verification of the domain owner's e-mail address. If the owner does not confirm the address in time, the domain gets suspended. A domain without ownerVerification has no known state, which does not mean that the owner is verified.
-       */
-      export interface DomainOwnerVerification {
-        /**
-         * The date by which the owner has to confirm the e-mail address. pending: After the deadline the domain is suspended or, for some domains, the status changes to failed first. failed: The date on which the domain gets suspended unless the owner has confirmed the address by then. suspended: The date on which the suspension was due. Not set once the owner has verified the address.
-         */
-        deadline?: string;
-        /**
-         * When the verification e-mail was sent last.
-         */
-        lastEmailSentAt?: string;
-        /**
-         * pending: The owner has to confirm the e-mail address until the deadline. verified: The owner has confirmed the e-mail address. failed: The owner did not confirm the e-mail address until the deadline, but the domain is not suspended yet. The owner can still prevent the suspension by confirming the address until the new deadline. Only some domains pass through this status; the others change from pending directly to suspended. suspended: The domain is suspended because the owner did not confirm the e-mail address in time. It is reactivated after the owner has confirmed the address.
-         */
-        status: "pending" | "verified" | "failed" | "suspended";
       }
 
       export interface DomainProcess {
@@ -11828,7 +11820,7 @@ export declare module MittwaldAPIV2 {
       export interface ActivitylogSftpUserAccessLevelUpdated {
         changes: {
           after?: {
-            accessLevel: "read" | "full";
+            accessLevel: ("read" | "full") | null;
           };
           before?: {
             accessLevel: ("read" | "full") | null;
@@ -12271,6 +12263,7 @@ export declare module MittwaldAPIV2 {
          * deprecated
          */
         isReady: boolean;
+        primaryIpAddresses?: MittwaldAPIV2.Components.Schemas.ProjectPrimaryIpAddresses;
         projectHostingId?: string;
         readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
         serverGroupId: string;
@@ -12324,6 +12317,7 @@ export declare module MittwaldAPIV2 {
          * deprecated by property status
          */
         isReady: boolean;
+        primaryIpAddresses?: MittwaldAPIV2.Components.Schemas.ProjectPrimaryIpAddresses;
         projectHostingId?: string;
         readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedProjectReadinessStatus;
         serverGroupId: string;
@@ -12365,6 +12359,7 @@ export declare module MittwaldAPIV2 {
          */
         isReady: boolean;
         machineType: MittwaldAPIV2.Components.Schemas.ProjectMachineType;
+        primaryIpAddresses?: MittwaldAPIV2.Components.Schemas.ProjectPrimaryIpAddresses;
         readiness: MittwaldAPIV2.Components.Schemas.ProjectDeprecatedServerReadinessStatus;
         shortId: string;
         statisticsBaseDomain?: string;
@@ -12996,313 +12991,6 @@ export declare module MittwaldAPIV2 {
         | "storageAsc"
         | "storageDesc";
 
-      export interface ActivitylogMembershipInviteCreated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            expiresAt: string | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.invite-created";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipInviteStatusChanged {
-        changes: {};
-        name:
-          | "membership.invite-resent"
-          | "membership.invite-accepted"
-          | "membership.invite-declined"
-          | "membership.invite-revoked"
-          | "membership.invite-expired";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberAdded {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-            inherited: boolean;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            expiresAt: string | null;
-            inherited: boolean | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.member-added" | "membership.member-inherited";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberExpiryUpdated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-          };
-          before?: {
-            expiresAt: string | null;
-          };
-        };
-        name: "membership.member-expiry-updated";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberRemoved {
-        changes: {};
-        name:
-          | "membership.member-removed"
-          | "membership.member-left"
-          | "membership.member-expired";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogMembershipMemberRoleUpdated {
-        changes: {
-          after?: {
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.member-role-updated";
-        parameters: {
-          member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSftpUserAccessLevelUpdated {
-        changes: {
-          after?: {
-            accessLevel: ("read" | "full") | null;
-          };
-          before?: {
-            accessLevel: ("read" | "full") | null;
-          };
-        };
-        name: "sshuser.sftp-user-access-level-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSftpUserCreated {
-        changes: {
-          after?: {
-            accessLevel?: ("read" | "full") | null;
-            active?: boolean;
-            description: string;
-            directories?: string[];
-            expiresAt?: string | null;
-            passwordConfigured?: boolean;
-            publicKeys?: {
-              comment: string;
-              fingerprint: string;
-            }[];
-            username: string;
-          };
-          before?: {
-            accessLevel?: ("read" | "full") | null;
-            active?: boolean | null;
-            description: string | null;
-            directories?: string[] | null;
-            expiresAt?: string | null;
-            passwordConfigured?: boolean | null;
-            publicKeys?:
-              | {
-                  comment: string;
-                  fingerprint: string;
-                }[]
-              | null;
-            username: string | null;
-          };
-        };
-        name: "sshuser.sftp-user-created";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSftpUserDirectoriesUpdated {
-        changes: {
-          after?: {
-            directories: string[];
-          };
-          before?: {
-            directories: string[] | null;
-          };
-        };
-        name: "sshuser.sftp-user-directories-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserActiveUpdated {
-        changes: {
-          after?: {
-            active: boolean;
-          };
-          before?: {
-            active: boolean | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-activated"
-          | "sshuser.sftp-user-activated"
-          | "sshuser.ssh-user-deactivated"
-          | "sshuser.sftp-user-deactivated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserCreated {
-        changes: {
-          after?: {
-            active?: boolean;
-            description: string;
-            expiresAt?: string | null;
-            passwordConfigured?: boolean;
-            publicKeys?: {
-              comment: string;
-              fingerprint: string;
-            }[];
-            username: string;
-          };
-          before?: {
-            active?: boolean | null;
-            description: string | null;
-            expiresAt?: string | null;
-            passwordConfigured?: boolean | null;
-            publicKeys?:
-              | {
-                  comment: string;
-                  fingerprint: string;
-                }[]
-              | null;
-            username: string | null;
-          };
-        };
-        name: "sshuser.ssh-user-created";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserDeleted {
-        changes: {};
-        name:
-          | "sshuser.ssh-user-deleted"
-          | "sshuser.sftp-user-deleted"
-          | "sshuser.ssh-user-expired"
-          | "sshuser.sftp-user-expired";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserDescriptionUpdated {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-description-updated"
-          | "sshuser.sftp-user-description-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserExpiryUpdated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-          };
-          before?: {
-            expiresAt: string | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-expiry-updated"
-          | "sshuser.sftp-user-expiry-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserPasswordUpdated {
-        changes: {
-          after?: {
-            passwordConfigured: boolean;
-          };
-          before?: {
-            passwordConfigured: boolean | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-password-updated"
-          | "sshuser.sftp-user-password-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogSshUserPublicKeysUpdated {
-        changes: {
-          after?: {
-            publicKeys: {
-              comment: string;
-              fingerprint: string;
-            }[];
-          };
-          before?: {
-            publicKeys:
-              | {
-                  comment: string;
-                  fingerprint: string;
-                }[]
-              | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-public-keys-updated"
-          | "sshuser.sftp-user-public-keys-updated";
-        parameters: {
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
       /**
        * A representation of an ssh-public-key, enriched with information derived from the key.
        */
@@ -13317,6 +13005,14 @@ export declare module MittwaldAPIV2 {
          */
         fingerprint?: string;
         key: string;
+      }
+
+      /**
+       * Primary public IP addresses of the Server, one per address family.
+       */
+      export interface ProjectPrimaryIpAddresses {
+        v4?: string;
+        v6?: string;
       }
 
       export interface CommonsAddress {
@@ -28747,7 +28443,59 @@ export declare module MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {}
+    namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contactVerificationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V2DomainsDomainIdActionsResendEmail {
       namespace Post {

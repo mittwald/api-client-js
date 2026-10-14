@@ -9968,6 +9968,45 @@ export const domainMigrationOrderDomainMigration: OpenAPIOperation<
   operationId: "domain-migration-order-domain-migration",
 };
 
+/** Resends a Contact-Verification email. */
+export const domainResendContactVerificationEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/contact-verifications/{contactVerificationId}/actions/resend-contact-verification-email",
+  method: "POST",
+  operationId: "domain-resend-contact-verification-email",
+};
+
 /** Resend a Domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
   RequestType<
