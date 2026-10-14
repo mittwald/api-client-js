@@ -6,6 +6,8 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/generator/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/mittwald/dist" />
       <excludeFolder url="file://$MODULE_DIR$/packages/models/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/.nx" />
+      <excludePattern pattern=".pnp.loader.mjs" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
