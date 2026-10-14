@@ -7140,6 +7140,7 @@ export declare module MittwaldAPIV2 {
          *
          */
         accessLevel: "full";
+        description?: string;
         /**
          * Describes if users should be able to connection to this database from external
          * sources. Defaults to `false` when not set.
@@ -7160,7 +7161,8 @@ export declare module MittwaldAPIV2 {
         | "ready"
         | "migrating"
         | "importing"
-        | "error";
+        | "error"
+        | "terminating";
 
       export type DatabaseDatabaseUserStatus =
         | "pending"
@@ -8602,7 +8604,7 @@ export declare module MittwaldAPIV2 {
 
       export interface IngressIngress {
         /**
-         * A list of errors that occurred while validating the ingress's dns before requesting a certificate.
+         * A list of errors that occurred while validating the ingress's dns before requesting a certificate. `ERROR_QUAD_A` and `ERROR_NO_A_RECORD` are deprecated and no longer reported.
          */
         dnsValidationErrors: (
           | "ERROR_UNSPECIFIED"
@@ -8635,7 +8637,7 @@ export declare module MittwaldAPIV2 {
 
       export interface IngressIngressDeprecated {
         /**
-         * A list of errors that occurred while validating the ingress's dns before requesting a certificate.
+         * A list of errors that occurred while validating the ingress's dns before requesting a certificate. `ERROR_QUAD_A` and `ERROR_NO_A_RECORD` are deprecated and no longer reported.
          */
         dnsValidationErrors: (
           | "ERROR_UNSPECIFIED"
@@ -11525,6 +11527,16 @@ export declare module MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberRoleUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberExpiryUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogMembershipMemberRemoved
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserCreated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSftpUserCreated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserDescriptionUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserPasswordUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserPublicKeysUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserActiveUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserExpiryUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSftpUserAccessLevelUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSftpUserDirectoriesUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogSshUserDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
         dateTime: string;
@@ -11777,11 +11789,16 @@ export declare module MittwaldAPIV2 {
         authUpdatedAt: string;
         createdAt: string;
         description: string;
+        detailedPublicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKeyDetails[];
         directories?: string[];
         expiresAt?: string;
         hasPassword: boolean;
         id: string;
         projectId: string;
+        /**
+         * @deprecated
+         * deprecated by detailedPublicKeys
+         */
         publicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKey[];
         updatedAt?: string;
         userName: string;
@@ -11795,10 +11812,15 @@ export declare module MittwaldAPIV2 {
         authUpdatedAt: string;
         createdAt: string;
         description: string;
+        detailedPublicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKeyDetails[];
         expiresAt?: string;
         hasPassword: boolean;
         id: string;
         projectId: string;
+        /**
+         * @deprecated
+         * deprecated by detailedPublicKeys
+         */
         publicKeys?: MittwaldAPIV2.Components.Schemas.SshuserPublicKey[];
         updatedAt?: string;
         userName: string;
@@ -12389,6 +12411,239 @@ export declare module MittwaldAPIV2 {
         parameters: {
           member?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
         };
+      }
+
+      export interface ActivitylogSftpUserAccessLevelUpdated {
+        changes: {
+          after?: {
+            accessLevel: ("read" | "full") | null;
+          };
+          before?: {
+            accessLevel: ("read" | "full") | null;
+          };
+        };
+        name: "sshuser.sftp-user-access-level-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSftpUserCreated {
+        changes: {
+          after?: {
+            accessLevel?: ("read" | "full") | null;
+            active?: boolean;
+            description: string;
+            directories?: string[];
+            expiresAt?: string | null;
+            passwordConfigured?: boolean;
+            publicKeys?: {
+              comment: string;
+              fingerprint: string;
+            }[];
+            username: string;
+          };
+          before?: {
+            accessLevel?: ("read" | "full") | null;
+            active?: boolean | null;
+            description: string | null;
+            directories?: string[] | null;
+            expiresAt?: string | null;
+            passwordConfigured?: boolean | null;
+            publicKeys?:
+              | {
+                  comment: string;
+                  fingerprint: string;
+                }[]
+              | null;
+            username: string | null;
+          };
+        };
+        name: "sshuser.sftp-user-created";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSftpUserDirectoriesUpdated {
+        changes: {
+          after?: {
+            directories: string[];
+          };
+          before?: {
+            directories: string[] | null;
+          };
+        };
+        name: "sshuser.sftp-user-directories-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserActiveUpdated {
+        changes: {
+          after?: {
+            active: boolean;
+          };
+          before?: {
+            active: boolean | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-activated"
+          | "sshuser.sftp-user-activated"
+          | "sshuser.ssh-user-deactivated"
+          | "sshuser.sftp-user-deactivated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserCreated {
+        changes: {
+          after?: {
+            active?: boolean;
+            description: string;
+            expiresAt?: string | null;
+            passwordConfigured?: boolean;
+            publicKeys?: {
+              comment: string;
+              fingerprint: string;
+            }[];
+            username: string;
+          };
+          before?: {
+            active?: boolean | null;
+            description: string | null;
+            expiresAt?: string | null;
+            passwordConfigured?: boolean | null;
+            publicKeys?:
+              | {
+                  comment: string;
+                  fingerprint: string;
+                }[]
+              | null;
+            username: string | null;
+          };
+        };
+        name: "sshuser.ssh-user-created";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserDeleted {
+        changes: {};
+        name:
+          | "sshuser.ssh-user-deleted"
+          | "sshuser.sftp-user-deleted"
+          | "sshuser.ssh-user-expired"
+          | "sshuser.sftp-user-expired";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-description-updated"
+          | "sshuser.sftp-user-description-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-expiry-updated"
+          | "sshuser.sftp-user-expiry-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserPasswordUpdated {
+        changes: {
+          after?: {
+            passwordConfigured: boolean;
+          };
+          before?: {
+            passwordConfigured: boolean | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-password-updated"
+          | "sshuser.sftp-user-password-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogSshUserPublicKeysUpdated {
+        changes: {
+          after?: {
+            publicKeys: {
+              comment: string;
+              fingerprint: string;
+            }[];
+          };
+          before?: {
+            publicKeys:
+              | {
+                  comment: string;
+                  fingerprint: string;
+                }[]
+              | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-public-keys-updated"
+          | "sshuser.sftp-user-public-keys-updated";
+        parameters: {
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      /**
+       * A representation of an ssh-public-key, enriched with information derived from the key.
+       */
+      export interface SshuserPublicKeyDetails {
+        /**
+         * Absent if the key cannot be parsed.
+         */
+        algorithm?: string;
+        comment: string;
+        /**
+         * SHA256 fingerprint in OpenSSH format, as printed by `ssh-keygen -l`. Absent if the key cannot be parsed.
+         */
+        fingerprint?: string;
+        key: string;
       }
 
       export interface CommonsAddress {
