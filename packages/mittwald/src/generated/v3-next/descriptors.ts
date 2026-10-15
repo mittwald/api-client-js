@@ -521,6 +521,53 @@ export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-update-plan",
 };
 
+/**
+ * Get ai hosting plan and usages of a customer.
+ * @deprecated
+ */
+export const aiHostingCustomerGetUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/ai-hosting",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-usage",
+};
+
 /** Rotates a customer's key. */
 export const aiHostingCustomerRotateKey: OpenAPIOperation<
   RequestType<
@@ -1079,6 +1126,53 @@ export const aiHostingProjectGetPlans: OpenAPIOperation<
   operationId: "ai-hosting-project-get-plans",
 };
 
+/**
+ * Get ai hosting plan and usages of a project.
+ * @deprecated
+ */
+export const aiHostingProjectGetUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/ai-hosting",
+  method: "GET",
+  operationId: "ai-hosting-project-get-usage",
+};
+
 /** Links a container with a project licence. */
 export const aiHostingProjectLinkContainer: OpenAPIOperation<
   RequestType<
@@ -1464,6 +1558,43 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
+/**
+ * Get the installed `SystemSoftware' for a specific `AppInstallation`.
+ * @deprecated
+ */
+export const appGetInstalledSystemsoftwareForAppinstallation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/systemSoftware",
+  method: "GET",
+  operationId: "app-get-installed-systemsoftware-for-appinstallation",
+};
+
 /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
 export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   RequestType<
@@ -1564,6 +1695,48 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   path: "/v3-next/system-softwares/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
   method: "GET",
   operationId: "app-get-systemsoftwareversion",
+};
+
+/**
+ * Create linkage between an AppInstallation and a MySQLDatabase.
+ * @deprecated
+ */
+export const appLinkDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabase.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/database",
+  method: "PATCH",
+  operationId: "app-link-database",
 };
 
 /** List AppInstallations that a user has access to. */
@@ -1947,6 +2120,43 @@ export const appRetrieveStatus: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/status",
   method: "GET",
   operationId: "app-retrieve-status",
+};
+
+/**
+ * Create linkage between an AppInstallation and DatabaseUsers.
+ * @deprecated
+ */
+export const appSetDatabaseUsers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/databases/{databaseId}/users",
+  method: "PUT",
+  operationId: "app-set-database-users",
 };
 
 /** Remove linkage between an AppInstallation and a Database. */
@@ -2605,6 +2815,53 @@ export const backupGetProjectBackupDirectories: OpenAPIOperation<
   path: "/v3-next/project-backups/{projectBackupId}/path",
   method: "GET",
   operationId: "backup-get-project-backup-directories",
+};
+
+/**
+ * Restore a ProjectBackup's path.
+ * @deprecated
+ */
+export const backupRequestProjectBackupRestorePathDeprecated: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdRestorePath.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/project-backups/{projectBackupId}/restore-path",
+  method: "POST",
+  operationId: "backup-request-project-backup-restore-path-deprecated",
 };
 
 /** Restore a ProjectBackup. */
@@ -3924,6 +4181,53 @@ export const containerListStackVolumes: OpenAPIOperation<
   path: "/v3-next/stacks/{stackId}/volumes",
   method: "GET",
   operationId: "container-list-stack-volumes",
+};
+
+/**
+ * List Container Template statistics.
+ * @deprecated
+ */
+export const containerListTemplateStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/container-template-statistics",
+  method: "GET",
+  operationId: "container-list-template-statistics",
 };
 
 /** List Container Templates. */
@@ -7978,6 +8282,48 @@ export const databaseGetMysqlUser: OpenAPIOperation<
   operationId: "database-get-mysql-user",
 };
 
+/**
+ * Update a MySQLUser.
+ * @deprecated
+ */
+export const deprecatedDatabaseReplaceMysqlUser: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mysql-users/{mysqlUserId}",
+  method: "PUT",
+  operationId: "deprecated-database-replace-mysql-user",
+};
+
 /** Delete a MySQLUser. */
 export const databaseDeleteMysqlUser: OpenAPIOperation<
   RequestType<
@@ -8422,6 +8768,1227 @@ export const databaseListRedisVersions: OpenAPIOperation<
   operationId: "database-list-redis-versions",
 };
 
+/**
+ * Trigger a runtime action belonging to an AppInstallation.
+ * @deprecated
+ */
+export const deprecatedAppInstallationExecuteAction: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdActionsAction.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/actions/{action}",
+  method: "POST",
+  operationId: "deprecated-app-installation-execute-action",
+};
+
+/**
+ * Create linkage between an AppInstallation and a MySql-Database.
+ * @deprecated
+ */
+export const deprecatedAppLinkDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppinstallationsAppInstallationIdDatabases.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/appinstallations/{appInstallationId}/databases",
+  method: "PUT",
+  operationId: "deprecated-app-link-database",
+};
+
+/**
+ * Replace a MySQL Database with another MySQL Database.
+ * @deprecated
+ */
+export const deprecatedAppReplaceDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/app-installations/{appInstallationId}/database/replace",
+  method: "PATCH",
+  operationId: "deprecated-app-replace-database",
+};
+
+/**
+ * Update a Backup's expiration time.
+ * @deprecated
+ */
+export const deprecatedBackupReplaceProjectBackupExpirationTime: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdExpirationTime.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/project-backups/{projectBackupId}/expiration-time",
+  method: "PUT",
+  operationId: "deprecated-backup-replace-project-backup-expiration-time",
+};
+
+/**
+ * Change the description of a ProjectBackup.
+ * @deprecated
+ */
+export const deprecatedBackupUpdateProjectBackupDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectBackupsProjectBackupIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/project-backups/{projectBackupId}/description",
+  method: "PATCH",
+  operationId: "deprecated-backup-update-project-backup-description",
+};
+
+/**
+ * Get a Container Template icon.
+ * @deprecated
+ */
+export const deprecatedContainerGetTemplateIcon: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageJpeg>,
+      200,
+      "image/jpeg"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImagePng>,
+      200,
+      "image/png"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageSvgXml>,
+      200,
+      "image/svg+xml"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageWebp>,
+      200,
+      "image/webp"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$304.Content.Empty>,
+      304,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContainerTemplatesTemplateIdIcon.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/container-templates/{templateId}/icon",
+  method: "GET",
+  operationId: "deprecated-container-get-template-icon",
+};
+
+/**
+ * Set an update schedule for a Stack.
+ * @deprecated
+ */
+export const deprecatedContainerSetStackUpdateSchedule: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextStacksStackIdUpdateSchedule.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/stacks/{stackId}/update-schedule",
+  method: "PUT",
+  operationId: "deprecated-container-set-stack-update-schedule",
+};
+
+/**
+ * Validate a Registries' URI.
+ * @deprecated
+ */
+export const deprecatedContainerValidateContainerRegistryUri: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextActionsValidateContainerRegistryUri.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/actions/validate-container-registry-uri",
+  method: "POST",
+  operationId: "deprecated-container-validate-container-registry-uri",
+};
+
+/**
+ * Validate a Registries' credentials.
+ * @deprecated
+ */
+export const deprecatedContainerValidateRegistryCredentials: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegistriesRegistryIdActionsValidateCredentials.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/registries/{registryId}/actions/validate-credentials",
+  method: "POST",
+  operationId: "deprecated-container-validate-registry-credentials",
+};
+
+/**
+ * Return the AI Hosting Contract for the given Customer.
+ * @deprecated
+ */
+export const deprecatedContractGetDetailOfContractByAiHosting: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/ai-hosting/contract",
+  method: "GET",
+  operationId: "deprecated-contract-get-detail-of-contract-by-ai-hosting",
+};
+
+/**
+ * Return the next TerminationDate for the ContractItem with the given ID.
+ * @deprecated
+ */
+export const deprecatedContractGetNextTerminationDateForItem: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/contracts/{contractId}/items/{contractItemId}/next-termination-dates",
+  method: "GET",
+  operationId: "deprecated-contract-get-next-termination-date-for-item",
+};
+
+/**
+ * Update a Cronjob's app installation id.
+ * @deprecated
+ */
+export const deprecatedCronjobReplaceCronjobAppInstallationId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/cronjobs/{cronjobId}/app-installation-id",
+  method: "PUT",
+  operationId: "deprecated-cronjob-replace-cronjob-app-installation-id",
+};
+
+/**
+ * Update a Cronjob's app installation id.
+ * @deprecated
+ */
+export const deprecatedCronjobUpdateCronjobAppId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/cronjobs/{cronjobId}/app-installation-id",
+  method: "PATCH",
+  operationId: "deprecated-cronjob-update-cronjob-app-id",
+};
+
+/**
+ * Leave a Customer.
+ * @deprecated
+ */
+export const deprecatedCustomerLeaveCustomer: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdActionsLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdActionsLeave.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdActionsLeave.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdActionsLeave.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdActionsLeave.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdActionsLeave.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/actions/leave",
+  method: "POST",
+  operationId: "deprecated-customer-leave-customer",
+};
+
+/**
+ * Update a MySQLDatabase's default character settings.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mysql-databases/{mysqlDatabaseId}/default-charset",
+  method: "PATCH",
+  operationId: "deprecated-database-update-mysql-database-default-charset",
+};
+
+/**
+ * Update a MySQLDatabase's description.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mysql-databases/{mysqlDatabaseId}/description",
+  method: "PATCH",
+  operationId: "deprecated-database-update-mysql-database-description",
+};
+
+/**
+ * Update a MySQLUser's password.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateMysqlUserPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlUsersMysqlUserIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mysql-users/{mysqlUserId}/password",
+  method: "PATCH",
+  operationId: "deprecated-database-update-mysql-user-password",
+};
+
+/**
+ * Update a RedisDatabase's configuration.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/redis-databases/{redisDatabaseId}/configuration",
+  method: "PATCH",
+  operationId: "deprecated-database-update-redis-database-configuration",
+};
+
+/**
+ * Update a RedisDatabase's description.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateRedisDatabaseDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/redis-databases/{redisDatabaseId}/description",
+  method: "PATCH",
+  operationId: "deprecated-database-update-redis-database-description",
+};
+
+/**
+ * updates a-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordAsetCustom: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/acombined/custom",
+  method: "PUT",
+  operationId: "deprecated-dns-record-a-set-custom",
+};
+
+/**
+ * set a-records managed by ingress for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordAsetManagedByIngress: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$204.Content.ApplicationJson>,
+      204,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/acombined/managed/ingress",
+  method: "POST",
+  operationId: "deprecated-dns-record-a-set-managed-by-ingress",
+};
+
+/**
+ * updates cname-record for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordCnameSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetCname.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/cname",
+  method: "PUT",
+  operationId: "deprecated-dns-record-cname-set",
+};
+
+/**
+ * updates mx-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordMxSetCustom: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxCustom.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/mx/custom",
+  method: "PUT",
+  operationId: "deprecated-dns-record-mx-set-custom",
+};
+
+/**
+ * sets mx-records to managed for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordMxSetManaged: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetMxManaged.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/mx/managed",
+  method: "POST",
+  operationId: "deprecated-dns-record-mx-set-managed",
+};
+
+/**
+ * updates srv-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordSrvSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetSrv.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/srv",
+  method: "PUT",
+  operationId: "deprecated-dns-record-srv-set",
+};
+
+/**
+ * updates txt-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordTxtSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZonesZoneIdRecordsetTxt.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns/zones/{zoneId}/recordset/txt",
+  method: "PUT",
+  operationId: "deprecated-dns-record-txt-set",
+};
+
+/**
+ * Change the owner contact of a domain.
+ * @deprecated
+ */
+export const deprecatedDomainChangeOwnercOfDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdHandlesOwnerc.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/{domainId}/handles/ownerc",
+  method: "PUT",
+  operationId: "deprecated-domain-change-ownerc-of-domain",
+};
+
+/**
+ * Change the Project relation of a Domain.
+ * @deprecated
+ */
+export const deprecatedDomainChangeProjectOfDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdProjectIdDeprecated.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/{domainId}/projectId",
+  method: "PUT",
+  operationId: "deprecated-domain-change-project-of-domain",
+};
+
 /** List Domains */
 export const domainListDomains: OpenAPIOperation<
   RequestType<
@@ -8454,6 +10021,85 @@ export const domainListDomains: OpenAPIOperation<
   path: "/v3-next/domains",
   method: "GET",
   operationId: "domain-list-domains",
+};
+
+/**
+ * Check if a Domain is available to register.
+ * @deprecated
+ */
+export const deprecatedDomainCheckDomainRegistrability: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomains.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains",
+  method: "POST",
+  operationId: "deprecated-domain-check-domain-registrability",
+};
+
+/**
+ * Change all nameservers of a Domain.
+ * @deprecated
+ */
+export const deprecatedDomainDeclareNameservers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdNameservers.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/{domainId}/nameservers",
+  method: "PUT",
+  operationId: "deprecated-domain-declare-nameservers",
 };
 
 /** Update the nameservers of a Domain. */
@@ -8495,6 +10141,354 @@ export const domainUpdateDomainNameservers: OpenAPIOperation<
   operationId: "domain-update-domain-nameservers",
 };
 
+/**
+ * Update an AuthCode.
+ * @deprecated
+ */
+export const deprecatedDomainDeclareProcessChangeAuthcode: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsAuthcode.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/{domainId}/declarations/authcode",
+  method: "PUT",
+  operationId: "deprecated-domain-declare-process-change-authcode",
+};
+
+/**
+ * Update a Domain's OwnerC handle.
+ * @deprecated
+ */
+export const deprecatedDomainDeclareProcessChangeHandles: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdDeclarationsHandles.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/{domainId}/declarations/handles",
+  method: "PUT",
+  operationId: "deprecated-domain-declare-process-change-handles",
+};
+
+/**
+ * Get a HandleSchema.
+ * @deprecated
+ */
+export const deprecatedDomainGetHandleFields: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsHandleSchemaDomainName.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsHandleSchemaDomainName.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsHandleSchemaDomainName.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsHandleSchemaDomainName.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsHandleSchemaDomainName.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsHandleSchemaDomainName.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/handle-schema/{domainName}",
+  method: "GET",
+  operationId: "deprecated-domain-get-handle-fields",
+};
+
+/**
+ * Get File Service Reference for a Screenshot of a domain.
+ * @deprecated
+ */
+export const deprecatedDomainGetScreenshotForDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdScreenshotsNewest.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/domains/{domainId}/screenshots/newest",
+  method: "GET",
+  operationId: "deprecated-domain-get-screenshot-for-domain",
+};
+
+/**
+ * List Domains belonging to a Project.
+ * @deprecated
+ */
+export const deprecatedDomainListDomains: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDomains.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/domains",
+  method: "GET",
+  operationId: "deprecated-domain-list-domains",
+};
+
+/**
+ * Get a Token's upload rules.
+ * @deprecated
+ */
+export const deprecatedFileGetFileTokenRules: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTokenRulesToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/file-token-rules/{token}",
+  method: "GET",
+  operationId: "deprecated-file-get-file-token-rules",
+};
+
+/**
+ * Get a Type's upload rules.
+ * @deprecated
+ */
+export const deprecatedFileGetFileTypeRules: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFileTypeRulesName.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/file-type-rules/{name}",
+  method: "GET",
+  operationId: "deprecated-file-get-file-type-rules",
+};
+
+/**
+ * List Ingresses belonging to a project.
+ * @deprecated
+ */
+export const deprecatedIngressListIngresses: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdIngresses.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/ingresses",
+  method: "GET",
+  operationId: "deprecated-ingress-list-ingresses",
+};
+
+/**
+ * Update an Ingresses paths.
+ * @deprecated
+ */
+export const deprecatedIngressPaths: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdPaths.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/ingresses/{ingressId}/paths",
+  method: "PUT",
+  operationId: "deprecated-ingress-paths",
+};
+
 /** Update the paths of an Ingress. */
 export const ingressUpdateIngressPaths: OpenAPIOperation<
   RequestType<
@@ -8527,6 +10521,43 @@ export const ingressUpdateIngressPaths: OpenAPIOperation<
   path: "/v3-next/ingresses/{ingressId}/paths",
   method: "PATCH",
   operationId: "ingress-update-ingress-paths",
+};
+
+/**
+ * Update an Ingresses tls settings.
+ * @deprecated
+ */
+export const deprecatedIngressTls: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextIngressesIngressIdTls.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/ingresses/{ingressId}/tls",
+  method: "PUT",
+  operationId: "deprecated-ingress-tls",
 };
 
 /** Update the tls settings of an Ingress. */
@@ -8571,6 +10602,340 @@ export const ingressUpdateIngressTls: OpenAPIOperation<
   path: "/v3-next/ingresses/{ingressId}/tls",
   method: "PATCH",
   operationId: "ingress-update-ingress-tls",
+};
+
+/**
+ * Get details of an Invoice.
+ * @deprecated
+ */
+export const deprecatedInvoiceDetailOfInvoice: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoicesInvoiceId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/customers/{customerId}/invoices/{invoiceId}",
+  method: "GET",
+  operationId: "deprecated-invoice-detail-of-invoice",
+};
+
+/**
+ * Update the description of an deliverybox
+ * @deprecated
+ */
+export const deprecatedMailDeliveryboxUpdateDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdDescription.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v3-next/deliveryboxes/{id}/description",
+  method: "PUT",
+  operationId: "deprecated-mail-deliverybox-update-description",
+};
+
+/**
+ * Update the password for a specific deliverybox
+ * @deprecated
+ */
+export const deprecatedMailDeliveryboxUpdatePassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDeliveryboxesIdPassword.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v3-next/deliveryboxes/{id}/password",
+  method: "PUT",
+  operationId: "deprecated-mail-deliverybox-update-password",
+};
+
+/**
+ * Update mail-address
+ * @deprecated
+ */
+export const deprecatedMailMailaddressUpdateAddress: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailaddressesIdAddress.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v3-next/mailaddresses/{id}/address",
+  method: "PUT",
+  operationId: "deprecated-mail-mailaddress-update-address",
+};
+
+/**
+ * Update blacklist for a given project ID
+ * @deprecated
+ */
+export const deprecatedMailProjectsettingUpdateBlacklist: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsBlacklist.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/mailsettings/blacklist",
+  method: "PUT",
+  operationId: "deprecated-mail-projectsetting-update-blacklist",
+};
+
+/**
+ * Update whitelist for a given project ID
+ * @deprecated
+ */
+export const deprecatedMailProjectsettingUpdateWhitelist: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailsettingsWhitelist.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/mailsettings/whitelist",
+  method: "PUT",
+  operationId: "deprecated-mail-projectsetting-update-whitelist",
+};
+
+/**
+ * Update the autoresponder of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressAutoresponder: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdAutoresponder.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/autoresponder",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-autoresponder",
 };
 
 /** Update the autoresponder of a MailAddress. */
@@ -8627,6 +10992,120 @@ export const mailUpdateMailAddressAutoresponder: OpenAPIOperation<
   operationId: "mail-update-mail-address-autoresponder",
 };
 
+/**
+ * Update the catchall of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressCatchall: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdCatchall.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/catchall",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-catchall",
+};
+
+/**
+ * Update the forward addresses of a MailAddresses.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressForwardAddresses: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdForwardAddresses.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/forward-addresses",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-forward-addresses",
+};
+
 /** Update the forward addresses of a MailAddresses. */
 export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   RequestType<
@@ -8679,6 +11158,63 @@ export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/forward-addresses",
   method: "PATCH",
   operationId: "mail-update-mail-address-forward-addresses",
+};
+
+/**
+ * Update the password for a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdPassword.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/password",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-password",
 };
 
 /** Update the password for a MailAddress. */
@@ -8735,6 +11271,63 @@ export const mailUpdateMailAddressPassword: OpenAPIOperation<
   operationId: "mail-update-mail-address-password",
 };
 
+/**
+ * Update the quota of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressQuota: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdQuota.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/quota",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-quota",
+};
+
 /** Update the quota of a MailAddress. */
 export const mailUpdateMailAddressQuota: OpenAPIOperation<
   RequestType<
@@ -8789,6 +11382,63 @@ export const mailUpdateMailAddressQuota: OpenAPIOperation<
   operationId: "mail-update-mail-address-quota",
 };
 
+/**
+ * Update the spam protection of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressSpamProtection: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdSpamProtection.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/mail-addresses/{mailAddressId}/spam-protection",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-spam-protection",
+};
+
 /** Update the spam protection of a MailAddress. */
 export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
   RequestType<
@@ -8841,6 +11491,63 @@ export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/spam-protection",
   method: "PATCH",
   operationId: "mail-update-mail-address-spam-protection",
+};
+
+/**
+ * Update a mail setting of a Project.
+ * @deprecated
+ */
+export const deprecatedMailUpdateProjectMailSetting: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdMailSettingsMailSetting.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/mail-settings/{mailSetting}",
+  method: "PUT",
+  operationId: "deprecated-mail-update-project-mail-setting",
 };
 
 /** Update a mail setting of a Project. */
@@ -8931,6 +11638,566 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   operationId: "newsletter-subscribe-user",
 };
 
+/**
+ * Leave a Project.
+ * @deprecated
+ */
+export const deprecatedProjectLeaveProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdLeave.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdLeave.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdLeave.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdLeave.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdLeave.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/leave",
+  method: "POST",
+  operationId: "deprecated-project-leave-project",
+};
+
+/**
+ * Update a Project's description.
+ * @deprecated
+ */
+export const deprecatedProjectUpdateProjectDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/description",
+  method: "PATCH",
+  operationId: "deprecated-project-update-project-description",
+};
+
+/**
+ * Update a Servers's description.
+ * @deprecated
+ */
+export const deprecatedProjectUpdateServerDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/description",
+  method: "PATCH",
+  operationId: "deprecated-project-update-server-description",
+};
+
+/**
+ * Update a Project's storage space notification threshold.
+ * @deprecated
+ */
+export const deprecatedStoragespaceReplaceProjectNotificationThreshold: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/storage-space-notification-threshold",
+  method: "PUT",
+  operationId: "deprecated-storagespace-replace-project-notification-threshold",
+};
+
+/**
+ * Update a Server's storage space notification threshold.
+ * @deprecated
+ */
+export const deprecatedStoragespaceReplaceServerNotificationThreshold: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdStorageSpaceNotificationThreshold.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/storage-space-notification-threshold",
+  method: "PUT",
+  operationId: "deprecated-storagespace-replace-server-notification-threshold",
+};
+
+/**
+ * Change your Email-Address. Replaced by `PUT` `/v2/users/self/credentials/email`.
+ * @deprecated
+ */
+export const deprecatedUserChangeEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmail.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/email",
+  method: "PUT",
+  operationId: "deprecated-user-change-email",
+};
+
+/**
+ * Check token for validity.
+ * @deprecated
+ */
+export const deprecatedUserCheckToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsToken.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/credentials/token",
+  method: "POST",
+  operationId: "deprecated-user-check-token",
+};
+
+/**
+ * Confirm password reset. Replaced by `POST` `/v2/users/self/credentials/password/confirm-reset`.
+ * @deprecated
+ */
+export const deprecatedUserConfirmPasswordReset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordResetConfirm.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/password/reset/confirm",
+  method: "POST",
+  operationId: "deprecated-user-confirm-password-reset",
+};
+
+/**
+ * Create a new issue.
+ * @deprecated
+ */
+export const deprecatedUserCreateIssue: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfIssues.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/issues",
+  method: "POST",
+  operationId: "deprecated-user-create-issue",
+};
+
+/**
+ * Update an existing `ApiToken`. Replaced by `PUT` `/v2/users/{userId}/api-tokens/{apiTokenId}`.
+ * @deprecated
+ */
+export const deprecatedUserEditApiToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/token/api/{apiTokenId}",
+  method: "PUT",
+  operationId: "deprecated-user-edit-api-token",
+};
+
+/**
+ * Deletes an ApiToken. Replaces by `DELETE` `/v2/user/{userid}/api-tokens/{apiTokenId}`.
+ * @deprecated
+ */
+export const deprecatedUserDeleteApiToken: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupTokenApiApiTokenId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/token/api/{apiTokenId}",
+  method: "DELETE",
+  operationId: "deprecated-user-delete-api-token",
+};
+
+/**
+ * Edit a stored ssh-key. Replaced by `PUT` `/v2/users/self/ssh-keys/{sshKeyId}`.
+ * @deprecated
+ */
+export const deprecatedUserEditSshKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/ssh/{sshKeyId}",
+  method: "PUT",
+  operationId: "deprecated-user-edit-ssh-key",
+};
+
+/**
+ * Remove a ssh-key. Replaced by `DELETE` `/v2/users/self/ssh-keys/{sshKeyId}`.
+ * @deprecated
+ */
+export const deprecatedUserDeleteSshKey: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSshSshKeyId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/ssh/{sshKeyId}",
+  method: "DELETE",
+  operationId: "deprecated-user-delete-ssh-key",
+};
+
+/**
+ * Disable Multi Factor Authentication. Replaced by `DELETE` `/v2/users/self/credentials/mfa`.
+ * @deprecated
+ */
+export const deprecatedUserDisableMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupMfa.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/mfa",
+  method: "DELETE",
+  operationId: "deprecated-user-disable-mfa",
+};
+
+/**
+ * Get your account information. Replaced by `GET` `/v2/users/self`.
+ * @deprecated
+ */
+export const deprecatedUserGetOwnAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPersonalInformation.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/personal-information",
+  method: "GET",
+  operationId: "deprecated-user-get-own-account",
+};
+
 /** Update your account information. */
 export const userUpdateAccount: OpenAPIOperation<
   RequestType<
@@ -8963,6 +12230,758 @@ export const userUpdateAccount: OpenAPIOperation<
   path: "/v3-next/users/self/personal-information",
   method: "PUT",
   operationId: "user-update-account",
+};
+
+/**
+ * Initialize password reset process. Replaced by `POST` `/v2/users/self/credentials/actions/init-password-reset`.
+
+ * @deprecated
+ */
+export const deprecatedUserInitPasswordReset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupPasswordReset.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/password/reset",
+  method: "POST",
+  operationId: "deprecated-user-init-password-reset",
+};
+
+/**
+ * Terminate session and invalidate access token. Replaced by `DELETE` `/v2/users/self/sessions/{current}`.
+ * @deprecated
+ */
+export const deprecatedUserLogout: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupLogout.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/logout",
+  method: "PUT",
+  operationId: "deprecated-user-logout",
+};
+
+/**
+ * Resend the Email-Address verification email. Replaced by `POST` `/v2/users/self/credentials/email/actions/resend-email`.
+
+ * @deprecated
+ */
+export const deprecatedUserResendVerificationEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailResend.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/email/resend",
+  method: "POST",
+  operationId: "deprecated-user-resend-verification-email",
+};
+
+/**
+ * Request a new avatar upload
+ * @deprecated
+ */
+export const deprecatedUserServiceAvatarRequestUpload: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}/avatar",
+  method: "POST",
+  operationId: "deprecated-user-service-avatar-request-upload",
+};
+
+/**
+ * Remove Avatar
+ * @deprecated
+ */
+export const deprecatedUserServiceAvatarRemove: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdAvatar.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}/avatar",
+  method: "DELETE",
+  operationId: "deprecated-user-service-avatar-remove",
+};
+
+/**
+ * Returns your submitted feedback
+ * @deprecated
+ */
+export const deprecatedUserServiceFeedbackList: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/feedback",
+  method: "GET",
+  operationId: "deprecated-user-service-feedback-list",
+};
+
+/**
+ * Submit user feedback
+ * @deprecated
+ */
+export const deprecatedUserServiceFeedbackCreate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserFeedback.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/feedback",
+  method: "POST",
+  operationId: "deprecated-user-service-feedback-create",
+};
+
+/**
+ * create a new issue
+ * @deprecated
+ */
+export const deprecatedUserServiceIssueNew: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Responses.$201.Content.Empty>,
+      201,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserIssues.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/issues",
+  method: "POST",
+  operationId: "deprecated-user-service-issue-new",
+};
+
+/**
+ * Get profile information for the specified user if the user is related to the executing user
+ * @deprecated
+ */
+export const deprecatedUserServiceUserGet: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}",
+  method: "GET",
+  operationId: "deprecated-user-service-user-get",
+};
+
+/**
+ * Change your personal information
+ * @deprecated
+ */
+export const deprecatedUserServicePersonalInformationUpdate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}",
+  method: "PUT",
+  operationId: "deprecated-user-service-personal-information-update",
+};
+
+/**
+ * Get personalized settings for the user executing the request
+ * @deprecated
+ */
+export const deprecatedUserServicePersonalizedSettingsGet: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/settings",
+  method: "GET",
+  operationId: "deprecated-user-service-personalized-settings-get",
+};
+
+/**
+ * update personalized settings
+ * @deprecated
+ */
+export const deprecatedUserServicePersonalizedSettingsUpdate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserSettings.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/settings",
+  method: "PUT",
+  operationId: "deprecated-user-service-personalized-settings-update",
+};
+
+/**
+ * Add phone number and init verification process
+ * @deprecated
+ */
+export const deprecatedUserServicePhoneNumberAdd: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}/phone",
+  method: "POST",
+  operationId: "deprecated-user-service-phone-number-add",
+};
+
+/**
+ * remove your PhoneNumber
+ * @deprecated
+ */
+export const deprecatedUserServicePhoneNumberRemove: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhone.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}/phone",
+  method: "DELETE",
+  operationId: "deprecated-user-service-phone-number-remove",
+};
+
+/**
+ * Verify phone number
+ * @deprecated
+ */
+export const deprecatedUserServicePhoneNumberVerify: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUserUserIdPhoneVerify.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user/{userId}/phone/verify",
+  method: "POST",
+  operationId: "deprecated-user-service-phone-number-verify",
+};
+
+/**
+ * Get profile information for the executing user
+ * @deprecated
+ */
+export const deprecatedUserServiceUserGetOwn: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUser.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUser.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUser.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUser.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUser.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUser.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/user",
+  method: "GET",
+  operationId: "deprecated-user-service-user-get-own",
+};
+
+/**
+ * Terminate all sessions, except the current session. Replaced by `DELETE` `/v2/users/self/sessions`.
+ * @deprecated
+ */
+export const deprecatedUserTerminateAllSessions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessions.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessions.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessions.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessions.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessions.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessions.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/sessions",
+  method: "DELETE",
+  operationId: "deprecated-user-terminate-all-sessions",
+};
+
+/**
+ * Terminate a specific Session. Replaced by `DELETE` `/v2/users/self/sessions/{tokenId}`.
+ * @deprecated
+ */
+export const deprecatedUserTerminateSession: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupSessionsTokenId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/sessions/{tokenId}",
+  method: "DELETE",
+  operationId: "deprecated-user-terminate-session",
+};
+
+/**
+ * Update your account information.
+ * @deprecated
+ */
+export const deprecatedUserUpdateAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupProfile.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/profile",
+  method: "PUT",
+  operationId: "deprecated-user-update-account",
+};
+
+/**
+ * Verify an added Email-Address. Replaced by `POST` `/v2/users/self/credentials/email/actions/verify-email`.
+ * @deprecated
+ */
+export const deprecatedUserVerifyEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextSignupEmailVerify.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/signup/email/verify",
+  method: "POST",
+  operationId: "deprecated-user-verify-email",
 };
 
 /** List DNS zone-file import jobs belonging to a Project. */
@@ -9046,6 +13065,48 @@ export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/dns-zone-imports",
   method: "POST",
   operationId: "dns-create-dns-zone-file-import",
+};
+
+/**
+ * Create a DNSZone (deprecated).
+ * @deprecated
+ */
+export const dnsCreateDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDnsZones.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/dns-zones",
+  method: "POST",
+  operationId: "dns-create-dns-zone",
 };
 
 /** List DNSZones belonging to a Project. */
@@ -15256,6 +19317,38 @@ export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   path: "/v3-next/password-policies/{passwordPolicy}",
   method: "GET",
   operationId: "password-validation-get-password-policy",
+};
+
+/**
+ * DEPRECAED. Use `GET` `/v2/password-policies/{passwordPolicy}` instead.
+ * @deprecated
+ */
+export const passwordValidationGetPasswordPolicyV2Deprecated: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPasswordPoliciesPath.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPasswordPoliciesPath.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPasswordPoliciesPath.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasswordPoliciesPath.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasswordPoliciesPath.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasswordPoliciesPath.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/password/policies/{path}",
+  method: "GET",
+  operationId: "password-validation-get-password-policy-v2-deprecated",
 };
 
 /** Accept a ProjectInvite. */
