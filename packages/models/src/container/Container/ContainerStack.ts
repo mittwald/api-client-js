@@ -130,8 +130,7 @@ export class ContainerStackCommon extends WithData<
 >()(ContainerStack) {
   public readonly containers: ContainerListItem[];
   public override readonly data:
-    | ContainerStackListItemData
-    | ContainerStackData;
+    ContainerStackListItemData | ContainerStackData;
   public readonly description: string;
   public readonly disabled: boolean;
   public readonly isDefaultStack: boolean;

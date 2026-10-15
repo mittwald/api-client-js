@@ -75,8 +75,7 @@ export class SystemSoftwareCommon extends WithData<
   SystemSoftwareListItemData | SystemSoftwareData
 >()(SystemSoftware) {
   public override readonly data:
-    | SystemSoftwareListItemData
-    | SystemSoftwareData;
+    SystemSoftwareListItemData | SystemSoftwareData;
   public readonly fullName: string;
   public readonly name: SystemSoftwareName;
   public readonly tags: string[];

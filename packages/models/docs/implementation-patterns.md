@@ -1066,7 +1066,7 @@ meaning-based pairing (`findDetailed` sitting next to `getDetailed`) is **not**
 preserved — natural sort groups all `find*` together, then all `get*`. That is a
 deliberate trade of "pairs read together" for a single deterministic order.
 
-No lint rule enforces this order in this package (`.eslintrc.yml` carries no
+No lint rule enforces this order in this package (`eslint.config.js` carries no
 class-member sorting rule); it is a convention, kept by hand. Top-level
 declaration order between classes is a separate concern: in the aggregate
 families and the `internal.ts` clusters it is load-bearing, so no tool may sort

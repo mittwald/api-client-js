@@ -28,8 +28,7 @@ export interface MetricsQueryTimeRange {
   to: MetricsQueryTimeRangeValue;
 }
 
-export interface MetricsQueryRequestApiData
-  extends Partial<MetricsQueryTimeRange> {
+export interface MetricsQueryRequestApiData extends Partial<MetricsQueryTimeRange> {
   queries: AnyQuery[];
 }
 

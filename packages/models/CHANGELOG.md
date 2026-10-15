@@ -7,6 +7,48 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 > package with a complete rewrite; see
 > [Migration from 4.x](README.md#migration-from-4x).
 
+## [4.499.1](https://github.com/mittwald/api-client-js/compare/4.499.0...4.499.1) (2026-10-15)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.499.0](https://github.com/mittwald/api-client-js/compare/4.498.1...4.499.0) (2026-10-14)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.498.1](https://github.com/mittwald/api-client-js/compare/4.498.0...4.498.1) (2026-10-14)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.498.0](https://github.com/mittwald/api-client-js/compare/4.497.1...4.498.0) (2026-10-14)
+
+### Features
+
+* **deps:** bump dependencies across majors ([#303](https://github.com/mittwald/api-client-js/issues/303)) ([58966f1](https://github.com/mittwald/api-client-js/commit/58966f1c57dd6b48fa8137a3a6ec1b9e23e19532))
+
+## [4.497.1](https://github.com/mittwald/api-client-js/compare/4.497.0...4.497.1) (2026-10-14)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.497.0](https://github.com/mittwald/api-client-js/compare/4.496.0...4.497.0) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.496.0](https://github.com/mittwald/api-client-js/compare/4.495.1...4.496.0) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+## [4.495.1](https://github.com/mittwald/api-client-js/compare/4.495.0...4.495.1) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.495.0](https://github.com/mittwald/api-client-js/compare/4.494.0...4.495.0) (2026-10-13)
+
+**Note:** Version bump only for package @mittwald/api-models
+
+# [4.494.0](https://github.com/mittwald/api-client-js/compare/4.493.1...4.494.0) (2026-10-12)
+
+**Note:** Version bump only for package @mittwald/api-models
+
 ## [4.493.1](https://github.com/mittwald/api-client-js/compare/4.493.0...4.493.1) (2026-10-12)
 
 **Note:** Version bump only for package @mittwald/api-models

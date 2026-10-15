@@ -84,8 +84,7 @@ export class SystemSoftwareVersionCommon extends WithData<
   SystemSoftwareVersionListItemData | SystemSoftwareVersionData
 >()(SystemSoftwareVersion) {
   public override readonly data:
-    | SystemSoftwareVersionListItemData
-    | SystemSoftwareVersionData;
+    SystemSoftwareVersionListItemData | SystemSoftwareVersionData;
   public readonly expiryDate?: DateTime;
   public readonly version: string;
   public constructor(

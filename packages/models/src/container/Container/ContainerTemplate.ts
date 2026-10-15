@@ -126,8 +126,7 @@ export class ContainerTemplateCommon extends WithData<
 >()(ContainerTemplate) {
   public readonly categories: ContainerTemplateCategory[];
   public override readonly data:
-    | ContainerTemplateListItemData
-    | ContainerTemplateApiData;
+    ContainerTemplateListItemData | ContainerTemplateApiData;
   public readonly developer: string;
   public readonly domains: ContainerTemplateDomainData;
   public readonly icon: string;

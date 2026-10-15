@@ -87,8 +87,7 @@ export class BackupScheduleCommon extends WithData<
   BackupScheduleListItemData | BackupScheduleData
 >()(BackupSchedule) {
   public override readonly data:
-    | BackupScheduleListItemData
-    | BackupScheduleData;
+    BackupScheduleListItemData | BackupScheduleData;
   public readonly description?: string;
   public readonly isSystemBackup: boolean;
   public readonly project: Project;

@@ -101,8 +101,7 @@ export class ProjectMembershipCommon extends WithData<
 >()(ProjectMembership) {
   public readonly avatar?: File;
   public override readonly data:
-    | ProjectMembershipListItemData
-    | ProjectMembershipData;
+    ProjectMembershipListItemData | ProjectMembershipData;
   public readonly expiresAt?: DateTime;
   public readonly fullName: string;
   public readonly inherited: boolean;

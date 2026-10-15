@@ -110,8 +110,7 @@ export class FinderProfileRequestCommon extends WithData<
   public readonly createdAt: DateTime;
   public readonly customer: Customer;
   public override readonly data:
-    | FinderProfileRequestListItemData
-    | FinderProfileRequestData;
+    FinderProfileRequestListItemData | FinderProfileRequestData;
   public readonly domain: string;
   public readonly profileId: string;
   public readonly resultAt: DateTime | undefined;

@@ -15,8 +15,7 @@ export type UserUpdatePasswordRequestData =
   MittwaldAPIV2.Paths.V2UsersSelfCredentialsPassword.Put.Parameters.RequestBody;
 
 export type UserUpdatePasswordResult =
-  | MittwaldAPIV2.Operations.UserChangePassword.ResponseData
-  | "mfaRequired";
+  MittwaldAPIV2.Operations.UserChangePassword.ResponseData | "mfaRequired";
 
 export type UserConfirmPasswordResetRequestData =
   MittwaldAPIV2.Paths.V2UsersSelfCredentialsPasswordConfirmReset.Post.Parameters.RequestBody;

@@ -3,9 +3,7 @@ import type { Customer } from "./Customer.js";
 
 import { config } from "../../config/index.js";
 
-export class CustomerAvatarAccessTokenProvider
-  implements FileAccessTokenProvider
-{
+export class CustomerAvatarAccessTokenProvider implements FileAccessTokenProvider {
   public readonly customer: Customer;
 
   public constructor(customer: Customer) {

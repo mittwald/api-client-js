@@ -5,6 +5,7 @@ export type FinderProfileData =
 
 export type FinderProfileListItemData = FinderProfileData;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface FinderProfileListModelQueryData {}
 
 export type FinderProfilePlanOptions = FinderProfileData["tariff"];

@@ -12,13 +12,7 @@ export type ActivityListQueryData =
   MittwaldAPIV2.Paths.V2ProjectsProjectIdActivities.Get.Parameters.Query;
 
 export type ActivityType =
-  | "update"
-  | "delete"
-  | "create"
-  | "copy"
-  | "edit"
-  | "fail"
-  | "info";
+  "update" | "delete" | "create" | "copy" | "edit" | "fail" | "info";
 
 /** A title placeholder that has to be translated rather than printed. */
 interface TranslatableValue {

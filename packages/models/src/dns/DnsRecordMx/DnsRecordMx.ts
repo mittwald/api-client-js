@@ -150,9 +150,7 @@ export class DnsRecordMxUnset extends DnsRecordMxBase<DnsRecordMxUnsetData> {
 }
 
 export type DnsRecordMx =
-  | DnsRecordMxManaged
-  | DnsRecordMxCustom
-  | DnsRecordMxUnset;
+  DnsRecordMxManaged | DnsRecordMxCustom | DnsRecordMxUnset;
 
 export const dnsRecordMxFactory = (
   dnsZone: DnsZoneCommon,

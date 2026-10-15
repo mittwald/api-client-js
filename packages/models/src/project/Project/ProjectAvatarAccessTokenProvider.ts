@@ -3,9 +3,7 @@ import type { Project } from "../internal.js";
 
 import { config } from "../../config/index.js";
 
-export class ProjectAvatarAccessTokenProvider
-  implements FileAccessTokenProvider
-{
+export class ProjectAvatarAccessTokenProvider implements FileAccessTokenProvider {
   public readonly project: Project;
 
   public constructor(project: Project) {

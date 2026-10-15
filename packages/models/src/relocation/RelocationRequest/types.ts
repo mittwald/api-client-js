@@ -27,10 +27,7 @@ export interface RelocationRequestData {
     email: string;
   };
   articleType:
-    | "cms-hosting-express"
-    | "onlineshop-express"
-    | "cms-hosting"
-    | "onlineshop";
+    "cms-hosting-express" | "onlineshop-express" | "cms-hosting" | "onlineshop";
   target: {
     targetMode: "project" | "server";
     id: string;

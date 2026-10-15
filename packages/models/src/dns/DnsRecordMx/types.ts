@@ -8,9 +8,7 @@ export type DnsRecordMxUnsetData =
   MittwaldAPIV2.Components.Schemas.DnsRecordUnset;
 
 export type DnsRecordMxData =
-  | DnsRecordMxManagedData
-  | DnsRecordMxCustomData
-  | DnsRecordMxUnsetData;
+  DnsRecordMxManagedData | DnsRecordMxCustomData | DnsRecordMxUnsetData;
 
 export type DnsRecordMxEntry =
   MittwaldAPIV2.Components.Schemas.DnsRecordMXRecord;

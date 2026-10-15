@@ -7,6 +7,7 @@ export type FinderProfileRequestStatus = FinderProfileRequestData["status"];
 
 export type FinderProfileRequestListItemData = FinderProfileRequestData;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface FinderProfileRequestListModelQueryData {}
 
 export type FinderProfileTariffOptionsData =

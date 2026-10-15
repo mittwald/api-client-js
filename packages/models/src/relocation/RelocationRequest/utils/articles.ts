@@ -1,8 +1,5 @@
 export type ArticleNames =
-  | "cms-hosting-express"
-  | "onlineshop-express"
-  | "cms-hosting"
-  | "onlineshop";
+  "cms-hosting-express" | "onlineshop-express" | "cms-hosting" | "onlineshop";
 
 interface RelocationArticle {
   timeRange: {

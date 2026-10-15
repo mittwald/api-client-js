@@ -5,12 +5,14 @@ import { containsDateTimeInput } from "./dateTimeInput.js";
 const schemaRefPrefix = "#/components/schemas/";
 
 const collectSchemaRefs = (something: unknown, into: Set<string>): void => {
-  if (!is.nonEmptyObject(something)) {
+  // Note: as of @sindresorhus/is v8, `is.nonEmptyObject()` no longer reports
+  // `true` for arrays, so arrays have to be handled before that check.
+  if (is.array(something)) {
+    something.forEach((item) => collectSchemaRefs(item, into));
     return;
   }
 
-  if (is.array(something)) {
-    something.forEach((item) => collectSchemaRefs(item, into));
+  if (!is.nonEmptyObject(something)) {
     return;
   }
 
@@ -95,7 +97,7 @@ export const dateTimeInputSchemaNames = (
   );
 
   // 2. …plus everything transitively referencing one of them
-  for (let changed = true; changed; ) {
+  for (let changed = true; changed;) {
     changed = false;
 
     for (const [name, schemaRefs] of refs) {

@@ -210,8 +210,7 @@ export class AppInstallationCommon extends WithData<
   public readonly appVersionString: string;
   public readonly customDocumentRoot?: string;
   public override readonly data:
-    | AppInstallationListItemData
-    | AppInstallationData;
+    AppInstallationListItemData | AppInstallationData;
   public readonly deletionRequested?: boolean;
   public readonly description: string;
   public readonly entryPointUserInput?: AppSavedUserInput;

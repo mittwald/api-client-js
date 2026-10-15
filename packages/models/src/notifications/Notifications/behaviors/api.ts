@@ -21,7 +21,7 @@ export const apiNotificationBehaviors = (
     };
   },
   markAsRead: async (notificationId) => {
-    const response = await client.notification.sreadNotification({
+    const response = await client.notification.supdateNotificationStatus({
       data: { status: "read" },
       notificationId,
     });

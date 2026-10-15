@@ -3,9 +3,7 @@ import type { Server } from "./Server.js";
 
 import { config } from "../../config/index.js";
 
-export class ServerAvatarAccessTokenProvider
-  implements FileAccessTokenProvider
-{
+export class ServerAvatarAccessTokenProvider implements FileAccessTokenProvider {
   public readonly server: Server;
 
   public constructor(server: Server) {

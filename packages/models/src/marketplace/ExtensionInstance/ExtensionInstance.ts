@@ -190,8 +190,7 @@ export class ExtensionInstanceCommon extends WithData<
   public readonly contributorName: string;
   public readonly createdAtInSeconds?: number;
   public override readonly data:
-    | ExtensionInstanceListItemData
-    | ExtensionInstanceData;
+    ExtensionInstanceListItemData | ExtensionInstanceData;
   public readonly extension: Extension;
   public readonly extensionDeletionDeadline?: DateTime;
   public readonly extensionName: string;

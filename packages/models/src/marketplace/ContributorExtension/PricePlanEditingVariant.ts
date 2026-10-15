@@ -10,8 +10,7 @@ export class PricePlanEditingVariant extends DataModel<PricePlanEditingVariantDa
   public readonly deletionDeadline?: DateTime;
   public readonly description?: string;
   public readonly descriptionChangeType:
-    | "FEATURE_SET_UNCHANGED"
-    | "FEATURE_SET_MODIFIED";
+    "FEATURE_SET_UNCHANGED" | "FEATURE_SET_MODIFIED";
   public readonly isBookingStopped: boolean;
   public readonly isDeletionScheduled: boolean;
   public readonly isNew: boolean;

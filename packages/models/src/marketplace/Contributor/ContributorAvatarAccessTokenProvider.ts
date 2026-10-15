@@ -3,9 +3,7 @@ import type { Contributor } from "./Contributor.js";
 
 import { config } from "../../config/index.js";
 
-export class ContributorAvatarAccessTokenProvider
-  implements FileAccessTokenProvider
-{
+export class ContributorAvatarAccessTokenProvider implements FileAccessTokenProvider {
   public readonly contributor: Contributor;
 
   public constructor(contributor: Contributor) {

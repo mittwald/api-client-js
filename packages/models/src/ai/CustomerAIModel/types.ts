@@ -8,4 +8,5 @@ export type CustomerAIModelListItemData = CustomerAIModelData;
 export type CustomerAIModelStatus =
   MittwaldAPIV2.Components.Schemas.AihostingDetailedModelStatus;
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface CustomerAIModelListQueryData {}

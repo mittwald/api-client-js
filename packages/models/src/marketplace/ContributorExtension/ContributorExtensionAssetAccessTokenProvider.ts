@@ -3,9 +3,7 @@ import type { FileAccessTokenProvider } from "../../file/index.js";
 
 import { config } from "../../config/index.js";
 
-export class ContributorExtensionAssetAccessTokenProvider
-  implements FileAccessTokenProvider
-{
+export class ContributorExtensionAssetAccessTokenProvider implements FileAccessTokenProvider {
   public readonly contributorExtension: ContributorExtension;
 
   public constructor(contributorExtension: ContributorExtension) {

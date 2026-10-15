@@ -7,7 +7,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "exclude": ["**/*.test.ts"],
   "extends": "../../tsconfig.json",
   "include": ["src/**/*.ts"]
 }

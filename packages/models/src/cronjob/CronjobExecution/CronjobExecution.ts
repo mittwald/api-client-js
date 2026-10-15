@@ -80,8 +80,7 @@ export class CronjobExecutionCommon extends WithData<
   CronjobExecutionListItemData | CronjobExecutionData
 >()(CronjobExecution) {
   public override readonly data:
-    | CronjobExecutionListItemData
-    | CronjobExecutionData;
+    CronjobExecutionListItemData | CronjobExecutionData;
   public readonly durationInSeconds?: number;
   public readonly exitCode?: number;
   public readonly isRunning: boolean;

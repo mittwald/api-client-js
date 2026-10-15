@@ -5,9 +5,7 @@ import type { FileAccessTokenProvider } from "../../file/index.js";
 
 import { config } from "../../config/index.js";
 
-export class ContributorIncomingInvoicePdfAccessTokenProvider
-  implements FileAccessTokenProvider
-{
+export class ContributorIncomingInvoicePdfAccessTokenProvider implements FileAccessTokenProvider {
   public readonly invoice: ContributorIncomingInvoice;
 
   public constructor(invoice: ContributorIncomingInvoice) {

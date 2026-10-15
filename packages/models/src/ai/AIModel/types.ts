@@ -6,10 +6,7 @@ export type AIModelData =
 export type AIModelListItemData = AIModelData;
 
 export type AIModelLabel =
-  | "legacy stable"
-  | "experimental"
-  | "preview"
-  | "stable"
-  | "lts";
+  "legacy stable" | "experimental" | "preview" | "stable" | "lts";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface AIModelListQueryData {}

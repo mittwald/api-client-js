@@ -163,8 +163,7 @@ export class CustomerMembershipCommon extends WithData<
   public readonly avatar?: File;
   public readonly customer: Customer;
   public override readonly data:
-    | CustomerMembershipListItemData
-    | CustomerMembershipData;
+    CustomerMembershipListItemData | CustomerMembershipData;
   public readonly expiresAt?: DateTime;
   public readonly fullName: string;
   public readonly role: CustomerRole;

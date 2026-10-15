@@ -109,8 +109,7 @@ export class CustomerInviteCommon extends WithData<
   public readonly customer: Customer;
   public readonly customerName: string;
   public override readonly data:
-    | CustomerInviteListItemData
-    | CustomerInviteData;
+    CustomerInviteListItemData | CustomerInviteData;
   public readonly invitedBy: User;
   public readonly mailAddress: string;
   public readonly message?: string;

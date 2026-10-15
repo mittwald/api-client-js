@@ -114,8 +114,7 @@ export class ArticleCommon extends WithData<
     type: Constructor<T>,
   ): T | undefined {
     return this.attributes.find((attr) => attr instanceof type) as
-      | T
-      | undefined;
+      T | undefined;
   }
 
   public getModifier<T extends ArticleModifier>(

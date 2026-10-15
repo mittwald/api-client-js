@@ -137,8 +137,7 @@ export class RedisCommon extends WithData<RedisListItemData | RedisData>()(
           ? Bytes.of(parseInt(data.configuration.maxMemory), "bytes")
           : undefined,
         maxMemoryPolicy: data.configuration.maxMemoryPolicy as
-          | RedisMaxMemoryPolicy
-          | undefined,
+          RedisMaxMemoryPolicy | undefined,
         persistent: !!data.configuration.persistent,
       };
     }

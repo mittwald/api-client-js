@@ -222,8 +222,7 @@ export class ContributorExtensionCommon extends WithData<
   public readonly contributor: Contributor;
   public readonly customer: Customer;
   public override readonly data:
-    | ContributorExtensionListItemData
-    | ContributorExtensionData;
+    ContributorExtensionListItemData | ContributorExtensionData;
   public readonly deletionDeadline?: DateTime;
   public readonly deprecation?: MarketplaceExtensionDeprecation;
   public readonly description?: string;
