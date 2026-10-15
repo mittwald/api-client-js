@@ -34,12 +34,10 @@ type RequestWithQueryParameters<TQuery> = TQuery extends EmptyRequestComponent
 
 export type RequestType<
   TData extends HttpPayload = EmptyRequestComponent,
-  TPathParameters extends
-    | PathParameters
-    | EmptyRequestComponent = EmptyRequestComponent,
-  TQueryParameters extends
-    | QueryParameters
-    | EmptyRequestComponent = EmptyRequestComponent,
+  TPathParameters extends PathParameters | EmptyRequestComponent =
+    EmptyRequestComponent,
+  TQueryParameters extends QueryParameters | EmptyRequestComponent =
+    EmptyRequestComponent,
   THeader extends HttpHeaders | EmptyRequestComponent = EmptyRequestComponent,
 > =
   | TData
