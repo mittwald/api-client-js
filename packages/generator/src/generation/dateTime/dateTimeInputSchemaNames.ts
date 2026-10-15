@@ -97,7 +97,7 @@ export const dateTimeInputSchemaNames = (
   );
 
   // 2. …plus everything transitively referencing one of them
-  for (let changed = true; changed; ) {
+  for (let changed = true; changed;) {
     changed = false;
 
     for (const [name, schemaRefs] of refs) {
