@@ -11524,6 +11524,7 @@ export declare module MittwaldAPIV3Next {
          * deprecated
          */
         isReady: boolean;
+        primaryIpAddresses?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectPrimaryIpAddresses;
         projectHostingId?: string;
         readiness: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectDeprecatedProjectReadinessStatus;
         serverGroupId: string;
@@ -11577,6 +11578,7 @@ export declare module MittwaldAPIV3Next {
          * deprecated by property status
          */
         isReady: boolean;
+        primaryIpAddresses?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectPrimaryIpAddresses;
         projectHostingId?: string;
         readiness: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectDeprecatedProjectReadinessStatus;
         serverGroupId: string;
@@ -11614,6 +11616,7 @@ export declare module MittwaldAPIV3Next {
          */
         isReady: boolean;
         machineType: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectMachineType;
+        primaryIpAddresses?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectPrimaryIpAddresses;
         readiness: MittwaldAPIV3Next.Components.Schemas.DeMittwaldProjectDeprecatedServerReadinessStatus;
         shortId: string;
         statisticsBaseDomain?: string;
@@ -12562,6 +12565,14 @@ export declare module MittwaldAPIV3Next {
         key: string;
       }
 
+      /**
+       * Primary public IP addresses of the Server, one per address family.
+       */
+      export interface DeMittwaldProjectPrimaryIpAddresses {
+        v4?: string;
+        v6?: string;
+      }
+
       export interface DeMittwaldCommonsAddress {
         street: string;
         houseNumber: string;
@@ -12755,6 +12766,10 @@ export declare module MittwaldAPIV3Next {
              */
             enabledIngressInOtherProject: boolean;
             inRedemptionPeriod: boolean;
+            /**
+             * The registry charges a premium price for transferring this domain. Premium domains are not supported.
+             */
+            premiumDomain: boolean;
             transferLock: boolean;
             wrongAuthCode: boolean;
           };
