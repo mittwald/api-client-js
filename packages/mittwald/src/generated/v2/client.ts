@@ -1168,10 +1168,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     migrationOrderDomainMigration: this.requestFunctionFactory(
       descriptors.domainMigrationOrderDomainMigration,
     ),
-    /** Resends a Contact-Verification email. */
-    resendContactVerificationEmail: this.requestFunctionFactory(
-      descriptors.domainResendContactVerificationEmail,
-    ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail,
