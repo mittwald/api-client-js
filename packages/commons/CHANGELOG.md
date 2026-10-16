@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.500.2](https://github.com/mittwald/api-client-js/compare/4.500.1...4.500.2) (2026-10-16)
+
+### Bug Fixes
+
+* **deps:** bump runtime dependencies to latest minor/patch (axios, path-to-regexp security fixes) ([#301](https://github.com/mittwald/api-client-js/issues/301)) ([f355b56](https://github.com/mittwald/api-client-js/commit/f355b569817fd69b1424f7d9b1cb8837eed595cb))
+
 ## [4.500.1](https://github.com/mittwald/api-client-js/compare/4.500.0...4.500.1) (2026-10-16)
 
 **Note:** Version bump only for package @mittwald/api-client-commons
