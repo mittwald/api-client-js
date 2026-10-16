@@ -1984,7 +1984,6 @@ __metadata:
     "@jest/globals": "npm:^30.5.0"
     "@mittwald/react-use-promise": "npm:^4.3.0"
     "@types/jest": "npm:^30.0.0"
-    "@types/parse-path": "npm:^7.1.0"
     axios: "npm:^1.20.0"
     eslint: "npm:^10.9.1"
     eslint-config-prettier: "npm:^10.1.8"
@@ -1993,8 +1992,6 @@ __metadata:
     globals: "npm:^17.11.0"
     jest: "npm:^30.5.0"
     nock: "npm:^14.0.17"
-    parse-path: "npm:^7.1.0"
-    path-to-regexp: "npm:^8.4.2"
     prettier: "npm:^3.9.6"
     prettier-plugin-jsdoc: "npm:^1.8.1"
     prettier-plugin-pkgsort: "npm:^0.3.0"
@@ -2064,7 +2061,6 @@ __metadata:
     "@types/clone-deep": "npm:^4.0.4"
     "@types/invariant": "npm:^2.2.37"
     "@types/jest": "npm:^30.0.0"
-    "@types/prettier": "npm:^3.0.0"
     "@types/swagger2openapi": "npm:^7.0.4"
     "@types/verror": "npm:^1.10.11"
     "@types/yieldable-json": "npm:^2.0.2"
@@ -3614,24 +3610,6 @@ __metadata:
   version: 7.0.3
   resolution: "@types/parse-path@npm:7.0.3"
   checksum: 10/21a12c228d38f5a75659dfd7cb127dc2001ed3f6acbd1b2e0575d1348c735594c0bab06a97fe849c151438384829f20ea5971cb045f7ecd37d53c76a9fcb9de3
-  languageName: node
-  linkType: hard
-
-"@types/parse-path@npm:^7.1.0":
-  version: 7.1.0
-  resolution: "@types/parse-path@npm:7.1.0"
-  dependencies:
-    parse-path: "npm:*"
-  checksum: 10/3833919717ce61d479222bc03cf3e26a8692919cfe5476d970a50cc9227ebf02bcaa8fe782081f7f28713a40234ef785a2e752ba714beb5a51d9ede716833851
-  languageName: node
-  linkType: hard
-
-"@types/prettier@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@types/prettier@npm:3.0.0"
-  dependencies:
-    prettier: "npm:*"
-  checksum: 10/a2a512d304e5bcf78f38089dc88ad19215e6ab871d435a17aef3ce538a63b07c0e359c18db23989dc1ed9fff96d99eee1f680416080184df5c7e0e3bf767e165
   languageName: node
   linkType: hard
 
@@ -10330,15 +10308,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"parse-path@npm:*, parse-path@npm:^7.1.0":
-  version: 7.1.0
-  resolution: "parse-path@npm:7.1.0"
-  dependencies:
-    protocols: "npm:^2.0.0"
-  checksum: 10/6da6c6803fa73bacfee98e694c6c95fa55caae632c765369e4fd917f1043ef71f35ecaae420ef0e39e933bd1f939c4bc1e01522b62145191cdbe72e58d37a8ab
-  languageName: node
-  linkType: hard
-
 "parse-path@npm:^7.0.0":
   version: 7.0.0
   resolution: "parse-path@npm:7.0.0"
@@ -10431,13 +10400,6 @@ __metadata:
     lru-cache: "npm:^11.0.0"
     minipass: "npm:^7.1.2"
   checksum: 10/2b4257422bcb870a4c2d205b3acdbb213a72f5e2250f61c80f79c9d014d010f82bdf8584441612c8e1fa4eb098678f5704a66fa8377d72646bad4be38e57a2c3
-  languageName: node
-  linkType: hard
-
-"path-to-regexp@npm:^8.4.2":
-  version: 8.4.2
-  resolution: "path-to-regexp@npm:8.4.2"
-  checksum: 10/70fd2cbce0b962cbcf4d312af07818bfce2bae11c09cf3bd86be99c0e30168238a1a7b02b18b452e73f075897df04597d30d63e56da7be41eecfc37998693389
   languageName: node
   linkType: hard
 
@@ -10605,7 +10567,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:*, prettier@npm:^3.2.5, prettier@npm:^3.9.6, prettier@npm:^3.9.9":
+"prettier@npm:^3.2.5, prettier@npm:^3.9.6, prettier@npm:^3.9.9":
   version: 3.9.9
   resolution: "prettier@npm:3.9.9"
   bin:

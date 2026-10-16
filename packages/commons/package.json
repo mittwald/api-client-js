@@ -43,10 +43,7 @@
     "test:unit:coverage": "run test:unit --coverage"
   },
   "dependencies": {
-    "@types/parse-path": "^7.1.0",
     "axios": "^1.20.0",
-    "parse-path": "^7.1.0",
-    "path-to-regexp": "^8.4.2",
     "type-fest": "^4.30.0"
   },
   "devDependencies": {
