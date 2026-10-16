@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.500.1](https://github.com/mittwald/api-client-js/compare/4.500.0...4.500.1) (2026-10-16)
+
+### Bug Fixes
+
+* **generator:** emit `declare namespace` instead of `declare module` ([#316](https://github.com/mittwald/api-client-js/issues/316)) ([16d9dd0](https://github.com/mittwald/api-client-js/commit/16d9dd04675283b8877b12dd9c22b9ea60a00f4f))
+
 # [4.500.0](https://github.com/mittwald/api-client-js/compare/4.499.1...4.500.0) (2026-10-15)
 
 **Note:** Version bump only for package @mittwald/api-code-generator
