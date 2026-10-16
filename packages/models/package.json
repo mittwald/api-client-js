@@ -41,7 +41,7 @@
   "dependencies": {
     "@mittwald/api-client": "workspace:^",
     "another-deep-freeze": "1.0.0",
-    "context": "^4.0.17",
+    "context": "^4.0.18",
     "dinero.js": "^1.9.1",
     "object-code": "^2.0.0",
     "polytype": "^0.17.0",

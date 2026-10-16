@@ -2081,11 +2081,11 @@ __metadata:
     globals: "npm:^17.11.0"
     invariant: "npm:^2.2.4"
     jest: "npm:^30.5.0"
-    js-yaml: "npm:^5.4.1"
+    js-yaml: "npm:^5.4.3"
     json-schema-to-typescript: "npm:^15.0.4"
     openapi-schema-validator: "npm:^12.1.3"
     openapi-types: "npm:^12.1.3"
-    prettier: "npm:^3.9.6"
+    prettier: "npm:^3.9.9"
     prettier-plugin-jsdoc: "npm:^1.8.1"
     prettier-plugin-pkgsort: "npm:^0.3.0"
     prettier-plugin-sort-json: "npm:^4.2.0"
@@ -2097,7 +2097,7 @@ __metadata:
     typescript-eslint: "npm:^8.68.0"
     verror: "npm:^1.10.1"
     yieldable-json: "npm:^2.1.0"
-    zod: "npm:^4.4.3"
+    zod: "npm:^4.6.5"
     zod-validation-error: "npm:^5.0.0"
   bin:
     acg: ./bin/cli.js
@@ -2121,7 +2121,7 @@ __metadata:
     "@types/react": "npm:^18.3.31"
     "@types/react-dom": "npm:^18.3.7"
     another-deep-freeze: "npm:1.0.0"
-    context: "npm:^4.0.17"
+    context: "npm:^4.0.18"
     dinero.js: "npm:^1.9.1"
     eslint: "npm:^10.9.1"
     eslint-config-prettier: "npm:^10.1.8"
@@ -5291,7 +5291,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"context@npm:^4.0.17":
+"context@npm:^4.0.18":
   version: 4.0.18
   resolution: "context@npm:4.0.18"
   dependencies:
@@ -8080,14 +8080,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^5.4.1":
-  version: 5.4.2
-  resolution: "js-yaml@npm:5.4.2"
+"js-yaml@npm:^5.4.3":
+  version: 5.4.3
+  resolution: "js-yaml@npm:5.4.3"
   dependencies:
     argparse: "npm:^2.0.1"
   bin:
     js-yaml: bin/js-yaml.mjs
-  checksum: 10/f2461abd1d6268fb226733f0a0e0aa48004bb824116e3dfa75f1a1279001936343b672066dfecdb852ac3ca883452706c383a760aa90430cb68ba395aa2cbc84
+  checksum: 10/2409d1238efddc29ab62ddb26d70bc7f2e8b58b84eb8d41d09d50fab86f8670aa2fec5dc6c99ef71939acab5d7c0b3526f96bdd0055042aa0136cca749b20afc
   languageName: node
   linkType: hard
 
@@ -10605,30 +10605,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:*":
-  version: 3.3.3
-  resolution: "prettier@npm:3.3.3"
+"prettier@npm:*, prettier@npm:^3.2.5, prettier@npm:^3.9.6, prettier@npm:^3.9.9":
+  version: 3.9.9
+  resolution: "prettier@npm:3.9.9"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/5beac1f30b5b40162532b8e2f7c3a4eb650910a2695e9c8512a62ffdc09dae93190c29db9107fa7f26d1b6c71aad3628ecb9b5de1ecb0911191099be109434d7
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.2.5":
-  version: 3.4.2
-  resolution: "prettier@npm:3.4.2"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10/a3e806fb0b635818964d472d35d27e21a4e17150c679047f5501e1f23bd4aa806adf660f0c0d35214a210d5d440da6896c2e86156da55f221a57938278dc326e
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.9.6":
-  version: 3.9.6
-  resolution: "prettier@npm:3.9.6"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: 10/1dd1a1e0e40ec3b91cda9d294c4a95022aef61880ca3f441aad99b1252279f58a766c4cece81132c01550dcff1fd445efbd8812ea4a2374313e7fc6c8136f11f
+  checksum: 10/3d11a8095a7db50f0fbc8086ad96be676401154b63a2e9023e1274893457dccab19a9c211f4fb2cae7244e800bea2d5185d9bb6fc510f48a53017815e47d4e6d
   languageName: node
   linkType: hard
 
@@ -12841,7 +12823,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^4.4.3":
+"zod@npm:^4.6.5":
   version: 4.6.5
   resolution: "zod@npm:4.6.5"
   checksum: 10/db004952e4dc6eab38b70f0cdef9251a65da84f5d08c5a0ef85e2590cfa9c477544ce734161ff5c05f89a15f0967137607a7feb16716195e04965f030db47213
