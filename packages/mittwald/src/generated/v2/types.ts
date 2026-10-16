@@ -8,7 +8,7 @@ import {
   HttpStatus,
 } from "@mittwald/api-client-commons";
 
-export declare module MittwaldAPIV2 {
+export declare namespace MittwaldAPIV2 {
   namespace Operations {
     namespace AiHostingCustomerAcceptModelTerms {
       type RequestData = InferredRequestData<
