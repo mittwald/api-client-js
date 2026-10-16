@@ -36,6 +36,20 @@ describe("nullable schemas", () => {
       anyOf: [{ type: "string", maxLength: 5 }, { type: "null" }],
     });
   });
+  test("move JSDoc annotations onto the anyOf wrapper", () => {
+    expect(
+      populate({
+        type: "string",
+        nullable: true,
+        description: "Set to null to remove.",
+        deprecated: true,
+      }),
+    ).toEqual({
+      description: "Set to null to remove.",
+      deprecated: true,
+      anyOf: [{ type: "string" }, { type: "null" }],
+    });
+  });
 });
 
 describe("references", () => {

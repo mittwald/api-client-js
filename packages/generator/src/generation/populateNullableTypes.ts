@@ -26,10 +26,19 @@ export function populateNullableTypes(
   });
 
   if (schema.nullable) {
-    const { nullable: ignoredNullable, ...schemaWithoutNullable } = schema;
+    // JSDoc is generated from the schema a property points to, i.e. the
+    // wrapper. Annotations left on the branch would silently disappear.
+    const {
+      nullable: ignoredNullable,
+      description,
+      deprecated,
+      ...branch
+    } = schema;
     return {
+      ...(description !== undefined && { description }),
+      ...(deprecated !== undefined && { deprecated }),
       anyOf: [
-        schemaWithoutNullable as OpenAPIV3.SchemaObject,
+        branch as OpenAPIV3.SchemaObject,
         { type: "null" } as unknown as OpenAPIV3.SchemaObject,
       ],
     };
