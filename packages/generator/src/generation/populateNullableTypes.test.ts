@@ -1,5 +1,10 @@
 import { OpenAPIV3 } from "openapi-types";
-import { populateNullableTypes } from "./populateNullableTypes.js";
+import {
+  populateNullableTypes,
+  populateNullableTypesForPathItem,
+  populateNullableTypesForRequestBody,
+  populateNullableTypesForResponse,
+} from "./populateNullableTypes.js";
 
 const populate = (schema: unknown): OpenAPIV3.SchemaObject =>
   populateNullableTypes(
@@ -175,5 +180,72 @@ describe("mutation of the input", () => {
     populate(schema);
 
     expect(schema.properties?.name).toEqual({ type: "string" });
+  });
+});
+
+describe("operation-level schemas", () => {
+  const nullableString = (): OpenAPIV3.SchemaObject => ({
+    type: "string",
+    nullable: true,
+  });
+  const wrapped = { anyOf: [{ type: "string" }, { type: "null" }] };
+
+  test("request body schemas are wrapped per media type", () => {
+    const requestBody = populateNullableTypesForRequestBody({
+      content: {
+        "application/json": { schema: nullableString() },
+        "text/plain": {},
+      },
+    }) as OpenAPIV3.RequestBodyObject;
+
+    expect(requestBody.content["application/json"]?.schema).toEqual(wrapped);
+    expect(requestBody.content["text/plain"]).toEqual({});
+  });
+
+  test("response schemas are wrapped, responses without content are kept", () => {
+    const response = populateNullableTypesForResponse({
+      description: "ok",
+      content: { "application/json": { schema: nullableString() } },
+    }) as OpenAPIV3.ResponseObject;
+    const empty = { description: "no content" };
+
+    expect(response.content?.["application/json"]?.schema).toEqual(wrapped);
+    expect(populateNullableTypesForResponse(empty)).toEqual(empty);
+  });
+
+  test("references to request bodies and responses are returned unchanged", () => {
+    const ref = { $ref: "#/components/requestBodies/Project" };
+
+    expect(populateNullableTypesForRequestBody(ref)).toBe(ref);
+    expect(populateNullableTypesForResponse(ref)).toBe(ref);
+  });
+
+  test("path items are covered across parameters, bodies and responses", () => {
+    const pathItem = populateNullableTypesForPathItem({
+      patch: {
+        parameters: [
+          { name: "filter", in: "query", schema: nullableString() },
+          { $ref: "#/components/parameters/Page" },
+        ],
+        requestBody: {
+          content: { "application/json": { schema: nullableString() } },
+        },
+        responses: {
+          "200": {
+            description: "ok",
+            content: { "application/json": { schema: nullableString() } },
+          },
+        },
+      },
+    });
+    const operation = pathItem.patch as OpenAPIV3.OperationObject;
+    const [parameter, parameterRef] = operation.parameters ?? [];
+    const requestBody = operation.requestBody as OpenAPIV3.RequestBodyObject;
+    const response = operation.responses["200"] as OpenAPIV3.ResponseObject;
+
+    expect((parameter as OpenAPIV3.ParameterObject).schema).toEqual(wrapped);
+    expect(parameterRef).toEqual({ $ref: "#/components/parameters/Page" });
+    expect(requestBody.content["application/json"]?.schema).toEqual(wrapped);
+    expect(response.content?.["application/json"]?.schema).toEqual(wrapped);
   });
 });

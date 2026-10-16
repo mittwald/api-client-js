@@ -38,18 +38,25 @@ export function populateNullableTypes(
   return schema;
 }
 
+export function populateNullableTypesForContent<
+  T extends Record<string, OpenAPIV3.MediaTypeObject> | undefined,
+>(content: T): T {
+  for (const mediaType in content) {
+    const mediaTypeObject = content[mediaType];
+    if (mediaTypeObject?.schema) {
+      mediaTypeObject.schema = populateNullableTypes(mediaTypeObject.schema);
+    }
+  }
+  return content;
+}
+
 export function populateNullableTypesForRequestBody(
   requestBody: OpenAPIV3.ReferenceObject | OpenAPIV3.RequestBodyObject,
 ): OpenAPIV3.ReferenceObject | OpenAPIV3.RequestBodyObject {
   if (!requestBody || "$ref" in requestBody) {
     return requestBody;
   }
-  for (const mediaType in requestBody.content) {
-    const mediaTypeObject = requestBody.content[mediaType];
-    if (mediaTypeObject?.schema) {
-      mediaTypeObject.schema = populateNullableTypes(mediaTypeObject.schema);
-    }
-  }
+  populateNullableTypesForContent(requestBody.content);
   return requestBody;
 }
 
@@ -59,24 +66,13 @@ export function populateNullableTypesForResponse(
   if (!response || "$ref" in response) {
     return response;
   }
-  if (response.content) {
-    for (const mediaType in response.content) {
-      const mediaTypeObject = response.content[mediaType];
-      if (mediaTypeObject?.schema) {
-        mediaTypeObject.schema = populateNullableTypes(mediaTypeObject.schema);
-      }
-    }
-  }
+  populateNullableTypesForContent(response.content);
   return response;
 }
 
 export function populateNullableTypesForPathItem(
-  pathItem: OpenAPIV3.ReferenceObject | OpenAPIV3.PathItemObject,
-): OpenAPIV3.ReferenceObject | OpenAPIV3.PathItemObject {
-  if (!pathItem || "$ref" in pathItem) {
-    return pathItem;
-  }
-
+  pathItem: OpenAPIV3.PathItemObject,
+): OpenAPIV3.PathItemObject {
   for (const httpMethod of Object.values(OpenAPIV3.HttpMethods)) {
     const operation = pathItem[httpMethod];
 
