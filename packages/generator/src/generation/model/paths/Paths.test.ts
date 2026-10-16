@@ -66,6 +66,18 @@ describe("deprecated operations", () => {
     expect(types).toMatch(deprecatedBefore("namespace Post {"));
   });
 
+  test("carry deprecated: true on their runtime descriptor", () => {
+    expect(flat(model.paths.compileDescriptors())).toMatch(
+      /export const appCreateApp: [^=]*= \{ [^}]*deprecated: true, \};/,
+    );
+  });
+
+  test("leave non-deprecated descriptors without a deprecated flag", () => {
+    expect(flat(model.paths.compileDescriptors())).toMatch(
+      /export const appListApps: [^=]*= \{ [^}]*operationId: "app-list-apps", \};/,
+    );
+  });
+
   test("leave non-deprecated operations without an @deprecated tag", () => {
     expect(model.paths.compileClient()).not.toMatch(
       deprecatedBefore("listApps: this.requestFunctionFactory("),
