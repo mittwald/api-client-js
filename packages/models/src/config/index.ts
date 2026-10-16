@@ -1,1 +1,1 @@
-export * from "./behaviors/index.js";
+export * from "./config.js";
