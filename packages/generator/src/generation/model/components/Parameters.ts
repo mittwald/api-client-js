@@ -6,6 +6,7 @@ import { TypeCompilationOptions } from "../CodeGenerationModel.js";
 import { assertNoRefs } from "../../refs/assertNoRefs.js";
 import { withDeprecation } from "../../deprecation.js";
 import { JSONSchema as JSONSchemaObject } from "json-schema-to-typescript";
+import { populateNullableTypes } from "../../populateNullableTypes.js";
 
 export class Parameters {
   public static readonly ns = "Parameters";
@@ -32,7 +33,10 @@ export class Parameters {
         // has to be carried over explicitly to end up in the generated JSDoc.
         param.schema === undefined
           ? undefined
-          : withDeprecation(param.schema as JSONSchemaObject, param),
+          : withDeprecation(
+              populateNullableTypes(param.schema) as JSONSchemaObject,
+              param,
+            ),
       );
     });
 
