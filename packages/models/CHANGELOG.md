@@ -7,6 +7,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 > package with a complete rewrite; see
 > [Migration from 4.x](README.md#migration-from-4x).
 
+# [4.501.0](https://github.com/mittwald/api-client-js/compare/4.500.2...4.501.0) (2026-10-16)
+
+**Note:** Version bump only for package @mittwald/api-models
+
 ## [4.500.2](https://github.com/mittwald/api-client-js/compare/4.500.1...4.500.2) (2026-10-16)
 
 ### Bug Fixes

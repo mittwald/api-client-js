@@ -11832,6 +11832,11 @@ export const fileCreateFile: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Files.Post.Responses.$413.Content.ApplicationJson>,
+      413,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Files.Post.Responses.$422.Content.ApplicationJson>,
       422,
       "application/json"
