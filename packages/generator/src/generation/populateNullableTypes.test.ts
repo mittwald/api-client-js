@@ -22,16 +22,13 @@ describe("non-nullable schemas", () => {
 describe("nullable schemas", () => {
   test("are wrapped in an anyOf with a null branch", () => {
     expect(populate({ type: "string", nullable: true })).toEqual({
-      anyOf: [{ type: "string", nullable: true }, { type: "null" }],
+      anyOf: [{ type: "string" }, { type: "null" }],
     });
   });
 
   test("keep sibling keywords inside the anyOf branch", () => {
     expect(populate({ type: "string", nullable: true, maxLength: 5 })).toEqual({
-      anyOf: [
-        { type: "string", nullable: true, maxLength: 5 },
-        { type: "null" },
-      ],
+      anyOf: [{ type: "string", maxLength: 5 }, { type: "null" }],
     });
   });
 });
@@ -56,7 +53,7 @@ describe("nested structures", () => {
 
     expect(result.properties?.name).toEqual({ type: "string" });
     expect(result.properties?.description).toEqual({
-      anyOf: [{ type: "string", nullable: true }, { type: "null" }],
+      anyOf: [{ type: "string" }, { type: "null" }],
     });
   });
 
@@ -68,7 +65,7 @@ describe("nested structures", () => {
 
     expect(result).toEqual({
       type: "array",
-      items: { anyOf: [{ type: "string", nullable: true }, { type: "null" }] },
+      items: { anyOf: [{ type: "string" }, { type: "null" }] },
     });
   });
 
@@ -85,7 +82,7 @@ describe("nested structures", () => {
 
     const outer = result.properties?.outer as OpenAPIV3.SchemaObject;
     expect(outer.properties?.inner).toEqual({
-      anyOf: [{ type: "number", nullable: true }, { type: "null" }],
+      anyOf: [{ type: "number" }, { type: "null" }],
     });
   });
 
@@ -97,7 +94,7 @@ describe("nested structures", () => {
       });
 
       expect(result[key]).toEqual([
-        { anyOf: [{ type: "string", nullable: true }, { type: "null" }] },
+        { anyOf: [{ type: "string" }, { type: "null" }] },
         { type: "number" },
       ]);
     },
@@ -124,7 +121,7 @@ describe("nested structures", () => {
     const branch = result.anyOf?.[0] as OpenAPIV3.SchemaObject;
     expect(result.anyOf?.[1]).toEqual({ type: "null" });
     expect(branch.properties?.name).toEqual({
-      anyOf: [{ type: "string", nullable: true }, { type: "null" }],
+      anyOf: [{ type: "string" }, { type: "null" }],
     });
   });
 });
@@ -145,17 +142,16 @@ describe("mutation of the input", () => {
     populate(schema);
 
     expect(schema.properties?.name).toEqual({
-      anyOf: [{ type: "string", nullable: true }, { type: "null" }],
+      anyOf: [{ type: "string" }, { type: "null" }],
     });
   });
 
   /**
-   * Because the wrapped branch keeps its `nullable: true`, applying the
-   * function twice to the same object nests another `anyOf`. A schema visited n
-   * times therefore compiles to n nested `| null` unions — which is why a
-   * shared OpenAPI document must not be fed to two models.
+   * The wrapped branch loses its `nullable: true`, so a second pass finds
+   * nothing left to wrap. This matters because the document is rewritten in
+   * place, so visiting a schema again must not stack another `| null` union.
    */
-  test("compounds when applied twice to the same schema", () => {
+  test("is idempotent when applied twice to the same schema", () => {
     const schema = {
       type: "object",
       properties: { name: { type: "string", nullable: true } },
@@ -165,12 +161,7 @@ describe("mutation of the input", () => {
     populate(schema);
 
     expect(schema.properties?.name).toEqual({
-      anyOf: [
-        {
-          anyOf: [{ type: "string", nullable: true }, { type: "null" }],
-        },
-        { type: "null" },
-      ],
+      anyOf: [{ type: "string" }, { type: "null" }],
     });
   });
 
