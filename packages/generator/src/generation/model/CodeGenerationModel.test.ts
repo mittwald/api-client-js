@@ -229,7 +229,7 @@ describe("compiled types", () => {
   });
 
   test("wraps everything in the root namespace", () => {
-    expect(types).toContain("export declare module PetstoreAPI {");
+    expect(types).toContain("export declare namespace PetstoreAPI {");
   });
 
   test("imports the descriptors and the commons helper types", () => {
