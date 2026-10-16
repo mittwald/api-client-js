@@ -32,6 +32,14 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingCustomerGetPlan,
     baseClient.aiHosting.customerGetPlan,
   ).getApiResource,
+  /**
+   * Get ai hosting plan and usages of a customer.
+   * @deprecated
+   */
+  customerGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetUsage,
+    baseClient.aiHosting.customerGetUsage,
+  ).getApiResource,
   /** Get a list of currently active models. */
   getModels: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingGetModels,
@@ -72,6 +80,14 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.aiHostingProjectGetPlans,
     baseClient.aiHosting.projectGetPlans,
   ).getApiResource,
+  /**
+   * Get ai hosting plan and usages of a project.
+   * @deprecated
+   */
+  projectGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetUsage,
+    baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
@@ -99,6 +115,14 @@ const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
   getAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppversion,
     baseClient.app.getAppversion,
+  ).getApiResource,
+  /**
+   * Get the installed `SystemSoftware' for a specific `AppInstallation`.
+   * @deprecated
+   */
+  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
+    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
   ).getApiResource,
   /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
   getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
@@ -284,6 +308,14 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.containerListStackVolumes,
     baseClient.container.listStackVolumes,
   ).getApiResource,
+  /**
+   * List Container Template statistics.
+   * @deprecated
+   */
+  listTemplateStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.containerListTemplateStatistics,
+    baseClient.container.listTemplateStatistics,
+  ).getApiResource,
   /** List Container Templates. */
   listTemplates: new ApiCallAsyncResourceFactory(
     descriptors.containerListTemplates,
@@ -293,6 +325,14 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
+  ).getApiResource,
+  /**
+   * Get a Container Template icon.
+   * @deprecated
+   */
+  deprecatedContainerGetTemplateIcon: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedContainerGetTemplateIcon,
+    baseClient.container.deprecatedContainerGetTemplateIcon,
   ).getApiResource,
 });
 
@@ -356,6 +396,32 @@ const buildContractApi = (baseClient: MittwaldAPIV3NextClient) => ({
   listContracts: new ApiCallAsyncResourceFactory(
     descriptors.contractListContracts,
     baseClient.contract.listContracts,
+  ).getApiResource,
+  /**
+   * Return the AI Hosting Contract for the given Customer.
+   * @deprecated
+   */
+  deprecatedContractGetDetailOfContractByAiHosting:
+    new ApiCallAsyncResourceFactory(
+      descriptors.deprecatedContractGetDetailOfContractByAiHosting,
+      baseClient.contract.deprecatedContractGetDetailOfContractByAiHosting,
+    ).getApiResource,
+  /**
+   * Return the next TerminationDate for the ContractItem with the given ID.
+   * @deprecated
+   */
+  deprecatedContractGetNextTerminationDateForItem:
+    new ApiCallAsyncResourceFactory(
+      descriptors.deprecatedContractGetNextTerminationDateForItem,
+      baseClient.contract.deprecatedContractGetNextTerminationDateForItem,
+    ).getApiResource,
+  /**
+   * Get details of an Invoice.
+   * @deprecated
+   */
+  deprecatedInvoiceDetailOfInvoice: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedInvoiceDetailOfInvoice,
+    baseClient.contract.deprecatedInvoiceDetailOfInvoice,
   ).getApiResource,
   /** Get details of an Invoice. */
   invoiceDetail: new ApiCallAsyncResourceFactory(
@@ -721,6 +787,38 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.domainListDomains,
     baseClient.domain.listDomains,
   ).getApiResource,
+  /**
+   * Get a HandleSchema.
+   * @deprecated
+   */
+  deprecatedDomainGetHandleFields: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedDomainGetHandleFields,
+    baseClient.domain.deprecatedDomainGetHandleFields,
+  ).getApiResource,
+  /**
+   * Get File Service Reference for a Screenshot of a domain.
+   * @deprecated
+   */
+  deprecatedDomainGetScreenshotForDomain: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedDomainGetScreenshotForDomain,
+    baseClient.domain.deprecatedDomainGetScreenshotForDomain,
+  ).getApiResource,
+  /**
+   * List Domains belonging to a Project.
+   * @deprecated
+   */
+  deprecatedDomainListDomains: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedDomainListDomains,
+    baseClient.domain.deprecatedDomainListDomains,
+  ).getApiResource,
+  /**
+   * List Ingresses belonging to a project.
+   * @deprecated
+   */
+  deprecatedIngressListIngresses: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedIngressListIngresses,
+    baseClient.domain.deprecatedIngressListIngresses,
+  ).getApiResource,
   /** List DNS zone-file import jobs belonging to a Project. */
   dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZoneFileImports,
@@ -819,6 +917,22 @@ const buildDomainApi = (baseClient: MittwaldAPIV3NextClient) => ({
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV3NextClient) => ({
+  /**
+   * Get a Token's upload rules.
+   * @deprecated
+   */
+  deprecatedFileGetFileTokenRules: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedFileGetFileTokenRules,
+    baseClient.file.deprecatedFileGetFileTokenRules,
+  ).getApiResource,
+  /**
+   * Get a Type's upload rules.
+   * @deprecated
+   */
+  deprecatedFileGetFileTypeRules: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedFileGetFileTypeRules,
+    baseClient.file.deprecatedFileGetFileTypeRules,
+  ).getApiResource,
   /** Get a File's meta. */
   getFileMeta: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileMeta,
@@ -843,6 +957,153 @@ const buildFileApi = (baseClient: MittwaldAPIV3NextClient) => ({
   getFileWithName: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileWithName,
     baseClient.file.getFileWithName,
+  ).getApiResource,
+});
+
+const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
+  /**
+   * Get your account information. Replaced by `GET` `/v2/users/self`.
+   * @deprecated
+   */
+  deprecatedUserGetOwnAccount: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserGetOwnAccount,
+    baseClient.user.deprecatedUserGetOwnAccount,
+  ).getApiResource,
+  /**
+   * Returns your submitted feedback
+   * @deprecated
+   */
+  deprecatedUserServiceFeedbackList: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServiceFeedbackList,
+    baseClient.user.deprecatedUserServiceFeedbackList,
+  ).getApiResource,
+  /**
+   * Get profile information for the specified user if the user is related to the executing user
+   * @deprecated
+   */
+  deprecatedUserServiceUserGet: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServiceUserGet,
+    baseClient.user.deprecatedUserServiceUserGet,
+  ).getApiResource,
+  /**
+   * Get personalized settings for the user executing the request
+   * @deprecated
+   */
+  deprecatedUserServicePersonalizedSettingsGet: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServicePersonalizedSettingsGet,
+    baseClient.user.deprecatedUserServicePersonalizedSettingsGet,
+  ).getApiResource,
+  /**
+   * Get profile information for the executing user
+   * @deprecated
+   */
+  deprecatedUserServiceUserGetOwn: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServiceUserGetOwn,
+    baseClient.user.deprecatedUserServiceUserGetOwn,
+  ).getApiResource,
+  /** Get a PasswordPolicy. */
+  passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
+    descriptors.passwordValidationGetPasswordPolicy,
+    baseClient.user.passwordValidationGetPasswordPolicy,
+  ).getApiResource,
+  /**
+   * DEPRECAED. Use `GET` `/v2/password-policies/{passwordPolicy}` instead.
+   * @deprecated
+   */
+  passwordValidationGetPasswordPolicyV2Deprecated:
+    new ApiCallAsyncResourceFactory(
+      descriptors.passwordValidationGetPasswordPolicyV2Deprecated,
+      baseClient.user.passwordValidationGetPasswordPolicyV2Deprecated,
+    ).getApiResource,
+  /** Get your verified Email-Address. */
+  getOwnEmail: new ApiCallAsyncResourceFactory(
+    descriptors.userGetOwnEmail,
+    baseClient.user.getOwnEmail,
+  ).getApiResource,
+  /** Get your current multi factor auth status. */
+  getMfaStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetMfaStatus,
+    baseClient.user.getMfaStatus,
+  ).getApiResource,
+  /** List all of your ApiTokens. */
+  listApiTokens: new ApiCallAsyncResourceFactory(
+    descriptors.userListApiTokens,
+    baseClient.user.listApiTokens,
+  ).getApiResource,
+  /** Get your stored ssh-keys. */
+  listSshKeys: new ApiCallAsyncResourceFactory(
+    descriptors.userListSshKeys,
+    baseClient.user.listSshKeys,
+  ).getApiResource,
+  /** Get a specific ApiToken. */
+  getApiToken: new ApiCallAsyncResourceFactory(
+    descriptors.userGetApiToken,
+    baseClient.user.getApiToken,
+  ).getApiResource,
+  /** Get a specific stored ssh-key. */
+  getSshKey: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSshKey,
+    baseClient.user.getSshKey,
+  ).getApiResource,
+  /** Check status of the current session. */
+  getCurrentSessionStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetCurrentSessionStatus,
+    baseClient.user.getCurrentSessionStatus,
+  ).getApiResource,
+  /** The timestamp of your latest password change. */
+  getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPasswordUpdatedAt,
+    baseClient.user.getPasswordUpdatedAt,
+  ).getApiResource,
+  /** Get personalized settings. */
+  getPersonalizedSettings: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPersonalizedSettings,
+    baseClient.user.getPersonalizedSettings,
+  ).getApiResource,
+  /** Get poll settings for the specified user. */
+  getPollStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPollStatus,
+    baseClient.user.getPollStatus,
+  ).getApiResource,
+  /** Get a specific session. */
+  getSession: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSession,
+    baseClient.user.getSession,
+  ).getApiResource,
+  /** Submitted feedback of the given user. */
+  getSpotlightInfo: new ApiCallAsyncResourceFactory(
+    descriptors.userGetSpotlightInfo,
+    baseClient.user.getSpotlightInfo,
+  ).getApiResource,
+  /** Get profile information for a user. */
+  getUser: new ApiCallAsyncResourceFactory(
+    descriptors.userGetUser,
+    baseClient.user.getUser,
+  ).getApiResource,
+  /** Submitted feedback of the given user. */
+  listFeedback: new ApiCallAsyncResourceFactory(
+    descriptors.userListFeedback,
+    baseClient.user.listFeedback,
+  ).getApiResource,
+  /** List all sessions. */
+  listSessions: new ApiCallAsyncResourceFactory(
+    descriptors.userListSessions,
+    baseClient.user.listSessions,
+  ).getApiResource,
+  /** Obtain authorization from the resource owner. */
+  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
+    descriptors.userOauthGetAuthorization,
+    baseClient.user.oauthGetAuthorization,
+  ).getApiResource,
+  /** Check if a password is leaked. */
+  searchedLeakedPasswordsByRange: new ApiCallAsyncResourceFactory(
+    descriptors.userSearchedLeakedPasswordsByRange,
+    baseClient.user.searchedLeakedPasswordsByRange,
+  ).getApiResource,
+  /** Request a support code. */
+  supportCodeRequest: new ApiCallAsyncResourceFactory(
+    descriptors.userSupportCodeRequest,
+    baseClient.user.supportCodeRequest,
   ).getApiResource,
 });
 
@@ -1001,104 +1262,6 @@ const buildPageInsightsApi = (baseClient: MittwaldAPIV3NextClient) => ({
   pageinsightsListPerformanceDataForProject: new ApiCallAsyncResourceFactory(
     descriptors.pageinsightsListPerformanceDataForProject,
     baseClient.pageInsights.pageinsightsListPerformanceDataForProject,
-  ).getApiResource,
-});
-
-const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
-  /** Get a PasswordPolicy. */
-  passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
-    descriptors.passwordValidationGetPasswordPolicy,
-    baseClient.user.passwordValidationGetPasswordPolicy,
-  ).getApiResource,
-  /** Get your verified Email-Address. */
-  getOwnEmail: new ApiCallAsyncResourceFactory(
-    descriptors.userGetOwnEmail,
-    baseClient.user.getOwnEmail,
-  ).getApiResource,
-  /** Get your current multi factor auth status. */
-  getMfaStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetMfaStatus,
-    baseClient.user.getMfaStatus,
-  ).getApiResource,
-  /** List all of your ApiTokens. */
-  listApiTokens: new ApiCallAsyncResourceFactory(
-    descriptors.userListApiTokens,
-    baseClient.user.listApiTokens,
-  ).getApiResource,
-  /** Get your stored ssh-keys. */
-  listSshKeys: new ApiCallAsyncResourceFactory(
-    descriptors.userListSshKeys,
-    baseClient.user.listSshKeys,
-  ).getApiResource,
-  /** Get a specific ApiToken. */
-  getApiToken: new ApiCallAsyncResourceFactory(
-    descriptors.userGetApiToken,
-    baseClient.user.getApiToken,
-  ).getApiResource,
-  /** Get a specific stored ssh-key. */
-  getSshKey: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSshKey,
-    baseClient.user.getSshKey,
-  ).getApiResource,
-  /** Check status of the current session. */
-  getCurrentSessionStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetCurrentSessionStatus,
-    baseClient.user.getCurrentSessionStatus,
-  ).getApiResource,
-  /** The timestamp of your latest password change. */
-  getPasswordUpdatedAt: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPasswordUpdatedAt,
-    baseClient.user.getPasswordUpdatedAt,
-  ).getApiResource,
-  /** Get personalized settings. */
-  getPersonalizedSettings: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPersonalizedSettings,
-    baseClient.user.getPersonalizedSettings,
-  ).getApiResource,
-  /** Get poll settings for the specified user. */
-  getPollStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPollStatus,
-    baseClient.user.getPollStatus,
-  ).getApiResource,
-  /** Get a specific session. */
-  getSession: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSession,
-    baseClient.user.getSession,
-  ).getApiResource,
-  /** Submitted feedback of the given user. */
-  getSpotlightInfo: new ApiCallAsyncResourceFactory(
-    descriptors.userGetSpotlightInfo,
-    baseClient.user.getSpotlightInfo,
-  ).getApiResource,
-  /** Get profile information for a user. */
-  getUser: new ApiCallAsyncResourceFactory(
-    descriptors.userGetUser,
-    baseClient.user.getUser,
-  ).getApiResource,
-  /** Submitted feedback of the given user. */
-  listFeedback: new ApiCallAsyncResourceFactory(
-    descriptors.userListFeedback,
-    baseClient.user.listFeedback,
-  ).getApiResource,
-  /** List all sessions. */
-  listSessions: new ApiCallAsyncResourceFactory(
-    descriptors.userListSessions,
-    baseClient.user.listSessions,
-  ).getApiResource,
-  /** Obtain authorization from the resource owner. */
-  oauthGetAuthorization: new ApiCallAsyncResourceFactory(
-    descriptors.userOauthGetAuthorization,
-    baseClient.user.oauthGetAuthorization,
-  ).getApiResource,
-  /** Check if a password is leaked. */
-  searchedLeakedPasswordsByRange: new ApiCallAsyncResourceFactory(
-    descriptors.userSearchedLeakedPasswordsByRange,
-    baseClient.user.searchedLeakedPasswordsByRange,
-  ).getApiResource,
-  /** Request a support code. */
-  supportCodeRequest: new ApiCallAsyncResourceFactory(
-    descriptors.userSupportCodeRequest,
-    baseClient.user.supportCodeRequest,
   ).getApiResource,
 });
 
@@ -1276,6 +1439,9 @@ export class MittwaldAPIV3NextClientReact {
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
 
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user: ReturnType<typeof buildUserApi>;
+
   /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
   public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
 
@@ -1293,9 +1459,6 @@ export class MittwaldAPIV3NextClientReact {
 
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights: ReturnType<typeof buildPageInsightsApi>;
-
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user: ReturnType<typeof buildUserApi>;
 
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project: ReturnType<typeof buildProjectApi>;
@@ -1335,6 +1498,8 @@ export class MittwaldAPIV3NextClientReact {
 
     this.file = buildFileApi(baseClient);
 
+    this.user = buildUserApi(baseClient);
+
     this.leadFyndr = buildLeadFyndrApi(baseClient);
 
     this.license = buildLicenseApi(baseClient);
@@ -1346,8 +1511,6 @@ export class MittwaldAPIV3NextClientReact {
     this.notification = buildNotificationApi(baseClient);
 
     this.pageInsights = buildPageInsightsApi(baseClient);
-
-    this.user = buildUserApi(baseClient);
 
     this.project = buildProjectApi(baseClient);
 

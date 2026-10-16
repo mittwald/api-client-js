@@ -51,6 +51,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
+    /**
+     * Get ai hosting plan and usages of a customer.
+     * @deprecated
+     */
+    customerGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetUsage,
+    ),
     /** Rotates a customer's key. */
     customerRotateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerRotateKey,
@@ -97,6 +104,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectGetPlans: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlans,
     ),
+    /**
+     * Get ai hosting plan and usages of a project.
+     * @deprecated
+     */
+    projectGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetUsage,
+    ),
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
       descriptors.aiHostingProjectLinkContainer,
@@ -123,6 +137,27 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getAppinstallationErrorAnalysis: this.requestFunctionFactory(
       descriptors.appGetAppinstallationErrorAnalysis,
     ),
+    /**
+     * Get an AppInstallation.
+     * @deprecated
+     */
+    getV2AppinstallationsAppInstallationId: this.requestFunctionFactory(
+      descriptors.getV2AppinstallationsAppInstallationId,
+    ),
+    /**
+     * Trigger an uninstallation process for an AppInstallation.
+     * @deprecated
+     */
+    deleteV2AppinstallationsAppInstallationId: this.requestFunctionFactory(
+      descriptors.deleteV2AppinstallationsAppInstallationId,
+    ),
+    /**
+     * Update properties belonging to an AppInstallation.
+     * @deprecated
+     */
+    patchV2AppinstallationsAppInstallationId: this.requestFunctionFactory(
+      descriptors.patchV2AppinstallationsAppInstallationId,
+    ),
     /** Get an AppInstallation. */
     getAppinstallation: this.requestFunctionFactory(
       descriptors.appGetAppinstallation,
@@ -137,21 +172,78 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get an AppVersion. */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
+    /**
+     * Get the installed `SystemSoftware' for a specific `AppInstallation`.
+     * @deprecated
+     */
+    getInstalledSystemsoftwareForAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    ),
+    /**
+     * Get the missing requirements of an appInstallation for a specific target AppVersion.
+     * @deprecated
+     */
+    getV2AppinstallationsAppInstallationIdMissingDependencies:
+      this.requestFunctionFactory(
+        descriptors.getV2AppinstallationsAppInstallationIdMissingDependencies,
+      ),
     /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
     getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
       descriptors.appGetMissingDependenciesForAppinstallation,
+    ),
+    /**
+     * Get a SystemSoftware.
+     * @deprecated
+     */
+    getV2SystemsoftwaresSystemSoftwareId: this.requestFunctionFactory(
+      descriptors.getV2SystemsoftwaresSystemSoftwareId,
     ),
     /** Get a SystemSoftware. */
     getSystemsoftware: this.requestFunctionFactory(
       descriptors.appGetSystemsoftware,
     ),
+    /**
+     * Get a SystemSoftwareVersion.
+     * @deprecated
+     */
+    getV2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId:
+      this.requestFunctionFactory(
+        descriptors.getV2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId,
+      ),
+    /**
+     * Get a SystemSoftwareVersion.
+     * @deprecated
+     */
+    getV2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId:
+      this.requestFunctionFactory(
+        descriptors.getV2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId,
+      ),
     /** Get a SystemSoftwareVersion. */
     getSystemsoftwareversion: this.requestFunctionFactory(
       descriptors.appGetSystemsoftwareversion,
     ),
+    /**
+     * Create linkage between an AppInstallation and a MySQLDatabase.
+     * @deprecated
+     */
+    linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
     /** List AppInstallations that a user has access to. */
     listAppinstallationsForUser: this.requestFunctionFactory(
       descriptors.appListAppinstallationsForUser,
+    ),
+    /**
+     * List AppInstallations belonging to a Project.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdAppinstallations: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdAppinstallations,
+    ),
+    /**
+     * Request an AppInstallation.
+     * @deprecated
+     */
+    postV2ProjectsProjectIdAppinstallations: this.requestFunctionFactory(
+      descriptors.postV2ProjectsProjectIdAppinstallations,
     ),
     /** List AppInstallations belonging to a Project. */
     listAppinstallations: this.requestFunctionFactory(
@@ -167,9 +259,30 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listAppversions: this.requestFunctionFactory(
       descriptors.appListAppversions,
     ),
+    /**
+     * List SystemSoftwares.
+     * @deprecated
+     */
+    getV2Systemsoftwares: this.requestFunctionFactory(
+      descriptors.getV2Systemsoftwares,
+    ),
     /** List SystemSoftwares. */
     listSystemsoftwares: this.requestFunctionFactory(
       descriptors.appListSystemsoftwares,
+    ),
+    /**
+     * List SystemSoftwareVersions belonging to a SystemSoftware.
+     * @deprecated
+     */
+    getV2SystemSoftwareSystemSoftwareIdVersions: this.requestFunctionFactory(
+      descriptors.getV2SystemSoftwareSystemSoftwareIdVersions,
+    ),
+    /**
+     * List SystemSoftwareVersions belonging to a SystemSoftware.
+     * @deprecated
+     */
+    getV2SystemsoftwareSystemSoftwareIdVersions: this.requestFunctionFactory(
+      descriptors.getV2SystemsoftwareSystemSoftwareIdVersions,
     ),
     /** List SystemSoftwareVersions belonging to a SystemSoftware. */
     listSystemsoftwareversions: this.requestFunctionFactory(
@@ -183,6 +296,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     promoteAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appPromoteAppinstallationStaging,
     ),
+    /**
+     * Request a copy of an AppInstallation.
+     * @deprecated
+     */
+    postV2AppinstallationsAppInstallationIdActionsCopy:
+      this.requestFunctionFactory(
+        descriptors.postV2AppinstallationsAppInstallationIdActionsCopy,
+      ),
     /** Request a copy of an AppInstallation. */
     requestAppinstallationCopy: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationCopy,
@@ -191,10 +312,77 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     requestAppinstallationStaging: this.requestFunctionFactory(
       descriptors.appRequestAppinstallationStaging,
     ),
+    /**
+     * Get runtime status belonging to an AppInstallation.
+     * @deprecated
+     */
+    getV2AppinstallationsAppInstallationIdStatus: this.requestFunctionFactory(
+      descriptors.getV2AppinstallationsAppInstallationIdStatus,
+    ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /**
+     * Create linkage between an AppInstallation and DatabaseUsers.
+     * @deprecated
+     */
+    putV2AppInstallationsAppInstallationIdDatabasesDatabaseId:
+      this.requestFunctionFactory(
+        descriptors.putV2AppInstallationsAppInstallationIdDatabasesDatabaseId,
+      ),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /**
+     * Create linkage between an AppInstallation and DatabaseUsers.
+     * @deprecated
+     */
+    putV2AppinstallationsAppInstallationIdDatabasesDatabaseId:
+      this.requestFunctionFactory(
+        descriptors.putV2AppinstallationsAppInstallationIdDatabasesDatabaseId,
+      ),
+    /**
+     * Remove linkage between an AppInstallation and a Database.
+     * @deprecated
+     */
+    deleteV2AppinstallationsAppInstallationIdDatabasesDatabaseId:
+      this.requestFunctionFactory(
+        descriptors.deleteV2AppinstallationsAppInstallationIdDatabasesDatabaseId,
+      ),
+    /**
+     * Create linkage between an AppInstallation and DatabaseUsers.
+     * @deprecated
+     */
+    setDatabaseUsers: this.requestFunctionFactory(
+      descriptors.appSetDatabaseUsers,
+    ),
+    /**
+     * Trigger a runtime action belonging to an AppInstallation.
+     * @deprecated
+     */
+    postV2AppinstallationsAppInstallationIdActionsAction:
+      this.requestFunctionFactory(
+        descriptors.postV2AppinstallationsAppInstallationIdActionsAction,
+      ),
+    /**
+     * Trigger a runtime action belonging to an AppInstallation.
+     * @deprecated
+     */
+    deprecatedAppInstallationExecuteAction: this.requestFunctionFactory(
+      descriptors.deprecatedAppInstallationExecuteAction,
+    ),
+    /**
+     * Create linkage between an AppInstallation and a MySql-Database.
+     * @deprecated
+     */
+    deprecatedAppLinkDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedAppLinkDatabase,
+    ),
+    /**
+     * Replace a MySQL Database with another MySQL Database.
+     * @deprecated
+     */
+    deprecatedAppReplaceDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedAppReplaceDatabase,
+    ),
   };
 
   /** The article API allows you to read article information. */
@@ -263,9 +451,31 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
+    /**
+     * Restore a ProjectBackup's path.
+     * @deprecated
+     */
+    requestProjectBackupRestorePathDeprecated: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestorePathDeprecated,
+    ),
     /** Restore a ProjectBackup. */
     requestProjectBackupRestore: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestore,
+    ),
+    /**
+     * Update a Backup's expiration time.
+     * @deprecated
+     */
+    deprecatedBackupReplaceProjectBackupExpirationTime:
+      this.requestFunctionFactory(
+        descriptors.deprecatedBackupReplaceProjectBackupExpirationTime,
+      ),
+    /**
+     * Change the description of a ProjectBackup.
+     * @deprecated
+     */
+    deprecatedBackupUpdateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.deprecatedBackupUpdateProjectBackupDescription,
     ),
   };
 
@@ -353,6 +563,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
     ),
+    /**
+     * List Container Template statistics.
+     * @deprecated
+     */
+    listTemplateStatistics: this.requestFunctionFactory(
+      descriptors.containerListTemplateStatistics,
+    ),
     /** List Container Templates. */
     listTemplates: this.requestFunctionFactory(
       descriptors.containerListTemplates,
@@ -381,6 +598,35 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /**
+     * Get a Container Template icon.
+     * @deprecated
+     */
+    deprecatedContainerGetTemplateIcon: this.requestFunctionFactory(
+      descriptors.deprecatedContainerGetTemplateIcon,
+    ),
+    /**
+     * Set an update schedule for a Stack.
+     * @deprecated
+     */
+    deprecatedContainerSetStackUpdateSchedule: this.requestFunctionFactory(
+      descriptors.deprecatedContainerSetStackUpdateSchedule,
+    ),
+    /**
+     * Validate a Registries' URI.
+     * @deprecated
+     */
+    deprecatedContainerValidateContainerRegistryUri:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContainerValidateContainerRegistryUri,
+      ),
+    /**
+     * Validate a Registries' credentials.
+     * @deprecated
+     */
+    deprecatedContainerValidateRegistryCredentials: this.requestFunctionFactory(
+      descriptors.deprecatedContainerValidateRegistryCredentials,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -452,6 +698,29 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Return a list of Contracts for the given Customer. */
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts,
+    ),
+    /**
+     * Return the AI Hosting Contract for the given Customer.
+     * @deprecated
+     */
+    deprecatedContractGetDetailOfContractByAiHosting:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractGetDetailOfContractByAiHosting,
+      ),
+    /**
+     * Return the next TerminationDate for the ContractItem with the given ID.
+     * @deprecated
+     */
+    deprecatedContractGetNextTerminationDateForItem:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractGetNextTerminationDateForItem,
+      ),
+    /**
+     * Get details of an Invoice.
+     * @deprecated
+     */
+    deprecatedInvoiceDetailOfInvoice: this.requestFunctionFactory(
+      descriptors.deprecatedInvoiceDetailOfInvoice,
     ),
     /** Get details of an Invoice. */
     invoiceDetail: this.requestFunctionFactory(descriptors.invoiceDetail),
@@ -694,6 +963,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionGetProjectExtensionInstanceOrders: this.requestFunctionFactory(
       descriptors.extensionGetProjectExtensionInstanceOrders,
     ),
+    /**
+     * Get the public key to verify the webhook signature.
+     * @deprecated
+     */
+    getV2WebhookPublicKeysSerial: this.requestFunctionFactory(
+      descriptors.getV2WebhookPublicKeysSerial,
+    ),
     /** Get the public key to verify the webhook signature. */
     extensionGetPublicKey: this.requestFunctionFactory(
       descriptors.extensionGetPublicKey,
@@ -866,6 +1142,28 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
+    /**
+     * Update a Cronjob's app installation id.
+     * @deprecated
+     */
+    deprecatedCronjobReplaceCronjobAppInstallationId:
+      this.requestFunctionFactory(
+        descriptors.deprecatedCronjobReplaceCronjobAppInstallationId,
+      ),
+    /**
+     * Update a Cronjob's app installation id.
+     * @deprecated
+     */
+    deprecatedCronjobUpdateCronjobAppId: this.requestFunctionFactory(
+      descriptors.deprecatedCronjobUpdateCronjobAppId,
+    ),
+    /**
+     * Update a Cronjob's app installation id.
+     * @deprecated
+     */
+    patchV2CronjobsCronjobIdAppId: this.requestFunctionFactory(
+      descriptors.patchV2CronjobsCronjobIdAppId,
+    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */
@@ -873,6 +1171,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Accept a CustomerInvite. */
     acceptCustomerInvite: this.requestFunctionFactory(
       descriptors.customerAcceptCustomerInvite,
+    ),
+    /**
+     * Create a CustomerInvite.
+     * @deprecated
+     */
+    postV2CustomerCustomerIdInvites: this.requestFunctionFactory(
+      descriptors.postV2CustomerCustomerIdInvites,
     ),
     /** List Invites belonging to a Customer. */
     listInvitesForCustomer: this.requestFunctionFactory(
@@ -966,6 +1271,20 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     setCustomerReferralSource: this.requestFunctionFactory(
       descriptors.customerSetCustomerReferralSource,
     ),
+    /**
+     * Leave a Customer.
+     * @deprecated
+     */
+    postV2CustomerCustomerIdActionsLeave: this.requestFunctionFactory(
+      descriptors.postV2CustomerCustomerIdActionsLeave,
+    ),
+    /**
+     * Leave a Customer.
+     * @deprecated
+     */
+    deprecatedCustomerLeaveCustomer: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerLeaveCustomer,
+    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
@@ -1012,6 +1331,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a MySQLUser. */
     getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
+    /**
+     * Update a MySQLUser.
+     * @deprecated
+     */
+    deprecatedDatabaseReplaceMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseReplaceMysqlUser,
+    ),
     /** Delete a MySQLUser. */
     deleteMysqlUser: this.requestFunctionFactory(
       descriptors.databaseDeleteMysqlUser,
@@ -1056,19 +1382,191 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listRedisVersions: this.requestFunctionFactory(
       descriptors.databaseListRedisVersions,
     ),
+    /**
+     * Update a MySQLDatabase's default character settings.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset,
+      ),
+    /**
+     * Update a MySQLDatabase's description.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateMysqlDatabaseDescription:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription,
+      ),
+    /**
+     * Update a MySQLUser's password.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateMysqlUserPassword: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseUpdateMysqlUserPassword,
+    ),
+    /**
+     * Update a RedisDatabase's configuration.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateRedisDatabaseConfiguration:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateRedisDatabaseConfiguration,
+      ),
+    /**
+     * Update a RedisDatabase's description.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateRedisDatabaseDescription:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription,
+      ),
   };
 
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain = {
+    /**
+     * updates a-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordAsetCustom: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordAsetCustom,
+    ),
+    /**
+     * set a-records managed by ingress for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordAsetManagedByIngress: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordAsetManagedByIngress,
+    ),
+    /**
+     * updates cname-record for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordCnameSet: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordCnameSet,
+    ),
+    /**
+     * updates mx-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordMxSetCustom: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordMxSetCustom,
+    ),
+    /**
+     * sets mx-records to managed for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordMxSetManaged: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordMxSetManaged,
+    ),
+    /**
+     * updates srv-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordSrvSet: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordSrvSet,
+    ),
+    /**
+     * updates txt-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordTxtSet: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordTxtSet,
+    ),
+    /**
+     * Change the owner contact of a domain.
+     * @deprecated
+     */
+    deprecatedDomainChangeOwnercOfDomain: this.requestFunctionFactory(
+      descriptors.deprecatedDomainChangeOwnercOfDomain,
+    ),
+    /**
+     * Change the Project relation of a Domain.
+     * @deprecated
+     */
+    deprecatedDomainChangeProjectOfDomain: this.requestFunctionFactory(
+      descriptors.deprecatedDomainChangeProjectOfDomain,
+    ),
     /** List Domains */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /**
+     * Check if a Domain is available to register.
+     * @deprecated
+     */
+    deprecatedDomainCheckDomainRegistrability: this.requestFunctionFactory(
+      descriptors.deprecatedDomainCheckDomainRegistrability,
+    ),
+    /**
+     * Change all nameservers of a Domain.
+     * @deprecated
+     */
+    deprecatedDomainDeclareNameservers: this.requestFunctionFactory(
+      descriptors.deprecatedDomainDeclareNameservers,
+    ),
     /** Update the nameservers of a Domain. */
     updateDomainNameservers: this.requestFunctionFactory(
       descriptors.domainUpdateDomainNameservers,
     ),
+    /**
+     * Update an AuthCode.
+     * @deprecated
+     */
+    deprecatedDomainDeclareProcessChangeAuthcode: this.requestFunctionFactory(
+      descriptors.deprecatedDomainDeclareProcessChangeAuthcode,
+    ),
+    /**
+     * Update a Domain's OwnerC handle.
+     * @deprecated
+     */
+    deprecatedDomainDeclareProcessChangeHandles: this.requestFunctionFactory(
+      descriptors.deprecatedDomainDeclareProcessChangeHandles,
+    ),
+    /**
+     * Get a HandleSchema.
+     * @deprecated
+     */
+    deprecatedDomainGetHandleFields: this.requestFunctionFactory(
+      descriptors.deprecatedDomainGetHandleFields,
+    ),
+    /**
+     * Get File Service Reference for a Screenshot of a domain.
+     * @deprecated
+     */
+    deprecatedDomainGetScreenshotForDomain: this.requestFunctionFactory(
+      descriptors.deprecatedDomainGetScreenshotForDomain,
+    ),
+    /**
+     * List Domains belonging to a Project.
+     * @deprecated
+     */
+    deprecatedDomainListDomains: this.requestFunctionFactory(
+      descriptors.deprecatedDomainListDomains,
+    ),
+    /**
+     * List Ingresses belonging to a project.
+     * @deprecated
+     */
+    deprecatedIngressListIngresses: this.requestFunctionFactory(
+      descriptors.deprecatedIngressListIngresses,
+    ),
+    /**
+     * Update an Ingresses paths.
+     * @deprecated
+     */
+    deprecatedIngressPaths: this.requestFunctionFactory(
+      descriptors.deprecatedIngressPaths,
+    ),
     /** Update the paths of an Ingress. */
     ingressUpdateIngressPaths: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressPaths,
+    ),
+    /**
+     * Update an Ingresses tls settings.
+     * @deprecated
+     */
+    deprecatedIngressTls: this.requestFunctionFactory(
+      descriptors.deprecatedIngressTls,
     ),
     /** Update the tls settings of an Ingress. */
     ingressUpdateIngressTls: this.requestFunctionFactory(
@@ -1082,11 +1580,35 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
       descriptors.dnsCreateDnsZoneFileImport,
     ),
+    /**
+     * Create a DNSZone (deprecated).
+     * @deprecated
+     */
+    postV2DnsZones: this.requestFunctionFactory(descriptors.postV2DnsZones),
+    /**
+     * Create a DNSZone (deprecated).
+     * @deprecated
+     */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Create a DNSZone for a verified Ingress in a Project. */
     dnsCreateProjectDnsZone: this.requestFunctionFactory(
       descriptors.dnsCreateProjectDnsZone,
+    ),
+    /**
+     * Get a DNSZone.
+     * @deprecated
+     */
+    getV2DnsZonesDnsZoneId: this.requestFunctionFactory(
+      descriptors.getV2DnsZonesDnsZoneId,
+    ),
+    /**
+     * Delete a DNSZone.
+     * @deprecated
+     */
+    deleteV2DnsZonesDnsZoneId: this.requestFunctionFactory(
+      descriptors.deleteV2DnsZonesDnsZoneId,
     ),
     /** Get a DNSZone. */
     dnsGetDnsZone: this.requestFunctionFactory(descriptors.dnsGetDnsZone),
@@ -1098,6 +1620,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a zone file for a DNSZone. */
     dnsGetZoneFile: this.requestFunctionFactory(descriptors.dnsGetZoneFile),
+    /**
+     * List DNSZones belonging to a Project.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdDnsZones: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdDnsZones,
+    ),
     /** Set a record set on a DNSZone to managed. */
     dnsSetRecordSetManaged: this.requestFunctionFactory(
       descriptors.dnsSetRecordSetManaged,
@@ -1105,6 +1634,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a record set on a DNSZone. */
     dnsUpdateRecordSet: this.requestFunctionFactory(
       descriptors.dnsUpdateRecordSet,
+    ),
+    /**
+     * Abort a Domain declaration.
+     * @deprecated
+     */
+    deleteV2DomainsDomainIdDeclarations: this.requestFunctionFactory(
+      descriptors.deleteV2DomainsDomainIdDeclarations,
     ),
     /** Abort a Domain declaration. */
     abortDomainDeclaration: this.requestFunctionFactory(
@@ -1125,6 +1661,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Check if a Domain is available to transfer. */
     checkDomainTransferability: this.requestFunctionFactory(
       descriptors.domainCheckDomainTransferability,
+    ),
+    /**
+     * Create an auth code for a Domains transfer-out process.
+     * @deprecated
+     */
+    postV2DomainsDomainIdActionsCreateAuthcode: this.requestFunctionFactory(
+      descriptors.postV2DomainsDomainIdActionsCreateAuthcode,
     ),
     /** Create an auth code for a Domains transfer-out process. */
     createDomainAuthCode: this.requestFunctionFactory(
@@ -1150,6 +1693,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     listTldContactSchemas: this.requestFunctionFactory(
       descriptors.domainListTldContactSchemas,
     ),
+    /**
+     * List TLDs.
+     * @deprecated
+     */
+    getV2DomainsSupportedTlds: this.requestFunctionFactory(
+      descriptors.getV2DomainsSupportedTlds,
+    ),
     /** List TLDs. */
     listTlds: this.requestFunctionFactory(descriptors.domainListTlds),
     /** List Domain-Migrations belonging to a Project. */
@@ -1166,6 +1716,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Suggest a list of domains based on a prompt using AI. */
     suggest: this.requestFunctionFactory(descriptors.domainSuggest),
+    /**
+     * Update the auth code of a Domain.
+     * @deprecated
+     */
+    patchV2DomainsDomainIdAuthcode: this.requestFunctionFactory(
+      descriptors.patchV2DomainsDomainIdAuthcode,
+    ),
     /** Update the auth code of a Domain. */
     updateDomainAuthCode: this.requestFunctionFactory(
       descriptors.domainUpdateDomainAuthCode,
@@ -1244,31 +1801,209 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
+  public readonly file = {
+    /**
+     * Get a Token's upload rules.
+     * @deprecated
+     */
+    deprecatedFileGetFileTokenRules: this.requestFunctionFactory(
+      descriptors.deprecatedFileGetFileTokenRules,
+    ),
+    /**
+     * Get a Type's upload rules.
+     * @deprecated
+     */
+    deprecatedFileGetFileTypeRules: this.requestFunctionFactory(
+      descriptors.deprecatedFileGetFileTypeRules,
+    ),
+    /** Create a File. */
+    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
+    /** Get a File's meta. */
+    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
+    /** Get a FileUploadToken's rules. */
+    getFileUploadTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTokenRules,
+    ),
+    /** Get a FileUploadType's rules. */
+    getFileUploadTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTypeRules,
+    ),
+    /** Get a File. */
+    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File with user-friendly url. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
+    ),
+  };
+
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
+    /**
+     * Update the description of an deliverybox
+     * @deprecated
+     */
+    deprecatedMailDeliveryboxUpdateDescription: this.requestFunctionFactory(
+      descriptors.deprecatedMailDeliveryboxUpdateDescription,
+    ),
+    /**
+     * Update the password for a specific deliverybox
+     * @deprecated
+     */
+    deprecatedMailDeliveryboxUpdatePassword: this.requestFunctionFactory(
+      descriptors.deprecatedMailDeliveryboxUpdatePassword,
+    ),
+    /**
+     * Update mail-address
+     * @deprecated
+     */
+    deprecatedMailMailaddressUpdateAddress: this.requestFunctionFactory(
+      descriptors.deprecatedMailMailaddressUpdateAddress,
+    ),
+    /**
+     * Update blacklist for a given project ID
+     * @deprecated
+     */
+    deprecatedMailProjectsettingUpdateBlacklist: this.requestFunctionFactory(
+      descriptors.deprecatedMailProjectsettingUpdateBlacklist,
+    ),
+    /**
+     * Update whitelist for a given project ID
+     * @deprecated
+     */
+    deprecatedMailProjectsettingUpdateWhitelist: this.requestFunctionFactory(
+      descriptors.deprecatedMailProjectsettingUpdateWhitelist,
+    ),
+    /**
+     * Update the autoresponder of a MailAddress.
+     * @deprecated
+     */
+    putV2MailaddressesMailAddressIdAutoResponder: this.requestFunctionFactory(
+      descriptors.putV2MailaddressesMailAddressIdAutoResponder,
+    ),
+    /**
+     * Update the autoresponder of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressAutoresponder: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressAutoresponder,
+    ),
     /** Update the autoresponder of a MailAddress. */
     updateMailAddressAutoresponder: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressAutoresponder,
     ),
+    /**
+     * Update the catchall of a MailAddress.
+     * @deprecated
+     */
+    putV2MailaddressesMailAddressIdCatchAll: this.requestFunctionFactory(
+      descriptors.putV2MailaddressesMailAddressIdCatchAll,
+    ),
+    /**
+     * Update the catchall of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressCatchall: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressCatchall,
+    ),
+    /**
+     * Update the forward addresses of a MailAddresses.
+     * @deprecated
+     */
+    putV2MailaddressesMailAddressIdForwardaddresses:
+      this.requestFunctionFactory(
+        descriptors.putV2MailaddressesMailAddressIdForwardaddresses,
+      ),
+    /**
+     * Update the forward addresses of a MailAddresses.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressForwardAddresses:
+      this.requestFunctionFactory(
+        descriptors.deprecatedMailUpdateMailAddressForwardAddresses,
+      ),
     /** Update the forward addresses of a MailAddresses. */
     updateMailAddressForwardAddresses: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressForwardAddresses,
+    ),
+    /**
+     * Update the password for a MailAddress.
+     * @deprecated
+     */
+    putV2MailaddressesMailAddressIdPassword: this.requestFunctionFactory(
+      descriptors.putV2MailaddressesMailAddressIdPassword,
+    ),
+    /**
+     * Update the password for a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressPassword: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressPassword,
     ),
     /** Update the password for a MailAddress. */
     updateMailAddressPassword: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressPassword,
     ),
+    /**
+     * Update the quota of a MailAddress.
+     * @deprecated
+     */
+    putV2MailaddressesMailAddressIdQuota: this.requestFunctionFactory(
+      descriptors.putV2MailaddressesMailAddressIdQuota,
+    ),
+    /**
+     * Update the quota of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressQuota: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressQuota,
+    ),
     /** Update the quota of a MailAddress. */
     updateMailAddressQuota: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressQuota,
+    ),
+    /**
+     * Update the spam protection of a MailAddress.
+     * @deprecated
+     */
+    putV2MailaddressesMailAddressIdSpamprotection: this.requestFunctionFactory(
+      descriptors.putV2MailaddressesMailAddressIdSpamprotection,
+    ),
+    /**
+     * Update the spam protection of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressSpamProtection: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressSpamProtection,
     ),
     /** Update the spam protection of a MailAddress. */
     updateMailAddressSpamProtection: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressSpamProtection,
     ),
+    /**
+     * Update a mail setting of a Project.
+     * @deprecated
+     */
+    deprecatedMailUpdateProjectMailSetting: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateProjectMailSetting,
+    ),
     /** Update a mail setting of a Project. */
     updateProjectMailSetting: this.requestFunctionFactory(
       descriptors.mailUpdateProjectMailSetting,
+    ),
+    /**
+     * List DeliveryBoxes belonging to a Project.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdDeliveryboxes: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdDeliveryboxes,
+    ),
+    /**
+     * Create a DeliveryBox.
+     * @deprecated
+     */
+    postV2ProjectsProjectIdDeliveryboxes: this.requestFunctionFactory(
+      descriptors.postV2ProjectsProjectIdDeliveryboxes,
     ),
     /** List DeliveryBoxes belonging to a Project. */
     listDeliveryBoxes: this.requestFunctionFactory(
@@ -1278,6 +2013,20 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createDeliverybox: this.requestFunctionFactory(
       descriptors.mailCreateDeliverybox,
     ),
+    /**
+     * List MailAddresses belonging to a Project.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdMailaddresses: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdMailaddresses,
+    ),
+    /**
+     * Create a MailAddress.
+     * @deprecated
+     */
+    postV2ProjectsProjectIdMailaddresses: this.requestFunctionFactory(
+      descriptors.postV2ProjectsProjectIdMailaddresses,
+    ),
     /** List MailAddresses belonging to a Project. */
     listMailAddresses: this.requestFunctionFactory(
       descriptors.mailListMailAddresses,
@@ -1286,11 +2035,39 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createMailAddress: this.requestFunctionFactory(
       descriptors.mailCreateMailAddress,
     ),
+    /**
+     * Get a DeliveryBox.
+     * @deprecated
+     */
+    getV2DeliveryboxesDeliveryBoxId: this.requestFunctionFactory(
+      descriptors.getV2DeliveryboxesDeliveryBoxId,
+    ),
+    /**
+     * Delete a DeliveryBox.
+     * @deprecated
+     */
+    deleteV2DeliveryboxesDeliveryBoxId: this.requestFunctionFactory(
+      descriptors.deleteV2DeliveryboxesDeliveryBoxId,
+    ),
     /** Get a DeliveryBox. */
     getDeliveryBox: this.requestFunctionFactory(descriptors.mailGetDeliveryBox),
     /** Delete a DeliveryBox. */
     deleteDeliveryBox: this.requestFunctionFactory(
       descriptors.mailDeleteDeliveryBox,
+    ),
+    /**
+     * Get a MailAddress.
+     * @deprecated
+     */
+    getV2MailaddressesMailAddressId: this.requestFunctionFactory(
+      descriptors.getV2MailaddressesMailAddressId,
+    ),
+    /**
+     * Delete a MailAddress.
+     * @deprecated
+     */
+    deleteV2MailaddressesMailAddressId: this.requestFunctionFactory(
+      descriptors.deleteV2MailaddressesMailAddressId,
     ),
     /** Get a MailAddress. */
     getMailAddress: this.requestFunctionFactory(descriptors.mailGetMailAddress),
@@ -1317,6 +2094,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Mail RateLimits. */
     listMailRateLimits: this.requestFunctionFactory(
       descriptors.mailListMailRateLimits,
+    ),
+    /**
+     * List mail settings of a Project.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdMailsettings: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdMailsettings,
     ),
     /** List mail settings of a Project. */
     listProjectMailSettings: this.requestFunctionFactory(
@@ -1366,6 +2150,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sadjustNotificationMessageTypeSettings: this.requestFunctionFactory(
       descriptors.notificationsAdjustNotificationMessageTypeSettings,
     ),
+    /**
+     * Get the counts for unread notifications of the user.
+     * @deprecated
+     */
+    getV2NotificationsUnreadCounts: this.requestFunctionFactory(
+      descriptors.getV2NotificationsUnreadCounts,
+    ),
     /** Get the counts for unread notifications of the user. */
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications,
@@ -1388,317 +2179,55 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user = {
-    /** Update your account information. */
-    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
-    /** Get a PasswordPolicy. */
-    passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
-      descriptors.passwordValidationGetPasswordPolicy,
-    ),
-    /** Add phone number and start verification process. */
-    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
-    /** Remove phone number. */
-    removePhoneNumber: this.requestFunctionFactory(
-      descriptors.userRemovePhoneNumber,
-    ),
-    /** Validate your second factor. */
-    authenticateMfa: this.requestFunctionFactory(
-      descriptors.userAuthenticateMfa,
-    ),
-    /** Authenticate yourself to get an access token. */
-    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
-    /** Authenticate an user with an access token retrieval key. */
-    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
-      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
-    ),
-    /** Get your verified Email-Address. */
-    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
-    /** Change your Email-Address. */
-    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
-    /** Change your password. */
-    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
-    /** Get your current multi factor auth status. */
-    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
-    /** Reset RecoveryCodes for MFA. */
-    resetRecoverycodes: this.requestFunctionFactory(
-      descriptors.userResetRecoverycodes,
-    ),
-    /** Confirm Multi Factor Authentication. */
-    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
-    /** Disable Multi Factor Authentication. */
-    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
-    /** Confirm password reset. */
-    confirmPasswordReset: this.requestFunctionFactory(
-      descriptors.userConfirmPasswordReset,
-    ),
-    /** List all of your ApiTokens. */
-    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
-    /** Create a new ApiToken. */
-    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
-    /** Submit your user feedback. */
-    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
-    /** Get your stored ssh-keys. */
-    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
-    /** Store a new ssh-key. */
-    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
-    /** Get a specific ApiToken. */
-    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
-    /** Update an existing `ApiToken`. */
-    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
-    /** Deletes an ApiToken. */
-    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
-    /** Get a specific stored ssh-key. */
-    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
-    /** Edit a stored ssh-key. */
-    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
-    /** Remove a ssh-key. */
-    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
-    /** Delete your account and all your personal data. */
-    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
-    /** Check status of the current session. */
-    getCurrentSessionStatus: this.requestFunctionFactory(
-      descriptors.userGetCurrentSessionStatus,
-    ),
-    /** The timestamp of your latest password change. */
-    getPasswordUpdatedAt: this.requestFunctionFactory(
-      descriptors.userGetPasswordUpdatedAt,
-    ),
-    /** Get personalized settings. */
-    getPersonalizedSettings: this.requestFunctionFactory(
-      descriptors.userGetPersonalizedSettings,
-    ),
-    /** Update personalized GUI settings. */
-    updatePersonalizedSettings: this.requestFunctionFactory(
-      descriptors.userUpdatePersonalizedSettings,
-    ),
-    /** Get poll settings for the specified user. */
-    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
-    /** Store new or update poll settings. */
-    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
-    /** Get a specific session. */
-    getSession: this.requestFunctionFactory(descriptors.userGetSession),
-    /** Terminate a specific Session. */
-    terminateSession: this.requestFunctionFactory(
-      descriptors.userTerminateSession,
-    ),
-    /** Submitted feedback of the given user. */
-    getSpotlightInfo: this.requestFunctionFactory(
-      descriptors.userGetSpotlightInfo,
-    ),
-    /** Submit your usage of the spotlight. */
-    spotlightUsage: this.requestFunctionFactory(descriptors.userSpotlightUsage),
-    /** Get profile information for a user. */
-    getUser: this.requestFunctionFactory(descriptors.userGetUser),
-    /** Change personal information. */
-    updatePersonalInformation: this.requestFunctionFactory(
-      descriptors.userUpdatePersonalInformation,
-    ),
-    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
-    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
-    /** Initialize password reset process. */
-    initPasswordReset: this.requestFunctionFactory(
-      descriptors.userInitPasswordReset,
-    ),
-    /** Submitted feedback of the given user. */
-    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
-    /** List all sessions. */
-    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
-    /** Refresh a session. */
-    refreshSession: this.requestFunctionFactory(descriptors.userRefreshSession),
-    /** Terminate all sessions, except the current session. */
-    terminateAllSessions: this.requestFunctionFactory(
-      descriptors.userTerminateAllSessions,
-    ),
-    /** Terminate session and invalidate access token. */
-    logout: this.requestFunctionFactory(descriptors.userLogout),
-    /** Obtain authorization from the resource owner. */
-    oauthGetAuthorization: this.requestFunctionFactory(
-      descriptors.userOauthGetAuthorization,
-    ),
-    /** Retrieve Access Token from Authorization Code. */
-    oauthRetrieveAccessToken: this.requestFunctionFactory(
-      descriptors.userOauthRetrieveAccessToken,
-    ),
-    /** Register with email and password. */
-    register: this.requestFunctionFactory(descriptors.userRegister),
-    /** Request a new avatar image upload. */
-    requestAvatarUpload: this.requestFunctionFactory(
-      descriptors.userRequestAvatarUpload,
-    ),
-    /** Remove Avatar. */
-    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
-    /** Resend the Email-Address verification email. */
-    resendVerificationEmail: this.requestFunctionFactory(
-      descriptors.userResendVerificationEmail,
-    ),
-    /** Check if a password is leaked. */
-    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
-      descriptors.userSearchedLeakedPasswordsByRange,
-    ),
-    /** Submit your spotlight usage. */
-    spotlightFeedback: this.requestFunctionFactory(
-      descriptors.userSpotlightFeedback,
-    ),
-    /** Request a support code. */
-    supportCodeRequest: this.requestFunctionFactory(
-      descriptors.userSupportCodeRequest,
-    ),
-    /** Verify an added Email-Address. */
-    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
-    /** Verify phone number. */
-    verifyPhoneNumber: this.requestFunctionFactory(
-      descriptors.userVerifyPhoneNumber,
-    ),
-    /** Verify your registration. */
-    verifyRegistration: this.requestFunctionFactory(
-      descriptors.userVerifyRegistration,
-    ),
-  };
-
-  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
-  public readonly file = {
-    /** Create a File. */
-    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
-    /** Get a File's meta. */
-    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
-    /** Get a FileUploadToken's rules. */
-    getFileUploadTokenRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTokenRules,
-    ),
-    /** Get a FileUploadType's rules. */
-    getFileUploadTypeRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTypeRules,
-    ),
-    /** Get a File. */
-    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Get a File with user-friendly url. */
-    getFileWithName: this.requestFunctionFactory(
-      descriptors.fileGetFileWithName,
-    ),
-  };
-
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr = {
-    /** Get your LeadFyndr request. */
-    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileRequest,
-    ),
-    /** Create a new access request for LeadFyndr. */
-    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
-    ),
-    /** Create an export of unlocked leads for the given customerId. */
-    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadsExport,
-    ),
-    /** Get cities in DACH. */
-    leadfyndrGetCities: this.requestFunctionFactory(
-      descriptors.leadfyndrGetCities,
-    ),
-    /** Get lead tariff options. How many leads did you unlock this month? */
-    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-    ),
-    /** Get your LeadFyndr profile. */
-    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfile,
-    ),
-    /** Get a simple lead. Use the unlocked route for more detail leads. */
-    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
-    /** Get unlocked leads export history for the given customerId. */
-    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadsExportHistory,
-    ),
-    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrGetUnlockedLead,
-    ),
-    /** Unlock a lead for the given customerId. */
-    leadfyndrUnlockLead: this.requestFunctionFactory(
-      descriptors.leadfyndrUnlockLead,
-    ),
-    /** Get all leads. Use the unlocked routes for more lead details. */
-    leadfyndrListLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListLeads,
-    ),
-    /** Get all unlocked leads. Organisation can unlock leads. */
-    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListUnlockedLeads,
-    ),
-    /** Reserve a unlocked lead for the given customerId. */
-    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrReserveUnlockedLead,
-    ),
-    /** Removes a reservation on a unlocked lead for the given customerId. */
-    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
-      descriptors.leadfyndrRemoveUnlockedLeadReservation,
-    ),
-  };
-
-  /** The license API allows you to manage your paid licenses. */
-  public readonly license = {
-    /** Get a license. */
-    getLicense: this.requestFunctionFactory(descriptors.licenseGetLicense),
-    /** List Licenses belonging to a Project. */
-    listLicensesForProject: this.requestFunctionFactory(
-      descriptors.licenseListLicensesForProject,
-    ),
-    /** Rotate a License's key, i.e. revoke the old and generate a new one. */
-    rotateLicenseKey: this.requestFunctionFactory(
-      descriptors.licenseRotateLicenseKey,
-    ),
-    /** Validate a License's key for a project. */
-    validateLicenseKeyForProject: this.requestFunctionFactory(
-      descriptors.licenseValidateLicenseKeyForProject,
-    ),
-  };
-
-  /** API endpoints that are not related to any specific API domain */
-  public readonly misc = {
-    /** List valid time zones. */
-    ellaneousListTimeZones: this.requestFunctionFactory(
-      descriptors.miscellaneousListTimeZones,
-    ),
-    /** Check if an email is from mittwald. */
-    verificationDetectPhishingEmail: this.requestFunctionFactory(
-      descriptors.verificationDetectPhishingEmail,
-    ),
-    /** Check if an address exists. */
-    verificationVerifyAddress: this.requestFunctionFactory(
-      descriptors.verificationVerifyAddress,
-    ),
-    /** Check if a company exists. */
-    verificationVerifyCompany: this.requestFunctionFactory(
-      descriptors.verificationVerifyCompany,
-    ),
-  };
-
-  /** The page insights API allows you to get page insights information. */
-  public readonly pageInsights = {
-    /** Get detailed performance data for a given domain and path. */
-    pageinsightsGetPerformanceData: this.requestFunctionFactory(
-      descriptors.pageinsightsGetPerformanceData,
-    ),
-    /** Get all data for a given strace. */
-    pageinsightsGetStraceData: this.requestFunctionFactory(
-      descriptors.pageinsightsGetStraceData,
-    ),
-    /** List websites (specified as domain and path) from a project where performance data is available. */
-    pageinsightsListPerformanceDataForProject: this.requestFunctionFactory(
-      descriptors.pageinsightsListPerformanceDataForProject,
-    ),
-    /** Schedule a strace measurement for a single http request. */
-    pageinsightsScheduleStrace: this.requestFunctionFactory(
-      descriptors.pageinsightsScheduleStrace,
-    ),
-  };
-
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project = {
+    /**
+     * Leave a Project.
+     * @deprecated
+     */
+    deprecatedProjectLeaveProject: this.requestFunctionFactory(
+      descriptors.deprecatedProjectLeaveProject,
+    ),
+    /**
+     * Update a Project's description.
+     * @deprecated
+     */
+    deprecatedProjectUpdateProjectDescription: this.requestFunctionFactory(
+      descriptors.deprecatedProjectUpdateProjectDescription,
+    ),
+    /**
+     * Update a Servers's description.
+     * @deprecated
+     */
+    deprecatedProjectUpdateServerDescription: this.requestFunctionFactory(
+      descriptors.deprecatedProjectUpdateServerDescription,
+    ),
+    /**
+     * Update a Project's storage space notification threshold.
+     * @deprecated
+     */
+    deprecatedStoragespaceReplaceProjectNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.deprecatedStoragespaceReplaceProjectNotificationThreshold,
+      ),
+    /**
+     * Update a Server's storage space notification threshold.
+     * @deprecated
+     */
+    deprecatedStoragespaceReplaceServerNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.deprecatedStoragespaceReplaceServerNotificationThreshold,
+      ),
     /** Accept a ProjectInvite. */
     acceptProjectInvite: this.requestFunctionFactory(
       descriptors.projectAcceptProjectInvite,
+    ),
+    /**
+     * Create a ProjectInvite.
+     * @deprecated
+     */
+    postV2ProjectProjectIdInvites: this.requestFunctionFactory(
+      descriptors.postV2ProjectProjectIdInvites,
     ),
     /** List Invites belonging to a Project. */
     listInvitesForProject: this.requestFunctionFactory(
@@ -1820,15 +2349,940 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user = {
+    /**
+     * Get your verified Email-Address.
+     * @deprecated
+     */
+    getV2SignupEmail: this.requestFunctionFactory(descriptors.getV2SignupEmail),
+    /**
+     * Change your Email-Address. Replaced by `PUT` `/v2/users/self/credentials/email`.
+     * @deprecated
+     */
+    deprecatedUserChangeEmail: this.requestFunctionFactory(
+      descriptors.deprecatedUserChangeEmail,
+    ),
+    /**
+     * Check token for validity.
+     * @deprecated
+     */
+    postV2SignupTokenCheck: this.requestFunctionFactory(
+      descriptors.postV2SignupTokenCheck,
+    ),
+    /**
+     * Check token for validity.
+     * @deprecated
+     */
+    deprecatedUserCheckToken: this.requestFunctionFactory(
+      descriptors.deprecatedUserCheckToken,
+    ),
+    /**
+     * Confirm password reset. Replaced by `POST` `/v2/users/self/credentials/password/confirm-reset`.
+     * @deprecated
+     */
+    deprecatedUserConfirmPasswordReset: this.requestFunctionFactory(
+      descriptors.deprecatedUserConfirmPasswordReset,
+    ),
+    /**
+     * Create a new issue.
+     * @deprecated
+     */
+    deprecatedUserCreateIssue: this.requestFunctionFactory(
+      descriptors.deprecatedUserCreateIssue,
+    ),
+    /**
+     * Get a specific ApiToken.
+     * @deprecated
+     */
+    getV2SignupTokenApiApiTokenId: this.requestFunctionFactory(
+      descriptors.getV2SignupTokenApiApiTokenId,
+    ),
+    /**
+     * Update an existing `ApiToken`. Replaced by `PUT` `/v2/users/{userId}/api-tokens/{apiTokenId}`.
+     * @deprecated
+     */
+    deprecatedUserEditApiToken: this.requestFunctionFactory(
+      descriptors.deprecatedUserEditApiToken,
+    ),
+    /**
+     * Deletes an ApiToken. Replaces by `DELETE` `/v2/user/{userid}/api-tokens/{apiTokenId}`.
+     * @deprecated
+     */
+    deprecatedUserDeleteApiToken: this.requestFunctionFactory(
+      descriptors.deprecatedUserDeleteApiToken,
+    ),
+    /**
+     * Get a specific stored ssh-key.
+     * @deprecated
+     */
+    getV2SignupSshSshKeyId: this.requestFunctionFactory(
+      descriptors.getV2SignupSshSshKeyId,
+    ),
+    /**
+     * Edit a stored ssh-key. Replaced by `PUT` `/v2/users/self/ssh-keys/{sshKeyId}`.
+     * @deprecated
+     */
+    deprecatedUserEditSshKey: this.requestFunctionFactory(
+      descriptors.deprecatedUserEditSshKey,
+    ),
+    /**
+     * Remove a ssh-key. Replaced by `DELETE` `/v2/users/self/ssh-keys/{sshKeyId}`.
+     * @deprecated
+     */
+    deprecatedUserDeleteSshKey: this.requestFunctionFactory(
+      descriptors.deprecatedUserDeleteSshKey,
+    ),
+    /**
+     * Get your current multi factor auth status.
+     * @deprecated
+     */
+    getV2SignupMfa: this.requestFunctionFactory(descriptors.getV2SignupMfa),
+    /**
+     * Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa.
+     * @deprecated
+     */
+    postV2SignupMfa: this.requestFunctionFactory(descriptors.postV2SignupMfa),
+    /**
+     * Disable Multi Factor Authentication. Replaced by `DELETE` `/v2/users/self/credentials/mfa`.
+     * @deprecated
+     */
+    deprecatedUserDisableMfa: this.requestFunctionFactory(
+      descriptors.deprecatedUserDisableMfa,
+    ),
+    /**
+     * Get your account information. Replaced by `GET` `/v2/users/self`.
+     * @deprecated
+     */
+    getV2SignupProfile: this.requestFunctionFactory(
+      descriptors.getV2SignupProfile,
+    ),
+    /**
+     * Update your account information.
+     * @deprecated
+     */
+    deprecatedUserUpdateAccount: this.requestFunctionFactory(
+      descriptors.deprecatedUserUpdateAccount,
+    ),
+    /**
+     * Delete your account and all your personal data.
+     * @deprecated
+     */
+    deleteV2SignupProfile: this.requestFunctionFactory(
+      descriptors.deleteV2SignupProfile,
+    ),
+    /**
+     * Get your account information. Replaced by `GET` `/v2/users/self`.
+     * @deprecated
+     */
+    deprecatedUserGetOwnAccount: this.requestFunctionFactory(
+      descriptors.deprecatedUserGetOwnAccount,
+    ),
+    /** Update your account information. */
+    updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
+    /**
+ * Initialize password reset process. Replaced by `POST` `/v2/users/self/credentials/actions/init-password-reset`.
+
+ * @deprecated
+ */
+    deprecatedUserInitPasswordReset: this.requestFunctionFactory(
+      descriptors.deprecatedUserInitPasswordReset,
+    ),
+    /**
+     * Terminate session and invalidate access token. Replaced by `DELETE` `/v2/users/self/sessions/{current}`.
+     * @deprecated
+     */
+    deprecatedUserLogout: this.requestFunctionFactory(
+      descriptors.deprecatedUserLogout,
+    ),
+    /**
+ * Resend the Email-Address verification email. Replaced by `POST` `/v2/users/self/credentials/email/actions/resend-email`.
+
+ * @deprecated
+ */
+    deprecatedUserResendVerificationEmail: this.requestFunctionFactory(
+      descriptors.deprecatedUserResendVerificationEmail,
+    ),
+    /**
+     * Request a new avatar upload
+     * @deprecated
+     */
+    deprecatedUserServiceAvatarRequestUpload: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceAvatarRequestUpload,
+    ),
+    /**
+     * Remove Avatar
+     * @deprecated
+     */
+    deprecatedUserServiceAvatarRemove: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceAvatarRemove,
+    ),
+    /**
+     * Returns your submitted feedback
+     * @deprecated
+     */
+    deprecatedUserServiceFeedbackList: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceFeedbackList,
+    ),
+    /**
+     * Submit user feedback
+     * @deprecated
+     */
+    deprecatedUserServiceFeedbackCreate: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceFeedbackCreate,
+    ),
+    /**
+     * create a new issue
+     * @deprecated
+     */
+    deprecatedUserServiceIssueNew: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceIssueNew,
+    ),
+    /**
+     * Get profile information for the specified user if the user is related to the executing user
+     * @deprecated
+     */
+    deprecatedUserServiceUserGet: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceUserGet,
+    ),
+    /**
+     * Change your personal information
+     * @deprecated
+     */
+    deprecatedUserServicePersonalInformationUpdate: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePersonalInformationUpdate,
+    ),
+    /**
+     * Get personalized settings for the user executing the request
+     * @deprecated
+     */
+    deprecatedUserServicePersonalizedSettingsGet: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePersonalizedSettingsGet,
+    ),
+    /**
+     * update personalized settings
+     * @deprecated
+     */
+    deprecatedUserServicePersonalizedSettingsUpdate:
+      this.requestFunctionFactory(
+        descriptors.deprecatedUserServicePersonalizedSettingsUpdate,
+      ),
+    /**
+     * Add phone number and init verification process
+     * @deprecated
+     */
+    deprecatedUserServicePhoneNumberAdd: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberAdd,
+    ),
+    /**
+     * remove your PhoneNumber
+     * @deprecated
+     */
+    deprecatedUserServicePhoneNumberRemove: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberRemove,
+    ),
+    /**
+     * Verify phone number
+     * @deprecated
+     */
+    deprecatedUserServicePhoneNumberVerify: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberVerify,
+    ),
+    /**
+     * Get profile information for the executing user
+     * @deprecated
+     */
+    deprecatedUserServiceUserGetOwn: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceUserGetOwn,
+    ),
+    /**
+     * List all sessions.
+     * @deprecated
+     */
+    getV2SignupSessions: this.requestFunctionFactory(
+      descriptors.getV2SignupSessions,
+    ),
+    /**
+     * Terminate all sessions, except the current session. Replaced by `DELETE` `/v2/users/self/sessions`.
+     * @deprecated
+     */
+    deprecatedUserTerminateAllSessions: this.requestFunctionFactory(
+      descriptors.deprecatedUserTerminateAllSessions,
+    ),
+    /**
+     * Get a specific session.
+     * @deprecated
+     */
+    getV2SignupSessionsTokenId: this.requestFunctionFactory(
+      descriptors.getV2SignupSessionsTokenId,
+    ),
+    /**
+     * Terminate a specific Session. Replaced by `DELETE` `/v2/users/self/sessions/{tokenId}`.
+     * @deprecated
+     */
+    deprecatedUserTerminateSession: this.requestFunctionFactory(
+      descriptors.deprecatedUserTerminateSession,
+    ),
+    /**
+     * Verify an added Email-Address. Replaced by `POST` `/v2/users/self/credentials/email/actions/verify-email`.
+     * @deprecated
+     */
+    deprecatedUserVerifyEmail: this.requestFunctionFactory(
+      descriptors.deprecatedUserVerifyEmail,
+    ),
+    /** Get a PasswordPolicy. */
+    passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
+      descriptors.passwordValidationGetPasswordPolicy,
+    ),
+    /**
+     * DEPRECAED. Use `GET` `/v2/password-policies/{passwordPolicy}` instead.
+     * @deprecated
+     */
+    passwordValidationGetPasswordPolicyV2Deprecated:
+      this.requestFunctionFactory(
+        descriptors.passwordValidationGetPasswordPolicyV2Deprecated,
+      ),
+    /** Add phone number and start verification process. */
+    addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
+    /** Remove phone number. */
+    removePhoneNumber: this.requestFunctionFactory(
+      descriptors.userRemovePhoneNumber,
+    ),
+    /**
+     * Validate your second factor.
+     * @deprecated
+     */
+    postV2SignupAuthenticationMfa: this.requestFunctionFactory(
+      descriptors.postV2SignupAuthenticationMfa,
+    ),
+    /** Validate your second factor. */
+    authenticateMfa: this.requestFunctionFactory(
+      descriptors.userAuthenticateMfa,
+    ),
+    /**
+     * Authenticate yourself to get an access token.
+     * @deprecated
+     */
+    postV2SignupAuthentication: this.requestFunctionFactory(
+      descriptors.postV2SignupAuthentication,
+    ),
+    /** Authenticate yourself to get an access token. */
+    authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
+    /** Authenticate an user with an access token retrieval key. */
+    authenticateWithAccessTokenRetrievalKey: this.requestFunctionFactory(
+      descriptors.userAuthenticateWithAccessTokenRetrievalKey,
+    ),
+    /** Get your verified Email-Address. */
+    getOwnEmail: this.requestFunctionFactory(descriptors.userGetOwnEmail),
+    /** Change your Email-Address. */
+    changeEmail: this.requestFunctionFactory(descriptors.userChangeEmail),
+    /**
+     * The timestamp of your latest password change.
+     * @deprecated
+     */
+    getV2SignupPassword: this.requestFunctionFactory(
+      descriptors.getV2SignupPassword,
+    ),
+    /**
+     * Change your password.
+     * @deprecated
+     */
+    putV2SignupPassword: this.requestFunctionFactory(
+      descriptors.putV2SignupPassword,
+    ),
+    /** Change your password. */
+    changePassword: this.requestFunctionFactory(descriptors.userChangePassword),
+    /**
+     * Confirm Multi Factor Authentication.
+     * @deprecated
+     */
+    postV2SignupMfaConfirm: this.requestFunctionFactory(
+      descriptors.postV2SignupMfaConfirm,
+    ),
+    /** Get your current multi factor auth status. */
+    getMfaStatus: this.requestFunctionFactory(descriptors.userGetMfaStatus),
+    /** Reset RecoveryCodes for MFA. */
+    resetRecoverycodes: this.requestFunctionFactory(
+      descriptors.userResetRecoverycodes,
+    ),
+    /** Confirm Multi Factor Authentication. */
+    confirmMfa: this.requestFunctionFactory(descriptors.userConfirmMfa),
+    /** Disable Multi Factor Authentication. */
+    disableMfa: this.requestFunctionFactory(descriptors.userDisableMfa),
+    /** Confirm password reset. */
+    confirmPasswordReset: this.requestFunctionFactory(
+      descriptors.userConfirmPasswordReset,
+    ),
+    /**
+     * List all of your ApiTokens.
+     * @deprecated
+     */
+    getV2SignupTokenApi: this.requestFunctionFactory(
+      descriptors.getV2SignupTokenApi,
+    ),
+    /**
+     * Create a new ApiToken.
+     * @deprecated
+     */
+    postV2SignupTokenApi: this.requestFunctionFactory(
+      descriptors.postV2SignupTokenApi,
+    ),
+    /** List all of your ApiTokens. */
+    listApiTokens: this.requestFunctionFactory(descriptors.userListApiTokens),
+    /** Create a new ApiToken. */
+    createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
+    /** Submit your user feedback. */
+    createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
+    /**
+     * Get your stored ssh-keys.
+     * @deprecated
+     */
+    getV2SignupSsh: this.requestFunctionFactory(descriptors.getV2SignupSsh),
+    /**
+     * Store a new ssh-key.
+     * @deprecated
+     */
+    postV2SignupSsh: this.requestFunctionFactory(descriptors.postV2SignupSsh),
+    /** Get your stored ssh-keys. */
+    listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
+    /** Store a new ssh-key. */
+    createSshKey: this.requestFunctionFactory(descriptors.userCreateSshKey),
+    /** Get a specific ApiToken. */
+    getApiToken: this.requestFunctionFactory(descriptors.userGetApiToken),
+    /** Update an existing `ApiToken`. */
+    editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
+    /** Deletes an ApiToken. */
+    deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
+    /** Get a specific stored ssh-key. */
+    getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
+    /** Edit a stored ssh-key. */
+    editSshKey: this.requestFunctionFactory(descriptors.userEditSshKey),
+    /** Remove a ssh-key. */
+    deleteSshKey: this.requestFunctionFactory(descriptors.userDeleteSshKey),
+    /** Delete your account and all your personal data. */
+    deleteUser: this.requestFunctionFactory(descriptors.userDeleteUser),
+    /** Check status of the current session. */
+    getCurrentSessionStatus: this.requestFunctionFactory(
+      descriptors.userGetCurrentSessionStatus,
+    ),
+    /** The timestamp of your latest password change. */
+    getPasswordUpdatedAt: this.requestFunctionFactory(
+      descriptors.userGetPasswordUpdatedAt,
+    ),
+    /** Get personalized settings. */
+    getPersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userGetPersonalizedSettings,
+    ),
+    /** Update personalized GUI settings. */
+    updatePersonalizedSettings: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalizedSettings,
+    ),
+    /** Get poll settings for the specified user. */
+    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
+    /** Store new or update poll settings. */
+    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
+    /** Get a specific session. */
+    getSession: this.requestFunctionFactory(descriptors.userGetSession),
+    /** Terminate a specific Session. */
+    terminateSession: this.requestFunctionFactory(
+      descriptors.userTerminateSession,
+    ),
+    /** Submitted feedback of the given user. */
+    getSpotlightInfo: this.requestFunctionFactory(
+      descriptors.userGetSpotlightInfo,
+    ),
+    /** Submit your usage of the spotlight. */
+    spotlightUsage: this.requestFunctionFactory(descriptors.userSpotlightUsage),
+    /** Get profile information for a user. */
+    getUser: this.requestFunctionFactory(descriptors.userGetUser),
+    /** Change personal information. */
+    updatePersonalInformation: this.requestFunctionFactory(
+      descriptors.userUpdatePersonalInformation,
+    ),
+    /** Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa. */
+    initMfa: this.requestFunctionFactory(descriptors.userInitMfa),
+    /** Initialize password reset process. */
+    initPasswordReset: this.requestFunctionFactory(
+      descriptors.userInitPasswordReset,
+    ),
+    /** Submitted feedback of the given user. */
+    listFeedback: this.requestFunctionFactory(descriptors.userListFeedback),
+    /** List all sessions. */
+    listSessions: this.requestFunctionFactory(descriptors.userListSessions),
+    /** Refresh a session. */
+    refreshSession: this.requestFunctionFactory(descriptors.userRefreshSession),
+    /** Terminate all sessions, except the current session. */
+    terminateAllSessions: this.requestFunctionFactory(
+      descriptors.userTerminateAllSessions,
+    ),
+    /** Terminate session and invalidate access token. */
+    logout: this.requestFunctionFactory(descriptors.userLogout),
+    /** Obtain authorization from the resource owner. */
+    oauthGetAuthorization: this.requestFunctionFactory(
+      descriptors.userOauthGetAuthorization,
+    ),
+    /** Retrieve Access Token from Authorization Code. */
+    oauthRetrieveAccessToken: this.requestFunctionFactory(
+      descriptors.userOauthRetrieveAccessToken,
+    ),
+    /**
+     * Register with email and password.
+     * @deprecated
+     */
+    postV2SignupRegistration: this.requestFunctionFactory(
+      descriptors.postV2SignupRegistration,
+    ),
+    /** Register with email and password. */
+    register: this.requestFunctionFactory(descriptors.userRegister),
+    /** Request a new avatar image upload. */
+    requestAvatarUpload: this.requestFunctionFactory(
+      descriptors.userRequestAvatarUpload,
+    ),
+    /** Remove Avatar. */
+    removeAvatar: this.requestFunctionFactory(descriptors.userRemoveAvatar),
+    /** Resend the Email-Address verification email. */
+    resendVerificationEmail: this.requestFunctionFactory(
+      descriptors.userResendVerificationEmail,
+    ),
+    /**
+     * Reset RecoveryCodes for MFA.
+     * @deprecated
+     */
+    putV2SignupMfaResetRecoverycodes: this.requestFunctionFactory(
+      descriptors.putV2SignupMfaResetRecoverycodes,
+    ),
+    /** Check if a password is leaked. */
+    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
+      descriptors.userSearchedLeakedPasswordsByRange,
+    ),
+    /** Submit your spotlight usage. */
+    spotlightFeedback: this.requestFunctionFactory(
+      descriptors.userSpotlightFeedback,
+    ),
+    /**
+     * Request a support code.
+     * @deprecated
+     */
+    getV2SignupSupportcode: this.requestFunctionFactory(
+      descriptors.getV2SignupSupportcode,
+    ),
+    /**
+     * Request a support code.
+     * @deprecated
+     */
+    getV2SignupSupportcodes: this.requestFunctionFactory(
+      descriptors.getV2SignupSupportcodes,
+    ),
+    /** Request a support code. */
+    supportCodeRequest: this.requestFunctionFactory(
+      descriptors.userSupportCodeRequest,
+    ),
+    /** Verify an added Email-Address. */
+    verifyEmail: this.requestFunctionFactory(descriptors.userVerifyEmail),
+    /**
+     * Verify phone number.
+     * @deprecated
+     */
+    postV2UsersUserIdPhoneVerify: this.requestFunctionFactory(
+      descriptors.postV2UsersUserIdPhoneVerify,
+    ),
+    /** Verify phone number. */
+    verifyPhoneNumber: this.requestFunctionFactory(
+      descriptors.userVerifyPhoneNumber,
+    ),
+    /**
+     * Verify your registration.
+     * @deprecated
+     */
+    postV2SignupRegistrationVerification: this.requestFunctionFactory(
+      descriptors.postV2SignupRegistrationVerification,
+    ),
+    /** Verify your registration. */
+    verifyRegistration: this.requestFunctionFactory(
+      descriptors.userVerifyRegistration,
+    ),
+  };
+
+  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
+  public readonly leadFyndr = {
+    /**
+     * Get your LeadFyndr request.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest,
+      ),
+    /**
+     * Create a new access request for LeadFyndr.
+     * @deprecated
+     */
+    postExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest:
+      this.requestFunctionFactory(
+        descriptors.postExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest,
+      ),
+    /**
+     * Get your LeadFyndr request.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest,
+      ),
+    /**
+     * Create a new access request for LeadFyndr.
+     * @deprecated
+     */
+    postV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest:
+      this.requestFunctionFactory(
+        descriptors.postV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest,
+      ),
+    /** Get your LeadFyndr request. */
+    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileRequest,
+    ),
+    /** Create a new access request for LeadFyndr. */
+    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
+    ),
+    /**
+     * Create an export of unlocked leads for the given customerId.
+     * @deprecated
+     */
+    postExperimentalV2CustomersCustomerIdUnlockedLeadsExport:
+      this.requestFunctionFactory(
+        descriptors.postExperimentalV2CustomersCustomerIdUnlockedLeadsExport,
+      ),
+    /**
+     * Create an export of unlocked leads for the given customerId.
+     * @deprecated
+     */
+    postV2ExperimentalCustomersCustomerIdUnlockedLeadsExport:
+      this.requestFunctionFactory(
+        descriptors.postV2ExperimentalCustomersCustomerIdUnlockedLeadsExport,
+      ),
+    /** Create an export of unlocked leads for the given customerId. */
+    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
+      descriptors.leadfyndrCreateLeadsExport,
+    ),
+    /**
+     * Get cities in DACH.
+     * @deprecated
+     */
+    getExperimentalV2Cities: this.requestFunctionFactory(
+      descriptors.getExperimentalV2Cities,
+    ),
+    /**
+     * Get cities in DACH.
+     * @deprecated
+     */
+    getV2ExperimentalCities: this.requestFunctionFactory(
+      descriptors.getV2ExperimentalCities,
+    ),
+    /** Get cities in DACH. */
+    leadfyndrGetCities: this.requestFunctionFactory(
+      descriptors.leadfyndrGetCities,
+    ),
+    /**
+     * Get lead tariff options. How many leads did you unlock this month?
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff,
+      ),
+    /**
+     * Get lead tariff options. How many leads did you unlock this month?
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff,
+      ),
+    /** Get lead tariff options. How many leads did you unlock this month? */
+    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
+    ),
+    /**
+     * Get your LeadFyndr profile.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdLeadFyndrProfile:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdLeadFyndrProfile,
+      ),
+    /**
+     * Get your LeadFyndr profile.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdLeadFyndrProfile:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdLeadFyndrProfile,
+      ),
+    /** Get your LeadFyndr profile. */
+    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadFyndrProfile,
+    ),
+    /**
+     * Get a simple lead. Use the unlocked route for more detail leads.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdLeadsLeadId:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdLeadsLeadId,
+      ),
+    /**
+     * Get a simple lead. Use the unlocked route for more detail leads.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdLeadsLeadId:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdLeadsLeadId,
+      ),
+    /** Get a simple lead. Use the unlocked route for more detail leads. */
+    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
+    /**
+     * Get unlocked leads export history for the given customerId.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdUnlockedLeadsExports:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdUnlockedLeadsExports,
+      ),
+    /**
+     * Get unlocked leads export history for the given customerId.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdUnlockedLeadsExports:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdUnlockedLeadsExports,
+      ),
+    /** Get unlocked leads export history for the given customerId. */
+    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
+      descriptors.leadfyndrGetLeadsExportHistory,
+    ),
+    /**
+     * Get a detail of a unlocked lead. Organisation can unlock leads.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId,
+      ),
+    /**
+     * Unlock a lead for the given customerId.
+     * @deprecated
+     */
+    postExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId:
+      this.requestFunctionFactory(
+        descriptors.postExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId,
+      ),
+    /**
+     * Get a detail of a unlocked lead. Organisation can unlock leads.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId,
+      ),
+    /**
+     * Unlock a lead for the given customerId.
+     * @deprecated
+     */
+    postV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId:
+      this.requestFunctionFactory(
+        descriptors.postV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId,
+      ),
+    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
+      descriptors.leadfyndrGetUnlockedLead,
+    ),
+    /** Unlock a lead for the given customerId. */
+    leadfyndrUnlockLead: this.requestFunctionFactory(
+      descriptors.leadfyndrUnlockLead,
+    ),
+    /**
+     * Get all leads. Use the unlocked routes for more lead details.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdLeads: this.requestFunctionFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdLeads,
+    ),
+    /**
+     * Get all leads. Use the unlocked routes for more lead details.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdLeads: this.requestFunctionFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdLeads,
+    ),
+    /** Get all leads. Use the unlocked routes for more lead details. */
+    leadfyndrListLeads: this.requestFunctionFactory(
+      descriptors.leadfyndrListLeads,
+    ),
+    /**
+     * Get all unlocked leads. Organisation can unlock leads.
+     * @deprecated
+     */
+    getExperimentalV2CustomersCustomerIdUnlockedLeads:
+      this.requestFunctionFactory(
+        descriptors.getExperimentalV2CustomersCustomerIdUnlockedLeads,
+      ),
+    /**
+     * Get all unlocked leads. Organisation can unlock leads.
+     * @deprecated
+     */
+    getV2ExperimentalCustomersCustomerIdUnlockedLeads:
+      this.requestFunctionFactory(
+        descriptors.getV2ExperimentalCustomersCustomerIdUnlockedLeads,
+      ),
+    /** Get all unlocked leads. Organisation can unlock leads. */
+    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
+      descriptors.leadfyndrListUnlockedLeads,
+    ),
+    /**
+     * Reserve a unlocked lead for the given customerId.
+     * @deprecated
+     */
+    postExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation:
+      this.requestFunctionFactory(
+        descriptors.postExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation,
+      ),
+    /**
+     * Removes a reservation on a unlocked lead for the given customerId.
+     * @deprecated
+     */
+    deleteExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation:
+      this.requestFunctionFactory(
+        descriptors.deleteExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation,
+      ),
+    /**
+     * Reserve a unlocked lead for the given customerId.
+     * @deprecated
+     */
+    postV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation:
+      this.requestFunctionFactory(
+        descriptors.postV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation,
+      ),
+    /**
+     * Removes a reservation on a unlocked lead for the given customerId.
+     * @deprecated
+     */
+    deleteV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation:
+      this.requestFunctionFactory(
+        descriptors.deleteV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation,
+      ),
+    /** Reserve a unlocked lead for the given customerId. */
+    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
+      descriptors.leadfyndrReserveUnlockedLead,
+    ),
+    /** Removes a reservation on a unlocked lead for the given customerId. */
+    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
+      descriptors.leadfyndrRemoveUnlockedLeadReservation,
+    ),
+  };
+
+  /** The license API allows you to manage your paid licenses. */
+  public readonly license = {
+    /** Get a license. */
+    getLicense: this.requestFunctionFactory(descriptors.licenseGetLicense),
+    /** List Licenses belonging to a Project. */
+    listLicensesForProject: this.requestFunctionFactory(
+      descriptors.licenseListLicensesForProject,
+    ),
+    /** Rotate a License's key, i.e. revoke the old and generate a new one. */
+    rotateLicenseKey: this.requestFunctionFactory(
+      descriptors.licenseRotateLicenseKey,
+    ),
+    /** Validate a License's key for a project. */
+    validateLicenseKeyForProject: this.requestFunctionFactory(
+      descriptors.licenseValidateLicenseKeyForProject,
+    ),
+  };
+
+  /** API endpoints that are not related to any specific API domain */
+  public readonly misc = {
+    /** List valid time zones. */
+    ellaneousListTimeZones: this.requestFunctionFactory(
+      descriptors.miscellaneousListTimeZones,
+    ),
+    /** Check if an email is from mittwald. */
+    verificationDetectPhishingEmail: this.requestFunctionFactory(
+      descriptors.verificationDetectPhishingEmail,
+    ),
+    /** Check if an address exists. */
+    verificationVerifyAddress: this.requestFunctionFactory(
+      descriptors.verificationVerifyAddress,
+    ),
+    /** Check if a company exists. */
+    verificationVerifyCompany: this.requestFunctionFactory(
+      descriptors.verificationVerifyCompany,
+    ),
+  };
+
+  /** The page insights API allows you to get page insights information. */
+  public readonly pageInsights = {
+    /**
+     * Get detailed performance data for a given domain and path.
+     * @deprecated
+     */
+    getV2Pageinsights: this.requestFunctionFactory(
+      descriptors.getV2Pageinsights,
+    ),
+    /** Get detailed performance data for a given domain and path. */
+    pageinsightsGetPerformanceData: this.requestFunctionFactory(
+      descriptors.pageinsightsGetPerformanceData,
+    ),
+    /** Get all data for a given strace. */
+    pageinsightsGetStraceData: this.requestFunctionFactory(
+      descriptors.pageinsightsGetStraceData,
+    ),
+    /**
+     * List websites (specified as domain and path) from a project where performance data is available.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdPageinsights: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdPageinsights,
+    ),
+    /** List websites (specified as domain and path) from a project where performance data is available. */
+    pageinsightsListPerformanceDataForProject: this.requestFunctionFactory(
+      descriptors.pageinsightsListPerformanceDataForProject,
+    ),
+    /** Schedule a strace measurement for a single http request. */
+    pageinsightsScheduleStrace: this.requestFunctionFactory(
+      descriptors.pageinsightsScheduleStrace,
+    ),
+  };
+
   /** The filesystem API allows you to directly access the filesystem of your project. */
   public readonly projectFileSystem = {
+    /**
+     * List directories belonging to a Project.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdFilesystemDirectories: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdFilesystemDirectories,
+    ),
     /** List directories belonging to a Project. */
     getDirectories: this.requestFunctionFactory(
       descriptors.projectFileSystemGetDirectories,
     ),
+    /**
+     * Get a Project directory filesystem usage.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdFilesystemUsagesDisk: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdFilesystemUsagesDisk,
+    ),
     /** Get a Project directory filesystem usage. */
     getDiskUsage: this.requestFunctionFactory(
       descriptors.projectFileSystemGetDiskUsage,
+    ),
+    /**
+     * Get a Project file's content.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdFilesystemFilesRaw: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdFilesystemFilesRaw,
     ),
     /** Get a Project file's content. */
     getFileContent: this.requestFunctionFactory(
@@ -1836,6 +3290,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
     /** Get a Project's file/filesystem authorization token. */
     getJwt: this.requestFunctionFactory(descriptors.projectFileSystemGetJwt),
+    /**
+     * Get a Project file's information.
+     * @deprecated
+     */
+    getV2ProjectsProjectIdFilesystemFiles: this.requestFunctionFactory(
+      descriptors.getV2ProjectsProjectIdFilesystemFiles,
+    ),
     /** Get a Project file's information. */
     listFiles: this.requestFunctionFactory(
       descriptors.projectFileSystemListFiles,
@@ -1872,6 +3333,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sftpUserUpdateSftpUser: this.requestFunctionFactory(
       descriptors.sftpUserUpdateSftpUser,
     ),
+    /**
+     * Get all SFTPUsers for a Project.
+     * @deprecated
+     */
+    getV2ProjectProjectIdSftpUsers: this.requestFunctionFactory(
+      descriptors.getV2ProjectProjectIdSftpUsers,
+    ),
     /** Get all SSHUsers for a Project. */
     sshUserListSshUsers: this.requestFunctionFactory(
       descriptors.sshUserListSshUsers,
@@ -1891,6 +3359,13 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update an SSHUser. */
     sshUserUpdateSshUser: this.requestFunctionFactory(
       descriptors.sshUserUpdateSshUser,
+    ),
+    /**
+     * Update an SSHUser.
+     * @deprecated
+     */
+    patchV2SshusersSshUserId: this.requestFunctionFactory(
+      descriptors.patchV2SshusersSshUserId,
     ),
   };
 }
