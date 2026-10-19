@@ -1,0 +1,9 @@
+{
+  "name": "eslint-plugin-api-models",
+  "private": true,
+  "version": "0.0.0",
+  "type": "commonjs",
+  "description": "Local ESLint rules guarding @mittwald/api-models invariants",
+  "license": "MIT",
+  "main": "index.js"
+}

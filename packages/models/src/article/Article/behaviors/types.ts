@@ -1,13 +1,13 @@
-import {
-  ArticleData,
-  ArticleListItemData,
+import type { QueryResponseData } from "../../../base/index.js";
+import type {
   ArticleListQueryData,
+  ArticleListItemData,
+  ArticleData,
 } from "../types.js";
-import { QueryResponseData } from "../../../base/index.js";
 
 export interface ArticleBehaviors {
-  find: (id: string) => Promise<ArticleData | undefined>;
   list: (
     query?: ArticleListQueryData,
   ) => Promise<QueryResponseData<ArticleListItemData>>;
+  find: (articleId: string) => Promise<ArticleData | undefined>;
 }

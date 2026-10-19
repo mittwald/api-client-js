@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "declarationDir": "./dist/types",
+    "outDir": "./dist/esm",
+    "rootDir": "./src",
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"],
+  "extends": "../../tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

@@ -1,75 +1,109 @@
-import { ProjectBehaviors } from "./types.js";
+import type { MittwaldAPIV2Client } from "@mittwald/api-client";
+
+import type { ProjectBehaviors } from "./types.js";
+
 import {
-  assertStatus,
-  extractTotalCountHeader,
-  MittwaldAPIV2Client,
-} from "@mittwald/api-client";
-import { assertOneOfStatus } from "@mittwald/api-client";
+  withAxiosRequestConfig,
+  resolveTotalCount,
+} from "../../../base/index.js";
+import { validateResponse } from "../../../base/api/validateResponse.js";
+import { anyStatus404 } from "../../../base/api/typeFixes.js";
 
 export const apiProjectBehaviors = (
   client: MittwaldAPIV2Client,
 ): ProjectBehaviors => ({
-  find: async (id) => {
-    const response = await client.project.getProject({
-      projectId: id,
-    });
+  find: async (projectId, options) => {
+    const response = await client.project.getProject(
+      {
+        projectId,
+      },
+      withAxiosRequestConfig(options),
+    );
 
     if (response.status === 200) {
       return response.data;
     }
-    assertOneOfStatus(response, [403]);
+    // API-DRIFT: getProject omits 404 in its generated response type, so anyStatus404 (404 as any) is passed (resolve: use the literal 404 once the client type declares it)
+    validateResponse(response, [403, anyStatus404]);
+  },
+
+  findFileSystemDirectories: async (projectId, directory, requestConfig) => {
+    const response = await client.projectFileSystem.getDirectories(
+      {
+        queryParameters: { directory },
+        projectId,
+      },
+      withAxiosRequestConfig(requestConfig),
+    );
+
+    if (response.status === 200) {
+      return response.data;
+    }
+  },
+
+  updateStorageNotificationThreshold: async (
+    projectId,
+    thresholdInBytes?: number,
+  ) => {
+    const response = await client.project.storagespaceUpdateProjectStatistics({
+      data: { notificationThresholdInBytes: thresholdInBytes },
+      projectId,
+    });
+
+    validateResponse(response, 204);
+  },
+
+  createAvatarUploadToken: async (projectId) => {
+    const response = await client.project.requestProjectAvatarUpload({
+      projectId,
+    });
+    validateResponse(response, 200);
+    return {
+      token: response.data.refId,
+      rules: response.data.rules,
+    };
   },
 
   list: async (query) => {
     const response = await client.project.listProjects({
       queryParameters: query,
     });
-    assertStatus(response, 200);
+    validateResponse(response, 200);
     return {
+      totalCount: resolveTotalCount(response),
       items: response.data,
-      totalCount: extractTotalCountHeader(response),
     };
   },
 
-  create: async (serverId: string, description: string) => {
+  create: async (serverId, description) => {
     const response = await client.project.createProject({
-      serverId,
       data: {
         description,
       },
+      serverId,
     });
-    assertStatus(response, 201);
+    validateResponse(response, 201);
     return response.data;
   },
 
-  leave: async (id: string) => {
-    const selfMembershipResponse =
-      await client.project.getSelfMembershipForProject({
-        projectId: id,
-      });
-
-    assertStatus(selfMembershipResponse, 200);
-
-    const response = await client.project.deleteProjectMembership({
-      projectMembershipId: selfMembershipResponse.data.id,
-    });
-    assertStatus(response, 204);
-  },
-
-  delete: async (id: string) => {
-    const response = await client.project.deleteProject({
-      projectId: id,
-    });
-    assertStatus(response, 204);
-  },
-
-  updateDescription: async (id: string, description: string) => {
+  updateDescription: async (projectId, description) => {
     const response = await client.project.updateProject({
-      projectId: id,
       data: {
         description,
       },
+      projectId,
     });
-    assertStatus(response, 204);
+    validateResponse(response, 204);
+  },
+
+  removeAvatar: async (projectId) => {
+    const response = await client.project.deleteProjectAvatar({ projectId });
+
+    validateResponse(response, 204);
+  },
+
+  delete: async (projectId) => {
+    const response = await client.project.deleteProject({ projectId });
+    validateResponse(response, 204);
   },
 });

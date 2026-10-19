@@ -1,1 +1,1 @@
-export const joinedId = (...parts: Array<number | string>) => parts.join(" | ");
+export const joinedId = (...parts: unknown[]) => parts.join(".");
