@@ -80,6 +80,7 @@ export class Operation {
       path: this.path.name.raw,
       method: this.httpMethod.raw.toUpperCase(),
       operationId: this.id.raw,
+      deprecated: this.deprecated ? "\n          deprecated: true," : "",
     };
 
     return `\
@@ -90,7 +91,7 @@ export class Operation {
         > = {
           path: "${t.path}",
           method: "${t.method}",
-          operationId: "${t.operationId}",
+          operationId: "${t.operationId}",${t.deprecated}
         };
     `;
   }
