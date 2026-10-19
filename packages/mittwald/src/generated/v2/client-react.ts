@@ -32,6 +32,14 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingCustomerGetPlan,
     baseClient.aiHosting.customerGetPlan,
   ).getApiResource,
+  /**
+   * Get ai hosting plan and usages of a customer.
+   * @deprecated
+   */
+  customerGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingCustomerGetUsage,
+    baseClient.aiHosting.customerGetUsage,
+  ).getApiResource,
   /** Get a list of currently active models. */
   getModels: new ApiCallAsyncResourceFactory(
     descriptors.aiHostingGetModels,
@@ -72,6 +80,14 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetPlans,
     baseClient.aiHosting.projectGetPlans,
   ).getApiResource,
+  /**
+   * Get ai hosting plan and usages of a project.
+   * @deprecated
+   */
+  projectGetUsage: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingProjectGetUsage,
+    baseClient.aiHosting.projectGetUsage,
+  ).getApiResource,
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -90,6 +106,14 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetAppinstallationErrorAnalysis,
     baseClient.app.getAppinstallationErrorAnalysis,
   ).getApiResource,
+  /**
+   * Get an AppInstallation.
+   * @deprecated
+   */
+  getV2AppinstallationsAppInstallationId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2AppinstallationsAppInstallationId,
+    baseClient.app.getV2AppinstallationsAppInstallationId,
+  ).getApiResource,
   /** Get an AppInstallation. */
   getAppinstallation: new ApiCallAsyncResourceFactory(
     descriptors.appGetAppinstallation,
@@ -100,16 +124,61 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appGetAppversion,
     baseClient.app.getAppversion,
   ).getApiResource,
+  /**
+   * Get the installed `SystemSoftware' for a specific `AppInstallation`.
+   * @deprecated
+   */
+  getInstalledSystemsoftwareForAppinstallation: new ApiCallAsyncResourceFactory(
+    descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    baseClient.app.getInstalledSystemsoftwareForAppinstallation,
+  ).getApiResource,
+  /**
+   * Get the missing requirements of an appInstallation for a specific target AppVersion.
+   * @deprecated
+   */
+  getV2AppinstallationsAppInstallationIdMissingDependencies:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2AppinstallationsAppInstallationIdMissingDependencies,
+      baseClient.app.getV2AppinstallationsAppInstallationIdMissingDependencies,
+    ).getApiResource,
   /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
   getMissingDependenciesForAppinstallation: new ApiCallAsyncResourceFactory(
     descriptors.appGetMissingDependenciesForAppinstallation,
     baseClient.app.getMissingDependenciesForAppinstallation,
+  ).getApiResource,
+  /**
+   * Get a SystemSoftware.
+   * @deprecated
+   */
+  getV2SystemsoftwaresSystemSoftwareId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SystemsoftwaresSystemSoftwareId,
+    baseClient.app.getV2SystemsoftwaresSystemSoftwareId,
   ).getApiResource,
   /** Get a SystemSoftware. */
   getSystemsoftware: new ApiCallAsyncResourceFactory(
     descriptors.appGetSystemsoftware,
     baseClient.app.getSystemsoftware,
   ).getApiResource,
+  /**
+   * Get a SystemSoftwareVersion.
+   * @deprecated
+   */
+  getV2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId,
+      baseClient.app
+        .getV2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId,
+    ).getApiResource,
+  /**
+   * Get a SystemSoftwareVersion.
+   * @deprecated
+   */
+  getV2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId,
+      baseClient.app
+        .getV2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId,
+    ).getApiResource,
   /** Get a SystemSoftwareVersion. */
   getSystemsoftwareversion: new ApiCallAsyncResourceFactory(
     descriptors.appGetSystemsoftwareversion,
@@ -119,6 +188,14 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   listAppinstallationsForUser: new ApiCallAsyncResourceFactory(
     descriptors.appListAppinstallationsForUser,
     baseClient.app.listAppinstallationsForUser,
+  ).getApiResource,
+  /**
+   * List AppInstallations belonging to a Project.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdAppinstallations: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdAppinstallations,
+    baseClient.app.getV2ProjectsProjectIdAppinstallations,
   ).getApiResource,
   /** List AppInstallations belonging to a Project. */
   listAppinstallations: new ApiCallAsyncResourceFactory(
@@ -135,10 +212,34 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.appListAppversions,
     baseClient.app.listAppversions,
   ).getApiResource,
+  /**
+   * List SystemSoftwares.
+   * @deprecated
+   */
+  getV2Systemsoftwares: new ApiCallAsyncResourceFactory(
+    descriptors.getV2Systemsoftwares,
+    baseClient.app.getV2Systemsoftwares,
+  ).getApiResource,
   /** List SystemSoftwares. */
   listSystemsoftwares: new ApiCallAsyncResourceFactory(
     descriptors.appListSystemsoftwares,
     baseClient.app.listSystemsoftwares,
+  ).getApiResource,
+  /**
+   * List SystemSoftwareVersions belonging to a SystemSoftware.
+   * @deprecated
+   */
+  getV2SystemSoftwareSystemSoftwareIdVersions: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SystemSoftwareSystemSoftwareIdVersions,
+    baseClient.app.getV2SystemSoftwareSystemSoftwareIdVersions,
+  ).getApiResource,
+  /**
+   * List SystemSoftwareVersions belonging to a SystemSoftware.
+   * @deprecated
+   */
+  getV2SystemsoftwareSystemSoftwareIdVersions: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SystemsoftwareSystemSoftwareIdVersions,
+    baseClient.app.getV2SystemsoftwareSystemSoftwareIdVersions,
   ).getApiResource,
   /** List SystemSoftwareVersions belonging to a SystemSoftware. */
   listSystemsoftwareversions: new ApiCallAsyncResourceFactory(
@@ -149,6 +250,14 @@ const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   listUpdateCandidatesForAppversion: new ApiCallAsyncResourceFactory(
     descriptors.appListUpdateCandidatesForAppversion,
     baseClient.app.listUpdateCandidatesForAppversion,
+  ).getApiResource,
+  /**
+   * Get runtime status belonging to an AppInstallation.
+   * @deprecated
+   */
+  getV2AppinstallationsAppInstallationIdStatus: new ApiCallAsyncResourceFactory(
+    descriptors.getV2AppinstallationsAppInstallationIdStatus,
+    baseClient.app.getV2AppinstallationsAppInstallationIdStatus,
   ).getApiResource,
   /** Get runtime status belonging to an AppInstallation. */
   retrieveStatus: new ApiCallAsyncResourceFactory(
@@ -284,6 +393,14 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.containerListStackVolumes,
     baseClient.container.listStackVolumes,
   ).getApiResource,
+  /**
+   * List Container Template statistics.
+   * @deprecated
+   */
+  listTemplateStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.containerListTemplateStatistics,
+    baseClient.container.listTemplateStatistics,
+  ).getApiResource,
   /** List Container Templates. */
   listTemplates: new ApiCallAsyncResourceFactory(
     descriptors.containerListTemplates,
@@ -293,6 +410,14 @@ const buildContainerApi = (baseClient: MittwaldAPIV2Client) => ({
   listVolumes: new ApiCallAsyncResourceFactory(
     descriptors.containerListVolumes,
     baseClient.container.listVolumes,
+  ).getApiResource,
+  /**
+   * Get a Container Template icon.
+   * @deprecated
+   */
+  deprecatedContainerGetTemplateIcon: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedContainerGetTemplateIcon,
+    baseClient.container.deprecatedContainerGetTemplateIcon,
   ).getApiResource,
 });
 
@@ -356,6 +481,32 @@ const buildContractApi = (baseClient: MittwaldAPIV2Client) => ({
   listContracts: new ApiCallAsyncResourceFactory(
     descriptors.contractListContracts,
     baseClient.contract.listContracts,
+  ).getApiResource,
+  /**
+   * Return the AI Hosting Contract for the given Customer.
+   * @deprecated
+   */
+  deprecatedContractGetDetailOfContractByAiHosting:
+    new ApiCallAsyncResourceFactory(
+      descriptors.deprecatedContractGetDetailOfContractByAiHosting,
+      baseClient.contract.deprecatedContractGetDetailOfContractByAiHosting,
+    ).getApiResource,
+  /**
+   * Return the next TerminationDate for the ContractItem with the given ID.
+   * @deprecated
+   */
+  deprecatedContractGetNextTerminationDateForItem:
+    new ApiCallAsyncResourceFactory(
+      descriptors.deprecatedContractGetNextTerminationDateForItem,
+      baseClient.contract.deprecatedContractGetNextTerminationDateForItem,
+    ).getApiResource,
+  /**
+   * Get details of an Invoice.
+   * @deprecated
+   */
+  deprecatedInvoiceDetailOfInvoice: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedInvoiceDetailOfInvoice,
+    baseClient.contract.deprecatedInvoiceDetailOfInvoice,
   ).getApiResource,
   /** Get details of an Invoice. */
   invoiceDetail: new ApiCallAsyncResourceFactory(
@@ -494,6 +645,14 @@ const buildMarketplaceApi = (baseClient: MittwaldAPIV2Client) => ({
   extensionGetProjectExtensionInstanceOrders: new ApiCallAsyncResourceFactory(
     descriptors.extensionGetProjectExtensionInstanceOrders,
     baseClient.marketplace.extensionGetProjectExtensionInstanceOrders,
+  ).getApiResource,
+  /**
+   * Get the public key to verify the webhook signature.
+   * @deprecated
+   */
+  getV2WebhookPublicKeysSerial: new ApiCallAsyncResourceFactory(
+    descriptors.getV2WebhookPublicKeysSerial,
+    baseClient.marketplace.getV2WebhookPublicKeysSerial,
   ).getApiResource,
   /** Get the public key to verify the webhook signature. */
   extensionGetPublicKey: new ApiCallAsyncResourceFactory(
@@ -721,6 +880,38 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.domainListDomains,
     baseClient.domain.listDomains,
   ).getApiResource,
+  /**
+   * Get a HandleSchema.
+   * @deprecated
+   */
+  deprecatedDomainGetHandleFields: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedDomainGetHandleFields,
+    baseClient.domain.deprecatedDomainGetHandleFields,
+  ).getApiResource,
+  /**
+   * Get File Service Reference for a Screenshot of a domain.
+   * @deprecated
+   */
+  deprecatedDomainGetScreenshotForDomain: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedDomainGetScreenshotForDomain,
+    baseClient.domain.deprecatedDomainGetScreenshotForDomain,
+  ).getApiResource,
+  /**
+   * List Domains belonging to a Project.
+   * @deprecated
+   */
+  deprecatedDomainListDomains: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedDomainListDomains,
+    baseClient.domain.deprecatedDomainListDomains,
+  ).getApiResource,
+  /**
+   * List Ingresses belonging to a project.
+   * @deprecated
+   */
+  deprecatedIngressListIngresses: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedIngressListIngresses,
+    baseClient.domain.deprecatedIngressListIngresses,
+  ).getApiResource,
   /** List DNS zone-file import jobs belonging to a Project. */
   dnsListDnsZoneFileImports: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZoneFileImports,
@@ -730,6 +921,14 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   dnsListDnsZones: new ApiCallAsyncResourceFactory(
     descriptors.dnsListDnsZones,
     baseClient.domain.dnsListDnsZones,
+  ).getApiResource,
+  /**
+   * Get a DNSZone.
+   * @deprecated
+   */
+  getV2DnsZonesDnsZoneId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2DnsZonesDnsZoneId,
+    baseClient.domain.getV2DnsZonesDnsZoneId,
   ).getApiResource,
   /** Get a DNSZone. */
   dnsGetDnsZone: new ApiCallAsyncResourceFactory(
@@ -745,6 +944,14 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   dnsGetZoneFile: new ApiCallAsyncResourceFactory(
     descriptors.dnsGetZoneFile,
     baseClient.domain.dnsGetZoneFile,
+  ).getApiResource,
+  /**
+   * List DNSZones belonging to a Project.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdDnsZones: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdDnsZones,
+    baseClient.domain.getV2ProjectsProjectIdDnsZones,
   ).getApiResource,
   /** Get a Domain. */
   getDomain: new ApiCallAsyncResourceFactory(
@@ -770,6 +977,14 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
   listTldContactSchemas: new ApiCallAsyncResourceFactory(
     descriptors.domainListTldContactSchemas,
     baseClient.domain.listTldContactSchemas,
+  ).getApiResource,
+  /**
+   * List TLDs.
+   * @deprecated
+   */
+  getV2DomainsSupportedTlds: new ApiCallAsyncResourceFactory(
+    descriptors.getV2DomainsSupportedTlds,
+    baseClient.domain.getV2DomainsSupportedTlds,
   ).getApiResource,
   /** List TLDs. */
   listTlds: new ApiCallAsyncResourceFactory(
@@ -819,6 +1034,22 @@ const buildDomainApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
+  /**
+   * Get a Token's upload rules.
+   * @deprecated
+   */
+  deprecatedFileGetFileTokenRules: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedFileGetFileTokenRules,
+    baseClient.file.deprecatedFileGetFileTokenRules,
+  ).getApiResource,
+  /**
+   * Get a Type's upload rules.
+   * @deprecated
+   */
+  deprecatedFileGetFileTypeRules: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedFileGetFileTypeRules,
+    baseClient.file.deprecatedFileGetFileTypeRules,
+  ).getApiResource,
   /** Get a File's meta. */
   getFileMeta: new ApiCallAsyncResourceFactory(
     descriptors.fileGetFileMeta,
@@ -846,184 +1077,155 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
-const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get your LeadFyndr request. */
-  leadfyndrGetLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfileRequest,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequest,
-  ).getApiResource,
-  /** Get cities in DACH. */
-  leadfyndrGetCities: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetCities,
-    baseClient.leadFyndr.leadfyndrGetCities,
-  ).getApiResource,
-  /** Get lead tariff options. How many leads did you unlock this month? */
-  leadfyndrGetLeadFyndrProfileTariffOptions: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptions,
-  ).getApiResource,
-  /** Get your LeadFyndr profile. */
-  leadfyndrGetLeadFyndrProfile: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfile,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfile,
-  ).getApiResource,
-  /** Get a simple lead. Use the unlocked route for more detail leads. */
-  leadfyndrGetLead: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLead,
-    baseClient.leadFyndr.leadfyndrGetLead,
-  ).getApiResource,
-  /** Get unlocked leads export history for the given customerId. */
-  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadsExportHistory,
-    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
-  ).getApiResource,
-  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-  leadfyndrGetUnlockedLead: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetUnlockedLead,
-    baseClient.leadFyndr.leadfyndrGetUnlockedLead,
-  ).getApiResource,
-  /** Get all leads. Use the unlocked routes for more lead details. */
-  leadfyndrListLeads: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrListLeads,
-    baseClient.leadFyndr.leadfyndrListLeads,
-  ).getApiResource,
-  /** Get all unlocked leads. Organisation can unlock leads. */
-  leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrListUnlockedLeads,
-    baseClient.leadFyndr.leadfyndrListUnlockedLeads,
-  ).getApiResource,
-});
-
-const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get a license. */
-  getLicense: new ApiCallAsyncResourceFactory(
-    descriptors.licenseGetLicense,
-    baseClient.license.getLicense,
-  ).getApiResource,
-  /** List Licenses belonging to a Project. */
-  listLicensesForProject: new ApiCallAsyncResourceFactory(
-    descriptors.licenseListLicensesForProject,
-    baseClient.license.listLicensesForProject,
-  ).getApiResource,
-});
-
-const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List DeliveryBoxes belonging to a Project. */
-  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
-    descriptors.mailListDeliveryBoxes,
-    baseClient.mail.listDeliveryBoxes,
-  ).getApiResource,
-  /** List MailAddresses belonging to a Project. */
-  listMailAddresses: new ApiCallAsyncResourceFactory(
-    descriptors.mailListMailAddresses,
-    baseClient.mail.listMailAddresses,
-  ).getApiResource,
-  /** Get a DeliveryBox. */
-  getDeliveryBox: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetDeliveryBox,
-    baseClient.mail.getDeliveryBox,
-  ).getApiResource,
-  /** Get a MailAddress. */
-  getMailAddress: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetMailAddress,
-    baseClient.mail.getMailAddress,
-  ).getApiResource,
-  /** Get a Mail RateLimit. */
-  getMailRateLimit: new ApiCallAsyncResourceFactory(
-    descriptors.mailGetMailRateLimit,
-    baseClient.mail.getMailRateLimit,
-  ).getApiResource,
-  /** List backups belonging to a MailAddress. */
-  listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
-    descriptors.mailListBackupsForMailAddress,
-    baseClient.mail.listBackupsForMailAddress,
-  ).getApiResource,
-  /** List MailAddresses. */
-  listMailAddressesForUser: new ApiCallAsyncResourceFactory(
-    descriptors.mailListMailAddressesForUser,
-    baseClient.mail.listMailAddressesForUser,
-  ).getApiResource,
-  /** List Mail RateLimits. */
-  listMailRateLimits: new ApiCallAsyncResourceFactory(
-    descriptors.mailListMailRateLimits,
-    baseClient.mail.listMailRateLimits,
-  ).getApiResource,
-  /** List mail settings of a Project. */
-  listProjectMailSettings: new ApiCallAsyncResourceFactory(
-    descriptors.mailListProjectMailSettings,
-    baseClient.mail.listProjectMailSettings,
-  ).getApiResource,
-});
-
-const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** List valid time zones. */
-  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
-    descriptors.miscellaneousListTimeZones,
-    baseClient.misc.ellaneousListTimeZones,
-  ).getApiResource,
-});
-
-const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Getting the subscription status of the subscription. */
-  newsletterGetInfo: new ApiCallAsyncResourceFactory(
-    descriptors.newsletterGetInfo,
-    baseClient.notification.newsletterGetInfo,
-  ).getApiResource,
-  /** Get the counts for unread notifications of the user. */
-  scountUnreadNotifications: new ApiCallAsyncResourceFactory(
-    descriptors.notificationsCountUnreadNotifications,
-    baseClient.notification.scountUnreadNotifications,
-  ).getApiResource,
-  /** Get notification settings for a user. */
-  sgetNotificationSettings: new ApiCallAsyncResourceFactory(
-    descriptors.notificationsGetNotificationSettings,
-    baseClient.notification.sgetNotificationSettings,
-  ).getApiResource,
-  /** List all unread notifications. */
-  slistNotifications: new ApiCallAsyncResourceFactory(
-    descriptors.notificationsListNotifications,
-    baseClient.notification.slistNotifications,
-  ).getApiResource,
-});
-
-const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
-  /** Get detailed performance data for a given domain and path. */
-  pageinsightsGetPerformanceData: new ApiCallAsyncResourceFactory(
-    descriptors.pageinsightsGetPerformanceData,
-    baseClient.pageInsights.pageinsightsGetPerformanceData,
-  ).getApiResource,
-  /** Get all data for a given strace. */
-  pageinsightsGetStraceData: new ApiCallAsyncResourceFactory(
-    descriptors.pageinsightsGetStraceData,
-    baseClient.pageInsights.pageinsightsGetStraceData,
-  ).getApiResource,
-  /** List websites (specified as domain and path) from a project where performance data is available. */
-  pageinsightsListPerformanceDataForProject: new ApiCallAsyncResourceFactory(
-    descriptors.pageinsightsListPerformanceDataForProject,
-    baseClient.pageInsights.pageinsightsListPerformanceDataForProject,
-  ).getApiResource,
-});
-
 const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
+  /**
+   * Get your verified Email-Address.
+   * @deprecated
+   */
+  getV2SignupEmail: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupEmail,
+    baseClient.user.getV2SignupEmail,
+  ).getApiResource,
+  /**
+   * Get a specific ApiToken.
+   * @deprecated
+   */
+  getV2SignupTokenApiApiTokenId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupTokenApiApiTokenId,
+    baseClient.user.getV2SignupTokenApiApiTokenId,
+  ).getApiResource,
+  /**
+   * Get a specific stored ssh-key.
+   * @deprecated
+   */
+  getV2SignupSshSshKeyId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupSshSshKeyId,
+    baseClient.user.getV2SignupSshSshKeyId,
+  ).getApiResource,
+  /**
+   * Get your current multi factor auth status.
+   * @deprecated
+   */
+  getV2SignupMfa: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupMfa,
+    baseClient.user.getV2SignupMfa,
+  ).getApiResource,
+  /**
+   * Get your account information. Replaced by `GET` `/v2/users/self`.
+   * @deprecated
+   */
+  getV2SignupProfile: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupProfile,
+    baseClient.user.getV2SignupProfile,
+  ).getApiResource,
+  /**
+   * Get your account information. Replaced by `GET` `/v2/users/self`.
+   * @deprecated
+   */
+  deprecatedUserGetOwnAccount: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserGetOwnAccount,
+    baseClient.user.deprecatedUserGetOwnAccount,
+  ).getApiResource,
+  /**
+   * Returns your submitted feedback
+   * @deprecated
+   */
+  deprecatedUserServiceFeedbackList: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServiceFeedbackList,
+    baseClient.user.deprecatedUserServiceFeedbackList,
+  ).getApiResource,
+  /**
+   * Get profile information for the specified user if the user is related to the executing user
+   * @deprecated
+   */
+  deprecatedUserServiceUserGet: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServiceUserGet,
+    baseClient.user.deprecatedUserServiceUserGet,
+  ).getApiResource,
+  /**
+   * Get personalized settings for the user executing the request
+   * @deprecated
+   */
+  deprecatedUserServicePersonalizedSettingsGet: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServicePersonalizedSettingsGet,
+    baseClient.user.deprecatedUserServicePersonalizedSettingsGet,
+  ).getApiResource,
+  /**
+   * Get profile information for the executing user
+   * @deprecated
+   */
+  deprecatedUserServiceUserGetOwn: new ApiCallAsyncResourceFactory(
+    descriptors.deprecatedUserServiceUserGetOwn,
+    baseClient.user.deprecatedUserServiceUserGetOwn,
+  ).getApiResource,
+  /**
+   * List all sessions.
+   * @deprecated
+   */
+  getV2SignupSessions: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupSessions,
+    baseClient.user.getV2SignupSessions,
+  ).getApiResource,
+  /**
+   * Get a specific session.
+   * @deprecated
+   */
+  getV2SignupSessionsTokenId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupSessionsTokenId,
+    baseClient.user.getV2SignupSessionsTokenId,
+  ).getApiResource,
   /** Get a PasswordPolicy. */
   passwordValidationGetPasswordPolicy: new ApiCallAsyncResourceFactory(
     descriptors.passwordValidationGetPasswordPolicy,
     baseClient.user.passwordValidationGetPasswordPolicy,
   ).getApiResource,
+  /**
+   * DEPRECAED. Use `GET` `/v2/password-policies/{passwordPolicy}` instead.
+   * @deprecated
+   */
+  passwordValidationGetPasswordPolicyV2Deprecated:
+    new ApiCallAsyncResourceFactory(
+      descriptors.passwordValidationGetPasswordPolicyV2Deprecated,
+      baseClient.user.passwordValidationGetPasswordPolicyV2Deprecated,
+    ).getApiResource,
   /** Get your verified Email-Address. */
   getOwnEmail: new ApiCallAsyncResourceFactory(
     descriptors.userGetOwnEmail,
     baseClient.user.getOwnEmail,
+  ).getApiResource,
+  /**
+   * The timestamp of your latest password change.
+   * @deprecated
+   */
+  getV2SignupPassword: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupPassword,
+    baseClient.user.getV2SignupPassword,
   ).getApiResource,
   /** Get your current multi factor auth status. */
   getMfaStatus: new ApiCallAsyncResourceFactory(
     descriptors.userGetMfaStatus,
     baseClient.user.getMfaStatus,
   ).getApiResource,
+  /**
+   * List all of your ApiTokens.
+   * @deprecated
+   */
+  getV2SignupTokenApi: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupTokenApi,
+    baseClient.user.getV2SignupTokenApi,
+  ).getApiResource,
   /** List all of your ApiTokens. */
   listApiTokens: new ApiCallAsyncResourceFactory(
     descriptors.userListApiTokens,
     baseClient.user.listApiTokens,
+  ).getApiResource,
+  /**
+   * Get your stored ssh-keys.
+   * @deprecated
+   */
+  getV2SignupSsh: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupSsh,
+    baseClient.user.getV2SignupSsh,
   ).getApiResource,
   /** Get your stored ssh-keys. */
   listSshKeys: new ApiCallAsyncResourceFactory(
@@ -1095,10 +1297,414 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userSearchedLeakedPasswordsByRange,
     baseClient.user.searchedLeakedPasswordsByRange,
   ).getApiResource,
+  /**
+   * Request a support code.
+   * @deprecated
+   */
+  getV2SignupSupportcode: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupSupportcode,
+    baseClient.user.getV2SignupSupportcode,
+  ).getApiResource,
+  /**
+   * Request a support code.
+   * @deprecated
+   */
+  getV2SignupSupportcodes: new ApiCallAsyncResourceFactory(
+    descriptors.getV2SignupSupportcodes,
+    baseClient.user.getV2SignupSupportcodes,
+  ).getApiResource,
   /** Request a support code. */
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
+  ).getApiResource,
+});
+
+const buildLeadFyndrApi = (baseClient: MittwaldAPIV2Client) => ({
+  /**
+   * Get your LeadFyndr request.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest,
+      baseClient.leadFyndr
+        .getExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest,
+    ).getApiResource,
+  /**
+   * Get your LeadFyndr request.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest,
+      baseClient.leadFyndr
+        .getV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest,
+    ).getApiResource,
+  /** Get your LeadFyndr request. */
+  leadfyndrGetLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfileRequest,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequest,
+  ).getApiResource,
+  /**
+   * Get cities in DACH.
+   * @deprecated
+   */
+  getExperimentalV2Cities: new ApiCallAsyncResourceFactory(
+    descriptors.getExperimentalV2Cities,
+    baseClient.leadFyndr.getExperimentalV2Cities,
+  ).getApiResource,
+  /**
+   * Get cities in DACH.
+   * @deprecated
+   */
+  getV2ExperimentalCities: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ExperimentalCities,
+    baseClient.leadFyndr.getV2ExperimentalCities,
+  ).getApiResource,
+  /** Get cities in DACH. */
+  leadfyndrGetCities: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetCities,
+    baseClient.leadFyndr.leadfyndrGetCities,
+  ).getApiResource,
+  /**
+   * Get lead tariff options. How many leads did you unlock this month?
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff,
+      baseClient.leadFyndr
+        .getExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff,
+    ).getApiResource,
+  /**
+   * Get lead tariff options. How many leads did you unlock this month?
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff,
+      baseClient.leadFyndr
+        .getV2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff,
+    ).getApiResource,
+  /** Get lead tariff options. How many leads did you unlock this month? */
+  leadfyndrGetLeadFyndrProfileTariffOptions: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptions,
+  ).getApiResource,
+  /**
+   * Get your LeadFyndr profile.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdLeadFyndrProfile:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdLeadFyndrProfile,
+      baseClient.leadFyndr.getExperimentalV2CustomersCustomerIdLeadFyndrProfile,
+    ).getApiResource,
+  /**
+   * Get your LeadFyndr profile.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdLeadFyndrProfile:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdLeadFyndrProfile,
+      baseClient.leadFyndr.getV2ExperimentalCustomersCustomerIdLeadFyndrProfile,
+    ).getApiResource,
+  /** Get your LeadFyndr profile. */
+  leadfyndrGetLeadFyndrProfile: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadFyndrProfile,
+    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfile,
+  ).getApiResource,
+  /**
+   * Get a simple lead. Use the unlocked route for more detail leads.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdLeadsLeadId:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdLeadsLeadId,
+      baseClient.leadFyndr.getExperimentalV2CustomersCustomerIdLeadsLeadId,
+    ).getApiResource,
+  /**
+   * Get a simple lead. Use the unlocked route for more detail leads.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdLeadsLeadId:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdLeadsLeadId,
+      baseClient.leadFyndr.getV2ExperimentalCustomersCustomerIdLeadsLeadId,
+    ).getApiResource,
+  /** Get a simple lead. Use the unlocked route for more detail leads. */
+  leadfyndrGetLead: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLead,
+    baseClient.leadFyndr.leadfyndrGetLead,
+  ).getApiResource,
+  /**
+   * Get unlocked leads export history for the given customerId.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdUnlockedLeadsExports:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdUnlockedLeadsExports,
+      baseClient.leadFyndr
+        .getExperimentalV2CustomersCustomerIdUnlockedLeadsExports,
+    ).getApiResource,
+  /**
+   * Get unlocked leads export history for the given customerId.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdUnlockedLeadsExports:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdUnlockedLeadsExports,
+      baseClient.leadFyndr
+        .getV2ExperimentalCustomersCustomerIdUnlockedLeadsExports,
+    ).getApiResource,
+  /** Get unlocked leads export history for the given customerId. */
+  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetLeadsExportHistory,
+    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
+  ).getApiResource,
+  /**
+   * Get a detail of a unlocked lead. Organisation can unlock leads.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId,
+      baseClient.leadFyndr
+        .getExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId,
+    ).getApiResource,
+  /**
+   * Get a detail of a unlocked lead. Organisation can unlock leads.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId,
+      baseClient.leadFyndr
+        .getV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId,
+    ).getApiResource,
+  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
+  leadfyndrGetUnlockedLead: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrGetUnlockedLead,
+    baseClient.leadFyndr.leadfyndrGetUnlockedLead,
+  ).getApiResource,
+  /**
+   * Get all leads. Use the unlocked routes for more lead details.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdLeads: new ApiCallAsyncResourceFactory(
+    descriptors.getExperimentalV2CustomersCustomerIdLeads,
+    baseClient.leadFyndr.getExperimentalV2CustomersCustomerIdLeads,
+  ).getApiResource,
+  /**
+   * Get all leads. Use the unlocked routes for more lead details.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdLeads: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ExperimentalCustomersCustomerIdLeads,
+    baseClient.leadFyndr.getV2ExperimentalCustomersCustomerIdLeads,
+  ).getApiResource,
+  /** Get all leads. Use the unlocked routes for more lead details. */
+  leadfyndrListLeads: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListLeads,
+    baseClient.leadFyndr.leadfyndrListLeads,
+  ).getApiResource,
+  /**
+   * Get all unlocked leads. Organisation can unlock leads.
+   * @deprecated
+   */
+  getExperimentalV2CustomersCustomerIdUnlockedLeads:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getExperimentalV2CustomersCustomerIdUnlockedLeads,
+      baseClient.leadFyndr.getExperimentalV2CustomersCustomerIdUnlockedLeads,
+    ).getApiResource,
+  /**
+   * Get all unlocked leads. Organisation can unlock leads.
+   * @deprecated
+   */
+  getV2ExperimentalCustomersCustomerIdUnlockedLeads:
+    new ApiCallAsyncResourceFactory(
+      descriptors.getV2ExperimentalCustomersCustomerIdUnlockedLeads,
+      baseClient.leadFyndr.getV2ExperimentalCustomersCustomerIdUnlockedLeads,
+    ).getApiResource,
+  /** Get all unlocked leads. Organisation can unlock leads. */
+  leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
+    descriptors.leadfyndrListUnlockedLeads,
+    baseClient.leadFyndr.leadfyndrListUnlockedLeads,
+  ).getApiResource,
+});
+
+const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get a license. */
+  getLicense: new ApiCallAsyncResourceFactory(
+    descriptors.licenseGetLicense,
+    baseClient.license.getLicense,
+  ).getApiResource,
+  /** List Licenses belonging to a Project. */
+  listLicensesForProject: new ApiCallAsyncResourceFactory(
+    descriptors.licenseListLicensesForProject,
+    baseClient.license.listLicensesForProject,
+  ).getApiResource,
+});
+
+const buildMailApi = (baseClient: MittwaldAPIV2Client) => ({
+  /**
+   * List DeliveryBoxes belonging to a Project.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdDeliveryboxes: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdDeliveryboxes,
+    baseClient.mail.getV2ProjectsProjectIdDeliveryboxes,
+  ).getApiResource,
+  /** List DeliveryBoxes belonging to a Project. */
+  listDeliveryBoxes: new ApiCallAsyncResourceFactory(
+    descriptors.mailListDeliveryBoxes,
+    baseClient.mail.listDeliveryBoxes,
+  ).getApiResource,
+  /**
+   * List MailAddresses belonging to a Project.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdMailaddresses: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdMailaddresses,
+    baseClient.mail.getV2ProjectsProjectIdMailaddresses,
+  ).getApiResource,
+  /** List MailAddresses belonging to a Project. */
+  listMailAddresses: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddresses,
+    baseClient.mail.listMailAddresses,
+  ).getApiResource,
+  /**
+   * Get a DeliveryBox.
+   * @deprecated
+   */
+  getV2DeliveryboxesDeliveryBoxId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2DeliveryboxesDeliveryBoxId,
+    baseClient.mail.getV2DeliveryboxesDeliveryBoxId,
+  ).getApiResource,
+  /** Get a DeliveryBox. */
+  getDeliveryBox: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetDeliveryBox,
+    baseClient.mail.getDeliveryBox,
+  ).getApiResource,
+  /**
+   * Get a MailAddress.
+   * @deprecated
+   */
+  getV2MailaddressesMailAddressId: new ApiCallAsyncResourceFactory(
+    descriptors.getV2MailaddressesMailAddressId,
+    baseClient.mail.getV2MailaddressesMailAddressId,
+  ).getApiResource,
+  /** Get a MailAddress. */
+  getMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailAddress,
+    baseClient.mail.getMailAddress,
+  ).getApiResource,
+  /** Get a Mail RateLimit. */
+  getMailRateLimit: new ApiCallAsyncResourceFactory(
+    descriptors.mailGetMailRateLimit,
+    baseClient.mail.getMailRateLimit,
+  ).getApiResource,
+  /** List backups belonging to a MailAddress. */
+  listBackupsForMailAddress: new ApiCallAsyncResourceFactory(
+    descriptors.mailListBackupsForMailAddress,
+    baseClient.mail.listBackupsForMailAddress,
+  ).getApiResource,
+  /** List MailAddresses. */
+  listMailAddressesForUser: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailAddressesForUser,
+    baseClient.mail.listMailAddressesForUser,
+  ).getApiResource,
+  /** List Mail RateLimits. */
+  listMailRateLimits: new ApiCallAsyncResourceFactory(
+    descriptors.mailListMailRateLimits,
+    baseClient.mail.listMailRateLimits,
+  ).getApiResource,
+  /**
+   * List mail settings of a Project.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdMailsettings: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdMailsettings,
+    baseClient.mail.getV2ProjectsProjectIdMailsettings,
+  ).getApiResource,
+  /** List mail settings of a Project. */
+  listProjectMailSettings: new ApiCallAsyncResourceFactory(
+    descriptors.mailListProjectMailSettings,
+    baseClient.mail.listProjectMailSettings,
+  ).getApiResource,
+});
+
+const buildMiscApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** List valid time zones. */
+  ellaneousListTimeZones: new ApiCallAsyncResourceFactory(
+    descriptors.miscellaneousListTimeZones,
+    baseClient.misc.ellaneousListTimeZones,
+  ).getApiResource,
+});
+
+const buildNotificationApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Getting the subscription status of the subscription. */
+  newsletterGetInfo: new ApiCallAsyncResourceFactory(
+    descriptors.newsletterGetInfo,
+    baseClient.notification.newsletterGetInfo,
+  ).getApiResource,
+  /**
+   * Get the counts for unread notifications of the user.
+   * @deprecated
+   */
+  getV2NotificationsUnreadCounts: new ApiCallAsyncResourceFactory(
+    descriptors.getV2NotificationsUnreadCounts,
+    baseClient.notification.getV2NotificationsUnreadCounts,
+  ).getApiResource,
+  /** Get the counts for unread notifications of the user. */
+  scountUnreadNotifications: new ApiCallAsyncResourceFactory(
+    descriptors.notificationsCountUnreadNotifications,
+    baseClient.notification.scountUnreadNotifications,
+  ).getApiResource,
+  /** Get notification settings for a user. */
+  sgetNotificationSettings: new ApiCallAsyncResourceFactory(
+    descriptors.notificationsGetNotificationSettings,
+    baseClient.notification.sgetNotificationSettings,
+  ).getApiResource,
+  /** List all unread notifications. */
+  slistNotifications: new ApiCallAsyncResourceFactory(
+    descriptors.notificationsListNotifications,
+    baseClient.notification.slistNotifications,
+  ).getApiResource,
+});
+
+const buildPageInsightsApi = (baseClient: MittwaldAPIV2Client) => ({
+  /**
+   * Get detailed performance data for a given domain and path.
+   * @deprecated
+   */
+  getV2Pageinsights: new ApiCallAsyncResourceFactory(
+    descriptors.getV2Pageinsights,
+    baseClient.pageInsights.getV2Pageinsights,
+  ).getApiResource,
+  /** Get detailed performance data for a given domain and path. */
+  pageinsightsGetPerformanceData: new ApiCallAsyncResourceFactory(
+    descriptors.pageinsightsGetPerformanceData,
+    baseClient.pageInsights.pageinsightsGetPerformanceData,
+  ).getApiResource,
+  /** Get all data for a given strace. */
+  pageinsightsGetStraceData: new ApiCallAsyncResourceFactory(
+    descriptors.pageinsightsGetStraceData,
+    baseClient.pageInsights.pageinsightsGetStraceData,
+  ).getApiResource,
+  /**
+   * List websites (specified as domain and path) from a project where performance data is available.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdPageinsights: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdPageinsights,
+    baseClient.pageInsights.getV2ProjectsProjectIdPageinsights,
+  ).getApiResource,
+  /** List websites (specified as domain and path) from a project where performance data is available. */
+  pageinsightsListPerformanceDataForProject: new ApiCallAsyncResourceFactory(
+    descriptors.pageinsightsListPerformanceDataForProject,
+    baseClient.pageInsights.pageinsightsListPerformanceDataForProject,
   ).getApiResource,
 });
 
@@ -1186,15 +1792,39 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
 });
 
 const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
+  /**
+   * List directories belonging to a Project.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdFilesystemDirectories: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdFilesystemDirectories,
+    baseClient.projectFileSystem.getV2ProjectsProjectIdFilesystemDirectories,
+  ).getApiResource,
   /** List directories belonging to a Project. */
   getDirectories: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetDirectories,
     baseClient.projectFileSystem.getDirectories,
   ).getApiResource,
+  /**
+   * Get a Project directory filesystem usage.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdFilesystemUsagesDisk: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdFilesystemUsagesDisk,
+    baseClient.projectFileSystem.getV2ProjectsProjectIdFilesystemUsagesDisk,
+  ).getApiResource,
   /** Get a Project directory filesystem usage. */
   getDiskUsage: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetDiskUsage,
     baseClient.projectFileSystem.getDiskUsage,
+  ).getApiResource,
+  /**
+   * Get a Project file's content.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdFilesystemFilesRaw: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdFilesystemFilesRaw,
+    baseClient.projectFileSystem.getV2ProjectsProjectIdFilesystemFilesRaw,
   ).getApiResource,
   /** Get a Project file's content. */
   getFileContent: new ApiCallAsyncResourceFactory(
@@ -1205,6 +1835,14 @@ const buildProjectFileSystemApi = (baseClient: MittwaldAPIV2Client) => ({
   getJwt: new ApiCallAsyncResourceFactory(
     descriptors.projectFileSystemGetJwt,
     baseClient.projectFileSystem.getJwt,
+  ).getApiResource,
+  /**
+   * Get a Project file's information.
+   * @deprecated
+   */
+  getV2ProjectsProjectIdFilesystemFiles: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectsProjectIdFilesystemFiles,
+    baseClient.projectFileSystem.getV2ProjectsProjectIdFilesystemFiles,
   ).getApiResource,
   /** Get a Project file's information. */
   listFiles: new ApiCallAsyncResourceFactory(
@@ -1223,6 +1861,14 @@ const buildSshsftpUserApi = (baseClient: MittwaldAPIV2Client) => ({
   sftpUserGetSftpUser: new ApiCallAsyncResourceFactory(
     descriptors.sftpUserGetSftpUser,
     baseClient.sshsftpUser.sftpUserGetSftpUser,
+  ).getApiResource,
+  /**
+   * Get all SFTPUsers for a Project.
+   * @deprecated
+   */
+  getV2ProjectProjectIdSftpUsers: new ApiCallAsyncResourceFactory(
+    descriptors.getV2ProjectProjectIdSftpUsers,
+    baseClient.sshsftpUser.getV2ProjectProjectIdSftpUsers,
   ).getApiResource,
   /** Get all SSHUsers for a Project. */
   sshUserListSshUsers: new ApiCallAsyncResourceFactory(
@@ -1276,6 +1922,9 @@ export class MittwaldAPIV2ClientReact {
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
 
+  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
+  public readonly user: ReturnType<typeof buildUserApi>;
+
   /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
   public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
 
@@ -1293,9 +1942,6 @@ export class MittwaldAPIV2ClientReact {
 
   /** The page insights API allows you to get page insights information. */
   public readonly pageInsights: ReturnType<typeof buildPageInsightsApi>;
-
-  /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
-  public readonly user: ReturnType<typeof buildUserApi>;
 
   /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
   public readonly project: ReturnType<typeof buildProjectApi>;
@@ -1335,6 +1981,8 @@ export class MittwaldAPIV2ClientReact {
 
     this.file = buildFileApi(baseClient);
 
+    this.user = buildUserApi(baseClient);
+
     this.leadFyndr = buildLeadFyndrApi(baseClient);
 
     this.license = buildLicenseApi(baseClient);
@@ -1346,8 +1994,6 @@ export class MittwaldAPIV2ClientReact {
     this.notification = buildNotificationApi(baseClient);
 
     this.pageInsights = buildPageInsightsApi(baseClient);
-
-    this.user = buildUserApi(baseClient);
 
     this.project = buildProjectApi(baseClient);
 

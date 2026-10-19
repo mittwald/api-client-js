@@ -521,6 +521,53 @@ export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-update-plan",
 };
 
+/**
+ * Get ai hosting plan and usages of a customer.
+ * @deprecated
+ */
+export const aiHostingCustomerGetUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hosting",
+  method: "GET",
+  operationId: "ai-hosting-customer-get-usage",
+};
+
 /** Rotates a customer's key. */
 export const aiHostingCustomerRotateKey: OpenAPIOperation<
   RequestType<
@@ -1079,6 +1126,53 @@ export const aiHostingProjectGetPlans: OpenAPIOperation<
   operationId: "ai-hosting-project-get-plans",
 };
 
+/**
+ * Get ai hosting plan and usages of a project.
+ * @deprecated
+ */
+export const aiHostingProjectGetUsage: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAiHosting.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ai-hosting",
+  method: "GET",
+  operationId: "ai-hosting-project-get-usage",
+};
+
 /** Links a container with a project licence. */
 export const aiHostingProjectLinkContainer: OpenAPIOperation<
   RequestType<
@@ -1318,6 +1412,72 @@ export const appGetAppinstallationErrorAnalysis: OpenAPIOperation<
   operationId: "app-get-appinstallation-error-analysis",
 };
 
+/**
+ * Get an AppInstallation.
+ * @deprecated
+ */
+export const getV2AppinstallationsAppInstallationId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}",
+  method: "GET",
+  operationId: "get-/v2/appinstallations/{appInstallationId}",
+};
+
+/**
+ * Trigger an uninstallation process for an AppInstallation.
+ * @deprecated
+ */
+export const deleteV2AppinstallationsAppInstallationId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}",
+  method: "DELETE",
+  operationId: "delete-/v2/appinstallations/{appInstallationId}",
+};
+
+/**
+ * Update properties belonging to an AppInstallation.
+ * @deprecated
+ */
+export const patchV2AppinstallationsAppInstallationId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationId.Patch.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}",
+  method: "PATCH",
+  operationId: "patch-/v2/appinstallations/{appInstallationId}",
+};
+
 /** Get an AppInstallation. */
 export const appGetAppinstallation: OpenAPIOperation<
   RequestType<
@@ -1464,6 +1624,66 @@ export const appGetAppversion: OpenAPIOperation<
   operationId: "app-get-appversion",
 };
 
+/**
+ * Get the installed `SystemSoftware' for a specific `AppInstallation`.
+ * @deprecated
+ */
+export const appGetInstalledSystemsoftwareForAppinstallation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdSystemSoftwareDeprecated.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/systemSoftware",
+  method: "GET",
+  operationId: "app-get-installed-systemsoftware-for-appinstallation",
+};
+
+/**
+ * Get the missing requirements of an appInstallation for a specific target AppVersion.
+ * @deprecated
+ */
+export const getV2AppinstallationsAppInstallationIdMissingDependencies: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdMissingDependencies.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/missing-dependencies",
+  method: "GET",
+  operationId:
+    "get-/v2/appinstallations/{appInstallationId}/missing-dependencies",
+};
+
 /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
 export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   RequestType<
@@ -1496,6 +1716,28 @@ export const appGetMissingDependenciesForAppinstallation: OpenAPIOperation<
   path: "/v2/app-installations/{appInstallationId}/missing-dependencies",
   method: "GET",
   operationId: "app-get-missing-dependencies-for-appinstallation",
+};
+
+/**
+ * Get a SystemSoftware.
+ * @deprecated
+ */
+export const getV2SystemsoftwaresSystemSoftwareId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwaresSystemSoftwareId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/systemsoftwares/{systemSoftwareId}",
+  method: "GET",
+  operationId: "get-/v2/systemsoftwares/{systemSoftwareId}",
 };
 
 /** Get a SystemSoftware. */
@@ -1532,6 +1774,52 @@ export const appGetSystemsoftware: OpenAPIOperation<
   operationId: "app-get-systemsoftware",
 };
 
+/**
+ * Get a SystemSoftwareVersion.
+ * @deprecated
+ */
+export const getV2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/systemsoftware/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+  method: "GET",
+  operationId:
+    "get-/v2/systemsoftware/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+};
+
+/**
+ * Get a SystemSoftwareVersion.
+ * @deprecated
+ */
+export const getV2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersionsSystemSoftwareVersionId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/system-software/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+  method: "GET",
+  operationId:
+    "get-/v2/system-software/{systemSoftwareId}/versions/{systemSoftwareVersionId}",
+};
+
 /** Get a SystemSoftwareVersion. */
 export const appGetSystemsoftwareversion: OpenAPIOperation<
   RequestType<
@@ -1566,6 +1854,48 @@ export const appGetSystemsoftwareversion: OpenAPIOperation<
   operationId: "app-get-systemsoftwareversion",
 };
 
+/**
+ * Create linkage between an AppInstallation and a MySQLDatabase.
+ * @deprecated
+ */
+export const appLinkDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabase.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/database",
+  method: "PATCH",
+  operationId: "app-link-database",
+};
+
 /** List AppInstallations that a user has access to. */
 export const appListAppinstallationsForUser: OpenAPIOperation<
   RequestType<
@@ -1593,6 +1923,50 @@ export const appListAppinstallationsForUser: OpenAPIOperation<
   path: "/v2/app-installations",
   method: "GET",
   operationId: "app-list-appinstallations-for-user",
+};
+
+/**
+ * List AppInstallations belonging to a Project.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdAppinstallations: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/appinstallations",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/appinstallations",
+};
+
+/**
+ * Request an AppInstallation.
+ * @deprecated
+ */
+export const postV2ProjectsProjectIdAppinstallations: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdAppinstallations.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/appinstallations",
+  method: "POST",
+  operationId: "post-/v2/projects/{projectId}/appinstallations",
 };
 
 /** List AppInstallations belonging to a Project. */
@@ -1721,6 +2095,28 @@ export const appListAppversions: OpenAPIOperation<
   operationId: "app-list-appversions",
 };
 
+/**
+ * List SystemSoftwares.
+ * @deprecated
+ */
+export const getV2Systemsoftwares: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2Systemsoftwares.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/systemsoftwares",
+  method: "GET",
+  operationId: "get-/v2/systemsoftwares",
+};
+
 /** List SystemSoftwares. */
 export const appListSystemsoftwares: OpenAPIOperation<
   RequestType<
@@ -1748,6 +2144,50 @@ export const appListSystemsoftwares: OpenAPIOperation<
   path: "/v2/system-softwares",
   method: "GET",
   operationId: "app-list-systemsoftwares",
+};
+
+/**
+ * List SystemSoftwareVersions belonging to a SystemSoftware.
+ * @deprecated
+ */
+export const getV2SystemSoftwareSystemSoftwareIdVersions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SystemSoftwareSystemSoftwareIdVersions.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/system-software/{systemSoftwareId}/versions",
+  method: "GET",
+  operationId: "get-/v2/system-software/{systemSoftwareId}/versions",
+};
+
+/**
+ * List SystemSoftwareVersions belonging to a SystemSoftware.
+ * @deprecated
+ */
+export const getV2SystemsoftwareSystemSoftwareIdVersions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SystemsoftwareSystemSoftwareIdVersions.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/systemsoftware/{systemSoftwareId}/versions",
+  method: "GET",
+  operationId: "get-/v2/systemsoftware/{systemSoftwareId}/versions",
 };
 
 /** List SystemSoftwareVersions belonging to a SystemSoftware. */
@@ -1847,6 +2287,28 @@ export const appPromoteAppinstallationStaging: OpenAPIOperation<
   operationId: "app-promote-appinstallation-staging",
 };
 
+/**
+ * Request a copy of an AppInstallation.
+ * @deprecated
+ */
+export const postV2AppinstallationsAppInstallationIdActionsCopy: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsCopy.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsCopy.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsCopy.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsCopy.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsCopy.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/actions/copy",
+  method: "POST",
+  operationId: "post-/v2/appinstallations/{appInstallationId}/actions/copy",
+};
+
 /** Request a copy of an AppInstallation. */
 export const appRequestAppinstallationCopy: OpenAPIOperation<
   RequestType<
@@ -1915,6 +2377,28 @@ export const appRequestAppinstallationStaging: OpenAPIOperation<
   operationId: "app-request-appinstallation-staging",
 };
 
+/**
+ * Get runtime status belonging to an AppInstallation.
+ * @deprecated
+ */
+export const getV2AppinstallationsAppInstallationIdStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdStatus.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/status",
+  method: "GET",
+  operationId: "get-/v2/appinstallations/{appInstallationId}/status",
+};
+
 /** Get runtime status belonging to an AppInstallation. */
 export const appRetrieveStatus: OpenAPIOperation<
   RequestType<
@@ -1949,6 +2433,29 @@ export const appRetrieveStatus: OpenAPIOperation<
   operationId: "app-retrieve-status",
 };
 
+/**
+ * Create linkage between an AppInstallation and DatabaseUsers.
+ * @deprecated
+ */
+export const putV2AppInstallationsAppInstallationIdDatabasesDatabaseId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}",
+  method: "PUT",
+  operationId:
+    "put-/v2/app-installations/{appInstallationId}/databases/{databaseId}",
+};
+
 /** Remove linkage between an AppInstallation and a Database. */
 export const appUnlinkDatabase: OpenAPIOperation<
   RequestType<
@@ -1981,6 +2488,89 @@ export const appUnlinkDatabase: OpenAPIOperation<
   path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}",
   method: "DELETE",
   operationId: "app-unlink-database",
+};
+
+/**
+ * Create linkage between an AppInstallation and DatabaseUsers.
+ * @deprecated
+ */
+export const putV2AppinstallationsAppInstallationIdDatabasesDatabaseId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
+  method: "PUT",
+  operationId:
+    "put-/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
+};
+
+/**
+ * Remove linkage between an AppInstallation and a Database.
+ * @deprecated
+ */
+export const deleteV2AppinstallationsAppInstallationIdDatabasesDatabaseId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabasesDatabaseId.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
+  method: "DELETE",
+  operationId:
+    "delete-/v2/appinstallations/{appInstallationId}/databases/{databaseId}",
+};
+
+/**
+ * Create linkage between an AppInstallation and DatabaseUsers.
+ * @deprecated
+ */
+export const appSetDatabaseUsers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabasesDatabaseIdUsers.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/databases/{databaseId}/users",
+  method: "PUT",
+  operationId: "app-set-database-users",
 };
 
 /** Get an Article. */
@@ -2605,6 +3195,53 @@ export const backupGetProjectBackupDirectories: OpenAPIOperation<
   path: "/v2/project-backups/{projectBackupId}/path",
   method: "GET",
   operationId: "backup-get-project-backup-directories",
+};
+
+/**
+ * Restore a ProjectBackup's path.
+ * @deprecated
+ */
+export const backupRequestProjectBackupRestorePathDeprecated: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdRestorePath.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/restore-path",
+  method: "POST",
+  operationId: "backup-request-project-backup-restore-path-deprecated",
 };
 
 /** Restore a ProjectBackup. */
@@ -3924,6 +4561,53 @@ export const containerListStackVolumes: OpenAPIOperation<
   path: "/v2/stacks/{stackId}/volumes",
   method: "GET",
   operationId: "container-list-stack-volumes",
+};
+
+/**
+ * List Container Template statistics.
+ * @deprecated
+ */
+export const containerListTemplateStatistics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplateStatistics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-template-statistics",
+  method: "GET",
+  operationId: "container-list-template-statistics",
 };
 
 /** List Container Templates. */
@@ -6594,6 +7278,28 @@ export const customerAcceptCustomerInvite: OpenAPIOperation<
   operationId: "customer-accept-customer-invite",
 };
 
+/**
+ * Create a CustomerInvite.
+ * @deprecated
+ */
+export const postV2CustomerCustomerIdInvites: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdInvites.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/customer/{customerId}/invites",
+  method: "POST",
+  operationId: "post-/v2/customer/{customerId}/invites",
+};
+
 /** List Invites belonging to a Customer. */
 export const customerListInvitesForCustomer: OpenAPIOperation<
   RequestType<
@@ -7978,6 +8684,48 @@ export const databaseGetMysqlUser: OpenAPIOperation<
   operationId: "database-get-mysql-user",
 };
 
+/**
+ * Update a MySQLUser.
+ * @deprecated
+ */
+export const deprecatedDatabaseReplaceMysqlUser: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{mysqlUserId}",
+  method: "PUT",
+  operationId: "deprecated-database-replace-mysql-user",
+};
+
 /** Delete a MySQLUser. */
 export const databaseDeleteMysqlUser: OpenAPIOperation<
   RequestType<
@@ -8422,6 +9170,1293 @@ export const databaseListRedisVersions: OpenAPIOperation<
   operationId: "database-list-redis-versions",
 };
 
+/**
+ * Trigger a runtime action belonging to an AppInstallation.
+ * @deprecated
+ */
+export const postV2AppinstallationsAppInstallationIdActionsAction: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdActionsAction.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/actions/{action}",
+  method: "POST",
+  operationId: "post-/v2/appinstallations/{appInstallationId}/actions/{action}",
+};
+
+/**
+ * Trigger a runtime action belonging to an AppInstallation.
+ * @deprecated
+ */
+export const deprecatedAppInstallationExecuteAction: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdActionsAction.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/actions/{action}",
+  method: "POST",
+  operationId: "deprecated-app-installation-execute-action",
+};
+
+/**
+ * Create linkage between an AppInstallation and a MySql-Database.
+ * @deprecated
+ */
+export const deprecatedAppLinkDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppinstallationsAppInstallationIdDatabases.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/appinstallations/{appInstallationId}/databases",
+  method: "PUT",
+  operationId: "deprecated-app-link-database",
+};
+
+/**
+ * Replace a MySQL Database with another MySQL Database.
+ * @deprecated
+ */
+export const deprecatedAppReplaceDatabase: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationIdDatabaseReplace.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/app-installations/{appInstallationId}/database/replace",
+  method: "PATCH",
+  operationId: "deprecated-app-replace-database",
+};
+
+/**
+ * Update a Backup's expiration time.
+ * @deprecated
+ */
+export const deprecatedBackupReplaceProjectBackupExpirationTime: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdExpirationTime.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/expiration-time",
+  method: "PUT",
+  operationId: "deprecated-backup-replace-project-backup-expiration-time",
+};
+
+/**
+ * Change the description of a ProjectBackup.
+ * @deprecated
+ */
+export const deprecatedBackupUpdateProjectBackupDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectBackupsProjectBackupIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/project-backups/{projectBackupId}/description",
+  method: "PATCH",
+  operationId: "deprecated-backup-update-project-backup-description",
+};
+
+/**
+ * Get a Container Template icon.
+ * @deprecated
+ */
+export const deprecatedContainerGetTemplateIcon: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageJpeg>,
+      200,
+      "image/jpeg"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImagePng>,
+      200,
+      "image/png"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageSvgXml>,
+      200,
+      "image/svg+xml"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$200.Content.ImageWebp>,
+      200,
+      "image/webp"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$304.Content.Empty>,
+      304,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContainerTemplatesTemplateIdIcon.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/container-templates/{templateId}/icon",
+  method: "GET",
+  operationId: "deprecated-container-get-template-icon",
+};
+
+/**
+ * Set an update schedule for a Stack.
+ * @deprecated
+ */
+export const deprecatedContainerSetStackUpdateSchedule: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2StacksStackIdUpdateSchedule.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/stacks/{stackId}/update-schedule",
+  method: "PUT",
+  operationId: "deprecated-container-set-stack-update-schedule",
+};
+
+/**
+ * Validate a Registries' URI.
+ * @deprecated
+ */
+export const deprecatedContainerValidateContainerRegistryUri: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ActionsValidateContainerRegistryUri.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/actions/validate-container-registry-uri",
+  method: "POST",
+  operationId: "deprecated-container-validate-container-registry-uri",
+};
+
+/**
+ * Validate a Registries' credentials.
+ * @deprecated
+ */
+export const deprecatedContainerValidateRegistryCredentials: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RegistriesRegistryIdActionsValidateCredentials.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/registries/{registryId}/actions/validate-credentials",
+  method: "POST",
+  operationId: "deprecated-container-validate-registry-credentials",
+};
+
+/**
+ * Return the AI Hosting Contract for the given Customer.
+ * @deprecated
+ */
+export const deprecatedContractGetDetailOfContractByAiHosting: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingContract.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/ai-hosting/contract",
+  method: "GET",
+  operationId: "deprecated-contract-get-detail-of-contract-by-ai-hosting",
+};
+
+/**
+ * Return the next TerminationDate for the ContractItem with the given ID.
+ * @deprecated
+ */
+export const deprecatedContractGetNextTerminationDateForItem: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ContractsContractIdItemsContractItemIdNextTerminationDates.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/contracts/{contractId}/items/{contractItemId}/next-termination-dates",
+  method: "GET",
+  operationId: "deprecated-contract-get-next-termination-date-for-item",
+};
+
+/**
+ * Update a Cronjob's app installation id.
+ * @deprecated
+ */
+export const deprecatedCronjobReplaceCronjobAppInstallationId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/app-installation-id",
+  method: "PUT",
+  operationId: "deprecated-cronjob-replace-cronjob-app-installation-id",
+};
+
+/**
+ * Update a Cronjob's app installation id.
+ * @deprecated
+ */
+export const deprecatedCronjobUpdateCronjobAppId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppInstallationId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/app-installation-id",
+  method: "PATCH",
+  operationId: "deprecated-cronjob-update-cronjob-app-id",
+};
+
+/**
+ * Update a Cronjob's app installation id.
+ * @deprecated
+ */
+export const patchV2CronjobsCronjobIdAppId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdAppId.Patch.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/app-id",
+  method: "PATCH",
+  operationId: "patch-/v2/cronjobs/{cronjobId}/app-id",
+};
+
+/**
+ * Leave a Customer.
+ * @deprecated
+ */
+export const postV2CustomerCustomerIdActionsLeave: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2CustomerCustomerIdActionsLeave.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/customer/{customerId}/actions/leave",
+  method: "POST",
+  operationId: "post-/v2/customer/{customerId}/actions/leave",
+};
+
+/**
+ * Leave a Customer.
+ * @deprecated
+ */
+export const deprecatedCustomerLeaveCustomer: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActionsLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActionsLeave.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActionsLeave.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActionsLeave.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActionsLeave.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActionsLeave.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/actions/leave",
+  method: "POST",
+  operationId: "deprecated-customer-leave-customer",
+};
+
+/**
+ * Update a MySQLDatabase's default character settings.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDefaultCharset.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-databases/{mysqlDatabaseId}/default-charset",
+  method: "PATCH",
+  operationId: "deprecated-database-update-mysql-database-default-charset",
+};
+
+/**
+ * Update a MySQLDatabase's description.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-databases/{mysqlDatabaseId}/description",
+  method: "PATCH",
+  operationId: "deprecated-database-update-mysql-database-description",
+};
+
+/**
+ * Update a MySQLUser's password.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateMysqlUserPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlUsersMysqlUserIdPassword.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mysql-users/{mysqlUserId}/password",
+  method: "PATCH",
+  operationId: "deprecated-database-update-mysql-user-password",
+};
+
+/**
+ * Update a RedisDatabase's configuration.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateRedisDatabaseConfiguration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdConfiguration.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/redis-databases/{redisDatabaseId}/configuration",
+  method: "PATCH",
+  operationId: "deprecated-database-update-redis-database-configuration",
+};
+
+/**
+ * Update a RedisDatabase's description.
+ * @deprecated
+ */
+export const deprecatedDatabaseUpdateRedisDatabaseDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/redis-databases/{redisDatabaseId}/description",
+  method: "PATCH",
+  operationId: "deprecated-database-update-redis-database-description",
+};
+
+/**
+ * updates a-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordAsetCustom: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedCustom.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/acombined/custom",
+  method: "PUT",
+  operationId: "deprecated-dns-record-a-set-custom",
+};
+
+/**
+ * set a-records managed by ingress for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordAsetManagedByIngress: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$204.Content.ApplicationJson>,
+      204,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetAcombinedManagedIngress.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/acombined/managed/ingress",
+  method: "POST",
+  operationId: "deprecated-dns-record-a-set-managed-by-ingress",
+};
+
+/**
+ * updates cname-record for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordCnameSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetCname.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/cname",
+  method: "PUT",
+  operationId: "deprecated-dns-record-cname-set",
+};
+
+/**
+ * updates mx-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordMxSetCustom: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxCustom.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/mx/custom",
+  method: "PUT",
+  operationId: "deprecated-dns-record-mx-set-custom",
+};
+
+/**
+ * sets mx-records to managed for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordMxSetManaged: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetMxManaged.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/mx/managed",
+  method: "POST",
+  operationId: "deprecated-dns-record-mx-set-managed",
+};
+
+/**
+ * updates srv-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordSrvSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetSrv.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/srv",
+  method: "PUT",
+  operationId: "deprecated-dns-record-srv-set",
+};
+
+/**
+ * updates txt-records for a specific zone
+ * @deprecated
+ */
+export const deprecatedDnsRecordTxtSet: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesZoneIdRecordsetTxt.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns/zones/{zoneId}/recordset/txt",
+  method: "PUT",
+  operationId: "deprecated-dns-record-txt-set",
+};
+
+/**
+ * Change the owner contact of a domain.
+ * @deprecated
+ */
+export const deprecatedDomainChangeOwnercOfDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdHandlesOwnerc.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/handles/ownerc",
+  method: "PUT",
+  operationId: "deprecated-domain-change-ownerc-of-domain",
+};
+
+/**
+ * Change the Project relation of a Domain.
+ * @deprecated
+ */
+export const deprecatedDomainChangeProjectOfDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdProjectIdDeprecated.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/projectId",
+  method: "PUT",
+  operationId: "deprecated-domain-change-project-of-domain",
+};
+
 /** List Domains */
 export const domainListDomains: OpenAPIOperation<
   RequestType<
@@ -8454,6 +10489,85 @@ export const domainListDomains: OpenAPIOperation<
   path: "/v2/domains",
   method: "GET",
   operationId: "domain-list-domains",
+};
+
+/**
+ * Check if a Domain is available to register.
+ * @deprecated
+ */
+export const deprecatedDomainCheckDomainRegistrability: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Domains.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains",
+  method: "POST",
+  operationId: "deprecated-domain-check-domain-registrability",
+};
+
+/**
+ * Change all nameservers of a Domain.
+ * @deprecated
+ */
+export const deprecatedDomainDeclareNameservers: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdNameservers.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/nameservers",
+  method: "PUT",
+  operationId: "deprecated-domain-declare-nameservers",
 };
 
 /** Update the nameservers of a Domain. */
@@ -8495,6 +10609,354 @@ export const domainUpdateDomainNameservers: OpenAPIOperation<
   operationId: "domain-update-domain-nameservers",
 };
 
+/**
+ * Update an AuthCode.
+ * @deprecated
+ */
+export const deprecatedDomainDeclareProcessChangeAuthcode: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsAuthcode.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/declarations/authcode",
+  method: "PUT",
+  operationId: "deprecated-domain-declare-process-change-authcode",
+};
+
+/**
+ * Update a Domain's OwnerC handle.
+ * @deprecated
+ */
+export const deprecatedDomainDeclareProcessChangeHandles: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarationsHandles.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/declarations/handles",
+  method: "PUT",
+  operationId: "deprecated-domain-declare-process-change-handles",
+};
+
+/**
+ * Get a HandleSchema.
+ * @deprecated
+ */
+export const deprecatedDomainGetHandleFields: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsHandleSchemaDomainName.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/handle-schema/{domainName}",
+  method: "GET",
+  operationId: "deprecated-domain-get-handle-fields",
+};
+
+/**
+ * Get File Service Reference for a Screenshot of a domain.
+ * @deprecated
+ */
+export const deprecatedDomainGetScreenshotForDomain: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdScreenshotsNewest.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domains/{domainId}/screenshots/newest",
+  method: "GET",
+  operationId: "deprecated-domain-get-screenshot-for-domain",
+};
+
+/**
+ * List Domains belonging to a Project.
+ * @deprecated
+ */
+export const deprecatedDomainListDomains: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDomains.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/domains",
+  method: "GET",
+  operationId: "deprecated-domain-list-domains",
+};
+
+/**
+ * Get a Token's upload rules.
+ * @deprecated
+ */
+export const deprecatedFileGetFileTokenRules: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTokenRulesToken.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/file-token-rules/{token}",
+  method: "GET",
+  operationId: "deprecated-file-get-file-token-rules",
+};
+
+/**
+ * Get a Type's upload rules.
+ * @deprecated
+ */
+export const deprecatedFileGetFileTypeRules: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2FileTypeRulesName.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/file-type-rules/{name}",
+  method: "GET",
+  operationId: "deprecated-file-get-file-type-rules",
+};
+
+/**
+ * List Ingresses belonging to a project.
+ * @deprecated
+ */
+export const deprecatedIngressListIngresses: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdIngresses.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/ingresses",
+  method: "GET",
+  operationId: "deprecated-ingress-list-ingresses",
+};
+
+/**
+ * Update an Ingresses paths.
+ * @deprecated
+ */
+export const deprecatedIngressPaths: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdPaths.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ingresses/{ingressId}/paths",
+  method: "PUT",
+  operationId: "deprecated-ingress-paths",
+};
+
 /** Update the paths of an Ingress. */
 export const ingressUpdateIngressPaths: OpenAPIOperation<
   RequestType<
@@ -8527,6 +10989,43 @@ export const ingressUpdateIngressPaths: OpenAPIOperation<
   path: "/v2/ingresses/{ingressId}/paths",
   method: "PATCH",
   operationId: "ingress-update-ingress-paths",
+};
+
+/**
+ * Update an Ingresses tls settings.
+ * @deprecated
+ */
+export const deprecatedIngressTls: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2IngressesIngressIdTls.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ingresses/{ingressId}/tls",
+  method: "PUT",
+  operationId: "deprecated-ingress-tls",
 };
 
 /** Update the tls settings of an Ingress. */
@@ -8571,6 +11070,362 @@ export const ingressUpdateIngressTls: OpenAPIOperation<
   path: "/v2/ingresses/{ingressId}/tls",
   method: "PATCH",
   operationId: "ingress-update-ingress-tls",
+};
+
+/**
+ * Get details of an Invoice.
+ * @deprecated
+ */
+export const deprecatedInvoiceDetailOfInvoice: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdInvoicesInvoiceId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/customers/{customerId}/invoices/{invoiceId}",
+  method: "GET",
+  operationId: "deprecated-invoice-detail-of-invoice",
+};
+
+/**
+ * Update the description of an deliverybox
+ * @deprecated
+ */
+export const deprecatedMailDeliveryboxUpdateDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdDescription.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v2/deliveryboxes/{id}/description",
+  method: "PUT",
+  operationId: "deprecated-mail-deliverybox-update-description",
+};
+
+/**
+ * Update the password for a specific deliverybox
+ * @deprecated
+ */
+export const deprecatedMailDeliveryboxUpdatePassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesIdPassword.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v2/deliveryboxes/{id}/password",
+  method: "PUT",
+  operationId: "deprecated-mail-deliverybox-update-password",
+};
+
+/**
+ * Update mail-address
+ * @deprecated
+ */
+export const deprecatedMailMailaddressUpdateAddress: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailaddressesIdAddress.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v2/mailaddresses/{id}/address",
+  method: "PUT",
+  operationId: "deprecated-mail-mailaddress-update-address",
+};
+
+/**
+ * Update blacklist for a given project ID
+ * @deprecated
+ */
+export const deprecatedMailProjectsettingUpdateBlacklist: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsBlacklist.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v2/projects/{projectId}/mailsettings/blacklist",
+  method: "PUT",
+  operationId: "deprecated-mail-projectsetting-update-blacklist",
+};
+
+/**
+ * Update whitelist for a given project ID
+ * @deprecated
+ */
+export const deprecatedMailProjectsettingUpdateWhitelist: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Responses.$403.Content.Empty>,
+      403,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Responses.$404.Content.Empty>,
+      404,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Responses.$500.Content.Empty>,
+      500,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettingsWhitelist.Put.Responses.$503.Content.Empty>,
+      503,
+      "empty"
+    >
+> = {
+  path: "/v2/projects/{projectId}/mailsettings/whitelist",
+  method: "PUT",
+  operationId: "deprecated-mail-projectsetting-update-whitelist",
+};
+
+/**
+ * Update the autoresponder of a MailAddress.
+ * @deprecated
+ */
+export const putV2MailaddressesMailAddressIdAutoResponder: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdAutoResponder.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdAutoResponder.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdAutoResponder.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdAutoResponder.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdAutoResponder.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}/autoResponder",
+  method: "PUT",
+  operationId: "put-/v2/mailaddresses/{mailAddressId}/autoResponder",
+};
+
+/**
+ * Update the autoresponder of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressAutoresponder: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdAutoresponder.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/autoresponder",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-autoresponder",
 };
 
 /** Update the autoresponder of a MailAddress. */
@@ -8627,6 +11482,164 @@ export const mailUpdateMailAddressAutoresponder: OpenAPIOperation<
   operationId: "mail-update-mail-address-autoresponder",
 };
 
+/**
+ * Update the catchall of a MailAddress.
+ * @deprecated
+ */
+export const putV2MailaddressesMailAddressIdCatchAll: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdCatchAll.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdCatchAll.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdCatchAll.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdCatchAll.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdCatchAll.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}/catchAll",
+  method: "PUT",
+  operationId: "put-/v2/mailaddresses/{mailAddressId}/catchAll",
+};
+
+/**
+ * Update the catchall of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressCatchall: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdCatchall.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/catchall",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-catchall",
+};
+
+/**
+ * Update the forward addresses of a MailAddresses.
+ * @deprecated
+ */
+export const putV2MailaddressesMailAddressIdForwardaddresses: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdForwardaddresses.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdForwardaddresses.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdForwardaddresses.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdForwardaddresses.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdForwardaddresses.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}/forwardaddresses",
+  method: "PUT",
+  operationId: "put-/v2/mailaddresses/{mailAddressId}/forwardaddresses",
+};
+
+/**
+ * Update the forward addresses of a MailAddresses.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressForwardAddresses: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdForwardAddresses.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/forward-addresses",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-forward-addresses",
+};
+
 /** Update the forward addresses of a MailAddresses. */
 export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   RequestType<
@@ -8679,6 +11692,85 @@ export const mailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   path: "/v2/mail-addresses/{mailAddressId}/forward-addresses",
   method: "PATCH",
   operationId: "mail-update-mail-address-forward-addresses",
+};
+
+/**
+ * Update the password for a MailAddress.
+ * @deprecated
+ */
+export const putV2MailaddressesMailAddressIdPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdPassword.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdPassword.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdPassword.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}/password",
+  method: "PUT",
+  operationId: "put-/v2/mailaddresses/{mailAddressId}/password",
+};
+
+/**
+ * Update the password for a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdPassword.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/password",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-password",
 };
 
 /** Update the password for a MailAddress. */
@@ -8735,6 +11827,85 @@ export const mailUpdateMailAddressPassword: OpenAPIOperation<
   operationId: "mail-update-mail-address-password",
 };
 
+/**
+ * Update the quota of a MailAddress.
+ * @deprecated
+ */
+export const putV2MailaddressesMailAddressIdQuota: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdQuota.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdQuota.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdQuota.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdQuota.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdQuota.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}/quota",
+  method: "PUT",
+  operationId: "put-/v2/mailaddresses/{mailAddressId}/quota",
+};
+
+/**
+ * Update the quota of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressQuota: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdQuota.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/quota",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-quota",
+};
+
 /** Update the quota of a MailAddress. */
 export const mailUpdateMailAddressQuota: OpenAPIOperation<
   RequestType<
@@ -8789,6 +11960,85 @@ export const mailUpdateMailAddressQuota: OpenAPIOperation<
   operationId: "mail-update-mail-address-quota",
 };
 
+/**
+ * Update the spam protection of a MailAddress.
+ * @deprecated
+ */
+export const putV2MailaddressesMailAddressIdSpamprotection: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdSpamprotection.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdSpamprotection.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdSpamprotection.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdSpamprotection.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressIdSpamprotection.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}/spamprotection",
+  method: "PUT",
+  operationId: "put-/v2/mailaddresses/{mailAddressId}/spamprotection",
+};
+
+/**
+ * Update the spam protection of a MailAddress.
+ * @deprecated
+ */
+export const deprecatedMailUpdateMailAddressSpamProtection: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MailAddressesMailAddressIdSpamProtection.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/mail-addresses/{mailAddressId}/spam-protection",
+  method: "PUT",
+  operationId: "deprecated-mail-update-mail-address-spam-protection",
+};
+
 /** Update the spam protection of a MailAddress. */
 export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
   RequestType<
@@ -8841,6 +12091,63 @@ export const mailUpdateMailAddressSpamProtection: OpenAPIOperation<
   path: "/v2/mail-addresses/{mailAddressId}/spam-protection",
   method: "PATCH",
   operationId: "mail-update-mail-address-spam-protection",
+};
+
+/**
+ * Update a mail setting of a Project.
+ * @deprecated
+ */
+export const deprecatedMailUpdateProjectMailSetting: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailSettingsMailSetting.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/mail-settings/{mailSetting}",
+  method: "PUT",
+  operationId: "deprecated-mail-update-project-mail-setting",
 };
 
 /** Update a mail setting of a Project. */
@@ -8931,6 +12238,779 @@ export const newsletterSubscribeUser: OpenAPIOperation<
   operationId: "newsletter-subscribe-user",
 };
 
+/**
+ * Leave a Project.
+ * @deprecated
+ */
+export const deprecatedProjectLeaveProject: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdLeave.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/leave",
+  method: "POST",
+  operationId: "deprecated-project-leave-project",
+};
+
+/**
+ * Update a Project's description.
+ * @deprecated
+ */
+export const deprecatedProjectUpdateProjectDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/description",
+  method: "PATCH",
+  operationId: "deprecated-project-update-project-description",
+};
+
+/**
+ * Update a Servers's description.
+ * @deprecated
+ */
+export const deprecatedProjectUpdateServerDescription: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdDescription.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/servers/{serverId}/description",
+  method: "PATCH",
+  operationId: "deprecated-project-update-server-description",
+};
+
+/**
+ * Update a Project's storage space notification threshold.
+ * @deprecated
+ */
+export const deprecatedStoragespaceReplaceProjectNotificationThreshold: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdStorageSpaceNotificationThreshold.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/projects/{projectId}/storage-space-notification-threshold",
+  method: "PUT",
+  operationId: "deprecated-storagespace-replace-project-notification-threshold",
+};
+
+/**
+ * Update a Server's storage space notification threshold.
+ * @deprecated
+ */
+export const deprecatedStoragespaceReplaceServerNotificationThreshold: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ServersServerIdStorageSpaceNotificationThreshold.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/servers/{serverId}/storage-space-notification-threshold",
+  method: "PUT",
+  operationId: "deprecated-storagespace-replace-server-notification-threshold",
+};
+
+/**
+ * Get your verified Email-Address.
+ * @deprecated
+ */
+export const getV2SignupEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/email",
+  method: "GET",
+  operationId: "get-/v2/signup/email",
+};
+
+/**
+ * Change your Email-Address. Replaced by `PUT` `/v2/users/self/credentials/email`.
+ * @deprecated
+ */
+export const deprecatedUserChangeEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmail.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/email",
+  method: "PUT",
+  operationId: "deprecated-user-change-email",
+};
+
+/**
+ * Check token for validity.
+ * @deprecated
+ */
+export const postV2SignupTokenCheck: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenCheck.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/token/check",
+  method: "POST",
+  operationId: "post-/v2/signup/token/check",
+};
+
+/**
+ * Check token for validity.
+ * @deprecated
+ */
+export const deprecatedUserCheckToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfCredentialsToken.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/credentials/token",
+  method: "POST",
+  operationId: "deprecated-user-check-token",
+};
+
+/**
+ * Confirm password reset. Replaced by `POST` `/v2/users/self/credentials/password/confirm-reset`.
+ * @deprecated
+ */
+export const deprecatedUserConfirmPasswordReset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordResetConfirm.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/password/reset/confirm",
+  method: "POST",
+  operationId: "deprecated-user-confirm-password-reset",
+};
+
+/**
+ * Create a new issue.
+ * @deprecated
+ */
+export const deprecatedUserCreateIssue: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfIssues.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/issues",
+  method: "POST",
+  operationId: "deprecated-user-create-issue",
+};
+
+/**
+ * Get a specific ApiToken.
+ * @deprecated
+ */
+export const getV2SignupTokenApiApiTokenId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/token/api/{apiTokenId}",
+  method: "GET",
+  operationId: "get-/v2/signup/token/api/{apiTokenId}",
+};
+
+/**
+ * Update an existing `ApiToken`. Replaced by `PUT` `/v2/users/{userId}/api-tokens/{apiTokenId}`.
+ * @deprecated
+ */
+export const deprecatedUserEditApiToken: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/token/api/{apiTokenId}",
+  method: "PUT",
+  operationId: "deprecated-user-edit-api-token",
+};
+
+/**
+ * Deletes an ApiToken. Replaces by `DELETE` `/v2/user/{userid}/api-tokens/{apiTokenId}`.
+ * @deprecated
+ */
+export const deprecatedUserDeleteApiToken: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupTokenApiApiTokenId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/token/api/{apiTokenId}",
+  method: "DELETE",
+  operationId: "deprecated-user-delete-api-token",
+};
+
+/**
+ * Get a specific stored ssh-key.
+ * @deprecated
+ */
+export const getV2SignupSshSshKeyId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/ssh/{sshKeyId}",
+  method: "GET",
+  operationId: "get-/v2/signup/ssh/{sshKeyId}",
+};
+
+/**
+ * Edit a stored ssh-key. Replaced by `PUT` `/v2/users/self/ssh-keys/{sshKeyId}`.
+ * @deprecated
+ */
+export const deprecatedUserEditSshKey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/ssh/{sshKeyId}",
+  method: "PUT",
+  operationId: "deprecated-user-edit-ssh-key",
+};
+
+/**
+ * Remove a ssh-key. Replaced by `DELETE` `/v2/users/self/ssh-keys/{sshKeyId}`.
+ * @deprecated
+ */
+export const deprecatedUserDeleteSshKey: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSshSshKeyId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/ssh/{sshKeyId}",
+  method: "DELETE",
+  operationId: "deprecated-user-delete-ssh-key",
+};
+
+/**
+ * Get your current multi factor auth status.
+ * @deprecated
+ */
+export const getV2SignupMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/mfa",
+  method: "GET",
+  operationId: "get-/v2/signup/mfa",
+};
+
+/**
+ * Initialize Multi Factor Authentication. If successful, it needs to be confirmed, before usage of mfa.
+ * @deprecated
+ */
+export const postV2SignupMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/mfa",
+  method: "POST",
+  operationId: "post-/v2/signup/mfa",
+};
+
+/**
+ * Disable Multi Factor Authentication. Replaced by `DELETE` `/v2/users/self/credentials/mfa`.
+ * @deprecated
+ */
+export const deprecatedUserDisableMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupMfa.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/mfa",
+  method: "DELETE",
+  operationId: "deprecated-user-disable-mfa",
+};
+
+/**
+ * Get your account information. Replaced by `GET` `/v2/users/self`.
+ * @deprecated
+ */
+export const getV2SignupProfile: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/profile",
+  method: "GET",
+  operationId: "get-/v2/signup/profile",
+};
+
+/**
+ * Update your account information.
+ * @deprecated
+ */
+export const deprecatedUserUpdateAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/profile",
+  method: "PUT",
+  operationId: "deprecated-user-update-account",
+};
+
+/**
+ * Delete your account and all your personal data.
+ * @deprecated
+ */
+export const deleteV2SignupProfile: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupProfile.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/profile",
+  method: "DELETE",
+  operationId: "delete-/v2/signup/profile",
+};
+
+/**
+ * Get your account information. Replaced by `GET` `/v2/users/self`.
+ * @deprecated
+ */
+export const deprecatedUserGetOwnAccount: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPersonalInformation.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/personal-information",
+  method: "GET",
+  operationId: "deprecated-user-get-own-account",
+};
+
 /** Update your account information. */
 export const userUpdateAccount: OpenAPIOperation<
   RequestType<
@@ -8963,6 +13043,765 @@ export const userUpdateAccount: OpenAPIOperation<
   path: "/v2/users/self/personal-information",
   method: "PUT",
   operationId: "user-update-account",
+};
+
+/**
+ * Initialize password reset process. Replaced by `POST` `/v2/users/self/credentials/actions/init-password-reset`.
+
+ * @deprecated
+ */
+export const deprecatedUserInitPasswordReset: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupPasswordReset.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/password/reset",
+  method: "POST",
+  operationId: "deprecated-user-init-password-reset",
+};
+
+/**
+ * Terminate session and invalidate access token. Replaced by `DELETE` `/v2/users/self/sessions/{current}`.
+ * @deprecated
+ */
+export const deprecatedUserLogout: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupLogout.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/logout",
+  method: "PUT",
+  operationId: "deprecated-user-logout",
+};
+
+/**
+ * Resend the Email-Address verification email. Replaced by `POST` `/v2/users/self/credentials/email/actions/resend-email`.
+
+ * @deprecated
+ */
+export const deprecatedUserResendVerificationEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailResend.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/email/resend",
+  method: "POST",
+  operationId: "deprecated-user-resend-verification-email",
+};
+
+/**
+ * Request a new avatar upload
+ * @deprecated
+ */
+export const deprecatedUserServiceAvatarRequestUpload: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}/avatar",
+  method: "POST",
+  operationId: "deprecated-user-service-avatar-request-upload",
+};
+
+/**
+ * Remove Avatar
+ * @deprecated
+ */
+export const deprecatedUserServiceAvatarRemove: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdAvatar.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}/avatar",
+  method: "DELETE",
+  operationId: "deprecated-user-service-avatar-remove",
+};
+
+/**
+ * Returns your submitted feedback
+ * @deprecated
+ */
+export const deprecatedUserServiceFeedbackList: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/feedback",
+  method: "GET",
+  operationId: "deprecated-user-service-feedback-list",
+};
+
+/**
+ * Submit user feedback
+ * @deprecated
+ */
+export const deprecatedUserServiceFeedbackCreate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserFeedback.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/feedback",
+  method: "POST",
+  operationId: "deprecated-user-service-feedback-create",
+};
+
+/**
+ * create a new issue
+ * @deprecated
+ */
+export const deprecatedUserServiceIssueNew: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Responses.$201.Content.Empty>,
+      201,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserIssues.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/issues",
+  method: "POST",
+  operationId: "deprecated-user-service-issue-new",
+};
+
+/**
+ * Get profile information for the specified user if the user is related to the executing user
+ * @deprecated
+ */
+export const deprecatedUserServiceUserGet: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}",
+  method: "GET",
+  operationId: "deprecated-user-service-user-get",
+};
+
+/**
+ * Change your personal information
+ * @deprecated
+ */
+export const deprecatedUserServicePersonalInformationUpdate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}",
+  method: "PUT",
+  operationId: "deprecated-user-service-personal-information-update",
+};
+
+/**
+ * Get personalized settings for the user executing the request
+ * @deprecated
+ */
+export const deprecatedUserServicePersonalizedSettingsGet: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/settings",
+  method: "GET",
+  operationId: "deprecated-user-service-personalized-settings-get",
+};
+
+/**
+ * update personalized settings
+ * @deprecated
+ */
+export const deprecatedUserServicePersonalizedSettingsUpdate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserSettings.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/settings",
+  method: "PUT",
+  operationId: "deprecated-user-service-personalized-settings-update",
+};
+
+/**
+ * Add phone number and init verification process
+ * @deprecated
+ */
+export const deprecatedUserServicePhoneNumberAdd: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}/phone",
+  method: "POST",
+  operationId: "deprecated-user-service-phone-number-add",
+};
+
+/**
+ * remove your PhoneNumber
+ * @deprecated
+ */
+export const deprecatedUserServicePhoneNumberRemove: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhone.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}/phone",
+  method: "DELETE",
+  operationId: "deprecated-user-service-phone-number-remove",
+};
+
+/**
+ * Verify phone number
+ * @deprecated
+ */
+export const deprecatedUserServicePhoneNumberVerify: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UserUserIdPhoneVerify.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user/{userId}/phone/verify",
+  method: "POST",
+  operationId: "deprecated-user-service-phone-number-verify",
+};
+
+/**
+ * Get profile information for the executing user
+ * @deprecated
+ */
+export const deprecatedUserServiceUserGetOwn: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2User.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2User.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2User.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2User.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2User.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2User.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/user",
+  method: "GET",
+  operationId: "deprecated-user-service-user-get-own",
+};
+
+/**
+ * List all sessions.
+ * @deprecated
+ */
+export const getV2SignupSessions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/sessions",
+  method: "GET",
+  operationId: "get-/v2/signup/sessions",
+};
+
+/**
+ * Terminate all sessions, except the current session. Replaced by `DELETE` `/v2/users/self/sessions`.
+ * @deprecated
+ */
+export const deprecatedUserTerminateAllSessions: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessions.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/sessions",
+  method: "DELETE",
+  operationId: "deprecated-user-terminate-all-sessions",
+};
+
+/**
+ * Get a specific session.
+ * @deprecated
+ */
+export const getV2SignupSessionsTokenId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/sessions/{tokenId}",
+  method: "GET",
+  operationId: "get-/v2/signup/sessions/{tokenId}",
+};
+
+/**
+ * Terminate a specific Session. Replaced by `DELETE` `/v2/users/self/sessions/{tokenId}`.
+ * @deprecated
+ */
+export const deprecatedUserTerminateSession: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupSessionsTokenId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/sessions/{tokenId}",
+  method: "DELETE",
+  operationId: "deprecated-user-terminate-session",
+};
+
+/**
+ * Verify an added Email-Address. Replaced by `POST` `/v2/users/self/credentials/email/actions/verify-email`.
+ * @deprecated
+ */
+export const deprecatedUserVerifyEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$200.Content.Empty>,
+      200,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2SignupEmailVerify.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/signup/email/verify",
+  method: "POST",
+  operationId: "deprecated-user-verify-email",
 };
 
 /** List DNS zone-file import jobs belonging to a Project. */
@@ -9048,6 +13887,70 @@ export const dnsCreateDnsZoneFileImport: OpenAPIOperation<
   operationId: "dns-create-dns-zone-file-import",
 };
 
+/**
+ * Create a DNSZone (deprecated).
+ * @deprecated
+ */
+export const postV2DnsZones: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZones.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/dns/zones",
+  method: "POST",
+  operationId: "post-/v2/dns/zones",
+};
+
+/**
+ * Create a DNSZone (deprecated).
+ * @deprecated
+ */
+export const dnsCreateDnsZone: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DnsZonesDeprecated.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/dns-zones",
+  method: "POST",
+  operationId: "dns-create-dns-zone",
+};
+
 /** List DNSZones belonging to a Project. */
 export const dnsListDnsZones: OpenAPIOperation<
   RequestType<
@@ -9129,6 +14032,50 @@ export const dnsCreateProjectDnsZone: OpenAPIOperation<
   path: "/v2/projects/{projectId}/dns-zones",
   method: "POST",
   operationId: "dns-create-project-dns-zone",
+};
+
+/**
+ * Get a DNSZone.
+ * @deprecated
+ */
+export const getV2DnsZonesDnsZoneId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/dns/zones/{dnsZoneId}",
+  method: "GET",
+  operationId: "get-/v2/dns/zones/{dnsZoneId}",
+};
+
+/**
+ * Delete a DNSZone.
+ * @deprecated
+ */
+export const deleteV2DnsZonesDnsZoneId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DnsZonesDnsZoneIdDeprecated.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/dns/zones/{dnsZoneId}",
+  method: "DELETE",
+  operationId: "delete-/v2/dns/zones/{dnsZoneId}",
 };
 
 /** Get a DNSZone. */
@@ -9272,6 +14219,28 @@ export const dnsGetZoneFile: OpenAPIOperation<
   operationId: "dns-get-zone-file",
 };
 
+/**
+ * List DNSZones belonging to a Project.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdDnsZones: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZonesDeprecated.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZonesDeprecated.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZonesDeprecated.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZonesDeprecated.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/dns/zones",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/dns/zones",
+};
+
 /** Set a record set on a DNSZone to managed. */
 export const dnsSetRecordSetManaged: OpenAPIOperation<
   RequestType<
@@ -9348,6 +14317,28 @@ export const dnsUpdateRecordSet: OpenAPIOperation<
   path: "/v2/dns-zones/{dnsZoneId}/record-sets/{recordSet}",
   method: "PUT",
   operationId: "dns-update-record-set",
+};
+
+/**
+ * Abort a Domain declaration.
+ * @deprecated
+ */
+export const deleteV2DomainsDomainIdDeclarations: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarations.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarations.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarations.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdDeclarations.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/domains/{domainId}/declarations",
+  method: "DELETE",
+  operationId: "delete-/v2/domains/{domainId}/declarations",
 };
 
 /** Abort a Domain declaration. */
@@ -9528,6 +14519,28 @@ export const domainCheckDomainTransferability: OpenAPIOperation<
   path: "/v2/domain-transferable",
   method: "POST",
   operationId: "domain-check-domain-transferability",
+};
+
+/**
+ * Create an auth code for a Domains transfer-out process.
+ * @deprecated
+ */
+export const postV2DomainsDomainIdActionsCreateAuthcode: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdActionsCreateAuthcode.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/domains/{domainId}/actions/create-authcode",
+  method: "POST",
+  operationId: "post-/v2/domains/{domainId}/actions/create-authcode",
 };
 
 /** Create an auth code for a Domains transfer-out process. */
@@ -9793,6 +14806,28 @@ export const domainListTldContactSchemas: OpenAPIOperation<
   operationId: "domain-list-tld-contact-schemas",
 };
 
+/**
+ * List TLDs.
+ * @deprecated
+ */
+export const getV2DomainsSupportedTlds: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsSupportedTlds.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/domains/supported-tlds",
+  method: "GET",
+  operationId: "get-/v2/domains/supported-tlds",
+};
+
 /** List TLDs. */
 export const domainListTlds: OpenAPIOperation<
   RequestType<
@@ -9976,6 +15011,28 @@ export const domainSuggest: OpenAPIOperation<
   path: "/v2/domain-suggestions",
   method: "GET",
   operationId: "domain-suggest",
+};
+
+/**
+ * Update the auth code of a Domain.
+ * @deprecated
+ */
+export const patchV2DomainsDomainIdAuthcode: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthcode.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthcode.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthcode.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthcode.Patch.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DomainsDomainIdAuthcode.Patch.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/domains/{domainId}/authcode",
+  method: "PATCH",
+  operationId: "patch-/v2/domains/{domainId}/authcode",
 };
 
 /** Update the auth code of a Domain. */
@@ -11203,6 +16260,28 @@ export const extensionGetProjectExtensionInstanceOrders: OpenAPIOperation<
   path: "/v2/projects/{projectId}/extension-orders",
   method: "GET",
   operationId: "extension-get-project-extension-instance-orders",
+};
+
+/**
+ * Get the public key to verify the webhook signature.
+ * @deprecated
+ */
+export const getV2WebhookPublicKeysSerial: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2WebhookPublicKeysSerial.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/webhook-public-keys/{serial}",
+  method: "GET",
+  operationId: "get-/v2/webhook-public-keys/{serial}",
 };
 
 /** Get the public key to verify the webhook signature. */
@@ -12595,6 +17674,98 @@ export const invoiceListCustomerInvoices: OpenAPIOperation<
   operationId: "invoice-list-customer-invoices",
 };
 
+/**
+ * Get your LeadFyndr request.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/lead-fyndr-profile-request",
+  method: "GET",
+  operationId:
+    "get-/experimental-v2/customers/{customerId}/lead-fyndr-profile-request",
+};
+
+/**
+ * Create a new access request for LeadFyndr.
+ * @deprecated
+ */
+export const postExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/lead-fyndr-profile-request",
+  method: "POST",
+  operationId:
+    "post-/experimental-v2/customers/{customerId}/lead-fyndr-profile-request",
+};
+
+/**
+ * Get your LeadFyndr request.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile-request",
+  method: "GET",
+  operationId:
+    "get-/v2-experimental/customers/{customerId}/lead-fyndr-profile-request",
+};
+
+/**
+ * Create a new access request for LeadFyndr.
+ * @deprecated
+ */
+export const postV2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileRequest.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile-request",
+  method: "POST",
+  operationId:
+    "post-/v2-experimental/customers/{customerId}/lead-fyndr-profile-request",
+};
+
 /** Get your LeadFyndr request. */
 export const leadfyndrGetLeadFyndrProfileRequest: OpenAPIOperation<
   RequestType<
@@ -12688,6 +17859,52 @@ export const leadfyndrCreateLeadFyndrAccessRequest: OpenAPIOperation<
   operationId: "leadfyndr-create-lead-fyndr-access-request",
 };
 
+/**
+ * Create an export of unlocked leads for the given customerId.
+ * @deprecated
+ */
+export const postExperimentalV2CustomersCustomerIdUnlockedLeadsExport: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExport.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExport.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExport.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExport.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExport.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads-export",
+  method: "POST",
+  operationId:
+    "post-/experimental-v2/customers/{customerId}/unlocked-leads-export",
+};
+
+/**
+ * Create an export of unlocked leads for the given customerId.
+ * @deprecated
+ */
+export const postV2ExperimentalCustomersCustomerIdUnlockedLeadsExport: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExport.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExport.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExport.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExport.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExport.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads-export",
+  method: "POST",
+  operationId:
+    "post-/v2-experimental/customers/{customerId}/unlocked-leads-export",
+};
+
 /** Create an export of unlocked leads for the given customerId. */
 export const leadfyndrCreateLeadsExport: OpenAPIOperation<
   RequestType<
@@ -12742,6 +17959,50 @@ export const leadfyndrCreateLeadsExport: OpenAPIOperation<
   operationId: "leadfyndr-create-leads-export",
 };
 
+/**
+ * Get cities in DACH.
+ * @deprecated
+ */
+export const getExperimentalV2Cities: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2Cities.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2Cities.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2Cities.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2Cities.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/cities",
+  method: "GET",
+  operationId: "get-/experimental-v2/cities",
+};
+
+/**
+ * Get cities in DACH.
+ * @deprecated
+ */
+export const getV2ExperimentalCities: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCities.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/cities",
+  method: "GET",
+  operationId: "get-/v2-experimental/cities",
+};
+
 /** Get cities in DACH. */
 export const leadfyndrGetCities: OpenAPIOperation<
   RequestType<
@@ -12784,6 +18045,52 @@ export const leadfyndrGetCities: OpenAPIOperation<
   path: "/v2/cities",
   method: "GET",
   operationId: "leadfyndr-get-cities",
+};
+
+/**
+ * Get lead tariff options. How many leads did you unlock this month?
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/lead-fyndr-profile/tariff",
+  method: "GET",
+  operationId:
+    "get-/experimental-v2/customers/{customerId}/lead-fyndr-profile/tariff",
+};
+
+/**
+ * Get lead tariff options. How many leads did you unlock this month?
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfileTariff.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile/tariff",
+  method: "GET",
+  operationId:
+    "get-/v2-experimental/customers/{customerId}/lead-fyndr-profile/tariff",
 };
 
 /** Get lead tariff options. How many leads did you unlock this month? */
@@ -12830,6 +18137,50 @@ export const leadfyndrGetLeadFyndrProfileTariffOptions: OpenAPIOperation<
   operationId: "leadfyndr-get-lead-fyndr-profile-tariff-options",
 };
 
+/**
+ * Get your LeadFyndr profile.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdLeadFyndrProfile: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfile.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadFyndrProfile.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/lead-fyndr-profile",
+  method: "GET",
+  operationId: "get-/experimental-v2/customers/{customerId}/lead-fyndr-profile",
+};
+
+/**
+ * Get your LeadFyndr profile.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdLeadFyndrProfile: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadFyndrProfile.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/lead-fyndr-profile",
+  method: "GET",
+  operationId: "get-/v2-experimental/customers/{customerId}/lead-fyndr-profile",
+};
+
 /** Get your LeadFyndr profile. */
 export const leadfyndrGetLeadFyndrProfile: OpenAPIOperation<
   RequestType<
@@ -12872,6 +18223,50 @@ export const leadfyndrGetLeadFyndrProfile: OpenAPIOperation<
   path: "/v2/customers/{customerId}/lead-fyndr-profile",
   method: "GET",
   operationId: "leadfyndr-get-lead-fyndr-profile",
+};
+
+/**
+ * Get a simple lead. Use the unlocked route for more detail leads.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdLeadsLeadId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadsLeadId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadsLeadId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadsLeadId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeadsLeadId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/leads/{leadId}",
+  method: "GET",
+  operationId: "get-/experimental-v2/customers/{customerId}/leads/{leadId}",
+};
+
+/**
+ * Get a simple lead. Use the unlocked route for more detail leads.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdLeadsLeadId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeadsLeadId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/leads/{leadId}",
+  method: "GET",
+  operationId: "get-/v2-experimental/customers/{customerId}/leads/{leadId}",
 };
 
 /** Get a simple lead. Use the unlocked route for more detail leads. */
@@ -12918,6 +18313,52 @@ export const leadfyndrGetLead: OpenAPIOperation<
   operationId: "leadfyndr-get-lead",
 };
 
+/**
+ * Get unlocked leads export history for the given customerId.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdUnlockedLeadsExports: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExports.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExports.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExports.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsExports.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads-exports",
+  method: "GET",
+  operationId:
+    "get-/experimental-v2/customers/{customerId}/unlocked-leads-exports",
+};
+
+/**
+ * Get unlocked leads export history for the given customerId.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdUnlockedLeadsExports: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExports.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExports.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExports.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsExports.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads-exports",
+  method: "GET",
+  operationId:
+    "get-/v2-experimental/customers/{customerId}/unlocked-leads-exports",
+};
+
 /** Get unlocked leads export history for the given customerId. */
 export const leadfyndrGetLeadsExportHistory: OpenAPIOperation<
   RequestType<
@@ -12960,6 +18401,98 @@ export const leadfyndrGetLeadsExportHistory: OpenAPIOperation<
   path: "/v2/customers/{customerId}/unlocked-leads-exports",
   method: "GET",
   operationId: "leadfyndr-get-leads-export-history",
+};
+
+/**
+ * Get a detail of a unlocked lead. Organisation can unlock leads.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}",
+  method: "GET",
+  operationId:
+    "get-/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}",
+};
+
+/**
+ * Unlock a lead for the given customerId.
+ * @deprecated
+ */
+export const postExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}",
+  method: "POST",
+  operationId:
+    "post-/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}",
+};
+
+/**
+ * Get a detail of a unlocked lead. Organisation can unlock leads.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}",
+  method: "GET",
+  operationId:
+    "get-/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}",
+};
+
+/**
+ * Unlock a lead for the given customerId.
+ * @deprecated
+ */
+export const postV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadId.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}",
+  method: "POST",
+  operationId:
+    "post-/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}",
 };
 
 /** Get a detail of a unlocked lead. Organisation can unlock leads. */
@@ -13050,6 +18583,50 @@ export const leadfyndrUnlockLead: OpenAPIOperation<
   operationId: "leadfyndr-unlock-lead",
 };
 
+/**
+ * Get all leads. Use the unlocked routes for more lead details.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdLeads: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeads.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeads.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeads.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdLeads.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/leads",
+  method: "GET",
+  operationId: "get-/experimental-v2/customers/{customerId}/leads",
+};
+
+/**
+ * Get all leads. Use the unlocked routes for more lead details.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdLeads: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdLeads.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/leads",
+  method: "GET",
+  operationId: "get-/v2-experimental/customers/{customerId}/leads",
+};
+
 /** Get all leads. Use the unlocked routes for more lead details. */
 export const leadfyndrListLeads: OpenAPIOperation<
   RequestType<
@@ -13082,6 +18659,50 @@ export const leadfyndrListLeads: OpenAPIOperation<
   path: "/v2/customers/{customerId}/leads",
   method: "GET",
   operationId: "leadfyndr-list-leads",
+};
+
+/**
+ * Get all unlocked leads. Organisation can unlock leads.
+ * @deprecated
+ */
+export const getExperimentalV2CustomersCustomerIdUnlockedLeads: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeads.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeads.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeads.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeads.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads",
+  method: "GET",
+  operationId: "get-/experimental-v2/customers/{customerId}/unlocked-leads",
+};
+
+/**
+ * Get all unlocked leads. Organisation can unlock leads.
+ * @deprecated
+ */
+export const getV2ExperimentalCustomersCustomerIdUnlockedLeads: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeads.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads",
+  method: "GET",
+  operationId: "get-/v2-experimental/customers/{customerId}/unlocked-leads",
 };
 
 /** Get all unlocked leads. Organisation can unlock leads. */
@@ -13126,6 +18747,98 @@ export const leadfyndrListUnlockedLeads: OpenAPIOperation<
   path: "/v2/customers/{customerId}/unlocked-leads",
   method: "GET",
   operationId: "leadfyndr-list-unlocked-leads",
+};
+
+/**
+ * Reserve a unlocked lead for the given customerId.
+ * @deprecated
+ */
+export const postExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+  method: "POST",
+  operationId:
+    "post-/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+};
+
+/**
+ * Removes a reservation on a unlocked lead for the given customerId.
+ * @deprecated
+ */
+export const deleteExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.ExperimentalV2CustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+  method: "DELETE",
+  operationId:
+    "delete-/experimental-v2/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+};
+
+/**
+ * Reserve a unlocked lead for the given customerId.
+ * @deprecated
+ */
+export const postV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+  method: "POST",
+  operationId:
+    "post-/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+};
+
+/**
+ * Removes a reservation on a unlocked lead for the given customerId.
+ * @deprecated
+ */
+export const deleteV2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ExperimentalCustomersCustomerIdUnlockedLeadsLeadIdReservation.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}/reservation",
+  method: "DELETE",
+  operationId:
+    "delete-/v2-experimental/customers/{customerId}/unlocked-leads/{leadId}/reservation",
 };
 
 /** Reserve a unlocked lead for the given customerId. */
@@ -13422,6 +19135,50 @@ export const licenseValidateLicenseKeyForProject: OpenAPIOperation<
   operationId: "license-validate-license-key-for-project",
 };
 
+/**
+ * List DeliveryBoxes belonging to a Project.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdDeliveryboxes: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/deliveryboxes",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/deliveryboxes",
+};
+
+/**
+ * Create a DeliveryBox.
+ * @deprecated
+ */
+export const postV2ProjectsProjectIdDeliveryboxes: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDeliveryboxes.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/deliveryboxes",
+  method: "POST",
+  operationId: "post-/v2/projects/{projectId}/deliveryboxes",
+};
+
 /** List DeliveryBoxes belonging to a Project. */
 export const mailListDeliveryBoxes: OpenAPIOperation<
   RequestType<
@@ -13528,6 +19285,50 @@ export const mailCreateDeliverybox: OpenAPIOperation<
   path: "/v2/projects/{projectId}/delivery-boxes",
   method: "POST",
   operationId: "mail-create-deliverybox",
+};
+
+/**
+ * List MailAddresses belonging to a Project.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdMailaddresses: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/mailaddresses",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/mailaddresses",
+};
+
+/**
+ * Create a MailAddress.
+ * @deprecated
+ */
+export const postV2ProjectsProjectIdMailaddresses: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailaddresses.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/mailaddresses",
+  method: "POST",
+  operationId: "post-/v2/projects/{projectId}/mailaddresses",
 };
 
 /** List MailAddresses belonging to a Project. */
@@ -13638,6 +19439,50 @@ export const mailCreateMailAddress: OpenAPIOperation<
   operationId: "mail-create-mail-address",
 };
 
+/**
+ * Get a DeliveryBox.
+ * @deprecated
+ */
+export const getV2DeliveryboxesDeliveryBoxId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/deliveryboxes/{deliveryBoxId}",
+  method: "GET",
+  operationId: "get-/v2/deliveryboxes/{deliveryBoxId}",
+};
+
+/**
+ * Delete a DeliveryBox.
+ * @deprecated
+ */
+export const deleteV2DeliveryboxesDeliveryBoxId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2DeliveryboxesDeliveryBoxId.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/deliveryboxes/{deliveryBoxId}",
+  method: "DELETE",
+  operationId: "delete-/v2/deliveryboxes/{deliveryBoxId}",
+};
+
 /** Get a DeliveryBox. */
 export const mailGetDeliveryBox: OpenAPIOperation<
   RequestType<
@@ -13744,6 +19589,50 @@ export const mailDeleteDeliveryBox: OpenAPIOperation<
   path: "/v2/delivery-boxes/{deliveryBoxId}",
   method: "DELETE",
   operationId: "mail-delete-delivery-box",
+};
+
+/**
+ * Get a MailAddress.
+ * @deprecated
+ */
+export const getV2MailaddressesMailAddressId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}",
+  method: "GET",
+  operationId: "get-/v2/mailaddresses/{mailAddressId}",
+};
+
+/**
+ * Delete a MailAddress.
+ * @deprecated
+ */
+export const deleteV2MailaddressesMailAddressId: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Delete.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2MailaddressesMailAddressId.Delete.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/mailaddresses/{mailAddressId}",
+  method: "DELETE",
+  operationId: "delete-/v2/mailaddresses/{mailAddressId}",
 };
 
 /** Get a MailAddress. */
@@ -14072,6 +19961,28 @@ export const mailListMailRateLimits: OpenAPIOperation<
   path: "/v2/mail-rate-limits",
   method: "GET",
   operationId: "mail-list-mail-rate-limits",
+};
+
+/**
+ * List mail settings of a Project.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdMailsettings: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdMailsettings.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/mailsettings",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/mailsettings",
 };
 
 /** List mail settings of a Project. */
@@ -14641,6 +20552,28 @@ export const notificationsAdjustNotificationMessageTypeSettings: OpenAPIOperatio
   operationId: "notifications-adjust-notification-message-type-settings",
 };
 
+/**
+ * Get the counts for unread notifications of the user.
+ * @deprecated
+ */
+export const getV2NotificationsUnreadCounts: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2NotificationsUnreadCounts.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/notifications/unread-counts",
+  method: "GET",
+  operationId: "get-/v2/notifications/unread-counts",
+};
+
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
@@ -15073,6 +21006,28 @@ export const orderPreviewTariffChange: OpenAPIOperation<
   operationId: "order-preview-tariff-change",
 };
 
+/**
+ * Get detailed performance data for a given domain and path.
+ * @deprecated
+ */
+export const getV2Pageinsights: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2Pageinsights.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/pageinsights",
+  method: "GET",
+  operationId: "get-/v2/pageinsights",
+};
+
 /** Get detailed performance data for a given domain and path. */
 export const pageinsightsGetPerformanceData: OpenAPIOperation<
   RequestType<
@@ -15149,6 +21104,28 @@ export const pageinsightsGetStraceData: OpenAPIOperation<
   path: "/v2/projects/{projectId}/straces/{straceId}",
   method: "GET",
   operationId: "pageinsights-get-strace-data",
+};
+
+/**
+ * List websites (specified as domain and path) from a project where performance data is available.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdPageinsights: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageinsights.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageinsights.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageinsights.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdPageinsights.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/pageinsights",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/pageinsights",
 };
 
 /** List websites (specified as domain and path) from a project where performance data is available. */
@@ -15263,6 +21240,38 @@ export const passwordValidationGetPasswordPolicy: OpenAPIOperation<
   operationId: "password-validation-get-password-policy",
 };
 
+/**
+ * DEPRECAED. Use `GET` `/v2/password-policies/{passwordPolicy}` instead.
+ * @deprecated
+ */
+export const passwordValidationGetPasswordPolicyV2Deprecated: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasswordPoliciesPath.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/password/policies/{path}",
+  method: "GET",
+  operationId: "password-validation-get-password-policy-v2-deprecated",
+};
+
 /** Accept a ProjectInvite. */
 export const projectAcceptProjectInvite: OpenAPIOperation<
   RequestType<
@@ -15305,6 +21314,28 @@ export const projectAcceptProjectInvite: OpenAPIOperation<
   path: "/v2/project-invites/{projectInviteId}/actions/accept",
   method: "POST",
   operationId: "project-accept-project-invite",
+};
+
+/**
+ * Create a ProjectInvite.
+ * @deprecated
+ */
+export const postV2ProjectProjectIdInvites: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdInvites.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/project/{projectId}/invites",
+  method: "POST",
+  operationId: "post-/v2/project/{projectId}/invites",
 };
 
 /** List Invites belonging to a Project. */
@@ -15886,6 +21917,28 @@ export const projectDeleteServerAvatar: OpenAPIOperation<
   operationId: "project-delete-server-avatar",
 };
 
+/**
+ * List directories belonging to a Project.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdFilesystemDirectories: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectoriesDeprecated.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectoriesDeprecated.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectoriesDeprecated.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemDirectoriesDeprecated.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/filesystem/directories",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/filesystem/directories",
+};
+
 /** List directories belonging to a Project. */
 export const projectFileSystemGetDirectories: OpenAPIOperation<
   RequestType<
@@ -15935,6 +21988,28 @@ export const projectFileSystemGetDirectories: OpenAPIOperation<
   operationId: "project-file-system-get-directories",
 };
 
+/**
+ * Get a Project directory filesystem usage.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdFilesystemUsagesDisk: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemUsagesDisk.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/filesystem/usages/disk",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/filesystem/usages/disk",
+};
+
 /** Get a Project directory filesystem usage. */
 export const projectFileSystemGetDiskUsage: OpenAPIOperation<
   RequestType<
@@ -15982,6 +22057,28 @@ export const projectFileSystemGetDiskUsage: OpenAPIOperation<
   path: "/v2/projects/{projectId}/filesystem-disk-usage",
   method: "GET",
   operationId: "project-file-system-get-disk-usage",
+};
+
+/**
+ * Get a Project file's content.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdFilesystemFilesRaw: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesRaw.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/filesystem/files/raw",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/filesystem/files/raw",
 };
 
 /** Get a Project file's content. */
@@ -16090,6 +22187,28 @@ export const projectFileSystemGetJwt: OpenAPIOperation<
   path: "/v2/projects/{projectId}/jwt",
   method: "GET",
   operationId: "project-file-system-get-jwt",
+};
+
+/**
+ * Get a Project file's information.
+ * @deprecated
+ */
+export const getV2ProjectsProjectIdFilesystemFiles: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesDeprecated.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesDeprecated.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesDeprecated.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdFilesystemFilesDeprecated.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/projects/{projectId}/filesystem/files",
+  method: "GET",
+  operationId: "get-/v2/projects/{projectId}/filesystem/files",
 };
 
 /** Get a Project file's information. */
@@ -16818,6 +22937,28 @@ export const sftpUserUpdateSftpUser: OpenAPIOperation<
   operationId: "sftp-user-update-sftp-user",
 };
 
+/**
+ * Get all SFTPUsers for a Project.
+ * @deprecated
+ */
+export const getV2ProjectProjectIdSftpUsers: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2ProjectProjectIdSftpUsers.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/project/{projectId}/sftp-users",
+  method: "GET",
+  operationId: "get-/v2/project/{projectId}/sftp-users",
+};
+
 /** Get all SSHUsers for a Project. */
 export const sshUserListSshUsers: OpenAPIOperation<
   RequestType<
@@ -17006,6 +23147,28 @@ export const sshUserUpdateSshUser: OpenAPIOperation<
   path: "/v2/ssh-users/{sshUserId}",
   method: "PATCH",
   operationId: "ssh-user-update-ssh-user",
+};
+
+/**
+ * Update an SSHUser.
+ * @deprecated
+ */
+export const patchV2SshusersSshUserId: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SshusersSshUserId.Patch.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/sshusers/{sshUserId}",
+  method: "PATCH",
+  operationId: "patch-/v2/sshusers/{sshUserId}",
 };
 
 /** Check the replacement of a Certificate. */
@@ -17588,6 +23751,28 @@ export const userRemovePhoneNumber: OpenAPIOperation<
   operationId: "user-remove-phone-number",
 };
 
+/**
+ * Validate your second factor.
+ * @deprecated
+ */
+export const postV2SignupAuthenticationMfa: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthenticationMfa.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/authentication/mfa",
+  method: "POST",
+  operationId: "post-/v2/signup/authentication/mfa",
+};
+
 /** Validate your second factor. */
 export const userAuthenticateMfa: OpenAPIOperation<
   RequestType<
@@ -17630,6 +23815,28 @@ export const userAuthenticateMfa: OpenAPIOperation<
   path: "/v2/authenticate-mfa",
   method: "POST",
   operationId: "user-authenticate-mfa",
+};
+
+/**
+ * Authenticate yourself to get an access token.
+ * @deprecated
+ */
+export const postV2SignupAuthentication: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupAuthentication.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/authentication",
+  method: "POST",
+  operationId: "post-/v2/signup/authentication",
 };
 
 /** Authenticate yourself to get an access token. */
@@ -17783,6 +23990,50 @@ export const userChangeEmail: OpenAPIOperation<
   operationId: "user-change-email",
 };
 
+/**
+ * The timestamp of your latest password change.
+ * @deprecated
+ */
+export const getV2SignupPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/password",
+  method: "GET",
+  operationId: "get-/v2/signup/password",
+};
+
+/**
+ * Change your password.
+ * @deprecated
+ */
+export const putV2SignupPassword: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupPassword.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/password",
+  method: "PUT",
+  operationId: "put-/v2/signup/password",
+};
+
 /** Change your password. */
 export const userChangePassword: OpenAPIOperation<
   RequestType<
@@ -17820,6 +24071,28 @@ export const userChangePassword: OpenAPIOperation<
   path: "/v2/users/self/credentials/password",
   method: "PUT",
   operationId: "user-change-password",
+};
+
+/**
+ * Confirm Multi Factor Authentication.
+ * @deprecated
+ */
+export const postV2SignupMfaConfirm: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaConfirm.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/mfa/confirm",
+  method: "POST",
+  operationId: "post-/v2/signup/mfa/confirm",
 };
 
 /** Get your current multi factor auth status. */
@@ -17987,6 +24260,50 @@ export const userConfirmPasswordReset: OpenAPIOperation<
   operationId: "user-confirm-password-reset",
 };
 
+/**
+ * List all of your ApiTokens.
+ * @deprecated
+ */
+export const getV2SignupTokenApi: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/token/api",
+  method: "GET",
+  operationId: "get-/v2/signup/token/api",
+};
+
+/**
+ * Create a new ApiToken.
+ * @deprecated
+ */
+export const postV2SignupTokenApi: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupTokenApi.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/token/api",
+  method: "POST",
+  operationId: "post-/v2/signup/token/api",
+};
+
 /** List all of your ApiTokens. */
 export const userListApiTokens: OpenAPIOperation<
   RequestType<
@@ -18087,6 +24404,50 @@ export const userCreateFeedback: OpenAPIOperation<
   path: "/v2/users/self/feedback",
   method: "POST",
   operationId: "user-create-feedback",
+};
+
+/**
+ * Get your stored ssh-keys.
+ * @deprecated
+ */
+export const getV2SignupSsh: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/ssh",
+  method: "GET",
+  operationId: "get-/v2/signup/ssh",
+};
+
+/**
+ * Store a new ssh-key.
+ * @deprecated
+ */
+export const postV2SignupSsh: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSsh.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/ssh",
+  method: "POST",
+  operationId: "post-/v2/signup/ssh",
 };
 
 /** Get your stored ssh-keys. */
@@ -19084,6 +25445,28 @@ export const userOauthRetrieveAccessToken: OpenAPIOperation<
   operationId: "user-oauth-retrieve-access-token",
 };
 
+/**
+ * Register with email and password.
+ * @deprecated
+ */
+export const postV2SignupRegistration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistration.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/registration",
+  method: "POST",
+  operationId: "post-/v2/signup/registration",
+};
+
 /** Register with email and password. */
 export const userRegister: OpenAPIOperation<
   RequestType<
@@ -19225,6 +25608,28 @@ export const userResendVerificationEmail: OpenAPIOperation<
   operationId: "user-resend-verification-email",
 };
 
+/**
+ * Reset RecoveryCodes for MFA.
+ * @deprecated
+ */
+export const putV2SignupMfaResetRecoverycodes: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupMfaResetRecoverycodes.Put.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/mfa/reset-recoverycodes",
+  method: "PUT",
+  operationId: "put-/v2/signup/mfa/reset-recoverycodes",
+};
+
 /** Check if a password is leaked. */
 export const userSearchedLeakedPasswordsByRange: OpenAPIOperation<
   RequestType<
@@ -19286,6 +25691,50 @@ export const userSpotlightFeedback: OpenAPIOperation<
   path: "/v2/users/self/spotlights/{spotlightId}/feedback",
   method: "POST",
   operationId: "user-spotlight-feedback",
+};
+
+/**
+ * Request a support code.
+ * @deprecated
+ */
+export const getV2SignupSupportcode: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcode.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/supportcode",
+  method: "GET",
+  operationId: "get-/v2/signup/supportcode",
+};
+
+/**
+ * Request a support code.
+ * @deprecated
+ */
+export const getV2SignupSupportcodes: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcodes.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcodes.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcodes.Get.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupSupportcodes.Get.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/supportcodes",
+  method: "GET",
+  operationId: "get-/v2/signup/supportcodes",
 };
 
 /** Request a support code. */
@@ -19356,6 +25805,28 @@ export const userVerifyEmail: OpenAPIOperation<
   operationId: "user-verify-email",
 };
 
+/**
+ * Verify phone number.
+ * @deprecated
+ */
+export const postV2UsersUserIdPhoneVerify: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2UsersUserIdPhoneVerify.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/users/{userId}/phone/verify",
+  method: "POST",
+  operationId: "post-/v2/users/{userId}/phone/verify",
+};
+
 /** Verify phone number. */
 export const userVerifyPhoneNumber: OpenAPIOperation<
   RequestType<
@@ -19398,6 +25869,28 @@ export const userVerifyPhoneNumber: OpenAPIOperation<
   path: "/v2/users/{userId}/actions/verify-phone",
   method: "POST",
   operationId: "user-verify-phone-number",
+};
+
+/**
+ * Verify your registration.
+ * @deprecated
+ */
+export const postV2SignupRegistrationVerification: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Parameters.Header>
+  >,
+  Response<
+    Simplify<MittwaldAPIV2.Paths.V2SignupRegistrationVerification.Post.Responses.$308.Content.Empty>,
+    308,
+    "empty"
+  >
+> = {
+  path: "/v2/signup/registration/verification",
+  method: "POST",
+  operationId: "post-/v2/signup/registration/verification",
 };
 
 /** Verify your registration. */
