@@ -282,6 +282,22 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    namespace AiHostingUserGetKeys {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetKeys
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetKeys, TStatus>;
+    }
+
+    namespace AiHostingUserGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
+    }
+
     namespace AppDetachAppinstallationStaging {
       type RequestData = InferredRequestData<
         typeof descriptors.appDetachAppinstallationStaging
@@ -2497,17 +2513,6 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainMigrationListMigrationsByProjectId,
-          TStatus
-        >;
-    }
-
-    namespace DomainResendContactVerificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainResendContactVerificationEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.domainResendContactVerificationEmail,
           TStatus
         >;
     }
@@ -5178,6 +5183,68 @@ export declare namespace MittwaldAPIV3Next {
         used: number;
       }
 
+      /**
+       * One AI hosting key the authenticated user can reach, with the organization,
+       * project and plan names denormalized so the list needs no second call.
+       *
+       */
+      export interface DeMittwaldAihostingUserKey {
+        containerMeta?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingContainerMeta;
+        createdAt: string;
+        customerId: string;
+        customerName: string;
+        /**
+         * Indicates whether the key is blocked.
+         */
+        isBlocked: boolean;
+        /**
+         * @deprecated
+         * The secret API key. For security reasons we no longer want to keep exposing this value on every response — this field is deprecated and will stop returning the real key in a future change. It still returns the real value for now.
+         */
+        key: string;
+        /**
+         * Auto generated uuid to identify keys in requests.
+         */
+        keyId: string;
+        /**
+         * @deprecated
+         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
+         */
+        models: string[];
+        name: string;
+        planDescription: string;
+        planId: string;
+        projectId?: string;
+        /**
+         * Empty when the key is not assigned to a project.
+         */
+        projectName?: string;
+        rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
+        tokenUsage: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingTokenUsage;
+      }
+
+      /**
+       * One AI hosting plan the authenticated user can reach through one of its
+       * organizations. A membership in one of the plan's projects alone grants no
+       * access to it.
+       *
+       */
+      export interface DeMittwaldAihostingUserPlan {
+        customerId: string;
+        /**
+         * Denormalized name of the owning organization.
+         */
+        customerName: string;
+        description: string;
+        keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
+        maxParallelRequests?: number;
+        nextTokenReset: string;
+        planId: string;
+        rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
+        suspended?: boolean;
+        tokens: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsageBig;
+      }
+
       export type DeMittwaldAppAppInstallationSortOrder =
         | "newestFirst"
         | "oldestFirst"
@@ -7641,6 +7708,7 @@ export declare namespace MittwaldAPIV3Next {
           ownerC: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainHandleReadable;
         };
         nameservers: string[];
+        ownerVerification?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainOwnerVerification;
         processes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainProcess[];
         projectId: string;
         scheduledDeletionDate?: string;
@@ -7826,6 +7894,24 @@ export declare namespace MittwaldAPIV3Next {
         dnsRecords: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainmigrationDNSRecord[];
         hostname: string;
         target?: string;
+      }
+
+      /**
+       * Status of the verification of the domain owner's e-mail address. If the owner does not confirm the address in time, the domain gets suspended. A domain without ownerVerification has no known state, which does not mean that the owner is verified.
+       */
+      export interface DeMittwaldDomainOwnerVerification {
+        /**
+         * The date by which the owner has to confirm the e-mail address. pending: After the deadline the domain is suspended or, for some domains, the status changes to failed first. failed: The date on which the domain gets suspended unless the owner has confirmed the address by then. suspended: The date on which the suspension was due. Not set once the owner has verified the address.
+         */
+        deadline?: string;
+        /**
+         * When the verification e-mail was sent last.
+         */
+        lastEmailSentAt?: string;
+        /**
+         * pending: The owner has to confirm the e-mail address until the deadline. verified: The owner has confirmed the e-mail address. failed: The owner did not confirm the e-mail address until the deadline, but the domain is not suspended yet. The owner can still prevent the suspension by confirming the address until the new deadline. Only some domains pass through this status; the others change from pending directly to suspended. suspended: The domain is suspended because the owner did not confirm the e-mail address in time. It is reactivated after the owner has confirmed the address.
+         */
+        status: "pending" | "verified" | "failed" | "suspended";
       }
 
       export interface DeMittwaldDomainProcess {
@@ -8596,6 +8682,10 @@ export declare namespace MittwaldAPIV3Next {
          */
         paths: MittwaldAPIV3Next.Components.Schemas.DeMittwaldIngressPath[];
         projectId: string;
+        /**
+         * If enabled, only mailboxes of the Ingress's Project may send emails from addresses of the Ingress and its SubIngresses. Only set on the root Ingress, as it covers all of its SubIngresses.
+         */
+        senderLoginProtection?: boolean;
         tls:
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldIngressTlsAcme
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldIngressTlsCertificate;
@@ -9657,8 +9747,14 @@ export declare namespace MittwaldAPIV3Next {
 
       export interface DeMittwaldOrderAIHostingOrder {
         customerId: string;
+        /**
+         * Has to match the monthlyTokens of an available AI Hosting Article exactly. Reachable via the /articles endpoint.
+         */
         monthlyTokens: number;
         name?: string;
+        /**
+         * Has to match the requestsPerMinute of an available AI Hosting Article exactly. Reachable via the /articles endpoint.
+         */
         requestsPerMinute: number;
         useFreeTrial?: boolean;
       }
@@ -9811,6 +9907,9 @@ export declare namespace MittwaldAPIV3Next {
       };
 
       export interface DeMittwaldOrderMachineTypeSpec {
+        /**
+         * Has to match the machineType of an available Article exactly. Reachable via the /articles endpoint.
+         */
         machineType?: string;
       }
 
@@ -10111,7 +10210,13 @@ export declare namespace MittwaldAPIV3Next {
         template: MittwaldAPIV3Next.Components.Schemas.DeMittwaldArticleArticleTemplate;
       }
 
-      export type DeMittwaldPolicyPolicy = string;
+      export interface DeMittwaldPolicyPolicy {
+        minComplexity: number;
+        rules: {
+          ruleType: string;
+          [k: string]: unknown;
+        }[];
+      }
 
       export interface DeMittwaldActivitylogAppInstallationDatabaseLinked {
         changes: {
@@ -10255,6 +10360,180 @@ export declare namespace MittwaldAPIV3Next {
         name: "app.version-set" | "app.version-updated";
         parameters: {
           appInstallation: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupCreated {
+        changes: {
+          after?: {
+            description: string;
+            expiresAt: string | null;
+            ignoredDatabases: {
+              kind: string;
+              name: string;
+            }[];
+            ignoredFiles: boolean;
+          };
+          before?: {
+            description: string | null;
+            expiresAt: string | null;
+            ignoredDatabases:
+              | {
+                  kind: string;
+                  name: string;
+                }[]
+              | null;
+            ignoredFiles: boolean | null;
+          };
+        };
+        name: "backup.created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupDeleted {
+        changes: {};
+        name:
+          | "backup.deleted"
+          | "backup.export-deleted"
+          | "backup.schedule-deleted";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name:
+          "backup.description-updated" | "backup.schedule-description-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupExpirationUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name: "backup.expiration-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupExportRequested {
+        changes: {
+          after?: {
+            format: string;
+            withPassword: boolean;
+          };
+        };
+        name: "backup.export-requested";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupRestoreRequested {
+        changes: {
+          after?: {
+            clearTargetPath: boolean | null;
+            databaseRestores: {
+              databaseBackupDump: string;
+              targetDatabaseId: string;
+            }[];
+            sourcePaths: string[];
+            targetRestorePath: string | null;
+          };
+        };
+        name: "backup.restore-requested";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          [
+            k: string
+          ]: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupScheduleCreated {
+        changes: {
+          after?: {
+            description: string;
+            ignoredDatabases: {
+              kind: string;
+              name: string;
+            }[];
+            ignoredFiles: boolean;
+            interval: string;
+            ttl: string;
+          };
+          before?: {
+            description: string | null;
+            ignoredDatabases:
+              | {
+                  kind: string;
+                  name: string;
+                }[]
+              | null;
+            ignoredFiles: boolean | null;
+            interval: string | null;
+            ttl: string | null;
+          };
+        };
+        name: "backup.schedule-created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupScheduleIntervalUpdated {
+        changes: {
+          after?: {
+            interval: string;
+          };
+          before?: {
+            interval: string | null;
+          };
+        };
+        name: "backup.schedule-interval-updated";
+        parameters: {
+          description: {
+            aggregate: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
+            isSystemBackup?: boolean;
+            name: string;
+          };
+        };
+      }
+
+      export interface DeMittwaldActivitylogBackupScheduleTtlUpdated {
+        changes: {
+          after?: {
+            ttl: string;
+          };
+          before?: {
+            ttl: string | null;
+          };
+        };
+        name: "backup.schedule-ttl-updated";
+        parameters: {
+          description: {
+            aggregate: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
+            isSystemBackup?: boolean;
+            name: string;
+          };
         };
       }
 
@@ -11270,6 +11549,96 @@ export declare namespace MittwaldAPIV3Next {
         };
       }
 
+      export interface DeMittwaldActivitylogMembershipInviteCreated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.invite-created";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipInviteStatusChanged {
+        changes: {};
+        name:
+          | "membership.invite-resent"
+          | "membership.invite-accepted"
+          | "membership.invite-declined"
+          | "membership.invite-revoked"
+          | "membership.invite-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberAdded {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+            inherited: boolean;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            expiresAt: string | null;
+            inherited: boolean | null;
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-added" | "membership.member-inherited";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name: "membership.member-expiry-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRemoved {
+        changes: {};
+        name:
+          | "membership.member-removed"
+          | "membership.member-left"
+          | "membership.member-expired";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogMembershipMemberRoleUpdated {
+        changes: {
+          after?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+          before?: {
+            role: ("owner" | "emailadmin" | "external") | null;
+          };
+        };
+        name: "membership.member-role-updated";
+        parameters: {
+          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
       export interface DeMittwaldActivitylogProjectCreated {
         changes: {
           after?: {
@@ -11305,6 +11674,223 @@ export declare namespace MittwaldAPIV3Next {
           description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
           server?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSftpUserAccessLevelUpdated {
+        changes: {
+          after?: {
+            accessLevel: ("read" | "full") | null;
+          };
+          before?: {
+            accessLevel: ("read" | "full") | null;
+          };
+        };
+        name: "sshuser.sftp-user-access-level-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSftpUserCreated {
+        changes: {
+          after?: {
+            accessLevel?: ("read" | "full") | null;
+            active?: boolean;
+            description: string;
+            directories?: string[];
+            expiresAt?: string | null;
+            passwordConfigured?: boolean;
+            publicKeys?: {
+              comment: string;
+              fingerprint: string;
+            }[];
+            username: string;
+          };
+          before?: {
+            accessLevel?: ("read" | "full") | null;
+            active?: boolean | null;
+            description: string | null;
+            directories?: string[] | null;
+            expiresAt?: string | null;
+            passwordConfigured?: boolean | null;
+            publicKeys?:
+              | {
+                  comment: string;
+                  fingerprint: string;
+                }[]
+              | null;
+            username: string | null;
+          };
+        };
+        name: "sshuser.sftp-user-created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSftpUserDirectoriesUpdated {
+        changes: {
+          after?: {
+            directories: string[];
+          };
+          before?: {
+            directories: string[] | null;
+          };
+        };
+        name: "sshuser.sftp-user-directories-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserActiveUpdated {
+        changes: {
+          after?: {
+            active: boolean;
+          };
+          before?: {
+            active: boolean | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-activated"
+          | "sshuser.sftp-user-activated"
+          | "sshuser.ssh-user-deactivated"
+          | "sshuser.sftp-user-deactivated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserCreated {
+        changes: {
+          after?: {
+            active?: boolean;
+            description: string;
+            expiresAt?: string | null;
+            passwordConfigured?: boolean;
+            publicKeys?: {
+              comment: string;
+              fingerprint: string;
+            }[];
+            username: string;
+          };
+          before?: {
+            active?: boolean | null;
+            description: string | null;
+            expiresAt?: string | null;
+            passwordConfigured?: boolean | null;
+            publicKeys?:
+              | {
+                  comment: string;
+                  fingerprint: string;
+                }[]
+              | null;
+            username: string | null;
+          };
+        };
+        name: "sshuser.ssh-user-created";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserDeleted {
+        changes: {};
+        name:
+          | "sshuser.ssh-user-deleted"
+          | "sshuser.sftp-user-deleted"
+          | "sshuser.ssh-user-expired"
+          | "sshuser.sftp-user-expired";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserDescriptionUpdated {
+        changes: {
+          after?: {
+            description: string;
+          };
+          before?: {
+            description: string | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-description-updated"
+          | "sshuser.sftp-user-description-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserExpiryUpdated {
+        changes: {
+          after?: {
+            expiresAt: string | null;
+          };
+          before?: {
+            expiresAt: string | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-expiry-updated"
+          | "sshuser.sftp-user-expiry-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserPasswordUpdated {
+        changes: {
+          after?: {
+            passwordConfigured: boolean;
+          };
+          before?: {
+            passwordConfigured: boolean | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-password-updated"
+          | "sshuser.sftp-user-password-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogSshUserPublicKeysUpdated {
+        changes: {
+          after?: {
+            publicKeys: {
+              comment: string;
+              fingerprint: string;
+            }[];
+          };
+          before?: {
+            publicKeys:
+              | {
+                  comment: string;
+                  fingerprint: string;
+                }[]
+              | null;
+          };
+        };
+        name:
+          | "sshuser.ssh-user-public-keys-updated"
+          | "sshuser.sftp-user-public-keys-updated";
+        parameters: {
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
         };
       }
 
@@ -11472,6 +12058,15 @@ export declare namespace MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogSftpUserAccessLevelUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogSftpUserDirectoriesUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogSshUserDeleted
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupDescriptionUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupExpirationUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupExportRequested
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupRestoreRequested
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupScheduleCreated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupScheduleIntervalUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupScheduleTtlUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogBackupDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogGenericAction;
         aggregate: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
         dateTime: string;
@@ -11494,6 +12089,14 @@ export declare namespace MittwaldAPIV3Next {
       export interface DeMittwaldActivitylogParameterProperty {
         aggregate?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogAggregateReference;
         name: string;
+      }
+
+      /**
+       * Primary public IP addresses of the Server, one per address family.
+       */
+      export interface DeMittwaldProjectPrimaryIpAddresses {
+        v4?: string;
+        v6?: string;
       }
 
       export type DeMittwaldProjectDisableReason =
@@ -11706,6 +12309,22 @@ export declare namespace MittwaldAPIV3Next {
        */
       export interface DeMittwaldSshuserPublicKey {
         comment: string;
+        key: string;
+      }
+
+      /**
+       * A representation of an ssh-public-key, enriched with information derived from the key.
+       */
+      export interface DeMittwaldSshuserPublicKeyDetails {
+        /**
+         * Absent if the key cannot be parsed.
+         */
+        algorithm?: string;
+        comment: string;
+        /**
+         * SHA256 fingerprint in OpenSSH format, as printed by `ssh-keygen -l`. Absent if the key cannot be parsed.
+         */
+        fingerprint?: string;
         key: string;
       }
 
@@ -12244,337 +12863,6 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
-
-      export interface DeMittwaldActivitylogMembershipInviteCreated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            expiresAt: string | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.invite-created";
-        parameters: {
-          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogMembershipInviteStatusChanged {
-        changes: {};
-        name:
-          | "membership.invite-resent"
-          | "membership.invite-accepted"
-          | "membership.invite-declined"
-          | "membership.invite-revoked"
-          | "membership.invite-expired";
-        parameters: {
-          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogMembershipMemberAdded {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-            inherited: boolean;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            expiresAt: string | null;
-            inherited: boolean | null;
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.member-added" | "membership.member-inherited";
-        parameters: {
-          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogMembershipMemberExpiryUpdated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-          };
-          before?: {
-            expiresAt: string | null;
-          };
-        };
-        name: "membership.member-expiry-updated";
-        parameters: {
-          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogMembershipMemberRemoved {
-        changes: {};
-        name:
-          | "membership.member-removed"
-          | "membership.member-left"
-          | "membership.member-expired";
-        parameters: {
-          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogMembershipMemberRoleUpdated {
-        changes: {
-          after?: {
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-          before?: {
-            role: ("owner" | "emailadmin" | "external") | null;
-          };
-        };
-        name: "membership.member-role-updated";
-        parameters: {
-          member?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSftpUserAccessLevelUpdated {
-        changes: {
-          after?: {
-            accessLevel: ("read" | "full") | null;
-          };
-          before?: {
-            accessLevel: ("read" | "full") | null;
-          };
-        };
-        name: "sshuser.sftp-user-access-level-updated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSftpUserCreated {
-        changes: {
-          after?: {
-            accessLevel?: ("read" | "full") | null;
-            active?: boolean;
-            description: string;
-            directories?: string[];
-            expiresAt?: string | null;
-            passwordConfigured?: boolean;
-            publicKeys?: {
-              comment: string;
-              fingerprint: string;
-            }[];
-            username: string;
-          };
-          before?: {
-            accessLevel?: ("read" | "full") | null;
-            active?: boolean | null;
-            description: string | null;
-            directories?: string[] | null;
-            expiresAt?: string | null;
-            passwordConfigured?: boolean | null;
-            publicKeys?:
-              | {
-                  comment: string;
-                  fingerprint: string;
-                }[]
-              | null;
-            username: string | null;
-          };
-        };
-        name: "sshuser.sftp-user-created";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSftpUserDirectoriesUpdated {
-        changes: {
-          after?: {
-            directories: string[];
-          };
-          before?: {
-            directories: string[] | null;
-          };
-        };
-        name: "sshuser.sftp-user-directories-updated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserActiveUpdated {
-        changes: {
-          after?: {
-            active: boolean;
-          };
-          before?: {
-            active: boolean | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-activated"
-          | "sshuser.sftp-user-activated"
-          | "sshuser.ssh-user-deactivated"
-          | "sshuser.sftp-user-deactivated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserCreated {
-        changes: {
-          after?: {
-            active?: boolean;
-            description: string;
-            expiresAt?: string | null;
-            passwordConfigured?: boolean;
-            publicKeys?: {
-              comment: string;
-              fingerprint: string;
-            }[];
-            username: string;
-          };
-          before?: {
-            active?: boolean | null;
-            description: string | null;
-            expiresAt?: string | null;
-            passwordConfigured?: boolean | null;
-            publicKeys?:
-              | {
-                  comment: string;
-                  fingerprint: string;
-                }[]
-              | null;
-            username: string | null;
-          };
-        };
-        name: "sshuser.ssh-user-created";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserDeleted {
-        changes: {};
-        name:
-          | "sshuser.ssh-user-deleted"
-          | "sshuser.sftp-user-deleted"
-          | "sshuser.ssh-user-expired"
-          | "sshuser.sftp-user-expired";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserDescriptionUpdated {
-        changes: {
-          after?: {
-            description: string;
-          };
-          before?: {
-            description: string | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-description-updated"
-          | "sshuser.sftp-user-description-updated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserExpiryUpdated {
-        changes: {
-          after?: {
-            expiresAt: string | null;
-          };
-          before?: {
-            expiresAt: string | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-expiry-updated"
-          | "sshuser.sftp-user-expiry-updated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserPasswordUpdated {
-        changes: {
-          after?: {
-            passwordConfigured: boolean;
-          };
-          before?: {
-            passwordConfigured: boolean | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-password-updated"
-          | "sshuser.sftp-user-password-updated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      export interface DeMittwaldActivitylogSshUserPublicKeysUpdated {
-        changes: {
-          after?: {
-            publicKeys: {
-              comment: string;
-              fingerprint: string;
-            }[];
-          };
-          before?: {
-            publicKeys:
-              | {
-                  comment: string;
-                  fingerprint: string;
-                }[]
-              | null;
-          };
-        };
-        name:
-          | "sshuser.ssh-user-public-keys-updated"
-          | "sshuser.sftp-user-public-keys-updated";
-        parameters: {
-          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
-        };
-      }
-
-      /**
-       * A representation of an ssh-public-key, enriched with information derived from the key.
-       */
-      export interface DeMittwaldSshuserPublicKeyDetails {
-        /**
-         * Absent if the key cannot be parsed.
-         */
-        algorithm?: string;
-        comment: string;
-        /**
-         * SHA256 fingerprint in OpenSSH format, as printed by `ssh-keygen -l`. Absent if the key cannot be parsed.
-         */
-        fingerprint?: string;
-        key: string;
-      }
-
-      /**
-       * Primary public IP addresses of the Server, one per address family.
-       */
-      export interface DeMittwaldProjectPrimaryIpAddresses {
-        v4?: string;
-        v6?: string;
-      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -14565,6 +14853,126 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAiHostingKeys {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingUserKey[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingUserPlan[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19736,6 +20144,14 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -19785,6 +20201,14 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19847,6 +20271,14 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -19895,6 +20327,14 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -19957,6 +20397,14 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -20005,6 +20453,14 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -20067,6 +20523,14 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -20122,6 +20586,14 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -20170,6 +20642,14 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -20233,6 +20713,14 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -20281,6 +20769,14 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -23501,6 +23997,38 @@ export declare namespace MittwaldAPIV3Next {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -27788,59 +28316,7 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contactVerificationId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {}
 
     namespace V3NextDomainsDomainIdActionsResendEmail {
       namespace Post {
@@ -31859,6 +32335,14 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -36817,6 +37301,38 @@ export declare namespace MittwaldAPIV3Next {
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

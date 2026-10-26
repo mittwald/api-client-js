@@ -72,6 +72,16 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.aiHostingProjectGetPlans,
     baseClient.aiHosting.projectGetPlans,
   ).getApiResource,
+  /** Get all ai hosting keys the authenticated user can access. */
+  userGetKeys: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingUserGetKeys,
+    baseClient.aiHosting.userGetKeys,
+  ).getApiResource,
+  /** Get all ai hosting plans the authenticated user can access. */
+  userGetPlans: new ApiCallAsyncResourceFactory(
+    descriptors.aiHostingUserGetPlans,
+    baseClient.aiHosting.userGetPlans,
+  ).getApiResource,
 });
 
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
