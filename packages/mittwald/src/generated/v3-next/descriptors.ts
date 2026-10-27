@@ -1172,6 +1172,84 @@ export const aiHostingProjectRotateKey: OpenAPIOperation<
   operationId: "ai-hosting-project-rotate-key",
 };
 
+/** Get all ai hosting keys the authenticated user can access. */
+export const aiHostingUserGetKeys: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/ai-hosting-keys",
+  method: "GET",
+  operationId: "ai-hosting-user-get-keys",
+};
+
+/** Get all ai hosting plans the authenticated user can access. */
+export const aiHostingUserGetPlans: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/ai-hostings",
+  method: "GET",
+  operationId: "ai-hosting-user-get-plans",
+};
+
 /** Detach a staging AppInstallation from its source. */
 export const appDetachAppinstallationStaging: OpenAPIOperation<
   RequestType<
@@ -4552,6 +4630,11 @@ export const contractGetBaseItemOfContract: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdBaseItems.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdBaseItems.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -4588,6 +4671,11 @@ export const contractGetDetailOfContractByAiHosting: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdAiHostingsAiHostingIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -4630,6 +4718,11 @@ export const contractGetDetailOfContractByCertificate: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificatesCertificateIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCertificatesCertificateIdContract.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -4666,6 +4759,11 @@ export const contractGetDetailOfContractByDomain: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdContract.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainsDomainIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -4708,6 +4806,11 @@ export const contractGetDetailOfContractByLeadFyndr: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdLeadFyndrProfileContract.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -4744,6 +4847,11 @@ export const contractGetDetailOfContractByLicense: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextLicensesLicenseIdContract.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextLicensesLicenseIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -4786,6 +4894,11 @@ export const contractGetDetailOfContractByMailAddress: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextMailAddressesMailAddressIdContract.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -4822,6 +4935,11 @@ export const contractGetDetailOfContractByProject: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdContract.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -4864,6 +4982,11 @@ export const contractGetDetailOfContractByServer: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdContract.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdContract.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -4903,6 +5026,11 @@ export const contractGetDetailOfContractItem: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractIdItemsContractItemId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -4939,6 +5067,11 @@ export const contractGetDetailOfContract: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractId.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextContractsContractId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -7054,6 +7187,26 @@ export const customerUpdateCustomerMembership: OpenAPIOperation<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCustomerMembershipsCustomerMembershipId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomerMembershipsCustomerMembershipId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomerMembershipsCustomerMembershipId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomerMembershipsCustomerMembershipId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomerMembershipsCustomerMembershipId.Patch.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCustomerMembershipsCustomerMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
@@ -9929,45 +10082,6 @@ export const domainMigrationListMigrationsByProjectId: OpenAPIOperation<
   operationId: "domain-migration-list-migrations-by-project-id",
 };
 
-/** Order a Domain-Migration from a pAccount into a Project. */
-export const domainMigrationOrderDomainMigration: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextDomainMigrations.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/domain-migrations",
-  method: "POST",
-  operationId: "domain-migration-order-domain-migration",
-};
-
 /** Resend a Domain email. */
 export const domainResendDomainEmail: OpenAPIOperation<
   RequestType<
@@ -11905,6 +12019,11 @@ export const fileCreateFile: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextFiles.Post.Responses.$413.Content.ApplicationJson>,
+      413,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextFiles.Post.Responses.$422.Content.ApplicationJson>,
       422,
       "application/json"
@@ -12523,6 +12642,11 @@ export const invoiceGetDetailOfInvoiceSettings: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoiceSettings.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCustomersCustomerIdInvoiceSettings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -15878,6 +16002,26 @@ export const projectUpdateProjectMembership: OpenAPIOperation<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectMembershipsProjectMembershipId.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectMembershipsProjectMembershipId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectMembershipsProjectMembershipId.Patch.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectMembershipsProjectMembershipId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectMembershipsProjectMembershipId.Patch.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
     >
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectMembershipsProjectMembershipId.Patch.Responses.$429.Content.ApplicationJson>,
@@ -19303,7 +19447,7 @@ export const userOauthGetAuthorization: OpenAPIOperation<
   operationId: "user-oauth-get-authorization",
 };
 
-/** Retrieve Access Token from Authorization Code. */
+/** Retrieve an OAuth access token. */
 export const userOauthRetrieveAccessToken: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV3Next.Paths.V3NextOauth2Token.Post.Parameters.RequestBody>,

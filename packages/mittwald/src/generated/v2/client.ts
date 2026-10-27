@@ -105,6 +105,12 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     projectRotateKey: this.requestFunctionFactory(
       descriptors.aiHostingProjectRotateKey,
     ),
+    /** Get all ai hosting keys the authenticated user can access. */
+    userGetKeys: this.requestFunctionFactory(descriptors.aiHostingUserGetKeys),
+    /** Get all ai hosting plans the authenticated user can access. */
+    userGetPlans: this.requestFunctionFactory(
+      descriptors.aiHostingUserGetPlans,
+    ),
   };
 
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
@@ -1164,10 +1170,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     migrationListMigrationsByProjectId: this.requestFunctionFactory(
       descriptors.domainMigrationListMigrationsByProjectId,
     ),
-    /** Order a Domain-Migration from a pAccount into a Project. */
-    migrationOrderDomainMigration: this.requestFunctionFactory(
-      descriptors.domainMigrationOrderDomainMigration,
-    ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
       descriptors.domainResendDomainEmail,
@@ -1544,7 +1546,7 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     oauthGetAuthorization: this.requestFunctionFactory(
       descriptors.userOauthGetAuthorization,
     ),
-    /** Retrieve Access Token from Authorization Code. */
+    /** Retrieve an OAuth access token. */
     oauthRetrieveAccessToken: this.requestFunctionFactory(
       descriptors.userOauthRetrieveAccessToken,
     ),

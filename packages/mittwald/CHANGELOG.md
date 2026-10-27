@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.505.0](https://github.com/mittwald/api-client-js/compare/4.504.0...4.505.0) (2026-10-26)
+
+### Features
+
+* update generated client ([2efc9bf](https://github.com/mittwald/api-client-js/commit/2efc9bf06dbe9943e4b197312fe0fad600584b0e))
+
+# [4.504.0](https://github.com/mittwald/api-client-js/compare/4.503.0...4.504.0) (2026-10-26)
+
+### Features
+
+* update generated client ([11f6914](https://github.com/mittwald/api-client-js/commit/11f69147a7a50e8d91a0d44f1f1a3e18f96629e6))
+
+# [4.503.0](https://github.com/mittwald/api-client-js/compare/4.502.0...4.503.0) (2026-10-18)
+
+### Features
+
+* update generated client ([d56fd9e](https://github.com/mittwald/api-client-js/commit/d56fd9ef16cd8f18bd438346dcfed712f66745c4))
+
+# [4.502.0](https://github.com/mittwald/api-client-js/compare/4.501.0...4.502.0) (2026-10-17)
+
+### Features
+
+* update generated client ([c6a8b63](https://github.com/mittwald/api-client-js/commit/c6a8b63d809485f236c8f7754f4f82935c257f28))
+
+# [4.501.0](https://github.com/mittwald/api-client-js/compare/4.500.2...4.501.0) (2026-10-16)
+
+### Features
+
+* update generated client ([86bead2](https://github.com/mittwald/api-client-js/commit/86bead20594dcbcd7ec82904a887a5a3a64314de))
+
+## [4.500.2](https://github.com/mittwald/api-client-js/compare/4.500.1...4.500.2) (2026-10-16)
+
+**Note:** Version bump only for package @mittwald/api-client
+
+## [4.500.1](https://github.com/mittwald/api-client-js/compare/4.500.0...4.500.1) (2026-10-16)
+
+### Bug Fixes
+
+* **generator:** emit `declare namespace` instead of `declare module` ([#316](https://github.com/mittwald/api-client-js/issues/316)) ([16d9dd0](https://github.com/mittwald/api-client-js/commit/16d9dd04675283b8877b12dd9c22b9ea60a00f4f))
+
+# [4.500.0](https://github.com/mittwald/api-client-js/compare/4.499.1...4.500.0) (2026-10-15)
+
+### Features
+
+* update generated client ([92d623e](https://github.com/mittwald/api-client-js/commit/92d623ebbef1bc241cd7b575fbbeebdf8af206a3))
+
 ## [4.499.1](https://github.com/mittwald/api-client-js/compare/4.499.0...4.499.1) (2026-10-15)
 
 **Note:** Version bump only for package @mittwald/api-client
