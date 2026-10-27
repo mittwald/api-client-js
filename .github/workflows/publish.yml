@@ -81,12 +81,6 @@ jobs:
             yarn nx affected -t build --parallel=3
           fi
 
-      # TODO: Uses the previous version. Needs a fix!
-      - name: Create version file 🔢
-        run: |
-          yarn nx run @mittwald/api-client:build:write-version-file
-          git add .
-
       - name: Version and publish 🚀
         if:
           github.event.workflow_run.head_branch == 'master' || github.ref ==
@@ -160,12 +154,6 @@ jobs:
 
       - name: Build 🔨
         run: yarn nx affected -t build --parallel=3
-
-      # TODO: Uses the previous version. Needs a fix!
-      - name: Create version file 🔢
-        run: |
-          yarn nx run @mittwald/api-client:build:write-version-file
-          git add .
 
       - name: Version and publish 🚀
         run: |
