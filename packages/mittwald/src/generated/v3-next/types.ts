@@ -131,6 +131,18 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace AiHostingCustomerGetUsage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingCustomerGetUsage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingCustomerGetUsage,
+          TStatus
+        >;
+    }
+
     namespace AiHostingCustomerRotateKey {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingCustomerRotateKey
@@ -260,6 +272,18 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace AiHostingProjectGetUsage {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingProjectGetUsage
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.aiHostingProjectGetUsage,
+          TStatus
+        >;
+    }
+
     namespace AiHostingProjectLinkContainer {
       type RequestData = InferredRequestData<
         typeof descriptors.aiHostingProjectLinkContainer
@@ -375,6 +399,18 @@ export declare namespace MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.appGetAppversion, TStatus>;
     }
 
+    /** @deprecated */
+    namespace AppGetInstalledSystemsoftwareForAppinstallation {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+          TStatus
+        >;
+    }
+
     namespace AppGetMissingDependenciesForAppinstallation {
       type RequestData = InferredRequestData<
         typeof descriptors.appGetMissingDependenciesForAppinstallation
@@ -403,6 +439,15 @@ export declare namespace MittwaldAPIV3Next {
           typeof descriptors.appGetSystemsoftwareversion,
           TStatus
         >;
+    }
+
+    /** @deprecated */
+    namespace AppLinkDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appLinkDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appLinkDatabase, TStatus>;
     }
 
     namespace AppListAppinstallationsForUser {
@@ -524,6 +569,15 @@ export declare namespace MittwaldAPIV3Next {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.appRetrieveStatus, TStatus>;
+    }
+
+    /** @deprecated */
+    namespace AppSetDatabaseUsers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.appSetDatabaseUsers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.appSetDatabaseUsers, TStatus>;
     }
 
     namespace AppUnlinkDatabase {
@@ -700,6 +754,18 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.backupGetProjectBackupDirectories,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace BackupRequestProjectBackupRestorePathDeprecated {
+      type RequestData = InferredRequestData<
+        typeof descriptors.backupRequestProjectBackupRestorePathDeprecated
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.backupRequestProjectBackupRestorePathDeprecated,
           TStatus
         >;
     }
@@ -950,6 +1016,18 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.containerListStackVolumes,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace ContainerListTemplateStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.containerListTemplateStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.containerListTemplateStatistics,
           TStatus
         >;
     }
@@ -2036,6 +2114,18 @@ export declare namespace MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.databaseGetMysqlUser, TStatus>;
     }
 
+    /** @deprecated */
+    namespace DeprecatedDatabaseReplaceMysqlUser {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDatabaseReplaceMysqlUser
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDatabaseReplaceMysqlUser,
+          TStatus
+        >;
+    }
+
     namespace DatabaseDeleteMysqlUser {
       type RequestData = InferredRequestData<
         typeof descriptors.databaseDeleteMysqlUser
@@ -2157,12 +2247,372 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace DeprecatedAppInstallationExecuteAction {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedAppInstallationExecuteAction
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedAppInstallationExecuteAction,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedAppLinkDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedAppLinkDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedAppLinkDatabase,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedAppReplaceDatabase {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedAppReplaceDatabase
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedAppReplaceDatabase,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedBackupReplaceProjectBackupExpirationTime {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedBackupReplaceProjectBackupExpirationTime
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedBackupReplaceProjectBackupExpirationTime,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedBackupUpdateProjectBackupDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedBackupUpdateProjectBackupDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedBackupUpdateProjectBackupDescription,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedContainerGetTemplateIcon {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedContainerGetTemplateIcon
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedContainerGetTemplateIcon,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedContainerSetStackUpdateSchedule {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedContainerSetStackUpdateSchedule
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedContainerSetStackUpdateSchedule,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedContainerValidateContainerRegistryUri {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedContainerValidateContainerRegistryUri
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedContainerValidateContainerRegistryUri,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedContainerValidateRegistryCredentials {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedContainerValidateRegistryCredentials
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedContainerValidateRegistryCredentials,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedContractGetDetailOfContractByAiHosting {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedContractGetDetailOfContractByAiHosting
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedContractGetDetailOfContractByAiHosting,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedContractGetNextTerminationDateForItem {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedContractGetNextTerminationDateForItem
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedContractGetNextTerminationDateForItem,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedCronjobReplaceCronjobAppInstallationId {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedCronjobReplaceCronjobAppInstallationId
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedCronjobReplaceCronjobAppInstallationId,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedCronjobUpdateCronjobAppId {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedCronjobUpdateCronjobAppId
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedCronjobUpdateCronjobAppId,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedCustomerLeaveCustomer {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedCustomerLeaveCustomer
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedCustomerLeaveCustomer,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDatabaseUpdateMysqlDatabaseDefaultCharset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDatabaseUpdateMysqlDatabaseDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDatabaseUpdateMysqlUserPassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDatabaseUpdateMysqlUserPassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDatabaseUpdateMysqlUserPassword,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDatabaseUpdateRedisDatabaseConfiguration {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDatabaseUpdateRedisDatabaseConfiguration
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDatabaseUpdateRedisDatabaseConfiguration,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDatabaseUpdateRedisDatabaseDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordASetCustom {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordAsetCustom
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordAsetCustom,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordASetManagedByIngress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordAsetManagedByIngress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordAsetManagedByIngress,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordCnameSet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordCnameSet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordCnameSet,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordMxSetCustom {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordMxSetCustom
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordMxSetCustom,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordMxSetManaged {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordMxSetManaged
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordMxSetManaged,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordSrvSet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordSrvSet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordSrvSet,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDnsRecordTxtSet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDnsRecordTxtSet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDnsRecordTxtSet,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainChangeOwnercOfDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainChangeOwnercOfDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainChangeOwnercOfDomain,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainChangeProjectOfDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainChangeProjectOfDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainChangeProjectOfDomain,
+          TStatus
+        >;
+    }
+
     namespace DomainListDomains {
       type RequestData = InferredRequestData<
         typeof descriptors.domainListDomains
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.domainListDomains, TStatus>;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainCheckDomainRegistrability {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainCheckDomainRegistrability
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainCheckDomainRegistrability,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainDeclareNameservers {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainDeclareNameservers
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainDeclareNameservers,
+          TStatus
+        >;
     }
 
     namespace DomainUpdateDomainNameservers {
@@ -2172,6 +2622,114 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainUpdateDomainNameservers,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainDeclareProcessChangeAuthcode {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainDeclareProcessChangeAuthcode
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainDeclareProcessChangeAuthcode,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainDeclareProcessChangeHandles {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainDeclareProcessChangeHandles
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainDeclareProcessChangeHandles,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainGetHandleFields {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainGetHandleFields
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainGetHandleFields,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainGetScreenshotForDomain {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainGetScreenshotForDomain
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainGetScreenshotForDomain,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedDomainListDomains {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedDomainListDomains
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedDomainListDomains,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedFileGetFileTokenRules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedFileGetFileTokenRules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedFileGetFileTokenRules,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedFileGetFileTypeRules {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedFileGetFileTypeRules
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedFileGetFileTypeRules,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedIngressListIngresses {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedIngressListIngresses
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedIngressListIngresses,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedIngressPaths {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedIngressPaths
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedIngressPaths,
           TStatus
         >;
     }
@@ -2187,6 +2745,15 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace DeprecatedIngressTls {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedIngressTls
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.deprecatedIngressTls, TStatus>;
+    }
+
     namespace IngressUpdateIngressTls {
       type RequestData = InferredRequestData<
         typeof descriptors.ingressUpdateIngressTls
@@ -2194,6 +2761,90 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.ingressUpdateIngressTls,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedInvoiceDetailOfInvoice {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedInvoiceDetailOfInvoice
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedInvoiceDetailOfInvoice,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailDeliveryboxUpdateDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailDeliveryboxUpdateDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailDeliveryboxUpdateDescription,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailDeliveryboxUpdatePassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailDeliveryboxUpdatePassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailDeliveryboxUpdatePassword,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailMailaddressUpdateAddress {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailMailaddressUpdateAddress
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailMailaddressUpdateAddress,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailProjectsettingUpdateBlacklist {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailProjectsettingUpdateBlacklist
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailProjectsettingUpdateBlacklist,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailProjectsettingUpdateWhitelist {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailProjectsettingUpdateWhitelist
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailProjectsettingUpdateWhitelist,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailUpdateMailAddressAutoresponder {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateMailAddressAutoresponder
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateMailAddressAutoresponder,
           TStatus
         >;
     }
@@ -2209,6 +2860,30 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace DeprecatedMailUpdateMailAddressCatchall {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateMailAddressCatchall
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateMailAddressCatchall,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailUpdateMailAddressForwardAddresses {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateMailAddressForwardAddresses
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateMailAddressForwardAddresses,
+          TStatus
+        >;
+    }
+
     namespace MailUpdateMailAddressForwardAddresses {
       type RequestData = InferredRequestData<
         typeof descriptors.mailUpdateMailAddressForwardAddresses
@@ -2216,6 +2891,18 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.mailUpdateMailAddressForwardAddresses,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailUpdateMailAddressPassword {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateMailAddressPassword
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateMailAddressPassword,
           TStatus
         >;
     }
@@ -2231,6 +2918,18 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace DeprecatedMailUpdateMailAddressQuota {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateMailAddressQuota
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateMailAddressQuota,
+          TStatus
+        >;
+    }
+
     namespace MailUpdateMailAddressQuota {
       type RequestData = InferredRequestData<
         typeof descriptors.mailUpdateMailAddressQuota
@@ -2242,6 +2941,18 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace DeprecatedMailUpdateMailAddressSpamProtection {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateMailAddressSpamProtection
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateMailAddressSpamProtection,
+          TStatus
+        >;
+    }
+
     namespace MailUpdateMailAddressSpamProtection {
       type RequestData = InferredRequestData<
         typeof descriptors.mailUpdateMailAddressSpamProtection
@@ -2249,6 +2960,18 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.mailUpdateMailAddressSpamProtection,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedMailUpdateProjectMailSetting {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedMailUpdateProjectMailSetting
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedMailUpdateProjectMailSetting,
           TStatus
         >;
     }
@@ -2275,12 +2998,429 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    /** @deprecated */
+    namespace DeprecatedProjectLeaveProject {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedProjectLeaveProject
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedProjectLeaveProject,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedProjectUpdateProjectDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedProjectUpdateProjectDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedProjectUpdateProjectDescription,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedProjectUpdateServerDescription {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedProjectUpdateServerDescription
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedProjectUpdateServerDescription,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedStoragespaceReplaceProjectNotificationThreshold {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedStoragespaceReplaceProjectNotificationThreshold
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedStoragespaceReplaceProjectNotificationThreshold,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedStoragespaceReplaceServerNotificationThreshold {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedStoragespaceReplaceServerNotificationThreshold
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedStoragespaceReplaceServerNotificationThreshold,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserChangeEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserChangeEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserChangeEmail,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserCheckToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserCheckToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserCheckToken,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserConfirmPasswordReset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserConfirmPasswordReset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserConfirmPasswordReset,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserCreateIssue {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserCreateIssue
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserCreateIssue,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserEditApiToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserEditApiToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserEditApiToken,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserDeleteApiToken {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserDeleteApiToken
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserDeleteApiToken,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserEditSshKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserEditSshKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserEditSshKey,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserDeleteSshKey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserDeleteSshKey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserDeleteSshKey,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserDisableMfa {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserDisableMfa
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserDisableMfa,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserGetOwnAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserGetOwnAccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserGetOwnAccount,
+          TStatus
+        >;
+    }
+
     namespace UserUpdateAccount {
       type RequestData = InferredRequestData<
         typeof descriptors.userUpdateAccount
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.userUpdateAccount, TStatus>;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserInitPasswordReset {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserInitPasswordReset
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserInitPasswordReset,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserLogout {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserLogout
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.deprecatedUserLogout, TStatus>;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserResendVerificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserResendVerificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserResendVerificationEmail,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceAvatarRequestUpload {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceAvatarRequestUpload
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceAvatarRequestUpload,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceAvatarRemove {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceAvatarRemove
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceAvatarRemove,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceFeedbackList {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceFeedbackList
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceFeedbackList,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceFeedbackCreate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceFeedbackCreate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceFeedbackCreate,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceIssueNew {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceIssueNew
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceIssueNew,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceUserGet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceUserGet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceUserGet,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServicePersonalInformationUpdate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServicePersonalInformationUpdate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServicePersonalInformationUpdate,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServicePersonalizedSettingsGet {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServicePersonalizedSettingsGet
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServicePersonalizedSettingsGet,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServicePersonalizedSettingsUpdate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServicePersonalizedSettingsUpdate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServicePersonalizedSettingsUpdate,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServicePhoneNumberAdd {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServicePhoneNumberAdd
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServicePhoneNumberAdd,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServicePhoneNumberRemove {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServicePhoneNumberRemove
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServicePhoneNumberRemove,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServicePhoneNumberVerify {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServicePhoneNumberVerify
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServicePhoneNumberVerify,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserServiceUserGetOwn {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserServiceUserGetOwn
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserServiceUserGetOwn,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserTerminateAllSessions {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserTerminateAllSessions
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserTerminateAllSessions,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserTerminateSession {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserTerminateSession
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserTerminateSession,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserUpdateAccount {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserUpdateAccount
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserUpdateAccount,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DeprecatedUserVerifyEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.deprecatedUserVerifyEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.deprecatedUserVerifyEmail,
+          TStatus
+        >;
     }
 
     namespace DnsListDnsZoneFileImports {
@@ -2303,6 +3443,15 @@ export declare namespace MittwaldAPIV3Next {
           typeof descriptors.dnsCreateDnsZoneFileImport,
           TStatus
         >;
+    }
+
+    /** @deprecated */
+    namespace DnsCreateDnsZone {
+      type RequestData = InferredRequestData<
+        typeof descriptors.dnsCreateDnsZone
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.dnsCreateDnsZone, TStatus>;
     }
 
     namespace DnsListDnsZones {
@@ -2513,6 +3662,18 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainMigrationListMigrationsByProjectId,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace DomainResendContactVerificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainResendContactVerificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainResendContactVerificationEmail,
           TStatus
         >;
     }
@@ -3853,6 +5014,18 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.passwordValidationGetPasswordPolicy,
+          TStatus
+        >;
+    }
+
+    /** @deprecated */
+    namespace PasswordValidationGetPasswordPolicyV2Deprecated {
+      type RequestData = InferredRequestData<
+        typeof descriptors.passwordValidationGetPasswordPolicyV2Deprecated
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.passwordValidationGetPasswordPolicyV2Deprecated,
           TStatus
         >;
     }
@@ -13908,7 +15081,70 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextCustomersCustomerIdAiHosting {}
+    namespace V3NextCustomersCustomerIdAiHosting {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            topUsageCount?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingCustomerPlan;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextCustomersCustomerIdAiHostingKeysKeyIdActionsRotate {
       namespace Post {
@@ -14731,7 +15967,70 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextProjectsProjectIdAiHosting {}
+    namespace V3NextProjectsProjectIdAiHosting {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {
+            planId?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingProjectPlan;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextProjectsProjectIdAiHostingKeysKeyIdActionsLinkContainer {
       namespace Post {
@@ -15429,7 +16728,55 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextAppInstallationsAppInstallationIdSystemSoftware {}
+    namespace V3NextAppInstallationsAppInstallationIdSystemSoftwareDeprecated {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            tagFilter?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppSystemSoftware[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextAppInstallationsAppInstallationIdMissingDependencies {
       namespace Get {
@@ -15577,7 +16924,68 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextAppInstallationsAppInstallationIdDatabase {}
+    namespace V3NextAppInstallationsAppInstallationIdDatabase {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
+
+          export interface RequestBody {
+            databaseId: string;
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            purpose: "primary" | "cache" | "custom";
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextAppInstallations {
       namespace Get {
@@ -16152,7 +17560,59 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {}
+    namespace V3NextAppInstallationsAppInstallationIdDatabasesDatabaseIdUsers {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+            databaseId: string;
+          };
+
+          export interface RequestBody {
+            databaseUserIds: {
+              [k: string]: string;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextAppInstallationsAppInstallationIdDatabasesDatabaseId {
       namespace Delete {
@@ -17152,7 +18612,71 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextProjectBackupsProjectBackupIdRestorePath {}
+    namespace V3NextProjectBackupsProjectBackupIdRestorePath {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV3Next.Components.Schemas.DeMittwaldBackupProjectBackupRestorePathRequestDeprecated;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextProjectBackupsProjectBackupIdRestore {
       namespace Post {
@@ -19184,7 +20708,69 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContainerTemplateStatistics {}
+    namespace V3NextContainerTemplateStatistics {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            templateId?: string;
+            category?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContainerTemplateStatsListResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextContainerTemplates {
       namespace Get {
@@ -25395,6 +26981,66 @@ export declare namespace MittwaldAPIV3Next {
         }
       }
 
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mysqlUserId: string;
+          };
+
+          export interface RequestBody {
+            accessIpMask?: string;
+            accessLevel: "full" | "readonly";
+            description: string;
+            externalAccess?: boolean;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Delete {
         namespace Parameters {
           export type Path = {
@@ -26031,59 +27677,1737 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextAppInstallationsAppInstallationIdActionsAction {}
+    namespace V3NextAppInstallationsAppInstallationIdActionsAction {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+            action: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAppAction;
+          };
 
-    namespace V3NextAppinstallationsAppInstallationIdDatabases {}
+          export type Header = {};
 
-    namespace V3NextAppInstallationsAppInstallationIdDatabaseReplace {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextProjectBackupsProjectBackupIdExpirationTime {}
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextProjectBackupsProjectBackupIdDescription {}
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextContainerTemplatesTemplateIdIcon {}
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextStacksStackIdUpdateSchedule {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextActionsValidateContainerRegistryUri {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    namespace V3NextRegistriesRegistryIdActionsValidateCredentials {}
+    namespace V3NextAppinstallationsAppInstallationIdDatabases {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
 
-    namespace V3NextCustomersCustomerIdAiHostingContract {}
+          export interface RequestBody {
+            databaseId: string;
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            purpose: "primary" | "cache" | "custom";
+          }
 
-    namespace V3NextContractsContractIdItemsContractItemIdNextTerminationDates {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextCronjobsCronjobIdAppInstallationId {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextCustomersCustomerIdActionsLeave {}
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextMysqlDatabasesMysqlDatabaseIdDescription {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    namespace V3NextMysqlUsersMysqlUserIdPassword {}
+    namespace V3NextAppInstallationsAppInstallationIdDatabaseReplace {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            appInstallationId: string;
+          };
 
-    namespace V3NextRedisDatabasesRedisDatabaseIdConfiguration {}
+          export interface RequestBody {
+            /**
+             * The IDs of the users of the database you want the old database to be replaced with.
+             */
+            databaseUserIds?: {
+              [k: string]: string;
+            };
+            /**
+             * The ID of the database you want the old database to be replaced with.
+             */
+            newDatabaseId: string;
+            /**
+             * The ID of the database you want to be replaced.
+             */
+            oldDatabaseId: string;
+          }
 
-    namespace V3NextRedisDatabasesRedisDatabaseIdDescription {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextDnsZonesZoneIdRecordsetAcombinedCustom {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress {}
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextDnsZonesZoneIdRecordsetCname {}
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextDnsZonesZoneIdRecordsetMxCustom {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextDnsZonesZoneIdRecordsetMxManaged {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    namespace V3NextDnsZonesZoneIdRecordsetSrv {}
+    namespace V3NextProjectBackupsProjectBackupIdExpirationTime {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
 
-    namespace V3NextDnsZonesZoneIdRecordsetTxt {}
+          export interface RequestBody {
+            /**
+             * Time when to expire the Backup. Must be no more than one year in the future.
+             */
+            expirationTime?: string | Date;
+          }
 
-    namespace V3NextDomainsDomainIdHandlesOwnerc {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextDomainsDomainIdProjectId {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectBackupsProjectBackupIdDescription {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            projectBackupId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Description of the ProjectBackup.
+             */
+            description?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextContainerTemplatesTemplateIdIcon {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            templateId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ImageJpeg = string;
+
+              export type ImagePng = string;
+
+              export type ImageSvgXml = string;
+
+              export type ImageWebp = string;
+            }
+          }
+
+          namespace $304 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextStacksStackIdUpdateSchedule {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            stackId: string;
+          };
+
+          export interface RequestBody {
+            updateSchedule?: {
+              cron: string;
+              /**
+               * Valid timezones can be retrieved via GET /v2/time-zones
+               */
+              timezone?: string;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextActionsValidateContainerRegistryUri {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          /**
+           * The Registry URI to validate.
+           */
+          export interface RequestBody {
+            registryUri: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                reason?: string;
+                valid: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextRegistriesRegistryIdActionsValidateCredentials {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            registryId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                valid: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextCustomersCustomerIdAiHostingContract {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldContractContract;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextContractsContractIdItemsContractItemIdNextTerminationDates {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            contractId: string;
+            contractItemId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                contractItemId: string;
+                nextTerminationDate: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextCronjobsCronjobIdAppInstallationId {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            appInstallationId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * @deprecated
+             * DEPRECATED: Use 'appInstallationId' instead. This field will be removed in a future version.
+             */
+            appId: string;
+            appInstallationId?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextCustomersCustomerIdActionsLeave {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMysqlDatabasesMysqlDatabaseIdDefaultCharset {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            mysqlDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            characterSettings: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDatabaseCharacterSettings;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMysqlDatabasesMysqlDatabaseIdDescription {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            mysqlDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMysqlUsersMysqlUserIdPassword {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            mysqlUserId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+             *
+             */
+            password: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextRedisDatabasesRedisDatabaseIdConfiguration {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            redisDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            configuration?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDatabaseRedisDatabaseConfiguration;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextRedisDatabasesRedisDatabaseIdDescription {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            redisDatabaseId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetAcombinedCustom {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordUnset
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsCombinedACustom;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetAcombinedManagedIngress {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export interface ApplicationJson {
+                ingressId: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetCname {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordUnset
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordCNAMEComponent;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetMxCustom {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordUnset
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordMXCustom;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetMxManaged {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetSrv {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordUnset
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordSRVComponent;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDnsZonesZoneIdRecordsetTxt {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            zoneId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordUnset
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsRecordTXTComponent;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDomainsDomainIdHandlesOwnerc {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * @minItems 1
+             */
+            ownerC: [
+              MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainHandleField,
+              ...MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainHandleField[],
+            ];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDomainsDomainIdProjectIdDeprecated {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            projectId?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextDomains {
       namespace Get {
@@ -26135,9 +29459,117 @@ export declare namespace MittwaldAPIV3Next {
           }
         }
       }
+
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                available: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
     }
 
     namespace V3NextDomainsDomainIdNameservers {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * @minItems 2
+             */
+            nameservers?: [string, string, ...string[]];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26198,23 +29630,488 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextDomainsDomainIdDeclarationsAuthcode {}
+    namespace V3NextDomainsDomainIdDeclarationsAuthcode {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
 
-    namespace V3NextDomainsDomainIdDeclarationsHandles {}
+          export interface RequestBody {
+            authCode: string;
+          }
 
-    namespace V3NextDomainsHandleSchemaDomainName {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextDomainsDomainIdScreenshotsNewest {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextProjectsProjectIdDomains {}
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextFileTokenRulesToken {}
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextFileTypeRulesName {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextProjectsProjectIdIngresses {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDomainsDomainIdDeclarationsHandles {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * @minItems 1
+             */
+            ownerC: [
+              MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainHandleField,
+              ...MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainHandleField[],
+            ];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDomainsHandleSchemaDomainName {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainName: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                jsonSchemaAdminC?: {};
+                jsonSchemaOwnerC: {};
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDomainsDomainIdScreenshotsNewest {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            domainId: string;
+          };
+
+          export interface RequestBody {
+            domainName: string;
+            path: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                references?: string[];
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdDomains {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            page?: number;
+            limit?: number;
+            domainSearchName?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldDomainDomain[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextFileTokenRulesToken {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            token: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldFileFileUploadRules;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextFileTypeRulesName {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            name: "avatar" | "conversation";
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldFileFileUploadRules;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdIngresses {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldIngressIngressDeprecated[];
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextIngressesIngressIdPaths {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            ingressId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV3Next.Components.Schemas.DeMittwaldIngressPath[];
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26264,6 +30161,55 @@ export declare namespace MittwaldAPIV3Next {
     }
 
     namespace V3NextIngressesIngressIdTls {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            ingressId: string;
+          };
+
+          export type RequestBody =
+            | MittwaldAPIV3Next.Components.RequestSchemas.DeMittwaldIngressTlsAcme
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldIngressTlsCertificate;
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26343,19 +30289,445 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextCustomersCustomerIdInvoicesInvoiceId {}
+    namespace V3NextCustomersCustomerIdInvoicesInvoiceId {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            customerId: string;
+            invoiceId: string;
+          };
 
-    namespace V3NextDeliveryboxesIdDescription {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextDeliveryboxesIdPassword {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldInvoiceInvoice;
+            }
+          }
 
-    namespace V3NextMailaddressesIdAddress {}
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextProjectsProjectIdMailsettingsBlacklist {}
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextProjectsProjectIdMailsettingsWhitelist {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDeliveryboxesIdDescription {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextDeliveryboxesIdPassword {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export interface RequestBody {
+            password: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextMailaddressesIdAddress {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            id: string;
+          };
+
+          export interface RequestBody {
+            address: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdMailsettingsBlacklist {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            blacklist: string[];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdMailsettingsWhitelist {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            whitelist: string[];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextMailAddressesMailAddressIdAutoresponder {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            autoResponder: {
+              active: boolean;
+              expiresAt?: string | Date;
+              message: string;
+              startsAt?: string | Date;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26442,9 +30814,171 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextMailAddressesMailAddressIdCatchall {}
+    namespace V3NextMailAddressesMailAddressIdCatchall {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            active: boolean;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextMailAddressesMailAddressIdForwardAddresses {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            forwardAddresses: string[];
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26527,6 +31061,87 @@ export declare namespace MittwaldAPIV3Next {
     }
 
     namespace V3NextMailAddressesMailAddressIdPassword {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            password: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26609,6 +31224,90 @@ export declare namespace MittwaldAPIV3Next {
     }
 
     namespace V3NextMailAddressesMailAddressIdQuota {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Storage limit of the mailbox in bytes. Must be at least 209715200 (200 MiB), or -1 for an unlimited quota.
+             */
+            quotaInBytes: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26694,6 +31393,92 @@ export declare namespace MittwaldAPIV3Next {
     }
 
     namespace V3NextMailAddressesMailAddressIdSpamProtection {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            mailAddressId: string;
+          };
+
+          export interface RequestBody {
+            spamProtection: {
+              active: boolean;
+              autoDeleteSpam: boolean;
+              folder: "inbox" | "spam";
+              relocationMinSpamScore: number;
+            };
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26781,6 +31566,92 @@ export declare namespace MittwaldAPIV3Next {
     }
 
     namespace V3NextProjectsProjectIdMailSettingsMailSetting {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+            mailSetting: "blacklist" | "whitelist";
+          };
+
+          export type RequestBody =
+            | {
+                blacklist: string[];
+              }
+            | {
+                whitelist: string[];
+              };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Patch {
         namespace Parameters {
           export type Path = {
@@ -26920,31 +31791,781 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextProjectsProjectIdLeave {}
+    namespace V3NextProjectsProjectIdLeave {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
 
-    namespace V3NextProjectsProjectIdDescription {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextServersServerIdDescription {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextProjectsProjectIdStorageSpaceNotificationThreshold {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextServersServerIdStorageSpaceNotificationThreshold {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    namespace V3NextSignupEmail {}
+    namespace V3NextProjectsProjectIdDescription {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
 
-    namespace V3NextUsersSelfCredentialsToken {}
+          export interface RequestBody {
+            description: string;
+          }
 
-    namespace V3NextSignupPasswordResetConfirm {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextUsersSelfIssues {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextSignupTokenApiApiTokenId {}
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextSignupSshSshKeyId {}
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextSignupMfa {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextServersServerIdDescription {
+      /** @deprecated */
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdStorageSpaceNotificationThreshold {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextServersServerIdStorageSpaceNotificationThreshold {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupEmail {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * The new Email-Address.
+             */
+            email: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUsersSelfCredentialsToken {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+                publicToken: string;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupPasswordResetConfirm {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * The new password.
+             */
+            password: string;
+            /**
+             * Password reset token
+             */
+            token: string;
+            /**
+             * UserId of the user to reset the password for.
+             */
+            userId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUsersSelfIssues {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * Detailed report of the issue.
+             */
+            message: string;
+            /**
+             * Origin of the issue.
+             */
+            origin?: string;
+            /**
+             * Descriptive subject of the report.
+             */
+            subject?: string;
+            /**
+             * Type of feedback.
+             */
+            type: "feedback" | "bug";
+            /**
+             * Feedback rating from bad to good.
+             */
+            vote?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupTokenApiApiTokenId {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            apiTokenId: string;
+          };
+
+          export interface RequestBody {
+            description: string;
+            expiresAt?: string | Date;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            apiTokenId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupSshSshKeyId {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            sshKeyId: string;
+          };
+
+          export interface RequestBody {
+            comment: string;
+            expiresAt?: string | Date;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            sshKeyId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupMfa {
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * Multi Factor Code to confirm MFA.
+             */
+            multiFactorCode: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextUsersSelfPersonalInformation {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupAccount;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
       namespace Put {
         namespace Parameters {
           export type Path = {};
@@ -26991,35 +32612,1007 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextSignupPasswordReset {}
+    namespace V3NextSignupPasswordReset {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
 
-    namespace V3NextSignupLogout {}
+          export interface RequestBody {
+            /**
+             * Email address to reset the password for.
+             */
+            email: string;
+          }
 
-    namespace V3NextSignupEmailResend {}
+          export type Header = {};
 
-    namespace V3NextUserUserIdAvatar {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextUserFeedback {}
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
 
-    namespace V3NextUserIssues {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextUserUserId {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    namespace V3NextUserSettings {}
+    namespace V3NextSignupLogout {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
 
-    namespace V3NextUserUserIdPhone {}
+          export interface RequestBody {}
 
-    namespace V3NextUserUserIdPhoneVerify {}
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
 
-    namespace V3NextUser {}
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
 
-    namespace V3NextSignupSessions {}
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
 
-    namespace V3NextSignupSessionsTokenId {}
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
 
-    namespace V3NextSignupProfile {}
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    namespace V3NextSignupEmailVerify {}
+    namespace V3NextSignupEmailResend {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            email?: string;
+            userId?: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserUserIdAvatar {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export interface RequestBody {}
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                refId: string;
+                rules: {
+                  maxSizeInKB: number;
+                  mimeTypes: string[];
+                  properties?: {
+                    imageDimensions?: {
+                      max?: {
+                        height?: number;
+                        width?: number;
+                      };
+                      min?: {
+                        height?: number;
+                        width?: number;
+                      };
+                    };
+                  };
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserFeedback {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            subject?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUserUserFeedback[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            message?: string;
+            origin: string;
+            subject: string;
+            vote: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {}
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserIssues {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            message: string;
+            origin?: string;
+            subject?: string;
+            type: "feedback" | "bug";
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserUserId {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUserUser;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export interface RequestBody {
+            person: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsPerson;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserSettings {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                settingsString?: string;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            settingsString: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserUserIdPhone {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export interface RequestBody {
+            phoneNumber: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUserUserIdPhoneVerify {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export interface RequestBody {
+            code: string;
+            phoneNumber: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextUser {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUserUser;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupSessions {
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupSessionsTokenId {
+      /** @deprecated */
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            tokenId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupProfile {
+      /** @deprecated */
+      namespace Put {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            person: MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsPerson;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextSignupEmailVerify {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * The Email-Address to verify.
+             */
+            email: string;
+            /**
+             * The token found in the verification email.
+             */
+            token?: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextProjectsProjectIdDnsZoneImports {
       namespace Get {
@@ -27152,7 +33745,65 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextDnsZones {}
+    namespace V3NextDnsZones {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            name: string;
+            parentZoneId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextProjectsProjectIdDnsZones {
       namespace Get {
@@ -28316,7 +34967,60 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {}
+    namespace V3NextContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {
+      /** @deprecated */
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contactVerificationId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextDomainsDomainIdActionsResendEmail {
       namespace Post {
@@ -36703,7 +43407,44 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextPasswordPoliciesPath {}
+    namespace V3NextPasswordPoliciesPath {
+      /** @deprecated */
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            path: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPolicyPolicy;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V3NextProjectInvitesProjectInviteIdActionsAccept {
       namespace Post {
