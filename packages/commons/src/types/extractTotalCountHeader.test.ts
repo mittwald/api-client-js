@@ -46,6 +46,23 @@ test("rejects plain-object headers that axios did not normalize", () => {
   ).toThrow("Expected headers to be of type AxiosHeaders");
 });
 
+test("accepts headers from another axios copy (no instanceof match)", () => {
+  // Stands in for AxiosHeaders of a second axios copy in the consumer's tree.
+  class ForeignAxiosHeaders {
+    get(name: string): string | undefined {
+      return name === "x-pagination-totalcount" ? "42" : undefined;
+    }
+  }
+  const headers = new ForeignAxiosHeaders();
+
+  expect(headers).not.toBeInstanceOf(AxiosHeaders);
+  expect(
+    extractTotalCountHeader(
+      makeResponse(headers as unknown as AxiosResponseHeaders),
+    ),
+  ).toBe(42);
+});
+
 test("rejects a missing header", () => {
   expect(() =>
     extractTotalCountHeader(makeResponse(new AxiosHeaders())),

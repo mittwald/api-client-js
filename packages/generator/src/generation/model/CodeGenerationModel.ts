@@ -55,7 +55,7 @@ export class CodeGenerationModel {
         HttpStatus 
       } from "@mittwald/api-client-commons";
 
-      export declare module ${t.ns} {
+      export declare namespace ${t.ns} {
         ${t.operationTypes}
         ${t.components}
         ${t.paths}
