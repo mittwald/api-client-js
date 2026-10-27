@@ -282,22 +282,6 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace AiHostingUserGetKeys {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingUserGetKeys
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.aiHostingUserGetKeys, TStatus>;
-    }
-
-    namespace AiHostingUserGetPlans {
-      type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingUserGetPlans
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
-    }
-
     namespace AppDetachAppinstallationStaging {
       type RequestData = InferredRequestData<
         typeof descriptors.appDetachAppinstallationStaging
@@ -2535,6 +2519,17 @@ export declare namespace MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.domainMigrationListMigrationsByProjectId,
+          TStatus
+        >;
+    }
+
+    namespace DomainMigrationOrderDomainMigration {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainMigrationOrderDomainMigration
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.domainMigrationOrderDomainMigration,
           TStatus
         >;
     }
@@ -5023,6 +5018,22 @@ export declare namespace MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace AiHostingUserGetKeys {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetKeys
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetKeys, TStatus>;
+    }
+
+    namespace AiHostingUserGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
+    }
   }
 
   namespace Components {
@@ -5071,10 +5082,6 @@ export declare namespace MittwaldAPIV2 {
         modelTermsApprovalRequired: boolean;
         nextTokenReset: string;
         planId: string;
-        /**
-         * When true, project members cannot create keys on this plan themselves; only the customer can. Keys that already exist keep working.
-         */
-        projectKeyCreationBlocked?: boolean;
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         suspended?: boolean;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
@@ -5260,78 +5267,8 @@ export declare namespace MittwaldAPIV2 {
       }
 
       export interface AihostingTokenUsage {
-        /**
-         * What is left of the key's own limit. Only present together with keyLimit.
-         */
-        keyAvailable?: number;
-        /**
-         * The key's own token limit for the billing period. Absent when the key has no limit of its own and is bounded only by the plan's limit.
-         */
-        keyLimit?: number;
         planLimit: number;
         used: number;
-      }
-
-      /**
-       * One AI hosting key the authenticated user can reach, with the organization,
-       * project and plan names denormalized so the list needs no second call.
-       *
-       */
-      export interface AihostingUserKey {
-        containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
-        createdAt: string;
-        customerId: string;
-        customerName: string;
-        /**
-         * Indicates whether the key is blocked.
-         */
-        isBlocked: boolean;
-        /**
-         * @deprecated
-         * The secret API key. For security reasons we no longer want to keep exposing this value on every response — this field is deprecated and will stop returning the real key in a future change. It still returns the real value for now.
-         */
-        key: string;
-        /**
-         * Auto generated uuid to identify keys in requests.
-         */
-        keyId: string;
-        /**
-         * @deprecated
-         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
-         */
-        models: string[];
-        name: string;
-        planDescription: string;
-        planId: string;
-        projectId?: string;
-        /**
-         * Empty when the key is not assigned to a project.
-         */
-        projectName?: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
-      }
-
-      /**
-       * One AI hosting plan the authenticated user can reach through one of its
-       * organizations. A membership in one of the plan's projects alone grants no
-       * access to it.
-       *
-       */
-      export interface AihostingUserPlan {
-        customerId: string;
-        /**
-         * Denormalized name of the owning organization.
-         */
-        customerName: string;
-        description: string;
-        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-        maxParallelRequests?: number;
-        nextTokenReset: string;
-        planId: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        suspended?: boolean;
-        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
       }
 
       export type AppAppInstallationSortOrder =
@@ -13182,6 +13119,68 @@ export declare namespace MittwaldAPIV2 {
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
 
+      /**
+       * One AI hosting key the authenticated user can reach, with the organization,
+       * project and plan names denormalized so the list needs no second call.
+       *
+       */
+      export interface AihostingUserKey {
+        containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
+        createdAt: string;
+        customerId: string;
+        customerName: string;
+        /**
+         * Indicates whether the key is blocked.
+         */
+        isBlocked: boolean;
+        /**
+         * @deprecated
+         * The secret API key. For security reasons we no longer want to keep exposing this value on every response — this field is deprecated and will stop returning the real key in a future change. It still returns the real value for now.
+         */
+        key: string;
+        /**
+         * Auto generated uuid to identify keys in requests.
+         */
+        keyId: string;
+        /**
+         * @deprecated
+         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
+         */
+        models: string[];
+        name: string;
+        planDescription: string;
+        planId: string;
+        projectId?: string;
+        /**
+         * Empty when the key is not assigned to a project.
+         */
+        projectName?: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
+      }
+
+      /**
+       * One AI hosting plan the authenticated user can reach through one of its
+       * organizations. A membership in one of the plan's projects alone grants no
+       * access to it.
+       *
+       */
+      export interface AihostingUserPlan {
+        customerId: string;
+        /**
+         * Denormalized name of the owning organization.
+         */
+        customerName: string;
+        description: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        maxParallelRequests?: number;
+        nextTokenReset: string;
+        planId: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        suspended?: boolean;
+        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -13614,10 +13613,6 @@ export declare namespace MittwaldAPIV2 {
             name: string;
             planId: string;
             projectId?: string;
-            /**
-             * Optional token limit for this key alone, for the plan's billing period. Without it the key shares the plan's limit with every other key. The sum of all key limits may exceed the plan's limit; the plan's limit always applies on top.
-             */
-            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -13890,10 +13885,6 @@ export declare namespace MittwaldAPIV2 {
             createWebuiContainer?: boolean;
             name?: string;
             projectId?: string;
-            /**
-             * The key's own token limit for the plan's billing period. 0 removes an existing limit, so the key shares the plan's limit again. Settable on the customer route only.
-             */
-            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -14178,10 +14169,6 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             description?: string;
-            /**
-             * When true, project members can no longer create keys on this plan themselves; only the customer can. Keys that already exist keep working. Set this when you hand out per-key token limits -- a key created from a project carries no limit, and a new key starts at zero usage, so without it a project member can sidestep the limit.
-             */
-            projectKeyCreationBlocked?: boolean;
           }
 
           export type Header = {};
@@ -15183,126 +15170,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AiHostingKeys {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            customerId?: string;
-            projectId?: string;
-            planId?: string;
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingUserKey[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AiHostings {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            customerId?: string;
-            projectId?: string;
-            planId?: string;
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingUserPlan[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -28755,7 +28622,96 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {}
+    namespace V2DomainMigrations {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domains: string[];
+            /**
+             * Name of the pAccount in customer center to migrate domains from.
+             */
+            pAccount: string;
+            /**
+             * ID of the Project to migrate the domains into.
+             */
+            projectId: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken &
+              MittwaldAPIV2.Components.SecuritySchemes.CommonsLegacyBearerAuthentication;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                message: string;
+                params?: {
+                  [k: string]: string;
+                };
+                type: string;
+                /**
+                 * One entry per problem. Each entry is a oneOf, mutually exclusive on type: a DomainNotMigratableValidationError (type domainNotMigratable, path = the affected domain, context.reason = the typed reason code), or a generic service-base validation error (type = the JSON-schema keyword such as required/pattern/format, path = the request field).
+                 */
+                validationErrors: (
+                  | MittwaldAPIV2.Components.Schemas.DomainmigrationDomainNotMigratableValidationError
+                  | {
+                      context?: {
+                        [k: string]: string;
+                      };
+                      message: string;
+                      /**
+                       * The request field that failed validation (JS property-access notation, e.g. .pAccount).
+                       */
+                      path: string;
+                      /**
+                       * JSON-schema validation keyword (e.g. required, pattern, format).
+                       */
+                      type: string;
+                    }
+                )[];
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
 
     namespace V2ContactVerificationsContactVerificationIdActionsResendContactVerificationEmail {}
 
@@ -43997,6 +43953,126 @@ export declare namespace MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AiHostingKeys {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingUserKey[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingUserPlan[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

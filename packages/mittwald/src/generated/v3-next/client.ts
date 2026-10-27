@@ -47,7 +47,7 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerGetPlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerGetPlan,
     ),
-    /** Updates an AI hosting plan. */
+    /** Renames an AI hosting plan. */
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
@@ -1173,6 +1173,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** List Domain-Migrations belonging to a Project. */
     migrationListMigrationsByProjectId: this.requestFunctionFactory(
       descriptors.domainMigrationListMigrationsByProjectId,
+    ),
+    /** Order a Domain-Migration from a pAccount into a Project. */
+    migrationOrderDomainMigration: this.requestFunctionFactory(
+      descriptors.domainMigrationOrderDomainMigration,
     ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(

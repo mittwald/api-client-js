@@ -477,7 +477,7 @@ export const aiHostingCustomerGetPlan: OpenAPIOperation<
   operationId: "ai-hosting-customer-get-plan",
 };
 
-/** Updates an AI hosting plan. */
+/** Renames an AI hosting plan. */
 export const aiHostingCustomerUpdatePlan: OpenAPIOperation<
   RequestType<
     Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdAiHostingsPlanId.Put.Parameters.RequestBody>,
@@ -1170,84 +1170,6 @@ export const aiHostingProjectRotateKey: OpenAPIOperation<
   path: "/v2/projects/{projectId}/ai-hosting-keys/{keyId}/actions/rotate",
   method: "POST",
   operationId: "ai-hosting-project-rotate-key",
-};
-
-/** Get all ai hosting keys the authenticated user can access. */
-export const aiHostingUserGetKeys: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ai-hosting-keys",
-  method: "GET",
-  operationId: "ai-hosting-user-get-keys",
-};
-
-/** Get all ai hosting plans the authenticated user can access. */
-export const aiHostingUserGetPlans: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ai-hostings",
-  method: "GET",
-  operationId: "ai-hosting-user-get-plans",
 };
 
 /** Detach a staging AppInstallation from its source. */
@@ -10075,6 +9997,45 @@ export const domainMigrationListMigrationsByProjectId: OpenAPIOperation<
   path: "/v2/projects/{projectId}/domain-migrations",
   method: "GET",
   operationId: "domain-migration-list-migrations-by-project-id",
+};
+
+/** Order a Domain-Migration from a pAccount into a Project. */
+export const domainMigrationOrderDomainMigration: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2DomainMigrations.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/domain-migrations",
+  method: "POST",
+  operationId: "domain-migration-order-domain-migration",
 };
 
 /** Resend a Domain email. */
@@ -19926,4 +19887,82 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Get all ai hosting keys the authenticated user can access. */
+export const aiHostingUserGetKeys: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ai-hosting-keys",
+  method: "GET",
+  operationId: "ai-hosting-user-get-keys",
+};
+
+/** Get all ai hosting plans the authenticated user can access. */
+export const aiHostingUserGetPlans: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/ai-hostings",
+  method: "GET",
+  operationId: "ai-hosting-user-get-plans",
 };
