@@ -9,6 +9,8 @@ export interface OpenAPIOperation<
   operationId: string;
   path: string;
   method: HttpMethod;
+  /** Set for operations marked as deprecated in the OpenAPI spec. */
+  deprecated?: boolean;
 }
 
 export type InferredRequestType<TOp> =
