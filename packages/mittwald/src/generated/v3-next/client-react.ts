@@ -279,7 +279,7 @@ const buildContainerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.containerListAccessibleServices,
     baseClient.container.listAccessibleServices,
   ).getApiResource,
-  /** List Stacks belonging to the executing user. */
+  /** List Stacks of the Projects in which the executing user is owner or external member. */
   listSelfStacks: new ApiCallAsyncResourceFactory(
     descriptors.containerListSelfStacks,
     baseClient.container.listSelfStacks,
@@ -1198,15 +1198,15 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.projectListServers,
     baseClient.project.listServers,
   ).getApiResource,
-  /** Get storage space Statistics belonging to a Project. */
-  storagespaceGetProjectStatistics: new ApiCallAsyncResourceFactory(
-    descriptors.storagespaceGetProjectStatistics,
-    baseClient.project.storagespaceGetProjectStatistics,
-  ).getApiResource,
   /** Get storage space Statistics belonging to a Server. */
   storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
+  ).getApiResource,
+  /** Get storage space Statistics belonging to a Project. */
+  storagespaceGetProjectStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.storagespaceGetProjectStatistics,
+    baseClient.project.storagespaceGetProjectStatistics,
   ).getApiResource,
 });
 

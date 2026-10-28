@@ -4455,61 +4455,6 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
     }
 
-    namespace SslSetCertificateRequestCertificate {
-      type RequestData = InferredRequestData<
-        typeof descriptors.sslSetCertificateRequestCertificate
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.sslSetCertificateRequestCertificate,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceGetProjectStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceGetProjectStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceGetProjectStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceUpdateProjectStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceUpdateProjectStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceUpdateProjectStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceGetServerStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceGetServerStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceGetServerStatistics,
-          TStatus
-        >;
-    }
-
-    namespace StoragespaceUpdateServerStatistics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.storagespaceUpdateServerStatistics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.storagespaceUpdateServerStatistics,
-          TStatus
-        >;
-    }
-
     namespace UserAddPhoneNumber {
       type RequestData = InferredRequestData<
         typeof descriptors.userAddPhoneNumber
@@ -5019,20 +4964,48 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace AiHostingUserGetKeys {
+    namespace StoragespaceGetServerStatistics {
       type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingUserGetKeys
+        typeof descriptors.storagespaceGetServerStatistics
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.aiHostingUserGetKeys, TStatus>;
+        InferredResponseData<
+          typeof descriptors.storagespaceGetServerStatistics,
+          TStatus
+        >;
     }
 
-    namespace AiHostingUserGetPlans {
+    namespace StoragespaceUpdateServerStatistics {
       type RequestData = InferredRequestData<
-        typeof descriptors.aiHostingUserGetPlans
+        typeof descriptors.storagespaceUpdateServerStatistics
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
+        InferredResponseData<
+          typeof descriptors.storagespaceUpdateServerStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceGetProjectStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceGetProjectStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceGetProjectStatistics,
+          TStatus
+        >;
+    }
+
+    namespace StoragespaceUpdateProjectStatistics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.storagespaceUpdateProjectStatistics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.storagespaceUpdateProjectStatistics,
+          TStatus
+        >;
     }
   }
 
@@ -6075,24 +6048,19 @@ export declare namespace MittwaldAPIV2 {
           [k: string]: string;
         };
         /**
-         * The image to run, in the usual format also used by `docker run` and `docker compose`. When
-         * the image is pulled from a private registry, make sure to create the registry first
-         * using the `container-create-registry` endpoint (you can push the image later, although
-         * the container will remain in a pending state until the image is actually available).
-         *
-         * The appropriate registry is matched by hostname.
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. The image must exist and be accessible when the request is made, because its digest (and, for a new Service, the user it runs as) is resolved at that time; otherwise the request is rejected. Changing the image of an existing Service keeps the user that was resolved when the Service was created. For an image from a private registry, create a Registry with matching credentials first (`POST /v2/projects/{projectId}/registries`); the Registry is matched by the registry host of the image reference.
          *
          */
         image: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
+         * Ports exposed by this container. Each item has the format `<port>[/<protocol>]` or `<port>:<port>[/<protocol>]`, where `<port>` is a single port or a range such as `8000-8010`. When both sides are given, they must be identical; mapping a port to a different number is not supported. `<protocol>` is `tcp` (default), `udp` or `sctp`. Exposed ports can be accessed from containers of the same Stack and from managed apps in the same project, but not from containers of other Stacks, and are not publicly reachable; to expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
          *
          * @maxItems 200
          */
         ports?: string[];
         /**
-         * Restart policy for the container, matching the [Docker Compose `restart` field](https://docs.docker.com/reference/compose-file/services/#restart): `no`, `always`, `on-failure` (optionally `on-failure:<max-retries>`) or `unless-stopped`.
+         * Restart policy for the container, using the values of the [Docker Compose `restart` field](https://docs.docker.com/reference/compose-file/services/#restart): `no`, `always`, `on-failure` or `unless-stopped`. `unless-stopped` currently behaves like `on-failure`, a maximum retry count (`on-failure:<max-retries>`) is accepted but ignored, and unrecognized values are treated as `on-failure`. Defaults to `on-failure`, so omitting it resets the restart policy of an existing service to `on-failure`.
          *
          */
         restart?: string;
@@ -6102,7 +6070,7 @@ export declare namespace MittwaldAPIV2 {
          */
         restartPolicy?: string;
         /**
-         * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
+         * Volume mounts for this container. Each item has the format `<source>:<target>`; access-mode suffixes such as `:ro` are not supported. `<target>` is an absolute path inside the container. `<source>` is either the name of a Volume of this Stack (declared in the same request or already existing), or an absolute path in the (always present) project file system, which is shared among containers and managed apps within a project. Mounting the root of the project file system (`/`) is not supported.
          *
          */
         volumes?: string[];
@@ -6164,24 +6132,19 @@ export declare namespace MittwaldAPIV2 {
           [k: string]: string;
         };
         /**
-         * The image to run, in the usual format also used by `docker run` and `docker compose`. When
-         * the image is pulled from a private registry, make sure to create the registry first
-         * using the `container-create-registry` endpoint (you can push the image later, although
-         * the container will remain in a pending state until the image is actually available).
-         *
-         * The appropriate registry is matched by hostname.
+         * The image to run, in the usual format also used by `docker run` and `docker compose`. The image must exist and be accessible when the request is made, because its digest (and, for a new Service, the user it runs as) is resolved at that time; otherwise the request is rejected. Changing the image of an existing Service keeps the user that was resolved when the Service was created. For an image from a private registry, create a Registry with matching credentials first (`POST /v2/projects/{projectId}/registries`); the Registry is matched by the registry host of the image reference.
          *
          */
         image?: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
+         * Ports exposed by this container. Each item has the format `<port>[/<protocol>]` or `<port>:<port>[/<protocol>]`, where `<port>` is a single port or a range such as `8000-8010`. When both sides are given, they must be identical; mapping a port to a different number is not supported. `<protocol>` is `tcp` (default), `udp` or `sctp`. Exposed ports can be accessed from containers of the same Stack and from managed apps in the same project, but not from containers of other Stacks, and are not publicly reachable; to expose a port publicly, connect it with an ingress resource. A service may expose at most 200 port entries, and a port range may span at most 800 ports.
          *
          *
          * @maxItems 200
          */
         ports?: string[];
         /**
-         * Restart policy for the container, matching the [Docker Compose `restart` field](https://docs.docker.com/reference/compose-file/services/#restart): `no`, `always`, `on-failure` (optionally `on-failure:<max-retries>`) or `unless-stopped`.
+         * Restart policy for the container, using the values of the [Docker Compose `restart` field](https://docs.docker.com/reference/compose-file/services/#restart): `no`, `always`, `on-failure` or `unless-stopped`. `unless-stopped` currently behaves like `on-failure`, a maximum retry count (`on-failure:<max-retries>`) is accepted but ignored, and unrecognized values are treated as `on-failure`. When creating a new service, it defaults to `on-failure`; when omitted for an existing service, it is left unchanged.
          *
          */
         restart?: string;
@@ -6191,7 +6154,7 @@ export declare namespace MittwaldAPIV2 {
          */
         restartPolicy?: string;
         /**
-         * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
+         * Volume mounts for this container. Each item has the format `<source>:<target>`; access-mode suffixes such as `:ro` are not supported. `<target>` is an absolute path inside the container. `<source>` is either the name of a Volume of this Stack (declared in the same request or already existing), or an absolute path in the (always present) project file system, which is shared among containers and managed apps within a project. Mounting the root of the project file system (`/`) is not supported.
          *
          */
         volumes?: string[];
@@ -6209,13 +6172,7 @@ export declare namespace MittwaldAPIV2 {
          */
         cpus?: string;
         /**
-         * Memory limit for the container. The value can be specified in bytes or using a suffix to indicate
-         * the unit.
-         *
-         * The format matches the one [used by Docker Compose](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values):
-         *
-         * > Values express a byte value as a string in `{amount}{byte unit}` format: The supported units are
-         * `b` (bytes), `k` or `kb` (kilo bytes), `m` or `mb` (mega bytes) and `g` or `gb` (giga bytes).
+         * Memory limit for the container, as an integer followed by a unit, similar to the [byte values used by Docker Compose](https://docs.docker.com/reference/compose-file/extension/#specifying-byte-values): `b` (bytes), `k` or `kb` (kilobytes), `m` or `mb` (megabytes) and `g` or `gb` (gigabytes). Units must be lowercase and are decimal (`1g` = 1,000,000,000 bytes). A number without a unit is not accepted.
          *
          */
         memory?: string;
@@ -6238,10 +6195,14 @@ export declare namespace MittwaldAPIV2 {
         pendingState: MittwaldAPIV2.Components.Schemas.ContainerServiceState;
         projectId: string;
         requiresRecreate: boolean;
+        /**
+         * Restart policy of the container. `unless-stopped` currently behaves like `on-failure`.
+         *
+         */
         restartPolicy?: "no" | "always" | "on-failure" | "unless-stopped";
         serviceName: string;
         /**
-         * A short ID of the container. This is a unique identifier for the container within the project, and can be used to reference it in other API calls, or for SSH connections.
+         * A short ID of the container, unique within the project. It can be used for SSH connections. API routes address services by `id`, not by `shortId`.
          *
          */
         shortId: string;
@@ -6273,12 +6234,7 @@ export declare namespace MittwaldAPIV2 {
           [k: string]: string;
         };
         /**
-         * The image to run, in the usual format also used by `docker run` and `docker compose`. When
-         * the image is pulled from a private registry, make sure to create the registry first
-         * using the `container-create-registry` endpoint (you can push the image later, although
-         * the container will remain in a pending state until the image is actually available).
-         *
-         * The appropriate registry is matched by hostname.
+         * The image, in the usual format also used by `docker run` and `docker compose`.
          *
          */
         image: string;
@@ -6288,19 +6244,29 @@ export declare namespace MittwaldAPIV2 {
          */
         imageDigest?: string;
         /**
-         * Exposed ports. Follows the format `<public-port>:<container-port>/<protocol>`. Exposed ports can be accessed from other containers (or managed apps) within the same project. To expose a port publicly, connect it with an ingress resource.
+         * Ports exposed by this container, in the format `<port>/<protocol>` (`<port>` may be a range such as `8000-8010`). Exposed ports can be accessed from containers of the same Stack and from managed apps in the same project, but not from containers of other Stacks, and are not publicly reachable; to expose a port publicly, connect it with an ingress resource.
          *
          */
         ports?: string[];
         /**
-         * Volume mounts for this container. These items always follow the format `<volume>:<mountpoint>`. The `<volume>` may either be a named volume, or a file path in the (always present) project file system (which is shared among containers and managed apps within a project).
+         * Volume mounts of this container in the format `<source>:<target>[:ro]`, where `<source>` is either the name of a Volume of this Stack or an absolute path in the project file system, and `<target>` is an absolute path inside the container. Read-only mounts are shown with an `:ro` suffix; requests currently cannot create them, but existing Services may contain them.
          *
          */
         volumes?: string[];
       }
 
+      /**
+       * Status of a Service. `creating`: the Service was declared and has not reported a status yet. `starting`: the container is being started. `running`: the container is ready. `stopping`: the container is being stopped or terminated. `stopped`: the container was stopped or has exited. `error`: the container or its image is in an error state; see the Service's `message` for details. `unspecified`: the cluster currently reports no decisive condition for the container.
+       *
+       */
       export type ContainerServiceStatus =
-        "running" | "stopped" | "error" | "creating" | "starting" | "stopping";
+        | "running"
+        | "stopped"
+        | "error"
+        | "creating"
+        | "starting"
+        | "stopping"
+        | "unspecified";
 
       export interface ContainerSetRegistryCredentials {
         /**
@@ -6321,7 +6287,8 @@ export declare namespace MittwaldAPIV2 {
         disabled: boolean;
         id: string;
         /**
-         * Prefix for all service-names in this stack.
+         * Generated, immutable identifier of the Stack (e.g. `st-XXXXXX`). Managed apps in the same project can resolve a container of this Stack as `<serviceName>.<prefix>`; containers of the same Stack can use the service name alone, and containers of other Stacks cannot communicate with it. The prefix is also the directory of the Stack's service log files (`/var/log/container/<prefix>/` in the project file system).
+         *
          */
         prefix: string;
         projectId: string;
@@ -6435,7 +6402,8 @@ export declare namespace MittwaldAPIV2 {
         linkedServices?: string[];
         name: string;
         /**
-         * Whether the Volume is attached to a Stack.
+         * Whether no service of the Stack mounts this Volume. An orphaned Volume still belongs to its Stack and keeps its data until it is deleted explicitly using `DELETE /v2/stacks/{stackId}/volumes/{volumeId}`.
+         *
          */
         orphaned: boolean;
         stackId: string;
@@ -12788,74 +12756,6 @@ export declare namespace MittwaldAPIV2 {
       export type SslProjectCertificateStatus =
         "issuing" | "ready" | "cnameError" | "error" | "unspecified";
 
-      export type StoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      export interface StoragespaceStatisticsCategory {
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
-
-      export type StoragespaceStatisticsKind = "server" | "project";
-
-      export interface StoragespaceStatisticsMeta {
-        isExceeding?: boolean;
-        /**
-         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastExceedanceLimitInBytes?: number;
-        /**
-         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastTotalExceedanceInBytes?: number;
-        /**
-         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
-         */
-        lastTotalExceedanceInBytesSetAt?: string;
-        limitInBytes?: number;
-        /**
-         * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
-         */
-        notificationThresholdUsedAsLimit?: boolean;
-        /**
-         * The current total exceedance in bytes.
-         */
-        totalExceedanceInBytes?: number;
-        /**
-         * The current total exceedance date.
-         */
-        totalExceedanceInBytesSetAt?: string;
-        totalFreeInBytes?: number;
-        totalFreeInPercentage?: number;
-        totalUsageInBytes: number;
-        totalUsageInPercentage?: number;
-      }
-
-      export interface StoragespaceStatisticsResource {
-        description?: string;
-        id: string;
-        name: string;
-        usageInBytes: number;
-        usageInBytesSetAt: string;
-      }
-
-      export interface StoragespaceStatistics {
-        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
-        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
-      }
-
       export interface SignupAccount {
         email?: string;
         /**
@@ -13119,66 +13019,72 @@ export declare namespace MittwaldAPIV2 {
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
 
-      /**
-       * One AI hosting key the authenticated user can reach, with the organization,
-       * project and plan names denormalized so the list needs no second call.
-       *
-       */
-      export interface AihostingUserKey {
-        containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
-        createdAt: string;
-        customerId: string;
-        customerName: string;
-        /**
-         * Indicates whether the key is blocked.
-         */
-        isBlocked: boolean;
-        /**
-         * @deprecated
-         * The secret API key. For security reasons we no longer want to keep exposing this value on every response — this field is deprecated and will stop returning the real key in a future change. It still returns the real value for now.
-         */
-        key: string;
-        /**
-         * Auto generated uuid to identify keys in requests.
-         */
-        keyId: string;
-        /**
-         * @deprecated
-         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
-         */
-        models: string[];
+      export type StoragespaceStatisticsKind = "server" | "project";
+
+      export interface StoragespaceStatisticsResource {
+        description?: string;
+        id: string;
         name: string;
-        planDescription: string;
-        planId: string;
-        projectId?: string;
-        /**
-         * Empty when the key is not assigned to a project.
-         */
-        projectName?: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
+        usageInBytes: number;
+        usageInBytesSetAt: string;
       }
 
-      /**
-       * One AI hosting plan the authenticated user can reach through one of its
-       * organizations. A membership in one of the plan's projects alone grants no
-       * access to it.
-       *
-       */
-      export interface AihostingUserPlan {
-        customerId: string;
+      export type StoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
+      export interface StoragespaceStatistics {
+        childStatistics?: MittwaldAPIV2.Components.Schemas.StoragespaceStatistics[];
+        description?: string;
+        id: string;
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsKind;
+        meta: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsMeta;
+        name: string;
+        notificationThresholdInBytes?: number;
+        statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      }
+
+      export interface StoragespaceStatisticsCategory {
+        kind: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
+      }
+
+      export interface StoragespaceStatisticsMeta {
+        isExceeding?: boolean;
         /**
-         * Denormalized name of the owning organization.
+         * The last exceedance limit in bytes during the exceedance time, therefore can differ from the current limit. It is retained as a historical record of the most recent exceedance and does not reset once set.
          */
-        customerName: string;
-        description: string;
-        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
-        maxParallelRequests?: number;
-        nextTokenReset: string;
-        planId: string;
-        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
-        suspended?: boolean;
-        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+        lastExceedanceLimitInBytes?: number;
+        /**
+         * The last total exceedance in bytes related to the limit during the exceedance time, see lastExceedanceLimitInBytes. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastTotalExceedanceInBytes?: number;
+        /**
+         * The last total exceedance date. It is retained as a historical record of the most recent exceedance and does not reset once set.
+         */
+        lastTotalExceedanceInBytesSetAt?: string;
+        limitInBytes?: number;
+        /**
+         * If true, set notification threshold is used as limit for meta calculations. E.g. for projects with a parent server.
+         */
+        notificationThresholdUsedAsLimit?: boolean;
+        /**
+         * The current total exceedance in bytes.
+         */
+        totalExceedanceInBytes?: number;
+        /**
+         * The current total exceedance date.
+         */
+        totalExceedanceInBytesSetAt?: string;
+        totalFreeInBytes?: number;
+        totalFreeInPercentage?: number;
+        totalUsageInBytes: number;
+        totalUsageInPercentage?: number;
       }
 
       export interface CommonsAddress {
@@ -17970,10 +17876,11 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * A set of containers that should be started in this stack. The key is relevant for
-             * network connectivity between containers, because you can use it as DNS name to
-             * resolve this containers from other containers running in the same project (or from
-             * managed apps running in the same project).
+             * A set of containers that should be started in this stack. The key is the service name,
+             * which is relevant for network connectivity: containers of the same stack can resolve a
+             * container by its service name alone, and managed apps in the same project can resolve it as
+             * `<serviceName>.<prefix>`, where `<prefix>` is the stack's `prefix`. Containers of other
+             * stacks cannot communicate with it.
              *
              * To **delete** an existing container from a stack using a `PUT` request, simply omit
              * it from the request body. Using a `PATCH` request, set it to an empty object `{}`.
@@ -17987,9 +17894,10 @@ export declare namespace MittwaldAPIV2 {
               ]: MittwaldAPIV2.Components.Schemas.ContainerServiceDeclareRequest;
             };
             /**
-             * A set of named volumes that should be created for this stack. Removing a volume
-             * from this set will not delete the volume (for safety), but only detach it from the
-             * stack. To delete a volume, use the `DELETE /stacks/{stackId}/volumes/{volumeId}` endpoint.
+             * A set of named volumes that should exist in this stack, keyed by volume name. Missing
+             * volumes are created. Volumes are never removed by this request (for safety): a volume that is
+             * left out stays part of the stack and keeps its data. To delete a volume, use the
+             * `DELETE /v2/stacks/{stackId}/volumes/{volumeId}` endpoint.
              *
              */
             volumes?: {
@@ -18143,10 +18051,11 @@ export declare namespace MittwaldAPIV2 {
              */
             description?: string;
             /**
-             * A set of containers that should be started in this stack. The key is relevant for
-             * network connectivity between containers, because you can use it as DNS name to
-             * resolve this containers from other containers running in the same project (or from
-             * managed apps running in the same project).
+             * A set of containers that should be started in this stack. The key is the service name,
+             * which is relevant for network connectivity: containers of the same stack can resolve a
+             * container by its service name alone, and managed apps in the same project can resolve it as
+             * `<serviceName>.<prefix>`, where `<prefix>` is the stack's `prefix`. Containers of other
+             * stacks cannot communicate with it.
              *
              * To **delete** an existing container from a stack using a `PUT` request, simply omit
              * it from the request body. Using a `PATCH` request, set it to an empty object `{}`.
@@ -18173,9 +18082,10 @@ export declare namespace MittwaldAPIV2 {
               timezone?: string;
             };
             /**
-             * A set of named volumes that should be created for this stack. Removing a volume
-             * from this set will not delete the volume (for safety), but only detach it from the
-             * stack. To delete a volume, use the `DELETE /stacks/{stackId}/volumes/{volumeId}` endpoint.
+             * A set of named volumes that should exist in this stack, keyed by volume name. Missing
+             * volumes are created. Volumes are never removed by this request (for safety): a volume that is
+             * left out stays part of the stack and keeps its data. To delete a volume, use the
+             * `DELETE /v2/stacks/{stackId}/volumes/{volumeId}` endpoint.
              *
              */
             volumes?: {
@@ -27127,10 +27037,6 @@ export declare namespace MittwaldAPIV2 {
     namespace V2ProjectsProjectIdDescription {}
 
     namespace V2ServersServerIdDescription {}
-
-    namespace V2ProjectsProjectIdStorageSpaceNotificationThreshold {}
-
-    namespace V2ServersServerIdStorageSpaceNotificationThreshold {}
 
     namespace V2SignupEmail {}
 
@@ -40468,326 +40374,6 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2CertificateRequestsCertificateRequestIdCertificate {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            certificateRequestId: string;
-          };
-
-          export interface RequestBody {
-            certificate: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ProjectsProjectIdStorageSpaceStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            projectId: string;
-          };
-
-          export interface RequestBody {
-            notificationThresholdInBytes?: number;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ServersServerIdStorageSpaceStatistics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export interface RequestBody {
-            notificationThresholdInBytes?: number;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2UsersUserIdPhone {
       namespace Post {
         namespace Parameters {
@@ -43975,28 +43561,25 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2AiHostingKeys {
+    namespace V2ServersServerIdStorageSpaceNotificationThreshold {}
+
+    namespace V2ServersServerIdStorageSpaceStatistics {
       namespace Get {
         namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            customerId?: string;
-            projectId?: string;
-            planId?: string;
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
+          export type Path = {
+            serverId: string;
           };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingUserKey[];
+                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
             }
           }
 
@@ -44016,7 +43599,23 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44033,38 +43632,26 @@ export declare namespace MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2AiHostings {
-      namespace Get {
+      namespace Patch {
         namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            customerId?: string;
-            projectId?: string;
-            planId?: string;
-            searchTerm?: string;
-            limit?: number;
-            skip?: number;
-            page?: number;
+          export type Path = {
+            serverId: string;
           };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.AihostingUserPlan[];
-            }
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
           }
 
-          namespace $400 {
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type Empty = unknown;
             }
           }
 
@@ -44084,6 +43671,14 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -44094,5 +43689,134 @@ export declare namespace MittwaldAPIV2 {
         }
       }
     }
+
+    namespace V2ProjectsProjectIdStorageSpaceStatistics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.StoragespaceStatistics;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export interface RequestBody {
+            notificationThresholdInBytes?: number;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdStorageSpaceNotificationThreshold {}
   }
 }
