@@ -972,6 +972,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     setCustomerReferralSource: this.requestFunctionFactory(
       descriptors.customerSetCustomerReferralSource,
     ),
+    /** Get the activities of an organization. */
+    listCustomerActivities: this.requestFunctionFactory(
+      descriptors.customerListCustomerActivities,
+    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
@@ -1588,6 +1592,30 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Authenticate yourself with a passkey to get an access token. */
+    authenticateWithPasskey: this.requestFunctionFactory(
+      descriptors.userAuthenticateWithPasskey,
+    ),
+    /** Create a challenge for a passkey login. */
+    createPasskeyChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyChallenge,
+    ),
+    /** Delete a passkey. */
+    deletePasskey: this.requestFunctionFactory(descriptors.userDeletePasskey),
+    /** Rename a passkey. */
+    updatePasskey: this.requestFunctionFactory(descriptors.userUpdatePasskey),
+    /** Get your registered passkeys. */
+    listPasskeys: this.requestFunctionFactory(descriptors.userListPasskeys),
+    /** Register a new passkey. */
+    createPasskey: this.requestFunctionFactory(descriptors.userCreatePasskey),
+    /** Create a challenge to confirm an action with a passkey. */
+    createOwnPasskeyChallenge: this.requestFunctionFactory(
+      descriptors.userCreateOwnPasskeyChallenge,
+    ),
+    /** Create a challenge to register a new passkey. */
+    createPasskeyRegistrationChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyRegistrationChallenge,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
@@ -1836,14 +1864,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendProjectInviteMail: this.requestFunctionFactory(
       descriptors.projectResendProjectInviteMail,
     ),
-    /** Get storage space Statistics belonging to a Server. */
-    storagespaceGetServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceGetServerStatistics,
-    ),
-    /** Update a Server's storage space statistics. */
-    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceUpdateServerStatistics,
-    ),
     /** Get storage space Statistics belonging to a Project. */
     storagespaceGetProjectStatistics: this.requestFunctionFactory(
       descriptors.storagespaceGetProjectStatistics,
@@ -1851,6 +1871,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Project's storage space statistics. */
     storagespaceUpdateProjectStatistics: this.requestFunctionFactory(
       descriptors.storagespaceUpdateProjectStatistics,
+    ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Server's storage space statistics. */
+    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceUpdateServerStatistics,
     ),
   };
 

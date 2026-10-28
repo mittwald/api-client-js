@@ -670,6 +670,11 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerListMembershipsForCustomer,
     baseClient.customer.listMembershipsForCustomer,
   ).getApiResource,
+  /** Get the activities of an organization. */
+  listCustomerActivities: new ApiCallAsyncResourceFactory(
+    descriptors.customerListCustomerActivities,
+    baseClient.customer.listCustomerActivities,
+  ).getApiResource,
 });
 
 const buildDatabaseApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -1125,6 +1130,11 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
   ).getApiResource,
+  /** Get your registered passkeys. */
+  listPasskeys: new ApiCallAsyncResourceFactory(
+    descriptors.userListPasskeys,
+    baseClient.user.listPasskeys,
+  ).getApiResource,
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
@@ -1198,15 +1208,15 @@ const buildProjectApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.projectListServers,
     baseClient.project.listServers,
   ).getApiResource,
-  /** Get storage space Statistics belonging to a Server. */
-  storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
-    descriptors.storagespaceGetServerStatistics,
-    baseClient.project.storagespaceGetServerStatistics,
-  ).getApiResource,
   /** Get storage space Statistics belonging to a Project. */
   storagespaceGetProjectStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetProjectStatistics,
     baseClient.project.storagespaceGetProjectStatistics,
+  ).getApiResource,
+  /** Get storage space Statistics belonging to a Server. */
+  storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
+    descriptors.storagespaceGetServerStatistics,
+    baseClient.project.storagespaceGetServerStatistics,
   ).getApiResource,
 });
 
