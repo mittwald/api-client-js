@@ -12801,14 +12801,6 @@ export declare namespace MittwaldAPIV3Next {
         usageInBytesSetAt: string;
       }
 
-      export type DeMittwaldStoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
       export interface DeMittwaldStoragespaceStatistics {
         childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
         description?: string;
@@ -12819,6 +12811,14 @@ export declare namespace MittwaldAPIV3Next {
         notificationThresholdInBytes?: number;
         statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
       }
+
+      export type DeMittwaldStoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
 
       export interface DeMittwaldStoragespaceStatisticsCategory {
         kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
