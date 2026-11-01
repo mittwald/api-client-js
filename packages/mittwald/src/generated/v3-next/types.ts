@@ -12801,31 +12801,6 @@ export declare namespace MittwaldAPIV3Next {
         usageInBytesSetAt: string;
       }
 
-      export interface DeMittwaldStoragespaceStatistics {
-        childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
-        description?: string;
-        id: string;
-        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsKind;
-        meta: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsMeta;
-        name: string;
-        notificationThresholdInBytes?: number;
-        statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
-      }
-
-      export type DeMittwaldStoragespaceStatisticsCategoryKind =
-        | "webspace"
-        | "projectBackup"
-        | "mailAddress"
-        | "mysqlDatabase"
-        | "redisDatabase"
-        | "containerVolume";
-
-      export interface DeMittwaldStoragespaceStatisticsCategory {
-        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
-        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
-        totalUsageInBytes: number;
-      }
-
       export interface DeMittwaldStoragespaceStatisticsMeta {
         isExceeding?: boolean;
         /**
@@ -12857,6 +12832,31 @@ export declare namespace MittwaldAPIV3Next {
         totalFreeInPercentage?: number;
         totalUsageInBytes: number;
         totalUsageInPercentage?: number;
+      }
+
+      export interface DeMittwaldStoragespaceStatistics {
+        childStatistics?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatistics[];
+        description?: string;
+        id: string;
+        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsKind;
+        meta: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsMeta;
+        name: string;
+        notificationThresholdInBytes?: number;
+        statisticCategories?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategory[];
+      }
+
+      export type DeMittwaldStoragespaceStatisticsCategoryKind =
+        | "webspace"
+        | "projectBackup"
+        | "mailAddress"
+        | "mysqlDatabase"
+        | "redisDatabase"
+        | "containerVolume";
+
+      export interface DeMittwaldStoragespaceStatisticsCategory {
+        kind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsCategoryKind;
+        resources?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldStoragespaceStatisticsResource[];
+        totalUsageInBytes: number;
       }
 
       export interface DeMittwaldCommonsAddress {
