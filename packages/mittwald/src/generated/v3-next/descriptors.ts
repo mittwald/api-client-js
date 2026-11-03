@@ -6492,6 +6492,11 @@ export const cronjobGetCronjob: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
