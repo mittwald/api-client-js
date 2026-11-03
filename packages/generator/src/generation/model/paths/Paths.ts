@@ -9,6 +9,24 @@ import { Operation } from "./operation/Operation.js";
 import { Tag } from "../tags/Tag.js";
 import { OpenAPIV3 } from "openapi-types";
 import camelcase from "camelcase";
+import { isDeprecated } from "../../deprecation.js";
+
+const hasOnlyDeprecatedOperations = (
+  pathDoc: OpenAPIV3.PathItemObject,
+): boolean => {
+  const operations = Object.values(OpenAPIV3.HttpMethods)
+    .map((method) => pathDoc[method])
+    .filter((operation) => !!operation);
+  return operations.length > 0 && operations.every(isDeprecated);
+};
+
+const partition = <T>(
+  items: T[],
+  predicate: (item: T) => boolean,
+): [matching: T[], rest: T[]] => [
+  items.filter(predicate),
+  items.filter((item) => !predicate(item)),
+];
 
 export class Paths {
   public static readonly ns = "Paths";
@@ -20,13 +38,62 @@ export class Paths {
   public constructor(model: CodeGenerationModel, paths: OpenAPIV3.PathsObject) {
     this.model = model;
     this.name = new Name(Paths.ns, model.rootNamespace);
-    this.paths = Object.entries(paths ?? {})
-      .map(([name, pathDoc]) => {
-        if (pathDoc) {
-          return Path.fromDoc(this, name, pathDoc);
-        }
-      })
-      .filter((p): p is Path => !!p);
+
+    const pathDocs = Object.entries(paths ?? {}).filter(
+      (entry): entry is [string, OpenAPIV3.PathItemObject] => !!entry[1],
+    );
+    const names = this.resolvePathNames(pathDocs);
+
+    this.paths = pathDocs.map(([name, pathDoc]) =>
+      Path.fromDoc(this, names.get(name)!, pathDoc),
+    );
+  }
+
+  /**
+   * Different paths can map to the same TypeScript namespace, e.g. `/dns/zones`
+   * and `/dns-zones`. In practice the older spelling is deprecated, so paths
+   * with an active operation claim their namespace first, and a colliding path
+   * whose operations are all deprecated gets a `Deprecated` suffix. That keeps
+   * the names of active paths stable. Two colliding active paths cannot be
+   * resolved this way and fail the generation instead of producing duplicate
+   * declarations.
+   */
+  private resolvePathNames(
+    pathDocs: Array<[string, OpenAPIV3.PathItemObject]>,
+  ): Map<string, Name> {
+    const names = new Map<string, Name>();
+    const claimedBy = new Map<string, string>();
+
+    const claim = (path: string, name: Name) => {
+      names.set(path, name);
+      claimedBy.set(name.tsType, path);
+    };
+
+    const [deprecatedOnly, active] = partition(pathDocs, ([, pathDoc]) =>
+      hasOnlyDeprecatedOperations(pathDoc),
+    );
+
+    for (const [path] of active) {
+      const name = new Name(path, this.name);
+      const claimingPath = claimedBy.get(name.tsType);
+      if (claimingPath !== undefined) {
+        throw new Error(
+          `Paths "${claimingPath}" and "${path}" both map to the TypeScript namespace ${name.tsType}`,
+        );
+      }
+      claim(path, name);
+    }
+
+    for (const [path] of deprecatedOnly) {
+      const baseName = new Name(path, this.name);
+      let name = baseName;
+      for (let i = 1; claimedBy.has(name.tsType); i++) {
+        name = baseName.withTsTypeSuffix(`Deprecated${i > 1 ? i : ""}`);
+      }
+      claim(path, name);
+    }
+
+    return names;
   }
 
   public async compileTypes(opts: TypeCompilationOptions): Promise<string> {

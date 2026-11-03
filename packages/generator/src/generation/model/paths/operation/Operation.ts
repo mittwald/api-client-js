@@ -5,6 +5,7 @@ import { Responses } from "./responses/Responses.js";
 import { Tag } from "../../tags/Tag.js";
 import { TypeCompilationOptions } from "../../CodeGenerationModel.js";
 import { OpenAPIV3 } from "openapi-types";
+import { isDeprecated } from "../../../deprecation.js";
 
 export class Operation {
   public readonly path: Path;
@@ -14,6 +15,7 @@ export class Operation {
   public readonly responses: Responses;
   public readonly summary?: string;
   public readonly tags: Tag[];
+  public readonly deprecated: boolean;
 
   private constructor(
     path: Path,
@@ -27,6 +29,7 @@ export class Operation {
     this.parameters = RequestParameters.fromDoc(this, doc);
     this.responses = new Responses(this, doc.responses);
     this.summary = doc.summary;
+    this.deprecated = isDeprecated(doc);
     this.tags =
       doc.tags
         ?.map((name) => path.paths.model.tags.find((t) => t.name.raw === name))
@@ -41,6 +44,18 @@ export class Operation {
     return new Operation(path, new Name(httpMethod, path.name), doc);
   }
 
+  /** JSDoc for declarations that carry the summary, e.g. client methods. */
+  private compileSummaryComment(): string {
+    return this.deprecated
+      ? `/**\n * ${this.summary}\n * @deprecated\n */`
+      : `/** ${this.summary} */`;
+  }
+
+  /** JSDoc for declarations without a summary, e.g. type namespaces. */
+  private compileDeprecationComment(): string {
+    return this.deprecated ? "/** @deprecated */" : "";
+  }
+
   public async compileTypes(options: TypeCompilationOptions): Promise<string> {
     const t = {
       ns: this.httpMethod.tsType,
@@ -49,6 +64,7 @@ export class Operation {
     };
 
     return `\
+      ${this.compileDeprecationComment()}
       namespace ${t.ns} {
         ${t.parameters};
         ${t.responses};
@@ -67,7 +83,7 @@ export class Operation {
     };
 
     return `\
-        /** ${this.summary} */        
+        ${this.compileSummaryComment()}
         export const ${t.constName}: OpenAPIOperation<
           ${t.requestType},
           ${t.responseTypes}
@@ -86,6 +102,7 @@ export class Operation {
     };
 
     return `\
+        ${this.compileDeprecationComment()}
         namespace ${t.ns} {
           type RequestData = InferredRequestData<typeof descriptors.${t.descriptor}>;
           type ResponseData<TStatus extends HttpStatus = 200> = InferredResponseData<typeof descriptors.${t.descriptor}, TStatus>;
@@ -111,7 +128,7 @@ export class Operation {
     };
 
     return `\
-      /** ${this.summary} */        
+      ${this.compileSummaryComment()}
       ${t.methodName}: this.requestFunctionFactory(
         descriptors.${t.descriptorName}
       )
@@ -128,7 +145,7 @@ export class Operation {
     };
 
     return `\
-      /** ${this.summary} */        
+      ${this.compileSummaryComment()}
       ${t.methodName}: new ApiCallAsyncResourceFactory(
         descriptors.${t.descriptorName},
         baseClient.${t.tag}.${t.methodName}

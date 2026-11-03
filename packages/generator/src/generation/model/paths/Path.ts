@@ -20,7 +20,7 @@ export class Path {
     this.operations = Object.values(OpenAPIV3.HttpMethods)
       .map((method) => {
         const operationDoc = operationsDoc[method];
-        if (operationDoc && operationDoc.deprecated !== true) {
+        if (operationDoc) {
           return Operation.fromDoc(this, method, operationDoc);
         }
       })
@@ -28,10 +28,10 @@ export class Path {
   }
   public static fromDoc(
     paths: Paths,
-    name: string,
+    name: Name,
     operationsDoc: OpenAPIV3.PathItemObject,
   ) {
-    return new Path(paths, new Name(name, paths.name), operationsDoc);
+    return new Path(paths, name, operationsDoc);
   }
 
   public async compileTypes(options: TypeCompilationOptions): Promise<string> {

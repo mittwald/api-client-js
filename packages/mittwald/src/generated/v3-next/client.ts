@@ -51,6 +51,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     customerUpdatePlan: this.requestFunctionFactory(
       descriptors.aiHostingCustomerUpdatePlan,
     ),
+    /**
+     * Get ai hosting plan and usages of a customer.
+     * @deprecated
+     */
+    customerGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingCustomerGetUsage,
+    ),
     /** Rotates a customer's key. */
     customerRotateKey: this.requestFunctionFactory(
       descriptors.aiHostingCustomerRotateKey,
@@ -96,6 +103,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get all ai hosting plans and usages of a project. */
     projectGetPlans: this.requestFunctionFactory(
       descriptors.aiHostingProjectGetPlans,
+    ),
+    /**
+     * Get ai hosting plan and usages of a project.
+     * @deprecated
+     */
+    projectGetUsage: this.requestFunctionFactory(
+      descriptors.aiHostingProjectGetUsage,
     ),
     /** Links a container with a project licence. */
     projectLinkContainer: this.requestFunctionFactory(
@@ -143,6 +157,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get an AppVersion. */
     getAppversion: this.requestFunctionFactory(descriptors.appGetAppversion),
+    /**
+     * Get the installed `SystemSoftware' for a specific `AppInstallation`.
+     * @deprecated
+     */
+    getInstalledSystemsoftwareForAppinstallation: this.requestFunctionFactory(
+      descriptors.appGetInstalledSystemsoftwareForAppinstallation,
+    ),
     /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
     getMissingDependenciesForAppinstallation: this.requestFunctionFactory(
       descriptors.appGetMissingDependenciesForAppinstallation,
@@ -155,6 +176,11 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getSystemsoftwareversion: this.requestFunctionFactory(
       descriptors.appGetSystemsoftwareversion,
     ),
+    /**
+     * Create linkage between an AppInstallation and a MySQLDatabase.
+     * @deprecated
+     */
+    linkDatabase: this.requestFunctionFactory(descriptors.appLinkDatabase),
     /** List AppInstallations that a user has access to. */
     listAppinstallationsForUser: this.requestFunctionFactory(
       descriptors.appListAppinstallationsForUser,
@@ -199,8 +225,36 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get runtime status belonging to an AppInstallation. */
     retrieveStatus: this.requestFunctionFactory(descriptors.appRetrieveStatus),
+    /**
+     * Create linkage between an AppInstallation and DatabaseUsers.
+     * @deprecated
+     */
+    setDatabaseUsers: this.requestFunctionFactory(
+      descriptors.appSetDatabaseUsers,
+    ),
     /** Remove linkage between an AppInstallation and a Database. */
     unlinkDatabase: this.requestFunctionFactory(descriptors.appUnlinkDatabase),
+    /**
+     * Trigger a runtime action belonging to an AppInstallation.
+     * @deprecated
+     */
+    deprecatedAppInstallationExecuteAction: this.requestFunctionFactory(
+      descriptors.deprecatedAppInstallationExecuteAction,
+    ),
+    /**
+     * Create linkage between an AppInstallation and a MySql-Database.
+     * @deprecated
+     */
+    deprecatedAppLinkDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedAppLinkDatabase,
+    ),
+    /**
+     * Replace a MySQL Database with another MySQL Database.
+     * @deprecated
+     */
+    deprecatedAppReplaceDatabase: this.requestFunctionFactory(
+      descriptors.deprecatedAppReplaceDatabase,
+    ),
   };
 
   /** The article API allows you to read article information. */
@@ -269,9 +323,31 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getProjectBackupDirectories: this.requestFunctionFactory(
       descriptors.backupGetProjectBackupDirectories,
     ),
+    /**
+     * Restore a ProjectBackup's path.
+     * @deprecated
+     */
+    requestProjectBackupRestorePathDeprecated: this.requestFunctionFactory(
+      descriptors.backupRequestProjectBackupRestorePathDeprecated,
+    ),
     /** Restore a ProjectBackup. */
     requestProjectBackupRestore: this.requestFunctionFactory(
       descriptors.backupRequestProjectBackupRestore,
+    ),
+    /**
+     * Update a Backup's expiration time.
+     * @deprecated
+     */
+    deprecatedBackupReplaceProjectBackupExpirationTime:
+      this.requestFunctionFactory(
+        descriptors.deprecatedBackupReplaceProjectBackupExpirationTime,
+      ),
+    /**
+     * Change the description of a ProjectBackup.
+     * @deprecated
+     */
+    deprecatedBackupUpdateProjectBackupDescription: this.requestFunctionFactory(
+      descriptors.deprecatedBackupUpdateProjectBackupDescription,
     ),
   };
 
@@ -359,6 +435,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listStackVolumes: this.requestFunctionFactory(
       descriptors.containerListStackVolumes,
     ),
+    /**
+     * List Container Template statistics.
+     * @deprecated
+     */
+    listTemplateStatistics: this.requestFunctionFactory(
+      descriptors.containerListTemplateStatistics,
+    ),
     /** List Container Templates. */
     listTemplates: this.requestFunctionFactory(
       descriptors.containerListTemplates,
@@ -387,6 +470,35 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Stop a started Service. */
     stopService: this.requestFunctionFactory(descriptors.containerStopService),
+    /**
+     * Get a Container Template icon.
+     * @deprecated
+     */
+    deprecatedContainerGetTemplateIcon: this.requestFunctionFactory(
+      descriptors.deprecatedContainerGetTemplateIcon,
+    ),
+    /**
+     * Set an update schedule for a Stack.
+     * @deprecated
+     */
+    deprecatedContainerSetStackUpdateSchedule: this.requestFunctionFactory(
+      descriptors.deprecatedContainerSetStackUpdateSchedule,
+    ),
+    /**
+     * Validate a Registries' URI.
+     * @deprecated
+     */
+    deprecatedContainerValidateContainerRegistryUri:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContainerValidateContainerRegistryUri,
+      ),
+    /**
+     * Validate a Registries' credentials.
+     * @deprecated
+     */
+    deprecatedContainerValidateRegistryCredentials: this.requestFunctionFactory(
+      descriptors.deprecatedContainerValidateRegistryCredentials,
+    ),
   };
 
   /** The contract API allows you to manage your contracts and orders */
@@ -458,6 +570,29 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Return a list of Contracts for the given Customer. */
     listContracts: this.requestFunctionFactory(
       descriptors.contractListContracts,
+    ),
+    /**
+     * Return the AI Hosting Contract for the given Customer.
+     * @deprecated
+     */
+    deprecatedContractGetDetailOfContractByAiHosting:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractGetDetailOfContractByAiHosting,
+      ),
+    /**
+     * Return the next TerminationDate for the ContractItem with the given ID.
+     * @deprecated
+     */
+    deprecatedContractGetNextTerminationDateForItem:
+      this.requestFunctionFactory(
+        descriptors.deprecatedContractGetNextTerminationDateForItem,
+      ),
+    /**
+     * Get details of an Invoice.
+     * @deprecated
+     */
+    deprecatedInvoiceDetailOfInvoice: this.requestFunctionFactory(
+      descriptors.deprecatedInvoiceDetailOfInvoice,
     ),
     /** Get details of an Invoice. */
     invoiceDetail: this.requestFunctionFactory(descriptors.invoiceDetail),
@@ -872,6 +1007,21 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
+    /**
+     * Update a Cronjob's app installation id.
+     * @deprecated
+     */
+    deprecatedCronjobReplaceCronjobAppInstallationId:
+      this.requestFunctionFactory(
+        descriptors.deprecatedCronjobReplaceCronjobAppInstallationId,
+      ),
+    /**
+     * Update a Cronjob's app installation id.
+     * @deprecated
+     */
+    deprecatedCronjobUpdateCronjobAppId: this.requestFunctionFactory(
+      descriptors.deprecatedCronjobUpdateCronjobAppId,
+    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */
@@ -972,6 +1122,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     setCustomerReferralSource: this.requestFunctionFactory(
       descriptors.customerSetCustomerReferralSource,
     ),
+    /**
+     * Leave a Customer.
+     * @deprecated
+     */
+    deprecatedCustomerLeaveCustomer: this.requestFunctionFactory(
+      descriptors.deprecatedCustomerLeaveCustomer,
+    ),
   };
 
   /** The database API allows you to manage your databases, like MySQL and Redis databases. */
@@ -1018,6 +1175,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a MySQLUser. */
     getMysqlUser: this.requestFunctionFactory(descriptors.databaseGetMysqlUser),
+    /**
+     * Update a MySQLUser.
+     * @deprecated
+     */
+    deprecatedDatabaseReplaceMysqlUser: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseReplaceMysqlUser,
+    ),
     /** Delete a MySQLUser. */
     deleteMysqlUser: this.requestFunctionFactory(
       descriptors.databaseDeleteMysqlUser,
@@ -1062,19 +1226,191 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     listRedisVersions: this.requestFunctionFactory(
       descriptors.databaseListRedisVersions,
     ),
+    /**
+     * Update a MySQLDatabase's default character settings.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset,
+      ),
+    /**
+     * Update a MySQLDatabase's description.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateMysqlDatabaseDescription:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateMysqlDatabaseDescription,
+      ),
+    /**
+     * Update a MySQLUser's password.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateMysqlUserPassword: this.requestFunctionFactory(
+      descriptors.deprecatedDatabaseUpdateMysqlUserPassword,
+    ),
+    /**
+     * Update a RedisDatabase's configuration.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateRedisDatabaseConfiguration:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateRedisDatabaseConfiguration,
+      ),
+    /**
+     * Update a RedisDatabase's description.
+     * @deprecated
+     */
+    deprecatedDatabaseUpdateRedisDatabaseDescription:
+      this.requestFunctionFactory(
+        descriptors.deprecatedDatabaseUpdateRedisDatabaseDescription,
+      ),
   };
 
   /** The domain API allows you to manage your domains, DNS records, SSL certificates and ingress resources. */
   public readonly domain = {
+    /**
+     * updates a-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordAsetCustom: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordAsetCustom,
+    ),
+    /**
+     * set a-records managed by ingress for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordAsetManagedByIngress: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordAsetManagedByIngress,
+    ),
+    /**
+     * updates cname-record for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordCnameSet: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordCnameSet,
+    ),
+    /**
+     * updates mx-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordMxSetCustom: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordMxSetCustom,
+    ),
+    /**
+     * sets mx-records to managed for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordMxSetManaged: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordMxSetManaged,
+    ),
+    /**
+     * updates srv-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordSrvSet: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordSrvSet,
+    ),
+    /**
+     * updates txt-records for a specific zone
+     * @deprecated
+     */
+    deprecatedDnsRecordTxtSet: this.requestFunctionFactory(
+      descriptors.deprecatedDnsRecordTxtSet,
+    ),
+    /**
+     * Change the owner contact of a domain.
+     * @deprecated
+     */
+    deprecatedDomainChangeOwnercOfDomain: this.requestFunctionFactory(
+      descriptors.deprecatedDomainChangeOwnercOfDomain,
+    ),
+    /**
+     * Change the Project relation of a Domain.
+     * @deprecated
+     */
+    deprecatedDomainChangeProjectOfDomain: this.requestFunctionFactory(
+      descriptors.deprecatedDomainChangeProjectOfDomain,
+    ),
     /** List Domains */
     listDomains: this.requestFunctionFactory(descriptors.domainListDomains),
+    /**
+     * Check if a Domain is available to register.
+     * @deprecated
+     */
+    deprecatedDomainCheckDomainRegistrability: this.requestFunctionFactory(
+      descriptors.deprecatedDomainCheckDomainRegistrability,
+    ),
+    /**
+     * Change all nameservers of a Domain.
+     * @deprecated
+     */
+    deprecatedDomainDeclareNameservers: this.requestFunctionFactory(
+      descriptors.deprecatedDomainDeclareNameservers,
+    ),
     /** Update the nameservers of a Domain. */
     updateDomainNameservers: this.requestFunctionFactory(
       descriptors.domainUpdateDomainNameservers,
     ),
+    /**
+     * Update an AuthCode.
+     * @deprecated
+     */
+    deprecatedDomainDeclareProcessChangeAuthcode: this.requestFunctionFactory(
+      descriptors.deprecatedDomainDeclareProcessChangeAuthcode,
+    ),
+    /**
+     * Update a Domain's OwnerC handle.
+     * @deprecated
+     */
+    deprecatedDomainDeclareProcessChangeHandles: this.requestFunctionFactory(
+      descriptors.deprecatedDomainDeclareProcessChangeHandles,
+    ),
+    /**
+     * Get a HandleSchema.
+     * @deprecated
+     */
+    deprecatedDomainGetHandleFields: this.requestFunctionFactory(
+      descriptors.deprecatedDomainGetHandleFields,
+    ),
+    /**
+     * Get File Service Reference for a Screenshot of a domain.
+     * @deprecated
+     */
+    deprecatedDomainGetScreenshotForDomain: this.requestFunctionFactory(
+      descriptors.deprecatedDomainGetScreenshotForDomain,
+    ),
+    /**
+     * List Domains belonging to a Project.
+     * @deprecated
+     */
+    deprecatedDomainListDomains: this.requestFunctionFactory(
+      descriptors.deprecatedDomainListDomains,
+    ),
+    /**
+     * List Ingresses belonging to a project.
+     * @deprecated
+     */
+    deprecatedIngressListIngresses: this.requestFunctionFactory(
+      descriptors.deprecatedIngressListIngresses,
+    ),
+    /**
+     * Update an Ingresses paths.
+     * @deprecated
+     */
+    deprecatedIngressPaths: this.requestFunctionFactory(
+      descriptors.deprecatedIngressPaths,
+    ),
     /** Update the paths of an Ingress. */
     ingressUpdateIngressPaths: this.requestFunctionFactory(
       descriptors.ingressUpdateIngressPaths,
+    ),
+    /**
+     * Update an Ingresses tls settings.
+     * @deprecated
+     */
+    deprecatedIngressTls: this.requestFunctionFactory(
+      descriptors.deprecatedIngressTls,
     ),
     /** Update the tls settings of an Ingress. */
     ingressUpdateIngressTls: this.requestFunctionFactory(
@@ -1088,6 +1424,11 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     dnsCreateDnsZoneFileImport: this.requestFunctionFactory(
       descriptors.dnsCreateDnsZoneFileImport,
     ),
+    /**
+     * Create a DNSZone (deprecated).
+     * @deprecated
+     */
+    dnsCreateDnsZone: this.requestFunctionFactory(descriptors.dnsCreateDnsZone),
     /** List DNSZones belonging to a Project. */
     dnsListDnsZones: this.requestFunctionFactory(descriptors.dnsListDnsZones),
     /** Create a DNSZone for a verified Ingress in a Project. */
@@ -1161,6 +1502,13 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** List Domain-Migrations belonging to a Project. */
     migrationListMigrationsByProjectId: this.requestFunctionFactory(
       descriptors.domainMigrationListMigrationsByProjectId,
+    ),
+    /**
+     * Resends a Contact-Verification email.
+     * @deprecated
+     */
+    resendContactVerificationEmail: this.requestFunctionFactory(
+      descriptors.domainResendContactVerificationEmail,
     ),
     /** Resend a Domain email. */
     resendDomainEmail: this.requestFunctionFactory(
@@ -1246,27 +1594,148 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
   };
 
+  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
+  public readonly file = {
+    /**
+     * Get a Token's upload rules.
+     * @deprecated
+     */
+    deprecatedFileGetFileTokenRules: this.requestFunctionFactory(
+      descriptors.deprecatedFileGetFileTokenRules,
+    ),
+    /**
+     * Get a Type's upload rules.
+     * @deprecated
+     */
+    deprecatedFileGetFileTypeRules: this.requestFunctionFactory(
+      descriptors.deprecatedFileGetFileTypeRules,
+    ),
+    /** Create a File. */
+    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
+    /** Get a File's meta. */
+    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
+    /** Get a FileUploadToken's rules. */
+    getFileUploadTokenRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTokenRules,
+    ),
+    /** Get a FileUploadType's rules. */
+    getFileUploadTypeRules: this.requestFunctionFactory(
+      descriptors.fileGetFileUploadTypeRules,
+    ),
+    /** Get a File. */
+    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
+    /** Get a File with user-friendly url. */
+    getFileWithName: this.requestFunctionFactory(
+      descriptors.fileGetFileWithName,
+    ),
+  };
+
   /** The mail API allows you to manage your mail accounts. */
   public readonly mail = {
+    /**
+     * Update the description of an deliverybox
+     * @deprecated
+     */
+    deprecatedMailDeliveryboxUpdateDescription: this.requestFunctionFactory(
+      descriptors.deprecatedMailDeliveryboxUpdateDescription,
+    ),
+    /**
+     * Update the password for a specific deliverybox
+     * @deprecated
+     */
+    deprecatedMailDeliveryboxUpdatePassword: this.requestFunctionFactory(
+      descriptors.deprecatedMailDeliveryboxUpdatePassword,
+    ),
+    /**
+     * Update mail-address
+     * @deprecated
+     */
+    deprecatedMailMailaddressUpdateAddress: this.requestFunctionFactory(
+      descriptors.deprecatedMailMailaddressUpdateAddress,
+    ),
+    /**
+     * Update blacklist for a given project ID
+     * @deprecated
+     */
+    deprecatedMailProjectsettingUpdateBlacklist: this.requestFunctionFactory(
+      descriptors.deprecatedMailProjectsettingUpdateBlacklist,
+    ),
+    /**
+     * Update whitelist for a given project ID
+     * @deprecated
+     */
+    deprecatedMailProjectsettingUpdateWhitelist: this.requestFunctionFactory(
+      descriptors.deprecatedMailProjectsettingUpdateWhitelist,
+    ),
+    /**
+     * Update the autoresponder of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressAutoresponder: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressAutoresponder,
+    ),
     /** Update the autoresponder of a MailAddress. */
     updateMailAddressAutoresponder: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressAutoresponder,
     ),
+    /**
+     * Update the catchall of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressCatchall: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressCatchall,
+    ),
+    /**
+     * Update the forward addresses of a MailAddresses.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressForwardAddresses:
+      this.requestFunctionFactory(
+        descriptors.deprecatedMailUpdateMailAddressForwardAddresses,
+      ),
     /** Update the forward addresses of a MailAddresses. */
     updateMailAddressForwardAddresses: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressForwardAddresses,
+    ),
+    /**
+     * Update the password for a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressPassword: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressPassword,
     ),
     /** Update the password for a MailAddress. */
     updateMailAddressPassword: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressPassword,
     ),
+    /**
+     * Update the quota of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressQuota: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressQuota,
+    ),
     /** Update the quota of a MailAddress. */
     updateMailAddressQuota: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressQuota,
     ),
+    /**
+     * Update the spam protection of a MailAddress.
+     * @deprecated
+     */
+    deprecatedMailUpdateMailAddressSpamProtection: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateMailAddressSpamProtection,
+    ),
     /** Update the spam protection of a MailAddress. */
     updateMailAddressSpamProtection: this.requestFunctionFactory(
       descriptors.mailUpdateMailAddressSpamProtection,
+    ),
+    /**
+     * Update a mail setting of a Project.
+     * @deprecated
+     */
+    deprecatedMailUpdateProjectMailSetting: this.requestFunctionFactory(
+      descriptors.deprecatedMailUpdateProjectMailSetting,
     ),
     /** Update a mail setting of a Project. */
     updateProjectMailSetting: this.requestFunctionFactory(
@@ -1390,14 +1859,398 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
   };
 
+  /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
+  public readonly project = {
+    /**
+     * Leave a Project.
+     * @deprecated
+     */
+    deprecatedProjectLeaveProject: this.requestFunctionFactory(
+      descriptors.deprecatedProjectLeaveProject,
+    ),
+    /**
+     * Update a Project's description.
+     * @deprecated
+     */
+    deprecatedProjectUpdateProjectDescription: this.requestFunctionFactory(
+      descriptors.deprecatedProjectUpdateProjectDescription,
+    ),
+    /**
+     * Update a Servers's description.
+     * @deprecated
+     */
+    deprecatedProjectUpdateServerDescription: this.requestFunctionFactory(
+      descriptors.deprecatedProjectUpdateServerDescription,
+    ),
+    /**
+     * Update a Project's storage space notification threshold.
+     * @deprecated
+     */
+    deprecatedStoragespaceReplaceProjectNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.deprecatedStoragespaceReplaceProjectNotificationThreshold,
+      ),
+    /**
+     * Update a Server's storage space notification threshold.
+     * @deprecated
+     */
+    deprecatedStoragespaceReplaceServerNotificationThreshold:
+      this.requestFunctionFactory(
+        descriptors.deprecatedStoragespaceReplaceServerNotificationThreshold,
+      ),
+    /** Accept a ProjectInvite. */
+    acceptProjectInvite: this.requestFunctionFactory(
+      descriptors.projectAcceptProjectInvite,
+    ),
+    /** List Invites belonging to a Project. */
+    listInvitesForProject: this.requestFunctionFactory(
+      descriptors.projectListInvitesForProject,
+    ),
+    /** Create a ProjectInvite. */
+    createProjectInvite: this.requestFunctionFactory(
+      descriptors.projectCreateProjectInvite,
+    ),
+    /** Create a Project belonging to a Server. */
+    createProject: this.requestFunctionFactory(
+      descriptors.projectCreateProject,
+    ),
+    /** Decline a ProjectInvite. */
+    declineProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeclineProjectInvite,
+    ),
+    /** Request a Project avatar upload. */
+    requestProjectAvatarUpload: this.requestFunctionFactory(
+      descriptors.projectRequestProjectAvatarUpload,
+    ),
+    /** Delete a Project's avatar. */
+    deleteProjectAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectAvatar,
+    ),
+    /** Get a ProjectInvite. */
+    getProjectInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectInvite,
+    ),
+    /** Delete a ProjectInvite. */
+    deleteProjectInvite: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectInvite,
+    ),
+    /** Get a ProjectMembership. */
+    getProjectMembership: this.requestFunctionFactory(
+      descriptors.projectGetProjectMembership,
+    ),
+    /** Delete a ProjectMembership. */
+    deleteProjectMembership: this.requestFunctionFactory(
+      descriptors.projectDeleteProjectMembership,
+    ),
+    /** Update a ProjectMembership. */
+    updateProjectMembership: this.requestFunctionFactory(
+      descriptors.projectUpdateProjectMembership,
+    ),
+    /** Get a Project. */
+    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
+    /** Delete a Project. */
+    deleteProject: this.requestFunctionFactory(
+      descriptors.projectDeleteProject,
+    ),
+    /** Update a Project. */
+    updateProject: this.requestFunctionFactory(
+      descriptors.projectUpdateProject,
+    ),
+    /** Request a Server avatar upload. */
+    requestServerAvatarUpload: this.requestFunctionFactory(
+      descriptors.projectRequestServerAvatarUpload,
+    ),
+    /** Delete a Server's avatar. */
+    deleteServerAvatar: this.requestFunctionFactory(
+      descriptors.projectDeleteServerAvatar,
+    ),
+    /** Get a ProjectInvite by token. */
+    getProjectTokenInvite: this.requestFunctionFactory(
+      descriptors.projectGetProjectTokenInvite,
+    ),
+    /** Get the executing user's membership in a Project. */
+    getSelfMembershipForProject: this.requestFunctionFactory(
+      descriptors.projectGetSelfMembershipForProject,
+    ),
+    /** Get a Server. */
+    getServer: this.requestFunctionFactory(descriptors.projectGetServer),
+    /** Update a Server. */
+    updateServer: this.requestFunctionFactory(descriptors.projectUpdateServer),
+    /** List Projects belonging to a Customer. */
+    listCustomerProjects: this.requestFunctionFactory(
+      descriptors.projectListCustomerProjects,
+    ),
+    /** List Memberships belonging to a Project. */
+    listMembershipsForProject: this.requestFunctionFactory(
+      descriptors.projectListMembershipsForProject,
+    ),
+    /** Get the activities of a project. */
+    listProjectActivities: this.requestFunctionFactory(
+      descriptors.projectListProjectActivities,
+    ),
+    /** List ProjectInvites belonging to the executing user. */
+    listProjectInvites: this.requestFunctionFactory(
+      descriptors.projectListProjectInvites,
+    ),
+    /** List ProjectMemberships belonging to the executing user. */
+    listProjectMemberships: this.requestFunctionFactory(
+      descriptors.projectListProjectMemberships,
+    ),
+    /** List Projects belonging to the executing user. */
+    listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
+    /** List Servers belonging to the executing user. */
+    listServers: this.requestFunctionFactory(descriptors.projectListServers),
+    /** Resend the mail for a ProjectInvite. */
+    resendProjectInviteMail: this.requestFunctionFactory(
+      descriptors.projectResendProjectInviteMail,
+    ),
+    /** Get storage space Statistics belonging to a Project. */
+    storagespaceGetProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetProjectStatistics,
+    ),
+    /** Update a Project's storage space statistics. */
+    storagespaceUpdateProjectStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceUpdateProjectStatistics,
+    ),
+    /** Get storage space Statistics belonging to a Server. */
+    storagespaceGetServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceGetServerStatistics,
+    ),
+    /** Update a Server's storage space statistics. */
+    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
+      descriptors.storagespaceUpdateServerStatistics,
+    ),
+  };
+
   /** The user API allows you to manage your own user and access information of other users that might be visible to you. */
   public readonly user = {
+    /**
+     * Change your Email-Address. Replaced by `PUT` `/v2/users/self/credentials/email`.
+     * @deprecated
+     */
+    deprecatedUserChangeEmail: this.requestFunctionFactory(
+      descriptors.deprecatedUserChangeEmail,
+    ),
+    /**
+     * Check token for validity.
+     * @deprecated
+     */
+    deprecatedUserCheckToken: this.requestFunctionFactory(
+      descriptors.deprecatedUserCheckToken,
+    ),
+    /**
+     * Confirm password reset. Replaced by `POST` `/v2/users/self/credentials/password/confirm-reset`.
+     * @deprecated
+     */
+    deprecatedUserConfirmPasswordReset: this.requestFunctionFactory(
+      descriptors.deprecatedUserConfirmPasswordReset,
+    ),
+    /**
+     * Create a new issue.
+     * @deprecated
+     */
+    deprecatedUserCreateIssue: this.requestFunctionFactory(
+      descriptors.deprecatedUserCreateIssue,
+    ),
+    /**
+     * Update an existing `ApiToken`. Replaced by `PUT` `/v2/users/{userId}/api-tokens/{apiTokenId}`.
+     * @deprecated
+     */
+    deprecatedUserEditApiToken: this.requestFunctionFactory(
+      descriptors.deprecatedUserEditApiToken,
+    ),
+    /**
+     * Deletes an ApiToken. Replaces by `DELETE` `/v2/user/{userid}/api-tokens/{apiTokenId}`.
+     * @deprecated
+     */
+    deprecatedUserDeleteApiToken: this.requestFunctionFactory(
+      descriptors.deprecatedUserDeleteApiToken,
+    ),
+    /**
+     * Edit a stored ssh-key. Replaced by `PUT` `/v2/users/self/ssh-keys/{sshKeyId}`.
+     * @deprecated
+     */
+    deprecatedUserEditSshKey: this.requestFunctionFactory(
+      descriptors.deprecatedUserEditSshKey,
+    ),
+    /**
+     * Remove a ssh-key. Replaced by `DELETE` `/v2/users/self/ssh-keys/{sshKeyId}`.
+     * @deprecated
+     */
+    deprecatedUserDeleteSshKey: this.requestFunctionFactory(
+      descriptors.deprecatedUserDeleteSshKey,
+    ),
+    /**
+     * Disable Multi Factor Authentication. Replaced by `DELETE` `/v2/users/self/credentials/mfa`.
+     * @deprecated
+     */
+    deprecatedUserDisableMfa: this.requestFunctionFactory(
+      descriptors.deprecatedUserDisableMfa,
+    ),
+    /**
+     * Get your account information. Replaced by `GET` `/v2/users/self`.
+     * @deprecated
+     */
+    deprecatedUserGetOwnAccount: this.requestFunctionFactory(
+      descriptors.deprecatedUserGetOwnAccount,
+    ),
     /** Update your account information. */
     updateAccount: this.requestFunctionFactory(descriptors.userUpdateAccount),
+    /**
+ * Initialize password reset process. Replaced by `POST` `/v2/users/self/credentials/actions/init-password-reset`.
+
+ * @deprecated
+ */
+    deprecatedUserInitPasswordReset: this.requestFunctionFactory(
+      descriptors.deprecatedUserInitPasswordReset,
+    ),
+    /**
+     * Terminate session and invalidate access token. Replaced by `DELETE` `/v2/users/self/sessions/{current}`.
+     * @deprecated
+     */
+    deprecatedUserLogout: this.requestFunctionFactory(
+      descriptors.deprecatedUserLogout,
+    ),
+    /**
+ * Resend the Email-Address verification email. Replaced by `POST` `/v2/users/self/credentials/email/actions/resend-email`.
+
+ * @deprecated
+ */
+    deprecatedUserResendVerificationEmail: this.requestFunctionFactory(
+      descriptors.deprecatedUserResendVerificationEmail,
+    ),
+    /**
+     * Request a new avatar upload
+     * @deprecated
+     */
+    deprecatedUserServiceAvatarRequestUpload: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceAvatarRequestUpload,
+    ),
+    /**
+     * Remove Avatar
+     * @deprecated
+     */
+    deprecatedUserServiceAvatarRemove: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceAvatarRemove,
+    ),
+    /**
+     * Returns your submitted feedback
+     * @deprecated
+     */
+    deprecatedUserServiceFeedbackList: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceFeedbackList,
+    ),
+    /**
+     * Submit user feedback
+     * @deprecated
+     */
+    deprecatedUserServiceFeedbackCreate: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceFeedbackCreate,
+    ),
+    /**
+     * create a new issue
+     * @deprecated
+     */
+    deprecatedUserServiceIssueNew: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceIssueNew,
+    ),
+    /**
+     * Get profile information for the specified user if the user is related to the executing user
+     * @deprecated
+     */
+    deprecatedUserServiceUserGet: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceUserGet,
+    ),
+    /**
+     * Change your personal information
+     * @deprecated
+     */
+    deprecatedUserServicePersonalInformationUpdate: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePersonalInformationUpdate,
+    ),
+    /**
+     * Get personalized settings for the user executing the request
+     * @deprecated
+     */
+    deprecatedUserServicePersonalizedSettingsGet: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePersonalizedSettingsGet,
+    ),
+    /**
+     * update personalized settings
+     * @deprecated
+     */
+    deprecatedUserServicePersonalizedSettingsUpdate:
+      this.requestFunctionFactory(
+        descriptors.deprecatedUserServicePersonalizedSettingsUpdate,
+      ),
+    /**
+     * Add phone number and init verification process
+     * @deprecated
+     */
+    deprecatedUserServicePhoneNumberAdd: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberAdd,
+    ),
+    /**
+     * remove your PhoneNumber
+     * @deprecated
+     */
+    deprecatedUserServicePhoneNumberRemove: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberRemove,
+    ),
+    /**
+     * Verify phone number
+     * @deprecated
+     */
+    deprecatedUserServicePhoneNumberVerify: this.requestFunctionFactory(
+      descriptors.deprecatedUserServicePhoneNumberVerify,
+    ),
+    /**
+     * Get profile information for the executing user
+     * @deprecated
+     */
+    deprecatedUserServiceUserGetOwn: this.requestFunctionFactory(
+      descriptors.deprecatedUserServiceUserGetOwn,
+    ),
+    /**
+     * Terminate all sessions, except the current session. Replaced by `DELETE` `/v2/users/self/sessions`.
+     * @deprecated
+     */
+    deprecatedUserTerminateAllSessions: this.requestFunctionFactory(
+      descriptors.deprecatedUserTerminateAllSessions,
+    ),
+    /**
+     * Terminate a specific Session. Replaced by `DELETE` `/v2/users/self/sessions/{tokenId}`.
+     * @deprecated
+     */
+    deprecatedUserTerminateSession: this.requestFunctionFactory(
+      descriptors.deprecatedUserTerminateSession,
+    ),
+    /**
+     * Update your account information.
+     * @deprecated
+     */
+    deprecatedUserUpdateAccount: this.requestFunctionFactory(
+      descriptors.deprecatedUserUpdateAccount,
+    ),
+    /**
+     * Verify an added Email-Address. Replaced by `POST` `/v2/users/self/credentials/email/actions/verify-email`.
+     * @deprecated
+     */
+    deprecatedUserVerifyEmail: this.requestFunctionFactory(
+      descriptors.deprecatedUserVerifyEmail,
+    ),
     /** Get a PasswordPolicy. */
     passwordValidationGetPasswordPolicy: this.requestFunctionFactory(
       descriptors.passwordValidationGetPasswordPolicy,
     ),
+    /**
+     * DEPRECAED. Use `GET` `/v2/password-policies/{passwordPolicy}` instead.
+     * @deprecated
+     */
+    passwordValidationGetPasswordPolicyV2Deprecated:
+      this.requestFunctionFactory(
+        descriptors.passwordValidationGetPasswordPolicyV2Deprecated,
+      ),
     /** Add phone number and start verification process. */
     addPhoneNumber: this.requestFunctionFactory(descriptors.userAddPhoneNumber),
     /** Remove phone number. */
@@ -1558,28 +2411,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
   };
 
-  /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
-  public readonly file = {
-    /** Create a File. */
-    createFile: this.requestFunctionFactory(descriptors.fileCreateFile),
-    /** Get a File's meta. */
-    getFileMeta: this.requestFunctionFactory(descriptors.fileGetFileMeta),
-    /** Get a FileUploadToken's rules. */
-    getFileUploadTokenRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTokenRules,
-    ),
-    /** Get a FileUploadType's rules. */
-    getFileUploadTypeRules: this.requestFunctionFactory(
-      descriptors.fileGetFileUploadTypeRules,
-    ),
-    /** Get a File. */
-    getFile: this.requestFunctionFactory(descriptors.fileGetFile),
-    /** Get a File with user-friendly url. */
-    getFileWithName: this.requestFunctionFactory(
-      descriptors.fileGetFileWithName,
-    ),
-  };
-
   /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
   public readonly leadFyndr = {
     /** Get your LeadFyndr request. */
@@ -1693,132 +2524,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Schedule a strace measurement for a single http request. */
     pageinsightsScheduleStrace: this.requestFunctionFactory(
       descriptors.pageinsightsScheduleStrace,
-    ),
-  };
-
-  /** The project API allows you to manage your projects, and also any kinds of user memberships concerning these projects. */
-  public readonly project = {
-    /** Accept a ProjectInvite. */
-    acceptProjectInvite: this.requestFunctionFactory(
-      descriptors.projectAcceptProjectInvite,
-    ),
-    /** List Invites belonging to a Project. */
-    listInvitesForProject: this.requestFunctionFactory(
-      descriptors.projectListInvitesForProject,
-    ),
-    /** Create a ProjectInvite. */
-    createProjectInvite: this.requestFunctionFactory(
-      descriptors.projectCreateProjectInvite,
-    ),
-    /** Create a Project belonging to a Server. */
-    createProject: this.requestFunctionFactory(
-      descriptors.projectCreateProject,
-    ),
-    /** Decline a ProjectInvite. */
-    declineProjectInvite: this.requestFunctionFactory(
-      descriptors.projectDeclineProjectInvite,
-    ),
-    /** Request a Project avatar upload. */
-    requestProjectAvatarUpload: this.requestFunctionFactory(
-      descriptors.projectRequestProjectAvatarUpload,
-    ),
-    /** Delete a Project's avatar. */
-    deleteProjectAvatar: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectAvatar,
-    ),
-    /** Get a ProjectInvite. */
-    getProjectInvite: this.requestFunctionFactory(
-      descriptors.projectGetProjectInvite,
-    ),
-    /** Delete a ProjectInvite. */
-    deleteProjectInvite: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectInvite,
-    ),
-    /** Get a ProjectMembership. */
-    getProjectMembership: this.requestFunctionFactory(
-      descriptors.projectGetProjectMembership,
-    ),
-    /** Delete a ProjectMembership. */
-    deleteProjectMembership: this.requestFunctionFactory(
-      descriptors.projectDeleteProjectMembership,
-    ),
-    /** Update a ProjectMembership. */
-    updateProjectMembership: this.requestFunctionFactory(
-      descriptors.projectUpdateProjectMembership,
-    ),
-    /** Get a Project. */
-    getProject: this.requestFunctionFactory(descriptors.projectGetProject),
-    /** Delete a Project. */
-    deleteProject: this.requestFunctionFactory(
-      descriptors.projectDeleteProject,
-    ),
-    /** Update a Project. */
-    updateProject: this.requestFunctionFactory(
-      descriptors.projectUpdateProject,
-    ),
-    /** Request a Server avatar upload. */
-    requestServerAvatarUpload: this.requestFunctionFactory(
-      descriptors.projectRequestServerAvatarUpload,
-    ),
-    /** Delete a Server's avatar. */
-    deleteServerAvatar: this.requestFunctionFactory(
-      descriptors.projectDeleteServerAvatar,
-    ),
-    /** Get a ProjectInvite by token. */
-    getProjectTokenInvite: this.requestFunctionFactory(
-      descriptors.projectGetProjectTokenInvite,
-    ),
-    /** Get the executing user's membership in a Project. */
-    getSelfMembershipForProject: this.requestFunctionFactory(
-      descriptors.projectGetSelfMembershipForProject,
-    ),
-    /** Get a Server. */
-    getServer: this.requestFunctionFactory(descriptors.projectGetServer),
-    /** Update a Server. */
-    updateServer: this.requestFunctionFactory(descriptors.projectUpdateServer),
-    /** List Projects belonging to a Customer. */
-    listCustomerProjects: this.requestFunctionFactory(
-      descriptors.projectListCustomerProjects,
-    ),
-    /** List Memberships belonging to a Project. */
-    listMembershipsForProject: this.requestFunctionFactory(
-      descriptors.projectListMembershipsForProject,
-    ),
-    /** Get the activities of a project. */
-    listProjectActivities: this.requestFunctionFactory(
-      descriptors.projectListProjectActivities,
-    ),
-    /** List ProjectInvites belonging to the executing user. */
-    listProjectInvites: this.requestFunctionFactory(
-      descriptors.projectListProjectInvites,
-    ),
-    /** List ProjectMemberships belonging to the executing user. */
-    listProjectMemberships: this.requestFunctionFactory(
-      descriptors.projectListProjectMemberships,
-    ),
-    /** List Projects belonging to the executing user. */
-    listProjects: this.requestFunctionFactory(descriptors.projectListProjects),
-    /** List Servers belonging to the executing user. */
-    listServers: this.requestFunctionFactory(descriptors.projectListServers),
-    /** Resend the mail for a ProjectInvite. */
-    resendProjectInviteMail: this.requestFunctionFactory(
-      descriptors.projectResendProjectInviteMail,
-    ),
-    /** Get storage space Statistics belonging to a Project. */
-    storagespaceGetProjectStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceGetProjectStatistics,
-    ),
-    /** Update a Project's storage space statistics. */
-    storagespaceUpdateProjectStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceUpdateProjectStatistics,
-    ),
-    /** Get storage space Statistics belonging to a Server. */
-    storagespaceGetServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceGetServerStatistics,
-    ),
-    /** Update a Server's storage space statistics. */
-    storagespaceUpdateServerStatistics: this.requestFunctionFactory(
-      descriptors.storagespaceUpdateServerStatistics,
     ),
   };
 
