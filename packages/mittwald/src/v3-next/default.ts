@@ -1,4 +1,5 @@
 import {
+  ApiClientOptions,
   AxiosHeaders,
   CreateAxiosDefaults,
   withAccessToken,
@@ -10,13 +11,19 @@ import { MittwaldAPIClientVersion } from "../version.js";
 
 export type { MittwaldAPIV3Next } from "../generated/v3-next/types.js";
 
+/** Options accepted by the `MittwaldAPIClient` factories. */
+export type MittwaldAPIClientOptions = ApiClientOptions;
+
 const defaultUserAgent = "mittwald-api-client/" + MittwaldAPIClientVersion;
 
 export class MittwaldAPIClient extends MittwaldApiV3NextClient {
   private readonly apiToken: string | undefined;
 
-  private constructor(apiToken?: string) {
-    super(MittwaldAPIClient.createAxiosDefaults());
+  private constructor(
+    apiToken?: string,
+    options: MittwaldAPIClientOptions = {},
+  ) {
+    super(MittwaldAPIClient.createAxiosDefaults(), options);
     this.apiToken = apiToken;
     this.setupInterceptors();
   }
@@ -39,12 +46,17 @@ export class MittwaldAPIClient extends MittwaldApiV3NextClient {
     withAccessToken(this, this.apiToken);
   }
 
-  public static newUnauthenticated(): MittwaldAPIClient {
-    return new MittwaldAPIClient();
+  public static newUnauthenticated(
+    options?: MittwaldAPIClientOptions,
+  ): MittwaldAPIClient {
+    return new MittwaldAPIClient(undefined, options);
   }
 
-  public static newWithToken(apiToken: string): MittwaldAPIClient {
-    return new MittwaldAPIClient(apiToken);
+  public static newWithToken(
+    apiToken: string,
+    options?: MittwaldAPIClientOptions,
+  ): MittwaldAPIClient {
+    return new MittwaldAPIClient(apiToken, options);
   }
 
   public withEventConsistencyHandling() {

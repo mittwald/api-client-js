@@ -25,6 +25,7 @@ see the [LICENSE](../../LICENSE) file for details.
   - [Setup](#setup)
   - [Usage](#usage-1)
   - [Example](#example-1)
+- [Deprecated operations](#deprecated-operations)
 - [API documentation](#api-documentation)
 - [Accessing the underlying Axios instance](#accessing-the-underlying-axios-instance)
   - [Adding custom HTTP headers](#adding-custom-http-headers)
@@ -250,6 +251,38 @@ const ProjectsList = () => {
   );
 };
 ```
+
+## Deprecated operations
+
+Operations that are deprecated in the API are marked with `@deprecated`, so your
+editor flags them. At runtime, the client warns once per operation when you call
+one: in Node.js as a `DeprecationWarning` (silenced by `--no-deprecation`), in
+browsers with `console.warn`. The client also picks up the `Deprecation`
+([RFC 9745](https://www.rfc-editor.org/rfc/rfc9745)) and `Sunset`
+([RFC 8594](https://www.rfc-editor.org/rfc/rfc8594)) response headers.
+
+Pass `onDeprecation` to any factory method to handle this yourself. The handler
+is called on every call of a deprecated operation; wrap it in
+`Commons.oncePerOperation` to get one call per operation:
+
+```typescript
+import { Commons, MittwaldAPIClient } from "@mittwald/api-client";
+
+const mittwaldApi = MittwaldAPIClient.newWithToken("your-access-token", {
+  onDeprecation: Commons.oncePerOperation((event) => {
+    logger.warn("Deprecated mittwald API operation", event);
+  }),
+});
+
+// Or silence the warnings completely
+const quietApi = MittwaldAPIClient.newWithToken("your-access-token", {
+  onDeprecation: () => {},
+});
+```
+
+The event contains `operationId`, `method`, `path`, `source` (`"spec"` or
+`"response-header"`) and, when the API sends them, the `deprecation` and
+`sunset` dates. Errors thrown by the handler never affect the request.
 
 ## API documentation
 

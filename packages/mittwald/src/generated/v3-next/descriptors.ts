@@ -566,6 +566,7 @@ export const aiHostingCustomerGetUsage: OpenAPIOperation<
   path: "/v3-next/customers/{customerId}/ai-hosting",
   method: "GET",
   operationId: "ai-hosting-customer-get-usage",
+  deprecated: true,
 };
 
 /** Rotates a customer's key. */
@@ -1171,6 +1172,7 @@ export const aiHostingProjectGetUsage: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/ai-hosting",
   method: "GET",
   operationId: "ai-hosting-project-get-usage",
+  deprecated: true,
 };
 
 /** Links a container with a project licence. */
@@ -1671,6 +1673,7 @@ export const appGetInstalledSystemsoftwareForAppinstallation: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/systemSoftware",
   method: "GET",
   operationId: "app-get-installed-systemsoftware-for-appinstallation",
+  deprecated: true,
 };
 
 /** Get the missing requirements of an appInstallation for a specific target AppVersion. */
@@ -1815,6 +1818,7 @@ export const appLinkDatabase: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/database",
   method: "PATCH",
   operationId: "app-link-database",
+  deprecated: true,
 };
 
 /** List AppInstallations that a user has access to. */
@@ -2235,6 +2239,7 @@ export const appSetDatabaseUsers: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/databases/{databaseId}/users",
   method: "PUT",
   operationId: "app-set-database-users",
+  deprecated: true,
 };
 
 /** Remove linkage between an AppInstallation and a Database. */
@@ -2940,6 +2945,7 @@ export const backupRequestProjectBackupRestorePathDeprecated: OpenAPIOperation<
   path: "/v3-next/project-backups/{projectBackupId}/restore-path",
   method: "POST",
   operationId: "backup-request-project-backup-restore-path-deprecated",
+  deprecated: true,
 };
 
 /** Restore a ProjectBackup. */
@@ -4306,6 +4312,7 @@ export const containerListTemplateStatistics: OpenAPIOperation<
   path: "/v3-next/container-template-statistics",
   method: "GET",
   operationId: "container-list-template-statistics",
+  deprecated: true,
 };
 
 /** List Container Templates. */
@@ -8490,6 +8497,7 @@ export const deprecatedDatabaseReplaceMysqlUser: OpenAPIOperation<
   path: "/v3-next/mysql-users/{mysqlUserId}",
   method: "PUT",
   operationId: "deprecated-database-replace-mysql-user",
+  deprecated: true,
 };
 
 /** Delete a MySQLUser. */
@@ -8981,6 +8989,7 @@ export const deprecatedAppInstallationExecuteAction: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/actions/{action}",
   method: "POST",
   operationId: "deprecated-app-installation-execute-action",
+  deprecated: true,
 };
 
 /**
@@ -9018,6 +9027,7 @@ export const deprecatedAppLinkDatabase: OpenAPIOperation<
   path: "/v3-next/appinstallations/{appInstallationId}/databases",
   method: "PUT",
   operationId: "deprecated-app-link-database",
+  deprecated: true,
 };
 
 /**
@@ -9060,6 +9070,7 @@ export const deprecatedAppReplaceDatabase: OpenAPIOperation<
   path: "/v3-next/app-installations/{appInstallationId}/database/replace",
   method: "PATCH",
   operationId: "deprecated-app-replace-database",
+  deprecated: true,
 };
 
 /**
@@ -9107,6 +9118,7 @@ export const deprecatedBackupReplaceProjectBackupExpirationTime: OpenAPIOperatio
   path: "/v3-next/project-backups/{projectBackupId}/expiration-time",
   method: "PUT",
   operationId: "deprecated-backup-replace-project-backup-expiration-time",
+  deprecated: true,
 };
 
 /**
@@ -9154,6 +9166,7 @@ export const deprecatedBackupUpdateProjectBackupDescription: OpenAPIOperation<
   path: "/v3-next/project-backups/{projectBackupId}/description",
   method: "PATCH",
   operationId: "deprecated-backup-update-project-backup-description",
+  deprecated: true,
 };
 
 /**
@@ -9231,6 +9244,7 @@ export const deprecatedContainerGetTemplateIcon: OpenAPIOperation<
   path: "/v3-next/container-templates/{templateId}/icon",
   method: "GET",
   operationId: "deprecated-container-get-template-icon",
+  deprecated: true,
 };
 
 /**
@@ -9288,6 +9302,7 @@ export const deprecatedContainerSetStackUpdateSchedule: OpenAPIOperation<
   path: "/v3-next/stacks/{stackId}/update-schedule",
   method: "PUT",
   operationId: "deprecated-container-set-stack-update-schedule",
+  deprecated: true,
 };
 
 /**
@@ -9345,6 +9360,7 @@ export const deprecatedContainerValidateContainerRegistryUri: OpenAPIOperation<
   path: "/v3-next/actions/validate-container-registry-uri",
   method: "POST",
   operationId: "deprecated-container-validate-container-registry-uri",
+  deprecated: true,
 };
 
 /**
@@ -9402,6 +9418,7 @@ export const deprecatedContainerValidateRegistryCredentials: OpenAPIOperation<
   path: "/v3-next/registries/{registryId}/actions/validate-credentials",
   method: "POST",
   operationId: "deprecated-container-validate-registry-credentials",
+  deprecated: true,
 };
 
 /**
@@ -9444,6 +9461,7 @@ export const deprecatedContractGetDetailOfContractByAiHosting: OpenAPIOperation<
   path: "/v3-next/customers/{customerId}/ai-hosting/contract",
   method: "GET",
   operationId: "deprecated-contract-get-detail-of-contract-by-ai-hosting",
+  deprecated: true,
 };
 
 /**
@@ -9486,6 +9504,7 @@ export const deprecatedContractGetNextTerminationDateForItem: OpenAPIOperation<
   path: "/v3-next/contracts/{contractId}/items/{contractItemId}/next-termination-dates",
   method: "GET",
   operationId: "deprecated-contract-get-next-termination-date-for-item",
+  deprecated: true,
 };
 
 /**
@@ -9528,6 +9547,7 @@ export const deprecatedCronjobReplaceCronjobAppInstallationId: OpenAPIOperation<
   path: "/v3-next/cronjobs/{cronjobId}/app-installation-id",
   method: "PUT",
   operationId: "deprecated-cronjob-replace-cronjob-app-installation-id",
+  deprecated: true,
 };
 
 /**
@@ -9570,6 +9590,7 @@ export const deprecatedCronjobUpdateCronjobAppId: OpenAPIOperation<
   path: "/v3-next/cronjobs/{cronjobId}/app-installation-id",
   method: "PATCH",
   operationId: "deprecated-cronjob-update-cronjob-app-id",
+  deprecated: true,
 };
 
 /**
@@ -9602,6 +9623,7 @@ export const deprecatedCustomerLeaveCustomer: OpenAPIOperation<
   path: "/v3-next/customers/{customerId}/actions/leave",
   method: "POST",
   operationId: "deprecated-customer-leave-customer",
+  deprecated: true,
 };
 
 /**
@@ -9644,6 +9666,7 @@ export const deprecatedDatabaseUpdateMysqlDatabaseDefaultCharset: OpenAPIOperati
   path: "/v3-next/mysql-databases/{mysqlDatabaseId}/default-charset",
   method: "PATCH",
   operationId: "deprecated-database-update-mysql-database-default-charset",
+  deprecated: true,
 };
 
 /**
@@ -9686,6 +9709,7 @@ export const deprecatedDatabaseUpdateMysqlDatabaseDescription: OpenAPIOperation<
   path: "/v3-next/mysql-databases/{mysqlDatabaseId}/description",
   method: "PATCH",
   operationId: "deprecated-database-update-mysql-database-description",
+  deprecated: true,
 };
 
 /**
@@ -9728,6 +9752,7 @@ export const deprecatedDatabaseUpdateMysqlUserPassword: OpenAPIOperation<
   path: "/v3-next/mysql-users/{mysqlUserId}/password",
   method: "PATCH",
   operationId: "deprecated-database-update-mysql-user-password",
+  deprecated: true,
 };
 
 /**
@@ -9770,6 +9795,7 @@ export const deprecatedDatabaseUpdateRedisDatabaseConfiguration: OpenAPIOperatio
   path: "/v3-next/redis-databases/{redisDatabaseId}/configuration",
   method: "PATCH",
   operationId: "deprecated-database-update-redis-database-configuration",
+  deprecated: true,
 };
 
 /**
@@ -9812,6 +9838,7 @@ export const deprecatedDatabaseUpdateRedisDatabaseDescription: OpenAPIOperation<
   path: "/v3-next/redis-databases/{redisDatabaseId}/description",
   method: "PATCH",
   operationId: "deprecated-database-update-redis-database-description",
+  deprecated: true,
 };
 
 /**
@@ -9849,6 +9876,7 @@ export const deprecatedDnsRecordAsetCustom: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/acombined/custom",
   method: "PUT",
   operationId: "deprecated-dns-record-a-set-custom",
+  deprecated: true,
 };
 
 /**
@@ -9886,6 +9914,7 @@ export const deprecatedDnsRecordAsetManagedByIngress: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/acombined/managed/ingress",
   method: "POST",
   operationId: "deprecated-dns-record-a-set-managed-by-ingress",
+  deprecated: true,
 };
 
 /**
@@ -9923,6 +9952,7 @@ export const deprecatedDnsRecordCnameSet: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/cname",
   method: "PUT",
   operationId: "deprecated-dns-record-cname-set",
+  deprecated: true,
 };
 
 /**
@@ -9960,6 +9990,7 @@ export const deprecatedDnsRecordMxSetCustom: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/mx/custom",
   method: "PUT",
   operationId: "deprecated-dns-record-mx-set-custom",
+  deprecated: true,
 };
 
 /**
@@ -9997,6 +10028,7 @@ export const deprecatedDnsRecordMxSetManaged: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/mx/managed",
   method: "POST",
   operationId: "deprecated-dns-record-mx-set-managed",
+  deprecated: true,
 };
 
 /**
@@ -10034,6 +10066,7 @@ export const deprecatedDnsRecordSrvSet: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/srv",
   method: "PUT",
   operationId: "deprecated-dns-record-srv-set",
+  deprecated: true,
 };
 
 /**
@@ -10071,6 +10104,7 @@ export const deprecatedDnsRecordTxtSet: OpenAPIOperation<
   path: "/v3-next/dns/zones/{zoneId}/recordset/txt",
   method: "PUT",
   operationId: "deprecated-dns-record-txt-set",
+  deprecated: true,
 };
 
 /**
@@ -10113,6 +10147,7 @@ export const deprecatedDomainChangeOwnercOfDomain: OpenAPIOperation<
   path: "/v3-next/domains/{domainId}/handles/ownerc",
   method: "PUT",
   operationId: "deprecated-domain-change-ownerc-of-domain",
+  deprecated: true,
 };
 
 /**
@@ -10155,6 +10190,7 @@ export const deprecatedDomainChangeProjectOfDomain: OpenAPIOperation<
   path: "/v3-next/domains/{domainId}/projectId",
   method: "PUT",
   operationId: "deprecated-domain-change-project-of-domain",
+  deprecated: true,
 };
 
 /** List Domains */
@@ -10226,6 +10262,7 @@ export const deprecatedDomainCheckDomainRegistrability: OpenAPIOperation<
   path: "/v3-next/domains",
   method: "POST",
   operationId: "deprecated-domain-check-domain-registrability",
+  deprecated: true,
 };
 
 /**
@@ -10268,6 +10305,7 @@ export const deprecatedDomainDeclareNameservers: OpenAPIOperation<
   path: "/v3-next/domains/{domainId}/nameservers",
   method: "PUT",
   operationId: "deprecated-domain-declare-nameservers",
+  deprecated: true,
 };
 
 /** Update the nameservers of a Domain. */
@@ -10349,6 +10387,7 @@ export const deprecatedDomainDeclareProcessChangeAuthcode: OpenAPIOperation<
   path: "/v3-next/domains/{domainId}/declarations/authcode",
   method: "PUT",
   operationId: "deprecated-domain-declare-process-change-authcode",
+  deprecated: true,
 };
 
 /**
@@ -10391,6 +10430,7 @@ export const deprecatedDomainDeclareProcessChangeHandles: OpenAPIOperation<
   path: "/v3-next/domains/{domainId}/declarations/handles",
   method: "PUT",
   operationId: "deprecated-domain-declare-process-change-handles",
+  deprecated: true,
 };
 
 /**
@@ -10423,6 +10463,7 @@ export const deprecatedDomainGetHandleFields: OpenAPIOperation<
   path: "/v3-next/domains/handle-schema/{domainName}",
   method: "GET",
   operationId: "deprecated-domain-get-handle-fields",
+  deprecated: true,
 };
 
 /**
@@ -10460,6 +10501,7 @@ export const deprecatedDomainGetScreenshotForDomain: OpenAPIOperation<
   path: "/v3-next/domains/{domainId}/screenshots/newest",
   method: "GET",
   operationId: "deprecated-domain-get-screenshot-for-domain",
+  deprecated: true,
 };
 
 /**
@@ -10497,6 +10539,7 @@ export const deprecatedDomainListDomains: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/domains",
   method: "GET",
   operationId: "deprecated-domain-list-domains",
+  deprecated: true,
 };
 
 /**
@@ -10539,6 +10582,7 @@ export const deprecatedFileGetFileTokenRules: OpenAPIOperation<
   path: "/v3-next/file-token-rules/{token}",
   method: "GET",
   operationId: "deprecated-file-get-file-token-rules",
+  deprecated: true,
 };
 
 /**
@@ -10581,6 +10625,7 @@ export const deprecatedFileGetFileTypeRules: OpenAPIOperation<
   path: "/v3-next/file-type-rules/{name}",
   method: "GET",
   operationId: "deprecated-file-get-file-type-rules",
+  deprecated: true,
 };
 
 /**
@@ -10618,6 +10663,7 @@ export const deprecatedIngressListIngresses: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/ingresses",
   method: "GET",
   operationId: "deprecated-ingress-list-ingresses",
+  deprecated: true,
 };
 
 /**
@@ -10655,6 +10701,7 @@ export const deprecatedIngressPaths: OpenAPIOperation<
   path: "/v3-next/ingresses/{ingressId}/paths",
   method: "PUT",
   operationId: "deprecated-ingress-paths",
+  deprecated: true,
 };
 
 /** Update the paths of an Ingress. */
@@ -10726,6 +10773,7 @@ export const deprecatedIngressTls: OpenAPIOperation<
   path: "/v3-next/ingresses/{ingressId}/tls",
   method: "PUT",
   operationId: "deprecated-ingress-tls",
+  deprecated: true,
 };
 
 /** Update the tls settings of an Ingress. */
@@ -10812,6 +10860,7 @@ export const deprecatedInvoiceDetailOfInvoice: OpenAPIOperation<
   path: "/v3-next/customers/{customerId}/invoices/{invoiceId}",
   method: "GET",
   operationId: "deprecated-invoice-detail-of-invoice",
+  deprecated: true,
 };
 
 /**
@@ -10859,6 +10908,7 @@ export const deprecatedMailDeliveryboxUpdateDescription: OpenAPIOperation<
   path: "/v3-next/deliveryboxes/{id}/description",
   method: "PUT",
   operationId: "deprecated-mail-deliverybox-update-description",
+  deprecated: true,
 };
 
 /**
@@ -10906,6 +10956,7 @@ export const deprecatedMailDeliveryboxUpdatePassword: OpenAPIOperation<
   path: "/v3-next/deliveryboxes/{id}/password",
   method: "PUT",
   operationId: "deprecated-mail-deliverybox-update-password",
+  deprecated: true,
 };
 
 /**
@@ -10953,6 +11004,7 @@ export const deprecatedMailMailaddressUpdateAddress: OpenAPIOperation<
   path: "/v3-next/mailaddresses/{id}/address",
   method: "PUT",
   operationId: "deprecated-mail-mailaddress-update-address",
+  deprecated: true,
 };
 
 /**
@@ -11000,6 +11052,7 @@ export const deprecatedMailProjectsettingUpdateBlacklist: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/mailsettings/blacklist",
   method: "PUT",
   operationId: "deprecated-mail-projectsetting-update-blacklist",
+  deprecated: true,
 };
 
 /**
@@ -11047,6 +11100,7 @@ export const deprecatedMailProjectsettingUpdateWhitelist: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/mailsettings/whitelist",
   method: "PUT",
   operationId: "deprecated-mail-projectsetting-update-whitelist",
+  deprecated: true,
 };
 
 /**
@@ -11104,6 +11158,7 @@ export const deprecatedMailUpdateMailAddressAutoresponder: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/autoresponder",
   method: "PUT",
   operationId: "deprecated-mail-update-mail-address-autoresponder",
+  deprecated: true,
 };
 
 /** Update the autoresponder of a MailAddress. */
@@ -11215,6 +11270,7 @@ export const deprecatedMailUpdateMailAddressCatchall: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/catchall",
   method: "PUT",
   operationId: "deprecated-mail-update-mail-address-catchall",
+  deprecated: true,
 };
 
 /**
@@ -11272,6 +11328,7 @@ export const deprecatedMailUpdateMailAddressForwardAddresses: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/forward-addresses",
   method: "PUT",
   operationId: "deprecated-mail-update-mail-address-forward-addresses",
+  deprecated: true,
 };
 
 /** Update the forward addresses of a MailAddresses. */
@@ -11383,6 +11440,7 @@ export const deprecatedMailUpdateMailAddressPassword: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/password",
   method: "PUT",
   operationId: "deprecated-mail-update-mail-address-password",
+  deprecated: true,
 };
 
 /** Update the password for a MailAddress. */
@@ -11494,6 +11552,7 @@ export const deprecatedMailUpdateMailAddressQuota: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/quota",
   method: "PUT",
   operationId: "deprecated-mail-update-mail-address-quota",
+  deprecated: true,
 };
 
 /** Update the quota of a MailAddress. */
@@ -11605,6 +11664,7 @@ export const deprecatedMailUpdateMailAddressSpamProtection: OpenAPIOperation<
   path: "/v3-next/mail-addresses/{mailAddressId}/spam-protection",
   method: "PUT",
   operationId: "deprecated-mail-update-mail-address-spam-protection",
+  deprecated: true,
 };
 
 /** Update the spam protection of a MailAddress. */
@@ -11716,6 +11776,7 @@ export const deprecatedMailUpdateProjectMailSetting: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/mail-settings/{mailSetting}",
   method: "PUT",
   operationId: "deprecated-mail-update-project-mail-setting",
+  deprecated: true,
 };
 
 /** Update a mail setting of a Project. */
@@ -11836,6 +11897,7 @@ export const deprecatedProjectLeaveProject: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/leave",
   method: "POST",
   operationId: "deprecated-project-leave-project",
+  deprecated: true,
 };
 
 /**
@@ -11878,6 +11940,7 @@ export const deprecatedProjectUpdateProjectDescription: OpenAPIOperation<
   path: "/v3-next/projects/{projectId}/description",
   method: "PATCH",
   operationId: "deprecated-project-update-project-description",
+  deprecated: true,
 };
 
 /**
@@ -11920,6 +11983,7 @@ export const deprecatedProjectUpdateServerDescription: OpenAPIOperation<
   path: "/v3-next/servers/{serverId}/description",
   method: "PATCH",
   operationId: "deprecated-project-update-server-description",
+  deprecated: true,
 };
 
 /**
@@ -11962,6 +12026,7 @@ export const deprecatedStoragespaceReplaceProjectNotificationThreshold: OpenAPIO
   path: "/v3-next/projects/{projectId}/storage-space-notification-threshold",
   method: "PUT",
   operationId: "deprecated-storagespace-replace-project-notification-threshold",
+  deprecated: true,
 };
 
 /**
@@ -12004,6 +12069,7 @@ export const deprecatedStoragespaceReplaceServerNotificationThreshold: OpenAPIOp
   path: "/v3-next/servers/{serverId}/storage-space-notification-threshold",
   method: "PUT",
   operationId: "deprecated-storagespace-replace-server-notification-threshold",
+  deprecated: true,
 };
 
 /**
@@ -12041,6 +12107,7 @@ export const deprecatedUserChangeEmail: OpenAPIOperation<
   path: "/v3-next/signup/email",
   method: "PUT",
   operationId: "deprecated-user-change-email",
+  deprecated: true,
 };
 
 /**
@@ -12073,6 +12140,7 @@ export const deprecatedUserCheckToken: OpenAPIOperation<
   path: "/v3-next/users/self/credentials/token",
   method: "POST",
   operationId: "deprecated-user-check-token",
+  deprecated: true,
 };
 
 /**
@@ -12110,6 +12178,7 @@ export const deprecatedUserConfirmPasswordReset: OpenAPIOperation<
   path: "/v3-next/signup/password/reset/confirm",
   method: "POST",
   operationId: "deprecated-user-confirm-password-reset",
+  deprecated: true,
 };
 
 /**
@@ -12152,6 +12221,7 @@ export const deprecatedUserCreateIssue: OpenAPIOperation<
   path: "/v3-next/users/self/issues",
   method: "POST",
   operationId: "deprecated-user-create-issue",
+  deprecated: true,
 };
 
 /**
@@ -12189,6 +12259,7 @@ export const deprecatedUserEditApiToken: OpenAPIOperation<
   path: "/v3-next/signup/token/api/{apiTokenId}",
   method: "PUT",
   operationId: "deprecated-user-edit-api-token",
+  deprecated: true,
 };
 
 /**
@@ -12226,6 +12297,7 @@ export const deprecatedUserDeleteApiToken: OpenAPIOperation<
   path: "/v3-next/signup/token/api/{apiTokenId}",
   method: "DELETE",
   operationId: "deprecated-user-delete-api-token",
+  deprecated: true,
 };
 
 /**
@@ -12263,6 +12335,7 @@ export const deprecatedUserEditSshKey: OpenAPIOperation<
   path: "/v3-next/signup/ssh/{sshKeyId}",
   method: "PUT",
   operationId: "deprecated-user-edit-ssh-key",
+  deprecated: true,
 };
 
 /**
@@ -12295,6 +12368,7 @@ export const deprecatedUserDeleteSshKey: OpenAPIOperation<
   path: "/v3-next/signup/ssh/{sshKeyId}",
   method: "DELETE",
   operationId: "deprecated-user-delete-ssh-key",
+  deprecated: true,
 };
 
 /**
@@ -12332,6 +12406,7 @@ export const deprecatedUserDisableMfa: OpenAPIOperation<
   path: "/v3-next/signup/mfa",
   method: "DELETE",
   operationId: "deprecated-user-disable-mfa",
+  deprecated: true,
 };
 
 /**
@@ -12364,6 +12439,7 @@ export const deprecatedUserGetOwnAccount: OpenAPIOperation<
   path: "/v3-next/users/self/personal-information",
   method: "GET",
   operationId: "deprecated-user-get-own-account",
+  deprecated: true,
 };
 
 /** Update your account information. */
@@ -12436,6 +12512,7 @@ export const deprecatedUserInitPasswordReset: OpenAPIOperation<
   path: "/v3-next/signup/password/reset",
   method: "POST",
   operationId: "deprecated-user-init-password-reset",
+  deprecated: true,
 };
 
 /**
@@ -12473,6 +12550,7 @@ export const deprecatedUserLogout: OpenAPIOperation<
   path: "/v3-next/signup/logout",
   method: "PUT",
   operationId: "deprecated-user-logout",
+  deprecated: true,
 };
 
 /**
@@ -12511,6 +12589,7 @@ export const deprecatedUserResendVerificationEmail: OpenAPIOperation<
   path: "/v3-next/signup/email/resend",
   method: "POST",
   operationId: "deprecated-user-resend-verification-email",
+  deprecated: true,
 };
 
 /**
@@ -12548,6 +12627,7 @@ export const deprecatedUserServiceAvatarRequestUpload: OpenAPIOperation<
   path: "/v3-next/user/{userId}/avatar",
   method: "POST",
   operationId: "deprecated-user-service-avatar-request-upload",
+  deprecated: true,
 };
 
 /**
@@ -12585,6 +12665,7 @@ export const deprecatedUserServiceAvatarRemove: OpenAPIOperation<
   path: "/v3-next/user/{userId}/avatar",
   method: "DELETE",
   operationId: "deprecated-user-service-avatar-remove",
+  deprecated: true,
 };
 
 /**
@@ -12617,6 +12698,7 @@ export const deprecatedUserServiceFeedbackList: OpenAPIOperation<
   path: "/v3-next/user/feedback",
   method: "GET",
   operationId: "deprecated-user-service-feedback-list",
+  deprecated: true,
 };
 
 /**
@@ -12659,6 +12741,7 @@ export const deprecatedUserServiceFeedbackCreate: OpenAPIOperation<
   path: "/v3-next/user/feedback",
   method: "POST",
   operationId: "deprecated-user-service-feedback-create",
+  deprecated: true,
 };
 
 /**
@@ -12691,6 +12774,7 @@ export const deprecatedUserServiceIssueNew: OpenAPIOperation<
   path: "/v3-next/user/issues",
   method: "POST",
   operationId: "deprecated-user-service-issue-new",
+  deprecated: true,
 };
 
 /**
@@ -12738,6 +12822,7 @@ export const deprecatedUserServiceUserGet: OpenAPIOperation<
   path: "/v3-next/user/{userId}",
   method: "GET",
   operationId: "deprecated-user-service-user-get",
+  deprecated: true,
 };
 
 /**
@@ -12775,6 +12860,7 @@ export const deprecatedUserServicePersonalInformationUpdate: OpenAPIOperation<
   path: "/v3-next/user/{userId}",
   method: "PUT",
   operationId: "deprecated-user-service-personal-information-update",
+  deprecated: true,
 };
 
 /**
@@ -12807,6 +12893,7 @@ export const deprecatedUserServicePersonalizedSettingsGet: OpenAPIOperation<
   path: "/v3-next/user/settings",
   method: "GET",
   operationId: "deprecated-user-service-personalized-settings-get",
+  deprecated: true,
 };
 
 /**
@@ -12844,6 +12931,7 @@ export const deprecatedUserServicePersonalizedSettingsUpdate: OpenAPIOperation<
   path: "/v3-next/user/settings",
   method: "PUT",
   operationId: "deprecated-user-service-personalized-settings-update",
+  deprecated: true,
 };
 
 /**
@@ -12886,6 +12974,7 @@ export const deprecatedUserServicePhoneNumberAdd: OpenAPIOperation<
   path: "/v3-next/user/{userId}/phone",
   method: "POST",
   operationId: "deprecated-user-service-phone-number-add",
+  deprecated: true,
 };
 
 /**
@@ -12923,6 +13012,7 @@ export const deprecatedUserServicePhoneNumberRemove: OpenAPIOperation<
   path: "/v3-next/user/{userId}/phone",
   method: "DELETE",
   operationId: "deprecated-user-service-phone-number-remove",
+  deprecated: true,
 };
 
 /**
@@ -12970,6 +13060,7 @@ export const deprecatedUserServicePhoneNumberVerify: OpenAPIOperation<
   path: "/v3-next/user/{userId}/phone/verify",
   method: "POST",
   operationId: "deprecated-user-service-phone-number-verify",
+  deprecated: true,
 };
 
 /**
@@ -13002,6 +13093,7 @@ export const deprecatedUserServiceUserGetOwn: OpenAPIOperation<
   path: "/v3-next/user",
   method: "GET",
   operationId: "deprecated-user-service-user-get-own",
+  deprecated: true,
 };
 
 /**
@@ -13034,6 +13126,7 @@ export const deprecatedUserTerminateAllSessions: OpenAPIOperation<
   path: "/v3-next/signup/sessions",
   method: "DELETE",
   operationId: "deprecated-user-terminate-all-sessions",
+  deprecated: true,
 };
 
 /**
@@ -13071,6 +13164,7 @@ export const deprecatedUserTerminateSession: OpenAPIOperation<
   path: "/v3-next/signup/sessions/{tokenId}",
   method: "DELETE",
   operationId: "deprecated-user-terminate-session",
+  deprecated: true,
 };
 
 /**
@@ -13108,6 +13202,7 @@ export const deprecatedUserUpdateAccount: OpenAPIOperation<
   path: "/v3-next/signup/profile",
   method: "PUT",
   operationId: "deprecated-user-update-account",
+  deprecated: true,
 };
 
 /**
@@ -13150,6 +13245,7 @@ export const deprecatedUserVerifyEmail: OpenAPIOperation<
   path: "/v3-next/signup/email/verify",
   method: "POST",
   operationId: "deprecated-user-verify-email",
+  deprecated: true,
 };
 
 /** List DNS zone-file import jobs belonging to a Project. */
@@ -13275,6 +13371,7 @@ export const dnsCreateDnsZone: OpenAPIOperation<
   path: "/v3-next/dns-zones",
   method: "POST",
   operationId: "dns-create-dns-zone",
+  deprecated: true,
 };
 
 /** List DNSZones belonging to a Project. */
@@ -19530,6 +19627,7 @@ export const passwordValidationGetPasswordPolicyV2Deprecated: OpenAPIOperation<
   path: "/v3-next/password/policies/{path}",
   method: "GET",
   operationId: "password-validation-get-password-policy-v2-deprecated",
+  deprecated: true,
 };
 
 /** Accept a ProjectInvite. */
