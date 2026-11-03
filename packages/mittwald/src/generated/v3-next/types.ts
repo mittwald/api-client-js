@@ -13072,6 +13072,50 @@ export declare namespace MittwaldAPIV3Next {
       }
 
       /**
+       * A passkey assertion that proves the second factor. `challengeId` comes from `POST /users/self/passkey-challenges`
+       * (or from `passkeyChallenge` of `POST /authenticate` for `POST /authenticate-mfa`), `credential` is the
+       * `credential.toJSON()` of the `navigator.credentials.get()` call with its `options`.
+       *
+       */
+      export interface DeMittwaldSignupPasskeyCredential {
+        challengeId: string;
+        credential: MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupPasskeyAuthenticationResponse;
+      }
+
+      /**
+       * A challenge for registering a passkey. Run `navigator.credentials.create()` with `options` and send
+       * `challengeId` together with the resulting `credential.toJSON()` to `POST /users/self/passkeys`. The challenge
+       * can be used once.
+       *
+       */
+      export interface DeMittwaldSignupPasskeyRegistrationChallenge {
+        challengeId: string;
+        options: MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupPasskeyCreationOptions;
+      }
+
+      /**
+       * A passkey of the user, as WebAuthn Level 3
+       * [`PublicKeyCredentialDescriptorJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialdescriptorjson).
+       *
+       */
+      export interface DeMittwaldSignupPasskeyCredentialDescriptor {
+        /**
+         * The credential id, base64url-encoded without padding.
+         */
+        id: string;
+        /**
+         * How the browser can reach the authenticator, as reported at registration (`internal`, `hybrid`, `usb`,
+         * `nfc`, `ble`, `smart-card`).
+         *
+         */
+        transports?: string[];
+        /**
+         * The credential type, always `public-key`.
+         */
+        type: string;
+      }
+
+      /**
        * Options for registering a passkey, as WebAuthn Level 3
        * [`PublicKeyCredentialCreationOptionsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialcreationoptionsjson).
        * Pass the object unchanged to
@@ -13165,50 +13209,6 @@ export declare namespace MittwaldAPIV3Next {
            */
           name: string;
         };
-      }
-
-      /**
-       * A passkey of the user, as WebAuthn Level 3
-       * [`PublicKeyCredentialDescriptorJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialdescriptorjson).
-       *
-       */
-      export interface DeMittwaldSignupPasskeyCredentialDescriptor {
-        /**
-         * The credential id, base64url-encoded without padding.
-         */
-        id: string;
-        /**
-         * How the browser can reach the authenticator, as reported at registration (`internal`, `hybrid`, `usb`,
-         * `nfc`, `ble`, `smart-card`).
-         *
-         */
-        transports?: string[];
-        /**
-         * The credential type, always `public-key`.
-         */
-        type: string;
-      }
-
-      /**
-       * A passkey assertion that proves the second factor. `challengeId` comes from `POST /users/self/passkey-challenges`
-       * (or from `passkeyChallenge` of `POST /authenticate` for `POST /authenticate-mfa`), `credential` is the
-       * `credential.toJSON()` of the `navigator.credentials.get()` call with its `options`.
-       *
-       */
-      export interface DeMittwaldSignupPasskeyCredential {
-        challengeId: string;
-        credential: MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupPasskeyAuthenticationResponse;
-      }
-
-      /**
-       * A challenge for registering a passkey. Run `navigator.credentials.create()` with `options` and send
-       * `challengeId` together with the resulting `credential.toJSON()` to `POST /users/self/passkeys`. The challenge
-       * can be used once.
-       *
-       */
-      export interface DeMittwaldSignupPasskeyRegistrationChallenge {
-        challengeId: string;
-        options: MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupPasskeyCreationOptions;
       }
 
       /**
