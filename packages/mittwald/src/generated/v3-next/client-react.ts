@@ -1110,6 +1110,11 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
   ).getApiResource,
+  /** Get your registered passkeys. */
+  listPasskeys: new ApiCallAsyncResourceFactory(
+    descriptors.userListPasskeys,
+    baseClient.user.listPasskeys,
+  ).getApiResource,
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({

@@ -1410,6 +1410,11 @@ export const appGetAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextAppInstallationsAppInstallationId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -7994,6 +7999,11 @@ export const databaseGetMysqlDatabase: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextMysqlDatabasesMysqlDatabaseId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -8240,6 +8250,11 @@ export const databaseGetRedisDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseId.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRedisDatabasesRedisDatabaseId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -19693,4 +19708,341 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Authenticate yourself with a passkey to get an access token. */
+export const userAuthenticatePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/authenticate-passkey",
+  method: "POST",
+  operationId: "user-authenticate-passkey",
+};
+
+/** Create a challenge for a passkey login. */
+export const userCreatePasskeyChallenge: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPasskeyChallenges.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/passkey-challenges",
+  method: "POST",
+  operationId: "user-create-passkey-challenge",
+};
+
+/** Delete a passkey. */
+export const userDeletePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/passkeys/{passkeyId}",
+  method: "DELETE",
+  operationId: "user-delete-passkey",
+};
+
+/** Rename a passkey. */
+export const userUpdatePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeysPasskeyId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/passkeys/{passkeyId}",
+  method: "PATCH",
+  operationId: "user-update-passkey",
+};
+
+/** Get your registered passkeys. */
+export const userListPasskeys: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/passkeys",
+  method: "GET",
+  operationId: "user-list-passkeys",
+};
+
+/** Register a new passkey. */
+export const userCreatePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeys.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/passkeys",
+  method: "POST",
+  operationId: "user-create-passkey",
+};
+
+/** Create a challenge to confirm an action with a passkey. */
+export const userCreatePasskeyConfirmationChallenge: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyChallenges.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/passkey-challenges",
+  method: "POST",
+  operationId: "user-create-passkey-confirmation-challenge",
+};
+
+/** Create a challenge to register a new passkey. */
+export const userCreatePasskeyRegistrationChallenge: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.$202.Content.ApplicationJson>,
+      202,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfPasskeyRegistrationChallenges.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/passkey-registration-challenges",
+  method: "POST",
+  operationId: "user-create-passkey-registration-challenge",
 };

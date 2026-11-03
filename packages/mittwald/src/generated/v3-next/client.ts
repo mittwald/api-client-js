@@ -1556,6 +1556,30 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Authenticate yourself with a passkey to get an access token. */
+    authenticatePasskey: this.requestFunctionFactory(
+      descriptors.userAuthenticatePasskey,
+    ),
+    /** Create a challenge for a passkey login. */
+    createPasskeyChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyChallenge,
+    ),
+    /** Delete a passkey. */
+    deletePasskey: this.requestFunctionFactory(descriptors.userDeletePasskey),
+    /** Rename a passkey. */
+    updatePasskey: this.requestFunctionFactory(descriptors.userUpdatePasskey),
+    /** Get your registered passkeys. */
+    listPasskeys: this.requestFunctionFactory(descriptors.userListPasskeys),
+    /** Register a new passkey. */
+    createPasskey: this.requestFunctionFactory(descriptors.userCreatePasskey),
+    /** Create a challenge to confirm an action with a passkey. */
+    createPasskeyConfirmationChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyConfirmationChallenge,
+    ),
+    /** Create a challenge to register a new passkey. */
+    createPasskeyRegistrationChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyRegistrationChallenge,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
