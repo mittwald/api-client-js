@@ -1384,6 +1384,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     sreadAllNotifications: this.requestFunctionFactory(
       descriptors.notificationsReadAllNotifications,
     ),
+    /** Reset notification settings to their defaults. */
+    sresetNotificationSettings: this.requestFunctionFactory(
+      descriptors.notificationsResetNotificationSettings,
+    ),
     /** Update a notification's read status. */
     supdateNotificationStatus: this.requestFunctionFactory(
       descriptors.notificationsUpdateNotificationStatus,
@@ -1407,6 +1411,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Validate your second factor. */
     authenticateMfa: this.requestFunctionFactory(
       descriptors.userAuthenticateMfa,
+    ),
+    /** Authenticate yourself with a passkey to get an access token. */
+    authenticatePasskey: this.requestFunctionFactory(
+      descriptors.userAuthenticatePasskey,
     ),
     /** Authenticate yourself to get an access token. */
     authenticate: this.requestFunctionFactory(descriptors.userAuthenticate),
@@ -1440,6 +1448,22 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     createApiToken: this.requestFunctionFactory(descriptors.userCreateApiToken),
     /** Submit your user feedback. */
     createFeedback: this.requestFunctionFactory(descriptors.userCreateFeedback),
+    /** Create a challenge for a passkey login. */
+    createPasskeyChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyChallenge,
+    ),
+    /** Create a challenge to confirm an action with a passkey. */
+    createPasskeyConfirmationChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyConfirmationChallenge,
+    ),
+    /** Create a challenge to register a new passkey. */
+    createPasskeyRegistrationChallenge: this.requestFunctionFactory(
+      descriptors.userCreatePasskeyRegistrationChallenge,
+    ),
+    /** Get your registered passkeys. */
+    listPasskeys: this.requestFunctionFactory(descriptors.userListPasskeys),
+    /** Register a new passkey. */
+    createPasskey: this.requestFunctionFactory(descriptors.userCreatePasskey),
     /** Get your stored ssh-keys. */
     listSshKeys: this.requestFunctionFactory(descriptors.userListSshKeys),
     /** Store a new ssh-key. */
@@ -1450,6 +1474,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     editApiToken: this.requestFunctionFactory(descriptors.userEditApiToken),
     /** Deletes an ApiToken. */
     deleteApiToken: this.requestFunctionFactory(descriptors.userDeleteApiToken),
+    /** Delete a passkey. */
+    deletePasskey: this.requestFunctionFactory(descriptors.userDeletePasskey),
+    /** Rename a passkey. */
+    updatePasskey: this.requestFunctionFactory(descriptors.userUpdatePasskey),
     /** Get a specific stored ssh-key. */
     getSshKey: this.requestFunctionFactory(descriptors.userGetSshKey),
     /** Edit a stored ssh-key. */
@@ -1555,30 +1583,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Verify your registration. */
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
-    ),
-    /** Authenticate yourself with a passkey to get an access token. */
-    authenticatePasskey: this.requestFunctionFactory(
-      descriptors.userAuthenticatePasskey,
-    ),
-    /** Create a challenge for a passkey login. */
-    createPasskeyChallenge: this.requestFunctionFactory(
-      descriptors.userCreatePasskeyChallenge,
-    ),
-    /** Delete a passkey. */
-    deletePasskey: this.requestFunctionFactory(descriptors.userDeletePasskey),
-    /** Rename a passkey. */
-    updatePasskey: this.requestFunctionFactory(descriptors.userUpdatePasskey),
-    /** Get your registered passkeys. */
-    listPasskeys: this.requestFunctionFactory(descriptors.userListPasskeys),
-    /** Register a new passkey. */
-    createPasskey: this.requestFunctionFactory(descriptors.userCreatePasskey),
-    /** Create a challenge to confirm an action with a passkey. */
-    createPasskeyConfirmationChallenge: this.requestFunctionFactory(
-      descriptors.userCreatePasskeyConfirmationChallenge,
-    ),
-    /** Create a challenge to register a new passkey. */
-    createPasskeyRegistrationChallenge: this.requestFunctionFactory(
-      descriptors.userCreatePasskeyRegistrationChallenge,
     ),
   };
 

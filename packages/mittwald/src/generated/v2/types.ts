@@ -3717,6 +3717,17 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
+    namespace NotificationsResetNotificationSettings {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsResetNotificationSettings
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsResetNotificationSettings,
+          TStatus
+        >;
+    }
+
     namespace NotificationsUpdateNotificationStatus {
       type RequestData = InferredRequestData<
         typeof descriptors.notificationsUpdateNotificationStatus
@@ -4462,6 +4473,17 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userAuthenticateMfa, TStatus>;
     }
 
+    namespace UserAuthenticatePasskey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userAuthenticatePasskey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userAuthenticatePasskey,
+          TStatus
+        >;
+    }
+
     namespace UserAuthenticate {
       type RequestData = InferredRequestData<
         typeof descriptors.userAuthenticate
@@ -4571,6 +4593,55 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.userCreateFeedback, TStatus>;
     }
 
+    namespace UserCreatePasskeyChallenge {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreatePasskeyChallenge
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userCreatePasskeyChallenge,
+          TStatus
+        >;
+    }
+
+    namespace UserCreatePasskeyConfirmationChallenge {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreatePasskeyConfirmationChallenge
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userCreatePasskeyConfirmationChallenge,
+          TStatus
+        >;
+    }
+
+    namespace UserCreatePasskeyRegistrationChallenge {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreatePasskeyRegistrationChallenge
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userCreatePasskeyRegistrationChallenge,
+          TStatus
+        >;
+    }
+
+    namespace UserListPasskeys {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userListPasskeys
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userListPasskeys, TStatus>;
+    }
+
+    namespace UserCreatePasskey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userCreatePasskey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userCreatePasskey, TStatus>;
+    }
+
     namespace UserListSshKeys {
       type RequestData = InferredRequestData<
         typeof descriptors.userListSshKeys
@@ -4609,6 +4680,22 @@ export declare namespace MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.userDeleteApiToken, TStatus>;
+    }
+
+    namespace UserDeletePasskey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userDeletePasskey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userDeletePasskey, TStatus>;
+    }
+
+    namespace UserUpdatePasskey {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userUpdatePasskey
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userUpdatePasskey, TStatus>;
     }
 
     namespace UserGetSshKey {
@@ -4943,82 +5030,6 @@ export declare namespace MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace UserAuthenticatePasskey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userAuthenticatePasskey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userAuthenticatePasskey,
-          TStatus
-        >;
-    }
-
-    namespace UserCreatePasskeyChallenge {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreatePasskeyChallenge
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userCreatePasskeyChallenge,
-          TStatus
-        >;
-    }
-
-    namespace UserDeletePasskey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userDeletePasskey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userDeletePasskey, TStatus>;
-    }
-
-    namespace UserUpdatePasskey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userUpdatePasskey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userUpdatePasskey, TStatus>;
-    }
-
-    namespace UserListPasskeys {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userListPasskeys
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userListPasskeys, TStatus>;
-    }
-
-    namespace UserCreatePasskey {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreatePasskey
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userCreatePasskey, TStatus>;
-    }
-
-    namespace UserCreatePasskeyConfirmationChallenge {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreatePasskeyConfirmationChallenge
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userCreatePasskeyConfirmationChallenge,
-          TStatus
-        >;
-    }
-
-    namespace UserCreatePasskeyRegistrationChallenge {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userCreatePasskeyRegistrationChallenge
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userCreatePasskeyRegistrationChallenge,
           TStatus
         >;
     }
@@ -12192,6 +12203,23 @@ export declare namespace MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogBackupDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogGenericAction;
         aggregate: MittwaldAPIV2.Components.Schemas.ActivitylogAggregateReference;
+        credential?: {
+          /**
+           * Last known name of the API token, including removed or expired tokens.
+           */
+          apiTokenName?: string;
+          id: string;
+          kind:
+            | "unknown"
+            | "userSession"
+            | "apiToken"
+            | "scopedToken"
+            | "extensionInstance"
+            | "extensionSession"
+            | "serviceToken"
+            | "atrek"
+            | "classicIdentity";
+        } | null;
         dateTime: string;
         /**
          * Null or empty object. If set, the action was executed by an mittwald employee.
@@ -12779,6 +12807,322 @@ export declare namespace MittwaldAPIV2 {
         id: string;
       }
 
+      /**
+       * A passkey assertion: the result of `navigator.credentials.get()` serialized with
+       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson), as WebAuthn Level 3
+       * [`AuthenticationResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationresponsejson). Send it
+       * unchanged. Binary values are base64url-encoded without padding.
+       *
+       */
+      export interface SignupPasskeyAuthenticationResponse {
+        /**
+         * `platform` or `cross-platform`, if the browser reports it.
+         */
+        authenticatorAttachment?: string;
+        /**
+         * WebAuthn Level 3
+         * [`AuthenticationExtensionsClientOutputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientoutputsjson).
+         *
+         */
+        clientExtensionResults: {};
+        /**
+         * The credential id, base64url-encoded without padding.
+         */
+        id: string;
+        /**
+         * The credential id, base64url-encoded without padding (same value as `id`).
+         */
+        rawId: string;
+        /**
+         * WebAuthn Level 3
+         * [`AuthenticatorAssertionResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticatorassertionresponsejson).
+         *
+         */
+        response: {
+          /**
+           * The authenticator data, base64url-encoded without padding.
+           */
+          authenticatorData: string;
+          /**
+           * The client data (type, challenge, origin) as JSON, base64url-encoded without padding.
+           */
+          clientDataJSON: string;
+          /**
+           * The assertion signature, base64url-encoded without padding.
+           */
+          signature: string;
+          /**
+           * The `user.id` of the registration, base64url-encoded without padding. The passkey login
+           * (`POST /authenticate-passkey`) takes the user from it.
+           *
+           */
+          userHandle?: string;
+        };
+        /**
+         * The credential type, always `public-key`.
+         */
+        type: string;
+      }
+
+      /**
+       * A challenge for signing in or confirming an action with a passkey. Run `navigator.credentials.get()` with
+       * `options` and send `challengeId` together with the resulting `credential.toJSON()`. The challenge can be used
+       * once.
+       *
+       */
+      export interface SignupPasskeyChallenge {
+        challengeId: string;
+        options: MittwaldAPIV2.Components.Schemas.SignupPasskeyRequestOptions;
+      }
+
+      /**
+       * Options for registering a passkey, as WebAuthn Level 3
+       * [`PublicKeyCredentialCreationOptionsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialcreationoptionsjson).
+       * Pass the object unchanged to
+       * [`PublicKeyCredential.parseCreationOptionsFromJSON()`](https://www.w3.org/TR/webauthn-3/#sctn-parseCreationOptionsFromJSON)
+       * and the result as `publicKey` to `navigator.credentials.create()`. Send the resulting credential back as
+       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson) together with the
+       * `challengeId` the options came with. Binary values are base64url-encoded without padding.
+       *
+       */
+      export interface SignupPasskeyCreationOptions {
+        /**
+         * Always `none`; the API does not check which authenticator model created the passkey.
+         */
+        attestation: string;
+        /**
+         * Not set by this API.
+         */
+        attestationFormats?: string[];
+        /**
+         * Always a discoverable credential (`residentKey: required`) with user verification
+         * (`userVerification: required`); no `authenticatorAttachment`, so the browser also offers other devices
+         * (QR code).
+         *
+         */
+        authenticatorSelection: {
+          authenticatorAttachment?: string;
+          requireResidentKey?: boolean;
+          residentKey?: string;
+          userVerification?: string;
+        };
+        /**
+         * 32 random bytes, base64url-encoded without padding. Can be used once.
+         */
+        challenge: string;
+        /**
+         * The passkeys the user already has for this relying party; the authenticator does not register them again.
+         */
+        excludeCredentials: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredentialDescriptor[];
+        /**
+         * WebAuthn Level 3
+         * [`AuthenticationExtensionsClientInputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientinputsjson).
+         *
+         */
+        extensions?: {};
+        /**
+         * Hints for the browser which authenticator to offer. Not set by this API.
+         */
+        hints?: string[];
+        /**
+         * The accepted key types, ES256 (`-7`) and RS256 (`-257`).
+         */
+        pubKeyCredParams: {
+          /**
+           * A COSE algorithm identifier.
+           */
+          alg: number;
+          /**
+           * Always `public-key`.
+           */
+          type: string;
+        }[];
+        /**
+         * The relying party, selected from the `Origin` header of the request that created the challenge.
+         */
+        rp: {
+          id: string;
+          name: string;
+        };
+        /**
+         * Milliseconds until the challenge expires.
+         */
+        timeout: number;
+        /**
+         * The user the passkey is created for, as WebAuthn Level 3
+         * [`PublicKeyCredentialUserEntityJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialuserentityjson).
+         *
+         */
+        user: {
+          /**
+           * First and last name of the user, or the email address if both are empty.
+           */
+          displayName: string;
+          /**
+           * The UTF-8 bytes of the user id, base64url-encoded without padding. A passkey login returns it as
+           * `response.userHandle`.
+           *
+           */
+          id: string;
+          /**
+           * The verified email address of the user.
+           */
+          name: string;
+        };
+      }
+
+      /**
+       * A passkey assertion that proves the second factor. `challengeId` comes from `POST /users/self/passkey-challenges`
+       * (or from `passkeyChallenge` of `POST /authenticate` for `POST /authenticate-mfa`), `credential` is the
+       * `credential.toJSON()` of the `navigator.credentials.get()` call with its `options`.
+       *
+       */
+      export interface SignupPasskeyCredential {
+        challengeId: string;
+        credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyAuthenticationResponse;
+      }
+
+      /**
+       * A passkey of the user, as WebAuthn Level 3
+       * [`PublicKeyCredentialDescriptorJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialdescriptorjson).
+       *
+       */
+      export interface SignupPasskeyCredentialDescriptor {
+        /**
+         * The credential id, base64url-encoded without padding.
+         */
+        id: string;
+        /**
+         * How the browser can reach the authenticator, as reported at registration (`internal`, `hybrid`, `usb`,
+         * `nfc`, `ble`, `smart-card`).
+         *
+         */
+        transports?: string[];
+        /**
+         * The credential type, always `public-key`.
+         */
+        type: string;
+      }
+
+      /**
+       * A challenge for registering a passkey. Run `navigator.credentials.create()` with `options` and send
+       * `challengeId` together with the resulting `credential.toJSON()` to `POST /users/self/passkeys`. The challenge
+       * can be used once.
+       *
+       */
+      export interface SignupPasskeyRegistrationChallenge {
+        challengeId: string;
+        options: MittwaldAPIV2.Components.Schemas.SignupPasskeyCreationOptions;
+      }
+
+      /**
+       * A new passkey: the result of `navigator.credentials.create()` serialized with
+       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson), as WebAuthn Level 3
+       * [`RegistrationResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-registrationresponsejson). Send it
+       * unchanged. Binary values are base64url-encoded without padding.
+       *
+       */
+      export interface SignupPasskeyRegistrationResponse {
+        /**
+         * `platform` or `cross-platform`, if the browser reports it.
+         */
+        authenticatorAttachment?: string;
+        /**
+         * WebAuthn Level 3
+         * [`AuthenticationExtensionsClientOutputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientoutputsjson).
+         *
+         */
+        clientExtensionResults: {};
+        /**
+         * The credential id, base64url-encoded without padding.
+         */
+        id: string;
+        /**
+         * The credential id, base64url-encoded without padding (same value as `id`).
+         */
+        rawId: string;
+        /**
+         * WebAuthn Level 3
+         * [`AuthenticatorAttestationResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticatorattestationresponsejson).
+         *
+         */
+        response: {
+          /**
+           * The CBOR attestation object, base64url-encoded without padding.
+           */
+          attestationObject: string;
+          /**
+           * The authenticator data, base64url-encoded without padding.
+           */
+          authenticatorData: string;
+          /**
+           * The client data (type, challenge, origin) as JSON, base64url-encoded without padding.
+           */
+          clientDataJSON: string;
+          /**
+           * The public key as DER `SubjectPublicKeyInfo`, base64url-encoded without padding, if the browser knows the algorithm.
+           */
+          publicKey?: string;
+          /**
+           * The COSE algorithm identifier of the key.
+           */
+          publicKeyAlgorithm: number;
+          /**
+           * How the browser can reach the authenticator (`internal`, `hybrid`, `usb`, `nfc`, `ble`, `smart-card`).
+           */
+          transports: string[];
+        };
+        /**
+         * The credential type, always `public-key`.
+         */
+        type: string;
+      }
+
+      /**
+       * Options for signing in with a passkey, as WebAuthn Level 3
+       * [`PublicKeyCredentialRequestOptionsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialrequestoptionsjson).
+       * Pass the object unchanged to
+       * [`PublicKeyCredential.parseRequestOptionsFromJSON()`](https://www.w3.org/TR/webauthn-3/#sctn-parseRequestOptionsFromJSON)
+       * and the result as `publicKey` to `navigator.credentials.get()`. Send the resulting credential back as
+       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson) together with the
+       * `challengeId` the options came with. Binary values are base64url-encoded without padding.
+       *
+       */
+      export interface SignupPasskeyRequestOptions {
+        /**
+         * The passkeys of the user for this relying party. Empty for the passkey login, so the browser offers every
+         * passkey it has for the relying party.
+         *
+         */
+        allowCredentials: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredentialDescriptor[];
+        /**
+         * 32 random bytes, base64url-encoded without padding. Can be used once.
+         */
+        challenge: string;
+        /**
+         * WebAuthn Level 3
+         * [`AuthenticationExtensionsClientInputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientinputsjson).
+         *
+         */
+        extensions?: {};
+        /**
+         * Hints for the browser which authenticator to offer. Not set by this API.
+         */
+        hints?: string[];
+        /**
+         * The relying party, selected from the `Origin` header of the request that created the challenge.
+         */
+        rpId: string;
+        /**
+         * Milliseconds until the challenge expires.
+         */
+        timeout: number;
+        /**
+         * Always `required`; the authenticator has to verify the user (biometrics or device PIN).
+         */
+        userVerification: string;
+      }
+
       export interface SignupProfile {
         email?: string;
         /**
@@ -12981,322 +13325,6 @@ export declare namespace MittwaldAPIV2 {
 
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
-
-      /**
-       * A passkey assertion: the result of `navigator.credentials.get()` serialized with
-       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson), as WebAuthn Level 3
-       * [`AuthenticationResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationresponsejson). Send it
-       * unchanged. Binary values are base64url-encoded without padding.
-       *
-       */
-      export interface SignupPasskeyAuthenticationResponse {
-        /**
-         * `platform` or `cross-platform`, if the browser reports it.
-         */
-        authenticatorAttachment?: string;
-        /**
-         * WebAuthn Level 3
-         * [`AuthenticationExtensionsClientOutputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientoutputsjson).
-         *
-         */
-        clientExtensionResults: {};
-        /**
-         * The credential id, base64url-encoded without padding.
-         */
-        id: string;
-        /**
-         * The credential id, base64url-encoded without padding (same value as `id`).
-         */
-        rawId: string;
-        /**
-         * WebAuthn Level 3
-         * [`AuthenticatorAssertionResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticatorassertionresponsejson).
-         *
-         */
-        response: {
-          /**
-           * The authenticator data, base64url-encoded without padding.
-           */
-          authenticatorData: string;
-          /**
-           * The client data (type, challenge, origin) as JSON, base64url-encoded without padding.
-           */
-          clientDataJSON: string;
-          /**
-           * The assertion signature, base64url-encoded without padding.
-           */
-          signature: string;
-          /**
-           * The `user.id` of the registration, base64url-encoded without padding. The passkey login
-           * (`POST /authenticate-passkey`) takes the user from it.
-           *
-           */
-          userHandle?: string;
-        };
-        /**
-         * The credential type, always `public-key`.
-         */
-        type: string;
-      }
-
-      /**
-       * A challenge for signing in or confirming an action with a passkey. Run `navigator.credentials.get()` with
-       * `options` and send `challengeId` together with the resulting `credential.toJSON()`. The challenge can be used
-       * once.
-       *
-       */
-      export interface SignupPasskeyChallenge {
-        challengeId: string;
-        options: MittwaldAPIV2.Components.Schemas.SignupPasskeyRequestOptions;
-      }
-
-      /**
-       * A passkey assertion that proves the second factor. `challengeId` comes from `POST /users/self/passkey-challenges`
-       * (or from `passkeyChallenge` of `POST /authenticate` for `POST /authenticate-mfa`), `credential` is the
-       * `credential.toJSON()` of the `navigator.credentials.get()` call with its `options`.
-       *
-       */
-      export interface SignupPasskeyCredential {
-        challengeId: string;
-        credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyAuthenticationResponse;
-      }
-
-      /**
-       * A challenge for registering a passkey. Run `navigator.credentials.create()` with `options` and send
-       * `challengeId` together with the resulting `credential.toJSON()` to `POST /users/self/passkeys`. The challenge
-       * can be used once.
-       *
-       */
-      export interface SignupPasskeyRegistrationChallenge {
-        challengeId: string;
-        options: MittwaldAPIV2.Components.Schemas.SignupPasskeyCreationOptions;
-      }
-
-      /**
-       * A passkey of the user, as WebAuthn Level 3
-       * [`PublicKeyCredentialDescriptorJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialdescriptorjson).
-       *
-       */
-      export interface SignupPasskeyCredentialDescriptor {
-        /**
-         * The credential id, base64url-encoded without padding.
-         */
-        id: string;
-        /**
-         * How the browser can reach the authenticator, as reported at registration (`internal`, `hybrid`, `usb`,
-         * `nfc`, `ble`, `smart-card`).
-         *
-         */
-        transports?: string[];
-        /**
-         * The credential type, always `public-key`.
-         */
-        type: string;
-      }
-
-      /**
-       * Options for registering a passkey, as WebAuthn Level 3
-       * [`PublicKeyCredentialCreationOptionsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialcreationoptionsjson).
-       * Pass the object unchanged to
-       * [`PublicKeyCredential.parseCreationOptionsFromJSON()`](https://www.w3.org/TR/webauthn-3/#sctn-parseCreationOptionsFromJSON)
-       * and the result as `publicKey` to `navigator.credentials.create()`. Send the resulting credential back as
-       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson) together with the
-       * `challengeId` the options came with. Binary values are base64url-encoded without padding.
-       *
-       */
-      export interface SignupPasskeyCreationOptions {
-        /**
-         * Always `none`; the API does not check which authenticator model created the passkey.
-         */
-        attestation: string;
-        /**
-         * Not set by this API.
-         */
-        attestationFormats?: string[];
-        /**
-         * Always a discoverable credential (`residentKey: required`) with user verification
-         * (`userVerification: required`); no `authenticatorAttachment`, so the browser also offers other devices
-         * (QR code).
-         *
-         */
-        authenticatorSelection: {
-          authenticatorAttachment?: string;
-          requireResidentKey?: boolean;
-          residentKey?: string;
-          userVerification?: string;
-        };
-        /**
-         * 32 random bytes, base64url-encoded without padding. Can be used once.
-         */
-        challenge: string;
-        /**
-         * The passkeys the user already has for this relying party; the authenticator does not register them again.
-         */
-        excludeCredentials: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredentialDescriptor[];
-        /**
-         * WebAuthn Level 3
-         * [`AuthenticationExtensionsClientInputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientinputsjson).
-         *
-         */
-        extensions?: {};
-        /**
-         * Hints for the browser which authenticator to offer. Not set by this API.
-         */
-        hints?: string[];
-        /**
-         * The accepted key types, ES256 (`-7`) and RS256 (`-257`).
-         */
-        pubKeyCredParams: {
-          /**
-           * A COSE algorithm identifier.
-           */
-          alg: number;
-          /**
-           * Always `public-key`.
-           */
-          type: string;
-        }[];
-        /**
-         * The relying party, selected from the `Origin` header of the request that created the challenge.
-         */
-        rp: {
-          id: string;
-          name: string;
-        };
-        /**
-         * Milliseconds until the challenge expires.
-         */
-        timeout: number;
-        /**
-         * The user the passkey is created for, as WebAuthn Level 3
-         * [`PublicKeyCredentialUserEntityJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialuserentityjson).
-         *
-         */
-        user: {
-          /**
-           * First and last name of the user, or the email address if both are empty.
-           */
-          displayName: string;
-          /**
-           * The UTF-8 bytes of the user id, base64url-encoded without padding. A passkey login returns it as
-           * `response.userHandle`.
-           *
-           */
-          id: string;
-          /**
-           * The verified email address of the user.
-           */
-          name: string;
-        };
-      }
-
-      /**
-       * A new passkey: the result of `navigator.credentials.create()` serialized with
-       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson), as WebAuthn Level 3
-       * [`RegistrationResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-registrationresponsejson). Send it
-       * unchanged. Binary values are base64url-encoded without padding.
-       *
-       */
-      export interface SignupPasskeyRegistrationResponse {
-        /**
-         * `platform` or `cross-platform`, if the browser reports it.
-         */
-        authenticatorAttachment?: string;
-        /**
-         * WebAuthn Level 3
-         * [`AuthenticationExtensionsClientOutputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientoutputsjson).
-         *
-         */
-        clientExtensionResults: {};
-        /**
-         * The credential id, base64url-encoded without padding.
-         */
-        id: string;
-        /**
-         * The credential id, base64url-encoded without padding (same value as `id`).
-         */
-        rawId: string;
-        /**
-         * WebAuthn Level 3
-         * [`AuthenticatorAttestationResponseJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticatorattestationresponsejson).
-         *
-         */
-        response: {
-          /**
-           * The CBOR attestation object, base64url-encoded without padding.
-           */
-          attestationObject: string;
-          /**
-           * The authenticator data, base64url-encoded without padding.
-           */
-          authenticatorData: string;
-          /**
-           * The client data (type, challenge, origin) as JSON, base64url-encoded without padding.
-           */
-          clientDataJSON: string;
-          /**
-           * The public key as DER `SubjectPublicKeyInfo`, base64url-encoded without padding, if the browser knows the algorithm.
-           */
-          publicKey?: string;
-          /**
-           * The COSE algorithm identifier of the key.
-           */
-          publicKeyAlgorithm: number;
-          /**
-           * How the browser can reach the authenticator (`internal`, `hybrid`, `usb`, `nfc`, `ble`, `smart-card`).
-           */
-          transports: string[];
-        };
-        /**
-         * The credential type, always `public-key`.
-         */
-        type: string;
-      }
-
-      /**
-       * Options for signing in with a passkey, as WebAuthn Level 3
-       * [`PublicKeyCredentialRequestOptionsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-publickeycredentialrequestoptionsjson).
-       * Pass the object unchanged to
-       * [`PublicKeyCredential.parseRequestOptionsFromJSON()`](https://www.w3.org/TR/webauthn-3/#sctn-parseRequestOptionsFromJSON)
-       * and the result as `publicKey` to `navigator.credentials.get()`. Send the resulting credential back as
-       * [`credential.toJSON()`](https://www.w3.org/TR/webauthn-3/#dom-publickeycredential-tojson) together with the
-       * `challengeId` the options came with. Binary values are base64url-encoded without padding.
-       *
-       */
-      export interface SignupPasskeyRequestOptions {
-        /**
-         * The passkeys of the user for this relying party. Empty for the passkey login, so the browser offers every
-         * passkey it has for the relying party.
-         *
-         */
-        allowCredentials: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredentialDescriptor[];
-        /**
-         * 32 random bytes, base64url-encoded without padding. Can be used once.
-         */
-        challenge: string;
-        /**
-         * WebAuthn Level 3
-         * [`AuthenticationExtensionsClientInputsJSON`](https://www.w3.org/TR/webauthn-3/#dictdef-authenticationextensionsclientinputsjson).
-         *
-         */
-        extensions?: {};
-        /**
-         * Hints for the browser which authenticator to offer. Not set by this API.
-         */
-        hints?: string[];
-        /**
-         * The relying party, selected from the `Origin` header of the request that created the challenge.
-         */
-        rpId: string;
-        /**
-         * Milliseconds until the challenge expires.
-         */
-        timeout: number;
-        /**
-         * Always `required`; the authenticator has to verify the user (biometrics or device PIN).
-         */
-        userVerification: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -36495,6 +36523,50 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2NotificationSettingsActionsReset {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2NotificationsNotificationIdStatus {
       namespace Put {
         namespace Parameters {
@@ -40955,6 +41027,83 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2AuthenticatePasskey {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            challengeId: string;
+            credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyAuthenticationResponse;
+          }
+
+          export type Header = {};
+
+          export type Query = {
+            cookieOnly?: boolean;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The expiration date of the token.
+                 */
+                expires: string;
+                /**
+                 * Refresh token to refresh your access token even after it has expired.
+                 */
+                refreshToken: string;
+                /**
+                 * Public token to identify yourself against the api gateway.
+                 */
+                token: string;
+              }
+            }
+          }
+
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2SignupAuthentication {}
 
     namespace V2Authenticate {
@@ -41770,6 +41919,326 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2PasskeyChallenges {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SignupPasskeyChallenge;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfPasskeyChallenges {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SignupPasskeyChallenge;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfPasskeyRegistrationChallenges {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            /**
+             * A TOTP code or recovery code.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
+            /**
+             * The password of the user.
+             */
+            password: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.SignupPasskeyRegistrationChallenge;
+            }
+          }
+
+          namespace $202 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfPasskeys {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson = {
+                /**
+                 * The authenticator model identifier.
+                 */
+                aaguid: string;
+                /**
+                 * Whether the authenticator can back up (sync) the passkey, as reported at registration.
+                 */
+                backupEligible: boolean;
+                /**
+                 * Whether the passkey was backed up (synced) at registration. Not updated afterwards.
+                 */
+                backupState: boolean;
+                createdAt: string;
+                /**
+                 * The base64url encoded WebAuthn credential id.
+                 */
+                credentialId: string;
+                id: string;
+                name: string;
+                rpId: string;
+              }[];
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            challengeId: string;
+            credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyRegistrationResponse;
+            /**
+             * The display name of the passkey.
+             */
+            name: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $201 {
+            namespace Content {
+              export interface ApplicationJson {
+                id: string;
+                /**
+                 * Only set if the passkey is the first second factor of the user.
+                 */
+                recoveryCodes?: string[];
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2SignupSsh {}
 
     namespace V2UsersSelfSshKeys {
@@ -41983,6 +42452,137 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfPasskeysPasskeyId {
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            passkeyId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * A TOTP code or recovery code.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            passkeyId: string;
+          };
+
+          export interface RequestBody {
+            name: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -42693,6 +43293,22 @@ export declare namespace MittwaldAPIV2 {
             namespace Content {
               export type ApplicationJson =
                 MittwaldAPIV2.Components.Schemas.UserUser;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 
@@ -43963,534 +44579,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2AuthenticatePasskey {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            challengeId: string;
-            credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyAuthenticationResponse;
-          }
-
-          export type Header = {};
-
-          export type Query = {
-            cookieOnly?: boolean;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The expiration date of the token.
-                 */
-                expires: string;
-                /**
-                 * Refresh token to refresh your access token even after it has expired.
-                 */
-                refreshToken: string;
-                /**
-                 * Public token to identify yourself against the api gateway.
-                 */
-                token: string;
-              }
-            }
-          }
-
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
-                | MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2PasskeyChallenges {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupPasskeyChallenge;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfPasskeysPasskeyId {
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            passkeyId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * A TOTP code or recovery code.
-             */
-            multiFactorCode?: string;
-            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            passkeyId: string;
-          };
-
-          export interface RequestBody {
-            name: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfPasskeys {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = {
-                /**
-                 * The authenticator model identifier.
-                 */
-                aaguid: string;
-                /**
-                 * Whether the authenticator can back up (sync) the passkey, as reported at registration.
-                 */
-                backupEligible: boolean;
-                /**
-                 * Whether the passkey was backed up (synced) at registration. Not updated afterwards.
-                 */
-                backupState: boolean;
-                createdAt: string;
-                /**
-                 * The base64url encoded WebAuthn credential id.
-                 */
-                credentialId: string;
-                id: string;
-                name: string;
-                rpId: string;
-              }[];
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            challengeId: string;
-            credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyRegistrationResponse;
-            /**
-             * The display name of the passkey.
-             */
-            name: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                id: string;
-                /**
-                 * Only set if the passkey is the first second factor of the user.
-                 */
-                recoveryCodes?: string[];
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
-                | MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfPasskeyChallenges {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupPasskeyChallenge;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2UsersSelfPasskeyRegistrationChallenges {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            /**
-             * A TOTP code or recovery code.
-             */
-            multiFactorCode?: string;
-            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
-            /**
-             * The password of the user.
-             */
-            password: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.SignupPasskeyRegistrationChallenge;
-            }
-          }
-
-          namespace $202 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export type ApplicationJson =
-                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
-                | MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
