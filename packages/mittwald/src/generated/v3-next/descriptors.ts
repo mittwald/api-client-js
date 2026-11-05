@@ -9284,6 +9284,11 @@ export const dnsCreateProjectDnsZone: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
