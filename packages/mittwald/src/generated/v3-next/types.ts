@@ -2776,6 +2776,17 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    namespace ExtensionDryRunWebhook {
+      type RequestData = InferredRequestData<
+        typeof descriptors.extensionDryRunWebhook
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.extensionDryRunWebhook,
+          TStatus
+        >;
+    }
+
     namespace ExtensionEnableExtensionInstance {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionEnableExtensionInstance
@@ -5019,17 +5030,6 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionDryRunWebhook {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDryRunWebhook
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDryRunWebhook,
           TStatus
         >;
     }
@@ -12406,7 +12406,7 @@ export declare namespace MittwaldAPIV3Next {
         visitors: number;
       }
 
-      export interface DeMittwaldDirectusDomain {
+      export interface DeMittwaldRedirectusDomain {
         /**
          * The authcode of the domain. Leave empty when mittwald can generate a authcode on its own
          */
@@ -12418,7 +12418,7 @@ export declare namespace MittwaldAPIV3Next {
         name: string;
       }
 
-      export interface DeMittwaldDirectusEmailInbox {
+      export interface DeMittwaldRedirectusEmailInbox {
         email: string;
         password: string;
       }
@@ -30280,6 +30280,77 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            contributorId: string;
+            extensionId: string;
+            extensionInstanceId: string;
+            webhookKind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookKind;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            contextId?: string;
+            scopes?: string[];
+            instanceDisabled?: boolean;
+            createdAt?: string | Date;
+            secret?: string;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The error message of an internal error.
+                 */
+                errorMessage?: string;
+                responseBody?: string;
+                /**
+                 * The http status code that the external application responded with.
+                 */
+                responseCode?: number;
+                responseHeaders?: string;
+                routeCalled: string;
+                /**
+                 * This shows if the response of the external application has been accepted as successful.
+                 */
+                successful: boolean;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextExtensionInstancesExtensionInstanceIdActionsEnable {
       namespace Post {
         namespace Parameters {
@@ -39267,11 +39338,11 @@ export declare namespace MittwaldAPIV3Next {
             /**
              * List of domains which should be transferred (when allDomains is not checked).
              */
-            domains?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDirectusDomain[];
+            domains?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldRedirectusDomain[];
             /**
              * List of email inboxes which should be transferred.
              */
-            emailInboxes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDirectusEmailInbox[];
+            emailInboxes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldRedirectusEmailInbox[];
             /**
              * Anything our customer service needs to know for the relocation process.
              */
@@ -44384,77 +44455,6 @@ export declare namespace MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            extensionInstanceId: string;
-            webhookKind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookKind;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {
-            contextId?: string;
-            scopes?: string[];
-            instanceDisabled?: boolean;
-            createdAt?: string | Date;
-            secret?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The error message of an internal error.
-                 */
-                errorMessage?: string;
-                responseBody?: string;
-                /**
-                 * The http status code that the external application responded with.
-                 */
-                responseCode?: number;
-                responseHeaders?: string;
-                routeCalled: string;
-                /**
-                 * This shows if the response of the external application has been accepted as successful.
-                 */
-                successful: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 

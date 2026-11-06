@@ -656,6 +656,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     extensionDisableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDisableExtensionInstance,
     ),
+    /** Dry run a webhook with random or given values. */
+    extensionDryRunWebhook: this.requestFunctionFactory(
+      descriptors.extensionDryRunWebhook,
+    ),
     /** Enable an ExtensionInstance. */
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
@@ -773,10 +777,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get the link to update the marketplace payment method */
     customerUpdatePaymentMethod: this.requestFunctionFactory(
       descriptors.marketplaceCustomerUpdatePaymentMethod,
-    ),
-    /** Dry run a webhook with random or given values. */
-    extensionDryRunWebhook: this.requestFunctionFactory(
-      descriptors.extensionDryRunWebhook,
     ),
   };
 
