@@ -1055,6 +1055,11 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.userListApiTokens,
     baseClient.user.listApiTokens,
   ).getApiResource,
+  /** Get your registered passkeys. */
+  listPasskeys: new ApiCallAsyncResourceFactory(
+    descriptors.userListPasskeys,
+    baseClient.user.listPasskeys,
+  ).getApiResource,
   /** Get your stored ssh-keys. */
   listSshKeys: new ApiCallAsyncResourceFactory(
     descriptors.userListSshKeys,

@@ -1332,6 +1332,11 @@ export const appGetAppinstallation: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2AppInstallationsAppInstallationId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -6414,6 +6419,11 @@ export const cronjobGetCronjob: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -6985,6 +6995,11 @@ export const customerGetCustomerInvite: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomerInvitesCustomerInviteId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -7430,6 +7445,11 @@ export const customerListMembershipsForCustomer: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdMemberships.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -7901,6 +7921,11 @@ export const databaseGetMysqlDatabase: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2MysqlDatabasesMysqlDatabaseId.Get.Responses.$404.Content.ApplicationJson>,
       404,
       "application/json"
@@ -8147,6 +8172,11 @@ export const databaseGetRedisDatabase: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2RedisDatabasesRedisDatabaseId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -9173,6 +9203,11 @@ export const dnsCreateProjectDnsZone: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectsProjectIdDnsZones.Post.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -15056,6 +15091,40 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
   operationId: "notifications-read-all-notifications",
 };
 
+/** Reset notification settings to their defaults. */
+export const notificationsResetNotificationSettings: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings/actions/reset",
+  method: "POST",
+  operationId: "notifications-reset-notification-settings",
+};
+
 /** Update a notification's read status. */
 export const notificationsUpdateNotificationStatus: OpenAPIOperation<
   RequestType<
@@ -15831,6 +15900,11 @@ export const projectGetProjectInvite: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2ProjectInvitesProjectInviteId.Get.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -17643,50 +17717,6 @@ export const sslListCertificates: OpenAPIOperation<
   operationId: "ssl-list-certificates",
 };
 
-/** Update the certificate of a CertificateRequest. */
-export const sslSetCertificateRequestCertificate: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CertificateRequestsCertificateRequestIdCertificate.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/certificate-requests/{certificateRequestId}/certificate",
-  method: "PATCH",
-  operationId: "ssl-set-certificate-request-certificate",
-};
-
 /** Get storage space Statistics belonging to a Project. */
 export const storagespaceGetProjectStatistics: OpenAPIOperation<
   RequestType<
@@ -17983,6 +18013,50 @@ export const userAuthenticateMfa: OpenAPIOperation<
   path: "/v2/authenticate-mfa",
   method: "POST",
   operationId: "user-authenticate-mfa",
+};
+
+/** Authenticate yourself with a passkey to get an access token. */
+export const userAuthenticatePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/authenticate-passkey",
+  method: "POST",
+  operationId: "user-authenticate-passkey",
 };
 
 /** Authenticate yourself to get an access token. */
@@ -18442,6 +18516,211 @@ export const userCreateFeedback: OpenAPIOperation<
   operationId: "user-create-feedback",
 };
 
+/** Create a challenge for a passkey login. */
+export const userCreatePasskeyChallenge: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/passkey-challenges",
+  method: "POST",
+  operationId: "user-create-passkey-challenge",
+};
+
+/** Create a challenge to confirm an action with a passkey. */
+export const userCreatePasskeyConfirmationChallenge: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/passkey-challenges",
+  method: "POST",
+  operationId: "user-create-passkey-confirmation-challenge",
+};
+
+/** Create a challenge to register a new passkey. */
+export const userCreatePasskeyRegistrationChallenge: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$202.Content.ApplicationJson>,
+      202,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/passkey-registration-challenges",
+  method: "POST",
+  operationId: "user-create-passkey-registration-challenge",
+};
+
+/** Get your registered passkeys. */
+export const userListPasskeys: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/passkeys",
+  method: "GET",
+  operationId: "user-list-passkeys",
+};
+
+/** Register a new passkey. */
+export const userCreatePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$201.Content.ApplicationJson>,
+      201,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/passkeys",
+  method: "POST",
+  operationId: "user-create-passkey",
+};
+
 /** Get your stored ssh-keys. */
 export const userListSshKeys: OpenAPIOperation<
   RequestType<
@@ -18605,6 +18884,94 @@ export const userDeleteApiToken: OpenAPIOperation<
   path: "/v2/users/self/api-tokens/{apiTokenId}",
   method: "DELETE",
   operationId: "user-delete-api-token",
+};
+
+/** Delete a passkey. */
+export const userDeletePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/passkeys/{passkeyId}",
+  method: "DELETE",
+  operationId: "user-delete-passkey",
+};
+
+/** Rename a passkey. */
+export const userUpdatePasskey: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/users/self/passkeys/{passkeyId}",
+  method: "PATCH",
+  operationId: "user-update-passkey",
 };
 
 /** Get a specific stored ssh-key. */
@@ -19087,6 +19454,16 @@ export const userGetUser: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Get.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2UsersUserId.Get.Responses.$403.Content.ApplicationJson>,
       403,
       "application/json"
@@ -19453,6 +19830,11 @@ export const userRegister: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Register.Post.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -19887,418 +20269,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v2/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get all ai hosting keys the authenticated user can access. */
-export const aiHostingUserGetKeys: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostingKeys.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ai-hosting-keys",
-  method: "GET",
-  operationId: "ai-hosting-user-get-keys",
-};
-
-/** Get all ai hosting plans the authenticated user can access. */
-export const aiHostingUserGetPlans: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AiHostings.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/ai-hostings",
-  method: "GET",
-  operationId: "ai-hosting-user-get-plans",
-};
-
-/** Get the activities of an organization. */
-export const customerListCustomerActivities: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2CustomersCustomerIdActivities.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/customers/{customerId}/activities",
-  method: "GET",
-  operationId: "customer-list-customer-activities",
-};
-
-/** Authenticate yourself with a passkey to get an access token. */
-export const userAuthenticateWithPasskey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2AuthenticatePasskey.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/authenticate-passkey",
-  method: "POST",
-  operationId: "user-authenticate-with-passkey",
-};
-
-/** Create a challenge for a passkey login. */
-export const userCreatePasskeyChallenge: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2PasskeyChallenges.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/passkey-challenges",
-  method: "POST",
-  operationId: "user-create-passkey-challenge",
-};
-
-/** Delete a passkey. */
-export const userDeletePasskey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Delete.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/passkeys/{passkeyId}",
-  method: "DELETE",
-  operationId: "user-delete-passkey",
-};
-
-/** Rename a passkey. */
-export const userUpdatePasskey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeysPasskeyId.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/passkeys/{passkeyId}",
-  method: "PATCH",
-  operationId: "user-update-passkey",
-};
-
-/** Get your registered passkeys. */
-export const userListPasskeys: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/passkeys",
-  method: "GET",
-  operationId: "user-list-passkeys",
-};
-
-/** Register a new passkey. */
-export const userCreatePasskey: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeys.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/passkeys",
-  method: "POST",
-  operationId: "user-create-passkey",
-};
-
-/** Create a challenge to confirm an action with a passkey. */
-export const userCreateOwnPasskeyChallenge: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyChallenges.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/passkey-challenges",
-  method: "POST",
-  operationId: "user-create-own-passkey-challenge",
-};
-
-/** Create a challenge to register a new passkey. */
-export const userCreatePasskeyRegistrationChallenge: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$201.Content.ApplicationJson>,
-      201,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$202.Content.ApplicationJson>,
-      202,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2UsersSelfPasskeyRegistrationChallenges.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/users/self/passkey-registration-challenges",
-  method: "POST",
-  operationId: "user-create-passkey-registration-challenge",
 };
