@@ -1172,6 +1172,84 @@ export const aiHostingProjectRotateKey: OpenAPIOperation<
   operationId: "ai-hosting-project-rotate-key",
 };
 
+/** Get all ai hosting keys the authenticated user can access. */
+export const aiHostingUserGetKeys: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostingKeys.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/ai-hosting-keys",
+  method: "GET",
+  operationId: "ai-hosting-user-get-keys",
+};
+
+/** Get all ai hosting plans the authenticated user can access. */
+export const aiHostingUserGetPlans: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAiHostings.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/ai-hostings",
+  method: "GET",
+  operationId: "ai-hosting-user-get-plans",
+};
+
 /** Detach a staging AppInstallation from its source. */
 export const appDetachAppinstallationStaging: OpenAPIOperation<
   RequestType<
@@ -9208,11 +9286,6 @@ export const dnsCreateProjectDnsZone: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$400.Content.ApplicationJson>,
       400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$403.Content.ApplicationJson>,
-      403,
       "application/json"
     >
   | Response<
@@ -17720,6 +17793,50 @@ export const sslListCertificates: OpenAPIOperation<
   path: "/v3-next/certificates",
   method: "GET",
   operationId: "ssl-list-certificates",
+};
+
+/** Update the certificate of a CertificateRequest. */
+export const sslSetCertificateRequestCertificate: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCertificateRequestsCertificateRequestIdCertificate.Patch.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/certificate-requests/{certificateRequestId}/certificate",
+  method: "PATCH",
+  operationId: "ssl-set-certificate-request-certificate",
 };
 
 /** Get storage space Statistics belonging to a Project. */

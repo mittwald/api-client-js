@@ -670,11 +670,6 @@ const buildCustomerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.customerListMembershipsForCustomer,
     baseClient.customer.listMembershipsForCustomer,
   ).getApiResource,
-  /** Get the activities of an organization. */
-  listCustomerActivities: new ApiCallAsyncResourceFactory(
-    descriptors.customerListCustomerActivities,
-    baseClient.customer.listCustomerActivities,
-  ).getApiResource,
 });
 
 const buildDatabaseApi = (baseClient: MittwaldAPIV3NextClient) => ({
@@ -1134,11 +1129,6 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
-  ).getApiResource,
-  /** Get your registered passkeys. */
-  listPasskeys: new ApiCallAsyncResourceFactory(
-    descriptors.userListPasskeys,
-    baseClient.user.listPasskeys,
   ).getApiResource,
 });
 

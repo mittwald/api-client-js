@@ -282,6 +282,22 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    namespace AiHostingUserGetKeys {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetKeys
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetKeys, TStatus>;
+    }
+
+    namespace AiHostingUserGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
+    }
+
     namespace AppDetachAppinstallationStaging {
       type RequestData = InferredRequestData<
         typeof descriptors.appDetachAppinstallationStaging
@@ -4472,6 +4488,17 @@ export declare namespace MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
     }
 
+    namespace SslSetCertificateRequestCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslSetCertificateRequestCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslSetCertificateRequestCertificate,
+          TStatus
+        >;
+    }
+
     namespace StoragespaceGetProjectStatistics {
       type RequestData = InferredRequestData<
         typeof descriptors.storagespaceGetProjectStatistics
@@ -5335,6 +5362,68 @@ export declare namespace MittwaldAPIV3Next {
       export interface DeMittwaldAihostingTokenUsage {
         planLimit: number;
         used: number;
+      }
+
+      /**
+       * One AI hosting key the authenticated user can reach, with the organization,
+       * project and plan names denormalized so the list needs no second call.
+       *
+       */
+      export interface DeMittwaldAihostingUserKey {
+        containerMeta?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingContainerMeta;
+        createdAt: string;
+        customerId: string;
+        customerName: string;
+        /**
+         * Indicates whether the key is blocked.
+         */
+        isBlocked: boolean;
+        /**
+         * @deprecated
+         * The secret API key. For security reasons we no longer want to keep exposing this value on every response — this field is deprecated and will stop returning the real key in a future change. It still returns the real value for now.
+         */
+        key: string;
+        /**
+         * Auto generated uuid to identify keys in requests.
+         */
+        keyId: string;
+        /**
+         * @deprecated
+         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
+         */
+        models: string[];
+        name: string;
+        planDescription: string;
+        planId: string;
+        projectId?: string;
+        /**
+         * Empty when the key is not assigned to a project.
+         */
+        projectName?: string;
+        rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
+        tokenUsage: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingTokenUsage;
+      }
+
+      /**
+       * One AI hosting plan the authenticated user can reach through one of its
+       * organizations. A membership in one of the plan's projects alone grants no
+       * access to it.
+       *
+       */
+      export interface DeMittwaldAihostingUserPlan {
+        customerId: string;
+        /**
+         * Denormalized name of the owning organization.
+         */
+        customerName: string;
+        description: string;
+        keys: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsage;
+        maxParallelRequests?: number;
+        nextTokenReset: string;
+        planId: string;
+        rateLimit: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingRateLimit;
+        suspended?: boolean;
+        tokens: MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingPlanUsageBig;
       }
 
       export type DeMittwaldAppAppInstallationSortOrder =
@@ -12661,7 +12750,7 @@ export declare namespace MittwaldAPIV3Next {
         visitors: number;
       }
 
-      export interface DeMittwaldRedirectusDomain {
+      export interface DeMittwaldDirectusDomain {
         /**
          * The authcode of the domain. Leave empty when mittwald can generate a authcode on its own
          */
@@ -12673,7 +12762,7 @@ export declare namespace MittwaldAPIV3Next {
         name: string;
       }
 
-      export interface DeMittwaldRedirectusEmailInbox {
+      export interface DeMittwaldDirectusEmailInbox {
         email: string;
         password: string;
       }
@@ -15595,6 +15684,126 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAiHostingKeys {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingUserKey[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextAiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldAihostingUserPlan[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -27923,14 +28132,6 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
           namespace $404 {
             namespace Content {
               export interface ApplicationJson {
@@ -39883,11 +40084,11 @@ export declare namespace MittwaldAPIV3Next {
             /**
              * List of domains which should be transferred (when allDomains is not checked).
              */
-            domains?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldRedirectusDomain[];
+            domains?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDirectusDomain[];
             /**
              * List of email inboxes which should be transferred.
              */
-            emailInboxes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldRedirectusEmailInbox[];
+            emailInboxes?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDirectusEmailInbox[];
             /**
              * Anything our customer service needs to know for the relocation process.
              */
@@ -41014,6 +41215,72 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextCertificateRequestsCertificateRequestIdCertificate {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            certificateRequestId: string;
+          };
+
+          export interface RequestBody {
+            certificate: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextProjectsProjectIdStorageSpaceStatistics {
       namespace Get {
         namespace Parameters {
@@ -41434,14 +41701,17 @@ export declare namespace MittwaldAPIV3Next {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+                | MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors
+                | MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 
           namespace $408 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupDomainError & {
+                  name?: "FirstAuthenticationFactorExpired";
+                };
             }
           }
 
@@ -41605,14 +41875,16 @@ export declare namespace MittwaldAPIV3Next {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+                | MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors
+                | MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 
           namespace $401 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+                | MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsValidationErrors
+                | MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 

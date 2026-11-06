@@ -282,6 +282,22 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
+    namespace AiHostingUserGetKeys {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetKeys
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetKeys, TStatus>;
+    }
+
+    namespace AiHostingUserGetPlans {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aiHostingUserGetPlans
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
+    }
+
     namespace AppDetachAppinstallationStaging {
       type RequestData = InferredRequestData<
         typeof descriptors.appDetachAppinstallationStaging
@@ -4466,6 +4482,17 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.sslListCertificates, TStatus>;
     }
 
+    namespace SslSetCertificateRequestCertificate {
+      type RequestData = InferredRequestData<
+        typeof descriptors.sslSetCertificateRequestCertificate
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.sslSetCertificateRequestCertificate,
+          TStatus
+        >;
+    }
+
     namespace StoragespaceGetProjectStatistics {
       type RequestData = InferredRequestData<
         typeof descriptors.storagespaceGetProjectStatistics
@@ -5329,6 +5356,68 @@ export declare namespace MittwaldAPIV2 {
       export interface AihostingTokenUsage {
         planLimit: number;
         used: number;
+      }
+
+      /**
+       * One AI hosting key the authenticated user can reach, with the organization,
+       * project and plan names denormalized so the list needs no second call.
+       *
+       */
+      export interface AihostingUserKey {
+        containerMeta?: MittwaldAPIV2.Components.Schemas.AihostingContainerMeta;
+        createdAt: string;
+        customerId: string;
+        customerName: string;
+        /**
+         * Indicates whether the key is blocked.
+         */
+        isBlocked: boolean;
+        /**
+         * @deprecated
+         * The secret API key. For security reasons we no longer want to keep exposing this value on every response — this field is deprecated and will stop returning the real key in a future change. It still returns the real value for now.
+         */
+        key: string;
+        /**
+         * Auto generated uuid to identify keys in requests.
+         */
+        keyId: string;
+        /**
+         * @deprecated
+         * This Field is deprecated. You can find the allowed models in the /ai-hosting route.
+         */
+        models: string[];
+        name: string;
+        planDescription: string;
+        planId: string;
+        projectId?: string;
+        /**
+         * Empty when the key is not assigned to a project.
+         */
+        projectName?: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        tokenUsage: MittwaldAPIV2.Components.Schemas.AihostingTokenUsage;
+      }
+
+      /**
+       * One AI hosting plan the authenticated user can reach through one of its
+       * organizations. A membership in one of the plan's projects alone grants no
+       * access to it.
+       *
+       */
+      export interface AihostingUserPlan {
+        customerId: string;
+        /**
+         * Denormalized name of the owning organization.
+         */
+        customerName: string;
+        description: string;
+        keys: MittwaldAPIV2.Components.Schemas.AihostingPlanUsage;
+        maxParallelRequests?: number;
+        nextTokenReset: string;
+        planId: string;
+        rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
+        suspended?: boolean;
+        tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
       }
 
       export type AppAppInstallationSortOrder =
@@ -12639,7 +12728,7 @@ export declare namespace MittwaldAPIV2 {
         visitors: number;
       }
 
-      export interface RedirectusDomain {
+      export interface DirectusDomain {
         /**
          * The authcode of the domain. Leave empty when mittwald can generate a authcode on its own
          */
@@ -12651,7 +12740,7 @@ export declare namespace MittwaldAPIV2 {
         name: string;
       }
 
-      export interface RedirectusEmailInbox {
+      export interface DirectusEmailInbox {
         email: string;
         password: string;
       }
@@ -15568,6 +15657,126 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AiHostingKeys {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingUserKey[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AiHostings {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {
+            customerId?: string;
+            projectId?: string;
+            planId?: string;
+            searchTerm?: string;
+            limit?: number;
+            skip?: number;
+            page?: number;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AihostingUserPlan[];
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -27584,10 +27793,6 @@ export declare namespace MittwaldAPIV2 {
 
     namespace V2SignupEmail {}
 
-    namespace V2ServersServerIdStorageSpaceNotificationThreshold {}
-
-    namespace V2SignupEmail {}
-
     namespace V2UsersSelfCredentialsToken {}
 
     namespace V2SignupPasswordResetConfirm {}
@@ -27884,14 +28089,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -39851,11 +40048,11 @@ export declare namespace MittwaldAPIV2 {
             /**
              * List of domains which should be transferred (when allDomains is not checked).
              */
-            domains?: MittwaldAPIV2.Components.Schemas.RedirectusDomain[];
+            domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
             /**
              * List of email inboxes which should be transferred.
              */
-            emailInboxes?: MittwaldAPIV2.Components.Schemas.RedirectusEmailInbox[];
+            emailInboxes?: MittwaldAPIV2.Components.Schemas.DirectusEmailInbox[];
             /**
              * Anything our customer service needs to know for the relocation process.
              */
@@ -40982,6 +41179,72 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2CertificateRequestsCertificateRequestIdCertificate {
+      namespace Patch {
+        namespace Parameters {
+          export type Path = {
+            certificateRequestId: string;
+          };
+
+          export interface RequestBody {
+            certificate: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ProjectsProjectIdStorageSpaceStatistics {
       namespace Get {
         namespace Parameters {
@@ -41402,14 +41665,17 @@ export declare namespace MittwaldAPIV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
           namespace $408 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
+                MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+                  name?: "FirstAuthenticationFactorExpired";
+                };
             }
           }
 
@@ -41509,8 +41775,6 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupAuthentication {}
-
     namespace V2Authenticate {
       namespace Post {
         namespace Parameters {
@@ -41575,14 +41839,16 @@ export declare namespace MittwaldAPIV2 {
           namespace $400 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
           namespace $401 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.CommonsError;
+                | MittwaldAPIV2.Components.Schemas.CommonsValidationErrors
+                | MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -42635,8 +42901,6 @@ export declare namespace MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2SignupSsh {}
 
     namespace V2UsersSelfSshKeys {
       namespace Get {
