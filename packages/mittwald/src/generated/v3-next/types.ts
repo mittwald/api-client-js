@@ -7545,11 +7545,11 @@ export declare namespace MittwaldAPIV3Next {
          */
         records: MittwaldAPIV3Next.Components.Schemas.DeMittwaldDnsImportRecord[];
         /**
-         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell below the 60s minimum. Informational; the import still uses ttlSeconds.
+         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell outside 60..86400s. Informational; the import still uses ttlSeconds.
          */
         ttlNormalized: boolean;
         /**
-         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, floored to the 60s minimum.
+         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, clamped to 60..86400s.
          */
         ttlSeconds: number;
         /**
@@ -12592,7 +12592,8 @@ export declare namespace MittwaldAPIV3Next {
           | "private_key_not_rsa"
           | "private_key_mismatch"
           | "unknown_cloudflare_error"
-          | "unknown";
+          | "unknown"
+          | "private_key_is_certificate";
       }
 
       export interface DeMittwaldSslCertificateRequest {
@@ -27624,7 +27625,7 @@ export declare namespace MittwaldAPIV3Next {
 
           export interface RequestBody {
             /**
-             * Raw RFC-1035 zone file content to import.
+             * Raw RFC-1035 zone file content to import, at most 256 KiB and 1000 distinct owner names.
              */
             zoneFile: string;
           }
