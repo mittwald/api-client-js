@@ -1848,6 +1848,22 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     storagespaceUpdateServerStatistics: this.requestFunctionFactory(
       descriptors.storagespaceUpdateServerStatistics,
     ),
+    /** Get a usage-metrics breakdown for a project. */
+    getUsageMetricsBreakdown: this.requestFunctionFactory(
+      descriptors.projectGetUsageMetricsBreakdown,
+    ),
+    /** Get usage metrics for a project. */
+    getUsageMetrics: this.requestFunctionFactory(
+      descriptors.projectGetUsageMetrics,
+    ),
+    /** Get a usage-metrics breakdown for a server. */
+    getServerUsageMetricsBreakdown: this.requestFunctionFactory(
+      descriptors.projectGetServerUsageMetricsBreakdown,
+    ),
+    /** Get usage metrics for a server. */
+    getServerUsageMetrics: this.requestFunctionFactory(
+      descriptors.projectGetServerUsageMetrics,
+    ),
   };
 
   /** The filesystem API allows you to directly access the filesystem of your project. */

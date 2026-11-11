@@ -5033,6 +5033,50 @@ export declare namespace MittwaldAPIV3Next {
           TStatus
         >;
     }
+
+    namespace ProjectGetUsageMetricsBreakdown {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetUsageMetricsBreakdown
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetUsageMetricsBreakdown,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetUsageMetrics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetUsageMetrics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetUsageMetrics,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetServerUsageMetricsBreakdown {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServerUsageMetricsBreakdown
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetServerUsageMetricsBreakdown,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetServerUsageMetrics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServerUsageMetrics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetServerUsageMetrics,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -13351,6 +13395,58 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
+
+      export interface DeMittwaldUsagemetricsGetProjectUsageBreakdownResponse {
+        /**
+         * Usage of all apps relative to the applicable limit.
+         */
+        apps: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+        /**
+         * Usage per container relative to the applicable limit, labelled with `stack` and `container`.
+         */
+        containers: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+        /**
+         * Usage of all databases relative to the applicable limit; empty for projects on a dedicated server or proSpace lite.
+         */
+        databases: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+      }
+
+      export interface DeMittwaldUsagemetricsGetServerUsageBreakdownResponse {
+        /**
+         * Absolute database usage (CPU seconds per second or memory bytes), labelled with `database_type` and `database_version`.
+         */
+        databases: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+        /**
+         * Current server limit in the unit of the requested metric (CPU seconds per second or memory bytes).
+         */
+        limit: number;
+        /**
+         * Usage per project relative to the server limit, labelled with `project`.
+         */
+        projects: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+      }
+
+      export interface DeMittwaldUsagemetricsGetUsageResponse {
+        /**
+         * Usage relative to the applicable limit (1 = 100 %).
+         */
+        series: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+      }
+
+      export interface DeMittwaldUsagemetricsSample {
+        time: string;
+        value: number;
+      }
+
+      export interface DeMittwaldUsagemetricsSeries {
+        /**
+         * Prometheus labels identifying the series, e.g. `project`, `stack`, `container`, `database_type` or `database_version`; empty for an aggregated series.
+         */
+        labels: {
+          [k: string]: string;
+        };
+        samples: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSample[];
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -44460,6 +44556,338 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdUsageMetricsBreakdown {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsGetProjectUsageBreakdownResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextProjectsProjectIdUsageMetrics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsGetUsageResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextServersServerIdUsageMetricsBreakdown {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsGetServerUsageBreakdownResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextServersServerIdUsageMetrics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsGetUsageResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

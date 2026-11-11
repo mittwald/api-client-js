@@ -1198,6 +1198,26 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
   ).getApiResource,
+  /** Get a usage-metrics breakdown for a project. */
+  getUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetUsageMetricsBreakdown,
+    baseClient.project.getUsageMetricsBreakdown,
+  ).getApiResource,
+  /** Get usage metrics for a project. */
+  getUsageMetrics: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetUsageMetrics,
+    baseClient.project.getUsageMetrics,
+  ).getApiResource,
+  /** Get a usage-metrics breakdown for a server. */
+  getServerUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetServerUsageMetricsBreakdown,
+    baseClient.project.getServerUsageMetricsBreakdown,
+  ).getApiResource,
+  /** Get usage metrics for a server. */
+  getServerUsageMetrics: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetServerUsageMetrics,
+    baseClient.project.getServerUsageMetrics,
+  ).getApiResource,
 });
 
 const buildProjectFileSystemApi = (baseClient: MittwaldAPIV3NextClient) => ({
