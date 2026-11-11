@@ -625,11 +625,6 @@ const buildCustomerApi = (baseClient: MittwaldAPIV2Client) => ({
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
   ).getApiResource,
-  /** Gets the Wallet of the Customer. */
-  getWallet: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetWallet,
-    baseClient.customer.getWallet,
-  ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerInvite,
@@ -1069,11 +1064,6 @@ const buildUserApi = (baseClient: MittwaldAPIV2Client) => ({
   getPersonalizedSettings: new ApiCallAsyncResourceFactory(
     descriptors.userGetPersonalizedSettings,
     baseClient.user.getPersonalizedSettings,
-  ).getApiResource,
-  /** Get poll settings for the specified user. */
-  getPollStatus: new ApiCallAsyncResourceFactory(
-    descriptors.userGetPollStatus,
-    baseClient.user.getPollStatus,
   ).getApiResource,
   /** Get a specific session. */
   getSession: new ApiCallAsyncResourceFactory(

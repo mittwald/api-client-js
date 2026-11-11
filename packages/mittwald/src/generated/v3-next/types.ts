@@ -1699,33 +1699,6 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
-    namespace CustomerCreateRecommendationSuggestion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateRecommendationSuggestion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerCreateRecommendationSuggestion,
-          TStatus
-        >;
-    }
-
-    namespace CustomerGetWallet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetWallet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerGetWallet, TStatus>;
-    }
-
-    namespace CustomerCreateWallet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateWallet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerCreateWallet, TStatus>;
-    }
-
     namespace CustomerDeclineCustomerInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.customerDeclineCustomerInvite
@@ -2772,17 +2745,6 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.extensionDisableExtensionInstance,
-          TStatus
-        >;
-    }
-
-    namespace ExtensionDryRunWebhook {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDryRunWebhook
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDryRunWebhook,
           TStatus
         >;
     }
@@ -4766,22 +4728,6 @@ export declare namespace MittwaldAPIV3Next {
           typeof descriptors.userUpdatePersonalizedSettings,
           TStatus
         >;
-    }
-
-    namespace UserGetPollStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetPollStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetPollStatus, TStatus>;
-    }
-
-    namespace UserPostPollStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userPostPollStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userPostPollStatus, TStatus>;
     }
 
     namespace UserGetSession {
@@ -13294,15 +13240,6 @@ export declare namespace MittwaldAPIV3Next {
         sshKeyId: string;
       }
 
-      export interface DeMittwaldPollUserPollSettings {
-        completedAt?: string;
-        dontShowUntil?: string;
-        ignoredAt?: string;
-        shouldShow: boolean;
-        status: "completed" | "muted" | "ignored" | "new";
-        userId: string;
-      }
-
       export interface DeMittwaldSignupUserSession {
         created: string;
         device: MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupDeviceInfo;
@@ -13411,6 +13348,13 @@ export declare namespace MittwaldAPIV3Next {
         databases: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
       }
 
+      export interface DeMittwaldUsagemetricsGetUsageResponse {
+        /**
+         * Usage relative to the applicable limit (1 = 100 %).
+         */
+        series: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
+      }
+
       export interface DeMittwaldUsagemetricsGetServerUsageBreakdownResponse {
         /**
          * Absolute database usage (CPU seconds per second or memory bytes), labelled with `database_type` and `database_version`.
@@ -13426,18 +13370,6 @@ export declare namespace MittwaldAPIV3Next {
         projects: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
       }
 
-      export interface DeMittwaldUsagemetricsGetUsageResponse {
-        /**
-         * Usage relative to the applicable limit (1 = 100 %).
-         */
-        series: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSeries[];
-      }
-
-      export interface DeMittwaldUsagemetricsSample {
-        time: string;
-        value: number;
-      }
-
       export interface DeMittwaldUsagemetricsSeries {
         /**
          * Prometheus labels identifying the series, e.g. `project`, `stack`, `container`, `database_type` or `database_version`; empty for an aggregated series.
@@ -13446,6 +13378,11 @@ export declare namespace MittwaldAPIV3Next {
           [k: string]: string;
         };
         samples: MittwaldAPIV3Next.Components.Schemas.DeMittwaldUsagemetricsSample[];
+      }
+
+      export interface DeMittwaldUsagemetricsSample {
+        time: string;
+        value: number;
       }
 
       export interface DeMittwaldCommonsAddress {
@@ -24156,229 +24093,6 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextCustomersCustomerIdRecommendationSuggestions {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            suggestion: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCustomersCustomerIdWallet {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId: string;
-                points: number;
-                recommendationCode?: string;
-                walletId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V3NextCustomerInvitesCustomerInviteIdActionsDecline {
       namespace Post {
         namespace Parameters {
@@ -30377,76 +30091,7 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            extensionInstanceId: string;
-            webhookKind: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMarketplaceWebhookKind;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {
-            contextId?: string;
-            scopes?: string[];
-            instanceDisabled?: boolean;
-            createdAt?: string | Date;
-            secret?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The error message of an internal error.
-                 */
-                errorMessage?: string;
-                responseBody?: string;
-                /**
-                 * The http status code that the external application responded with.
-                 */
-                responseCode?: number;
-                responseHeaders?: string;
-                routeCalled: string;
-                /**
-                 * This shows if the response of the external application has been accepted as successful.
-                 */
-                successful: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V3NextContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {}
 
     namespace V3NextExtensionInstancesExtensionInstanceIdActionsEnable {
       namespace Post {
@@ -42967,117 +42612,6 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextPollSettingsUserId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            userId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPollUserPollSettings;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            userId: string;
-          };
-
-          export interface RequestBody {
-            status: "completed" | "muted" | "ignored";
-            userId: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPollUserPollSettings;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V3NextUsersSelfSessionsTokenId {
       namespace Get {
         namespace Parameters {
@@ -44573,6 +44107,8 @@ export declare namespace MittwaldAPIV3Next {
         }
       }
     }
+
+    namespace V3NextAppsMetrics {}
 
     namespace V3NextProjectsProjectIdUsageMetricsBreakdown {
       namespace Get {

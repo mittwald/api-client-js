@@ -656,10 +656,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     extensionDisableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDisableExtensionInstance,
     ),
-    /** Dry run a webhook with random or given values. */
-    extensionDryRunWebhook: this.requestFunctionFactory(
-      descriptors.extensionDryRunWebhook,
-    ),
     /** Enable an ExtensionInstance. */
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
@@ -896,14 +892,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     createCustomer: this.requestFunctionFactory(
       descriptors.customerCreateCustomer,
     ),
-    /** Lets us know your idea for our recommendation programm. */
-    createRecommendationSuggestion: this.requestFunctionFactory(
-      descriptors.customerCreateRecommendationSuggestion,
-    ),
-    /** Gets the Wallet of the Customer. */
-    getWallet: this.requestFunctionFactory(descriptors.customerGetWallet),
-    /** Create the Wallet for the Customer. */
-    createWallet: this.requestFunctionFactory(descriptors.customerCreateWallet),
     /** Decline a CustomerInvite. */
     declineCustomerInvite: this.requestFunctionFactory(
       descriptors.customerDeclineCustomerInvite,
@@ -1502,10 +1490,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     updatePersonalizedSettings: this.requestFunctionFactory(
       descriptors.userUpdatePersonalizedSettings,
     ),
-    /** Get poll settings for the specified user. */
-    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
-    /** Store new or update poll settings. */
-    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
     /** Get a specific session. */
     getSession: this.requestFunctionFactory(descriptors.userGetSession),
     /** Terminate a specific Session. */
