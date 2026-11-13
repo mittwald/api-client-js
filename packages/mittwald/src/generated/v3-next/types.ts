@@ -4774,6 +4774,22 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    namespace UserGetPollStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userGetPollStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userGetPollStatus, TStatus>;
+    }
+
+    namespace UserPostPollStatus {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userPostPollStatus
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.userPostPollStatus, TStatus>;
+    }
+
     namespace UserGetSession {
       type RequestData = InferredRequestData<typeof descriptors.userGetSession>;
       type ResponseData<TStatus extends HttpStatus = 200> =
@@ -5022,22 +5038,6 @@ export declare namespace MittwaldAPIV3Next {
           typeof descriptors.verificationVerifyCompany,
           TStatus
         >;
-    }
-
-    namespace UserGetPollStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userGetPollStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userGetPollStatus, TStatus>;
-    }
-
-    namespace UserPostPollStatus {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userPostPollStatus
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.userPostPollStatus, TStatus>;
     }
   }
 
@@ -13328,6 +13328,15 @@ export declare namespace MittwaldAPIV3Next {
         sshKeyId: string;
       }
 
+      export interface DeMittwaldPollUserPollSettings {
+        completedAt?: string;
+        dontShowUntil?: string;
+        ignoredAt?: string;
+        shouldShow: boolean;
+        status: "completed" | "muted" | "ignored" | "new";
+        userId: string;
+      }
+
       export interface DeMittwaldSignupUserSession {
         created: string;
         device: MittwaldAPIV3Next.Components.Schemas.DeMittwaldSignupDeviceInfo;
@@ -13420,15 +13429,6 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
-
-      export interface DeMittwaldPollUserPollSettings {
-        completedAt?: string;
-        dontShowUntil?: string;
-        ignoredAt?: string;
-        shouldShow: boolean;
-        status: "completed" | "muted" | "ignored" | "new";
-        userId: string;
-      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -43031,6 +43031,109 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextPollSettingsUserId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPollUserPollSettings;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            userId: string;
+          };
+
+          export interface RequestBody {
+            status: "completed" | "muted" | "ignored";
+            userId: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPollUserPollSettings;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextUsersSelfSessionsTokenId {
       namespace Get {
         namespace Parameters {
@@ -44521,109 +44624,6 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextPollSettingsUserId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            userId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPollUserPollSettings;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            userId: string;
-          };
-
-          export interface RequestBody {
-            status: "completed" | "muted" | "ignored";
-            userId: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV3Next.Components.Schemas.DeMittwaldPollUserPollSettings;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

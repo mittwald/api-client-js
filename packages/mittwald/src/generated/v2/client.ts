@@ -1490,6 +1490,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     updatePersonalizedSettings: this.requestFunctionFactory(
       descriptors.userUpdatePersonalizedSettings,
     ),
+    /** Get poll settings for the specified user. */
+    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
+    /** Store new or update poll settings. */
+    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
     /** Get a specific session. */
     getSession: this.requestFunctionFactory(descriptors.userGetSession),
     /** Terminate a specific Session. */
@@ -1568,10 +1572,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
-    /** Get poll settings for the specified user. */
-    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
-    /** Store new or update poll settings. */
-    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

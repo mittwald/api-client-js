@@ -19116,6 +19116,79 @@ export const userUpdatePersonalizedSettings: OpenAPIOperation<
   operationId: "user-update-personalized-settings",
 };
 
+/** Get poll settings for the specified user. */
+export const userGetPollStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/poll-settings/{userId}",
+  method: "GET",
+  operationId: "user-get-poll-status",
+};
+
+/** Store new or update poll settings. */
+export const userPostPollStatus: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/poll-settings/{userId}",
+  method: "POST",
+  operationId: "user-post-poll-status",
+};
+
 /** Get a specific session. */
 export const userGetSession: OpenAPIOperation<
   RequestType<
@@ -20076,77 +20149,4 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
-};
-
-/** Get poll settings for the specified user. */
-export const userGetPollStatus: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/poll-settings/{userId}",
-  method: "GET",
-  operationId: "user-get-poll-status",
-};
-
-/** Store new or update poll settings. */
-export const userPostPollStatus: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/poll-settings/{userId}",
-  method: "POST",
-  operationId: "user-post-poll-status",
 };
