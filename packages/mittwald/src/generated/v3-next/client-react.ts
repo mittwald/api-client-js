@@ -1105,6 +1105,11 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.userSupportCodeRequest,
     baseClient.user.supportCodeRequest,
   ).getApiResource,
+  /** Get poll settings for the specified user. */
+  getPollStatus: new ApiCallAsyncResourceFactory(
+    descriptors.userGetPollStatus,
+    baseClient.user.getPollStatus,
+  ).getApiResource,
 });
 
 const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
@@ -1138,10 +1143,30 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.projectGetSelfMembershipForProject,
     baseClient.project.getSelfMembershipForProject,
   ).getApiResource,
+  /** Get a usage-metrics breakdown for a server. */
+  getServerUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetServerUsageMetricsBreakdown,
+    baseClient.project.getServerUsageMetricsBreakdown,
+  ).getApiResource,
+  /** Get usage metrics for a server. */
+  getServerUsageMetrics: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetServerUsageMetrics,
+    baseClient.project.getServerUsageMetrics,
+  ).getApiResource,
   /** Get a Server. */
   getServer: new ApiCallAsyncResourceFactory(
     descriptors.projectGetServer,
     baseClient.project.getServer,
+  ).getApiResource,
+  /** Get a usage-metrics breakdown for a project. */
+  getUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetUsageMetricsBreakdown,
+    baseClient.project.getUsageMetricsBreakdown,
+  ).getApiResource,
+  /** Get usage metrics for a project. */
+  getUsageMetrics: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetUsageMetrics,
+    baseClient.project.getUsageMetrics,
   ).getApiResource,
   /** List Projects belonging to a Customer. */
   listCustomerProjects: new ApiCallAsyncResourceFactory(
@@ -1187,26 +1212,6 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
   storagespaceGetServerStatistics: new ApiCallAsyncResourceFactory(
     descriptors.storagespaceGetServerStatistics,
     baseClient.project.storagespaceGetServerStatistics,
-  ).getApiResource,
-  /** Get a usage-metrics breakdown for a project. */
-  getUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetUsageMetricsBreakdown,
-    baseClient.project.getUsageMetricsBreakdown,
-  ).getApiResource,
-  /** Get usage metrics for a project. */
-  getUsageMetrics: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetUsageMetrics,
-    baseClient.project.getUsageMetrics,
-  ).getApiResource,
-  /** Get a usage-metrics breakdown for a server. */
-  getServerUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetServerUsageMetricsBreakdown,
-    baseClient.project.getServerUsageMetricsBreakdown,
-  ).getApiResource,
-  /** Get usage metrics for a server. */
-  getServerUsageMetrics: new ApiCallAsyncResourceFactory(
-    descriptors.projectGetServerUsageMetrics,
-    baseClient.project.getServerUsageMetrics,
   ).getApiResource,
 });
 

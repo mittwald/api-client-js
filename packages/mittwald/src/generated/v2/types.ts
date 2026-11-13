@@ -4082,6 +4082,28 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
+    namespace ProjectGetServerUsageMetricsBreakdown {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServerUsageMetricsBreakdown
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetServerUsageMetricsBreakdown,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetServerUsageMetrics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServerUsageMetrics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetServerUsageMetrics,
+          TStatus
+        >;
+    }
+
     namespace ProjectGetServer {
       type RequestData = InferredRequestData<
         typeof descriptors.projectGetServer
@@ -4096,6 +4118,28 @@ export declare namespace MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.projectUpdateServer, TStatus>;
+    }
+
+    namespace ProjectGetUsageMetricsBreakdown {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetUsageMetricsBreakdown
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetUsageMetricsBreakdown,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetUsageMetrics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetUsageMetrics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetUsageMetrics,
+          TStatus
+        >;
     }
 
     namespace ProjectListCustomerProjects {
@@ -4980,48 +5024,20 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace ProjectGetUsageMetricsBreakdown {
+    namespace UserGetPollStatus {
       type RequestData = InferredRequestData<
-        typeof descriptors.projectGetUsageMetricsBreakdown
+        typeof descriptors.userGetPollStatus
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetUsageMetricsBreakdown,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.userGetPollStatus, TStatus>;
     }
 
-    namespace ProjectGetUsageMetrics {
+    namespace UserPostPollStatus {
       type RequestData = InferredRequestData<
-        typeof descriptors.projectGetUsageMetrics
+        typeof descriptors.userPostPollStatus
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetUsageMetrics,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetServerUsageMetricsBreakdown {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetServerUsageMetricsBreakdown
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetServerUsageMetricsBreakdown,
-          TStatus
-        >;
-    }
-
-    namespace ProjectGetServerUsageMetrics {
-      type RequestData = InferredRequestData<
-        typeof descriptors.projectGetServerUsageMetrics
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.projectGetServerUsageMetrics,
-          TStatus
-        >;
+        InferredResponseData<typeof descriptors.userPostPollStatus, TStatus>;
     }
   }
 
@@ -6431,15 +6447,35 @@ export declare namespace MittwaldAPIV2 {
         type: "component" | "standalone";
         userInputs?: {
           dataSource?: string;
+          /**
+           * How the installer renders the input. Missing means text.
+           */
+          dataType?: "text" | "boolean" | "consent" | "select";
           defaultValue?: string;
+          description?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+          errorMessage?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+          /**
+           * Input format of a text input.
+           */
+          format?: "email" | "password" | "url" | "textarea";
           label?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
           name: string;
+          /**
+           * Options of a select input; their values match the enum of the validation schema.
+           */
+          options?: {
+            label: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            value: string;
+          }[];
           positionMeta?: {
             index?: number;
             section?: string;
             step?: string;
           };
           required: boolean;
+          /**
+           * JSON schema the value is validated against; values are always strings.
+           */
           validationSchema?: string;
         }[];
         /**
@@ -12742,6 +12778,58 @@ export declare namespace MittwaldAPIV2 {
         statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
       }
 
+      export interface UsagemetricsGetProjectUsageBreakdownResponse {
+        /**
+         * Usage of all apps relative to the applicable limit.
+         */
+        apps: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+        /**
+         * Usage per container relative to the applicable limit, labelled with `stack` and `container`.
+         */
+        containers: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+        /**
+         * Usage of all databases relative to the applicable limit; empty for projects on a dedicated server or proSpace lite.
+         */
+        databases: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+      }
+
+      export interface UsagemetricsGetServerUsageBreakdownResponse {
+        /**
+         * Absolute database usage (CPU seconds per second or memory bytes), labelled with `database_type` and `database_version`.
+         */
+        databases: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+        /**
+         * Current server limit in the unit of the requested metric (CPU seconds per second or memory bytes).
+         */
+        limit: number;
+        /**
+         * Usage per project relative to the server limit, labelled with `project`.
+         */
+        projects: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+      }
+
+      export interface UsagemetricsGetUsageResponse {
+        /**
+         * Usage relative to the applicable limit (1 = 100 %).
+         */
+        series: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+      }
+
+      export interface UsagemetricsSample {
+        time: string;
+        value: number;
+      }
+
+      export interface UsagemetricsSeries {
+        /**
+         * Prometheus labels identifying the series, e.g. `project`, `stack`, `container`, `database_type` or `database_version`; empty for an aggregated series.
+         */
+        labels: {
+          [k: string]: string;
+        };
+        samples: MittwaldAPIV2.Components.Schemas.UsagemetricsSample[];
+      }
+
       export interface SignupAccount {
         email?: string;
         /**
@@ -13312,56 +13400,13 @@ export declare namespace MittwaldAPIV2 {
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
 
-      export interface UsagemetricsGetProjectUsageBreakdownResponse {
-        /**
-         * Usage of all apps relative to the applicable limit.
-         */
-        apps: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
-        /**
-         * Usage per container relative to the applicable limit, labelled with `stack` and `container`.
-         */
-        containers: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
-        /**
-         * Usage of all databases relative to the applicable limit; empty for projects on a dedicated server or proSpace lite.
-         */
-        databases: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
-      }
-
-      export interface UsagemetricsGetServerUsageBreakdownResponse {
-        /**
-         * Absolute database usage (CPU seconds per second or memory bytes), labelled with `database_type` and `database_version`.
-         */
-        databases: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
-        /**
-         * Current server limit in the unit of the requested metric (CPU seconds per second or memory bytes).
-         */
-        limit: number;
-        /**
-         * Usage per project relative to the server limit, labelled with `project`.
-         */
-        projects: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
-      }
-
-      export interface UsagemetricsGetUsageResponse {
-        /**
-         * Usage relative to the applicable limit (1 = 100 %).
-         */
-        series: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
-      }
-
-      export interface UsagemetricsSample {
-        time: string;
-        value: number;
-      }
-
-      export interface UsagemetricsSeries {
-        /**
-         * Prometheus labels identifying the series, e.g. `project`, `stack`, `container`, `database_type` or `database_version`; empty for an aggregated series.
-         */
-        labels: {
-          [k: string]: string;
-        };
-        samples: MittwaldAPIV2.Components.Schemas.UsagemetricsSample[];
+      export interface PollUserPollSettings {
+        completedAt?: string;
+        dontShowUntil?: string;
+        ignoredAt?: string;
+        shouldShow: boolean;
+        status: "completed" | "muted" | "ignored" | "new";
+        userId: string;
       }
 
       export interface CommonsAddress {
@@ -26573,6 +26618,8 @@ export declare namespace MittwaldAPIV2 {
 
     namespace V2ProjectsProjectIdDomains {}
 
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {}
+
     namespace V2FileTokenRulesToken {}
 
     namespace V2FileTypeRulesName {}
@@ -27298,6 +27345,8 @@ export declare namespace MittwaldAPIV2 {
     }
 
     namespace V2ProjectsProjectIdLeave {}
+
+    namespace V2AppsMetrics {}
 
     namespace V2ProjectsProjectIdDescription {}
 
@@ -30129,8 +30178,6 @@ export declare namespace MittwaldAPIV2 {
         }
       }
     }
-
-    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {}
 
     namespace V2ExtensionInstancesExtensionInstanceIdActionsEnable {
       namespace Post {
@@ -38576,6 +38623,172 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2ServersServerIdUsageMetricsBreakdown {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetServerUsageBreakdownResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ServersServerIdUsageMetrics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetUsageResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ServersServerId {
       namespace Get {
         namespace Parameters {
@@ -38669,6 +38882,172 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdUsageMetricsBreakdown {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetProjectUsageBreakdownResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdUsageMetrics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetUsageResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -40699,11 +41078,18 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * The response token of a solved captcha challenge. Not needed for a short while after a
+             * `POST /authenticate` that answered `202`; otherwise a missing, unsolved or already used token is
+             * rejected with `CaptchaVerificationFailed` (400).
+             *
+             */
+            captchaToken?: string;
+            /**
              * The email of the user.
              */
             email: string;
             /**
-             * The second factor - otp code or recovery code.
+             * The second factor - otp code, recovery code or the confirmation code mailed at login.
              */
             multiFactorCode?: string;
             passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
@@ -40770,6 +41156,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -40787,6 +41180,12 @@ export declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
+            /**
+             * The response token of a solved captcha challenge, as issued by the captcha widget of the login
+             * form. A missing, unsolved or already used token is rejected with `CaptchaVerificationFailed` (400).
+             *
+             */
+            captchaToken?: string;
             challengeId: string;
             credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyAuthenticationResponse;
           }
@@ -40847,6 +41246,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -40866,6 +41272,12 @@ export declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
+            /**
+             * The response token of a solved captcha challenge, as issued by the captcha widget of the login
+             * form. A missing, unsolved or already used token is rejected with `CaptchaVerificationFailed` (400).
+             *
+             */
+            captchaToken?: string;
             /**
              * The users Email-Address.
              */
@@ -40908,7 +41320,7 @@ export declare namespace MittwaldAPIV2 {
                 /**
                  * More values may be added in the future; clients must ignore values they do not know.
                  */
-                availableSecondFactors: ("totp" | "passkey")[];
+                availableSecondFactors: ("totp" | "passkey" | "email")[];
                 name?: "SecondFactorRequired";
                 passkeyChallenge?: MittwaldAPIV2.Components.Schemas.SignupPasskeyChallenge;
               }
@@ -40942,6 +41354,13 @@ export declare namespace MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -43514,6 +43933,12 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * The response token of a solved captcha challenge, as issued by the captcha widget of the
+             * registration form. An unsolved or already used token is rejected with `CaptchaVerificationFailed`.
+             *
+             */
+            captchaToken: string;
+            /**
              * The users email address
              */
             email: string;
@@ -43556,6 +43981,13 @@ export declare namespace MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -43737,9 +44169,8 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -44247,53 +44678,22 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2AppsMetrics {}
-
-    namespace V2ProjectsProjectIdUsageMetricsBreakdown {
+    namespace V2PollSettingsUserId {
       namespace Get {
         namespace Parameters {
           export type Path = {
-            projectId: string;
+            userId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export type Header = {};
 
-          export type Query = {
-            metric: "cpu" | "memory";
-            from?: string | Date;
-            to?: string | Date;
-          };
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.UsagemetricsGetProjectUsageBreakdownResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+                MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
             }
           }
 
@@ -44306,14 +44706,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44330,49 +44722,31 @@ export declare namespace MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2ProjectsProjectIdUsageMetrics {
-      namespace Get {
+      namespace Post {
         namespace Parameters {
           export type Path = {
-            projectId: string;
+            userId: string;
           };
 
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+          export interface RequestBody {
+            status: "completed" | "muted" | "ignored";
+            userId: string;
+          }
 
-          export type Query = {
-            metric: "cpu" | "memory";
-            from?: string | Date;
-            to?: string | Date;
-          };
+          export type Header = {};
+
+          export type Query = {};
         }
         namespace Responses {
           namespace $200 {
             namespace Content {
               export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.UsagemetricsGetUsageResponse;
+                MittwaldAPIV2.Components.Schemas.PollUserPollSettings;
             }
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44389,180 +44763,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ServersServerIdUsageMetricsBreakdown {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            metric: "cpu" | "memory";
-            from?: string | Date;
-            to?: string | Date;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.UsagemetricsGetServerUsageBreakdownResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2ServersServerIdUsageMetrics {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            serverId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            metric: "cpu" | "memory";
-            from?: string | Date;
-            to?: string | Date;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.UsagemetricsGetUsageResponse;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $500 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

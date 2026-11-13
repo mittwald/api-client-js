@@ -16246,6 +16246,114 @@ export const projectGetSelfMembershipForProject: OpenAPIOperation<
   operationId: "project-get-self-membership-for-project",
 };
 
+/** Get a usage-metrics breakdown for a server. */
+export const projectGetServerUsageMetricsBreakdown: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/usage-metrics/breakdown",
+  method: "GET",
+  operationId: "project-get-server-usage-metrics-breakdown",
+};
+
+/** Get usage metrics for a server. */
+export const projectGetServerUsageMetrics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/servers/{serverId}/usage-metrics",
+  method: "GET",
+  operationId: "project-get-server-usage-metrics",
+};
+
 /** Get a Server. */
 export const projectGetServer: OpenAPIOperation<
   RequestType<
@@ -16322,6 +16430,114 @@ export const projectUpdateServer: OpenAPIOperation<
   path: "/v3-next/servers/{serverId}",
   method: "PATCH",
   operationId: "project-update-server",
+};
+
+/** Get a usage-metrics breakdown for a project. */
+export const projectGetUsageMetricsBreakdown: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/usage-metrics/breakdown",
+  method: "GET",
+  operationId: "project-get-usage-metrics-breakdown",
+};
+
+/** Get usage metrics for a project. */
+export const projectGetUsageMetrics: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/projects/{projectId}/usage-metrics",
+  method: "GET",
+  operationId: "project-get-usage-metrics",
 };
 
 /** List Projects belonging to a Customer. */
@@ -17654,6 +17870,11 @@ export const userAuthenticateMfa: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticateMfa.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticateMfa.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -17695,6 +17916,11 @@ export const userAuthenticatePasskey: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$500.Content.ApplicationJson>,
       500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticatePasskey.Post.Responses.$503.Content.ApplicationJson>,
+      503,
       "application/json"
     >
   | Response<
@@ -17744,6 +17970,11 @@ export const userAuthenticate: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticate.Post.Responses.$429.Content.ApplicationJson>,
       429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAuthenticate.Post.Responses.$503.Content.ApplicationJson>,
+      503,
       "application/json"
     >
   | Response<
@@ -19414,6 +19645,11 @@ export const userRegister: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextRegister.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextRegister.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
@@ -19842,218 +20078,75 @@ export const verificationVerifyCompany: OpenAPIOperation<
   operationId: "verification-verify-company",
 };
 
-/** Get a usage-metrics breakdown for a project. */
-export const projectGetUsageMetricsBreakdown: OpenAPIOperation<
+/** Get poll settings for the specified user. */
+export const userGetPollStatus: OpenAPIOperation<
   RequestType<
     Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Parameters.Header>
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetricsBreakdown.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Get.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v3-next/projects/{projectId}/usage-metrics/breakdown",
+  path: "/v3-next/poll-settings/{userId}",
   method: "GET",
-  operationId: "project-get-usage-metrics-breakdown",
+  operationId: "user-get-poll-status",
 };
 
-/** Get usage metrics for a project. */
-export const projectGetUsageMetrics: OpenAPIOperation<
+/** Store new or update poll settings. */
+export const userPostPollStatus: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Parameters.Header>
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$200.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$200.Content.ApplicationJson>,
       200,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$400.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$400.Content.ApplicationJson>,
       400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$500.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.$500.Content.ApplicationJson>,
       500,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdUsageMetrics.Get.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV3Next.Paths.V3NextPollSettingsUserId.Post.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v3-next/projects/{projectId}/usage-metrics",
-  method: "GET",
-  operationId: "project-get-usage-metrics",
-};
-
-/** Get a usage-metrics breakdown for a server. */
-export const projectGetServerUsageMetricsBreakdown: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetricsBreakdown.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/servers/{serverId}/usage-metrics/breakdown",
-  method: "GET",
-  operationId: "project-get-server-usage-metrics-breakdown",
-};
-
-/** Get usage metrics for a server. */
-export const projectGetServerUsageMetrics: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$200.Content.ApplicationJson>,
-      200,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$500.Content.ApplicationJson>,
-      500,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.$503.Content.ApplicationJson>,
-      503,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextServersServerIdUsageMetrics.Get.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/servers/{serverId}/usage-metrics",
-  method: "GET",
-  operationId: "project-get-server-usage-metrics",
+  path: "/v3-next/poll-settings/{userId}",
+  method: "POST",
+  operationId: "user-post-poll-status",
 };

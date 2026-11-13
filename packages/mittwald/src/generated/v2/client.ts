@@ -1568,6 +1568,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Get poll settings for the specified user. */
+    getPollStatus: this.requestFunctionFactory(descriptors.userGetPollStatus),
+    /** Store new or update poll settings. */
+    postPollStatus: this.requestFunctionFactory(descriptors.userPostPollStatus),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
@@ -1784,10 +1788,26 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     getSelfMembershipForProject: this.requestFunctionFactory(
       descriptors.projectGetSelfMembershipForProject,
     ),
+    /** Get a usage-metrics breakdown for a server. */
+    getServerUsageMetricsBreakdown: this.requestFunctionFactory(
+      descriptors.projectGetServerUsageMetricsBreakdown,
+    ),
+    /** Get usage metrics for a server. */
+    getServerUsageMetrics: this.requestFunctionFactory(
+      descriptors.projectGetServerUsageMetrics,
+    ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
     /** Update a Server. */
     updateServer: this.requestFunctionFactory(descriptors.projectUpdateServer),
+    /** Get a usage-metrics breakdown for a project. */
+    getUsageMetricsBreakdown: this.requestFunctionFactory(
+      descriptors.projectGetUsageMetricsBreakdown,
+    ),
+    /** Get usage metrics for a project. */
+    getUsageMetrics: this.requestFunctionFactory(
+      descriptors.projectGetUsageMetrics,
+    ),
     /** List Projects belonging to a Customer. */
     listCustomerProjects: this.requestFunctionFactory(
       descriptors.projectListCustomerProjects,
@@ -1831,22 +1851,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Update a Server's storage space statistics. */
     storagespaceUpdateServerStatistics: this.requestFunctionFactory(
       descriptors.storagespaceUpdateServerStatistics,
-    ),
-    /** Get a usage-metrics breakdown for a project. */
-    getUsageMetricsBreakdown: this.requestFunctionFactory(
-      descriptors.projectGetUsageMetricsBreakdown,
-    ),
-    /** Get usage metrics for a project. */
-    getUsageMetrics: this.requestFunctionFactory(
-      descriptors.projectGetUsageMetrics,
-    ),
-    /** Get a usage-metrics breakdown for a server. */
-    getServerUsageMetricsBreakdown: this.requestFunctionFactory(
-      descriptors.projectGetServerUsageMetricsBreakdown,
-    ),
-    /** Get usage metrics for a server. */
-    getServerUsageMetrics: this.requestFunctionFactory(
-      descriptors.projectGetServerUsageMetrics,
     ),
   };
 
