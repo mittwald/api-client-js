@@ -43808,7 +43808,7 @@ export declare namespace MittwaldAPIV3Next {
              * registration form. An unsolved or already used token is rejected with `CaptchaVerificationFailed`.
              *
              */
-            captchaToken: string;
+            captchaToken?: string;
             /**
              * The users email address
              */
