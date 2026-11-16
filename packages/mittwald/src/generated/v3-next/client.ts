@@ -1232,6 +1232,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
     ),
+    /** Check if a Domain is eligible for AuthInfo2. */
+    checkAuthinfo2: this.requestFunctionFactory(
+      descriptors.domainCheckAuthinfo2,
+    ),
   };
 
   /** The mail API allows you to manage your mail accounts. */
@@ -1593,64 +1597,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Get a File with user-friendly url. */
     getFileWithName: this.requestFunctionFactory(
       descriptors.fileGetFileWithName,
-    ),
-  };
-
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr = {
-    /** Get your LeadFyndr request. */
-    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileRequest,
-    ),
-    /** Create a new access request for LeadFyndr. */
-    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
-    ),
-    /** Create an export of unlocked leads for the given customerId. */
-    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadsExport,
-    ),
-    /** Get cities in DACH. */
-    leadfyndrGetCities: this.requestFunctionFactory(
-      descriptors.leadfyndrGetCities,
-    ),
-    /** Get lead tariff options. How many leads did you unlock this month? */
-    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-    ),
-    /** Get your LeadFyndr profile. */
-    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfile,
-    ),
-    /** Get a simple lead. Use the unlocked route for more detail leads. */
-    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
-    /** Get unlocked leads export history for the given customerId. */
-    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadsExportHistory,
-    ),
-    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrGetUnlockedLead,
-    ),
-    /** Unlock a lead for the given customerId. */
-    leadfyndrUnlockLead: this.requestFunctionFactory(
-      descriptors.leadfyndrUnlockLead,
-    ),
-    /** Get all leads. Use the unlocked routes for more lead details. */
-    leadfyndrListLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListLeads,
-    ),
-    /** Get all unlocked leads. Organisation can unlock leads. */
-    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListUnlockedLeads,
-    ),
-    /** Reserve a unlocked lead for the given customerId. */
-    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrReserveUnlockedLead,
-    ),
-    /** Removes a reservation on a unlocked lead for the given customerId. */
-    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
-      descriptors.leadfyndrRemoveUnlockedLeadReservation,
     ),
   };
 
