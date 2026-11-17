@@ -1,9 +1,15 @@
 import Request from "./Request.js";
-import { AxiosError, AxiosInstance } from "axios";
+import {
+  AxiosError,
+  AxiosInstance,
+  AxiosRequestConfig,
+  AxiosResponse,
+} from "axios";
 import { jest } from "@jest/globals";
 import { QueryParameters } from "../types/index.js";
 
-const requestFn = jest.fn();
+const requestFn =
+  jest.fn<(config: AxiosRequestConfig) => Promise<AxiosResponse>>();
 
 const mockedAxios = {
   request: requestFn,
@@ -280,18 +286,20 @@ describe("execute", () => {
   });
 
   /**
-   * `execute` intends to fall back to `error.response` for HTTP errors, but
-   * `AxiosError.from()` builds a fresh error without the response (see
-   * axios/lib/core/AxiosError.js), so the fallback never triggers. In practice
-   * this is masked by `validateStatus: () => true`, which stops axios from
-   * throwing on HTTP errors at all.
+   * `validateStatus: () => true` normally stops axios from rejecting on an HTTP
+   * status at all. Should it reject with a response anyway – for example
+   * because a caller overrides `validateStatus` – the response is returned.
    */
-  test("rethrows an axios error that carries a response instead of returning it", async () => {
-    const response = { status: 404, data: { message: "nope" } };
-    const httpError = Object.assign(new AxiosError("Not Found"), { response });
-    requestFn.mockRejectedValue(httpError as never);
+  test("returns the response of an axios error that carries one instead of throwing", async () => {
+    const response = {
+      status: 404,
+      data: { message: "Not found" },
+    } as AxiosResponse;
+    requestFn.mockRejectedValue(
+      new AxiosError("Not Found", undefined, undefined, undefined, response),
+    );
 
-    await expect(new Request(op).execute(mockedAxios)).rejects.toBe(httpError);
+    await expect(new Request(op).execute(mockedAxios)).resolves.toBe(response);
   });
 
   test("rethrows an axios error without a response, such as a network error", async () => {
