@@ -2380,6 +2380,14 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
+    namespace DomainCheckAuthinfo2 {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckAuthinfo2
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
+    }
+
     namespace DomainCheckDomainRegistrability {
       type RequestData = InferredRequestData<
         typeof descriptors.domainCheckDomainRegistrability
@@ -4896,14 +4904,6 @@ export declare namespace MittwaldAPIV3Next {
           typeof descriptors.verificationVerifyCompany,
           TStatus
         >;
-    }
-
-    namespace DomainCheckAuthinfo2 {
-      type RequestData = InferredRequestData<
-        typeof descriptors.domainCheckAuthinfo2
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
     }
   }
 
@@ -27833,6 +27833,78 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
+    namespace V3NextAuthinfo2CheckDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                eligible: boolean;
+                reasons: {
+                  /**
+                   * The domain is already managed by mittwald; no AuthInfo2 is needed.
+                   */
+                  alreadyManaged: boolean;
+                  /**
+                   * The domain is not registered at DENIC.
+                   */
+                  notRegistered: boolean;
+                  /**
+                   * An AuthInfo2 was requested for this domain within the last 30 days.
+                   */
+                  recentlyTriggered: boolean;
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V3NextDomainRegistrable {
       namespace Post {
         namespace Parameters {
@@ -43337,78 +43409,6 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextAuthinfo2CheckDomain {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {};
-
-          export interface RequestBody {
-            domain: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                eligible: boolean;
-                reasons: {
-                  /**
-                   * The domain is already managed by mittwald; no AuthInfo2 is needed.
-                   */
-                  alreadyManaged: boolean;
-                  /**
-                   * The domain is not registered at DENIC.
-                   */
-                  notRegistered: boolean;
-                  /**
-                   * An AuthInfo2 was requested for this domain within the last 30 days.
-                   */
-                  recentlyTriggered: boolean;
-                };
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;

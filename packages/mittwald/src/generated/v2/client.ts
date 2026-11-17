@@ -1112,6 +1112,10 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     cancelScheduledDeletion: this.requestFunctionFactory(
       descriptors.domainCancelScheduledDeletion,
     ),
+    /** Check if a Domain is eligible for AuthInfo2. */
+    checkAuthinfo2: this.requestFunctionFactory(
+      descriptors.domainCheckAuthinfo2,
+    ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
       descriptors.domainCheckDomainRegistrability,
@@ -1231,10 +1235,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** List Certificates belonging to a Project or an Ingress. */
     sslListCertificates: this.requestFunctionFactory(
       descriptors.sslListCertificates,
-    ),
-    /** Check if a Domain is eligible for AuthInfo2. */
-    checkAuthinfo2: this.requestFunctionFactory(
-      descriptors.domainCheckAuthinfo2,
     ),
   };
 
