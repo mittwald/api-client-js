@@ -9707,17 +9707,29 @@ export declare namespace MittwaldAPIV2 {
         useFreeTrial?: boolean;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrOrderPreview {
         reservationLimit: number;
         unlockLimit: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrOrder {
         customerId: string;
         reservationLimit: number;
         unlockLimit: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrTariffChange {
         contractId: string;
         reservationLimit: number;
@@ -9809,6 +9821,10 @@ export declare namespace MittwaldAPIV2 {
         totalPrice: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrOrderPreviewResponse {
         totalPrice: number;
       }
@@ -35230,6 +35246,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -35291,6 +35314,13 @@ export declare namespace MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -35496,6 +35526,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -35559,6 +35596,13 @@ export declare namespace MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -39893,9 +39937,8 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -40094,9 +40137,8 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -42824,9 +42866,8 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 

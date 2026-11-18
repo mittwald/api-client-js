@@ -9721,17 +9721,29 @@ export declare namespace MittwaldAPIV3Next {
         useFreeTrial?: boolean;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface DeMittwaldOrderLeadFyndrOrderPreview {
         reservationLimit: number;
         unlockLimit: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface DeMittwaldOrderLeadFyndrOrder {
         customerId: string;
         reservationLimit: number;
         unlockLimit: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface DeMittwaldOrderLeadFyndrTariffChange {
         contractId: string;
         reservationLimit: number;
@@ -9823,6 +9835,10 @@ export declare namespace MittwaldAPIV3Next {
         totalPrice: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface DeMittwaldOrderLeadFyndrOrderPreviewResponse {
         totalPrice: number;
       }
@@ -35175,6 +35191,13 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -35236,6 +35259,13 @@ export declare namespace MittwaldAPIV3Next {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 
@@ -35441,6 +35471,13 @@ export declare namespace MittwaldAPIV3Next {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -35504,6 +35541,13 @@ export declare namespace MittwaldAPIV3Next {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 
@@ -39818,9 +39862,8 @@ export declare namespace MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 
@@ -40017,9 +40060,8 @@ export declare namespace MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 
@@ -42737,9 +42779,8 @@ export declare namespace MittwaldAPIV3Next {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV3Next.Components.Schemas.DeMittwaldCommonsError;
             }
           }
 

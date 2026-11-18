@@ -14269,6 +14269,11 @@ export const orderCreateOrder: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2Orders.Post.Responses.$422.Content.ApplicationJson>,
       422,
       "application/json"
@@ -14305,6 +14310,11 @@ export const orderCreateTariffChange: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TariffChanges.Post.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
@@ -14429,6 +14439,11 @@ export const orderPreviewOrder: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV2.Paths.V2OrderPreviews.Post.Responses.$422.Content.ApplicationJson>,
       422,
       "application/json"
@@ -14465,6 +14480,11 @@ export const orderPreviewTariffChange: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2TariffChangePreviews.Post.Responses.$412.Content.ApplicationJson>,
+      412,
       "application/json"
     >
   | Response<
