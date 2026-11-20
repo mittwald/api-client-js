@@ -64,17 +64,20 @@ export class Operation {
       path: this.path.name.raw,
       method: this.httpMethod.raw.toUpperCase(),
       operationId: this.id.raw,
+      requestContentType: this.parameters.bodyMediaType
+        ? `\n          requestContentType: "${this.parameters.bodyMediaType}",`
+        : "",
     };
 
     return `\
-        /** ${this.summary} */        
+        /** ${this.summary} */
         export const ${t.constName}: OpenAPIOperation<
           ${t.requestType},
           ${t.responseTypes}
         > = {
           path: "${t.path}",
           method: "${t.method}",
-          operationId: "${t.operationId}",
+          operationId: "${t.operationId}",${t.requestContentType}
         };
     `;
   }
