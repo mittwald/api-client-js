@@ -5138,6 +5138,14 @@ export declare namespace MittwaldAPIV3Next {
       }
 
       export interface DeMittwaldAihostingTokenUsage {
+        /**
+         * What is left of the key's own limit. Only present together with keyLimit.
+         */
+        keyAvailable?: number;
+        /**
+         * The key's own token limit for the billing period. Absent when the key has no limit of its own and is bounded only by the plan's limit.
+         */
+        keyLimit?: number;
         planLimit: number;
         used: number;
       }
@@ -9131,6 +9139,10 @@ export declare namespace MittwaldAPIV3Next {
         isBackupInProgress: boolean;
         isCatchAll: boolean;
         mailbox?: {
+          /**
+           * Whether logging in to the mailbox is disabled.
+           */
+          authenticationDisabled: boolean;
           mailsystemSettings: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMailMailsystemSettings;
           name: string;
           passwordUpdatedAt: string;
@@ -13555,6 +13567,10 @@ export declare namespace MittwaldAPIV3Next {
             name: string;
             planId: string;
             projectId?: string;
+            /**
+             * Optional token limit for this key alone, for the plan's billing period. Without it the key shares the plan's limit with every other key. The sum of all key limits may exceed the plan's limit; the plan's limit always applies on top.
+             */
+            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -13827,6 +13843,10 @@ export declare namespace MittwaldAPIV3Next {
             createWebuiContainer?: boolean;
             name?: string;
             projectId?: string;
+            /**
+             * The key's own token limit for the plan's billing period. 0 removes an existing limit, so the key shares the plan's limit again. Settable on the customer route only.
+             */
+            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -14179,7 +14199,7 @@ export declare namespace MittwaldAPIV3Next {
 
           export interface RequestBody {
             /**
-             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d, at most 7d. Omit to invalidate the old secret immediately.
              */
             gracePeriod?: string;
           }
@@ -15078,7 +15098,7 @@ export declare namespace MittwaldAPIV3Next {
 
           export interface RequestBody {
             /**
-             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d, at most 7d. Omit to invalidate the old secret immediately.
              */
             gracePeriod?: string;
           }
