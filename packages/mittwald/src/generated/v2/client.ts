@@ -113,6 +113,20 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     ),
   };
 
+  /** The AIssistant API lets you chat with the mStudio assistant about mittwald products and manage your saved chats. */
+  public readonly aissistant = {
+    /** Get one chat of the authenticated user. */
+    getChat: this.requestFunctionFactory(descriptors.aissistantGetChat),
+    /** Save the whole chat after a finished answer. */
+    saveChat: this.requestFunctionFactory(descriptors.aissistantSaveChat),
+    /** Delete a chat of the authenticated user. */
+    deleteChat: this.requestFunctionFactory(descriptors.aissistantDeleteChat),
+    /** List the chats of the authenticated user. */
+    listChats: this.requestFunctionFactory(descriptors.aissistantListChats),
+    /** Run the AIssistant on a chat and stream its answer. */
+    runChat: this.requestFunctionFactory(descriptors.aissistantRunChat),
+  };
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** Detach a staging AppInstallation from its source. */
@@ -1597,6 +1611,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     /** Get a File with user-friendly url. */
     getFileWithName: this.requestFunctionFactory(
       descriptors.fileGetFileWithName,
+    ),
+  };
+
+  /** Look up compromised password hashes by SHA-1 prefix using k-anonymity ranges and manage mittwald's own list of compromised hashes. */
+  public readonly hibp = {
+    /** Get the leaked-password suffixes of a SHA-1 prefix. */
+    getCompromisedPasswordHashRange: this.requestFunctionFactory(
+      descriptors.hibpGetCompromisedPasswordHashRange,
     ),
   };
 

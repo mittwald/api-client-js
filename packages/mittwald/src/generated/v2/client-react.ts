@@ -84,6 +84,19 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildAissistantApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get one chat of the authenticated user. */
+  getChat: new ApiCallAsyncResourceFactory(
+    descriptors.aissistantGetChat,
+    baseClient.aissistant.getChat,
+  ).getApiResource,
+  /** List the chats of the authenticated user. */
+  listChats: new ApiCallAsyncResourceFactory(
+    descriptors.aissistantListChats,
+    baseClient.aissistant.listChats,
+  ).getApiResource,
+});
+
 const buildAppApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
   getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
@@ -851,6 +864,14 @@ const buildFileApi = (baseClient: MittwaldAPIV2Client) => ({
   ).getApiResource,
 });
 
+const buildHibpApi = (baseClient: MittwaldAPIV2Client) => ({
+  /** Get the leaked-password suffixes of a SHA-1 prefix. */
+  getCompromisedPasswordHashRange: new ApiCallAsyncResourceFactory(
+    descriptors.hibpGetCompromisedPasswordHashRange,
+    baseClient.hibp.getCompromisedPasswordHashRange,
+  ).getApiResource,
+});
+
 const buildLicenseApi = (baseClient: MittwaldAPIV2Client) => ({
   /** Get a license. */
   getLicense: new ApiCallAsyncResourceFactory(
@@ -1222,6 +1243,9 @@ export class MittwaldAPIV2ClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
 
+  /** The AIssistant API lets you chat with the mStudio assistant about mittwald products and manage your saved chats. */
+  public readonly aissistant: ReturnType<typeof buildAissistantApi>;
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
 
@@ -1258,6 +1282,9 @@ export class MittwaldAPIV2ClientReact {
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
 
+  /** Look up compromised password hashes by SHA-1 prefix using k-anonymity ranges and manage mittwald's own list of compromised hashes. */
+  public readonly hibp: ReturnType<typeof buildHibpApi>;
+
   /** The license API allows you to manage your paid licenses. */
   public readonly license: ReturnType<typeof buildLicenseApi>;
 
@@ -1290,6 +1317,8 @@ export class MittwaldAPIV2ClientReact {
   private constructor(baseClient: MittwaldAPIV2Client) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
+    this.aissistant = buildAissistantApi(baseClient);
+
     this.app = buildAppApi(baseClient);
 
     this.article = buildArticleApi(baseClient);
@@ -1313,6 +1342,8 @@ export class MittwaldAPIV2ClientReact {
     this.domain = buildDomainApi(baseClient);
 
     this.file = buildFileApi(baseClient);
+
+    this.hibp = buildHibpApi(baseClient);
 
     this.license = buildLicenseApi(baseClient);
 

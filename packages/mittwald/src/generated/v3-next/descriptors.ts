@@ -1250,6 +1250,236 @@ export const aiHostingUserGetPlans: OpenAPIOperation<
   operationId: "ai-hosting-user-get-plans",
 };
 
+/** Get one chat of the authenticated user. */
+export const aissistantGetChat: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/aissistant-chats/{chatId}",
+  method: "GET",
+  operationId: "aissistant-get-chat",
+};
+
+/** Save the whole chat after a finished answer. */
+export const aissistantSaveChat: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.$409.Content.ApplicationJson>,
+      409,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.$413.Content.ApplicationJson>,
+      413,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Put.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/aissistant-chats/{chatId}",
+  method: "PUT",
+  operationId: "aissistant-save-chat",
+};
+
+/** Delete a chat of the authenticated user. */
+export const aissistantDeleteChat: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatId.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/aissistant-chats/{chatId}",
+  method: "DELETE",
+  operationId: "aissistant-delete-chat",
+};
+
+/** List the chats of the authenticated user. */
+export const aissistantListChats: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChats.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/aissistant-chats",
+  method: "GET",
+  operationId: "aissistant-list-chats",
+};
+
+/** Run the AIssistant on a chat and stream its answer. */
+export const aissistantRunChat: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$200.Content.TextEventStream>,
+      200,
+      "text/event-stream"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$401.Content.ApplicationJson>,
+      401,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$413.Content.ApplicationJson>,
+      413,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$500.Content.ApplicationJson>,
+      500,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$503.Content.ApplicationJson>,
+      503,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.$504.Content.ApplicationJson>,
+      504,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextAissistantChatsChatIdActionsRun.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/aissistant-chats/{chatId}/actions/run",
+  method: "POST",
+  operationId: "aissistant-run-chat",
+};
+
 /** Detach a staging AppInstallation from its source. */
 export const appDetachAppinstallationStaging: OpenAPIOperation<
   RequestType<
@@ -12142,6 +12372,40 @@ export const fileGetFileWithName: OpenAPIOperation<
   path: "/v3-next/files/{fileId}/{fileName}",
   method: "GET",
   operationId: "file-get-file-with-name",
+};
+
+/** Get the leaked-password suffixes of a SHA-1 prefix. */
+export const hibpGetCompromisedPasswordHashRange: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Responses.$200.Content.TextPlain>,
+      200,
+      "text/plain"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCompromisedPasswordHashesRangesHashPrefix.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/compromised-password-hashes/ranges/{hashPrefix}",
+  method: "GET",
+  operationId: "hibp-get-compromised-password-hash-range",
 };
 
 /** List Ingresses. */

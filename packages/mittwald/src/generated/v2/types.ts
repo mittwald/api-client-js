@@ -298,6 +298,46 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
     }
 
+    namespace AissistantGetChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantGetChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantGetChat, TStatus>;
+    }
+
+    namespace AissistantSaveChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantSaveChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantSaveChat, TStatus>;
+    }
+
+    namespace AissistantDeleteChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantDeleteChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantDeleteChat, TStatus>;
+    }
+
+    namespace AissistantListChats {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantListChats
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantListChats, TStatus>;
+    }
+
+    namespace AissistantRunChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantRunChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantRunChat, TStatus>;
+    }
+
     namespace AppDetachAppinstallationStaging {
       type RequestData = InferredRequestData<
         typeof descriptors.appDetachAppinstallationStaging
@@ -3089,6 +3129,17 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.fileGetFileWithName, TStatus>;
     }
 
+    namespace HibpGetCompromisedPasswordHashRange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.hibpGetCompromisedPasswordHashRange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.hibpGetCompromisedPasswordHashRange,
+          TStatus
+        >;
+    }
+
     namespace IngressListIngresses {
       type RequestData = InferredRequestData<
         typeof descriptors.ingressListIngresses
@@ -5210,6 +5261,1614 @@ export declare namespace MittwaldAPIV2 {
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         suspended?: boolean;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+      }
+
+      export interface AissistantChatListItem {
+        id: string;
+        /**
+         * At most 200 UTF-16 code units on save. Some titles were stored before that limit existed and can be longer; they are still returned.
+         */
+        title: string;
+        updatedAt: string;
+      }
+
+      /**
+       * @maxItems 50
+       */
+      export type AissistantChatList =
+        MittwaldAPIV2.Components.Schemas.AissistantChatListItem[];
+
+      /**
+       * An AG-UI message. The full shape follows the AG-UI message schema; this schema names only the fields every message has. A message may nest at most 64 levels, the message object counting as level 1.
+       */
+      export interface AissistantChatMessage {
+        id: string;
+        role: string;
+        [k: string]: unknown;
+      }
+
+      export interface AissistantChat {
+        id: string;
+        messages: MittwaldAPIV2.Components.Schemas.AissistantChatMessage[];
+        revision: number;
+        /**
+         * At most 200 UTF-16 code units on save. Some titles were stored before that limit existed and can be longer; they are still returned.
+         */
+        title: string;
+        turnMarks: MittwaldAPIV2.Components.Schemas.AissistantTurnMarks;
+        updatedAt: string;
+      }
+
+      export type AissistantRunEvent =
+        | {
+            messageId: string;
+            metadata?: unknown;
+            name?: string;
+            rawEvent?: unknown;
+            role?: "developer" | "system" | "assistant" | "user";
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_START";
+            [k: string]: unknown;
+          }
+        | {
+            delta: string;
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_CONTENT";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_END";
+            [k: string]: unknown;
+          }
+        | {
+            delta?: string;
+            messageId?: string;
+            metadata?: unknown;
+            name?: string;
+            rawEvent?: unknown;
+            role?: "developer" | "system" | "assistant" | "user";
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_CHUNK";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            parentMessageId?: string;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            toolCallName: string;
+            type: "TOOL_CALL_START";
+            [k: string]: unknown;
+          }
+        | {
+            delta: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            type: "TOOL_CALL_ARGS";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            type: "TOOL_CALL_END";
+            [k: string]: unknown;
+          }
+        | {
+            delta?: string;
+            metadata?: unknown;
+            parentMessageId?: string;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId?: string;
+            toolCallName?: string;
+            type: "TOOL_CALL_CHUNK";
+            [k: string]: unknown;
+          }
+        | {
+            content:
+              | string
+              | (
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      text: string;
+                      type: "text";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "image";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "audio";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "video";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "document";
+                      [k: string]: unknown;
+                    }
+                )[];
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            role?: "tool";
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            type: "TOOL_CALL_RESULT";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            snapshot: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STATE_SNAPSHOT";
+            [k: string]: unknown;
+          }
+        | {
+            delta: (
+              | {
+                  op: "add";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "remove";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "replace";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "move";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "copy";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "test";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+            )[];
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STATE_DELTA";
+            [k: string]: unknown;
+          }
+        | {
+            messages: (
+              | {
+                  content: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "developer";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "system";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content?: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "assistant";
+                  subagentRunId?: string;
+                  toolCalls?: {
+                    encryptedValue?: string;
+                    function: {
+                      arguments: string;
+                      name: string;
+                      [k: string]: unknown;
+                    };
+                    id: string;
+                    metadata?: unknown;
+                    type: "function";
+                    [k: string]: unknown;
+                  }[];
+                  [k: string]: unknown;
+                }
+              | {
+                  content:
+                    | string
+                    | (
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            text: string;
+                            type: "text";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "image";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "audio";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "video";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "document";
+                            [k: string]: unknown;
+                          }
+                      )[];
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "user";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content:
+                    | string
+                    | (
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            text: string;
+                            type: "text";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "image";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "audio";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "video";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "document";
+                            [k: string]: unknown;
+                          }
+                      )[];
+                  encryptedValue?: string;
+                  error?: string;
+                  id: string;
+                  metadata?: unknown;
+                  role: "tool";
+                  subagentRunId?: string;
+                  toolCallId: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  activityType: string;
+                  content: unknown;
+                  id: string;
+                  metadata?: unknown;
+                  role: "activity";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  role: "reasoning";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+            )[];
+            metadata?: unknown;
+            rawEvent?: unknown;
+            timestamp?: number;
+            type: "MESSAGES_SNAPSHOT";
+            [k: string]: unknown;
+          }
+        | {
+            activityType: string;
+            content: unknown;
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            replace?: boolean;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "ACTIVITY_SNAPSHOT";
+            [k: string]: unknown;
+          }
+        | {
+            activityType: string;
+            messageId: string;
+            metadata?: unknown;
+            patch: (
+              | {
+                  op: "add";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "remove";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "replace";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "move";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "copy";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "test";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+            )[];
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "ACTIVITY_DELTA";
+            [k: string]: unknown;
+          }
+        | {
+            event: unknown;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            source?: string;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "RAW";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            name: string;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "CUSTOM";
+            value: unknown;
+            [k: string]: unknown;
+          }
+        | {
+            input?: {
+              context: {
+                description: string;
+                value: string;
+                [k: string]: unknown;
+              }[];
+              forwardedProps?: unknown;
+              messages: (
+                | {
+                    content: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "developer";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "system";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content?: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "assistant";
+                    subagentRunId?: string;
+                    toolCalls?: {
+                      encryptedValue?: string;
+                      function: {
+                        arguments: string;
+                        name: string;
+                        [k: string]: unknown;
+                      };
+                      id: string;
+                      metadata?: unknown;
+                      type: "function";
+                      [k: string]: unknown;
+                    }[];
+                    [k: string]: unknown;
+                  }
+                | {
+                    content:
+                      | string
+                      | (
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              text: string;
+                              type: "text";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "image";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "audio";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "video";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "document";
+                              [k: string]: unknown;
+                            }
+                        )[];
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "user";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content:
+                      | string
+                      | (
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              text: string;
+                              type: "text";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "image";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "audio";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "video";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "document";
+                              [k: string]: unknown;
+                            }
+                        )[];
+                    encryptedValue?: string;
+                    error?: string;
+                    id: string;
+                    metadata?: unknown;
+                    role: "tool";
+                    subagentRunId?: string;
+                    toolCallId: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    activityType: string;
+                    content: unknown;
+                    id: string;
+                    metadata?: unknown;
+                    role: "activity";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    role: "reasoning";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+              )[];
+              parentRunId?: string;
+              protocolVersion?: string;
+              resume?: {
+                interruptId: string;
+                metadata?: unknown;
+                payload?: unknown;
+                status: "resolved" | "cancelled";
+                [k: string]: unknown;
+              }[];
+              runId: string;
+              state?: unknown;
+              threadId: string;
+              tools: {
+                description: string;
+                metadata?: unknown;
+                name: string;
+                parameters?: unknown;
+                [k: string]: unknown;
+              }[];
+              [k: string]: unknown;
+            };
+            metadata?: unknown;
+            parentRunId?: string;
+            protocolVersion?: string;
+            rawEvent?: unknown;
+            runId: string;
+            threadId: string;
+            timestamp?: number;
+            type: "RUN_STARTED";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            outcome?:
+              | {
+                  pendingToolCallIds?: string[];
+                  type: "success";
+                  [k: string]: unknown;
+                }
+              | {
+                  /**
+                   * @minItems 1
+                   */
+                  interrupts: [
+                    {
+                      expiresAt?: string;
+                      id: string;
+                      message?: string;
+                      metadata?: unknown;
+                      reason: string;
+                      responseSchema?: unknown;
+                      subagentRunId?: string;
+                      toolCallId?: string;
+                      [k: string]: unknown;
+                    },
+                    ...{
+                      expiresAt?: string;
+                      id: string;
+                      message?: string;
+                      metadata?: unknown;
+                      reason: string;
+                      responseSchema?: unknown;
+                      subagentRunId?: string;
+                      toolCallId?: string;
+                      [k: string]: unknown;
+                    }[],
+                  ];
+                  type: "interrupt";
+                  [k: string]: unknown;
+                }
+              | {
+                  type: "cancelled";
+                  [k: string]: unknown;
+                };
+            rawEvent?: unknown;
+            result?: unknown;
+            runId: string;
+            threadId: string;
+            timestamp?: number;
+            type: "RUN_FINISHED";
+            usage?: {
+              cacheWriteInputTokens?: number;
+              cachedInputTokens?: number;
+              inputTokens?: number;
+              model?: string;
+              outputTokens?: number;
+              provider?: string;
+              reasoningTokens?: number;
+              totalTokens?: number;
+              [k: string]: unknown;
+            }[];
+            [k: string]: unknown;
+          }
+        | {
+            code?: string;
+            message: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            timestamp?: number;
+            type: "RUN_ERROR";
+            usage?: {
+              cacheWriteInputTokens?: number;
+              cachedInputTokens?: number;
+              inputTokens?: number;
+              model?: string;
+              outputTokens?: number;
+              provider?: string;
+              reasoningTokens?: number;
+              totalTokens?: number;
+              [k: string]: unknown;
+            }[];
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            stepName: string;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STEP_STARTED";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            stepName: string;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STEP_FINISHED";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_START";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            role: "reasoning";
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_START";
+            [k: string]: unknown;
+          }
+        | {
+            delta: string;
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_CONTENT";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_END";
+            [k: string]: unknown;
+          }
+        | {
+            delta?: string;
+            messageId?: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_CHUNK";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_END";
+            [k: string]: unknown;
+          }
+        | {
+            encryptedValue: string;
+            entityId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            subtype: "tool-call" | "message";
+            timestamp?: number;
+            type: "REASONING_ENCRYPTED_VALUE";
+            [k: string]: unknown;
+          }
+        | {
+            description?: string;
+            metadata?: unknown;
+            name: string;
+            parentMessageId?: string;
+            parentSubagentRunId?: string;
+            parentToolCallId?: string;
+            rawEvent?: unknown;
+            subagentRunId: string;
+            timestamp?: number;
+            type: "SUBAGENT_STARTED";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            outcome?:
+              | {
+                  type: "success";
+                  [k: string]: unknown;
+                }
+              | {
+                  interruptIds?: string[];
+                  type: "suspended";
+                  [k: string]: unknown;
+                };
+            rawEvent?: unknown;
+            result?: unknown;
+            subagentRunId: string;
+            timestamp?: number;
+            type: "SUBAGENT_FINISHED";
+            [k: string]: unknown;
+          }
+        | {
+            code?: string;
+            message: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId: string;
+            timestamp?: number;
+            type: "SUBAGENT_ERROR";
+            [k: string]: unknown;
+          };
+
+      export interface AissistantRunInput {
+        context?: {
+          description: string;
+          value: string;
+          [k: string]: unknown;
+        }[];
+        forwardedProps: {
+          context: {
+            appInstallationId?: string;
+            customerId?: string;
+            projectId?: string;
+            route: string;
+          };
+          contractVersion?: 1;
+          model: "default";
+        };
+        messages: MittwaldAPIV2.Components.Schemas.AissistantRunMessage[];
+        parentRunId?: string;
+        protocolVersion?: string;
+        resume?: {
+          interruptId: string;
+          metadata?: unknown;
+          payload?: unknown;
+          status: "resolved" | "cancelled";
+          [k: string]: unknown;
+        }[];
+        runId: string;
+        state?: unknown;
+        threadId: string;
+        tools?: {
+          description: string;
+          metadata?: unknown;
+          name: string;
+          parameters?: unknown;
+          [k: string]: unknown;
+        }[];
+      }
+
+      export type AissistantRunMessage =
+        | {
+            content:
+              | string
+              | (
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      text: string;
+                      type: "text";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "image";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "audio";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "video";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "document";
+                      [k: string]: unknown;
+                    }
+                )[];
+            encryptedValue?: string;
+            id: string;
+            metadata?: unknown;
+            name?: string;
+            role: "user";
+            subagentRunId?: string;
+            [k: string]: unknown;
+          }
+        | {
+            content?: string;
+            encryptedValue?: string;
+            id: string;
+            metadata?: unknown;
+            name?: string;
+            role: "assistant";
+            subagentRunId?: string;
+            toolCalls?: {
+              encryptedValue?: string;
+              function: {
+                arguments: string;
+                name: string;
+                [k: string]: unknown;
+              };
+              id: string;
+              metadata?: unknown;
+              type: "function";
+              [k: string]: unknown;
+            }[];
+            [k: string]: unknown;
+          }
+        | {
+            content:
+              | string
+              | (
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      text: string;
+                      type: "text";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "image";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "audio";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "video";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "document";
+                      [k: string]: unknown;
+                    }
+                )[];
+            encryptedValue?: string;
+            error?: string;
+            id: string;
+            metadata?: unknown;
+            role: "tool";
+            subagentRunId?: string;
+            toolCallId: string;
+            [k: string]: unknown;
+          }
+        | {
+            content: string;
+            encryptedValue?: string;
+            id: string;
+            metadata?: unknown;
+            role: "reasoning";
+            subagentRunId?: string;
+            [k: string]: unknown;
+          };
+
+      export interface AissistantSaveChatRequest {
+        messages: MittwaldAPIV2.Components.Schemas.AissistantChatMessage[];
+        /**
+         * The revision the chat was loaded with; 0 for a new chat.
+         */
+        revision: number;
+        /**
+         * At most 200 UTF-16 code units, so at most 100 astral characters, and well-formed UTF-16: a lone surrogate is refused. A title that breaks either rule answers 400.
+         */
+        title: string;
+        turnMarks?: MittwaldAPIV2.Components.Schemas.AissistantTurnMarks;
+      }
+
+      export interface AissistantSaveChatResponse {
+        revision: number;
+      }
+
+      /**
+       * How a turn ended when it did not finish: `stopped` when the user stopped it, `incomplete` when the run failed or ended without answer text.
+       */
+      export type AissistantTurnMark = "stopped" | "incomplete";
+
+      /**
+       * The marks of the turns that did not finish, keyed by the `id` of the message that shows the mark. Every key is the id of a message of the same chat; `{}` when every turn finished.
+       */
+      export interface AissistantTurnMarks {
+        [k: string]: MittwaldAPIV2.Components.Schemas.AissistantTurnMark;
       }
 
       export type AppAppInstallationSortOrder =
@@ -8625,6 +10284,11 @@ export declare namespace MittwaldAPIV2 {
           };
         };
       }
+
+      /**
+       * First five hex characters of the SHA-1 hash, case-insensitive and normalised to upper case.
+       */
+      export type HibpHashPrefix = string;
 
       /**
        * Login protection of an Ingress: one identity provider for the hostname, enabled and configured per path.
@@ -15241,6 +16905,326 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AissistantChatsChatId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AissistantChat;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.AissistantSaveChatRequest;
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AissistantSaveChatResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $413 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AissistantChats {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AissistantChatList;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AissistantChatsChatIdActionsRun {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.AissistantRunInput;
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type TextEventStream = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $413 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $504 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -32025,6 +34009,51 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CompromisedPasswordHashesRangesHashPrefix {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            hashPrefix: MittwaldAPIV2.Components.Schemas.HibpHashPrefix;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type TextPlain = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
