@@ -4867,17 +4867,6 @@ export declare namespace MittwaldAPIV3Next {
         >;
     }
 
-    namespace UserSearchedLeakedPasswordsByRange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userSearchedLeakedPasswordsByRange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userSearchedLeakedPasswordsByRange,
-          TStatus
-        >;
-    }
-
     namespace UserSpotlightFeedback {
       type RequestData = InferredRequestData<
         typeof descriptors.userSpotlightFeedback
@@ -8816,7 +8805,7 @@ export declare namespace MittwaldAPIV3Next {
          */
         externalAccess?: boolean;
         /**
-         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`. A password known from a data leak is rejected with the validation error `password_leaked` when the leak check is available.
          *
          */
         password: string;
@@ -8844,7 +8833,7 @@ export declare namespace MittwaldAPIV3Next {
          */
         externalAccess?: boolean;
         /**
-         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`. A password known from a data leak is rejected with the validation error `password_leaked` when the leak check is available.
          *
          */
         password: string;
@@ -18593,7 +18582,7 @@ export declare namespace MittwaldAPIV3Next {
              */
             format: "tar" | "zip";
             /**
-             * Password to use to protect the archive.
+             * Password to use to protect the archive. A password the leaked-password check reports as leaked is rejected; the check is best effort.
              */
             password?: string;
           }
@@ -27552,7 +27541,7 @@ export declare namespace MittwaldAPIV3Next {
             description?: string;
             externalAccess?: boolean;
             /**
-             * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+             * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`. A password known from a data leak is rejected with the validation error `password_leaked` when the leak check is available.
              *
              */
             password?: string;
@@ -45044,50 +45033,7 @@ export declare namespace MittwaldAPIV3Next {
       }
     }
 
-    namespace V3NextLeakedPasswordsPasswordHashPrefix {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            passwordHashPrefix: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = string[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V3NextLeakedPasswordsPasswordHashPrefix {}
 
     namespace V3NextUsersSelfSpotlightsSpotlightIdFeedback {
       namespace Post {

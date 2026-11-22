@@ -1568,10 +1568,6 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail,
     ),
-    /** Check if a password is leaked. */
-    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
-      descriptors.userSearchedLeakedPasswordsByRange,
-    ),
     /** Submit your spotlight usage. */
     spotlightFeedback: this.requestFunctionFactory(
       descriptors.userSpotlightFeedback,
