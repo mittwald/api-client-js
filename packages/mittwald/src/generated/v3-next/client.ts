@@ -882,6 +882,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
+    /** Resend the verification mail for the notification email of a Cronjob. */
+    resendNotificationEmailVerification: this.requestFunctionFactory(
+      descriptors.cronjobResendNotificationEmailVerification,
+    ),
+    /** Confirm the notification email of a Cronjob. */
+    verifyNotificationEmail: this.requestFunctionFactory(
+      descriptors.cronjobVerifyNotificationEmail,
+    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */

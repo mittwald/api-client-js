@@ -4945,6 +4945,28 @@ export declare namespace MittwaldAPIV2 {
           TStatus
         >;
     }
+
+    namespace CronjobResendNotificationEmailVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobResendNotificationEmailVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobResendNotificationEmailVerification,
+          TStatus
+        >;
+    }
+
+    namespace CronjobVerifyNotificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobVerifyNotificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobVerifyNotificationEmail,
+          TStatus
+        >;
+    }
   }
 
   namespace Components {
@@ -8565,12 +8587,16 @@ export declare namespace MittwaldAPIV2 {
         destination?:
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+        /**
+         * Confirmed address that receives failure notifications.
+         */
         email?: string;
         failedExecutionAlertThreshold: number;
         id: string;
         interval: string;
         latestExecution?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecution;
         nextExecutionTime?: string;
+        notificationEmailVerification?: MittwaldAPIV2.Components.Schemas.CronjobNotificationEmailVerification;
         projectId?: string;
         shortId: string;
         target?:
@@ -8693,7 +8719,39 @@ export declare namespace MittwaldAPIV2 {
         stackId: string;
       }
 
+      /**
+       * The URL is called with curl. All options are off by default, which is a plain `curl <url>`. An update replaces the whole destination, so options that are not sent are switched off.
+       */
       export interface CronjobCronjobUrl {
+        /**
+         * Mark the execution as failed on HTTP status codes from 400 on; the response body stays in the log (`--fail-with-body`).
+         */
+        failOnHttpError?: boolean;
+        /**
+         * Follow up to 10 redirects as the HTTP specification says, only to https (`--follow --max-redirs 10 --proto-redir =https`). Custom headers are sent to every redirect target, also on other hosts; only `Authorization` and `Cookie` are dropped there.
+         */
+        followRedirects?: boolean;
+        /**
+         * Additional request headers (`--header "<name>: <value>"`). Values are returned by the API to everyone who can read the cronjob. With `followRedirects`, headers are also sent to redirect targets on other hosts, except `Authorization` and `Cookie`.
+         *
+         * @maxItems 20
+         */
+        headers?: {
+          name: string;
+          value: string;
+        }[];
+        /**
+         * Keep the progress meter out of the execution log; errors are still logged (`--silent --show-error`).
+         */
+        hideProgress?: boolean;
+        /**
+         * HTTP method. POST is sent without body (`--data ""`); redirects with 301, 302 and 303 continue with GET.
+         */
+        method?: "GET" | "POST";
+        /**
+         * Write the response headers of every response, redirects included, into the execution log (`--show-headers`).
+         */
+        showResponseHeaders?: boolean;
         url: string;
       }
 
@@ -14768,6 +14826,18 @@ export declare namespace MittwaldAPIV2 {
 
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
+
+      /**
+       * A notification email that waits for confirmation by the link in the verification mail. It receives no notifications until it is confirmed.
+       */
+      export interface CronjobNotificationEmailVerification {
+        email: string;
+        expiresAt?: string;
+        /**
+         * sending: the verification mail is not sent yet; pending: waits for confirmation; expired: the link expired, request a new mail; failed: the verification mail could not be delivered, check the address or request a new mail.
+         */
+        status: "sending" | "pending" | "expired" | "failed";
+      }
 
       export interface CommonsAddress {
         street: string;
@@ -33346,6 +33416,10 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * When withdrawing an extension, whether all of its instances are disabled as well. Disabled instances can no longer authenticate; they are enabled again when the extension is published again.
+             */
+            disableAllInstances?: boolean;
+            /**
              * Whether the extension should be publicly visible.
              */
             published: boolean;
@@ -45546,6 +45620,128 @@ export declare namespace MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdActionsResendNotificationEmailVerification {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdActionsVerifyNotificationEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Token from the verification mail.
+             */
+            token: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
             }
           }
 

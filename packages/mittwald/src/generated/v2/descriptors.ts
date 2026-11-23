@@ -19833,3 +19833,86 @@ export const verificationVerifyCompany: OpenAPIOperation<
   method: "POST",
   operationId: "verification-verify-company",
 };
+
+/** Resend the verification mail for the notification email of a Cronjob. */
+export const cronjobResendNotificationEmailVerification: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/actions/resend-notification-email-verification",
+  method: "POST",
+  operationId: "cronjob-resend-notification-email-verification",
+};
+
+/** Confirm the notification email of a Cronjob. */
+export const cronjobVerifyNotificationEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2CronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/cronjobs/{cronjobId}/actions/verify-notification-email",
+  method: "POST",
+  operationId: "cronjob-verify-notification-email",
+};
