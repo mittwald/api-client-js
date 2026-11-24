@@ -1687,28 +1687,6 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
     }
 
-    namespace CronjobResendNotificationEmailVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobResendNotificationEmailVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobResendNotificationEmailVerification,
-          TStatus
-        >;
-    }
-
-    namespace CronjobVerifyNotificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobVerifyNotificationEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobVerifyNotificationEmail,
-          TStatus
-        >;
-    }
-
     namespace CustomerAcceptCustomerInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.customerAcceptCustomerInvite
@@ -5052,6 +5030,50 @@ export declare namespace MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
+          TStatus
+        >;
+    }
+
+    namespace CronjobResendNotificationEmailVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobResendNotificationEmailVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobResendNotificationEmailVerification,
+          TStatus
+        >;
+    }
+
+    namespace CronjobVerifyNotificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobVerifyNotificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobVerifyNotificationEmail,
+          TStatus
+        >;
+    }
+
+    namespace UserConfirmSecondFactor {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userConfirmSecondFactor
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userConfirmSecondFactor,
+          TStatus
+        >;
+    }
+
+    namespace UserRequestSecondFactorCode {
+      type RequestData = InferredRequestData<
+        typeof descriptors.userRequestSecondFactorCode
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.userRequestSecondFactorCode,
           TStatus
         >;
     }
@@ -8518,12 +8540,10 @@ export declare namespace MittwaldAPIV2 {
 
       export type ConversationServiceRequest =
         MittwaldAPIV2.Components.Schemas.ConversationGenericServiceRequest & {
-          messageContent:
-            "relocation" | "call" | "mailSendLimitIncrease" | "mittwaldMessage";
+          messageContent: "relocation" | "call" | "mailSendLimitIncrease";
           meta:
             | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload
-            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMailSendLimitIncreasePayload
-            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMittwaldMessagePayload;
+            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMailSendLimitIncreasePayload;
         };
 
       export type ConversationShareableAggregateReference =
@@ -8742,18 +8762,6 @@ export declare namespace MittwaldAPIV2 {
 
       export type CronjobCronjobExecutionSortOrder =
         "oldestFirst" | "newestFirst" | "slowestFirst" | "fastestFirst";
-
-      /**
-       * A notification email that waits for confirmation by the link in the verification mail. It receives no notifications until it is confirmed.
-       */
-      export interface CronjobNotificationEmailVerification {
-        email: string;
-        expiresAt?: string;
-        /**
-         * sending: the verification mail is not sent yet; pending: waits for confirmation; expired: the link expired, request a new mail; failed: the verification mail could not be delivered, check the address or request a new mail.
-         */
-        status: "sending" | "pending" | "expired" | "failed";
-      }
 
       export interface CronjobAppInstallationPatchTarget {
         appInstallationId?: string;
@@ -13061,37 +13069,14 @@ export declare namespace MittwaldAPIV2 {
         changes: {
           after?: {
             notificationEmailConfigured: boolean;
-            notificationEmailVerificationPending?: boolean;
           };
           before?: {
             notificationEmailConfigured: boolean | null;
-            notificationEmailVerificationPending?: boolean | null;
           };
         };
         name:
           | "cronjob.notification-email-updated"
-          | "cronjob.notification-email-removed"
-          | "cronjob.notification-email-verified";
-        parameters: {
-          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
-          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
-        };
-      }
-
-      export interface ActivitylogCronjobNotificationEmailVerificationUpdated {
-        changes: {
-          after?: {
-            notificationEmailVerificationPending: boolean;
-          };
-          before?: {
-            notificationEmailVerificationPending: boolean | null;
-          };
-        };
-        name:
-          | "cronjob.notification-email-verification-requested"
-          | "cronjob.notification-email-verification-cancelled";
+          | "cronjob.notification-email-removed";
         parameters: {
           appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
@@ -13970,7 +13955,6 @@ export declare namespace MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobConcurrencyPolicyUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobAlertThresholdUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobNotificationEmailUpdated
-          | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobNotificationEmailVerificationUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobActiveUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobExecution
@@ -14210,7 +14194,7 @@ export declare namespace MittwaldAPIV2 {
         visitors: number;
       }
 
-      export interface DirectusDomain {
+      export interface RedirectusDomain {
         /**
          * The authcode of the domain. Leave empty when mittwald can generate a authcode on its own
          */
@@ -14222,7 +14206,7 @@ export declare namespace MittwaldAPIV2 {
         name: string;
       }
 
-      export interface DirectusEmailInbox {
+      export interface RedirectusEmailInbox {
         email: string;
         password: string;
       }
@@ -15204,10 +15188,15 @@ export declare namespace MittwaldAPIV2 {
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
 
       /**
-       * A public message written in the name of mittwald. It has no author.
+       * A notification email that waits for confirmation by the link in the verification mail. It receives no notifications until it is confirmed.
        */
-      export interface ConversationServiceRequestMittwaldMessagePayload {
-        content: string;
+      export interface CronjobNotificationEmailVerification {
+        email: string;
+        expiresAt?: string;
+        /**
+         * sending: the verification mail is not sent yet; pending: waits for confirmation; expired: the link expired, request a new mail; failed: the verification mail could not be delivered, check the address or request a new mail.
+         */
+        status: "sending" | "pending" | "expired" | "failed";
       }
 
       export interface CommonsAddress {
@@ -15452,8 +15441,21 @@ export declare namespace MittwaldAPIV2 {
       namespace SignupSecondFactorRequiredError {
         export type ApplicationJson =
           MittwaldAPIV2.Components.Schemas.SignupDomainError & {
+            /**
+             * The second factors you can give: `totp` (a TOTP code or recovery code as `multiFactorCode`),
+             * `passkey` (`passkeyCredential`), or `email` (request the code through
+             * `POST /v2/users/self/credentials/actions/request-second-factor-code` and send it as
+             * `multiFactorCode`).
+             *
+             */
+            availableSecondFactors?: ("totp" | "passkey" | "email")[];
             name: "SecondFactorRequired";
           };
+      }
+
+      namespace SignupSecondFactorNotConfirmed {
+        export type ApplicationJson =
+          MittwaldAPIV2.Components.Schemas.CommonsError;
       }
 
       namespace CommonsDefaultError {
@@ -25946,128 +25948,6 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2CronjobsCronjobIdActionsResendNotificationEmailVerification {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CronjobsCronjobIdActionsVerifyNotificationEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Token from the verification mail.
-             */
-            token: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
@@ -29862,6 +29742,14 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -41275,11 +41163,11 @@ export declare namespace MittwaldAPIV2 {
             /**
              * List of domains which should be transferred (when allDomains is not checked).
              */
-            domains?: MittwaldAPIV2.Components.Schemas.DirectusDomain[];
+            domains?: MittwaldAPIV2.Components.Schemas.RedirectusDomain[];
             /**
              * List of email inboxes which should be transferred.
              */
-            emailInboxes?: MittwaldAPIV2.Components.Schemas.DirectusEmailInbox[];
+            emailInboxes?: MittwaldAPIV2.Components.Schemas.RedirectusEmailInbox[];
             /**
              * Anything our customer service needs to know for the relocation process.
              */
@@ -43251,6 +43139,11 @@ export declare namespace MittwaldAPIV2 {
              * The new Email-Address
              */
             email: string;
+            /**
+             * A TOTP code or recovery code, required if a second factor is set up.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
           }
 
           export type Header =
@@ -43259,6 +43152,14 @@ export declare namespace MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
+          namespace $202 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
           namespace $204 {
             namespace Content {
               export type Empty = unknown;
@@ -43721,6 +43622,11 @@ export declare namespace MittwaldAPIV2 {
             description: string;
             expiresAt?: string | Date;
             /**
+             * A TOTP code or recovery code, required if a second factor is set up.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
+            /**
              * Determines the access rights of the ApiToken.
              *
              * @minItems 1
@@ -43746,6 +43652,14 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44214,6 +44128,11 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             expiresAt?: string | Date;
+            /**
+             * A TOTP code or recovery code, required if a second factor is set up.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
             publicKey: string;
           }
 
@@ -44230,6 +44149,14 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44311,6 +44238,11 @@ export declare namespace MittwaldAPIV2 {
           export interface RequestBody {
             description: string;
             expiresAt?: string | Date;
+            /**
+             * A TOTP code or recovery code, required if a second factor is set up.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
           }
 
           export type Header =
@@ -44326,6 +44258,14 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44583,6 +44523,11 @@ export declare namespace MittwaldAPIV2 {
           export interface RequestBody {
             comment: string;
             expiresAt?: string | Date;
+            /**
+             * A TOTP code or recovery code, required if a second factor is set up.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
           }
 
           export type Header =
@@ -44598,6 +44543,14 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -45318,7 +45271,13 @@ export declare namespace MittwaldAPIV2 {
         namespace Parameters {
           export type Path = {};
 
-          export interface RequestBody {}
+          export interface RequestBody {
+            /**
+             * A TOTP code or recovery code, required if a second factor is set up.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
+          }
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -45340,6 +45299,14 @@ export declare namespace MittwaldAPIV2 {
                  *
                  */
                 url: string;
+              }
+            }
+          }
+
+          namespace $202 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
               }
             }
           }
@@ -46038,8 +46005,6 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2SignupMfaResetRecoverycodes {}
-
     namespace V2LeakedPasswordsPasswordHashPrefix {}
 
     namespace V2UsersSelfSpotlightsSpotlightIdFeedback {
@@ -46458,6 +46423,251 @@ export declare namespace MittwaldAPIV2 {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdActionsResendNotificationEmailVerification {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdActionsVerifyNotificationEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Token from the verification mail.
+             */
+            token: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfCredentialsActionsConfirmSecondFactor {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export type RequestBody = {
+            [k: string]: unknown;
+          } & {
+            /**
+             * The API area you confirm for, e.g. the tag of the route you are about to call. Today it is only
+             * kept for the audit trail; the confirmation is valid for every area.
+             *
+             */
+            area?: string;
+            /**
+             * A TOTP code or recovery code, or the code mailed to you.
+             */
+            multiFactorCode?: string;
+            passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                /**
+                 * The end of the confirmation window. Absent if you have no second factor or your session
+                 * cannot carry a confirmation (e.g. an API token).
+                 *
+                 */
+                confirmedUntil?: string;
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2UsersSelfCredentialsActionsRequestSecondFactorCode {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsValidationErrors;
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 

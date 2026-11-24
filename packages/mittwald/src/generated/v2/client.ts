@@ -1626,6 +1626,14 @@ export class MittwaldAPIV2Client extends ApiClientBase {
     verifyRegistration: this.requestFunctionFactory(
       descriptors.userVerifyRegistration,
     ),
+    /** Confirm your second factor for the current session. */
+    confirmSecondFactor: this.requestFunctionFactory(
+      descriptors.userConfirmSecondFactor,
+    ),
+    /** Request the code that confirms your second factor by email. */
+    requestSecondFactorCode: this.requestFunctionFactory(
+      descriptors.userRequestSecondFactorCode,
+    ),
   };
 
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */

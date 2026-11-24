@@ -6923,89 +6923,6 @@ export const cronjobGetExecution: OpenAPIOperation<
   operationId: "cronjob-get-execution",
 };
 
-/** Resend the verification mail for the notification email of a Cronjob. */
-export const cronjobResendNotificationEmailVerification: OpenAPIOperation<
-  RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/cronjobs/{cronjobId}/actions/resend-notification-email-verification",
-  method: "POST",
-  operationId: "cronjob-resend-notification-email-verification",
-};
-
-/** Confirm the notification email of a Cronjob. */
-export const cronjobVerifyNotificationEmail: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$403.Content.ApplicationJson>,
-      403,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$412.Content.ApplicationJson>,
-      412,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v3-next/cronjobs/{cronjobId}/actions/verify-notification-email",
-  method: "POST",
-  operationId: "cronjob-verify-notification-email",
-};
-
 /** Accept a CustomerInvite. */
 export const customerAcceptCustomerInvite: OpenAPIOperation<
   RequestType<
@@ -9452,6 +9369,11 @@ export const dnsCreateProjectDnsZone: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextProjectsProjectIdDnsZones.Post.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -18157,6 +18079,11 @@ export const userChangeEmail: OpenAPIOperation<
     Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsEmail.Put.Parameters.Header>
   >,
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsEmail.Put.Responses.$202.Content.ApplicationJson>,
+      202,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsEmail.Put.Responses.$204.Content.Empty>,
       204,
       "empty"
@@ -18431,6 +18358,11 @@ export const userCreateApiToken: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfApiTokens.Post.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfApiTokens.Post.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -18741,6 +18673,11 @@ export const userCreateSshKey: OpenAPIOperation<
       "application/json"
     >
   | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSshKeys.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSshKeys.Post.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
@@ -18806,6 +18743,11 @@ export const userEditApiToken: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfApiTokensApiTokenId.Put.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfApiTokensApiTokenId.Put.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -18996,6 +18938,11 @@ export const userEditSshKey: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSshKeysSshKeyId.Put.Responses.$400.Content.ApplicationJson>,
       400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfSshKeysSshKeyId.Put.Responses.$403.Content.ApplicationJson>,
+      403,
       "application/json"
     >
   | Response<
@@ -19501,6 +19448,11 @@ export const userInitMfa: OpenAPIOperation<
   | Response<
       Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsInitMfa.Post.Responses.$200.Content.ApplicationJson>,
       200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsInitMfa.Post.Responses.$202.Content.ApplicationJson>,
+      202,
       "application/json"
     >
   | Response<
@@ -20207,4 +20159,165 @@ export const verificationVerifyCompany: OpenAPIOperation<
   path: "/v3-next/actions/verify-company",
   method: "POST",
   operationId: "verification-verify-company",
+};
+
+/** Resend the verification mail for the notification email of a Cronjob. */
+export const cronjobResendNotificationEmailVerification: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/cronjobs/{cronjobId}/actions/resend-notification-email-verification",
+  method: "POST",
+  operationId: "cronjob-resend-notification-email-verification",
+};
+
+/** Confirm the notification email of a Cronjob. */
+export const cronjobVerifyNotificationEmail: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$412.Content.ApplicationJson>,
+      412,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextCronjobsCronjobIdActionsVerifyNotificationEmail.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/cronjobs/{cronjobId}/actions/verify-notification-email",
+  method: "POST",
+  operationId: "cronjob-verify-notification-email",
+};
+
+/** Confirm your second factor for the current session. */
+export const userConfirmSecondFactor: OpenAPIOperation<
+  RequestType<
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsConfirmSecondFactor.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/credentials/actions/confirm-second-factor",
+  method: "POST",
+  operationId: "user-confirm-second-factor",
+};
+
+/** Request the code that confirms your second factor by email. */
+export const userRequestSecondFactorCode: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Parameters.Path>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Parameters.Query>,
+    Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Responses.$400.Content.ApplicationJson>,
+      400,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV3Next.Paths.V3NextUsersSelfCredentialsActionsRequestSecondFactorCode.Post.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v3-next/users/self/credentials/actions/request-second-factor-code",
+  method: "POST",
+  operationId: "user-request-second-factor-code",
 };
