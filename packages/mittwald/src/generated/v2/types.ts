@@ -8430,10 +8430,12 @@ export declare namespace MittwaldAPIV2 {
 
       export type ConversationServiceRequest =
         MittwaldAPIV2.Components.Schemas.ConversationGenericServiceRequest & {
-          messageContent: "relocation" | "call" | "mailSendLimitIncrease";
+          messageContent:
+            "relocation" | "call" | "mailSendLimitIncrease" | "mittwaldMessage";
           meta:
             | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload
-            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMailSendLimitIncreasePayload;
+            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMailSendLimitIncreasePayload
+            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMittwaldMessagePayload;
         };
 
       export type ConversationShareableAggregateReference =
@@ -14862,6 +14864,13 @@ export declare namespace MittwaldAPIV2 {
 
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
+
+      /**
+       * A public message written in the name of mittwald. It has no author.
+       */
+      export interface ConversationServiceRequestMittwaldMessagePayload {
+        content: string;
+      }
 
       export interface CommonsAddress {
         street: string;

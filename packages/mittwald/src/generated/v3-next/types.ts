@@ -8437,10 +8437,12 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldConversationServiceRequest =
         MittwaldAPIV3Next.Components.Schemas.DeMittwaldConversationGenericServiceRequest & {
-          messageContent: "relocation" | "call" | "mailSendLimitIncrease";
+          messageContent:
+            "relocation" | "call" | "mailSendLimitIncrease" | "mittwaldMessage";
           meta:
             | MittwaldAPIV3Next.Components.Schemas.DeMittwaldConversationServiceRequestRelocationPayload
-            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldConversationServiceRequestMailSendLimitIncreasePayload;
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldConversationServiceRequestMailSendLimitIncreasePayload
+            | MittwaldAPIV3Next.Components.Schemas.DeMittwaldConversationServiceRequestMittwaldMessagePayload;
         };
 
       export type DeMittwaldConversationShareableAggregateReference =
@@ -14883,6 +14885,13 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
+
+      /**
+       * A public message written in the name of mittwald. It has no author.
+       */
+      export interface DeMittwaldConversationServiceRequestMittwaldMessagePayload {
+        content: string;
+      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
