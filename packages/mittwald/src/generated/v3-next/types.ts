@@ -1687,6 +1687,28 @@ export declare namespace MittwaldAPIV3Next {
         InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
     }
 
+    namespace CronjobResendNotificationEmailVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobResendNotificationEmailVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobResendNotificationEmailVerification,
+          TStatus
+        >;
+    }
+
+    namespace CronjobVerifyNotificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobVerifyNotificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobVerifyNotificationEmail,
+          TStatus
+        >;
+    }
+
     namespace CustomerAcceptCustomerInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.customerAcceptCustomerInvite
@@ -4942,28 +4964,6 @@ export declare namespace MittwaldAPIV3Next {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.verificationVerifyCompany,
-          TStatus
-        >;
-    }
-
-    namespace CronjobResendNotificationEmailVerification {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobResendNotificationEmailVerification
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobResendNotificationEmailVerification,
-          TStatus
-        >;
-    }
-
-    namespace CronjobVerifyNotificationEmail {
-      type RequestData = InferredRequestData<
-        typeof descriptors.cronjobVerifyNotificationEmail
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.cronjobVerifyNotificationEmail,
           TStatus
         >;
     }
@@ -8660,6 +8660,18 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldCronjobCronjobExecutionSortOrder =
         "oldestFirst" | "newestFirst" | "slowestFirst" | "fastestFirst";
+
+      /**
+       * A notification email that waits for confirmation by the link in the verification mail. It receives no notifications until it is confirmed.
+       */
+      export interface DeMittwaldCronjobNotificationEmailVerification {
+        email: string;
+        expiresAt?: string;
+        /**
+         * sending: the verification mail is not sent yet; pending: waits for confirmation; expired: the link expired, request a new mail; failed: the verification mail could not be delivered, check the address or request a new mail.
+         */
+        status: "sending" | "pending" | "expired" | "failed";
+      }
 
       export interface DeMittwaldCronjobAppInstallationPatchTarget {
         appInstallationId?: string;
@@ -12725,14 +12737,37 @@ export declare namespace MittwaldAPIV3Next {
         changes: {
           after?: {
             notificationEmailConfigured: boolean;
+            notificationEmailVerificationPending?: boolean;
           };
           before?: {
             notificationEmailConfigured: boolean | null;
+            notificationEmailVerificationPending?: boolean | null;
           };
         };
         name:
           | "cronjob.notification-email-updated"
-          | "cronjob.notification-email-removed";
+          | "cronjob.notification-email-removed"
+          | "cronjob.notification-email-verified";
+        parameters: {
+          appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+          name: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogParameterProperty;
+        };
+      }
+
+      export interface DeMittwaldActivitylogCronjobNotificationEmailVerificationUpdated {
+        changes: {
+          after?: {
+            notificationEmailVerificationPending: boolean;
+          };
+          before?: {
+            notificationEmailVerificationPending: boolean | null;
+          };
+        };
+        name:
+          | "cronjob.notification-email-verification-requested"
+          | "cronjob.notification-email-verification-cancelled";
         parameters: {
           appInstallation?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
           container?: MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogLinkedParameterProperty;
@@ -13611,6 +13646,7 @@ export declare namespace MittwaldAPIV3Next {
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobConcurrencyPolicyUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobAlertThresholdUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobNotificationEmailUpdated
+          | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobNotificationEmailVerificationUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobActiveUpdated
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobDeleted
           | MittwaldAPIV3Next.Components.Schemas.DeMittwaldActivitylogCronjobExecution
@@ -14847,18 +14883,6 @@ export declare namespace MittwaldAPIV3Next {
 
       export type DeMittwaldContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
-
-      /**
-       * A notification email that waits for confirmation by the link in the verification mail. It receives no notifications until it is confirmed.
-       */
-      export interface DeMittwaldCronjobNotificationEmailVerification {
-        email: string;
-        expiresAt?: string;
-        /**
-         * sending: the verification mail is not sent yet; pending: waits for confirmation; expired: the link expired, request a new mail; failed: the verification mail could not be delivered, check the address or request a new mail.
-         */
-        status: "sending" | "pending" | "expired" | "failed";
-      }
 
       export interface DeMittwaldCommonsAddress {
         street: string;
@@ -25569,6 +25593,128 @@ export declare namespace MittwaldAPIV3Next {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V3NextCronjobsCronjobIdActionsVerifyNotificationEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Token from the verification mail.
+             */
+            token: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -45525,128 +45671,6 @@ export declare namespace MittwaldAPIV3Next {
           namespace $412 {
             namespace Content {
               export type Empty = unknown;
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCronjobsCronjobIdActionsResendNotificationEmailVerification {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV3Next.Components.SecuritySchemes.DeMittwaldCommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V3NextCronjobsCronjobIdActionsVerifyNotificationEmail {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            cronjobId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Token from the verification mail.
-             */
-            token: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $204 {
-            namespace Content {
-              export type Empty = unknown;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
             }
           }
 
