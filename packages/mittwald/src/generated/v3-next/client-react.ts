@@ -84,6 +84,19 @@ const buildAiHostingApi = (baseClient: MittwaldAPIV3NextClient) => ({
   ).getApiResource,
 });
 
+const buildAissistantApi = (baseClient: MittwaldAPIV3NextClient) => ({
+  /** Get one chat of the authenticated user. */
+  getChat: new ApiCallAsyncResourceFactory(
+    descriptors.aissistantGetChat,
+    baseClient.aissistant.getChat,
+  ).getApiResource,
+  /** List the chats of the authenticated user. */
+  listChats: new ApiCallAsyncResourceFactory(
+    descriptors.aissistantListChats,
+    baseClient.aissistant.listChats,
+  ).getApiResource,
+});
+
 const buildAppApi = (baseClient: MittwaldAPIV3NextClient) => ({
   /** Get the installed `SystemSoftware' for a specific `AppInstallation`. */
   getAppInstallationSystemSoftware: new ApiCallAsyncResourceFactory(
@@ -625,11 +638,6 @@ const buildCustomerApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.customerListCustomers,
     baseClient.customer.listCustomers,
   ).getApiResource,
-  /** Gets the Wallet of the Customer. */
-  getWallet: new ApiCallAsyncResourceFactory(
-    descriptors.customerGetWallet,
-    baseClient.customer.getWallet,
-  ).getApiResource,
   /** Get a CustomerInvite. */
   getCustomerInvite: new ApiCallAsyncResourceFactory(
     descriptors.customerGetCustomerInvite,
@@ -861,51 +869,11 @@ const buildFileApi = (baseClient: MittwaldAPIV3NextClient) => ({
   ).getApiResource,
 });
 
-const buildLeadFyndrApi = (baseClient: MittwaldAPIV3NextClient) => ({
-  /** Get your LeadFyndr request. */
-  leadfyndrGetLeadFyndrProfileRequest: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfileRequest,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileRequest,
-  ).getApiResource,
-  /** Get cities in DACH. */
-  leadfyndrGetCities: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetCities,
-    baseClient.leadFyndr.leadfyndrGetCities,
-  ).getApiResource,
-  /** Get lead tariff options. How many leads did you unlock this month? */
-  leadfyndrGetLeadFyndrProfileTariffOptions: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfileTariffOptions,
-  ).getApiResource,
-  /** Get your LeadFyndr profile. */
-  leadfyndrGetLeadFyndrProfile: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadFyndrProfile,
-    baseClient.leadFyndr.leadfyndrGetLeadFyndrProfile,
-  ).getApiResource,
-  /** Get a simple lead. Use the unlocked route for more detail leads. */
-  leadfyndrGetLead: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLead,
-    baseClient.leadFyndr.leadfyndrGetLead,
-  ).getApiResource,
-  /** Get unlocked leads export history for the given customerId. */
-  leadfyndrGetLeadsExportHistory: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetLeadsExportHistory,
-    baseClient.leadFyndr.leadfyndrGetLeadsExportHistory,
-  ).getApiResource,
-  /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-  leadfyndrGetUnlockedLead: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrGetUnlockedLead,
-    baseClient.leadFyndr.leadfyndrGetUnlockedLead,
-  ).getApiResource,
-  /** Get all leads. Use the unlocked routes for more lead details. */
-  leadfyndrListLeads: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrListLeads,
-    baseClient.leadFyndr.leadfyndrListLeads,
-  ).getApiResource,
-  /** Get all unlocked leads. Organisation can unlock leads. */
-  leadfyndrListUnlockedLeads: new ApiCallAsyncResourceFactory(
-    descriptors.leadfyndrListUnlockedLeads,
-    baseClient.leadFyndr.leadfyndrListUnlockedLeads,
+const buildHibpApi = (baseClient: MittwaldAPIV3NextClient) => ({
+  /** Get the leaked-password suffixes of a SHA-1 prefix. */
+  getCompromisedPasswordHashRange: new ApiCallAsyncResourceFactory(
+    descriptors.hibpGetCompromisedPasswordHashRange,
+    baseClient.hibp.getCompromisedPasswordHashRange,
   ).getApiResource,
 });
 
@@ -1120,11 +1088,6 @@ const buildUserApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.userOauthGetAuthorization,
     baseClient.user.oauthGetAuthorization,
   ).getApiResource,
-  /** Check if a password is leaked. */
-  searchedLeakedPasswordsByRange: new ApiCallAsyncResourceFactory(
-    descriptors.userSearchedLeakedPasswordsByRange,
-    baseClient.user.searchedLeakedPasswordsByRange,
-  ).getApiResource,
   /** Request a support code. */
   supportCodeRequest: new ApiCallAsyncResourceFactory(
     descriptors.userSupportCodeRequest,
@@ -1163,10 +1126,30 @@ const buildProjectApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.projectGetSelfMembershipForProject,
     baseClient.project.getSelfMembershipForProject,
   ).getApiResource,
+  /** Get a usage-metrics breakdown for a server. */
+  getServerUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetServerUsageMetricsBreakdown,
+    baseClient.project.getServerUsageMetricsBreakdown,
+  ).getApiResource,
+  /** Get usage metrics for a server. */
+  getServerUsageMetrics: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetServerUsageMetrics,
+    baseClient.project.getServerUsageMetrics,
+  ).getApiResource,
   /** Get a Server. */
   getServer: new ApiCallAsyncResourceFactory(
     descriptors.projectGetServer,
     baseClient.project.getServer,
+  ).getApiResource,
+  /** Get a usage-metrics breakdown for a project. */
+  getUsageMetricsBreakdown: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetUsageMetricsBreakdown,
+    baseClient.project.getUsageMetricsBreakdown,
+  ).getApiResource,
+  /** Get usage metrics for a project. */
+  getUsageMetrics: new ApiCallAsyncResourceFactory(
+    descriptors.projectGetUsageMetrics,
+    baseClient.project.getUsageMetrics,
   ).getApiResource,
   /** List Projects belonging to a Customer. */
   listCustomerProjects: new ApiCallAsyncResourceFactory(
@@ -1270,6 +1253,9 @@ export class MittwaldAPIV3NextClientReact {
   /** The AI hosting provides access to multiple large language and embedding models – GDPR compliant and hosted in Germany. */
   public readonly aiHosting: ReturnType<typeof buildAiHostingApi>;
 
+  /** The AIssistant API lets you chat with the mStudio assistant about mittwald products and manage your saved chats. */
+  public readonly aissistant: ReturnType<typeof buildAissistantApi>;
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app: ReturnType<typeof buildAppApi>;
 
@@ -1306,8 +1292,8 @@ export class MittwaldAPIV3NextClientReact {
   /** The file API allows you to manage your files, for example for conversations attachments and avatar uploads. */
   public readonly file: ReturnType<typeof buildFileApi>;
 
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr: ReturnType<typeof buildLeadFyndrApi>;
+  /** Look up compromised password hashes by SHA-1 prefix using k-anonymity ranges and manage mittwald's own list of compromised hashes. */
+  public readonly hibp: ReturnType<typeof buildHibpApi>;
 
   /** The license API allows you to manage your paid licenses. */
   public readonly license: ReturnType<typeof buildLicenseApi>;
@@ -1341,6 +1327,8 @@ export class MittwaldAPIV3NextClientReact {
   private constructor(baseClient: MittwaldAPIV3NextClient) {
     this.aiHosting = buildAiHostingApi(baseClient);
 
+    this.aissistant = buildAissistantApi(baseClient);
+
     this.app = buildAppApi(baseClient);
 
     this.article = buildArticleApi(baseClient);
@@ -1365,7 +1353,7 @@ export class MittwaldAPIV3NextClientReact {
 
     this.file = buildFileApi(baseClient);
 
-    this.leadFyndr = buildLeadFyndrApi(baseClient);
+    this.hibp = buildHibpApi(baseClient);
 
     this.license = buildLicenseApi(baseClient);
 

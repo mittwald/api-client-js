@@ -113,6 +113,20 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
   };
 
+  /** The AIssistant API lets you chat with the mStudio assistant about mittwald products and manage your saved chats. */
+  public readonly aissistant = {
+    /** Get one chat of the authenticated user. */
+    getChat: this.requestFunctionFactory(descriptors.aissistantGetChat),
+    /** Save the whole chat after a finished answer. */
+    saveChat: this.requestFunctionFactory(descriptors.aissistantSaveChat),
+    /** Delete a chat of the authenticated user. */
+    deleteChat: this.requestFunctionFactory(descriptors.aissistantDeleteChat),
+    /** List the chats of the authenticated user. */
+    listChats: this.requestFunctionFactory(descriptors.aissistantListChats),
+    /** Run the AIssistant on a chat and stream its answer. */
+    runChat: this.requestFunctionFactory(descriptors.aissistantRunChat),
+  };
+
   /** The App API allows you to manage your apps within a project, and all the system softwares that are installed as dependencies. */
   public readonly app = {
     /** Detach a staging AppInstallation from its source. */
@@ -656,10 +670,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     extensionDisableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionDisableExtensionInstance,
     ),
-    /** Dry run a webhook with random or given values. */
-    extensionDryRunWebhook: this.requestFunctionFactory(
-      descriptors.extensionDryRunWebhook,
-    ),
     /** Enable an ExtensionInstance. */
     extensionEnableExtensionInstance: this.requestFunctionFactory(
       descriptors.extensionEnableExtensionInstance,
@@ -872,6 +882,14 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
     /** Get a CronjobExecution. */
     getExecution: this.requestFunctionFactory(descriptors.cronjobGetExecution),
+    /** Resend the verification mail for the notification email of a Cronjob. */
+    resendNotificationEmailVerification: this.requestFunctionFactory(
+      descriptors.cronjobResendNotificationEmailVerification,
+    ),
+    /** Confirm the notification email of a Cronjob. */
+    verifyNotificationEmail: this.requestFunctionFactory(
+      descriptors.cronjobVerifyNotificationEmail,
+    ),
   };
 
   /** The customer API allows you to manage your own organizations and users. */
@@ -896,14 +914,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     createCustomer: this.requestFunctionFactory(
       descriptors.customerCreateCustomer,
     ),
-    /** Lets us know your idea for our recommendation programm. */
-    createRecommendationSuggestion: this.requestFunctionFactory(
-      descriptors.customerCreateRecommendationSuggestion,
-    ),
-    /** Gets the Wallet of the Customer. */
-    getWallet: this.requestFunctionFactory(descriptors.customerGetWallet),
-    /** Create the Wallet for the Customer. */
-    createWallet: this.requestFunctionFactory(descriptors.customerCreateWallet),
     /** Decline a CustomerInvite. */
     declineCustomerInvite: this.requestFunctionFactory(
       descriptors.customerDeclineCustomerInvite,
@@ -1125,6 +1135,10 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     /** Cancel a scheduled deletion of a Domain. */
     cancelScheduledDeletion: this.requestFunctionFactory(
       descriptors.domainCancelScheduledDeletion,
+    ),
+    /** Check if a Domain is eligible for AuthInfo2. */
+    checkAuthinfo2: this.requestFunctionFactory(
+      descriptors.domainCheckAuthinfo2,
     ),
     /** Check if a Domain is available to register. */
     checkDomainRegistrability: this.requestFunctionFactory(
@@ -1598,10 +1612,6 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     resendVerificationEmail: this.requestFunctionFactory(
       descriptors.userResendVerificationEmail,
     ),
-    /** Check if a password is leaked. */
-    searchedLeakedPasswordsByRange: this.requestFunctionFactory(
-      descriptors.userSearchedLeakedPasswordsByRange,
-    ),
     /** Submit your spotlight usage. */
     spotlightFeedback: this.requestFunctionFactory(
       descriptors.userSpotlightFeedback,
@@ -1644,61 +1654,11 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     ),
   };
 
-  /** The lead fyndr api allow you to manage you leads and your fyndr profile. */
-  public readonly leadFyndr = {
-    /** Get your LeadFyndr request. */
-    leadfyndrGetLeadFyndrProfileRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileRequest,
-    ),
-    /** Create a new access request for LeadFyndr. */
-    leadfyndrCreateLeadFyndrAccessRequest: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadFyndrAccessRequest,
-    ),
-    /** Create an export of unlocked leads for the given customerId. */
-    leadfyndrCreateLeadsExport: this.requestFunctionFactory(
-      descriptors.leadfyndrCreateLeadsExport,
-    ),
-    /** Get cities in DACH. */
-    leadfyndrGetCities: this.requestFunctionFactory(
-      descriptors.leadfyndrGetCities,
-    ),
-    /** Get lead tariff options. How many leads did you unlock this month? */
-    leadfyndrGetLeadFyndrProfileTariffOptions: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-    ),
-    /** Get your LeadFyndr profile. */
-    leadfyndrGetLeadFyndrProfile: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadFyndrProfile,
-    ),
-    /** Get a simple lead. Use the unlocked route for more detail leads. */
-    leadfyndrGetLead: this.requestFunctionFactory(descriptors.leadfyndrGetLead),
-    /** Get unlocked leads export history for the given customerId. */
-    leadfyndrGetLeadsExportHistory: this.requestFunctionFactory(
-      descriptors.leadfyndrGetLeadsExportHistory,
-    ),
-    /** Get a detail of a unlocked lead. Organisation can unlock leads. */
-    leadfyndrGetUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrGetUnlockedLead,
-    ),
-    /** Unlock a lead for the given customerId. */
-    leadfyndrUnlockLead: this.requestFunctionFactory(
-      descriptors.leadfyndrUnlockLead,
-    ),
-    /** Get all leads. Use the unlocked routes for more lead details. */
-    leadfyndrListLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListLeads,
-    ),
-    /** Get all unlocked leads. Organisation can unlock leads. */
-    leadfyndrListUnlockedLeads: this.requestFunctionFactory(
-      descriptors.leadfyndrListUnlockedLeads,
-    ),
-    /** Reserve a unlocked lead for the given customerId. */
-    leadfyndrReserveUnlockedLead: this.requestFunctionFactory(
-      descriptors.leadfyndrReserveUnlockedLead,
-    ),
-    /** Removes a reservation on a unlocked lead for the given customerId. */
-    leadfyndrRemoveUnlockedLeadReservation: this.requestFunctionFactory(
-      descriptors.leadfyndrRemoveUnlockedLeadReservation,
+  /** Look up compromised password hashes by SHA-1 prefix using k-anonymity ranges and manage mittwald's own list of compromised hashes. */
+  public readonly hibp = {
+    /** Get the leaked-password suffixes of a SHA-1 prefix. */
+    getCompromisedPasswordHashRange: this.requestFunctionFactory(
+      descriptors.hibpGetCompromisedPasswordHashRange,
     ),
   };
 
@@ -1836,10 +1796,26 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     getSelfMembershipForProject: this.requestFunctionFactory(
       descriptors.projectGetSelfMembershipForProject,
     ),
+    /** Get a usage-metrics breakdown for a server. */
+    getServerUsageMetricsBreakdown: this.requestFunctionFactory(
+      descriptors.projectGetServerUsageMetricsBreakdown,
+    ),
+    /** Get usage metrics for a server. */
+    getServerUsageMetrics: this.requestFunctionFactory(
+      descriptors.projectGetServerUsageMetrics,
+    ),
     /** Get a Server. */
     getServer: this.requestFunctionFactory(descriptors.projectGetServer),
     /** Update a Server. */
     updateServer: this.requestFunctionFactory(descriptors.projectUpdateServer),
+    /** Get a usage-metrics breakdown for a project. */
+    getUsageMetricsBreakdown: this.requestFunctionFactory(
+      descriptors.projectGetUsageMetricsBreakdown,
+    ),
+    /** Get usage metrics for a project. */
+    getUsageMetrics: this.requestFunctionFactory(
+      descriptors.projectGetUsageMetrics,
+    ),
     /** List Projects belonging to a Customer. */
     listCustomerProjects: this.requestFunctionFactory(
       descriptors.projectListCustomerProjects,

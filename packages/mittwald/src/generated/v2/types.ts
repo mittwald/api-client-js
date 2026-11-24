@@ -298,6 +298,46 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.aiHostingUserGetPlans, TStatus>;
     }
 
+    namespace AissistantGetChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantGetChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantGetChat, TStatus>;
+    }
+
+    namespace AissistantSaveChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantSaveChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantSaveChat, TStatus>;
+    }
+
+    namespace AissistantDeleteChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantDeleteChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantDeleteChat, TStatus>;
+    }
+
+    namespace AissistantListChats {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantListChats
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantListChats, TStatus>;
+    }
+
+    namespace AissistantRunChat {
+      type RequestData = InferredRequestData<
+        typeof descriptors.aissistantRunChat
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.aissistantRunChat, TStatus>;
+    }
+
     namespace AppDetachAppinstallationStaging {
       type RequestData = InferredRequestData<
         typeof descriptors.appDetachAppinstallationStaging
@@ -1647,6 +1687,28 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.cronjobGetExecution, TStatus>;
     }
 
+    namespace CronjobResendNotificationEmailVerification {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobResendNotificationEmailVerification
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobResendNotificationEmailVerification,
+          TStatus
+        >;
+    }
+
+    namespace CronjobVerifyNotificationEmail {
+      type RequestData = InferredRequestData<
+        typeof descriptors.cronjobVerifyNotificationEmail
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.cronjobVerifyNotificationEmail,
+          TStatus
+        >;
+    }
+
     namespace CustomerAcceptCustomerInvite {
       type RequestData = InferredRequestData<
         typeof descriptors.customerAcceptCustomerInvite
@@ -1697,33 +1759,6 @@ export declare namespace MittwaldAPIV2 {
           typeof descriptors.customerCreateCustomer,
           TStatus
         >;
-    }
-
-    namespace CustomerCreateRecommendationSuggestion {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateRecommendationSuggestion
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.customerCreateRecommendationSuggestion,
-          TStatus
-        >;
-    }
-
-    namespace CustomerGetWallet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerGetWallet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerGetWallet, TStatus>;
-    }
-
-    namespace CustomerCreateWallet {
-      type RequestData = InferredRequestData<
-        typeof descriptors.customerCreateWallet
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.customerCreateWallet, TStatus>;
     }
 
     namespace CustomerDeclineCustomerInvite {
@@ -2407,6 +2442,14 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
+    namespace DomainCheckAuthinfo2 {
+      type RequestData = InferredRequestData<
+        typeof descriptors.domainCheckAuthinfo2
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<typeof descriptors.domainCheckAuthinfo2, TStatus>;
+    }
+
     namespace DomainCheckDomainRegistrability {
       type RequestData = InferredRequestData<
         typeof descriptors.domainCheckDomainRegistrability
@@ -2809,17 +2852,6 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace ExtensionDryRunWebhook {
-      type RequestData = InferredRequestData<
-        typeof descriptors.extensionDryRunWebhook
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.extensionDryRunWebhook,
-          TStatus
-        >;
-    }
-
     namespace ExtensionEnableExtensionInstance {
       type RequestData = InferredRequestData<
         typeof descriptors.extensionEnableExtensionInstance
@@ -3152,6 +3184,17 @@ export declare namespace MittwaldAPIV2 {
         InferredResponseData<typeof descriptors.fileGetFileWithName, TStatus>;
     }
 
+    namespace HibpGetCompromisedPasswordHashRange {
+      type RequestData = InferredRequestData<
+        typeof descriptors.hibpGetCompromisedPasswordHashRange
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.hibpGetCompromisedPasswordHashRange,
+          TStatus
+        >;
+    }
+
     namespace IngressListIngresses {
       type RequestData = InferredRequestData<
         typeof descriptors.ingressListIngresses
@@ -3263,148 +3306,6 @@ export declare namespace MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.invoiceListCustomerInvoices,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrGetLeadFyndrProfileRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetLeadFyndrProfileRequest
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrGetLeadFyndrProfileRequest,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrCreateLeadFyndrAccessRequest {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrCreateLeadFyndrAccessRequest
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrCreateLeadFyndrAccessRequest,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrCreateLeadsExport {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrCreateLeadsExport
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrCreateLeadsExport,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrGetCities {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetCities
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.leadfyndrGetCities, TStatus>;
-    }
-
-    namespace LeadfyndrGetLeadFyndrProfileTariffOptions {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetLeadFyndrProfileTariffOptions
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrGetLeadFyndrProfileTariffOptions,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrGetLeadFyndrProfile {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetLeadFyndrProfile
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrGetLeadFyndrProfile,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrGetLead {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetLead
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.leadfyndrGetLead, TStatus>;
-    }
-
-    namespace LeadfyndrGetLeadsExportHistory {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetLeadsExportHistory
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrGetLeadsExportHistory,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrGetUnlockedLead {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrGetUnlockedLead
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrGetUnlockedLead,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrUnlockLead {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrUnlockLead
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.leadfyndrUnlockLead, TStatus>;
-    }
-
-    namespace LeadfyndrListLeads {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrListLeads
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<typeof descriptors.leadfyndrListLeads, TStatus>;
-    }
-
-    namespace LeadfyndrListUnlockedLeads {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrListUnlockedLeads
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrListUnlockedLeads,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrReserveUnlockedLead {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrReserveUnlockedLead
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrReserveUnlockedLead,
-          TStatus
-        >;
-    }
-
-    namespace LeadfyndrRemoveUnlockedLeadReservation {
-      type RequestData = InferredRequestData<
-        typeof descriptors.leadfyndrRemoveUnlockedLeadReservation
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.leadfyndrRemoveUnlockedLeadReservation,
           TStatus
         >;
     }
@@ -4197,6 +4098,28 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
+    namespace ProjectGetServerUsageMetricsBreakdown {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServerUsageMetricsBreakdown
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetServerUsageMetricsBreakdown,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetServerUsageMetrics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetServerUsageMetrics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetServerUsageMetrics,
+          TStatus
+        >;
+    }
+
     namespace ProjectGetServer {
       type RequestData = InferredRequestData<
         typeof descriptors.projectGetServer
@@ -4211,6 +4134,28 @@ export declare namespace MittwaldAPIV2 {
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<typeof descriptors.projectUpdateServer, TStatus>;
+    }
+
+    namespace ProjectGetUsageMetricsBreakdown {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetUsageMetricsBreakdown
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetUsageMetricsBreakdown,
+          TStatus
+        >;
+    }
+
+    namespace ProjectGetUsageMetrics {
+      type RequestData = InferredRequestData<
+        typeof descriptors.projectGetUsageMetrics
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.projectGetUsageMetrics,
+          TStatus
+        >;
     }
 
     namespace ProjectListCustomerProjects {
@@ -5032,17 +4977,6 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace UserSearchedLeakedPasswordsByRange {
-      type RequestData = InferredRequestData<
-        typeof descriptors.userSearchedLeakedPasswordsByRange
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.userSearchedLeakedPasswordsByRange,
-          TStatus
-        >;
-    }
-
     namespace UserSpotlightFeedback {
       type RequestData = InferredRequestData<
         typeof descriptors.userSpotlightFeedback
@@ -5354,6 +5288,14 @@ export declare namespace MittwaldAPIV2 {
       }
 
       export interface AihostingTokenUsage {
+        /**
+         * What is left of the key's own limit. Only present together with keyLimit.
+         */
+        keyAvailable?: number;
+        /**
+         * The key's own token limit for the billing period. Absent when the key has no limit of its own and is bounded only by the plan's limit.
+         */
+        keyLimit?: number;
         planLimit: number;
         used: number;
       }
@@ -5418,6 +5360,1614 @@ export declare namespace MittwaldAPIV2 {
         rateLimit: MittwaldAPIV2.Components.Schemas.AihostingRateLimit;
         suspended?: boolean;
         tokens: MittwaldAPIV2.Components.Schemas.AihostingPlanUsageBig;
+      }
+
+      export interface AissistantChatListItem {
+        id: string;
+        /**
+         * At most 200 UTF-16 code units on save. Some titles were stored before that limit existed and can be longer; they are still returned.
+         */
+        title: string;
+        updatedAt: string;
+      }
+
+      /**
+       * @maxItems 50
+       */
+      export type AissistantChatList =
+        MittwaldAPIV2.Components.Schemas.AissistantChatListItem[];
+
+      /**
+       * An AG-UI message. The full shape follows the AG-UI message schema; this schema names only the fields every message has. A message may nest at most 64 levels, the message object counting as level 1.
+       */
+      export interface AissistantChatMessage {
+        id: string;
+        role: string;
+        [k: string]: unknown;
+      }
+
+      export interface AissistantChat {
+        id: string;
+        messages: MittwaldAPIV2.Components.Schemas.AissistantChatMessage[];
+        revision: number;
+        /**
+         * At most 200 UTF-16 code units on save. Some titles were stored before that limit existed and can be longer; they are still returned.
+         */
+        title: string;
+        turnMarks: MittwaldAPIV2.Components.Schemas.AissistantTurnMarks;
+        updatedAt: string;
+      }
+
+      export type AissistantRunEvent =
+        | {
+            messageId: string;
+            metadata?: unknown;
+            name?: string;
+            rawEvent?: unknown;
+            role?: "developer" | "system" | "assistant" | "user";
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_START";
+            [k: string]: unknown;
+          }
+        | {
+            delta: string;
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_CONTENT";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_END";
+            [k: string]: unknown;
+          }
+        | {
+            delta?: string;
+            messageId?: string;
+            metadata?: unknown;
+            name?: string;
+            rawEvent?: unknown;
+            role?: "developer" | "system" | "assistant" | "user";
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "TEXT_MESSAGE_CHUNK";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            parentMessageId?: string;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            toolCallName: string;
+            type: "TOOL_CALL_START";
+            [k: string]: unknown;
+          }
+        | {
+            delta: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            type: "TOOL_CALL_ARGS";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            type: "TOOL_CALL_END";
+            [k: string]: unknown;
+          }
+        | {
+            delta?: string;
+            metadata?: unknown;
+            parentMessageId?: string;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId?: string;
+            toolCallName?: string;
+            type: "TOOL_CALL_CHUNK";
+            [k: string]: unknown;
+          }
+        | {
+            content:
+              | string
+              | (
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      text: string;
+                      type: "text";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "image";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "audio";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "video";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "document";
+                      [k: string]: unknown;
+                    }
+                )[];
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            role?: "tool";
+            subagentRunId?: string;
+            timestamp?: number;
+            toolCallId: string;
+            type: "TOOL_CALL_RESULT";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            snapshot: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STATE_SNAPSHOT";
+            [k: string]: unknown;
+          }
+        | {
+            delta: (
+              | {
+                  op: "add";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "remove";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "replace";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "move";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "copy";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "test";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+            )[];
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STATE_DELTA";
+            [k: string]: unknown;
+          }
+        | {
+            messages: (
+              | {
+                  content: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "developer";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "system";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content?: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "assistant";
+                  subagentRunId?: string;
+                  toolCalls?: {
+                    encryptedValue?: string;
+                    function: {
+                      arguments: string;
+                      name: string;
+                      [k: string]: unknown;
+                    };
+                    id: string;
+                    metadata?: unknown;
+                    type: "function";
+                    [k: string]: unknown;
+                  }[];
+                  [k: string]: unknown;
+                }
+              | {
+                  content:
+                    | string
+                    | (
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            text: string;
+                            type: "text";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "image";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "audio";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "video";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "document";
+                            [k: string]: unknown;
+                          }
+                      )[];
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  name?: string;
+                  role: "user";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content:
+                    | string
+                    | (
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            text: string;
+                            type: "text";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "image";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "audio";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "video";
+                            [k: string]: unknown;
+                          }
+                        | {
+                            id?: string;
+                            metadata?: unknown;
+                            source:
+                              | {
+                                  mimeType: string;
+                                  type: "data";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  type: "url";
+                                  value: string;
+                                  [k: string]: unknown;
+                                }
+                              | {
+                                  mimeType?: string;
+                                  provider?: string;
+                                  type: "file";
+                                  value: string;
+                                  [k: string]: unknown;
+                                };
+                            type: "document";
+                            [k: string]: unknown;
+                          }
+                      )[];
+                  encryptedValue?: string;
+                  error?: string;
+                  id: string;
+                  metadata?: unknown;
+                  role: "tool";
+                  subagentRunId?: string;
+                  toolCallId: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  activityType: string;
+                  content: unknown;
+                  id: string;
+                  metadata?: unknown;
+                  role: "activity";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  content: string;
+                  encryptedValue?: string;
+                  id: string;
+                  metadata?: unknown;
+                  role: "reasoning";
+                  subagentRunId?: string;
+                  [k: string]: unknown;
+                }
+            )[];
+            metadata?: unknown;
+            rawEvent?: unknown;
+            timestamp?: number;
+            type: "MESSAGES_SNAPSHOT";
+            [k: string]: unknown;
+          }
+        | {
+            activityType: string;
+            content: unknown;
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            replace?: boolean;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "ACTIVITY_SNAPSHOT";
+            [k: string]: unknown;
+          }
+        | {
+            activityType: string;
+            messageId: string;
+            metadata?: unknown;
+            patch: (
+              | {
+                  op: "add";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "remove";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "replace";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "move";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  from: string;
+                  op: "copy";
+                  path: string;
+                  [k: string]: unknown;
+                }
+              | {
+                  op: "test";
+                  path: string;
+                  value: unknown;
+                  [k: string]: unknown;
+                }
+            )[];
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "ACTIVITY_DELTA";
+            [k: string]: unknown;
+          }
+        | {
+            event: unknown;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            source?: string;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "RAW";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            name: string;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "CUSTOM";
+            value: unknown;
+            [k: string]: unknown;
+          }
+        | {
+            input?: {
+              context: {
+                description: string;
+                value: string;
+                [k: string]: unknown;
+              }[];
+              forwardedProps?: unknown;
+              messages: (
+                | {
+                    content: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "developer";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "system";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content?: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "assistant";
+                    subagentRunId?: string;
+                    toolCalls?: {
+                      encryptedValue?: string;
+                      function: {
+                        arguments: string;
+                        name: string;
+                        [k: string]: unknown;
+                      };
+                      id: string;
+                      metadata?: unknown;
+                      type: "function";
+                      [k: string]: unknown;
+                    }[];
+                    [k: string]: unknown;
+                  }
+                | {
+                    content:
+                      | string
+                      | (
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              text: string;
+                              type: "text";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "image";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "audio";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "video";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "document";
+                              [k: string]: unknown;
+                            }
+                        )[];
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    name?: string;
+                    role: "user";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content:
+                      | string
+                      | (
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              text: string;
+                              type: "text";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "image";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "audio";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "video";
+                              [k: string]: unknown;
+                            }
+                          | {
+                              id?: string;
+                              metadata?: unknown;
+                              source:
+                                | {
+                                    mimeType: string;
+                                    type: "data";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    type: "url";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  }
+                                | {
+                                    mimeType?: string;
+                                    provider?: string;
+                                    type: "file";
+                                    value: string;
+                                    [k: string]: unknown;
+                                  };
+                              type: "document";
+                              [k: string]: unknown;
+                            }
+                        )[];
+                    encryptedValue?: string;
+                    error?: string;
+                    id: string;
+                    metadata?: unknown;
+                    role: "tool";
+                    subagentRunId?: string;
+                    toolCallId: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    activityType: string;
+                    content: unknown;
+                    id: string;
+                    metadata?: unknown;
+                    role: "activity";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+                | {
+                    content: string;
+                    encryptedValue?: string;
+                    id: string;
+                    metadata?: unknown;
+                    role: "reasoning";
+                    subagentRunId?: string;
+                    [k: string]: unknown;
+                  }
+              )[];
+              parentRunId?: string;
+              protocolVersion?: string;
+              resume?: {
+                interruptId: string;
+                metadata?: unknown;
+                payload?: unknown;
+                status: "resolved" | "cancelled";
+                [k: string]: unknown;
+              }[];
+              runId: string;
+              state?: unknown;
+              threadId: string;
+              tools: {
+                description: string;
+                metadata?: unknown;
+                name: string;
+                parameters?: unknown;
+                [k: string]: unknown;
+              }[];
+              [k: string]: unknown;
+            };
+            metadata?: unknown;
+            parentRunId?: string;
+            protocolVersion?: string;
+            rawEvent?: unknown;
+            runId: string;
+            threadId: string;
+            timestamp?: number;
+            type: "RUN_STARTED";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            outcome?:
+              | {
+                  pendingToolCallIds?: string[];
+                  type: "success";
+                  [k: string]: unknown;
+                }
+              | {
+                  /**
+                   * @minItems 1
+                   */
+                  interrupts: [
+                    {
+                      expiresAt?: string;
+                      id: string;
+                      message?: string;
+                      metadata?: unknown;
+                      reason: string;
+                      responseSchema?: unknown;
+                      subagentRunId?: string;
+                      toolCallId?: string;
+                      [k: string]: unknown;
+                    },
+                    ...{
+                      expiresAt?: string;
+                      id: string;
+                      message?: string;
+                      metadata?: unknown;
+                      reason: string;
+                      responseSchema?: unknown;
+                      subagentRunId?: string;
+                      toolCallId?: string;
+                      [k: string]: unknown;
+                    }[],
+                  ];
+                  type: "interrupt";
+                  [k: string]: unknown;
+                }
+              | {
+                  type: "cancelled";
+                  [k: string]: unknown;
+                };
+            rawEvent?: unknown;
+            result?: unknown;
+            runId: string;
+            threadId: string;
+            timestamp?: number;
+            type: "RUN_FINISHED";
+            usage?: {
+              cacheWriteInputTokens?: number;
+              cachedInputTokens?: number;
+              inputTokens?: number;
+              model?: string;
+              outputTokens?: number;
+              provider?: string;
+              reasoningTokens?: number;
+              totalTokens?: number;
+              [k: string]: unknown;
+            }[];
+            [k: string]: unknown;
+          }
+        | {
+            code?: string;
+            message: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            timestamp?: number;
+            type: "RUN_ERROR";
+            usage?: {
+              cacheWriteInputTokens?: number;
+              cachedInputTokens?: number;
+              inputTokens?: number;
+              model?: string;
+              outputTokens?: number;
+              provider?: string;
+              reasoningTokens?: number;
+              totalTokens?: number;
+              [k: string]: unknown;
+            }[];
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            stepName: string;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STEP_STARTED";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            rawEvent?: unknown;
+            stepName: string;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "STEP_FINISHED";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_START";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            role: "reasoning";
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_START";
+            [k: string]: unknown;
+          }
+        | {
+            delta: string;
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_CONTENT";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_END";
+            [k: string]: unknown;
+          }
+        | {
+            delta?: string;
+            messageId?: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_MESSAGE_CHUNK";
+            [k: string]: unknown;
+          }
+        | {
+            messageId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            timestamp?: number;
+            type: "REASONING_END";
+            [k: string]: unknown;
+          }
+        | {
+            encryptedValue: string;
+            entityId: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId?: string;
+            subtype: "tool-call" | "message";
+            timestamp?: number;
+            type: "REASONING_ENCRYPTED_VALUE";
+            [k: string]: unknown;
+          }
+        | {
+            description?: string;
+            metadata?: unknown;
+            name: string;
+            parentMessageId?: string;
+            parentSubagentRunId?: string;
+            parentToolCallId?: string;
+            rawEvent?: unknown;
+            subagentRunId: string;
+            timestamp?: number;
+            type: "SUBAGENT_STARTED";
+            [k: string]: unknown;
+          }
+        | {
+            metadata?: unknown;
+            outcome?:
+              | {
+                  type: "success";
+                  [k: string]: unknown;
+                }
+              | {
+                  interruptIds?: string[];
+                  type: "suspended";
+                  [k: string]: unknown;
+                };
+            rawEvent?: unknown;
+            result?: unknown;
+            subagentRunId: string;
+            timestamp?: number;
+            type: "SUBAGENT_FINISHED";
+            [k: string]: unknown;
+          }
+        | {
+            code?: string;
+            message: string;
+            metadata?: unknown;
+            rawEvent?: unknown;
+            subagentRunId: string;
+            timestamp?: number;
+            type: "SUBAGENT_ERROR";
+            [k: string]: unknown;
+          };
+
+      export interface AissistantRunInput {
+        context?: {
+          description: string;
+          value: string;
+          [k: string]: unknown;
+        }[];
+        forwardedProps: {
+          context: {
+            appInstallationId?: string;
+            customerId?: string;
+            projectId?: string;
+            route: string;
+          };
+          contractVersion?: 1;
+          model: "default";
+        };
+        messages: MittwaldAPIV2.Components.Schemas.AissistantRunMessage[];
+        parentRunId?: string;
+        protocolVersion?: string;
+        resume?: {
+          interruptId: string;
+          metadata?: unknown;
+          payload?: unknown;
+          status: "resolved" | "cancelled";
+          [k: string]: unknown;
+        }[];
+        runId: string;
+        state?: unknown;
+        threadId: string;
+        tools?: {
+          description: string;
+          metadata?: unknown;
+          name: string;
+          parameters?: unknown;
+          [k: string]: unknown;
+        }[];
+      }
+
+      export type AissistantRunMessage =
+        | {
+            content:
+              | string
+              | (
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      text: string;
+                      type: "text";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "image";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "audio";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "video";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "document";
+                      [k: string]: unknown;
+                    }
+                )[];
+            encryptedValue?: string;
+            id: string;
+            metadata?: unknown;
+            name?: string;
+            role: "user";
+            subagentRunId?: string;
+            [k: string]: unknown;
+          }
+        | {
+            content?: string;
+            encryptedValue?: string;
+            id: string;
+            metadata?: unknown;
+            name?: string;
+            role: "assistant";
+            subagentRunId?: string;
+            toolCalls?: {
+              encryptedValue?: string;
+              function: {
+                arguments: string;
+                name: string;
+                [k: string]: unknown;
+              };
+              id: string;
+              metadata?: unknown;
+              type: "function";
+              [k: string]: unknown;
+            }[];
+            [k: string]: unknown;
+          }
+        | {
+            content:
+              | string
+              | (
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      text: string;
+                      type: "text";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "image";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "audio";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "video";
+                      [k: string]: unknown;
+                    }
+                  | {
+                      id?: string;
+                      metadata?: unknown;
+                      source:
+                        | {
+                            mimeType: string;
+                            type: "data";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            type: "url";
+                            value: string;
+                            [k: string]: unknown;
+                          }
+                        | {
+                            mimeType?: string;
+                            provider?: string;
+                            type: "file";
+                            value: string;
+                            [k: string]: unknown;
+                          };
+                      type: "document";
+                      [k: string]: unknown;
+                    }
+                )[];
+            encryptedValue?: string;
+            error?: string;
+            id: string;
+            metadata?: unknown;
+            role: "tool";
+            subagentRunId?: string;
+            toolCallId: string;
+            [k: string]: unknown;
+          }
+        | {
+            content: string;
+            encryptedValue?: string;
+            id: string;
+            metadata?: unknown;
+            role: "reasoning";
+            subagentRunId?: string;
+            [k: string]: unknown;
+          };
+
+      export interface AissistantSaveChatRequest {
+        messages: MittwaldAPIV2.Components.Schemas.AissistantChatMessage[];
+        /**
+         * The revision the chat was loaded with; 0 for a new chat.
+         */
+        revision: number;
+        /**
+         * At most 200 UTF-16 code units, so at most 100 astral characters, and well-formed UTF-16: a lone surrogate is refused. A title that breaks either rule answers 400.
+         */
+        title: string;
+        turnMarks?: MittwaldAPIV2.Components.Schemas.AissistantTurnMarks;
+      }
+
+      export interface AissistantSaveChatResponse {
+        revision: number;
+      }
+
+      /**
+       * How a turn ended when it did not finish: `stopped` when the user stopped it, `incomplete` when the run failed or ended without answer text.
+       */
+      export type AissistantTurnMark = "stopped" | "incomplete";
+
+      /**
+       * The marks of the turns that did not finish, keyed by the `id` of the message that shows the mark. Every key is the id of a message of the same chat; `{}` when every turn finished.
+       */
+      export interface AissistantTurnMarks {
+        [k: string]: MittwaldAPIV2.Components.Schemas.AissistantTurnMark;
       }
 
       export type AppAppInstallationSortOrder =
@@ -6529,15 +8079,35 @@ export declare namespace MittwaldAPIV2 {
         type: "component" | "standalone";
         userInputs?: {
           dataSource?: string;
+          /**
+           * How the installer renders the input. Missing means text.
+           */
+          dataType?: "text" | "boolean" | "consent" | "select";
           defaultValue?: string;
+          description?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+          errorMessage?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+          /**
+           * Input format of a text input.
+           */
+          format?: "email" | "password" | "url" | "textarea";
           label?: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
           name: string;
+          /**
+           * Options of a select input; their values match the enum of the validation schema.
+           */
+          options?: {
+            label: MittwaldAPIV2.Components.Schemas.ContainerTemplateTranslatedString;
+            value: string;
+          }[];
           positionMeta?: {
             index?: number;
             section?: string;
             step?: string;
           };
           required: boolean;
+          /**
+           * JSON schema the value is validated against; values are always strings.
+           */
           validationSchema?: string;
         }[];
         /**
@@ -6948,10 +8518,12 @@ export declare namespace MittwaldAPIV2 {
 
       export type ConversationServiceRequest =
         MittwaldAPIV2.Components.Schemas.ConversationGenericServiceRequest & {
-          messageContent: "relocation" | "call" | "mailSendLimitIncrease";
+          messageContent:
+            "relocation" | "call" | "mailSendLimitIncrease" | "mittwaldMessage";
           meta:
             | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestRelocationPayload
-            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMailSendLimitIncreasePayload;
+            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMailSendLimitIncreasePayload
+            | MittwaldAPIV2.Components.Schemas.ConversationServiceRequestMittwaldMessagePayload;
         };
 
       export type ConversationShareableAggregateReference =
@@ -7105,12 +8677,16 @@ export declare namespace MittwaldAPIV2 {
         destination?:
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobUrl
           | MittwaldAPIV2.Components.Schemas.CronjobCronjobCommand;
+        /**
+         * Confirmed address that receives failure notifications.
+         */
         email?: string;
         failedExecutionAlertThreshold: number;
         id: string;
         interval: string;
         latestExecution?: MittwaldAPIV2.Components.Schemas.CronjobCronjobExecution;
         nextExecutionTime?: string;
+        notificationEmailVerification?: MittwaldAPIV2.Components.Schemas.CronjobNotificationEmailVerification;
         projectId?: string;
         shortId: string;
         target?:
@@ -7166,6 +8742,18 @@ export declare namespace MittwaldAPIV2 {
 
       export type CronjobCronjobExecutionSortOrder =
         "oldestFirst" | "newestFirst" | "slowestFirst" | "fastestFirst";
+
+      /**
+       * A notification email that waits for confirmation by the link in the verification mail. It receives no notifications until it is confirmed.
+       */
+      export interface CronjobNotificationEmailVerification {
+        email: string;
+        expiresAt?: string;
+        /**
+         * sending: the verification mail is not sent yet; pending: waits for confirmation; expired: the link expired, request a new mail; failed: the verification mail could not be delivered, check the address or request a new mail.
+         */
+        status: "sending" | "pending" | "expired" | "failed";
+      }
 
       export interface CronjobAppInstallationPatchTarget {
         appInstallationId?: string;
@@ -7233,7 +8821,39 @@ export declare namespace MittwaldAPIV2 {
         stackId: string;
       }
 
+      /**
+       * The URL is called with curl. All options are off by default, which is a plain `curl <url>`. An update replaces the whole destination, so options that are not sent are switched off.
+       */
       export interface CronjobCronjobUrl {
+        /**
+         * Mark the execution as failed on HTTP status codes from 400 on; the response body stays in the log (`--fail-with-body`).
+         */
+        failOnHttpError?: boolean;
+        /**
+         * Follow up to 10 redirects as the HTTP specification says, only to https (`--follow --max-redirs 10 --proto-redir =https`). Custom headers are sent to every redirect target, also on other hosts; only `Authorization` and `Cookie` are dropped there.
+         */
+        followRedirects?: boolean;
+        /**
+         * Additional request headers (`--header "<name>: <value>"`). Values are returned by the API to everyone who can read the cronjob. With `followRedirects`, headers are also sent to redirect targets on other hosts, except `Authorization` and `Cookie`.
+         *
+         * @maxItems 20
+         */
+        headers?: {
+          name: string;
+          value: string;
+        }[];
+        /**
+         * Keep the progress meter out of the execution log; errors are still logged (`--silent --show-error`).
+         */
+        hideProgress?: boolean;
+        /**
+         * HTTP method. POST is sent without body (`--data ""`); redirects with 301, 302 and 303 continue with GET.
+         */
+        method?: "GET" | "POST";
+        /**
+         * Write the response headers of every response, redirects included, into the execution log (`--show-headers`).
+         */
+        showResponseHeaders?: boolean;
         url: string;
       }
 
@@ -7337,7 +8957,7 @@ export declare namespace MittwaldAPIV2 {
          */
         externalAccess?: boolean;
         /**
-         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`. A password known from a data leak is rejected with the validation error `password_leaked` when the leak check is available.
          *
          */
         password: string;
@@ -7365,7 +8985,7 @@ export declare namespace MittwaldAPIV2 {
          */
         externalAccess?: boolean;
         /**
-         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+         * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`. A password known from a data leak is rejected with the validation error `password_leaked` when the leak check is available.
          *
          */
         password: string;
@@ -7627,11 +9247,11 @@ export declare namespace MittwaldAPIV2 {
          */
         records: MittwaldAPIV2.Components.Schemas.DnsImportRecord[];
         /**
-         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell below the 60s minimum. Informational; the import still uses ttlSeconds.
+         * True when the source TTLs had to be normalized to ttlSeconds — because they diverged within the set or fell outside 60..86400s. Informational; the import still uses ttlSeconds.
          */
         ttlNormalized: boolean;
         /**
-         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, floored to the 60s minimum.
+         * TTL applied to the whole set, in seconds. Collapsed to a single value across the set: the minimum of the source TTLs, clamped to 60..86400s.
          */
         ttlSeconds: number;
         /**
@@ -9065,6 +10685,11 @@ export declare namespace MittwaldAPIV2 {
       }
 
       /**
+       * First five hex characters of the SHA-1 hash, case-insensitive and normalised to upper case.
+       */
+      export type HibpHashPrefix = string;
+
+      /**
        * Login protection of an Ingress: one identity provider for the hostname, enabled and configured per path.
        */
       export interface IngressAccessProtection {
@@ -9450,193 +11075,6 @@ export declare namespace MittwaldAPIV2 {
         useFormalTerm?: boolean;
       }
 
-      export interface LeadfyndrBasicCompany {
-        county: string;
-        employeeCount?: number;
-        foundingYear?: number;
-        salesVolume?: number;
-      }
-
-      export interface LeadfyndrBasicMetrics {
-        co2?: number;
-        contentLoaded?: number;
-        desktop: MittwaldAPIV2.Components.Schemas.LeadfyndrLighthouse;
-        mobile: MittwaldAPIV2.Components.Schemas.LeadfyndrLighthouse;
-        timeToFirstByteMs?: number;
-      }
-
-      export interface LeadfyndrCity {
-        city: string;
-        country: string;
-        county?: string;
-        postCode: string;
-      }
-
-      export interface LeadfyndrContact {
-        address?: {
-          addressPrefix?: string;
-          city?: string;
-          countryCode?: string;
-          houseNumber?: string;
-          street?: string;
-          zip?: string;
-        };
-      }
-
-      export type LeadfyndrDetailCompany =
-        MittwaldAPIV2.Components.Schemas.LeadfyndrBasicCompany & {
-          city: string;
-          companyType: string[];
-          coreProduct: string[];
-          name?: string;
-          phoneNumbers: string[];
-          targetGroup: string[];
-          websiteType: string[];
-        };
-
-      export interface LeadfyndrDetailMetrics {
-        additionalMetrics?: {
-          [k: string]: MittwaldAPIV2.Components.Schemas.LeadfyndrMetric;
-        };
-        basic: MittwaldAPIV2.Components.Schemas.LeadfyndrBasicMetrics;
-      }
-
-      export interface LeadfyndrHoster {
-        mailServer: string[];
-        nameServer: string[];
-        server: string[];
-      }
-
-      export interface LeadfyndrLead {
-        businessFields: string[];
-        company: MittwaldAPIV2.Components.Schemas.LeadfyndrBasicCompany;
-        description: string;
-        hoster: {
-          server: string[];
-        };
-        languages: string[];
-        leadId: string;
-        mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
-        metrics: MittwaldAPIV2.Components.Schemas.LeadfyndrBasicMetrics;
-        potential: number;
-        scannedAt?: string;
-        screenshot: string;
-        technologies: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology[];
-      }
-
-      export interface LeadfyndrTariffOptions {
-        nextUnlockRenewalDate?: string;
-        reservation: {
-          available: number;
-          tariffLimit: number;
-          used: number;
-        };
-        unlocked: {
-          available: number;
-          tariffLimit: number;
-          used: number;
-        };
-      }
-
-      export interface LeadfyndrLeadsExport {
-        customerId: string;
-        exportId: string;
-        exportedAt: string;
-        exportedBy?: MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExportExporter;
-        /**
-         * The number of leads included in the export.
-         */
-        leadCount: number;
-      }
-
-      export interface LeadfyndrLeadsExportExporter {
-        avatarRefId?: string;
-        person?: {
-          firstName: string;
-          lastName: string;
-        };
-        userId: string;
-      }
-
-      export interface LeadfyndrLighthouse {
-        accessibility?: number;
-        bestPractice?: number;
-        cumulativeLayoutShift?: number;
-        firstContentfulPaint?: number;
-        largestContentfulPaint?: number;
-        performance?: number;
-        seo?: number;
-        totalBlockingTime?: number;
-      }
-
-      export interface LeadfyndrMetric {
-        category: string;
-        name: string;
-        score?: number;
-        unit?: string;
-        value?: number;
-      }
-
-      export interface LeadfyndrProfileRequest {
-        createdOn: string;
-        customerId: string;
-        domain: string;
-        profileId: string;
-        requestedBy: MittwaldAPIV2.Components.Schemas.LeadfyndrUser;
-        resultOn?: string;
-        status:
-          "AUTOTEST_INIT" | "MANUAL_VERIFICATION" | "REJECTED" | "APPROVED";
-      }
-
-      export interface LeadfyndrProfile {
-        approvedOn: string;
-        customerId: string;
-        disabledOn?: string;
-        domain: string;
-      }
-
-      export interface LeadfyndrSocialMedia {
-        network: string;
-        url: string;
-      }
-
-      export interface LeadfyndrTechnology {
-        categories?: {
-          name: string;
-          parentCategories?: string[];
-          priority: number;
-        }[];
-        categoryPriority: number;
-        name: string;
-        version?: string;
-      }
-
-      export interface LeadfyndrUnlockedLead {
-        actualUrl: string;
-        businessFields: string[];
-        company: MittwaldAPIV2.Components.Schemas.LeadfyndrDetailCompany;
-        contact: MittwaldAPIV2.Components.Schemas.LeadfyndrContact;
-        description: string;
-        domain: string;
-        hoster: MittwaldAPIV2.Components.Schemas.LeadfyndrHoster;
-        languages: string[];
-        leadId: string;
-        mainTechnology?: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology;
-        metrics: MittwaldAPIV2.Components.Schemas.LeadfyndrDetailMetrics;
-        potential: number;
-        reservationAllowed?: boolean;
-        reservedAt?: string;
-        scannedAt?: string;
-        screenshot: string;
-        socialMedia: MittwaldAPIV2.Components.Schemas.LeadfyndrSocialMedia[];
-        technologies: MittwaldAPIV2.Components.Schemas.LeadfyndrTechnology[];
-        unlockedAt: string;
-      }
-
-      export interface LeadfyndrUser {
-        userId: string;
-      }
-
       export interface LicenseAppVersionMeta {
         description: string;
       }
@@ -9750,6 +11188,10 @@ export declare namespace MittwaldAPIV2 {
         isBackupInProgress: boolean;
         isCatchAll: boolean;
         mailbox?: {
+          /**
+           * Whether logging in to the mailbox is disabled.
+           */
+          authenticationDisabled: boolean;
           mailsystemSettings: MittwaldAPIV2.Components.Schemas.MailMailsystemSettings;
           name: string;
           passwordUpdatedAt: string;
@@ -10340,17 +11782,29 @@ export declare namespace MittwaldAPIV2 {
         useFreeTrial?: boolean;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrOrderPreview {
         reservationLimit: number;
         unlockLimit: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrOrder {
         customerId: string;
         reservationLimit: number;
         unlockLimit: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrTariffChange {
         contractId: string;
         reservationLimit: number;
@@ -10442,6 +11896,10 @@ export declare namespace MittwaldAPIV2 {
         totalPrice: number;
       }
 
+      /**
+       * @deprecated
+       * LeadFyndr is discontinued and can no longer be ordered or changed. Requests fail with `LeadFyndrDiscontinued`.
+       */
       export interface OrderLeadFyndrOrderPreviewResponse {
         totalPrice: number;
       }
@@ -11603,14 +13061,37 @@ export declare namespace MittwaldAPIV2 {
         changes: {
           after?: {
             notificationEmailConfigured: boolean;
+            notificationEmailVerificationPending?: boolean;
           };
           before?: {
             notificationEmailConfigured: boolean | null;
+            notificationEmailVerificationPending?: boolean | null;
           };
         };
         name:
           | "cronjob.notification-email-updated"
-          | "cronjob.notification-email-removed";
+          | "cronjob.notification-email-removed"
+          | "cronjob.notification-email-verified";
+        parameters: {
+          appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
+          description: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+          name: MittwaldAPIV2.Components.Schemas.ActivitylogParameterProperty;
+        };
+      }
+
+      export interface ActivitylogCronjobNotificationEmailVerificationUpdated {
+        changes: {
+          after?: {
+            notificationEmailVerificationPending: boolean;
+          };
+          before?: {
+            notificationEmailVerificationPending: boolean | null;
+          };
+        };
+        name:
+          | "cronjob.notification-email-verification-requested"
+          | "cronjob.notification-email-verification-cancelled";
         parameters: {
           appInstallation?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
           container?: MittwaldAPIV2.Components.Schemas.ActivitylogLinkedParameterProperty;
@@ -12489,6 +13970,7 @@ export declare namespace MittwaldAPIV2 {
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobConcurrencyPolicyUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobAlertThresholdUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobNotificationEmailUpdated
+          | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobNotificationEmailVerificationUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobActiveUpdated
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobDeleted
           | MittwaldAPIV2.Components.Schemas.ActivitylogCronjobExecution
@@ -12913,7 +14395,8 @@ export declare namespace MittwaldAPIV2 {
           | "private_key_not_rsa"
           | "private_key_mismatch"
           | "unknown_cloudflare_error"
-          | "unknown";
+          | "unknown"
+          | "private_key_is_certificate";
       }
 
       export interface SslCertificateRequest {
@@ -13087,6 +14570,58 @@ export declare namespace MittwaldAPIV2 {
         name: string;
         notificationThresholdInBytes?: number;
         statisticCategories?: MittwaldAPIV2.Components.Schemas.StoragespaceStatisticsCategory[];
+      }
+
+      export interface UsagemetricsGetProjectUsageBreakdownResponse {
+        /**
+         * Usage of all apps relative to the applicable limit.
+         */
+        apps: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+        /**
+         * Usage per container relative to the applicable limit, labelled with `stack` and `container`.
+         */
+        containers: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+        /**
+         * Usage of all databases relative to the applicable limit; empty for projects on a dedicated server or proSpace lite.
+         */
+        databases: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+      }
+
+      export interface UsagemetricsGetServerUsageBreakdownResponse {
+        /**
+         * Absolute database usage (CPU seconds per second or memory bytes), labelled with `database_type` and `database_version`.
+         */
+        databases: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+        /**
+         * Current server limit in the unit of the requested metric (CPU seconds per second or memory bytes).
+         */
+        limit: number;
+        /**
+         * Usage per project relative to the server limit, labelled with `project`.
+         */
+        projects: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+      }
+
+      export interface UsagemetricsGetUsageResponse {
+        /**
+         * Usage relative to the applicable limit (1 = 100 %).
+         */
+        series: MittwaldAPIV2.Components.Schemas.UsagemetricsSeries[];
+      }
+
+      export interface UsagemetricsSample {
+        time: string;
+        value: number;
+      }
+
+      export interface UsagemetricsSeries {
+        /**
+         * Prometheus labels identifying the series, e.g. `project`, `stack`, `container`, `database_type` or `database_version`; empty for an aggregated series.
+         */
+        labels: {
+          [k: string]: string;
+        };
+        samples: MittwaldAPIV2.Components.Schemas.UsagemetricsSample[];
       }
 
       export interface SignupAccount {
@@ -13668,6 +15203,13 @@ export declare namespace MittwaldAPIV2 {
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
 
+      /**
+       * A public message written in the name of mittwald. It has no author.
+       */
+      export interface ConversationServiceRequestMittwaldMessagePayload {
+        content: string;
+      }
+
       export interface CommonsAddress {
         street: string;
         houseNumber: string;
@@ -14100,6 +15642,10 @@ export declare namespace MittwaldAPIV2 {
             name: string;
             planId: string;
             projectId?: string;
+            /**
+             * Optional token limit for this key alone, for the plan's billing period. Without it the key shares the plan's limit with every other key. The sum of all key limits may exceed the plan's limit; the plan's limit always applies on top.
+             */
+            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -14372,6 +15918,10 @@ export declare namespace MittwaldAPIV2 {
             createWebuiContainer?: boolean;
             name?: string;
             projectId?: string;
+            /**
+             * The key's own token limit for the plan's billing period. 0 removes an existing limit, so the key shares the plan's limit again. Settable on the customer route only.
+             */
+            tokenLimit?: number;
           }
 
           export type Header = {};
@@ -14724,7 +16274,7 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d, at most 7d. Omit to invalidate the old secret immediately.
              */
             gracePeriod?: string;
           }
@@ -15623,7 +17173,7 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d. Omit to invalidate the old secret immediately.
+             * How long the old secret keeps working alongside the new one, as a number followed by s, m, h or d, at most 7d. Omit to invalidate the old secret immediately.
              */
             gracePeriod?: string;
           }
@@ -15785,6 +17335,326 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AissistantChatsChatId {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AissistantChat;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Put {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.AissistantSaveChatRequest;
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AissistantSaveChatResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $409 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $413 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+
+      namespace Delete {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AissistantChats {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.AissistantChatList;
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2AissistantChatsChatIdActionsRun {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            chatId: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.AissistantRunInput;
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type TextEventStream = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $401 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $413 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $504 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -17132,7 +19002,7 @@ export declare namespace MittwaldAPIV2 {
              */
             format: "tar" | "zip";
             /**
-             * Password to use to protect the archive.
+             * Password to use to protect the archive. A password the leaked-password check reports as leaked is rejected; the check is best effort.
              */
             password?: string;
           }
@@ -24076,6 +25946,128 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2CronjobsCronjobIdActionsResendNotificationEmailVerification {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CronjobsCronjobIdActionsVerifyNotificationEmail {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {
+            cronjobId: string;
+          };
+
+          export interface RequestBody {
+            /**
+             * Token from the verification mail.
+             */
+            token: string;
+          }
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2CustomerInvitesCustomerInviteIdActionsAccept {
       namespace Post {
         namespace Parameters {
@@ -24351,229 +26343,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdRecommendationSuggestions {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            suggestion: string;
-          }
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdWallet {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId: string;
-                points: number;
-                recommendationCode?: string;
-                walletId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {}
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                customerId?: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -26315,7 +28084,7 @@ export declare namespace MittwaldAPIV2 {
             description?: string;
             externalAccess?: boolean;
             /**
-             * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`.
+             * The password must have a minimum of 8 characters and contain at least one uppercase letter, one lowercase letter, one digit and one special character of `#!~%^*_+-=?{}()<>|.,;$:/`. Other characters are not allowed. The password must not start with any of `-`, `_` or `;`. A password known from a data leak is rejected with the validation error `password_leaked` when the leak check is available.
              *
              */
             password?: string;
@@ -27069,6 +28838,8 @@ export declare namespace MittwaldAPIV2 {
 
     namespace V2ProjectsProjectIdDomains {}
 
+    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {}
+
     namespace V2FileTokenRulesToken {}
 
     namespace V2FileTypeRulesName {}
@@ -27783,6 +29554,8 @@ export declare namespace MittwaldAPIV2 {
 
     namespace V2ProjectsProjectIdLeave {}
 
+    namespace V2AppsMetrics {}
+
     namespace V2ProjectsProjectIdDescription {}
 
     namespace V2ServersServerIdDescription {}
@@ -27942,7 +29715,7 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
-             * Raw RFC-1035 zone file content to import.
+             * Raw RFC-1035 zone file content to import, at most 256 KiB and 1000 distinct owner names.
              */
             zoneFile: string;
           }
@@ -28588,6 +30361,78 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2Authinfo2CheckDomain {
+      namespace Post {
+        namespace Parameters {
+          export type Path = {};
+
+          export interface RequestBody {
+            domain: string;
+          }
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export interface ApplicationJson {
+                eligible: boolean;
+                reasons: {
+                  /**
+                   * The domain is already managed by mittwald; no AuthInfo2 is needed.
+                   */
+                  alreadyManaged: boolean;
+                  /**
+                   * The domain is not registered at DENIC.
+                   */
+                  notRegistered: boolean;
+                  /**
+                   * An AuthInfo2 was requested for this domain within the last 30 days.
+                   */
+                  recentlyTriggered: boolean;
+                };
+              }
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -30785,77 +32630,6 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2ContributorsContributorIdExtensionsExtensionIdExtensionInstancesExtensionInstanceIdActionsDryRunWebhookKind {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            contributorId: string;
-            extensionId: string;
-            extensionInstanceId: string;
-            webhookKind: MittwaldAPIV2.Components.Schemas.MarketplaceWebhookKind;
-          };
-
-          export type Header =
-            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
-
-          export type Query = {
-            contextId?: string;
-            scopes?: string[];
-            instanceDisabled?: boolean;
-            createdAt?: string | Date;
-            secret?: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The error message of an internal error.
-                 */
-                errorMessage?: string;
-                responseBody?: string;
-                /**
-                 * The http status code that the external application responded with.
-                 */
-                responseCode?: number;
-                responseHeaders?: string;
-                routeCalled: string;
-                /**
-                 * This shows if the response of the external application has been accepted as successful.
-                 */
-                successful: boolean;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
     namespace V2ExtensionInstancesExtensionInstanceIdActionsEnable {
       namespace Post {
         namespace Parameters {
@@ -30999,6 +32773,14 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -32253,6 +34035,10 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * When withdrawing an extension, whether all of its instances are disabled as well. Disabled instances can no longer authenticate; they are enabled again when the extension is published again.
+             */
+            disableAllInstances?: boolean;
+            /**
              * Whether the extension should be publicly visible.
              */
             published: boolean;
@@ -32905,6 +34691,51 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2CompromisedPasswordHashesRangesHashPrefix {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            hashPrefix: MittwaldAPIV2.Components.Schemas.HibpHashPrefix;
+          };
+
+          export type Header = {};
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type TextPlain = string;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -33600,1002 +35431,6 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdLeadFyndrProfileRequest {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrProfileRequest;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            domain: string;
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $201 {
-            namespace Content {
-              export interface ApplicationJson {
-                profileId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeadsExport {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export interface RequestBody {
-            /**
-             * Whether to export all leads or only not already exported leads.
-             */
-            exportAllLeads: boolean;
-            /**
-             * The fields to include in the export.
-             */
-            fieldKeys: (
-              | "domain"
-              | "potential"
-              | "performance"
-              | "generalLook"
-              | "companyName"
-              | "emails"
-              | "phoneNumbers"
-              | "address"
-              | "employeeCount"
-              | "revenue"
-              | "a-record"
-              | "nameserver"
-              | "mailserver"
-              | "techStack"
-            )[];
-          }
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                /**
-                 * The base64 encoded csv content of the export.
-                 */
-                contentBase64: string;
-                exportId: string;
-              }
-
-              /**
-               * The csv content of the export.
-               */
-              export type TextCsv = string;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2Cities {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {};
-
-          export type Header = {};
-
-          export type Query = {
-            input: string;
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrCity[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdLeadFyndrProfileTariff {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrTariffOptions;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdLeadFyndrProfile {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrProfile & {
-                  tariff: MittwaldAPIV2.Components.Schemas.LeadfyndrTariffOptions;
-                };
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdLeadsLeadId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            leadId: string;
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrLead;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeadsExports {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: "exportedAt";
-            order?: "asc" | "desc";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrLeadsExport[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeadsLeadId {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            leadId: string;
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson =
-                MittwaldAPIV2.Components.Schemas.LeadfyndrUnlockedLead;
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            leadId: string;
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                leadId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdLeads {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            potentialRangeMin?: number;
-            potentialRangeMax?: number;
-            employeeCountMin?: number;
-            employeeCountMax?: number;
-            salesVolumeMin?: number;
-            salesVolumeMax?: number;
-            technologies?: (string | "none")[];
-            /**
-             * @maxItems 15
-             */
-            businessFields?: string[];
-            locationCity?: string;
-            locationPostCode?: string;
-            locationRadiusInKm?: number;
-            "basic:timeToFirstByteMs:min"?: number;
-            "basic:timeToFirstByteMs:max"?: number;
-            "basic:desktop:performance:min"?: number;
-            "basic:desktop:performance:max"?: number;
-            "basic:mobile:performance:min"?: number;
-            "basic:mobile:performance:max"?: number;
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: "potential" | "relevance";
-            order?: "asc" | "desc";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                leads: MittwaldAPIV2.Components.Schemas.LeadfyndrLead[];
-                limit: number;
-                skip: number;
-                totalCount: number;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeads {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {
-            potentialRangeMin?: number;
-            potentialRangeMax?: number;
-            employeeCountMin?: number;
-            employeeCountMax?: number;
-            salesVolumeMin?: number;
-            salesVolumeMax?: number;
-            technologies?: (string | "none")[];
-            /**
-             * @maxItems 15
-             */
-            businessFields?: string[];
-            locationCity?: string;
-            locationPostCode?: string;
-            locationRadiusInKm?: number;
-            "basic:timeToFirstByteMs:min"?: number;
-            "basic:timeToFirstByteMs:max"?: number;
-            "basic:desktop:performance:min"?: number;
-            "basic:desktop:performance:max"?: number;
-            "basic:mobile:performance:min"?: number;
-            "basic:mobile:performance:max"?: number;
-            reserved?: boolean;
-            limit?: number;
-            skip?: number;
-            page?: number;
-            sort?: "potential" | "relevance" | "company";
-            order?: "asc" | "desc";
-          };
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                leads: MittwaldAPIV2.Components.Schemas.LeadfyndrUnlockedLead[];
-                limit: number;
-                skip: number;
-                totalCount: number;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    namespace V2CustomersCustomerIdUnlockedLeadsLeadIdReservation {
-      namespace Post {
-        namespace Parameters {
-          export type Path = {
-            leadId: string;
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                leadId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-
-      namespace Delete {
-        namespace Parameters {
-          export type Path = {
-            leadId: string;
-            customerId: string;
-          };
-
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export interface ApplicationJson {
-                leadId: string;
-              }
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $403 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $409 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -37343,6 +38178,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -37404,6 +38246,13 @@ export declare namespace MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -37609,6 +38458,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace $422 {
             namespace Content {
               export interface ApplicationJson {
@@ -37672,6 +38528,13 @@ export declare namespace MittwaldAPIV2 {
               export interface ApplicationJson {
                 [k: string]: unknown;
               }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -39433,6 +40296,188 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
+    namespace V2ServersServerIdUsageMetricsBreakdown {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetServerUsageBreakdownResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ServersServerIdUsageMetrics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            serverId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetUsageResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
     namespace V2ServersServerId {
       namespace Get {
         namespace Parameters {
@@ -39526,6 +40571,188 @@ export declare namespace MittwaldAPIV2 {
           }
 
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdUsageMetricsBreakdown {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetProjectUsageBreakdownResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2ProjectsProjectIdUsageMetrics {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {
+            projectId: string;
+          };
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {
+            metric: "cpu" | "memory";
+            from?: string | Date;
+            to?: string | Date;
+          };
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.UsagemetricsGetUsageResponse;
+            }
+          }
+
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $403 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $412 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $503 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -41616,11 +42843,18 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * The response token of a solved captcha challenge. Not needed for a short while after a
+             * `POST /authenticate` that answered `202`; otherwise a missing, unsolved or already used token is
+             * rejected with `CaptchaVerificationFailed` (400).
+             *
+             */
+            captchaToken?: string;
+            /**
              * The email of the user.
              */
             email: string;
             /**
-             * The second factor - otp code or recovery code.
+             * The second factor - otp code, recovery code or the confirmation code mailed at login.
              */
             multiFactorCode?: string;
             passkeyCredential?: MittwaldAPIV2.Components.Schemas.SignupPasskeyCredential;
@@ -41681,9 +42915,15 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -41704,6 +42944,12 @@ export declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
+            /**
+             * The response token of a solved captcha challenge, as issued by the captcha widget of the login
+             * form. A missing, unsolved or already used token is rejected with `CaptchaVerificationFailed` (400).
+             *
+             */
+            captchaToken?: string;
             challengeId: string;
             credential: MittwaldAPIV2.Components.Schemas.SignupPasskeyAuthenticationResponse;
           }
@@ -41764,6 +43010,13 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
           namespace Default {
             namespace Content {
               export interface ApplicationJson {
@@ -41781,6 +43034,12 @@ export declare namespace MittwaldAPIV2 {
           export type Path = {};
 
           export interface RequestBody {
+            /**
+             * The response token of a solved captcha challenge, as issued by the captcha widget of the login
+             * form. A missing, unsolved or already used token is rejected with `CaptchaVerificationFailed` (400).
+             *
+             */
+            captchaToken?: string;
             /**
              * The users Email-Address.
              */
@@ -41823,7 +43082,7 @@ export declare namespace MittwaldAPIV2 {
                 /**
                  * More values may be added in the future; clients must ignore values they do not know.
                  */
-                availableSecondFactors: ("totp" | "passkey")[];
+                availableSecondFactors: ("totp" | "passkey" | "email")[];
                 name?: "SecondFactorRequired";
                 passkeyChallenge?: MittwaldAPIV2.Components.Schemas.SignupPasskeyChallenge;
               }
@@ -41854,9 +43113,15 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -43665,23 +44930,15 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $404 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
           namespace $429 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -43730,7 +44987,7 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -43738,7 +44995,7 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
-          namespace $429 {
+          namespace $500 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -44530,6 +45787,12 @@ export declare namespace MittwaldAPIV2 {
 
           export interface RequestBody {
             /**
+             * The response token of a solved captcha challenge, as issued by the captcha widget of the
+             * registration form. An unsolved or already used token is rejected with `CaptchaVerificationFailed`.
+             *
+             */
+            captchaToken?: string;
+            /**
              * The users email address
              */
             email: string;
@@ -44569,9 +45832,15 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
+            }
+          }
+
+          namespace $503 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -44753,9 +46022,8 @@ export declare namespace MittwaldAPIV2 {
 
           namespace $429 {
             namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.CommonsError;
             }
           }
 
@@ -44770,50 +46038,9 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2LeakedPasswordsPasswordHashPrefix {
-      namespace Get {
-        namespace Parameters {
-          export type Path = {
-            passwordHashPrefix: string;
-          };
+    namespace V2SignupMfaResetRecoverycodes {}
 
-          export type Header = {};
-
-          export type Query = {};
-        }
-        namespace Responses {
-          namespace $200 {
-            namespace Content {
-              export type ApplicationJson = string[];
-            }
-          }
-
-          namespace $400 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace $429 {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-
-          namespace Default {
-            namespace Content {
-              export interface ApplicationJson {
-                [k: string]: unknown;
-              }
-            }
-          }
-        }
-      }
-    }
+    namespace V2LeakedPasswordsPasswordHashPrefix {}
 
     namespace V2UsersSelfSpotlightsSpotlightIdFeedback {
       namespace Post {
