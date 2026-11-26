@@ -1378,13 +1378,17 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     newsletterUnsubscribeUser: this.requestFunctionFactory(
       descriptors.newsletterUnsubscribeUser,
     ),
-    /** Adjust notification settings for message type. */
-    sadjustNotificationMessageTypeSettings: this.requestFunctionFactory(
-      descriptors.notificationsAdjustNotificationMessageTypeSettings,
-    ),
     /** Get the counts for unread notifications of the user. */
     scountUnreadNotifications: this.requestFunctionFactory(
       descriptors.notificationsCountUnreadNotifications,
+    ),
+    /** Get the notification settings the executing user adjusted. */
+    sgetNotificationSettingsOverrides: this.requestFunctionFactory(
+      descriptors.notificationsGetNotificationSettingsOverrides,
+    ),
+    /** Delete all notification settings overrides. */
+    sdeleteNotificationSettingsOverrides: this.requestFunctionFactory(
+      descriptors.notificationsDeleteNotificationSettingsOverrides,
     ),
     /** Get notification settings for a user. */
     sgetNotificationSettings: this.requestFunctionFactory(
@@ -1398,10 +1402,11 @@ export class MittwaldAPIV3NextClient extends ApiClientBase {
     sreadAllNotifications: this.requestFunctionFactory(
       descriptors.notificationsReadAllNotifications,
     ),
-    /** Reset notification settings to their defaults. */
-    sresetNotificationSettings: this.requestFunctionFactory(
-      descriptors.notificationsResetNotificationSettings,
-    ),
+    /** Update the notification settings override of a message type. */
+    supdateNotificationSettingsOverrideForMessageType:
+      this.requestFunctionFactory(
+        descriptors.notificationsUpdateNotificationSettingsOverrideForMessageType,
+      ),
     /** Update a notification's read status. */
     supdateNotificationStatus: this.requestFunctionFactory(
       descriptors.notificationsUpdateNotificationStatus,

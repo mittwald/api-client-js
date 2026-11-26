@@ -14335,45 +14335,6 @@ export const newsletterUnsubscribeUser: OpenAPIOperation<
   operationId: "newsletter-unsubscribe-user",
 };
 
-/** Adjust notification settings for message type. */
-export const notificationsAdjustNotificationMessageTypeSettings: OpenAPIOperation<
-  RequestType<
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.RequestBody>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Parameters.Header>
-  >,
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$204.Content.Empty>,
-      204,
-      "empty"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$400.Content.ApplicationJson>,
-      400,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$404.Content.ApplicationJson>,
-      404,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.$429.Content.ApplicationJson>,
-      429,
-      "application/json"
-    >
-  | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsMessageType.Patch.Responses.Default.Content.ApplicationJson>,
-      "default",
-      "application/json"
-    >
-> = {
-  path: "/v2/notification-settings/{messageType}",
-  method: "PATCH",
-  operationId: "notifications-adjust-notification-message-type-settings",
-};
-
 /** Get the counts for unread notifications of the user. */
 export const notificationsCountUnreadNotifications: OpenAPIOperation<
   RequestType<
@@ -14401,6 +14362,74 @@ export const notificationsCountUnreadNotifications: OpenAPIOperation<
   path: "/v2/notification-unread-counts",
   method: "GET",
   operationId: "notifications-count-unread-notifications",
+};
+
+/** Get the notification settings the executing user adjusted. */
+export const notificationsGetNotificationSettingsOverrides: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Responses.$200.Content.ApplicationJson>,
+      200,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Get.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings/overrides",
+  method: "GET",
+  operationId: "notifications-get-notification-settings-overrides",
+};
+
+/** Delete all notification settings overrides. */
+export const notificationsDeleteNotificationSettingsOverrides: OpenAPIOperation<
+  RequestType<
+    Simplify<null>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Parameters.Header>
+  >,
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Responses.$204.Content.Empty>,
+      204,
+      "empty"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Responses.$403.Content.ApplicationJson>,
+      403,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Responses.$429.Content.ApplicationJson>,
+      429,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverrides.Delete.Responses.Default.Content.ApplicationJson>,
+      "default",
+      "application/json"
+    >
+> = {
+  path: "/v2/notification-settings/overrides",
+  method: "DELETE",
+  operationId: "notifications-delete-notification-settings-overrides",
 };
 
 /** Get notification settings for a user. */
@@ -14500,38 +14529,44 @@ export const notificationsReadAllNotifications: OpenAPIOperation<
   operationId: "notifications-read-all-notifications",
 };
 
-/** Reset notification settings to their defaults. */
-export const notificationsResetNotificationSettings: OpenAPIOperation<
+/** Update the notification settings override of a message type. */
+export const notificationsUpdateNotificationSettingsOverrideForMessageType: OpenAPIOperation<
   RequestType<
-    Simplify<null>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Parameters.Path>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Parameters.Query>,
-    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Parameters.Header>
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Parameters.RequestBody>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Parameters.Path>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Parameters.Query>,
+    Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Parameters.Header>
   >,
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.$204.Content.Empty>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Responses.$204.Content.Empty>,
       204,
       "empty"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.$403.Content.ApplicationJson>,
-      403,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Responses.$400.Content.ApplicationJson>,
+      400,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.$429.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Responses.$404.Content.ApplicationJson>,
+      404,
+      "application/json"
+    >
+  | Response<
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Responses.$429.Content.ApplicationJson>,
       429,
       "application/json"
     >
   | Response<
-      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsActionsReset.Post.Responses.Default.Content.ApplicationJson>,
+      Simplify<MittwaldAPIV2.Paths.V2NotificationSettingsOverridesMessageTypesMessageType.Patch.Responses.Default.Content.ApplicationJson>,
       "default",
       "application/json"
     >
 > = {
-  path: "/v2/notification-settings/actions/reset",
-  method: "POST",
-  operationId: "notifications-reset-notification-settings",
+  path: "/v2/notification-settings/overrides/message-types/{messageType}",
+  method: "PATCH",
+  operationId:
+    "notifications-update-notification-settings-override-for-message-type",
 };
 
 /** Update a notification's read status. */

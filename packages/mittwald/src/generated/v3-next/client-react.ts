@@ -952,6 +952,11 @@ const buildNotificationApi = (baseClient: MittwaldAPIV3NextClient) => ({
     descriptors.notificationsCountUnreadNotifications,
     baseClient.notification.scountUnreadNotifications,
   ).getApiResource,
+  /** Get the notification settings the executing user adjusted. */
+  sgetNotificationSettingsOverrides: new ApiCallAsyncResourceFactory(
+    descriptors.notificationsGetNotificationSettingsOverrides,
+    baseClient.notification.sgetNotificationSettingsOverrides,
+  ).getApiResource,
   /** Get notification settings for a user. */
   sgetNotificationSettings: new ApiCallAsyncResourceFactory(
     descriptors.notificationsGetNotificationSettings,

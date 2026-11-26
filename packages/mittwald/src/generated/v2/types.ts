@@ -3563,17 +3563,6 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace NotificationsAdjustNotificationMessageTypeSettings {
-      type RequestData = InferredRequestData<
-        typeof descriptors.notificationsAdjustNotificationMessageTypeSettings
-      >;
-      type ResponseData<TStatus extends HttpStatus = 200> =
-        InferredResponseData<
-          typeof descriptors.notificationsAdjustNotificationMessageTypeSettings,
-          TStatus
-        >;
-    }
-
     namespace NotificationsCountUnreadNotifications {
       type RequestData = InferredRequestData<
         typeof descriptors.notificationsCountUnreadNotifications
@@ -3581,6 +3570,28 @@ export declare namespace MittwaldAPIV2 {
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
           typeof descriptors.notificationsCountUnreadNotifications,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsGetNotificationSettingsOverrides {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsGetNotificationSettingsOverrides
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsGetNotificationSettingsOverrides,
+          TStatus
+        >;
+    }
+
+    namespace NotificationsDeleteNotificationSettingsOverrides {
+      type RequestData = InferredRequestData<
+        typeof descriptors.notificationsDeleteNotificationSettingsOverrides
+      >;
+      type ResponseData<TStatus extends HttpStatus = 200> =
+        InferredResponseData<
+          typeof descriptors.notificationsDeleteNotificationSettingsOverrides,
           TStatus
         >;
     }
@@ -3618,13 +3629,13 @@ export declare namespace MittwaldAPIV2 {
         >;
     }
 
-    namespace NotificationsResetNotificationSettings {
+    namespace NotificationsUpdateNotificationSettingsOverrideForMessageType {
       type RequestData = InferredRequestData<
-        typeof descriptors.notificationsResetNotificationSettings
+        typeof descriptors.notificationsUpdateNotificationSettingsOverrideForMessageType
       >;
       type ResponseData<TStatus extends HttpStatus = 200> =
         InferredResponseData<
-          typeof descriptors.notificationsResetNotificationSettings,
+          typeof descriptors.notificationsUpdateNotificationSettingsOverrideForMessageType,
           TStatus
         >;
     }
@@ -8383,6 +8394,13 @@ export declare namespace MittwaldAPIV2 {
         rateLimitId: string;
       }
 
+      /**
+       * A public message written in the name of mittwald. It has no author.
+       */
+      export interface ConversationServiceRequestMittwaldMessagePayload {
+        content: string;
+      }
+
       export interface ConversationServiceRequestRelocationPayload {
         contact: {
           email: string;
@@ -11306,6 +11324,23 @@ export declare namespace MittwaldAPIV2 {
                 editable: boolean;
               };
               frontendNotification: {
+                active: boolean;
+                editable: boolean;
+              };
+            };
+          };
+        };
+      }
+
+      export interface MessagingUserSettingsOverrides {
+        messageTypes: {
+          [k: string]: {
+            channels: {
+              email?: {
+                active: boolean;
+                editable: boolean;
+              };
+              frontendNotification?: {
                 active: boolean;
                 editable: boolean;
               };
@@ -14864,13 +14899,6 @@ export declare namespace MittwaldAPIV2 {
 
       export type ContainerVolumeSortOrder =
         "nameAsc" | "nameDesc" | "storageAsc" | "storageDesc";
-
-      /**
-       * A public message written in the name of mittwald. It has no author.
-       */
-      export interface ConversationServiceRequestMittwaldMessagePayload {
-        content: string;
-      }
 
       export interface CommonsAddress {
         street: string;
@@ -37073,15 +37101,12 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2NotificationSettingsMessageType {
-      namespace Patch {
-        namespace Parameters {
-          export type Path = {
-            messageType: string;
-          };
+    namespace V2NotificationsUnreadCounts {}
 
-          export type RequestBody =
-            MittwaldAPIV2.Components.Schemas.MessagingChannels;
+    namespace V2NotificationUnreadCounts {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -37089,13 +37114,19 @@ export declare namespace MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $204 {
+          namespace $200 {
             namespace Content {
-              export type Empty = unknown;
+              export interface ApplicationJson {
+                error: number;
+                info: number;
+                success: number;
+                total: number;
+                warning: number;
+              }
             }
           }
 
-          namespace $400 {
+          namespace $429 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -37103,7 +37134,36 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
-          namespace $404 {
+          namespace Default {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    namespace V2NotificationSettingsOverrides {
+      namespace Get {
+        namespace Parameters {
+          export type Path = {};
+
+          export type Header =
+            {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
+
+          export type Query = {};
+        }
+        namespace Responses {
+          namespace $200 {
+            namespace Content {
+              export type ApplicationJson =
+                MittwaldAPIV2.Components.Schemas.MessagingUserSettingsOverrides;
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
@@ -37128,12 +37188,8 @@ export declare namespace MittwaldAPIV2 {
           }
         }
       }
-    }
 
-    namespace V2NotificationsUnreadCounts {}
-
-    namespace V2NotificationUnreadCounts {
-      namespace Get {
+      namespace Delete {
         namespace Parameters {
           export type Path = {};
 
@@ -37143,14 +37199,16 @@ export declare namespace MittwaldAPIV2 {
           export type Query = {};
         }
         namespace Responses {
-          namespace $200 {
+          namespace $204 {
+            namespace Content {
+              export type Empty = unknown;
+            }
+          }
+
+          namespace $403 {
             namespace Content {
               export interface ApplicationJson {
-                error: number;
-                info: number;
-                success: number;
-                total: number;
-                warning: number;
+                [k: string]: unknown;
               }
             }
           }
@@ -37326,10 +37384,15 @@ export declare namespace MittwaldAPIV2 {
       }
     }
 
-    namespace V2NotificationSettingsActionsReset {
-      namespace Post {
+    namespace V2NotificationSettingsOverridesMessageTypesMessageType {
+      namespace Patch {
         namespace Parameters {
-          export type Path = {};
+          export type Path = {
+            messageType: string;
+          };
+
+          export type RequestBody =
+            MittwaldAPIV2.Components.Schemas.MessagingChannels;
 
           export type Header =
             {} & MittwaldAPIV2.Components.SecuritySchemes.CommonsAccessToken;
@@ -37343,7 +37406,15 @@ export declare namespace MittwaldAPIV2 {
             }
           }
 
-          namespace $403 {
+          namespace $400 {
+            namespace Content {
+              export interface ApplicationJson {
+                [k: string]: unknown;
+              }
+            }
+          }
+
+          namespace $404 {
             namespace Content {
               export interface ApplicationJson {
                 [k: string]: unknown;
