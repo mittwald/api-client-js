@@ -11160,9 +11160,13 @@ export declare namespace MittwaldAPIV3Next {
          */
         customerId: string;
         /**
-         * Email used by the invited user.
+         * Mail address of the user. If `emailHidden` is true, this is the placeholder `hidden@contact-details.invalid`: only members of the customer and mittwald employees see member mail addresses.
          */
         email: string;
+        /**
+         * True if `email` is a placeholder because the caller may not see the mail address of this member.
+         */
+        emailHidden?: boolean;
         /**
          * Time the CustomerMembership should expire at.
          */
@@ -11188,9 +11192,13 @@ export declare namespace MittwaldAPIV3Next {
          */
         memberSince?: string;
         /**
-         * MFA activated by the user.
+         * Whether the user has MFA activated. If `mfaHidden` is true, this is `false` and does not reflect the user's MFA status: only owners of the customer see it.
          */
         mfa: boolean;
+        /**
+         * True if `mfa` is a placeholder because the caller may not see the MFA status of this member.
+         */
+        mfaHidden?: boolean;
         role: MittwaldAPIV3Next.Components.Schemas.DeMittwaldMembershipCustomerRoles;
         /**
          * ID of the user the CustomerMembership is for.
@@ -11203,7 +11211,8 @@ export declare namespace MittwaldAPIV3Next {
 
       export interface DeMittwaldMembershipInviteInformation {
         /**
-         * Token for authentication purposes.
+         * @deprecated
+         * No longer returned; the token reaches the invitee by mail only.
          */
         invitationToken?: string;
         /**
@@ -11251,9 +11260,13 @@ export declare namespace MittwaldAPIV3Next {
          */
         avatarRef?: string;
         /**
-         * Email used by the invited user.
+         * Mail address of the user. If `emailHidden` is true, this is the placeholder `hidden@contact-details.invalid`: only owners of the project and mittwald employees see member mail addresses.
          */
         email: string;
+        /**
+         * True if `email` is a placeholder because the caller may not see the mail address of this member.
+         */
+        emailHidden?: boolean;
         /**
          * Time the ProjectMembership should expire at.
          */
@@ -11283,9 +11296,13 @@ export declare namespace MittwaldAPIV3Next {
          */
         memberSince?: string;
         /**
-         * MFA activated by the user.
+         * Whether the user has MFA activated. If `mfaHidden` is true, this is `false` and does not reflect the user's MFA status: only owners of the project see it.
          */
         mfa: boolean;
+        /**
+         * True if `mfa` is a placeholder because the caller may not see the MFA status of this member.
+         */
+        mfaHidden?: boolean;
         /**
          * ID of the Project the membership is for.
          */
